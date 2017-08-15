@@ -1,0 +1,87 @@
+grammar nl.altran.example.xtext.html.HtmlLang hidden(WS)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate htmlLang "http://www.altran.nl/example/xtext/html/HtmlLang"
+
+Html:
+	'<html>'
+		head=Head
+		body=Body
+	'</html>'
+;
+
+Head: {Head}
+	'<head>'
+		headers+=Header*
+	'</head>'
+;
+
+Header:
+	Title | Style
+;
+
+Title:
+	'<title>' name=HTMLSTRING '</title>'
+;
+
+Style:
+	'<style>'
+		styles=HTMLSTRING
+	'</style>'
+;
+
+Body: {Body}
+	'<body>'
+		contents+=BodyContents*
+	'</body>'
+;
+
+BodyContents:
+	Paragraph | UnorderedList
+;
+
+Paragraph: {Paragraph}
+	'<p>'
+		contents+=TextElement*
+	'</p>'
+;
+
+UnorderedList:
+	'<ul>'
+		items+=ListItem+
+	'</ul>'
+;
+
+ListItem: {ListItem}
+	'<li>' contents+=TextElement* '</li>'
+;
+
+
+TextElement:
+	FreeformText | Bold | Italics
+;
+
+FreeformText:
+	text=HTMLSTRING
+;
+
+Bold:
+	'<b>' text=HTMLSTRING '</b>'
+;
+
+Italics:
+	'<i>' text=HTMLSTRING '</i>'
+;
+
+terminal HTMLSTRING: 
+	( !('<'|'>'|'\t'|'\r'|'\n') )*
+;
+ 
+terminal WS:
+	('\t'|'\r'|'\n')+
+;
+
+terminal ANY_OTHER:
+	.
+;

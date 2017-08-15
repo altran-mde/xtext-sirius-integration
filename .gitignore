@@ -1,0 +1,9 @@
+/local-maven-repository/
+bin/
+build/
+.gradle/
+*._trace
+*.xtendbin
+org.eclipse.buildship.core.prefs
+.DS_Store
+locations.properties

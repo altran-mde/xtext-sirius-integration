@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: nl.altran.example.xtext.html.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: nl.altran.example.xtext.html.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: nl.altran.example.xtext.html,
+ nl.altran.example.xtext.html.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtend.lib;resolution:=optional,
+ org.eclipse.xtext.xbase.lib
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: nl.altran.example.xtext.html.ui.quickfix,
+ nl.altran.example.xtext.html.ui.contentassist,
+ nl.altran.example.xtext.html.ui.internal
+Bundle-Activator: nl.altran.example.xtext.html.ui.internal.HtmlActivator
