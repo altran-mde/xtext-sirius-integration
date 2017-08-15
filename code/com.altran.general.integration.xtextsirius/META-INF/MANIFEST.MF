@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Xtext integration into Sirius
+Bundle-SymbolicName: com.altran.general.integration.xtextsirius
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.altran.general.integration.xtextsirius.internal.XtextSiriusUiPlugin
+Bundle-Vendor: Altran
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
