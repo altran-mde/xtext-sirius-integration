@@ -1,0 +1,29 @@
+events
+	event1456 aaa
+	event2 bbb
+	event3 asdf [finalAnswer]
+	event4 asdf [e..pi]
+	event5 qwer [234]
+end
+
+constants
+	pi 314
+	e 217
+	finalAnswer 42
+	previousAnswer finalAnswer
+end
+
+state State1456
+	description "\r\n<p>First paragraa456sdfph</p>\r\n<ul>\r\n\t<li>some <b>important</b> text</b></li>\r\n</ul>\r\n\t"
+	event1456 => State2asdf
+	event1456 => State3
+end
+
+state State2asdf
+	event1456 => State3
+	event2 => State1456
+end
+
+state State3
+
+end
