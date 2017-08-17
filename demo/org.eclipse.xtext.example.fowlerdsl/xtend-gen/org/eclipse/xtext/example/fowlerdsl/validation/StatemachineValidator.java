@@ -4,24 +4,25 @@
 package org.eclipse.xtext.example.fowlerdsl.validation;
 
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
+import org.eclipse.xtext.example.fowlerdsl.validation.AbstractStatemachineValidator;
 import org.eclipse.xtext.validation.Check;
 
 /**
  * Custom validation rules.
- *
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#
- * validation
+ * 
+ * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
 public class StatemachineValidator extends AbstractStatemachineValidator {
-	public final static String INVALID_NAME = "invalidName";
-	
-	@Check
-	public void checkStateNameStartsWithLowerCase(final org.eclipse.xtext.example.fowlerdsl.statemachine.State state) {
-		final boolean _isUpperCase = Character.isUpperCase(state.getName().charAt(0));
-		if (_isUpperCase) {
-			this.warning("Name should start with a lower case letter", StatemachinePackage.Literals.STATE__NAME,
-					StatemachineValidator.INVALID_NAME, state.getName());
-		}
-	}
+  public final static String INVALID_NAME = "invalidName";
+  
+  @Check
+  public void checkStateNameStartsWithLowerCase(final org.eclipse.xtext.example.fowlerdsl.statemachine.State state) {
+    boolean _isUpperCase = Character.isUpperCase(state.getName().charAt(0));
+    if (_isUpperCase) {
+      this.warning("Name should start with a lower case letter", 
+        StatemachinePackage.Literals.STATE__NAME, 
+        StatemachineValidator.INVALID_NAME, state.getName());
+    }
+  }
 }

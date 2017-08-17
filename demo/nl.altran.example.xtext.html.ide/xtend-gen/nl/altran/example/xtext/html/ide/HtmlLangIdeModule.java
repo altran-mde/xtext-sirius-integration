@@ -3,6 +3,8 @@
  */
 package nl.altran.example.xtext.html.ide;
 
+import nl.altran.example.xtext.html.ide.AbstractHtmlLangIdeModule;
+
 /**
  * Use this class to register ide components.
  */

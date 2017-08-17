@@ -3,13 +3,14 @@
  */
 package nl.altran.example.xtext.html;
 
+import nl.altran.example.xtext.html.HtmlLangStandaloneSetupGenerated;
+
 /**
- * Initialization support for running Xtext languages without Equinox extension
- * registry.
+ * Initialization support for running Xtext languages without Equinox extension registry.
  */
 @SuppressWarnings("all")
 public class HtmlLangStandaloneSetup extends HtmlLangStandaloneSetupGenerated {
-	public static void doSetup() {
-		new HtmlLangStandaloneSetup().createInjectorAndDoEMFRegistration();
-	}
+  public static void doSetup() {
+    new HtmlLangStandaloneSetup().createInjectorAndDoEMFRegistration();
+  }
 }

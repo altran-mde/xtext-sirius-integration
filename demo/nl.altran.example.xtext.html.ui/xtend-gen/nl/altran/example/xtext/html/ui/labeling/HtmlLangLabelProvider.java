@@ -3,21 +3,19 @@
  */
 package nl.altran.example.xtext.html.ui.labeling;
 
+import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
-import com.google.inject.Inject;
-
 /**
  * Provides labels for EObjects.
- *
- * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-
- * provider
+ * 
+ * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
 @SuppressWarnings("all")
 public class HtmlLangLabelProvider extends DefaultEObjectLabelProvider {
-	@Inject
-	public HtmlLangLabelProvider(final AdapterFactoryLabelProvider delegate) {
-		super(delegate);
-	}
+  @Inject
+  public HtmlLangLabelProvider(final AdapterFactoryLabelProvider delegate) {
+    super(delegate);
+  }
 }

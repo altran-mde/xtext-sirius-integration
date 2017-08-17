@@ -69,7 +69,7 @@
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="attributeName" type="string" use="required">
+         <attribute name="identifier" type="string" use="required">
             <annotation>
                <documentation>
                   
@@ -106,6 +106,13 @@
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
                </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="identifier" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
             </annotation>
          </attribute>
       </complexType>

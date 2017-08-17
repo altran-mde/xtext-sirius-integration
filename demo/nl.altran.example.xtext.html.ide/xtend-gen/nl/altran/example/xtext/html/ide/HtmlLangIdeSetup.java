@@ -3,23 +3,22 @@
  */
 package nl.altran.example.xtext.html.ide;
 
-import org.eclipse.xtext.util.Modules2;
-
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-
 import nl.altran.example.xtext.html.HtmlLangRuntimeModule;
 import nl.altran.example.xtext.html.HtmlLangStandaloneSetup;
+import nl.altran.example.xtext.html.ide.HtmlLangIdeModule;
+import org.eclipse.xtext.util.Modules2;
 
 /**
  * Initialization support for running Xtext languages as language servers.
  */
 @SuppressWarnings("all")
 public class HtmlLangIdeSetup extends HtmlLangStandaloneSetup {
-	@Override
-	public Injector createInjector() {
-		final HtmlLangRuntimeModule _htmlLangRuntimeModule = new HtmlLangRuntimeModule();
-		final HtmlLangIdeModule _htmlLangIdeModule = new HtmlLangIdeModule();
-		return Guice.createInjector(Modules2.mixin(_htmlLangRuntimeModule, _htmlLangIdeModule));
-	}
+  @Override
+  public Injector createInjector() {
+    HtmlLangRuntimeModule _htmlLangRuntimeModule = new HtmlLangRuntimeModule();
+    HtmlLangIdeModule _htmlLangIdeModule = new HtmlLangIdeModule();
+    return Guice.createInjector(Modules2.mixin(_htmlLangRuntimeModule, _htmlLangIdeModule));
+  }
 }

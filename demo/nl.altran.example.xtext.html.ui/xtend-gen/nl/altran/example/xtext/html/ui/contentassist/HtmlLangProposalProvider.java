@@ -3,10 +3,11 @@
  */
 package nl.altran.example.xtext.html.ui.contentassist;
 
+import nl.altran.example.xtext.html.ui.contentassist.AbstractHtmlLangProposalProvider;
+
 /**
- * See
- * https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-
- * assist on how to customize the content assistant.
+ * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
+ * on how to customize the content assistant.
  */
 @SuppressWarnings("all")
 public class HtmlLangProposalProvider extends AbstractHtmlLangProposalProvider {

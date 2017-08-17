@@ -1,11 +1,11 @@
 package com.altran.general.integration.xtextsirius.editpart.internal;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import javax.inject.Inject;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.emf.ecore.EObject;
@@ -15,90 +15,102 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.AbstractEditPartProv
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.CreateGraphicEditPartOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
 import com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfiguration;
-import com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration;
+import com.altran.general.integration.xtextsirius.editpart.internal.model.EditPartDescriptorModel;
+import com.altran.general.integration.xtextsirius.editpart.internal.value.EditPartDescriptorValue;
 
 public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	private static final String EXTENSION_POINT_ID = "com.altran.general.integration.xtextsirius.xtextDirectEdit";
-	private static final String XTEXT_DIRECT_EDIT_MODEL_ELEMENT = "xtextDirectEditModel";
 	private static final String CONFIG_CLASS_ATTRIBUTE = "configClass";
-	private static final String SEMANTIC_TYPE_ATTRIBUTE = "semanticType";
 	private static final String SINGLE_LINE_ATTRIBUTE = "singleLine";
-	
+	private static final String IDENTIFIER_ATTRIBUTE = "attributeName";
+	private static final String XTEXT_DIRECT_EDIT_MODEL_ELEMENT = "xtextDirectEditModel";
+	private static final String SEMANTIC_TYPE_ATTRIBUTE = "semanticType";
+	private static final String XTEXT_DIRECT_EDIT_VALUE_ELEMENT = "xtextDirectEditValue";
+
 	@Inject
-	private IExtensionRegistry registry;
-	
-	
+	private @NonNull IExtensionRegistry registry;
+
+
 	@Override
-	public IGraphicalEditPart createGraphicEditPart(final View view) {
-		final String className = extractTargetName(view);
-		if (className != null) {
+	public @NonNull IGraphicalEditPart createGraphicEditPart(final View view) {
+		final String identifier = extractIdentifier(view);
+		if (identifier != null) {
 			return collectXtextDirectEditConfigurations()
-					.filter(providesFilter(className))
+					.filter(providesFilter(identifier))
 					.findAny()
-					.map(d -> new XtextSiriusEditPartModel(d.getConfig().getInjector(), d.isSingleLine(), view))
+					.map(d -> d.createEditPart(view))
 					.orElseThrow(
 							() -> new IllegalStateException(
 									"Cannot find IXtextDirectEditConfiguration for semanticType "
-											+ className));
+											+ identifier));
 		}
-
-
+		
+		
 		return super.createGraphicEditPart(view);
 	}
-
-	private String extractTargetName(final View view) {
+	
+	private @Nullable String extractIdentifier(final @NonNull View view) {
 		final EObject viewElement = view.getElement();
-		if (viewElement instanceof DSemanticDecorator) {
-			final DSemanticDecorator semanticDecorator = (DSemanticDecorator) viewElement;
-			final EObject target = semanticDecorator.getTarget();
-			if (target != null) {
-				return target.getClass().getName();
-			}
+		if (viewElement instanceof DRepresentationElement) {
+			final DRepresentationElement representationElement = (DRepresentationElement) viewElement;
+			return representationElement.getMapping().getName();
 		}
-
+		
 		return null;
 	}
-
-
+	
+	
 	@Override
 	public boolean provides(final IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			final View view = ((IEditPartOperation) operation).getView();
-			final String className = extractTargetName(view);
-			if (className != null) {
+			final String targetIdentifier = extractIdentifier(view);
+			if (targetIdentifier != null) {
 				return collectXtextDirectEditConfigurations()
-						.anyMatch(providesFilter(className));
+						.anyMatch(providesFilter(targetIdentifier));
 			}
 		}
-		
+
 		return super.provides(operation);
 	}
-
-	private Predicate<? super EditPartDescriptor> providesFilter(
-			final String className) {
-		return d -> className.equals(d.getSemanticType());
-	}
 	
-	private Stream<EditPartDescriptor> collectXtextDirectEditConfigurations() {
+	private @NonNull Predicate<? super AEditPartDescriptor> providesFilter(
+			final @NonNull String identifier) {
+		return d -> identifier.equals(d.getIdentifier());
+	}
+
+	private @NonNull Stream<@NonNull AEditPartDescriptor> collectXtextDirectEditConfigurations() {
 		return Stream.of(this.registry.getConfigurationElementsFor(EXTENSION_POINT_ID))
 				.filter(e -> e.isValid())
-				.filter(e -> XTEXT_DIRECT_EDIT_MODEL_ELEMENT.equals(e.getName()))
+				.filter(e -> XTEXT_DIRECT_EDIT_MODEL_ELEMENT.equals(e.getName())
+						|| XTEXT_DIRECT_EDIT_VALUE_ELEMENT.equals(e.getName()))
 				.map(e -> {
-					IXtextDirectEditConfiguration executableExtension = null;
+					IXtextDirectEditConfiguration configuration = null;
 					try {
-						executableExtension = (IXtextDirectEditConfiguration) e
+						configuration = (IXtextDirectEditConfiguration) e
 								.createExecutableExtension(CONFIG_CLASS_ATTRIBUTE);
 					} catch (final CoreException | ClassCastException ex) {
 						// fail silently, will be handled in filter below
 					}
-					return new EditPartDescriptor(e.getAttribute(SEMANTIC_TYPE_ATTRIBUTE),
-							Boolean.parseBoolean(e.getAttribute(SINGLE_LINE_ATTRIBUTE)), executableExtension);
+					final String identifier = e.getAttribute(IDENTIFIER_ATTRIBUTE);
+					final boolean singleLine = Boolean.parseBoolean(e.getAttribute(SINGLE_LINE_ATTRIBUTE));
+					switch (e.getName()) {
+						case XTEXT_DIRECT_EDIT_MODEL_ELEMENT:
+							return new EditPartDescriptorModel(identifier, singleLine, configuration,
+									e.getAttribute(SEMANTIC_TYPE_ATTRIBUTE));
+						case XTEXT_DIRECT_EDIT_VALUE_ELEMENT:
+							return new EditPartDescriptorValue(identifier, singleLine, configuration);
+						default:
+							return null;
+					}
 				})
-				.filter(d -> StringUtils.isNotBlank(d.getSemanticType())
-						&& d.getConfig() instanceof IXtextPropertyConfiguration);
+				.filter(Objects::nonNull)
+				.filter(d -> d.isValid());
 	}
-	
+
 }

@@ -19,7 +19,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.ui,
  org.eclipse.sirius,
  org.yakindu.base.xtext.utils.gmf,
- org.yakindu.base.xtext.utils.jface
+ org.yakindu.base.xtext.utils.jface,
+ org.eclipse.jdt.annotation;bundle-version="2.0.0";resolution:=optional,
+ org.eclipse.sirius.diagram
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.editpart,

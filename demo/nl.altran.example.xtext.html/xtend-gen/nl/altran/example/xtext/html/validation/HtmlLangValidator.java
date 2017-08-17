@@ -3,11 +3,12 @@
  */
 package nl.altran.example.xtext.html.validation;
 
+import nl.altran.example.xtext.html.validation.AbstractHtmlLangValidator;
+
 /**
  * This class contains custom validation rules.
- *
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#
- * validation
+ * 
+ * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
 public class HtmlLangValidator extends AbstractHtmlLangValidator {

@@ -3,6 +3,7 @@
  */
 package nl.altran.example.xtext.html.ui;
 
+import nl.altran.example.xtext.html.ui.AbstractHtmlLangUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
@@ -12,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class HtmlLangUiModule extends AbstractHtmlLangUiModule {
-	public HtmlLangUiModule(final AbstractUIPlugin plugin) {
-		super(plugin);
-	}
+  public HtmlLangUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
 }
