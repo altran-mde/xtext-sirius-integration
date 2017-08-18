@@ -4,13 +4,11 @@ import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import javax.inject.Inject;
-
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.eef.EEFControlDescription;
-import org.eclipse.eef.EEFCustomWidgetDescription;
+import org.eclipse.eef.EEFTextDescription;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.ide.ui.api.widgets.IEEFLifecycleManager;
 import org.eclipse.eef.ide.ui.api.widgets.IEEFLifecycleManagerProvider;
@@ -26,12 +24,9 @@ public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleMana
 	private static final String CONFIG_CLASS_ATTRIBUTE = "configClass";
 	private static final String XTEXT_PROPERTY_ELEMENT = "xtextProperty";
 	private static final String EXTENSION_POINT_ID = "com.altran.general.integration.xtextsirius.xtextProperty";
-
-	@Inject
-	private IExtensionRegistry registry;
-
+	
 	private @NonNull Stream<@NonNull SimpleImmutableEntry<@NonNull String, @NonNull IXtextPropertyConfiguration>> collectXtextPropertyConfigurations() {
-		return Stream.of(this.registry.getConfigurationElementsFor(EXTENSION_POINT_ID))
+		return Stream.of(Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID))
 				.filter(e -> e.isValid())
 				.filter(e -> XTEXT_PROPERTY_ELEMENT.equals(e.getName()))
 				.map(e -> {
@@ -47,36 +42,36 @@ public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleMana
 				.filter(pair -> StringUtils.isNotBlank(pair.getKey())
 						&& pair.getValue() instanceof IXtextPropertyConfiguration);
 	}
-
-
+	
+	
 	@Override
 	public boolean canHandle(final EEFControlDescription controlDescription) {
 		return collectXtextPropertyConfigurations()
 				.anyMatch(createIdentifierFilter(controlDescription));
 	}
-
+	
 	private @NonNull Predicate<? super @NonNull SimpleImmutableEntry<@NonNull String, @NonNull IXtextPropertyConfiguration>> createIdentifierFilter(
 			final @NonNull EEFControlDescription controlDescription) {
 		return e -> StringUtils.equals(controlDescription.getIdentifier(), e.getKey());
 	}
-
+	
 	@Override
 	public @NonNull IEEFLifecycleManager getLifecycleManager(final EEFControlDescription controlDescription,
 			final IVariableManager variableManager, final IInterpreter interpreter,
 			final EditingContextAdapter contextAdapter) {
-		if (controlDescription instanceof EEFCustomWidgetDescription) {
+		if (controlDescription instanceof EEFTextDescription) {
 			return collectXtextPropertyConfigurations()
 					.filter(createIdentifierFilter(controlDescription))
 					.findAny()
 					.map(e -> new XtextSiriusEefLifecycleManager(e.getValue(),
-							(EEFCustomWidgetDescription) controlDescription, variableManager, interpreter,
+							(EEFTextDescription) controlDescription, variableManager, interpreter,
 							contextAdapter))
 					.orElseThrow(
 							() -> new IllegalStateException("Cannot find IXtextPropertyConfiguration for identifier "
 									+ controlDescription.getIdentifier()));
 		}
-		
-		throw new IllegalArgumentException("controlDescription is not of type EEFCustomWidgetDescription");
+
+		throw new IllegalArgumentException("controlDescription is not of type EEFTextDescription");
 	}
 
 }

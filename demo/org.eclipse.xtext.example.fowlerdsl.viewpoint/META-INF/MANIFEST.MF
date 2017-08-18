@@ -10,7 +10,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.aql,
- org.eclipse.xtext.example.fowlerdsl
+ org.eclipse.xtext.example.fowlerdsl,
+ com.altran.general.integration.xtextsirius,
+ com.altran.general.integration.xtextsirius,
+ org.eclipse.xtext.example.fowlerdsl.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

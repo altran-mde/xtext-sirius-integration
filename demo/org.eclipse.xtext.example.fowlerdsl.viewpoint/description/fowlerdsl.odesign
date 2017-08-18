@@ -83,7 +83,7 @@
           <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
         </initialOperation>
       </controls>
-      <controls xsi:type="properties:TextDescription" labelExpression="Guard" valueExpression="feature:guard">
+      <controls xsi:type="properties:TextDescription" identifier="EventGuardId" labelExpression="Guard" valueExpression="feature:guard">
         <initialOperation/>
       </controls>
     </groups>

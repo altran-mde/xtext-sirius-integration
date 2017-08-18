@@ -1,14 +1,8 @@
-events
-	event1456 aaa
-	event2 bbb 	event3 asdf [finalAnswerA]event4 asdf [e..pi]
-	event5 qwer [234]
-end
-
 constants
-	pi 314
-	e 217
-	finalAnswer 42
-	previousAnswer finalAnswerA
+	piA 314
+	eA 217
+	finalAnswerA 42
+	previousAnswerA finalAnswer
 end
 
 state State1456

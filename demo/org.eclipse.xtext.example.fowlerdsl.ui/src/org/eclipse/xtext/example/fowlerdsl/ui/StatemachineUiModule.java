@@ -12,4 +12,8 @@ public class StatemachineUiModule extends org.eclipse.xtext.example.fowlerdsl.ui
 	public StatemachineUiModule(final AbstractUIPlugin plugin) {
 		super(plugin);
 	}
+	
+	// public void configureXtextDocumentProvider(final Binder binder) {
+	// binder.bind(XtextDocument.class).toProvider(FowlerdslXtextDocumentProvider.class);
+	// }
 }

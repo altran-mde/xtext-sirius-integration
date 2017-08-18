@@ -2,6 +2,7 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:statemachine="http://www.eclipse.org/xtext/example/fowlerdsl/Statemachine" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis xmi:id="_HgKLoIDHEeeO2MI7j83uzg" selectedViews="_Z_6rgIDHEeeO2MI7j83uzg" version="11.1.6.201706261600">
     <semanticResources>example1.statemachine</semanticResources>
+    <semanticResources>example3.statemachine</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_Z_6rgIDHEeeO2MI7j83uzg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_IydSMIGREeeO_NXW2w55ag" name="example1" representation="_Iyd5QIGREeeO_NXW2w55ag">
@@ -183,7 +184,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@subNodeMappings[name='EventNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWIGREeeO_NXW2w55ag" name="event3 [finalAnswer]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWIGREeeO_NXW2w55ag" name="event3 [finalAnswerA]">
         <target xmi:type="statemachine:Event" href="example1.statemachine#//@events.2"/>
         <semanticElements xmi:type="statemachine:Event" href="example1.statemachine#//@events.2"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_IyegWYGREeeO_NXW2w55ag" labelPosition="node">

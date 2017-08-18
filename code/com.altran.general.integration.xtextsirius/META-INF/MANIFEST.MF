@@ -5,7 +5,8 @@ Bundle-SymbolicName: com.altran.general.integration.xtextsirius;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.internal.XtextSiriusUiPlugin
 Bundle-Vendor: Altran
-Require-Bundle: org.apache.commons.lang,
+Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional;visibility:=reexport, 
+ org.apache.commons.lang,
  com.google.guava,
  com.google.inject,
  org.eclipse.core.runtime,
