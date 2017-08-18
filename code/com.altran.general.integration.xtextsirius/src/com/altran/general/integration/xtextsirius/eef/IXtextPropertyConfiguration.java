@@ -1,13 +1,14 @@
 package com.altran.general.integration.xtextsirius.eef;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.swt.layout.GridData;
 
 import com.google.inject.Injector;
 
 public interface IXtextPropertyConfiguration {
-	Injector getInjector();
-
+	public @NonNull Injector getInjector();
+	
 	int getSwtWidgetStyle();
-
-	GridData getLayoutData();
+	
+	public @NonNull GridData getLayoutData();
 }

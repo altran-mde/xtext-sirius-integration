@@ -5,23 +5,22 @@ Bundle-SymbolicName: com.altran.general.integration.xtextsirius;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.internal.XtextSiriusUiPlugin
 Bundle-Vendor: Altran
-Require-Bundle: org.eclipse.ui,
+Require-Bundle: org.apache.commons.lang,
+ com.google.guava,
+ com.google.inject,
  org.eclipse.core.runtime,
- org.eclipse.eef.ide.ui,
- org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.ui,
  org.eclipse.eef,
  org.eclipse.eef.core,
- org.eclipse.sirius.common.interpreter,
- com.google.inject,
- com.google.guava,
- org.apache.commons.lang,
  org.eclipse.eef.common.ui,
- org.eclipse.xtext.ui,
+ org.eclipse.eef.ide.ui,
  org.eclipse.sirius,
+ org.eclipse.sirius.diagram,
+ org.eclipse.sirius.common.interpreter,
+ org.eclipse.gmf.runtime.diagram.ui,
+ org.eclipse.xtext.ui,
  org.yakindu.base.xtext.utils.gmf,
- org.yakindu.base.xtext.utils.jface,
- org.eclipse.jdt.annotation;bundle-version="2.0.0";resolution:=optional,
- org.eclipse.sirius.diagram
+ org.yakindu.base.xtext.utils.jface
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.editpart,
