@@ -50,7 +50,7 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
 		return new XtextSiriusDirectEditManagerModel(this, this.getInjector(),
-				translateSingleLineToStyle());
+				translateToStyle());
 	}
 	
 	@Override

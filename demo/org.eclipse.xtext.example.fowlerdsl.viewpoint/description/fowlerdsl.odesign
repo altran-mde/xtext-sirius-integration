@@ -93,7 +93,7 @@
           <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
         </initialOperation>
       </controls>
-      <controls xsi:type="properties:TextAreaDescription" labelExpression="Description" valueExpression="feature:description">
+      <controls xsi:type="properties:TextAreaDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
         </initialOperation>

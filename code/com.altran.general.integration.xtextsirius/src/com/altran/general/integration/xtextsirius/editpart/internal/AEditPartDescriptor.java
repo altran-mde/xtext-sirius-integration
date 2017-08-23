@@ -11,32 +11,34 @@ import com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfi
 public abstract class AEditPartDescriptor {
 	
 	private final String identifier;
-	private final boolean singleLine;
+	private final boolean multiLine;
 	private final IXtextDirectEditConfiguration config;
-
-	public AEditPartDescriptor(final @Nullable String identifier, final boolean singleLine,
+	
+	public AEditPartDescriptor(
+			final @Nullable String identifier,
+			final boolean multiLine,
 			final @Nullable IXtextDirectEditConfiguration config) {
 		this.identifier = identifier;
-		this.singleLine = singleLine;
+		this.multiLine = multiLine;
 		this.config = config;
 	}
-
+	
 	public @NonNull String getIdentifier() {
 		return this.identifier;
 	}
-
-	public boolean isSingleLine() {
-		return this.singleLine;
+	
+	public boolean isMultiLine() {
+		return this.multiLine;
 	}
-
+	
 	public @NonNull IXtextDirectEditConfiguration getConfig() {
 		return this.config;
 	}
-
+	
 	public boolean isValid() {
 		return StringUtils.isNotBlank(getIdentifier()) &&
 				getConfig() instanceof IXtextDirectEditConfiguration;
 	}
-	
+
 	public abstract @NonNull XtextLabelEditPart createEditPart(final @NonNull View view);
 }

@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.example.fowlerdsl,
  com.altran.general.integration.xtextsirius,
  com.altran.general.integration.xtextsirius,
- org.eclipse.xtext.example.fowlerdsl.ui
+ org.eclipse.xtext.example.fowlerdsl.ui,
+ nl.altran.example.xtext.html.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

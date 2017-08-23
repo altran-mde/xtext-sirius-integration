@@ -9,11 +9,13 @@ import com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfi
 import com.altran.general.integration.xtextsirius.editpart.internal.AEditPartDescriptor;
 
 public class EditPartDescriptorValue extends AEditPartDescriptor {
-	public EditPartDescriptorValue(final @Nullable String identifier, final boolean singleLine,
+	public EditPartDescriptorValue(
+			final @Nullable String identifier,
+			final boolean multiLine,
 			final @Nullable IXtextDirectEditConfiguration config) {
-		super(identifier, singleLine, config);
+		super(identifier, multiLine, config);
 	}
-
+	
 	@Override
 	public @NonNull XtextLabelEditPart createEditPart(final @NonNull View view) {
 		return new XtextSiriusEditPartValue(this, view);

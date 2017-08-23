@@ -9,23 +9,23 @@ import com.google.inject.Injector;
 
 public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 	
-	private final boolean singleLine;
+	private final boolean multiLine;
 	private final Injector injector;
-	
+
 	public AXtextSiriusEditPart(final @NonNull AEditPartDescriptor descriptor, final @NonNull View view) {
 		super(view);
 		this.injector = descriptor.getConfig().getInjector();
-		this.singleLine = descriptor.isSingleLine();
+		this.multiLine = descriptor.isMultiLine();
 	}
-	
-	protected int translateSingleLineToStyle() {
-		if (this.singleLine) {
-			return (SWT.SINGLE);
-		} else {
+
+	protected int translateToStyle() {
+		if (this.multiLine) {
 			return (SWT.MULTI | SWT.WRAP);
+		} else {
+			return (SWT.SINGLE);
 		}
 	}
-	
+
 	public Injector getInjector() {
 		return this.injector;
 	}

@@ -6,10 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: nl.altran.example.xtext.html; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
- org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.emf.ecore,
- org.eclipse.xtext.xbase.lib,
  org.antlr.runtime,
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib,

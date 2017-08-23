@@ -24,8 +24,8 @@ import com.altran.general.integration.xtextsirius.editpart.internal.value.EditPa
 public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	private static final String EXTENSION_POINT_ID = "com.altran.general.integration.xtextsirius.xtextDirectEdit";
 	private static final String CONFIG_CLASS_ATTRIBUTE = "configClass";
-	private static final String SINGLE_LINE_ATTRIBUTE = "singleLine";
-	private static final String IDENTIFIER_ATTRIBUTE = "attributeName";
+	private static final String MULTI_LINE_ATTRIBUTE = "multiLine";
+	private static final String IDENTIFIER_ATTRIBUTE = "identifier";
 	private static final String XTEXT_DIRECT_EDIT_MODEL_ELEMENT = "xtextDirectEditModel";
 	private static final String SEMANTIC_TYPE_ATTRIBUTE = "semanticType";
 	private static final String XTEXT_DIRECT_EDIT_VALUE_ELEMENT = "xtextDirectEditValue";
@@ -92,7 +92,7 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 						// fail silently, will be handled in filter below
 					}
 					final String identifier = e.getAttribute(IDENTIFIER_ATTRIBUTE);
-					final boolean singleLine = Boolean.parseBoolean(e.getAttribute(SINGLE_LINE_ATTRIBUTE));
+					final boolean singleLine = Boolean.parseBoolean(e.getAttribute(MULTI_LINE_ATTRIBUTE));
 					switch (e.getName()) {
 						case XTEXT_DIRECT_EDIT_MODEL_ELEMENT:
 							return new EditPartDescriptorModel(identifier, singleLine, configuration,

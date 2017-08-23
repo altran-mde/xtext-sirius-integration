@@ -2,59 +2,45 @@ package com.altran.general.integration.xtextsirius.eef.internal;
 
 import org.eclipse.eef.EEFTextDescription;
 import org.eclipse.eef.EEFWidgetDescription;
-import org.eclipse.eef.common.ui.api.IEEFFormContainer;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.core.api.controllers.IConsumer;
 import org.eclipse.eef.core.api.controllers.IEEFWidgetController;
 import org.eclipse.eef.ide.ui.api.widgets.AbstractEEFWidgetLifecycleManager;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
-import com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration;
 import com.google.inject.Injector;
 
-public class XtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleManager {
-	private final IXtextPropertyConfiguration config;
-	private final EEFTextDescription controlDescription;
-	private final EditingContextAdapter contextAdapter;
+public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleManager {
+	private final APropertyDescriptor descriptor;
+	protected final EEFTextDescription controlDescription;
+	protected final EditingContextAdapter contextAdapter;
 	
-	private IConsumer<Object> newValueConsumer;
+	protected IConsumer<Object> newValueConsumer;
 
-	private XtextSiriusWidget widget;
-	private XtextSiriusController controller;
+	protected AXtextSiriusWidget widget;
+	protected XtextSiriusController controller;
 
-	private boolean enabled;
+	protected boolean enabled;
 	
-	public XtextSiriusEefLifecycleManager(final @NonNull IXtextPropertyConfiguration config,
+	public AXtextSiriusEefLifecycleManager(
+			final @NonNull APropertyDescriptor descriptor,
 			final @NonNull EEFTextDescription controlDescription,
 			final @NonNull IVariableManager variableManager,
 			final @NonNull IInterpreter interpreter,
 			final @NonNull EditingContextAdapter contextAdapter) {
 		super(variableManager, interpreter, contextAdapter);
-		this.config = config;
+		this.descriptor = descriptor;
 		this.controlDescription = controlDescription;
 		this.contextAdapter = contextAdapter;
 	}
 
 
-	@Override
-	public void aboutToBeShown() {
-		super.aboutToBeShown();
-		
-		this.newValueConsumer = (newValue) -> {
-			if (newValue instanceof EObject) {
-				this.widget.update((EObject) newValue);
-			}
-		};
-		this.controller.onNewValue(this.newValueConsumer);
-	}
-	
 	@Override
 	public void refresh() {
 		super.refresh();
@@ -66,7 +52,7 @@ public class XtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleMa
 		super.aboutToBeHidden();
 		this.controller.removeValueConsumer();
 		this.newValueConsumer = null;
-		this.widget.cleanup();
+		this.getWidget().cleanup();
 	}
 	
 	@Override
@@ -87,20 +73,13 @@ public class XtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleMa
 	}
 	
 	
-	@Override
-	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
-		final Injector injector = this.config.getInjector();
-		
-		this.widget = new XtextSiriusWidget(parent, injector, this.config.getSwtWidgetStyle());
-		final GridData gridData = this.config.getLayoutData();
-		gridData.horizontalIndent = VALIDATION_MARKER_OFFSET;
-		final @Nullable Control widgetControl = this.widget.getControl();
+	protected void applyGridData(final @Nullable Control widgetControl) {
 		if (widgetControl != null) {
+			final GridData gridData = this.getDescriptor().getConfig().getLayoutData(translateToGridData());
+			// no idea why we're missing one pixel here
+			gridData.horizontalIndent = VALIDATION_MARKER_OFFSET - 1;
 			widgetControl.setLayoutData(gridData);
 		}
-
-		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
-				this.contextAdapter);
 	}
 	
 	
@@ -114,14 +93,44 @@ public class XtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleMa
 		return this.enabled;
 	}
 	
-	
 	@Override
 	protected @Nullable Control getValidationControl() {
-		if (this.widget != null) {
-			return this.widget.getControl();
+		if (this.getWidget() != null) {
+			return this.getWidget().getControl();
 		}
-		
+
 		return null;
 	}
+	
+	protected int translateToStyle() {
+		if (this.getDescriptor().isMultiLine()) {
+			return SWT.MULTI | SWT.WRAP | SWT.V_SCROLL | SWT.BORDER;
+		} else {
+			return SWT.SINGLE | SWT.BORDER;
+		}
+	}
+	
+	protected @NonNull GridData translateToGridData() {
+		final GridData result = new GridData(SWT.FILL, SWT.BEGINNING, true, false);
+		if (this.getDescriptor().isMultiLine()) {
+			// because it's two times the answer
+			result.heightHint = 42 * 2;
+		}
 
+		return result;
+	}
+	
+	protected @NonNull Injector createSpecializedInjector() {
+		return this.getDescriptor().getConfig().getInjector()
+				.createChildInjector(new XtextEditorSwtStyleOverridingModule(
+						this.getDescriptor().getConfig().getSwtWidgetStyle(translateToStyle())));
+	}
+
+	public @NonNull APropertyDescriptor getDescriptor() {
+		return this.descriptor;
+	}
+	
+	public AXtextSiriusWidget getWidget() {
+		return this.widget;
+	}
 }

@@ -17,8 +17,11 @@
          </appinfo>
       </annotation>
       <complexType>
-         <sequence>
-            <element ref="xtextProperty" minOccurs="1" maxOccurs="unbounded"/>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <choice>
+               <element ref="xtextPropertyModel"/>
+               <element ref="xtextPropertyValue"/>
+            </choice>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,15 +50,8 @@
       </complexType>
    </element>
 
-   <element name="xtextProperty">
+   <element name="xtextPropertyModel">
       <complexType>
-         <attribute name="groupId" type="string" use="required">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-            </annotation>
-         </attribute>
          <attribute name="configClass" type="string" use="required">
             <annotation>
                <documentation>
@@ -64,6 +60,63 @@
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.eef.ide.ui.api.widgets.IEEFLifecycleManagerProvider"/>
                </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="multiLine" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="identifier" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="xtextPropertyValue">
+      <complexType>
+         <attribute name="configClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.eef.ide.ui.api.widgets.IEEFLifecycleManagerProvider"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="multiLine" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="identifier" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="prefixText" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="suffixText" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
             </annotation>
          </attribute>
       </complexType>

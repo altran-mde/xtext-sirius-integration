@@ -54,7 +54,7 @@ public class XtextSiriusEditPartValue extends AXtextSiriusEditPart {
 
 	@Override
 	protected DirectEditManager createDirectEditManager() {
-		return new XtextDirectEditManager(this, getInjector(), translateSingleLineToStyle());
+		return new XtextDirectEditManager(this, getInjector(), translateToStyle());
 	}
 
 	@Override

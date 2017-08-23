@@ -18,7 +18,7 @@
       </annotation>
       <complexType>
          <sequence minOccurs="1" maxOccurs="unbounded">
-            <choice minOccurs="1" maxOccurs="unbounded">
+            <choice>
                <element ref="xtextDirectEditModel"/>
                <element ref="xtextDirectEditValue"/>
             </choice>
@@ -62,7 +62,7 @@
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="singleLine" type="boolean" use="default" value="true">
+         <attribute name="multiLine" type="boolean" use="default" value="false">
             <annotation>
                <documentation>
                   
@@ -91,7 +91,14 @@
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="singleLine" type="boolean" use="default" value="true">
+         <attribute name="multiLine" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="identifier" type="string" use="required">
             <annotation>
                <documentation>
                   
@@ -106,13 +113,6 @@
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
                </appinfo>
-            </annotation>
-         </attribute>
-         <attribute name="identifier" type="string" use="required">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
             </annotation>
          </attribute>
       </complexType>
