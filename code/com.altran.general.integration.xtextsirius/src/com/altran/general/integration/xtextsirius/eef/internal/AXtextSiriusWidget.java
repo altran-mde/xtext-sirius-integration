@@ -24,9 +24,12 @@ public abstract class AXtextSiriusWidget {
 
 	protected XtextSiriusEditedResourceProvider editedResourceProvider;
 
+	private final boolean multiLine;
 
-	public AXtextSiriusWidget(final @NonNull Composite parent, final @NonNull Injector injector) {
+	public AXtextSiriusWidget(final @NonNull Composite parent, final @NonNull Injector injector,
+			final boolean multiLine) {
 		this.injector = injector;
+		this.multiLine = multiLine;
 		injector.injectMembers(this);
 
 		createEditor(parent);
@@ -60,5 +63,23 @@ public abstract class AXtextSiriusWidget {
 		if (this.editor != null) {
 			this.editor.getDocument().set("");
 		}
+	}
+
+	public boolean isMultiLine() {
+		return this.multiLine;
+	}
+	
+	protected @NonNull StringBuffer removeNewlinesIfSingleLine(final @NonNull StringBuffer text, final int offset,
+			final int length) {
+		if (!isMultiLine()) {
+			for (int i = offset; i < offset + length; i++) {
+				final char currentChar = text.charAt(i);
+				if (currentChar == '\n' || currentChar == '\r') {
+					text.setCharAt(i, ' ');
+				}
+			}
+		}
+
+		return text;
 	}
 }

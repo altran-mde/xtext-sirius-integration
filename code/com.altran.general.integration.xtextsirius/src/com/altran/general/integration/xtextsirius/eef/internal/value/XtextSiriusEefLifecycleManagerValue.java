@@ -22,33 +22,34 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 			final @NonNull EditingContextAdapter contextAdapter) {
 		super(descriptor, controlDescription, variableManager, interpreter, contextAdapter);
 	}
-	
+
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		final Injector injector = createSpecializedInjector();
-
-		this.widget = new XtextSiriusWidgetValue(parent, injector, getDescriptor().getPrefixText(),
+		
+		this.widget = new XtextSiriusWidgetValue(parent, injector, getDescriptor().isMultiLine(),
+				getDescriptor().getPrefixText(),
 				getDescriptor().getSuffixText());
 		applyGridData(this.getWidget().getControl());
-
+		
 		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
 				this.contextAdapter);
 	}
-	
+
 	@Override
 	public XtextSiriusWidgetValue getWidget() {
 		return (XtextSiriusWidgetValue) super.getWidget();
 	}
-	
+
 	@Override
 	public @NonNull PropertyDescriptorValue getDescriptor() {
 		return (@NonNull PropertyDescriptorValue) super.getDescriptor();
 	}
-
+	
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
-
+		
 		this.newValueConsumer = (newValue) -> {
 			if (newValue instanceof String) {
 				this.getWidget().update((String) newValue);
@@ -56,5 +57,5 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 		};
 		this.controller.onNewValue(this.newValueConsumer);
 	}
-
+	
 }

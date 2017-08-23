@@ -16,8 +16,9 @@ import com.google.inject.Injector;
 public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 	private SemanticElementLocation semanticElementLocation;
 
-	public XtextSiriusWidgetModel(final @NonNull Composite parent, final @NonNull Injector injector) {
-		super(parent, injector);
+	public XtextSiriusWidgetModel(final @NonNull Composite parent, final @NonNull Injector injector,
+			final boolean multiLine) {
+		super(parent, injector, multiLine);
 	}
 	
 	@SuppressWarnings("restriction")
@@ -39,19 +40,19 @@ public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 	
 	private TextRegion calculateAndAdjustEditorOffset(final ICompositeNode node, final StringBuffer text) {
 		text.append(node.getRootNode().getText());
-
+		
 		int offset = node.getOffset();
-		final int totalLength = node.getLength();
-
+		final int length = node.getLength();
+		
 		// we need to add a newline before node, because StyledTextEditor can
 		// only edit regions starting at column 0
 		final String newline = "\n";
 		text.insert(offset, newline);
 		// this should account for different line endings
 		offset += newline.length();
-
-		return new TextRegion(offset, totalLength);
+		
+		removeNewlinesIfSingleLine(text, offset, length);
+		
+		return new TextRegion(offset, length);
 	}
-
-
 }

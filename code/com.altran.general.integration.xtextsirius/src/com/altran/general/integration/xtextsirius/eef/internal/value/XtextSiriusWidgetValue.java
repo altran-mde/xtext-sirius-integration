@@ -14,15 +14,18 @@ public class XtextSiriusWidgetValue extends AXtextSiriusWidget {
 	public XtextSiriusWidgetValue(
 			final @NonNull Composite parent,
 			final @NonNull Injector injector,
+			final boolean multiLine,
 			final @NonNull String prefixText,
 			final @NonNull String suffixText) {
-		super(parent, injector);
+		super(parent, injector, multiLine);
 		this.prefixText = prefixText;
 		this.suffixText = suffixText;
 	}
 	
 	@SuppressWarnings("restriction")
 	public void update(final @NonNull String newValue) {
-		this.editorAccess.updateModel(this.prefixText, newValue, this.suffixText);
+		this.editorAccess.updateModel(this.prefixText,
+				removeNewlinesIfSingleLine(new StringBuffer(newValue), 0, newValue.length()).toString(),
+				this.suffixText);
 	}
 }
