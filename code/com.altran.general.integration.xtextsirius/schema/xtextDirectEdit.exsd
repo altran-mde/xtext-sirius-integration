@@ -50,35 +50,6 @@
       </complexType>
    </element>
 
-   <element name="xtextDirectEditValue">
-      <complexType>
-         <attribute name="configClass" type="string" use="required">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-               <appinfo>
-                  <meta.attribute kind="java" basedOn=":com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfiguration"/>
-               </appinfo>
-            </annotation>
-         </attribute>
-         <attribute name="multiLine" type="boolean" use="default" value="false">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="identifier" type="string" use="required">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-            </annotation>
-         </attribute>
-      </complexType>
-   </element>
-
    <element name="xtextDirectEditModel">
       <complexType>
          <attribute name="configClass" type="string" use="required">
@@ -113,6 +84,49 @@
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
                </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="xtextDirectEditValue">
+      <complexType>
+         <attribute name="configClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfiguration"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="multiLine" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="identifier" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="prefixText" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="suffixText" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
             </annotation>
          </attribute>
       </complexType>

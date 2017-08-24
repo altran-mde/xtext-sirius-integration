@@ -18,7 +18,7 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	public XtextSiriusEditPartModel(final @NonNull EditPartDescriptorModel descriptor, final @NonNull View view) {
 		super(descriptor, view);
 	}
-
+	
 	@Override
 	public @NonNull String getEditText() {
 		final INode node = getSemanticNode();
@@ -26,38 +26,38 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 			final String text = node.getText();
 			return StringUtils.normalizeSpace(text);
 		}
-
+		
 		return "(empty)";
 	}
-	
+
 	protected @Nullable INode getSemanticNode() {
 		final EObject semanticElement = resolveSemanticElement();
 		if (semanticElement == null) {
 			return null;
 		}
-
+		
 		return NodeModelUtils.getNode(semanticElement);
 	}
-
+	
 	@Override
 	public EObject resolveSemanticElement() {
 		return ((DSemanticDecorator) super.resolveSemanticElement()).getTarget();
 	}
-
+	
 	@Override
 	public @NonNull EObject getSemanticElement() {
 		return resolveSemanticElement();
 	}
-
+	
 	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
 		return new XtextSiriusDirectEditManagerModel(this, this.getInjector(),
-				translateToStyle());
+				translateToStyle(), isMultiLine());
 	}
-
+	
 	@Override
 	protected void setContext(final Resource res) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

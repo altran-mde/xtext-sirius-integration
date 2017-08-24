@@ -11,13 +11,13 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 	
 	private final boolean multiLine;
 	private final Injector injector;
-
+	
 	public AXtextSiriusEditPart(final @NonNull AEditPartDescriptor descriptor, final @NonNull View view) {
 		super(view);
 		this.injector = descriptor.getConfig().getInjector();
 		this.multiLine = descriptor.isMultiLine();
 	}
-
+	
 	protected int translateToStyle() {
 		if (this.isMultiLine()) {
 			return SWT.MULTI | SWT.WRAP;
@@ -25,11 +25,11 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 			return SWT.SINGLE;
 		}
 	}
-
+	
 	protected Injector getInjector() {
 		return this.injector;
 	}
-	
+
 	protected boolean isMultiLine() {
 		return this.multiLine;
 	}

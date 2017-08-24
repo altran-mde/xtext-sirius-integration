@@ -13,6 +13,12 @@
 			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
 			identifier="EventNode"
 			semanticType="org.eclipse.xtext.example.fowlerdsl.viewpoint.EObject4"/>
+		<xtextDirectEditValue
+			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationHtml"
+			identifier="description"
+			multiLine="true"
+			prefixText="&lt;html&gt;&lt;head&gt;&lt;title&gt;t&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"
+			suffixText="&lt;/body&gt;&lt;/html&gt;"/>
 	</extension>
 	
 	<extension point="com.altran.general.integration.xtextsirius.xtextProperty">
