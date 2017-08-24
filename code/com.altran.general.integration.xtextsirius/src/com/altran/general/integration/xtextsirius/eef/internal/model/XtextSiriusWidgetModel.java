@@ -11,48 +11,31 @@ import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.eef.internal.AXtextSiriusWidget;
 import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
+import com.altran.general.integration.xtextsirius.util.TextUtil;
 import com.google.inject.Injector;
 
 public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 	private SemanticElementLocation semanticElementLocation;
-
+	
 	public XtextSiriusWidgetModel(final @NonNull Composite parent, final @NonNull Injector injector,
 			final boolean multiLine) {
 		super(parent, injector, multiLine);
 	}
-	
+
 	@SuppressWarnings("restriction")
 	public void update(final @NonNull EObject newValue) {
 		if (newValue.eResource() instanceof XtextResource) {
 			final XtextResource xtextResource = (XtextResource) newValue.eResource();
 			final ResourceSet resourceSet = xtextResource.getResourceSet();
-
+			
 			this.semanticElementLocation = new SemanticElementLocation(newValue);
-
+			
 			final ICompositeNode node = NodeModelUtils.findActualNodeFor(newValue);
 			if (node != null) {
 				final StringBuffer text = new StringBuffer(node.getRootNode().getTotalLength());
-				final TextRegion textRegion = calculateAndAdjustEditorOffset(node, text);
+				final TextRegion textRegion = TextUtil.calculateAndAdjustEditorOffset(node, text, isMultiLine());
 				this.editorAccess.updateModel(text.toString(), state -> textRegion);
 			}
 		}
-	}
-	
-	private TextRegion calculateAndAdjustEditorOffset(final ICompositeNode node, final StringBuffer text) {
-		text.append(node.getRootNode().getText());
-		
-		int offset = node.getOffset();
-		final int length = node.getLength();
-		
-		// we need to add a newline before node, because StyledTextEditor can
-		// only edit regions starting at column 0
-		final String newline = "\n";
-		text.insert(offset, newline);
-		// this should account for different line endings
-		offset += newline.length();
-		
-		removeNewlinesIfSingleLine(text, offset, length);
-		
-		return new TextRegion(offset, length);
 	}
 }

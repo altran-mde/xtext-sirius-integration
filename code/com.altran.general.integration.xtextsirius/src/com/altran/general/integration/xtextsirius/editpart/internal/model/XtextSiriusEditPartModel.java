@@ -1,5 +1,6 @@
 package com.altran.general.integration.xtextsirius.editpart.internal.model;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.tools.DirectEditManager;
@@ -17,45 +18,46 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	public XtextSiriusEditPartModel(final @NonNull EditPartDescriptorModel descriptor, final @NonNull View view) {
 		super(descriptor, view);
 	}
-	
+
 	@Override
 	public @NonNull String getEditText() {
 		final INode node = getSemanticNode();
 		if (node != null) {
-			return node.getText();
+			final String text = node.getText();
+			return StringUtils.normalizeSpace(text);
 		}
-		
+
 		return "(empty)";
 	}
-
+	
 	protected @Nullable INode getSemanticNode() {
 		final EObject semanticElement = resolveSemanticElement();
 		if (semanticElement == null) {
 			return null;
 		}
-		
+
 		return NodeModelUtils.getNode(semanticElement);
 	}
-	
+
 	@Override
 	public EObject resolveSemanticElement() {
 		return ((DSemanticDecorator) super.resolveSemanticElement()).getTarget();
 	}
-	
+
 	@Override
 	public @NonNull EObject getSemanticElement() {
 		return resolveSemanticElement();
 	}
-	
+
 	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
 		return new XtextSiriusDirectEditManagerModel(this, this.getInjector(),
 				translateToStyle());
 	}
-	
+
 	@Override
 	protected void setContext(final Resource res) {
 		// TODO Auto-generated method stub
-
+		
 	}
 }

@@ -29,7 +29,21 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	private static final String XTEXT_DIRECT_EDIT_MODEL_ELEMENT = "xtextDirectEditModel";
 	private static final String SEMANTIC_TYPE_ATTRIBUTE = "semanticType";
 	private static final String XTEXT_DIRECT_EDIT_VALUE_ELEMENT = "xtextDirectEditValue";
+
+	@Override
+	public boolean provides(final IOperation operation) {
+		if (operation instanceof CreateGraphicEditPartOperation) {
+			final View view = ((IEditPartOperation) operation).getView();
+			final String targetIdentifier = extractIdentifier(view);
+			if (targetIdentifier != null) {
+				return collectXtextDirectEditConfigurations()
+						.anyMatch(providesFilter(targetIdentifier));
+			}
+		}
 	
+		return super.provides(operation);
+	}
+
 	@Override
 	public @NonNull IGraphicalEditPart createGraphicEditPart(final View view) {
 		final String identifier = extractIdentifier(view);
@@ -43,41 +57,27 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 									"Cannot find IXtextDirectEditConfiguration for semanticType "
 											+ identifier));
 		}
-
-
+		
+		
 		return super.createGraphicEditPart(view);
 	}
-
+	
 	private @Nullable String extractIdentifier(final @NonNull View view) {
 		final EObject viewElement = view.getElement();
 		if (viewElement instanceof DRepresentationElement) {
 			final DRepresentationElement representationElement = (DRepresentationElement) viewElement;
 			return representationElement.getMapping().getName();
 		}
-
+		
 		return null;
 	}
-
-
-	@Override
-	public boolean provides(final IOperation operation) {
-		if (operation instanceof CreateGraphicEditPartOperation) {
-			final View view = ((IEditPartOperation) operation).getView();
-			final String targetIdentifier = extractIdentifier(view);
-			if (targetIdentifier != null) {
-				return collectXtextDirectEditConfigurations()
-						.anyMatch(providesFilter(targetIdentifier));
-			}
-		}
-		
-		return super.provides(operation);
-	}
-
+	
+	
 	private @NonNull Predicate<? super AEditPartDescriptor> providesFilter(
 			final @NonNull String identifier) {
 		return d -> identifier.equals(d.getIdentifier());
 	}
-	
+
 	private @NonNull Stream<@NonNull AEditPartDescriptor> collectXtextDirectEditConfigurations() {
 		return Stream.of(Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID))
 				.filter(e -> e.isValid())
@@ -92,13 +92,13 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 						// fail silently, will be handled in filter below
 					}
 					final String identifier = e.getAttribute(IDENTIFIER_ATTRIBUTE);
-					final boolean singleLine = Boolean.parseBoolean(e.getAttribute(MULTI_LINE_ATTRIBUTE));
+					final boolean multiLine = Boolean.parseBoolean(e.getAttribute(MULTI_LINE_ATTRIBUTE));
 					switch (e.getName()) {
 						case XTEXT_DIRECT_EDIT_MODEL_ELEMENT:
-							return new EditPartDescriptorModel(identifier, singleLine, configuration,
+							return new EditPartDescriptorModel(identifier, multiLine, configuration,
 									e.getAttribute(SEMANTIC_TYPE_ATTRIBUTE));
 						case XTEXT_DIRECT_EDIT_VALUE_ELEMENT:
-							return new EditPartDescriptorValue(identifier, singleLine, configuration);
+							return new EditPartDescriptorValue(identifier, multiLine, configuration);
 						default:
 							return null;
 					}
@@ -106,5 +106,5 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 				.filter(Objects::nonNull)
 				.filter(d -> d.isValid());
 	}
-	
+
 }

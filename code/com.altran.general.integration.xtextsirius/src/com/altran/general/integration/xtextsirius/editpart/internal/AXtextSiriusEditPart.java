@@ -19,14 +19,18 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 	}
 
 	protected int translateToStyle() {
-		if (this.multiLine) {
-			return (SWT.MULTI | SWT.WRAP);
+		if (this.isMultiLine()) {
+			return SWT.MULTI | SWT.WRAP;
 		} else {
-			return (SWT.SINGLE);
+			return SWT.SINGLE;
 		}
 	}
 
-	public Injector getInjector() {
+	protected Injector getInjector() {
 		return this.injector;
+	}
+	
+	protected boolean isMultiLine() {
+		return this.multiLine;
 	}
 }

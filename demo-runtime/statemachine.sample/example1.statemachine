@@ -12,7 +12,9 @@ events
 	event2 bbb 	event3 asdf [
 finalAnswerA
 	]event4 asdf 
-	[e..pi]
+	[e..
+		pi
+	]
 	event5 qwer [234]
 end
 

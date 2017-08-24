@@ -11,22 +11,25 @@ import com.altran.general.integration.xtextsirius.editpart.internal.AEditPartDes
 
 public class EditPartDescriptorModel extends AEditPartDescriptor {
 	private final String semanticType;
-	
-	public EditPartDescriptorModel(final @Nullable String identifier, final boolean singleLine,
-			final @Nullable IXtextDirectEditConfiguration config, final @Nullable String semanticType) {
-		super(identifier, singleLine, config);
+
+	public EditPartDescriptorModel(
+			final @Nullable String identifier,
+			final boolean multiLine,
+			final @Nullable IXtextDirectEditConfiguration config,
+			final @Nullable String semanticType) {
+		super(identifier, multiLine, config);
 		this.semanticType = semanticType;
 	}
-
+	
 	public String getSemanticType() {
 		return this.semanticType;
 	}
-
+	
 	@Override
 	public boolean isValid() {
 		return StringUtils.isNotBlank(getSemanticType()) && super.isValid();
 	}
-
+	
 	@Override
 	public @NonNull XtextLabelEditPart createEditPart(final @NonNull View view) {
 		return new XtextSiriusEditPartModel(this, view);

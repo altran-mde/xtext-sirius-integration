@@ -1,22 +1,26 @@
 package com.altran.general.integration.xtextsirius.editpart.internal.model;
 
+import java.util.Arrays;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
-import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
-import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
+import org.eclipse.xtext.util.TextRegion;
 
+import com.altran.general.integration.xtextsirius.editpart.internal.fix.XtextStyledTextCellEditorExFix;
+import com.altran.general.integration.xtextsirius.util.TextUtil;
 import com.google.inject.Injector;
 
-public class XtextSiriusStyledTextCellEditorModel extends XtextStyledTextCellEditorEx {
+public class XtextSiriusStyledTextCellEditorModel extends XtextStyledTextCellEditorExFix {
+	
 	private @Nullable EObject semanticElement;
 	
-	public XtextSiriusStyledTextCellEditorModel(final int style, final @NonNull Injector injector) {
+	public XtextSiriusStyledTextCellEditorModel(final int style, final Injector injector) {
 		super(style, injector);
 	}
-
+	
 	@Override
 	protected void doSetValue(final Object value) {
 		final EObject element = getSemanticElement();
@@ -29,10 +33,17 @@ public class XtextSiriusStyledTextCellEditorModel extends XtextStyledTextCellEdi
 		if (node == null) {
 			return;
 		}
-		final ICompositeNode rootNode = node.getRootNode();
-		super.doSetValue(rootNode.getText());
+		
+		final StringBuffer text = new StringBuffer(node.getRootNode().getTotalLength());
+		final TextRegion textRegion = TextUtil.calculateAndAdjustEditorOffset(node, text, false);
+		super.doSetValue(text.toString());
 
-		getXtextAdapter().setVisibleRegion(node.getTotalOffset(), node.getTotalLength());
+		final char[] chars = new char[textRegion.getLength()];
+		text.getChars(textRegion.getOffset(), textRegion.getOffset() + textRegion.getLength(), chars, 0);
+
+		System.err.println("text:>>>\n" + text + "\n<<< " + textRegion + "\n" + Arrays.toString(chars));
+		getXtextAdapter().resetVisibleRegion();
+		getXtextAdapter().setVisibleRegion(textRegion.getOffset(), textRegion.getLength());
 	}
 
 	public void setSemanticElement(final @NonNull EObject element) {
