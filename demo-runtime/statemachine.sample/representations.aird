@@ -165,6 +165,7 @@
       <target xmi:type="statemachine:Statemachine" href="example1.statemachine#/"/>
       <semanticElements xmi:type="statemachine:Statemachine" href="example1.statemachine#/"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_IyegU4GREeeO_NXW2w55ag" borderSize="1" borderSizeComputationExpression="1">
+        <customFeatures>labelFormat</customFeatures>
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']"/>
@@ -192,7 +193,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@subNodeMappings[name='EventNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWoGREeeO_NXW2w55ag" name="event4 [e..pi]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWoGREeeO_NXW2w55ag" name="event4 [org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ConstantImpl@2dfb8de3 (eProxyURI: #//@connstants.1)..org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ConstantImpl@285e483f (eProxyURI: #//@connstants.2)]">
         <target xmi:type="statemachine:Event" href="example1.statemachine#//@events.3"/>
         <semanticElements xmi:type="statemachine:Event" href="example1.statemachine#//@events.3"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_IyegW4GREeeO_NXW2w55ag" labelPosition="node">
@@ -200,7 +201,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@subNodeMappings[name='EventNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegXIGREeeO_NXW2w55ag" name="event5 [234]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegXIGREeeO_NXW2w55ag" name="event5 [235]">
         <target xmi:type="statemachine:Event" href="example1.statemachine#//@events.4"/>
         <semanticElements xmi:type="statemachine:Event" href="example1.statemachine#//@events.4"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_IyegXYGREeeO_NXW2w55ag" labelPosition="node">
@@ -263,7 +264,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_3ugXEIGSEeec3pkza-Wqhg" name="&#xD;&#xA;&lt;p>First paragraa456sdfph&lt;/p>&#xD;&#xA;&lt;ul>&#xD;&#xA;&#x9;&lt;li>some &lt;b>important&lt;/b> text&lt;/li>&#xD;&#xA;&lt;/ul>&#xD;&#xA;&#x9;">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_3ugXEIGSEeec3pkza-Wqhg" name="&#xD;&#xA;&lt;p>First paragraa456sdfph&lt;/p>&#xD;&#xA;&lt;ul>&#xD;&#xA;&#x9;&lt;li>some &lt;b>important&lt;/b> text&lt;/b>&lt;/li>&#xD;&#xA;&lt;/ul>&#xD;&#xA;&#x9;">
         <target xmi:type="statemachine:State" href="example1.statemachine#//@states.0"/>
         <semanticElements xmi:type="statemachine:State" href="example1.statemachine#//@states.0"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_3ugXEYGSEeec3pkza-Wqhg" showIcon="false" labelAlignment="LEFT" labelPosition="node" width="8" height="5">

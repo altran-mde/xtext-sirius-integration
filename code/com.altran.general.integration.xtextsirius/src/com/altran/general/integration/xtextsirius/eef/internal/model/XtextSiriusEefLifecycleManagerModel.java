@@ -11,6 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import com.altran.general.integration.xtextsirius.eef.internal.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.eef.internal.XtextSiriusController;
+import com.altran.general.integration.xtextsirius.util.EcoreHelper;
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycleManager {
@@ -22,22 +23,22 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			final @NonNull EditingContextAdapter contextAdapter) {
 		super(descriptor, controlDescription, variableManager, interpreter, contextAdapter);
 	}
-
+	
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		final Injector injector = createSpecializedInjector();
-		
+
 		this.widget = new XtextSiriusWidgetModel(parent, injector, getDescriptor().isMultiLine());
 		applyGridData(this.getWidget().getControl());
-		
+
 		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
 				this.contextAdapter);
 	}
-	
+
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
-		
+
 		this.newValueConsumer = (newValue) -> {
 			if (newValue instanceof EObject) {
 				this.getWidget().update((EObject) newValue);
@@ -45,10 +46,19 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 		};
 		this.controller.onNewValue(this.newValueConsumer);
 	}
-	
+
+	@Override
+	public void aboutToBeHidden() {
+		EObject semanticElement = getWidget().getSemanticElement();
+		if (semanticElement != null) {
+			semanticElement = EcoreHelper.cloneAndProxify(semanticElement);
+		}
+		persistIfDirty(semanticElement);
+		super.aboutToBeHidden();
+	}
+
 	@Override
 	public XtextSiriusWidgetModel getWidget() {
 		return (XtextSiriusWidgetModel) super.getWidget();
 	}
-	
 }

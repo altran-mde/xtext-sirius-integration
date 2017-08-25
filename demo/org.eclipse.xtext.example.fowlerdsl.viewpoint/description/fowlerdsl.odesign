@@ -84,7 +84,9 @@
         </initialOperation>
       </controls>
       <controls xsi:type="properties:TextDescription" identifier="EventGuardId" labelExpression="Guard" valueExpression="feature:guard">
-        <initialOperation/>
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:SetValue" featureName="guard" valueExpression="var:newValue"/>
+        </initialOperation>
       </controls>
     </groups>
     <groups identifier="StateProperties" labelExpression="State" domainClass="statemachine.State" semanticCandidateExpression="var:self">

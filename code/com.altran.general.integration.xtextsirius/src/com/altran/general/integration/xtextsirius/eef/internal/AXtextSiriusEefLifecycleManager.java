@@ -1,10 +1,16 @@
 package com.altran.general.integration.xtextsirius.eef.internal;
 
+import java.util.Map;
+
 import org.eclipse.eef.EEFTextDescription;
+import org.eclipse.eef.EefPackage;
+import org.eclipse.eef.core.api.EEFExpressionUtils;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.core.api.controllers.IConsumer;
 import org.eclipse.eef.core.api.controllers.IEEFWidgetController;
+import org.eclipse.eef.core.api.utils.EvalFactory;
 import org.eclipse.eef.ide.ui.api.widgets.AbstractEEFWidgetLifecycleManager;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
@@ -13,6 +19,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Control;
 
+import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 
 public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleManager {
@@ -131,5 +138,21 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	
 	public AXtextSiriusWidget getWidget() {
 		return this.widget;
+	}
+
+
+	protected void persistIfDirty(final Object newValue) {
+		if (this.getWidget().isDirty()) {
+			this.contextAdapter.performModelChange(() -> {
+				final String editExpression = getWidgetDescription().getEditExpression();
+				final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+	
+				final Map<String, Object> variables = Maps.newLinkedHashMap();
+				variables.putAll(this.variableManager.getVariables());
+				variables.put(EEFExpressionUtils.EEFText.NEW_VALUE, newValue);
+	
+				EvalFactory.of(this.interpreter, variables).logIfBlank(eAttribute).call(editExpression);
+			});
+		}
 	}
 }
