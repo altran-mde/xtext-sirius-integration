@@ -4,7 +4,7 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.util.TextRegion;
 
-public class TextUtil {
+public class StyledTextUtil {
 	public static @NonNull StringBuffer removeNewlinesIfSingleLine(
 			final @NonNull StringBuffer text,
 			final int offset,

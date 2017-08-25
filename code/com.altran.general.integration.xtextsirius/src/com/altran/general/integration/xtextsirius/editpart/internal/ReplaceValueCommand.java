@@ -17,32 +17,36 @@ import com.altran.general.integration.xtextsirius.util.ECollectionUtil;
 
 public class ReplaceValueCommand extends SetValueCommand {
 	private final EStructuralFeature feature;
-	private final EObject value;
-	
+	private final Object value;
+
 	public ReplaceValueCommand(final SetRequest request) {
 		super(request);
 		this.feature = request.getFeature();
-		this.value = (EObject) request.getValue();
+		this.value = request.getValue();
 	}
-	
+
 	@Override
 	protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)
 			throws ExecutionException {
-		final EObject elementToEdit = getElementToEdit();
-		final boolean many = FeatureMapUtil.isMany(elementToEdit, this.feature);
-		if (many) {
-			final Collection collection = ((Collection) elementToEdit.eGet(this.feature));
-			if (this.value instanceof List) {
-				final List values = (List) this.value;
-				collection.clear();
-				collection.addAll(values);
+		if (this.value instanceof EObject) {
+			final EObject elementToEdit = getElementToEdit();
+			final boolean many = FeatureMapUtil.isMany(elementToEdit, this.feature);
+			if (many) {
+				final Collection collection = ((Collection) elementToEdit.eGet(this.feature));
+				if (this.value instanceof List) {
+					final List values = (List) this.value;
+					collection.clear();
+					collection.addAll(values);
+				} else {
+					ECollectionUtil.replaceOrAddLocal(collection, (EObject) this.value);
+				}
 			} else {
-				ECollectionUtil.replaceOrAddLocal(collection, this.value);
+				getElementToEdit().eSet(this.feature, this.value);
 			}
-		} else {
-			getElementToEdit().eSet(this.feature, this.value);
+			return CommandResult.newOKCommandResult();
 		}
-		return CommandResult.newOKCommandResult();
-		
+
+		return super.doExecuteWithResult(monitor, info);
+
 	}
 }

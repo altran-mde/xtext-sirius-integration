@@ -6,7 +6,7 @@ import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Composite;
 
 import com.altran.general.integration.xtextsirius.eef.internal.AXtextSiriusWidget;
-import com.altran.general.integration.xtextsirius.util.TextUtil;
+import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 import com.google.inject.Injector;
 
 public class XtextSiriusWidgetValue extends AXtextSiriusWidget {
@@ -28,7 +28,7 @@ public class XtextSiriusWidgetValue extends AXtextSiriusWidget {
 	@SuppressWarnings("restriction")
 	public void update(final @NonNull String newValue) {
 		this.editorAccess.updateModel(this.prefixText,
-				TextUtil.removeNewlinesIfSingleLine(new StringBuffer(newValue), 0, newValue.length(),
+				StyledTextUtil.removeNewlinesIfSingleLine(new StringBuffer(newValue), 0, newValue.length(),
 						this.isMultiLine()).toString(),
 				this.suffixText);
 		resetDirty();

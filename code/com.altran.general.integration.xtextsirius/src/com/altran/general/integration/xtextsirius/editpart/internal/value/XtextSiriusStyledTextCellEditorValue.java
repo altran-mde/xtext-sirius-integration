@@ -4,7 +4,7 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSiriusStyledTextCellEditor;
-import com.altran.general.integration.xtextsirius.util.TextUtil;
+import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 import com.google.inject.Injector;
 
 public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor {
@@ -26,7 +26,7 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 	protected void doSetValue(final Object value) {
 		if (value instanceof String) {
 			final StringBuffer text = new StringBuffer((String) value);
-			TextUtil.removeNewlinesIfSingleLine(text, 0, text.length(), isMultiLine());
+			StyledTextUtil.removeNewlinesIfSingleLine(text, 0, text.length(), isMultiLine());
 
 			super.doSetValue(this.prefixText + "\n" + text + this.suffixText);
 			

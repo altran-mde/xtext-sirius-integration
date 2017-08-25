@@ -11,7 +11,7 @@ import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.eef.internal.AXtextSiriusWidget;
 import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
-import com.altran.general.integration.xtextsirius.util.TextUtil;
+import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 import com.google.inject.Injector;
 
 public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
@@ -30,7 +30,7 @@ public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 			final ICompositeNode node = NodeModelUtils.findActualNodeFor(newValue);
 			if (node != null) {
 				final StringBuffer text = new StringBuffer(node.getRootNode().getTotalLength());
-				final TextRegion textRegion = TextUtil.calculateAndAdjustEditorOffset(node, text, isMultiLine());
+				final TextRegion textRegion = StyledTextUtil.calculateAndAdjustEditorOffset(node, text, isMultiLine());
 				this.editorAccess.updateModel(text.toString(), state -> textRegion);
 			}
 		}
