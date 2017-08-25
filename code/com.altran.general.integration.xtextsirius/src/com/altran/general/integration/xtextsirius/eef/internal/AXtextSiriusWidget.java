@@ -16,56 +16,69 @@ import com.google.inject.Injector;
 public abstract class AXtextSiriusWidget {
 	@Inject
 	private EmbeddedEditorFactory embeddedEditorFactory;
-
+	
 	private final Injector injector;
-
+	private final boolean multiLine;
+	
 	protected EmbeddedEditor editor;
 	protected EmbeddedEditorModelAccess editorAccess;
-
+	
 	protected XtextSiriusEditedResourceProvider editedResourceProvider;
-
-	private final boolean multiLine;
-
+	
+	private long modificationStamp = 0;
+	
 	public AXtextSiriusWidget(final @NonNull Composite parent, final @NonNull Injector injector,
 			final boolean multiLine) {
 		this.injector = injector;
 		this.multiLine = multiLine;
 		injector.injectMembers(this);
-
+		
 		createEditor(parent);
 	}
-
+	
 	private void createEditor(final @NonNull Composite parent) {
 		this.editedResourceProvider = new XtextSiriusEditedResourceProvider(this.injector);
 		this.editor = this.embeddedEditorFactory.newEditor(this.editedResourceProvider)
 				.withParent(parent);
-
+		
 		this.editorAccess = this.editor.createPartialEditor(true);
 	}
-
+	
 	public @Nullable Control getControl() {
 		if (this.editor != null) {
 			return this.editor.getViewer().getControl();
 		}
-
+		
 		return null;
 	}
-
+	
 	public @Nullable StyledText getTextWidget() {
 		if (this.editor != null) {
 			return this.editor.getViewer().getTextWidget();
 		}
-
+		
 		return null;
 	}
-
+	
 	public void cleanup() {
 		if (this.editor != null) {
 			this.editor.getDocument().set("");
 		}
 	}
-
-	public boolean isMultiLine() {
+	
+	protected boolean isMultiLine() {
 		return this.multiLine;
+	}
+
+	protected void resetDirty() {
+		this.modificationStamp = retrieveModificationStamp();
+	}
+
+	protected long retrieveModificationStamp() {
+		return this.editor.getDocument().getModificationStamp();
+	}
+	
+	public boolean isDirty() {
+		return this.modificationStamp != retrieveModificationStamp();
 	}
 }

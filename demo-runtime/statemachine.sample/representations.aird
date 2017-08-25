@@ -263,7 +263,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_3ugXEIGSEeec3pkza-Wqhg" name="&#xD;&#xA;&lt;p>First paragraa456sdfph&lt;/p>&#xD;&#xA;&lt;ul>&#xD;&#xA;&#x9;&lt;li>some &lt;b>important&lt;/b> text&lt;/b>&lt;/li>&#xD;&#xA;&lt;/ul>&#xD;&#xA;&#x9;">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_3ugXEIGSEeec3pkza-Wqhg" name="&#xD;&#xA;&lt;p>First paragraa456sdfph&lt;/p>&#xD;&#xA;&lt;ul>&#xD;&#xA;&#x9;&lt;li>some &lt;b>important&lt;/b> text&lt;/li>&#xD;&#xA;&lt;/ul>&#xD;&#xA;&#x9;">
         <target xmi:type="statemachine:State" href="example1.statemachine#//@states.0"/>
         <semanticElements xmi:type="statemachine:State" href="example1.statemachine#//@states.0"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_3ugXEYGSEeec3pkza-Wqhg" showIcon="false" labelAlignment="LEFT" labelPosition="node" width="8" height="5">

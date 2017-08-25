@@ -1,7 +1,6 @@
 package com.altran.general.integration.xtextsirius.eef.internal;
 
 import org.eclipse.eef.EEFTextDescription;
-import org.eclipse.eef.EEFWidgetDescription;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.core.api.controllers.IConsumer;
 import org.eclipse.eef.core.api.controllers.IEEFWidgetController;
@@ -68,7 +67,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	
 	
 	@Override
-	protected @NonNull EEFWidgetDescription getWidgetDescription() {
+	protected @NonNull EEFTextDescription getWidgetDescription() {
 		return this.controlDescription;
 	}
 	
