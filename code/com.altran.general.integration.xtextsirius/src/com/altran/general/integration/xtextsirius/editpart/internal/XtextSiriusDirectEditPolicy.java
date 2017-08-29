@@ -24,6 +24,10 @@ import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 
+import com.altran.general.integration.xtextsirius.internal.RefreshDiagramTask;
+import com.altran.general.integration.xtextsirius.internal.ReplaceValueParameter;
+import com.altran.general.integration.xtextsirius.internal.ReplaceValueTask;
+
 public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 	@Override
 	protected void showCurrentEditValue(final DirectEditRequest request) {

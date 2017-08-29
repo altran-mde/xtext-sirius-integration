@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.editpart.internal;
+package com.altran.general.integration.xtextsirius.internal;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;

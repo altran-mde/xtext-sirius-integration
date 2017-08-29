@@ -26,14 +26,14 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	private final APropertyDescriptor descriptor;
 	protected final EEFTextDescription controlDescription;
 	protected final EditingContextAdapter contextAdapter;
-	
-	protected IConsumer<Object> newValueConsumer;
 
+	protected IConsumer<Object> newValueConsumer;
+	
 	protected AXtextSiriusWidget widget;
 	protected XtextSiriusController controller;
-
-	protected boolean enabled;
 	
+	protected boolean enabled;
+
 	public AXtextSiriusEefLifecycleManager(
 			final @NonNull APropertyDescriptor descriptor,
 			final @NonNull EEFTextDescription controlDescription,
@@ -45,13 +45,13 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		this.controlDescription = controlDescription;
 		this.contextAdapter = contextAdapter;
 	}
-
+	
 	@Override
 	public void refresh() {
 		super.refresh();
 		this.controller.refresh();
 	}
-	
+
 	@Override
 	public void aboutToBeHidden() {
 		super.aboutToBeHidden();
@@ -59,22 +59,22 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		this.newValueConsumer = null;
 		this.getWidget().cleanup();
 	}
-	
+
 	@Override
 	public void dispose() {
 		super.dispose();
 	}
-	
+
 	@Override
 	protected @Nullable IEEFWidgetController getController() {
 		return this.controller;
 	}
-	
+
 	@Override
 	protected @NonNull EEFTextDescription getWidgetDescription() {
 		return this.controlDescription;
 	}
-	
+
 	protected void applyGridData(final @Nullable Control widgetControl) {
 		if (widgetControl != null) {
 			final GridData gridData = this.getDescriptor().getConfig().getLayoutData(translateToGridData());
@@ -83,26 +83,26 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 			widgetControl.setLayoutData(gridData);
 		}
 	}
-	
+
 	@Override
 	protected void setEnabled(final boolean isEnabled) {
 		this.enabled = isEnabled;
 	}
-
+	
 	@Override
 	protected boolean isEnabled() {
 		return this.enabled;
 	}
-	
+
 	@Override
 	protected @Nullable Control getValidationControl() {
 		if (this.getWidget() != null) {
 			return this.getWidget().getControl();
 		}
-
+		
 		return null;
 	}
-	
+
 	protected int translateToStyle() {
 		if (this.getDescriptor().isMultiLine()) {
 			return SWT.MULTI | SWT.WRAP | SWT.V_SCROLL | SWT.BORDER;
@@ -110,42 +110,42 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 			return SWT.SINGLE | SWT.BORDER;
 		}
 	}
-	
+
 	protected @NonNull GridData translateToGridData() {
 		final GridData result = new GridData(SWT.FILL, SWT.BEGINNING, true, false);
 		if (this.getDescriptor().isMultiLine()) {
 			// because it's two times the answer
 			result.heightHint = 42 * 2;
 		}
-
+		
 		return result;
 	}
-	
+
 	protected @NonNull Injector createSpecializedInjector() {
 		return this.getDescriptor().getConfig().getInjector()
 				.createChildInjector(new XtextEditorSwtStyleOverridingModule(
 						this.getDescriptor().getConfig().getSwtWidgetStyle(translateToStyle())));
 	}
-
+	
 	public @NonNull APropertyDescriptor getDescriptor() {
 		return this.descriptor;
 	}
-	
+
 	public AXtextSiriusWidget getWidget() {
 		return this.widget;
 	}
-
-
+	
+	
 	protected void persistIfDirty(final Object newValue) {
 		if (this.getWidget().isDirty()) {
 			this.contextAdapter.performModelChange(() -> {
 				final String editExpression = getWidgetDescription().getEditExpression();
 				final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
-
+				
 				final Map<String, Object> variables = Maps.newLinkedHashMap();
 				variables.putAll(this.variableManager.getVariables());
 				variables.put(EEFExpressionUtils.EEFText.NEW_VALUE, newValue);
-
+				
 				EvalFactory.of(this.interpreter, variables).logIfBlank(eAttribute).call(editExpression);
 			});
 		}

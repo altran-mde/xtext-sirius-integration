@@ -1,8 +1,10 @@
 package com.altran.general.integration.xtextsirius.editpart.internal;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.swt.SWT;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart;
 
@@ -32,6 +34,14 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 
 	protected boolean isMultiLine() {
 		return this.multiLine;
+	}
+	
+	@Override
+	protected void handleNotificationEvent(final Notification notification) {
+		if (notification.getFeature().equals(ViewpointPackage.eINSTANCE.getDRepresentationElement_Name())) {
+			updateLabelText();
+		}
+		super.handleNotificationEvent(notification);
 	}
 	
 	@Override
