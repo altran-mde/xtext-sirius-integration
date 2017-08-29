@@ -12,6 +12,7 @@ import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSirius
 public class XtextSiriusEditPartValue extends AXtextSiriusEditPart {
 	private @NonNull final String prefixText;
 	private @NonNull final String suffixText;
+	private String labelText;
 	
 	public XtextSiriusEditPartValue(final @NonNull EditPartDescriptorValue descriptor, final @NonNull View view) {
 		super(descriptor, view);
@@ -21,12 +22,27 @@ public class XtextSiriusEditPartValue extends AXtextSiriusEditPart {
 	
 	@Override
 	public String getEditText() {
+		// this seems not right, but we get update issues otherwise
+		if (this.labelText != null) {
+			final String name = this.labelText;
+			return name;
+		}
+		
 		final EObject semanticElement = resolveSemanticElement();
 		if (semanticElement instanceof DRepresentationElement) {
-			return ((DRepresentationElement) semanticElement).getName();
+			final DRepresentationElement representationElement = (DRepresentationElement) semanticElement;
+			final String name = representationElement.getName();
+			return name;
 		}
-
+		
 		return null;
+		
+	}
+
+	@Override
+	public void setLabelText(final String text) {
+		this.labelText = text;
+		super.setLabelText(text);
 	}
 	
 	@Override

@@ -46,7 +46,6 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		this.contextAdapter = contextAdapter;
 	}
 
-
 	@Override
 	public void refresh() {
 		super.refresh();
@@ -66,18 +65,15 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		super.dispose();
 	}
 	
-	
 	@Override
 	protected @Nullable IEEFWidgetController getController() {
 		return this.controller;
 	}
 	
-	
 	@Override
 	protected @NonNull EEFTextDescription getWidgetDescription() {
 		return this.controlDescription;
 	}
-	
 	
 	protected void applyGridData(final @Nullable Control widgetControl) {
 		if (widgetControl != null) {
@@ -87,7 +83,6 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 			widgetControl.setLayoutData(gridData);
 		}
 	}
-	
 	
 	@Override
 	protected void setEnabled(final boolean isEnabled) {
@@ -146,11 +141,11 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 			this.contextAdapter.performModelChange(() -> {
 				final String editExpression = getWidgetDescription().getEditExpression();
 				final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
-	
+
 				final Map<String, Object> variables = Maps.newLinkedHashMap();
 				variables.putAll(this.variableManager.getVariables());
 				variables.put(EEFExpressionUtils.EEFText.NEW_VALUE, newValue);
-	
+
 				EvalFactory.of(this.interpreter, variables).logIfBlank(eAttribute).call(editExpression);
 			});
 		}

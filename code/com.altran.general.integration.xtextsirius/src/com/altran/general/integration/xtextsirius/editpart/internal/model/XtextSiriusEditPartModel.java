@@ -31,22 +31,17 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	}
 
 	protected @Nullable INode getSemanticNode() {
-		final EObject semanticElement = resolveSemanticElement();
+		final EObject semanticElement = getSemanticElement();
 		if (semanticElement == null) {
 			return null;
 		}
 		
 		return NodeModelUtils.getNode(semanticElement);
 	}
-	
+
 	@Override
-	public EObject resolveSemanticElement() {
-		return ((DSemanticDecorator) super.resolveSemanticElement()).getTarget();
-	}
-	
-	@Override
-	public @NonNull EObject getSemanticElement() {
-		return resolveSemanticElement();
+	public EObject getSemanticElement() {
+		return ((DSemanticDecorator) resolveSemanticElement()).getTarget();
 	}
 	
 	@Override
