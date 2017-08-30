@@ -1,9 +1,12 @@
 package com.altran.general.integration.xtextsirius.editpart.internal;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.swt.SWT;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart;
@@ -21,7 +24,7 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 	}
 	
 	protected int translateToStyle() {
-		if (this.isMultiLine()) {
+		if (isMultiLine()) {
 			return SWT.MULTI | SWT.WRAP;
 		} else {
 			return SWT.SINGLE;
@@ -35,6 +38,11 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 	protected boolean isMultiLine() {
 		return this.multiLine;
 	}
+
+	public @Nullable EObject getSemanticElement() {
+		return ((DSemanticDecorator) resolveSemanticElement()).getTarget();
+	}
+	
 	
 	@Override
 	protected void handleNotificationEvent(final Notification notification) {

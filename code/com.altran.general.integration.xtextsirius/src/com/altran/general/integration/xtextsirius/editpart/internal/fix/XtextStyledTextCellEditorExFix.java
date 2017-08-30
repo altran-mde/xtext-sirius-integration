@@ -16,16 +16,16 @@ public class XtextStyledTextCellEditorExFix extends XtextStyledTextCellEditorFix
 	
 	private Object originalValue;
 	private boolean deactivationLock = false;
-
+	
 	public XtextStyledTextCellEditorExFix(final int style, final Injector injector,
 			final IXtextFakeContextResourcesProvider contextResourcesProvider) {
 		super(style, injector, contextResourcesProvider);
 	}
-
+	
 	public XtextStyledTextCellEditorExFix(final int style, final Injector injector) {
 		super(style, injector);
 	}
-
+	
 	/**
 	 * This will be used when an edit has occurred by a ModifyEvent has been
 	 * been send. Will call #setValue(Object) but will also call
@@ -55,7 +55,7 @@ public class XtextStyledTextCellEditorExFix extends XtextStyledTextCellEditorFix
 		// value will be applied.
 		editOccured(null);
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 *
@@ -68,7 +68,7 @@ public class XtextStyledTextCellEditorExFix extends XtextStyledTextCellEditorFix
 		}
 		super.doSetValue(value);
 	}
-
+	
 	/**
 	 * @return boolean value specifying whether or not the value has been
 	 *         changed
@@ -79,7 +79,7 @@ public class XtextStyledTextCellEditorExFix extends XtextStyledTextCellEditorFix
 		}
 		return !getValue().equals(this.originalValue);
 	}
-
+	
 	/*
 	 * Runs super deactivate unless it has been locked and otherwise unlocks
 	 * deactivation
@@ -93,7 +93,7 @@ public class XtextStyledTextCellEditorExFix extends XtextStyledTextCellEditorFix
 		}
 		setDeactivationLock(false);
 	}
-
+	
 	/**
 	 * Returns true if deactivation has been locked
 	 *
@@ -102,7 +102,7 @@ public class XtextStyledTextCellEditorExFix extends XtextStyledTextCellEditorFix
 	public boolean isDeactivationLocked() {
 		return this.deactivationLock;
 	}
-
+	
 	/**
 	 * Sets deactivation lock so that the cell editor does not perform
 	 * deactivate
@@ -112,5 +112,5 @@ public class XtextStyledTextCellEditorExFix extends XtextStyledTextCellEditorFix
 	public void setDeactivationLock(final boolean deactivationLock) {
 		this.deactivationLock = deactivationLock;
 	}
-
+	
 }

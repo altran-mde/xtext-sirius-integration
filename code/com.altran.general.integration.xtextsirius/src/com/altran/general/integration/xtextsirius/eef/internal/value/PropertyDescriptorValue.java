@@ -16,7 +16,7 @@ public class PropertyDescriptorValue extends APropertyDescriptor {
 	
 	private final @Nullable String prefixText;
 	private final @Nullable String suffixText;
-
+	
 	public PropertyDescriptorValue(
 			final @Nullable String identifier,
 			final boolean multiLine,
@@ -27,7 +27,7 @@ public class PropertyDescriptorValue extends APropertyDescriptor {
 		this.prefixText = prefixText;
 		this.suffixText = suffixText;
 	}
-
+	
 	@Override
 	public @NonNull AXtextSiriusEefLifecycleManager createEefLifecycleManager(
 			final @NonNull EEFTextDescription controlDescription,
@@ -37,11 +37,11 @@ public class PropertyDescriptorValue extends APropertyDescriptor {
 		return new XtextSiriusEefLifecycleManagerValue(this, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-	
+
 	public @NonNull String getPrefixText() {
 		return StringUtils.defaultString(this.prefixText);
 	}
-	
+
 	public @NonNull String getSuffixText() {
 		return StringUtils.defaultString(this.suffixText);
 	}

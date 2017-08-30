@@ -7,14 +7,13 @@ import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.serializer.ISerializer;
 
 import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSiriusEditPart;
 
-public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IXtextAwareEditPartModel {
+public class XtextSiriusEditPartModel extends AXtextSiriusEditPart {
 	
 	public XtextSiriusEditPartModel(final @NonNull EditPartDescriptorModel descriptor, final @NonNull View view) {
 		super(descriptor, view);
@@ -42,13 +41,8 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	}
 
 	@Override
-	public EObject getSemanticElement() {
-		return ((DSemanticDecorator) resolveSemanticElement()).getTarget();
-	}
-	
-	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
-		return new XtextSiriusDirectEditManagerModel(this, this.getInjector(),
+		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
 				translateToStyle(), isMultiLine());
 	}
 	

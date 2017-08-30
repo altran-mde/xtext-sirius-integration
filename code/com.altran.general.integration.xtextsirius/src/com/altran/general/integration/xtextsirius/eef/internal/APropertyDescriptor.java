@@ -15,7 +15,7 @@ public abstract class APropertyDescriptor {
 	private final String identifier;
 	private final boolean multiLine;
 	private final IXtextPropertyConfiguration config;
-	
+
 	public APropertyDescriptor(
 			final @Nullable String identifier,
 			final boolean multiLine,
@@ -24,24 +24,24 @@ public abstract class APropertyDescriptor {
 		this.multiLine = multiLine;
 		this.config = config;
 	}
-	
+
 	public @NonNull String getIdentifier() {
 		return this.identifier;
 	}
-	
+
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
-	
+
 	public @NonNull IXtextPropertyConfiguration getConfig() {
 		return this.config;
 	}
-	
+
 	public boolean isValid() {
 		return StringUtils.isNotBlank(getIdentifier()) &&
 				getConfig() instanceof IXtextPropertyConfiguration;
 	}
-
+	
 	public abstract @NonNull AXtextSiriusEefLifecycleManager createEefLifecycleManager(
 			final @NonNull EEFTextDescription controlDescription,
 			final @NonNull IVariableManager variableManager,

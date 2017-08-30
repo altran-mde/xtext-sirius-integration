@@ -9,7 +9,7 @@ public abstract class AXtextPropertyConfiguration implements IXtextPropertyConfi
 	public int getSwtWidgetStyle(final int defaultStyle) {
 		return defaultStyle;
 	}
-
+	
 	@Override
 	public @NonNull GridData getLayoutData(final @NonNull GridData defaultData) {
 		return defaultData;

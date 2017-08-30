@@ -9,7 +9,7 @@ public class ReplaceValueParameter {
 	private final EObject elementToEdit;
 	private final EStructuralFeature feature;
 	private final Object value;
-	
+
 	public ReplaceValueParameter(
 			final @NonNull EObject elementToEdit,
 			final @NonNull EStructuralFeature feature,
@@ -18,15 +18,15 @@ public class ReplaceValueParameter {
 		this.feature = feature;
 		this.value = value;
 	}
-
+	
 	public @NonNull EObject getElementToEdit() {
 		return this.elementToEdit;
 	}
-
+	
 	public @NonNull EStructuralFeature getFeature() {
 		return this.feature;
 	}
-
+	
 	public @Nullable Object getValue() {
 		return this.value;
 	}

@@ -11,15 +11,24 @@ import java.util.stream.StreamSupport;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 
 public class EcoreHelper {
+	private static final String SYNTHETIC_URI_PREFIX = "__synthetic__";
+	
+	public static void updateFakeResourceUri(final @NonNull Resource fakeResource, final @NonNull URI origResourceUri) {
+		final URI newUri = origResourceUri.trimSegments(1)
+				.appendSegment(SYNTHETIC_URI_PREFIX + origResourceUri.lastSegment());
+		fakeResource.setURI(newUri);
+	}
+
 	public static <T extends EObject> T cloneAndProxify(final @NonNull T obj) {
 		// return proxify(EcoreUtil.copy(obj), EcoreUtil.getURI(obj));
 		return proxify(obj, EcoreUtil.getURI(obj));
 	}
-
+	
 	public static <T extends EObject> T proxify(final @NonNull T semanticElement, final @NonNull URI originalUri) {
 		final Set<EObject> allReferencedObjects = collectAllReferencedObjectsRecursive(semanticElement)
 				.collect(Collectors.toSet());

@@ -19,7 +19,7 @@ public class PropertyDescriptorModel extends APropertyDescriptor {
 			final @Nullable IXtextPropertyConfiguration config) {
 		super(identifier, multiLine, config);
 	}
-
+	
 	@Override
 	public @NonNull AXtextSiriusEefLifecycleManager createEefLifecycleManager(
 			final @NonNull EEFTextDescription controlDescription,

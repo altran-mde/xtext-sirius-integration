@@ -31,7 +31,7 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	private static final String XTEXT_DIRECT_EDIT_VALUE_ELEMENT = "xtextDirectEditValue";
 	private static final String PREFIX_TEXT_ATTRIBUTE = "prefixText";
 	private static final String SUFFIX_TEXT_ATTRIBUTE = "suffixText";
-	
+
 	@Override
 	public boolean provides(final IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
@@ -42,10 +42,10 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 						.anyMatch(providesFilter(targetIdentifier));
 			}
 		}
-		
+
 		return super.provides(operation);
 	}
-	
+
 	@Override
 	public @NonNull IGraphicalEditPart createGraphicEditPart(final View view) {
 		final String identifier = extractIdentifier(view);
@@ -59,27 +59,27 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 									"Cannot find IXtextDirectEditConfiguration for semanticType "
 											+ identifier));
 		}
-
-
+		
+		
 		return super.createGraphicEditPart(view);
 	}
-
+	
 	private @Nullable String extractIdentifier(final @NonNull View view) {
 		final EObject viewElement = view.getElement();
 		if (viewElement instanceof DRepresentationElement) {
 			final DRepresentationElement representationElement = (DRepresentationElement) viewElement;
 			return representationElement.getMapping().getName();
 		}
-
+		
 		return null;
 	}
-
-
+	
+	
 	private @NonNull Predicate<? super AEditPartDescriptor> providesFilter(
 			final @NonNull String identifier) {
 		return d -> identifier.equals(d.getIdentifier());
 	}
-	
+
 	private @NonNull Stream<@NonNull AEditPartDescriptor> collectXtextDirectEditConfigurations() {
 		return Stream.of(Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID))
 				.filter(e -> e.isValid())
@@ -109,5 +109,5 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 				.filter(Objects::nonNull)
 				.filter(d -> d.isValid());
 	}
-	
+
 }

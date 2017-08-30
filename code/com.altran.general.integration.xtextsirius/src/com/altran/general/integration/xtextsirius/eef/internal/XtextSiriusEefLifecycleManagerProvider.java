@@ -30,13 +30,13 @@ public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleMana
 	private static final String XTEXT_PROPERTY_VALUE_ELEMENT = "xtextPropertyValue";
 	private static final String PREFIX_TEXT_ATTRIBUTE = "prefixText";
 	private static final String SUFFIX_TEXT_ATTRIBUTE = "suffixText";
-	
+
 	@Override
 	public boolean canHandle(final EEFControlDescription controlDescription) {
 		return collectXtextPropertyConfigurations()
 				.anyMatch(createIdentifierFilter(controlDescription));
 	}
-	
+
 	@Override
 	public @NonNull IEEFLifecycleManager getLifecycleManager(final EEFControlDescription controlDescription,
 			final IVariableManager variableManager, final IInterpreter interpreter,
@@ -51,10 +51,10 @@ public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleMana
 							() -> new IllegalStateException("Cannot find IXtextPropertyConfiguration for identifier "
 									+ controlDescription.getIdentifier()));
 		}
-
+		
 		throw new IllegalArgumentException("controlDescription is not of type EEFTextDescription");
 	}
-	
+
 	private @NonNull Stream<@NonNull APropertyDescriptor> collectXtextPropertyConfigurations() {
 		return Stream.of(Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID))
 				.filter(e -> e.isValid())
@@ -83,7 +83,7 @@ public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleMana
 				.filter(Objects::nonNull)
 				.filter(d -> d.isValid());
 	}
-	
+
 	private @NonNull Predicate<? super @NonNull APropertyDescriptor> createIdentifierFilter(
 			final @NonNull EEFControlDescription controlDescription) {
 		return e -> StringUtils.equals(controlDescription.getIdentifier(), e.getIdentifier());

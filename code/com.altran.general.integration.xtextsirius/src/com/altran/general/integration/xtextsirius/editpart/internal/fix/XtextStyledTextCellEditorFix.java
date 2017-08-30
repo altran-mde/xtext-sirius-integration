@@ -47,28 +47,28 @@ import com.google.inject.Injector;
 public class XtextStyledTextCellEditorFix extends XtextStyledTextCellEditor {
 	
 	private final static String CONTEXTMENUID = "org.yakindu.base.xtext.utils.jface.viewers.StyledTextXtextAdapterContextMenu";
-	
-	private final Injector injector;
 
+	private final Injector injector;
+	
 	private StyledTextXtextAdapter xtextAdapter;
 	private IXtextFakeContextResourcesProvider contextFakeResourceProvider;
-	
+
 	// in gtk, we need this flag to let one focus lost event pass. See
 	// focusLost() for details.
 	private boolean ignoreNextFocusLost = false;
 	private CompletionProposalAdapter completionProposalAdapter;
-	
+
 	public XtextStyledTextCellEditorFix(final int style, final Injector injector,
 			final IXtextFakeContextResourcesProvider contextFakeResourceProvider) {
 		this(style, injector);
 		this.contextFakeResourceProvider = contextFakeResourceProvider;
 	}
-	
+
 	public XtextStyledTextCellEditorFix(final int style, final Injector injector) {
 		super(style, injector);
 		this.injector = injector;
 	}
-	
+
 	/**
 	 * Creates an {@link SourceViewer} and returns the {@link StyledText} widget
 	 * of the viewer as the cell editors control. Some code is copied from
@@ -83,28 +83,28 @@ public class XtextStyledTextCellEditorFix extends XtextStyledTextCellEditor {
 				XtextStyledTextCellEditorFix.this.focusLost();
 			}
 		});
-		
+
 		// adapt to xtext
 		this.xtextAdapter = createXtextAdapter();
-		this.getXtextAdapter().adapt(styledText);
-		
+		getXtextAdapter().adapt(styledText);
+
 		// configure content assist
-		final IContentAssistant contentAssistant = this.getXtextAdapter().getContentAssistant();
-		
+		final IContentAssistant contentAssistant = getXtextAdapter().getContentAssistant();
+
 		this.completionProposalAdapter = new CompletionProposalAdapter(styledText, contentAssistant,
 				KeyStroke.getInstance(
 						SWT.CTRL, SWT.SPACE),
 				null);
-		
+
 		// This listener notifies the modification, when text is selected via
 		// proposal. A ModifyEvent is not thrown by the StyledText in this case.
-		this.getXtextAdapter().getXtextSourceviewer().addTextListener(new ITextListener() {
+		getXtextAdapter().getXtextSourceviewer().addTextListener(new ITextListener() {
 			@Override
 			public void textChanged(final TextEvent event) {
 				editOccured(null);
 			}
 		});
-		
+
 		if ((styledText.getStyle() & SWT.SINGLE) != 0) {
 			// The regular key down event is too late (after popup is closed
 			// again).
@@ -130,18 +130,18 @@ public class XtextStyledTextCellEditorFix extends XtextStyledTextCellEditor {
 				}
 			}
 		});
-		
+
 		initContextMenu(styledText);
-		
+
 		return styledText;
 	}
-	
+
 	protected StyledTextXtextAdapter createXtextAdapter() {
-		return new StyledTextXtextAdapterFix(this.getInjector(),
-				this.getContextFakeResourceProvider() == null ? IXtextFakeContextResourcesProvider.NULL_CONTEXT_PROVIDER
-						: this.getContextFakeResourceProvider());
+		return new StyledTextXtextAdapterFix(getInjector(),
+				getContextFakeResourceProvider() == null ? IXtextFakeContextResourcesProvider.NULL_CONTEXT_PROVIDER
+						: getContextFakeResourceProvider());
 	}
-	
+
 	@Override
 	protected void initContextMenu(final Control control) {
 		final MenuManager menuManager = createMenuManager();
@@ -151,12 +151,12 @@ public class XtextStyledTextCellEditorFix extends XtextStyledTextCellEditor {
 		final IWorkbenchPartSite site = window.getActivePage().getActiveEditor().getSite();
 		site.registerContextMenu(CONTEXTMENUID, menuManager, site.getSelectionProvider());
 	}
-	
+
 	@Override
 	protected MenuManager createMenuManager() {
 		return new FilteringMenuManager();
 	}
-	
+
 	@Override
 	protected void keyReleaseOccured(final KeyEvent keyEvent) {
 		if (keyEvent.character == '\u001b') { // ESC
@@ -164,40 +164,40 @@ public class XtextStyledTextCellEditorFix extends XtextStyledTextCellEditor {
 		}
 		super.keyReleaseOccured(keyEvent);
 	}
-	
+
 	@Override
 	protected void doSetValue(final Object value) {
 		super.doSetValue(value);
 		// Reset the undo manager to prevent deletion of complete text if the
 		// user hits ctrl+z after cell editor opens
-		this.getXtextAdapter().getXtextSourceviewer().getUndoManager().reset();
+		getXtextAdapter().getXtextSourceviewer().getUndoManager().reset();
 	}
-	
+
 	@Override
 	public boolean isUndoEnabled() {
 		return true;
 	}
-	
+
 	@Override
 	public void performUndo() {
-		this.getXtextAdapter().getXtextSourceviewer().getUndoManager().undo();
+		getXtextAdapter().getXtextSourceviewer().getUndoManager().undo();
 	}
-	
+
 	@Override
 	public boolean isRedoEnabled() {
 		return true;
 	}
-	
+
 	@Override
 	public void performRedo() {
-		this.getXtextAdapter().getXtextSourceviewer().getUndoManager().redo();
+		getXtextAdapter().getXtextSourceviewer().getUndoManager().redo();
 	}
-	
+
 	@Override
 	public boolean isFindEnabled() {
 		return true;
 	}
-	
+
 	/*
 	 * In gtk, the focus lost event is fired _after_ the CR event, so we need to
 	 * remember the state when the proposal popup window is open.
@@ -205,28 +205,28 @@ public class XtextStyledTextCellEditorFix extends XtextStyledTextCellEditor {
 	@Override
 	protected void focusLost() {
 		if (SWT.getPlatform().equals("gtk")) {
-			if (this.isIgnoreNextFocusLost()) {
-				this.setIgnoreNextFocusLost(false);
+			if (isIgnoreNextFocusLost()) {
+				setIgnoreNextFocusLost(false);
 				return;
 			}
-			
-			if (this.getCompletionProposalAdapter().isProposalPopupOpen()) {
-				this.setIgnoreNextFocusLost(true);
+
+			if (getCompletionProposalAdapter().isProposalPopupOpen()) {
+				setIgnoreNextFocusLost(true);
 				return;
 			}
 		}
-		
-		if (!this.getCompletionProposalAdapter().isProposalPopupOpen()) {
+
+		if (!getCompletionProposalAdapter().isProposalPopupOpen()) {
 			super.focusLost();
 		}
 	}
-	
+
 	@Override
 	public void dispose() {
-		this.getXtextAdapter().dispose();
+		getXtextAdapter().dispose();
 		super.dispose();
 	}
-	
+
 	/*
 	 * This is damn important! If we don't return false here, the
 	 * ColumnEditorViewer calls applyEditorValue on FocusLostEvents!
@@ -235,35 +235,35 @@ public class XtextStyledTextCellEditorFix extends XtextStyledTextCellEditor {
 	protected boolean dependsOnExternalFocusListener() {
 		return false;
 	}
-	
+
 	@Override
 	public void setVisibleRegion(final int start, final int length) {
-		this.getXtextAdapter().setVisibleRegion(start, length);
+		getXtextAdapter().setVisibleRegion(start, length);
 	}
-
+	
 	@Override
 	public StyledTextXtextAdapterFix getXtextAdapter() {
 		return (StyledTextXtextAdapterFix) this.xtextAdapter;
 	}
-	
+
 	protected IXtextFakeContextResourcesProvider getContextFakeResourceProvider() {
 		return this.contextFakeResourceProvider;
 	}
-	
+
 	protected Injector getInjector() {
 		return this.injector;
 	}
-	
+
 	protected CompletionProposalAdapter getCompletionProposalAdapter() {
 		return this.completionProposalAdapter;
 	}
-	
+
 	protected boolean isIgnoreNextFocusLost() {
 		return this.ignoreNextFocusLost;
 	}
-	
+
 	protected void setIgnoreNextFocusLost(final boolean ignoreNextFocusLost) {
 		this.ignoreNextFocusLost = ignoreNextFocusLost;
 	}
-	
+
 }

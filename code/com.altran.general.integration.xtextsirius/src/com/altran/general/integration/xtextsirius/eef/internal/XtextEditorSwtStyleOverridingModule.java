@@ -24,18 +24,18 @@ import com.google.inject.Provider;
 @SuppressWarnings("restriction")
 public class XtextEditorSwtStyleOverridingModule implements Module {
 	private final int style;
-	
+
 	public XtextEditorSwtStyleOverridingModule(final int style) {
 		this.style = style;
 	}
-	
+
 	@Override
 	public void configure(final Binder binder) {
 		binder.bind(EmbeddedEditorFactory.Builder.class)
 				.toProvider(new Provider<EmbeddedEditorFactory.Builder>() {
 					@Inject
 					private Injector localInjector;
-
+					
 					@Override
 					public EmbeddedEditorFactory.Builder get() {
 						final EmbeddedEditorFactory.Builder result = new EmbeddedEditorFactory.Builder() {
@@ -57,9 +57,9 @@ public class XtextEditorSwtStyleOverridingModule implements Module {
 								return super.withParent(parent);
 							}
 						};
-
+						
 						this.localInjector.injectMembers(result);
-
+						
 						return result;
 					}
 				});

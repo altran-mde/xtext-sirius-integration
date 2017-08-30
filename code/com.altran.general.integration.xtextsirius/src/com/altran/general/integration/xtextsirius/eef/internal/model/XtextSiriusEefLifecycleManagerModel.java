@@ -11,7 +11,6 @@ import org.eclipse.swt.widgets.Composite;
 
 import com.altran.general.integration.xtextsirius.eef.internal.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.eef.internal.XtextSiriusController;
-import com.altran.general.integration.xtextsirius.util.EcoreHelper;
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycleManager {
@@ -23,13 +22,13 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			final @NonNull EditingContextAdapter contextAdapter) {
 		super(descriptor, controlDescription, variableManager, interpreter, contextAdapter);
 	}
-	
+
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		final Injector injector = createSpecializedInjector();
 
 		this.widget = new XtextSiriusWidgetModel(parent, injector, getDescriptor().isMultiLine());
-		applyGridData(this.getWidget().getControl());
+		applyGridData(getWidget().getControl());
 
 		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
 				this.contextAdapter);
@@ -41,7 +40,10 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 
 		this.newValueConsumer = (newValue) -> {
 			if (newValue instanceof EObject) {
-				this.getWidget().update((EObject) newValue);
+				final EObject eObject = (EObject) newValue;
+				getWidget().update(eObject);
+				getWidget().updateUri(eObject.eResource().getURI());
+
 			}
 		};
 		this.controller.onNewValue(this.newValueConsumer);
@@ -49,10 +51,10 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 
 	@Override
 	public void aboutToBeHidden() {
-		EObject semanticElement = getWidget().getSemanticElement();
-		if (semanticElement != null) {
-			semanticElement = EcoreHelper.cloneAndProxify(semanticElement);
-		}
+		final EObject semanticElement = getWidget().getSemanticElement();
+		// if (semanticElement != null) {
+		// semanticElement = EcoreHelper.cloneAndProxify(semanticElement);
+		// }
 		persistIfDirty(semanticElement);
 		super.aboutToBeHidden();
 	}

@@ -16,17 +16,17 @@ import com.google.inject.Injector;
 
 public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 	private SemanticElementLocation semanticElementLocation;
-
+	
 	public XtextSiriusWidgetModel(final @NonNull Composite parent, final @NonNull Injector injector,
 			final boolean multiLine) {
 		super(parent, injector, multiLine);
 	}
-	
+
 	@SuppressWarnings("restriction")
 	public void update(final @NonNull EObject newValue) {
 		if (newValue.eResource() instanceof XtextResource) {
 			this.semanticElementLocation = new SemanticElementLocation(newValue);
-
+			
 			final ICompositeNode node = NodeModelUtils.findActualNodeFor(newValue);
 			if (node != null) {
 				final StringBuffer text = new StringBuffer(node.getRootNode().getTotalLength());
@@ -35,7 +35,7 @@ public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 			}
 		}
 	}
-
+	
 	@SuppressWarnings("restriction")
 	public @Nullable EObject getSemanticElement() {
 		final SemanticElementLocation location = getSemanticElementLocation();
@@ -44,10 +44,10 @@ public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 				return location.resolve(state);
 			});
 		}
-		
+
 		return null;
 	}
-	
+
 	public @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}

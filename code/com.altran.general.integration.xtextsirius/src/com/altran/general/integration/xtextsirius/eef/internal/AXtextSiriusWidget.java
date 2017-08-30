@@ -1,5 +1,6 @@
 package com.altran.general.integration.xtextsirius.eef.internal;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.jface.text.IDocumentExtension4;
@@ -10,11 +11,13 @@ import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
 
+import com.altran.general.integration.xtextsirius.util.EcoreHelper;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
 public abstract class AXtextSiriusWidget {
+	
 	@Inject
 	private EmbeddedEditorFactory embeddedEditorFactory;
 
@@ -81,5 +84,14 @@ public abstract class AXtextSiriusWidget {
 
 	public boolean isDirty() {
 		return this.modificationStamp != retrieveModificationStamp();
+	}
+
+	public void updateUri(final @NonNull URI resourceUri) {
+		this.editor.getDocument()
+				.modify(res -> {
+					EcoreHelper.updateFakeResourceUri(res, resourceUri);
+					return null;
+				});
+
 	}
 }

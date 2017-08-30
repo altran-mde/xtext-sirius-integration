@@ -13,7 +13,7 @@ public abstract class AEditPartDescriptor {
 	private final String identifier;
 	private final boolean multiLine;
 	private final IXtextDirectEditConfiguration config;
-
+	
 	public AEditPartDescriptor(
 			final @Nullable String identifier,
 			final boolean multiLine,
@@ -22,23 +22,23 @@ public abstract class AEditPartDescriptor {
 		this.multiLine = multiLine;
 		this.config = config;
 	}
-
+	
 	public @NonNull String getIdentifier() {
 		return this.identifier;
 	}
-
+	
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	public @NonNull IXtextDirectEditConfiguration getConfig() {
 		return this.config;
 	}
-
+	
 	public boolean isValid() {
 		return StringUtils.isNotBlank(getIdentifier()) &&
 				getConfig() instanceof IXtextDirectEditConfiguration;
 	}
-	
+
 	public abstract @NonNull XtextLabelEditPart createEditPart(final @NonNull View view);
 }

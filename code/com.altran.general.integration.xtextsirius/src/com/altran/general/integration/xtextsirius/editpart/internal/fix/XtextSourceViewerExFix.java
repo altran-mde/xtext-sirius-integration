@@ -24,7 +24,7 @@ class XtextSourceViewerExFix extends XtextSourceViewer {
 	
 	private final StyledText styledText;
 	private final IPreferenceStore preferenceStore;
-
+	
 	public XtextSourceViewerExFix(final StyledText styledText,
 			final IPreferenceStore preferenceStore) {
 		// super constructor will create a new text widget by calling
@@ -35,17 +35,17 @@ class XtextSourceViewerExFix extends XtextSourceViewer {
 		this.preferenceStore = preferenceStore;
 		super.createControl(styledText.getParent(), styledText.getStyle());
 	}
-
+	
 	@Override
 	protected void createControl(final Composite parent, final int styles) {
 		// do nothing here (will be called by super constructor)
 	}
-
+	
 	@Override
 	protected StyledText createTextWidget(final Composite parent, final int styles) {
 		return this.styledText;
 	}
-
+	
 	/**
 	 * Overwritten to handle offset properly.
 	 */
@@ -55,10 +55,10 @@ class XtextSourceViewerExFix extends XtextSourceViewer {
 			throws BadLocationException {
 		if (slaveDocument instanceof ProjectionDocument) {
 			final ProjectionDocument projection = (ProjectionDocument) slaveDocument;
-
+			
 			final int offset = modelRangeOffset;
 			final int length = modelRangeLength;
-			
+
 			// if (!isProjectionMode()) {
 			// // mimic original TextViewer behavior
 			// final IDocument master = projection.getMasterDocument();
@@ -66,7 +66,7 @@ class XtextSourceViewerExFix extends XtextSourceViewer {
 			// offset += master.getLineOffset(line);
 			// length = (modelRangeOffset - offset) + modelRangeLength;
 			// }
-
+			
 			try {
 				// fHandleProjectionChanges= false;
 				setPrivateHandleProjectionChangesField(false);
@@ -79,7 +79,7 @@ class XtextSourceViewerExFix extends XtextSourceViewer {
 		}
 		return false;
 	}
-
+	
 	@Override
 	public void configure(final SourceViewerConfiguration configuration) {
 		// We have to set the preference store via reflection here because Xtext
@@ -95,7 +95,7 @@ class XtextSourceViewerExFix extends XtextSourceViewer {
 		}
 		super.configure(configuration);
 	}
-
+	
 	/**
 	 * Set the private fHandleProjectionChanges field value.
 	 *

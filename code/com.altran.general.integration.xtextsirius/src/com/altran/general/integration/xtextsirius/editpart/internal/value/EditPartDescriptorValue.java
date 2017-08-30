@@ -12,7 +12,7 @@ import com.altran.general.integration.xtextsirius.editpart.internal.AEditPartDes
 public class EditPartDescriptorValue extends AEditPartDescriptor {
 	private final @Nullable String prefixText;
 	private final @Nullable String suffixText;
-	
+
 	public EditPartDescriptorValue(
 			final @Nullable String identifier,
 			final boolean multiLine,
@@ -23,16 +23,16 @@ public class EditPartDescriptorValue extends AEditPartDescriptor {
 		this.prefixText = prefixText;
 		this.suffixText = suffixText;
 	}
-
+	
 	@Override
 	public @NonNull XtextLabelEditPart createEditPart(final @NonNull View view) {
 		return new XtextSiriusEditPartValue(this, view);
 	}
-	
+
 	public @NonNull String getPrefixText() {
 		return StringUtils.defaultString(this.prefixText);
 	}
-
+	
 	public @NonNull String getSuffixText() {
 		return StringUtils.defaultString(this.suffixText);
 	}

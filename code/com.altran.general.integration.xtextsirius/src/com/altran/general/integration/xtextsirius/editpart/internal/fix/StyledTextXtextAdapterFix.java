@@ -29,14 +29,21 @@ public class StyledTextXtextAdapterFix extends StyledTextXtextAdapter {
 
 
 	private SourceViewerDecorationSupport decorationSupport;
+	
+	
+	// private final XtextFakeResourceContext fakeResourceContext;
 
 	public StyledTextXtextAdapterFix(final Injector injector,
 			final IXtextFakeContextResourcesProvider contextFakeResourceProvider) {
 		super(injector, contextFakeResourceProvider);
+		//
+		// this.fakeResourceContext = createFakeResourceContextFix(injector);
 	}
 
 	public StyledTextXtextAdapterFix(final Injector injector) {
 		super(injector);
+		//
+		// this.fakeResourceContext = createFakeResourceContextFix(injector);
 	}
 	
 	@Override
@@ -49,8 +56,8 @@ public class StyledTextXtextAdapterFix extends StyledTextXtextAdapter {
 	protected void createXtextSourceViewer() {
 		this.sourceviewer = new XtextSourceViewerExFix(this.styledText,
 				this.preferenceStoreAccess.getPreferenceStore());
-		this.sourceviewer.configure(this.getXtextSourceViewerConfiguration());
-		this.sourceviewer.setDocument(this.getXtextDocument(), new AnnotationModel());
+		this.sourceviewer.configure(getXtextSourceViewerConfiguration());
+		this.sourceviewer.setDocument(getXtextDocument(), new AnnotationModel());
 		this.decorationSupport = new SourceViewerDecorationSupport(this.sourceviewer, null,
 				new DefaultMarkerAnnotationAccess(),
 				getSharedColors());
@@ -72,4 +79,30 @@ public class StyledTextXtextAdapterFix extends StyledTextXtextAdapter {
 	protected XtextSourceViewer getXtextSourceviewer() {
 		return super.getXtextSourceviewer();
 	}
+	//
+	// @Override
+	// protected void createFakeResourceContext(final Injector injector) {
+	// return;
+	// }
+	//
+	// protected XtextFakeResourceContext createFakeResourceContextFix(final
+	// Injector injector) {
+	// return new XtextFakeResourceContextFix(injector);
+	// }
+	//
+	// @Override
+	// protected void initXtextDocument(final XtextFakeResourceContext context)
+	// {
+	// super.initXtextDocument(getFakeResourceContext());
+	// }
+	//
+	// @Override
+	// public void updateFakeResourceContext() {
+	// getFakeResourceContext().updateFakeResourceContext(getFakeResourceContextProvider());
+	// }
+	//
+	// @Override
+	// public XtextFakeResourceContext getFakeResourceContext() {
+	// return this.fakeResourceContext;
+	// }
 }

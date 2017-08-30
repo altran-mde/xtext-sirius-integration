@@ -57,7 +57,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		super.aboutToBeHidden();
 		this.controller.removeValueConsumer();
 		this.newValueConsumer = null;
-		this.getWidget().cleanup();
+		getWidget().cleanup();
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 
 	protected void applyGridData(final @Nullable Control widgetControl) {
 		if (widgetControl != null) {
-			final GridData gridData = this.getDescriptor().getConfig().getLayoutData(translateToGridData());
+			final GridData gridData = getDescriptor().getConfig().getLayoutData(translateToGridData());
 			// no idea why we're missing one pixel here
 			gridData.horizontalIndent = VALIDATION_MARKER_OFFSET - 1;
 			widgetControl.setLayoutData(gridData);
@@ -96,15 +96,15 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 
 	@Override
 	protected @Nullable Control getValidationControl() {
-		if (this.getWidget() != null) {
-			return this.getWidget().getControl();
+		if (getWidget() != null) {
+			return getWidget().getControl();
 		}
 		
 		return null;
 	}
 
 	protected int translateToStyle() {
-		if (this.getDescriptor().isMultiLine()) {
+		if (getDescriptor().isMultiLine()) {
 			return SWT.MULTI | SWT.WRAP | SWT.V_SCROLL | SWT.BORDER;
 		} else {
 			return SWT.SINGLE | SWT.BORDER;
@@ -113,7 +113,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 
 	protected @NonNull GridData translateToGridData() {
 		final GridData result = new GridData(SWT.FILL, SWT.BEGINNING, true, false);
-		if (this.getDescriptor().isMultiLine()) {
+		if (getDescriptor().isMultiLine()) {
 			// because it's two times the answer
 			result.heightHint = 42 * 2;
 		}
@@ -122,9 +122,9 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	}
 
 	protected @NonNull Injector createSpecializedInjector() {
-		return this.getDescriptor().getConfig().getInjector()
+		return getDescriptor().getConfig().getInjector()
 				.createChildInjector(new XtextEditorSwtStyleOverridingModule(
-						this.getDescriptor().getConfig().getSwtWidgetStyle(translateToStyle())));
+						getDescriptor().getConfig().getSwtWidgetStyle(translateToStyle())));
 	}
 	
 	public @NonNull APropertyDescriptor getDescriptor() {
@@ -137,7 +137,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	
 	
 	protected void persistIfDirty(final Object newValue) {
-		if (this.getWidget().isDirty()) {
+		if (getWidget().isDirty()) {
 			this.contextAdapter.performModelChange(() -> {
 				final String editExpression = getWidgetDescription().getEditExpression();
 				final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;

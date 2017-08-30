@@ -6,5 +6,5 @@ import com.google.inject.Injector;
 
 public interface IXtextDirectEditConfiguration {
 	public @NonNull Injector getInjector();
-	
+
 }

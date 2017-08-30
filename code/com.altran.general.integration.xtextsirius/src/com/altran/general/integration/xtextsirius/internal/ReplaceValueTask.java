@@ -19,23 +19,23 @@ public class ReplaceValueTask extends AbstractCommandTask /*
 															 * IModificationTask
 															 */ {
 	private final @NonNull ReplaceValueParameter parameter;
-
+	
 	public ReplaceValueTask(final @NonNull ReplaceValueParameter parameter) {
 		this.parameter = parameter;
 	}
-
+	
 	@Override
 	public String getLabel() {
 		return "Replace value";
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void execute() throws MetaClassNotFoundException, FeatureNotFoundException {
 		final EObject elementToEdit = this.parameter.getElementToEdit();
 		final EStructuralFeature feature = this.parameter.getFeature();
 		final Object value = this.parameter.getValue();
-		
+
 		final boolean many = FeatureMapUtil.isMany(elementToEdit, feature);
 		if (many) {
 			@SuppressWarnings("rawtypes")

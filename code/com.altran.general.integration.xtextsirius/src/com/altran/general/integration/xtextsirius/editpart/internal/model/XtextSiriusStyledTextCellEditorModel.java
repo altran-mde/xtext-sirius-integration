@@ -13,7 +13,6 @@ import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 import com.google.inject.Injector;
 
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {
-	private @Nullable EObject semanticElement;
 	private SemanticElementLocation semanticElementLocation;
 
 	public XtextSiriusStyledTextCellEditorModel(
@@ -37,7 +36,7 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		}
 
 		final StringBuffer text = new StringBuffer(node.getRootNode().getTotalLength());
-		final TextRegion textRegion = StyledTextUtil.calculateAndAdjustEditorOffset(node, text, this.isMultiLine());
+		final TextRegion textRegion = StyledTextUtil.calculateAndAdjustEditorOffset(node, text, isMultiLine());
 		super.doSetValue(text.toString());
 		
 		this.semanticElementLocation = new SemanticElementLocation(element);
@@ -46,14 +45,6 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		getXtextAdapter().setVisibleRegion(textRegion.getOffset(), textRegion.getLength());
 	}
 	
-	public void setSemanticElement(final @NonNull EObject element) {
-		this.semanticElement = element;
-	}
-
-	protected @Nullable EObject getSemanticElement() {
-		return this.semanticElement;
-	}
-
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}
