@@ -21,7 +21,9 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart {
 	
 	@Override
 	public @NonNull String getEditText() {
-		return StringUtils.normalizeSpace(getInjector().getInstance(ISerializer.class).serialize(getSemanticElement()));
+		final ISerializer serializer = getInjector().getInstance(ISerializer.class);
+		final String text = serializer.serialize(getSemanticElement());
+		return StringUtils.normalizeSpace(text);
 		// final INode node = getSemanticNode();
 		// if (node != null) {
 		// final String text = node.getText();

@@ -26,7 +26,7 @@ public class XtextSiriusDirectEditManager extends XtextDirectEditManager {
 	@Override
 	protected void initCellEditor() {
 		setSemanticElement(getEditPart().getSemanticElement());
-		
+
 		super.initCellEditor();
 	}
 	

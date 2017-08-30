@@ -76,16 +76,6 @@
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="semanticType" type="string">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-               <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
-               </appinfo>
-            </annotation>
-         </attribute>
       </complexType>
    </element>
 

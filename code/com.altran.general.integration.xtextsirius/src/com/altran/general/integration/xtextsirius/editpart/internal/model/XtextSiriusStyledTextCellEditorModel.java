@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.editpart.internal.model;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.nodemodel.INode;
@@ -9,6 +10,7 @@ import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSiriusStyledTextCellEditor;
 import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
+import com.altran.general.integration.xtextsirius.util.EcoreHelper;
 import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 import com.google.inject.Injector;
 
@@ -54,11 +56,9 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		final SemanticElementLocation location = getSemanticElementLocation();
 		if (location != null) {
 			final EObject element = location.resolve(getXtextAdapter().getFakeResourceContext().getFakeResource());
-			return element;
-			// if (element != null) {
-			// return EcoreHelper.proxify(element,
-			// EcoreUtil.getURI(getSemanticElement()));
-			// }
+			if (element != null) {
+				return EcoreHelper.proxify(element, EcoreUtil.getURI(getSemanticElement()));
+			}
 		}
 
 		return null;
