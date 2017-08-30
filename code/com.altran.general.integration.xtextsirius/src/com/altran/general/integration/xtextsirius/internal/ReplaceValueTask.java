@@ -13,11 +13,7 @@ import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaCla
 
 import com.altran.general.integration.xtextsirius.util.ECollectionUtil;
 
-@SuppressWarnings("restriction")
-public class ReplaceValueTask extends AbstractCommandTask /*
-															 * implements
-															 * IModificationTask
-															 */ {
+public class ReplaceValueTask extends AbstractCommandTask {
 	private final @NonNull ReplaceValueParameter parameter;
 	
 	public ReplaceValueTask(final @NonNull ReplaceValueParameter parameter) {
@@ -54,14 +50,4 @@ public class ReplaceValueTask extends AbstractCommandTask /*
 			elementToEdit.eSet(feature, value);
 		}
 	}
-	//
-	// @Override
-	// public Collection<EObject> getAffectedElements() {
-	// return Collections.singletonList(this.parameter.getElementToEdit());
-	// }
-	//
-	// @Override
-	// public Collection<EObject> getCreatedReferences() {
-	// return Collections.emptyList();
-	// }
 }

@@ -19,31 +19,21 @@ import com.google.inject.Injector;
  * @author patrick.koenemann@itemis.de
  *
  */
-@SuppressWarnings("restriction")
 public class StyledTextXtextAdapterFix extends StyledTextXtextAdapter {
 	@Inject
 	private IPreferenceStoreAccess preferenceStoreAccess;
 
-
 	private StyledText styledText;
 
-
 	private SourceViewerDecorationSupport decorationSupport;
-	
-	
-	// private final XtextFakeResourceContext fakeResourceContext;
 
 	public StyledTextXtextAdapterFix(final Injector injector,
 			final IXtextFakeContextResourcesProvider contextFakeResourceProvider) {
 		super(injector, contextFakeResourceProvider);
-		//
-		// this.fakeResourceContext = createFakeResourceContextFix(injector);
 	}
 
 	public StyledTextXtextAdapterFix(final Injector injector) {
 		super(injector);
-		//
-		// this.fakeResourceContext = createFakeResourceContextFix(injector);
 	}
 	
 	@Override
@@ -79,30 +69,4 @@ public class StyledTextXtextAdapterFix extends StyledTextXtextAdapter {
 	protected XtextSourceViewer getXtextSourceviewer() {
 		return super.getXtextSourceviewer();
 	}
-	//
-	// @Override
-	// protected void createFakeResourceContext(final Injector injector) {
-	// return;
-	// }
-	//
-	// protected XtextFakeResourceContext createFakeResourceContextFix(final
-	// Injector injector) {
-	// return new XtextFakeResourceContextFix(injector);
-	// }
-	//
-	// @Override
-	// protected void initXtextDocument(final XtextFakeResourceContext context)
-	// {
-	// super.initXtextDocument(getFakeResourceContext());
-	// }
-	//
-	// @Override
-	// public void updateFakeResourceContext() {
-	// getFakeResourceContext().updateFakeResourceContext(getFakeResourceContextProvider());
-	// }
-	//
-	// @Override
-	// public XtextFakeResourceContext getFakeResourceContext() {
-	// return this.fakeResourceContext;
-	// }
 }

@@ -24,6 +24,7 @@ import com.google.inject.Injector;
 
 public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 	private final APropertyDescriptor descriptor;
+	
 	protected final EEFTextDescription controlDescription;
 	protected final EditingContextAdapter contextAdapter;
 
@@ -32,7 +33,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	protected AXtextSiriusWidget widget;
 	protected XtextSiriusController controller;
 	
-	protected boolean enabled;
+	private boolean enabled;
 
 	public AXtextSiriusEefLifecycleManager(
 			final @NonNull APropertyDescriptor descriptor,

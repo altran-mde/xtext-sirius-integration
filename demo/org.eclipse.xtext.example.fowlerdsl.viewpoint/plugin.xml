@@ -11,8 +11,7 @@
 	<extension point="com.altran.general.integration.xtextsirius.xtextDirectEdit">
 		<xtextDirectEditModel
 			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
-			identifier="EventNode"
-			semanticType="org.eclipse.xtext.example.fowlerdsl.viewpoint.EObject4"/>
+			identifier="EventNode"/>
 		<xtextDirectEditValue
 			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationHtml"
 			identifier="description"
