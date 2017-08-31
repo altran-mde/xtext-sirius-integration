@@ -12,11 +12,11 @@ import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResou
 import com.google.inject.Injector;
 
 final class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
-	XtextSiriusStyledTextXtextAdapter(Injector injector,
-			IXtextFakeContextResourcesProvider contextFakeResourceProvider) {
+	XtextSiriusStyledTextXtextAdapter(final Injector injector,
+			final IXtextFakeContextResourcesProvider contextFakeResourceProvider) {
 		super(injector, contextFakeResourceProvider);
 	}
-	
+
 	@Override
 	protected XtextSourceViewer createXtextSourceViewer() {
 		final XtextSourceViewer result = new XtextSourceViewerEx(getStyledText(),
@@ -30,21 +30,20 @@ final class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 					throws BadLocationException {
 				if (slaveDocument instanceof ProjectionDocument) {
 					final ProjectionDocument projection = (ProjectionDocument) slaveDocument;
-
+					
 					final int offset = modelRangeOffset;
 					final int length = modelRangeLength;
 					
 					// if (!isProjectionMode()) {
 					// // mimic original TextViewer behavior
-					// final IDocument master =
-					// projection.getMasterDocument();
+					// final IDocument master = projection.getMasterDocument();
 					// final int line =
 					// master.getLineOfOffset(modelRangeOffset);
 					// offset += master.getLineOffset(line);
 					// length = (modelRangeOffset - offset) +
 					// modelRangeLength;
 					// }
-
+					
 					try {
 						// fHandleProjectionChanges= false;
 						setPrivateHandleProjectionChangesField(false);

@@ -52,6 +52,9 @@
 
    <element name="xtextDirectEditModel">
       <complexType>
+         <sequence minOccurs="0" maxOccurs="unbounded">
+            <element ref="editableFeature"/>
+         </sequence>
          <attribute name="configClass" type="string" use="required">
             <annotation>
                <documentation>
@@ -113,6 +116,18 @@
             </annotation>
          </attribute>
          <attribute name="suffixText" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="editableFeature">
+      <complexType>
+         <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>
                   
