@@ -3,8 +3,8 @@
  */
 package org.eclipse.xtext.example.fowlerdsl.serializer;
 
+import com.google.inject.Inject;
 import java.util.Set;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.Action;
@@ -27,253 +27,220 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
-import com.google.inject.Inject;
-
 @SuppressWarnings("all")
 public class StatemachineSemanticSequencer extends AbstractDelegatingSemanticSequencer {
-	
+
 	@Inject
 	private StatemachineGrammarAccess grammarAccess;
 	
 	@Override
-	public void sequence(final ISerializationContext context, final EObject semanticObject) {
-		final EPackage epackage = semanticObject.eClass().getEPackage();
-		final ParserRule rule = context.getParserRule();
-		final Action action = context.getAssignedAction();
-		final Set<Parameter> parameters = context.getEnabledBooleanParameters();
-		if (epackage == StatemachinePackage.eINSTANCE) {
+	public void sequence(ISerializationContext context, EObject semanticObject) {
+		EPackage epackage = semanticObject.eClass().getEPackage();
+		ParserRule rule = context.getParserRule();
+		Action action = context.getAssignedAction();
+		Set<Parameter> parameters = context.getEnabledBooleanParameters();
+		if (epackage == StatemachinePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-				case StatemachinePackage.COMMAND:
-					sequence_Command(context, (Command) semanticObject);
-					return;
-				case StatemachinePackage.CONSTANT:
-					sequence_Constant(context, (Constant) semanticObject);
-					return;
-				case StatemachinePackage.CONSTANT_REF:
-					sequence_ConstantRef(context, (ConstantRef) semanticObject);
-					return;
-				case StatemachinePackage.EVENT:
-					sequence_Event(context, (Event) semanticObject);
-					return;
-				case StatemachinePackage.INT_LITERAL:
-					sequence_IntLiteral(context, (IntLiteral) semanticObject);
-					return;
-				case StatemachinePackage.RANGE_GUARD:
-					sequence_RangeGuard(context, (RangeGuard) semanticObject);
-					return;
-				case StatemachinePackage.STATE:
-					sequence_State(context, (State) semanticObject);
-					return;
-				case StatemachinePackage.STATEMACHINE:
-					sequence_Statemachine(context, (Statemachine) semanticObject);
-					return;
-				case StatemachinePackage.TRANSITION:
-					sequence_Transition(context, (Transition) semanticObject);
-					return;
-				case StatemachinePackage.VALUE_GUARD:
-					sequence_ValueGuard(context, (ValueGuard) semanticObject);
-					return;
+			case StatemachinePackage.COMMAND:
+				sequence_Command(context, (Command) semanticObject); 
+				return; 
+			case StatemachinePackage.CONSTANT:
+				sequence_Constant(context, (Constant) semanticObject); 
+				return; 
+			case StatemachinePackage.CONSTANT_REF:
+				sequence_ConstantRef(context, (ConstantRef) semanticObject); 
+				return; 
+			case StatemachinePackage.EVENT:
+				sequence_Event(context, (Event) semanticObject); 
+				return; 
+			case StatemachinePackage.INT_LITERAL:
+				sequence_IntLiteral(context, (IntLiteral) semanticObject); 
+				return; 
+			case StatemachinePackage.RANGE_GUARD:
+				sequence_RangeGuard(context, (RangeGuard) semanticObject); 
+				return; 
+			case StatemachinePackage.STATE:
+				sequence_State(context, (State) semanticObject); 
+				return; 
+			case StatemachinePackage.STATEMACHINE:
+				sequence_Statemachine(context, (Statemachine) semanticObject); 
+				return; 
+			case StatemachinePackage.TRANSITION:
+				sequence_Transition(context, (Transition) semanticObject); 
+				return; 
+			case StatemachinePackage.VALUE_GUARD:
+				sequence_ValueGuard(context, (ValueGuard) semanticObject); 
+				return; 
 			}
-		}
-		if (this.errorAcceptor != null) {
-			this.errorAcceptor
-					.accept(this.diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
-		}
+		if (errorAcceptor != null)
+			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
-	 * Contexts: Command returns Command
+	 * Contexts:
+	 *     Command returns Command
 	 *
-	 * Constraint: (name=ID code=ID)
+	 * Constraint:
+	 *     (name=ID code=ID)
 	 */
-	protected void sequence_Command(final ISerializationContext context, final Command semanticObject) {
-		if (this.errorAcceptor != null) {
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.COMMAND__NAME) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.COMMAND__NAME));
-			}
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.COMMAND__CODE) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.COMMAND__CODE));
-			}
+	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.COMMAND__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.COMMAND__NAME));
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.COMMAND__CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.COMMAND__CODE));
 		}
-		final SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(this.grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(this.grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
 		feeder.finish();
 	}
 	
 	
 	/**
-	 * Contexts: Value returns ConstantRef ConstantRef returns ConstantRef
+	 * Contexts:
+	 *     Value returns ConstantRef
+	 *     ConstantRef returns ConstantRef
 	 *
-	 * Constraint: constant=[Constant|ID]
+	 * Constraint:
+	 *     constant=[Constant|ID]
 	 */
-	protected void sequence_ConstantRef(final ISerializationContext context, final ConstantRef semanticObject) {
-		if (this.errorAcceptor != null) {
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.CONSTANT_REF__CONSTANT) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.CONSTANT_REF__CONSTANT));
-			}
+	protected void sequence_ConstantRef(ISerializationContext context, ConstantRef semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.CONSTANT_REF__CONSTANT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.CONSTANT_REF__CONSTANT));
 		}
-		final SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(this.grammarAccess.getConstantRefAccess().getConstantConstantIDTerminalRuleCall_0_1(),
-				semanticObject.eGet(StatemachinePackage.Literals.CONSTANT_REF__CONSTANT, false));
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConstantRefAccess().getConstantConstantIDTerminalRuleCall_0_1(), semanticObject.eGet(StatemachinePackage.Literals.CONSTANT_REF__CONSTANT, false));
 		feeder.finish();
 	}
 	
 	
 	/**
-	 * Contexts: Constant returns Constant
+	 * Contexts:
+	 *     Constant returns Constant
 	 *
-	 * Constraint: (name=ID value=Value)
+	 * Constraint:
+	 *     (name=ID value=Value)
 	 */
-	protected void sequence_Constant(final ISerializationContext context, final Constant semanticObject) {
-		if (this.errorAcceptor != null) {
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.CONSTANT__NAME) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.CONSTANT__NAME));
-			}
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.CONSTANT__VALUE) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.CONSTANT__VALUE));
-			}
+	protected void sequence_Constant(ISerializationContext context, Constant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.CONSTANT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.CONSTANT__NAME));
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.CONSTANT__VALUE));
 		}
-		final SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(this.grammarAccess.getConstantAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(this.grammarAccess.getConstantAccess().getValueValueParserRuleCall_1_0(),
-				semanticObject.getValue());
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConstantAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getConstantAccess().getValueValueParserRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
-	 * Contexts: Event returns Event
+	 * Contexts:
+	 *     Event returns Event
 	 *
-	 * Constraint: (name=ID code=ID guard=Guard?)
+	 * Constraint:
+	 *     (name=ID code=ID guard=Guard?)
 	 */
-	protected void sequence_Event(final ISerializationContext context, final Event semanticObject) {
-		this.genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
-	 * Contexts: Value returns IntLiteral IntLiteral returns IntLiteral
+	 * Contexts:
+	 *     Value returns IntLiteral
+	 *     IntLiteral returns IntLiteral
 	 *
-	 * Constraint: value=INT
+	 * Constraint:
+	 *     value=INT
 	 */
-	protected void sequence_IntLiteral(final ISerializationContext context, final IntLiteral semanticObject) {
-		if (this.errorAcceptor != null) {
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.INT_LITERAL__VALUE) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.INT_LITERAL__VALUE));
-			}
+	protected void sequence_IntLiteral(ISerializationContext context, IntLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.INT_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.INT_LITERAL__VALUE));
 		}
-		final SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(this.grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0(),
-				semanticObject.getValue());
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
-	 * Contexts: Guard returns RangeGuard RangeGuard returns RangeGuard
+	 * Contexts:
+	 *     Guard returns RangeGuard
+	 *     RangeGuard returns RangeGuard
 	 *
-	 * Constraint: (min=Value max=Value)
+	 * Constraint:
+	 *     (min=Value max=Value)
 	 */
-	protected void sequence_RangeGuard(final ISerializationContext context, final RangeGuard semanticObject) {
-		if (this.errorAcceptor != null) {
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.RANGE_GUARD__MIN) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.RANGE_GUARD__MIN));
-			}
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.RANGE_GUARD__MAX) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.RANGE_GUARD__MAX));
-			}
+	protected void sequence_RangeGuard(ISerializationContext context, RangeGuard semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.RANGE_GUARD__MIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.RANGE_GUARD__MIN));
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.RANGE_GUARD__MAX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.RANGE_GUARD__MAX));
 		}
-		final SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(this.grammarAccess.getRangeGuardAccess().getMinValueParserRuleCall_0_0(),
-				semanticObject.getMin());
-		feeder.accept(this.grammarAccess.getRangeGuardAccess().getMaxValueParserRuleCall_2_0(),
-				semanticObject.getMax());
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRangeGuardAccess().getMinValueParserRuleCall_0_0(), semanticObject.getMin());
+		feeder.accept(grammarAccess.getRangeGuardAccess().getMaxValueParserRuleCall_2_0(), semanticObject.getMax());
 		feeder.finish();
 	}
 	
 	
 	/**
-	 * Contexts: State returns State
+	 * Contexts:
+	 *     State returns State
 	 *
-	 * Constraint: (name=ID description=STRING? actions+=[Command|ID]*
-	 * transitions+=Transition*)
+	 * Constraint:
+	 *     (name=ID description=STRING? actions+=[Command|ID]* transitions+=Transition*)
 	 */
-	protected void sequence_State(final ISerializationContext context, final State semanticObject) {
-		this.genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_State(ISerializationContext context, State semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
-	 * Contexts: Statemachine returns Statemachine
+	 * Contexts:
+	 *     Statemachine returns Statemachine
 	 *
-	 * Constraint: (events+=Event* resetEvents+=[Event|ID]* commands+=Command*
-	 * connstants+=Constant* states+=State*)
+	 * Constraint:
+	 *     (events+=Event* resetEvents+=[Event|ID]* commands+=Command* connstants+=Constant* states+=State*)
 	 */
-	protected void sequence_Statemachine(final ISerializationContext context, final Statemachine semanticObject) {
-		this.genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Statemachine(ISerializationContext context, Statemachine semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
-	 * Contexts: Transition returns Transition
+	 * Contexts:
+	 *     Transition returns Transition
 	 *
-	 * Constraint: (event=[Event|ID] state=[State|ID])
+	 * Constraint:
+	 *     (event=[Event|ID] guard=Guard? state=[State|ID])
 	 */
-	protected void sequence_Transition(final ISerializationContext context, final Transition semanticObject) {
-		if (this.errorAcceptor != null) {
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.TRANSITION__EVENT) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.TRANSITION__EVENT));
-			}
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.TRANSITION__STATE) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.TRANSITION__STATE));
-			}
+	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Guard returns ValueGuard
+	 *     ValueGuard returns ValueGuard
+	 *
+	 * Constraint:
+	 *     cond=Value
+	 */
+	protected void sequence_ValueGuard(ISerializationContext context, ValueGuard semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.VALUE_GUARD__COND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.VALUE_GUARD__COND));
 		}
-		final SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(this.grammarAccess.getTransitionAccess().getEventEventIDTerminalRuleCall_0_0_1(),
-				semanticObject.eGet(StatemachinePackage.Literals.TRANSITION__EVENT, false));
-		feeder.accept(this.grammarAccess.getTransitionAccess().getStateStateIDTerminalRuleCall_2_0_1(),
-				semanticObject.eGet(StatemachinePackage.Literals.TRANSITION__STATE, false));
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts: Guard returns ValueGuard ValueGuard returns ValueGuard
-	 *
-	 * Constraint: cond=Value
-	 */
-	protected void sequence_ValueGuard(final ISerializationContext context, final ValueGuard semanticObject) {
-		if (this.errorAcceptor != null) {
-			if (this.transientValues.isValueTransient(semanticObject,
-					StatemachinePackage.Literals.VALUE_GUARD__COND) == ValueTransient.YES) {
-				this.errorAcceptor.accept(this.diagnosticProvider.createFeatureValueMissing(semanticObject,
-						StatemachinePackage.Literals.VALUE_GUARD__COND));
-			}
-		}
-		final SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(this.grammarAccess.getValueGuardAccess().getCondValueParserRuleCall_0(),
-				semanticObject.getCond());
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getValueGuardAccess().getCondValueParserRuleCall_0(), semanticObject.getCond());
 		feeder.finish();
 	}
 	

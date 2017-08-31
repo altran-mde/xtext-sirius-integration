@@ -4,138 +4,107 @@
 package org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.xtext.AbstractElement;
-import org.eclipse.xtext.example.fowlerdsl.services.StatemachineGrammarAccess;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.AbstractPartialContentAssistParser;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.FollowElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
 
 import com.google.inject.Inject;
 
+import org.eclipse.xtext.example.fowlerdsl.services.StatemachineGrammarAccess;
+
 public class StatemachineParser extends AbstractPartialContentAssistParser {
 	
 	@Inject
 	private StatemachineGrammarAccess grammarAccess;
-
+	
 	private Map<AbstractElement, String> nameMappings;
-
+	
 	@Override
 	protected org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser createParser() {
-		final org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser result = new org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser(
-				null);
-		result.setGrammarAccess(this.grammarAccess);
+		org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser result = new org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser(null);
+		result.setGrammarAccess(grammarAccess);
 		return result;
 	}
-
+	
 	@Override
-	protected String getRuleName(final AbstractElement element) {
-		if (this.nameMappings == null) {
-			this.nameMappings = new HashMap<AbstractElement, String>() {
+	protected String getRuleName(AbstractElement element) {
+		if (nameMappings == null) {
+			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(StatemachineParser.this.grammarAccess.getGuardAccess().getAlternatives(),
-							"rule__Guard__Alternatives");
-					put(StatemachineParser.this.grammarAccess.getValueAccess().getAlternatives(),
-							"rule__Value__Alternatives");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getGroup(),
-							"rule__Statemachine__Group__0");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getGroup_1(),
-							"rule__Statemachine__Group_1__0");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getGroup_2(),
-							"rule__Statemachine__Group_2__0");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getGroup_3(),
-							"rule__Statemachine__Group_3__0");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getGroup_4(),
-							"rule__Statemachine__Group_4__0");
-					put(StatemachineParser.this.grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
-					put(StatemachineParser.this.grammarAccess.getEventAccess().getGroup_2(), "rule__Event__Group_2__0");
-					put(StatemachineParser.this.grammarAccess.getRangeGuardAccess().getGroup(),
-							"rule__RangeGuard__Group__0");
-					put(StatemachineParser.this.grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
-					put(StatemachineParser.this.grammarAccess.getConstantAccess().getGroup(),
-							"rule__Constant__Group__0");
-					put(StatemachineParser.this.grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
-					put(StatemachineParser.this.grammarAccess.getStateAccess().getGroup_2(), "rule__State__Group_2__0");
-					put(StatemachineParser.this.grammarAccess.getStateAccess().getGroup_3(), "rule__State__Group_3__0");
-					put(StatemachineParser.this.grammarAccess.getTransitionAccess().getGroup(),
-							"rule__Transition__Group__0");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getEventsAssignment_1_1(),
-							"rule__Statemachine__EventsAssignment_1_1");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getResetEventsAssignment_2_1(),
-							"rule__Statemachine__ResetEventsAssignment_2_1");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getCommandsAssignment_3_1(),
-							"rule__Statemachine__CommandsAssignment_3_1");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1(),
-							"rule__Statemachine__ConnstantsAssignment_4_1");
-					put(StatemachineParser.this.grammarAccess.getStatemachineAccess().getStatesAssignment_5(),
-							"rule__Statemachine__StatesAssignment_5");
-					put(StatemachineParser.this.grammarAccess.getEventAccess().getNameAssignment_0(),
-							"rule__Event__NameAssignment_0");
-					put(StatemachineParser.this.grammarAccess.getEventAccess().getCodeAssignment_1(),
-							"rule__Event__CodeAssignment_1");
-					put(StatemachineParser.this.grammarAccess.getEventAccess().getGuardAssignment_2_1(),
-							"rule__Event__GuardAssignment_2_1");
-					put(StatemachineParser.this.grammarAccess.getValueGuardAccess().getCondAssignment(),
-							"rule__ValueGuard__CondAssignment");
-					put(StatemachineParser.this.grammarAccess.getRangeGuardAccess().getMinAssignment_0(),
-							"rule__RangeGuard__MinAssignment_0");
-					put(StatemachineParser.this.grammarAccess.getRangeGuardAccess().getMaxAssignment_2(),
-							"rule__RangeGuard__MaxAssignment_2");
-					put(StatemachineParser.this.grammarAccess.getConstantRefAccess().getConstantAssignment(),
-							"rule__ConstantRef__ConstantAssignment");
-					put(StatemachineParser.this.grammarAccess.getIntLiteralAccess().getValueAssignment(),
-							"rule__IntLiteral__ValueAssignment");
-					put(StatemachineParser.this.grammarAccess.getCommandAccess().getNameAssignment_0(),
-							"rule__Command__NameAssignment_0");
-					put(StatemachineParser.this.grammarAccess.getCommandAccess().getCodeAssignment_1(),
-							"rule__Command__CodeAssignment_1");
-					put(StatemachineParser.this.grammarAccess.getConstantAccess().getNameAssignment_0(),
-							"rule__Constant__NameAssignment_0");
-					put(StatemachineParser.this.grammarAccess.getConstantAccess().getValueAssignment_1(),
-							"rule__Constant__ValueAssignment_1");
-					put(StatemachineParser.this.grammarAccess.getStateAccess().getNameAssignment_1(),
-							"rule__State__NameAssignment_1");
-					put(StatemachineParser.this.grammarAccess.getStateAccess().getDescriptionAssignment_2_1(),
-							"rule__State__DescriptionAssignment_2_1");
-					put(StatemachineParser.this.grammarAccess.getStateAccess().getActionsAssignment_3_2(),
-							"rule__State__ActionsAssignment_3_2");
-					put(StatemachineParser.this.grammarAccess.getStateAccess().getTransitionsAssignment_4(),
-							"rule__State__TransitionsAssignment_4");
-					put(StatemachineParser.this.grammarAccess.getTransitionAccess().getEventAssignment_0(),
-							"rule__Transition__EventAssignment_0");
-					put(StatemachineParser.this.grammarAccess.getTransitionAccess().getStateAssignment_2(),
-							"rule__Transition__StateAssignment_2");
+					put(grammarAccess.getGuardAccess().getAlternatives(), "rule__Guard__Alternatives");
+					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
+					put(grammarAccess.getStatemachineAccess().getGroup(), "rule__Statemachine__Group__0");
+					put(grammarAccess.getStatemachineAccess().getGroup_1(), "rule__Statemachine__Group_1__0");
+					put(grammarAccess.getStatemachineAccess().getGroup_2(), "rule__Statemachine__Group_2__0");
+					put(grammarAccess.getStatemachineAccess().getGroup_3(), "rule__Statemachine__Group_3__0");
+					put(grammarAccess.getStatemachineAccess().getGroup_4(), "rule__Statemachine__Group_4__0");
+					put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
+					put(grammarAccess.getEventAccess().getGroup_2(), "rule__Event__Group_2__0");
+					put(grammarAccess.getRangeGuardAccess().getGroup(), "rule__RangeGuard__Group__0");
+					put(grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
+					put(grammarAccess.getConstantAccess().getGroup(), "rule__Constant__Group__0");
+					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
+					put(grammarAccess.getStateAccess().getGroup_2(), "rule__State__Group_2__0");
+					put(grammarAccess.getStateAccess().getGroup_3(), "rule__State__Group_3__0");
+					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
+					put(grammarAccess.getTransitionAccess().getGroup_1(), "rule__Transition__Group_1__0");
+					put(grammarAccess.getStatemachineAccess().getEventsAssignment_1_1(), "rule__Statemachine__EventsAssignment_1_1");
+					put(grammarAccess.getStatemachineAccess().getResetEventsAssignment_2_1(), "rule__Statemachine__ResetEventsAssignment_2_1");
+					put(grammarAccess.getStatemachineAccess().getCommandsAssignment_3_1(), "rule__Statemachine__CommandsAssignment_3_1");
+					put(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1(), "rule__Statemachine__ConnstantsAssignment_4_1");
+					put(grammarAccess.getStatemachineAccess().getStatesAssignment_5(), "rule__Statemachine__StatesAssignment_5");
+					put(grammarAccess.getEventAccess().getNameAssignment_0(), "rule__Event__NameAssignment_0");
+					put(grammarAccess.getEventAccess().getCodeAssignment_1(), "rule__Event__CodeAssignment_1");
+					put(grammarAccess.getEventAccess().getGuardAssignment_2_1(), "rule__Event__GuardAssignment_2_1");
+					put(grammarAccess.getValueGuardAccess().getCondAssignment(), "rule__ValueGuard__CondAssignment");
+					put(grammarAccess.getRangeGuardAccess().getMinAssignment_0(), "rule__RangeGuard__MinAssignment_0");
+					put(grammarAccess.getRangeGuardAccess().getMaxAssignment_2(), "rule__RangeGuard__MaxAssignment_2");
+					put(grammarAccess.getConstantRefAccess().getConstantAssignment(), "rule__ConstantRef__ConstantAssignment");
+					put(grammarAccess.getIntLiteralAccess().getValueAssignment(), "rule__IntLiteral__ValueAssignment");
+					put(grammarAccess.getCommandAccess().getNameAssignment_0(), "rule__Command__NameAssignment_0");
+					put(grammarAccess.getCommandAccess().getCodeAssignment_1(), "rule__Command__CodeAssignment_1");
+					put(grammarAccess.getConstantAccess().getNameAssignment_0(), "rule__Constant__NameAssignment_0");
+					put(grammarAccess.getConstantAccess().getValueAssignment_1(), "rule__Constant__ValueAssignment_1");
+					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
+					put(grammarAccess.getStateAccess().getDescriptionAssignment_2_1(), "rule__State__DescriptionAssignment_2_1");
+					put(grammarAccess.getStateAccess().getActionsAssignment_3_2(), "rule__State__ActionsAssignment_3_2");
+					put(grammarAccess.getStateAccess().getTransitionsAssignment_4(), "rule__State__TransitionsAssignment_4");
+					put(grammarAccess.getTransitionAccess().getEventAssignment_0(), "rule__Transition__EventAssignment_0");
+					put(grammarAccess.getTransitionAccess().getGuardAssignment_1_1(), "rule__Transition__GuardAssignment_1_1");
+					put(grammarAccess.getTransitionAccess().getStateAssignment_3(), "rule__Transition__StateAssignment_3");
 				}
 			};
 		}
-		return this.nameMappings.get(element);
+		return nameMappings.get(element);
 	}
-
+	
 	@Override
-	protected Collection<FollowElement> getFollowElements(final AbstractInternalContentAssistParser parser) {
+	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
-			final org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser typedParser = (org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser) parser;
+			org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser typedParser = (org.eclipse.xtext.example.fowlerdsl.ui.contentassist.antlr.internal.InternalStatemachineParser) parser;
 			typedParser.entryRuleStatemachine();
 			return typedParser.getFollowElements();
-		} catch (final RecognitionException ex) {
+		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);
-		}
+		}		
 	}
-
+	
 	@Override
 	protected String[] getInitialHiddenTokens() {
 		return new String[] { "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT" };
 	}
-
+	
 	public StatemachineGrammarAccess getGrammarAccess() {
 		return this.grammarAccess;
 	}
-
-	public void setGrammarAccess(final StatemachineGrammarAccess grammarAccess) {
+	
+	public void setGrammarAccess(StatemachineGrammarAccess grammarAccess) {
 		this.grammarAccess = grammarAccess;
 	}
 }

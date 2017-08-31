@@ -2,9 +2,7 @@ package com.altran.general.integration.xtextsirius.eef.internal.value;
 
 import org.eclipse.eef.EEFTextDescription;
 import org.eclipse.eef.common.ui.api.IEEFFormContainer;
-import org.eclipse.eef.core.api.EEFExpressionUtils;
 import org.eclipse.eef.core.api.EditingContextAdapter;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
@@ -55,10 +53,7 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 		this.newValueConsumer = (newValue) -> {
 			if (newValue instanceof String) {
 				getWidget().update((String) newValue);
-				final Object self = this.variableManager.getVariables().get(EEFExpressionUtils.SELF);
-				if (self instanceof EObject) {
-					getWidget().updateUri(((EObject) self).eResource().getURI());
-				}
+				updateWidgetUriWithSelf();
 			}
 		};
 		this.controller.onNewValue(this.newValueConsumer);

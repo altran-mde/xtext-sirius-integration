@@ -18,7 +18,7 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart {
 	public XtextSiriusEditPartModel(final @NonNull EditPartDescriptorModel descriptor, final @NonNull View view) {
 		super(descriptor, view);
 	}
-	
+
 	@Override
 	public @NonNull String getEditText() {
 		final ISerializer serializer = getInjector().getInstance(ISerializer.class);
@@ -32,25 +32,25 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart {
 		//
 		// return "(empty)";
 	}
-
+	
 	protected @Nullable INode getSemanticNode() {
 		final EObject semanticElement = getSemanticElement();
 		if (semanticElement == null) {
 			return null;
 		}
-		
+
 		return NodeModelUtils.getNode(semanticElement);
 	}
-
+	
 	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
 		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
 				translateToStyle(), isMultiLine());
 	}
-	
+
 	@Override
 	protected void setContext(final Resource res) {
 		// TODO Auto-generated method stub
-
+		
 	}
 }

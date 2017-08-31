@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.AbstractEditPartProvider;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.CreateGraphicEditPartOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
@@ -35,10 +36,12 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	public boolean provides(final IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			final View view = ((IEditPartOperation) operation).getView();
-			final String targetIdentifier = extractIdentifier(view);
-			if (targetIdentifier != null) {
-				return collectXtextDirectEditConfigurations()
-						.anyMatch(providesFilter(targetIdentifier));
+			if (view instanceof Node) {
+				final String targetIdentifier = extractIdentifier(view);
+				if (targetIdentifier != null) {
+					return collectXtextDirectEditConfigurations()
+							.anyMatch(providesFilter(targetIdentifier));
+				}
 			}
 		}
 		
@@ -55,7 +58,7 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 					.map(d -> d.createEditPart(view))
 					.orElseThrow(
 							() -> new IllegalStateException(
-									"Cannot find IXtextDirectEditConfiguration for semanticType "
+									"Cannot find IXtextDirectEditConfiguration for identifier "
 											+ identifier));
 		}
 

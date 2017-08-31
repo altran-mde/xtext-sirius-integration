@@ -4,7 +4,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Statemachine Diagram" domainClass="statemachine.Statemachine" enablePopupBars="true">
       <metamodel href="../../org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.ecore#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="TransitionEdge" sourceMapping="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']" targetFinderExpression="feature:state" sourceFinderExpression="feature:eContainer" domainClass="statemachine.Transition" useDomainElement="true">
+        <edgeMappings name="TransitionEdge" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='']" sourceMapping="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']" targetFinderExpression="feature:state" sourceFinderExpression="feature:eContainer" domainClass="statemachine.Transition" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelExpression="ocl:self.event.name">
@@ -70,7 +70,13 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" inputLabelExpression="var:self">
+          <ownedTools xsi:type="tool:DirectEditLabel" label="EventNode" inputLabelExpression="var:self">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" label="Transition" inputLabelExpression="var:self">
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue"/>

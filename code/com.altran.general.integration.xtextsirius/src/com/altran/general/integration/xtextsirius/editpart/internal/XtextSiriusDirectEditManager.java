@@ -25,21 +25,24 @@ public class XtextSiriusDirectEditManager extends XtextDirectEditManager {
 
 	@Override
 	protected void initCellEditor() {
-		setSemanticElement(getEditPart().getSemanticElement());
+		setSemanticElement(getEditPart().getSemanticElement(), getEditPart().getClosestExistingSemanticElement());
 
 		super.initCellEditor();
 	}
 	
-	public void setSemanticElement(final @Nullable EObject element) {
+	protected void setSemanticElement(final @Nullable EObject element, final @NonNull EObject fallbackContainer) {
 		final AXtextSiriusStyledTextCellEditor cellEditor = getCellEditor();
 		if (cellEditor != null) {
 			cellEditor.setSemanticElement(element);
+			if (element == null) {
+				cellEditor.setFallbackContainer(fallbackContainer);
+			}
 		}
 	}
 	
 	@Override
-	protected AXtextSiriusEditPart getEditPart() {
-		return (AXtextSiriusEditPart) super.getEditPart();
+	protected IXtextSiriusAwareLabelEditPart getEditPart() {
+		return (IXtextSiriusAwareLabelEditPart) super.getEditPart();
 	}
 
 	@Override

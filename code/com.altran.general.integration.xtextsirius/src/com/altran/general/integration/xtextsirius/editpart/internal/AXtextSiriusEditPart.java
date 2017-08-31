@@ -13,16 +13,16 @@ import org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart;
 
 import com.google.inject.Injector;
 
-public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
+public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements IXtextSiriusAwareLabelEditPart {
 	private final boolean multiLine;
 	private final Injector injector;
-
+	
 	public AXtextSiriusEditPart(final @NonNull AEditPartDescriptor descriptor, final @NonNull View view) {
 		super(view);
 		this.injector = descriptor.getConfig().getInjector();
 		this.multiLine = descriptor.isMultiLine();
 	}
-
+	
 	protected int translateToStyle() {
 		if (isMultiLine()) {
 			return SWT.MULTI | SWT.WRAP;
@@ -30,30 +30,32 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 			return SWT.SINGLE;
 		}
 	}
-
+	
 	protected Injector getInjector() {
 		return this.injector;
 	}
-	
+
 	protected boolean isMultiLine() {
 		return this.multiLine;
 	}
-	
+
+	@Override
 	public @Nullable EObject getSemanticElement() {
 		return ((DSemanticDecorator) resolveSemanticElement()).getTarget();
 	}
-
+	
+	@Override
 	public @NonNull EObject getClosestExistingSemanticElement() {
 		final EObject decorator = resolveSemanticElement();
 		return findClosestExistingSemanticElementRecursive((DSemanticDecorator) decorator);
 	}
-
+	
 	protected @NonNull EObject findClosestExistingSemanticElementRecursive(final DSemanticDecorator decorator) {
 		final EObject target = decorator.getTarget();
 		if (target != null) {
 			return target;
 		}
-
+		
 		final EObject eContainer = decorator.eContainer();
 		if (eContainer instanceof DSemanticDecorator) {
 			return findClosestExistingSemanticElementRecursive((DSemanticDecorator) eContainer);
@@ -61,8 +63,8 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 			throw new RuntimeException("cannot find any semantic element");
 		}
 	}
-
-
+	
+	
 	@Override
 	protected void handleNotificationEvent(final Notification notification) {
 		if (notification.getFeature().equals(ViewpointPackage.eINSTANCE.getDRepresentationElement_Name())) {
@@ -70,7 +72,7 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart {
 		}
 		super.handleNotificationEvent(notification);
 	}
-
+	
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();

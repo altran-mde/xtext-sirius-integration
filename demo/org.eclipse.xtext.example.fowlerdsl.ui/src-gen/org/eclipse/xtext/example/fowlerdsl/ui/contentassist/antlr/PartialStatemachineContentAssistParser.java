@@ -16,24 +16,23 @@ import org.eclipse.xtext.util.PolymorphicDispatcher;
  * Template CodetemplatesGeneratorFragment.xpt
  */
 public class PartialStatemachineContentAssistParser extends StatemachineParser implements IPartialContentAssistParser {
-	
+
 	private AbstractRule rule;
-	
-	@Override
-	public void initializeFor(final AbstractRule rule) {
-		this.rule = rule;
-	}
 
 	@Override
-	protected Collection<FollowElement> getFollowElements(final AbstractInternalContentAssistParser parser) {
-		if (this.rule == null || this.rule.eIsProxy()) {
+	public void initializeFor(AbstractRule rule) {
+		this.rule = rule;
+	}
+	
+	@Override
+	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
+		if (rule == null || rule.eIsProxy())
 			return Collections.emptyList();
-		}
-		final String methodName = "entryRule" + this.rule.getName();
-		final PolymorphicDispatcher<Collection<FollowElement>> dispatcher = new PolymorphicDispatcher<Collection<FollowElement>>(
-				methodName, 0, 0, Collections.singletonList(parser));
+		String methodName = "entryRule" + rule.getName();
+		PolymorphicDispatcher<Collection<FollowElement>> dispatcher = 
+			new PolymorphicDispatcher<Collection<FollowElement>>(methodName, 0, 0, Collections.singletonList(parser));
 		dispatcher.invoke();
 		return parser.getFollowElements();
 	}
-	
+
 }

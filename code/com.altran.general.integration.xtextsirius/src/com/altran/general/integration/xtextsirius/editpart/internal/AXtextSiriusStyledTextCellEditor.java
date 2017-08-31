@@ -3,6 +3,7 @@ package com.altran.general.integration.xtextsirius.editpart.internal;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.xtext.resource.XtextResource;
 
 import com.altran.general.integration.xtextsirius.editpart.internal.fix.XtextStyledTextCellEditorExFix;
 import com.altran.general.integration.xtextsirius.util.EcoreHelper;
@@ -13,6 +14,8 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 	private final boolean multiLine;
 	
 	private EObject semanticElement;
+	
+	private EObject fallbackContainer;
 	
 	public AXtextSiriusStyledTextCellEditor(
 			final int style,
@@ -32,9 +35,12 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 	protected void doSetValue(final Object value) {
 		super.doSetValue(value);
 		final EObject element = getSemanticElement();
+		final XtextResource fakeResource = getXtextAdapter().getFakeResourceContext().getFakeResource();
 		if (element != null) {
-			EcoreHelper.updateFakeResourceUri(getXtextAdapter().getFakeResourceContext().getFakeResource(),
-					element.eResource().getURI());
+			EcoreHelper.updateFakeResourceUri(fakeResource, element.eResource().getURI());
+		} else {
+			final EObject fallback = getFallbackContainer();
+			EcoreHelper.updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
 		}
 	}
 
@@ -45,4 +51,13 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 	protected @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
+
+	public void setFallbackContainer(final @NonNull EObject fallbackContainer) {
+		this.fallbackContainer = fallbackContainer;
+	}
+
+	protected EObject getFallbackContainer() {
+		return this.fallbackContainer;
+	}
+
 }

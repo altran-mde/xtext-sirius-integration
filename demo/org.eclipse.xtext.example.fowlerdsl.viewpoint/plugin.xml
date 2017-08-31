@@ -12,6 +12,9 @@
 		<xtextDirectEditModel
 			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
 			identifier="EventNode"/>
+		<xtextDirectEditModel
+			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
+			identifier="TransitionEdge"/>
 		<xtextDirectEditValue
 			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationHtml"
 			identifier="description"

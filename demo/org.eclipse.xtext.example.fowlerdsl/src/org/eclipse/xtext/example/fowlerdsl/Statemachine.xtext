@@ -66,5 +66,5 @@ State:
 ;
 
 Transition:
-	event=[Event] '=>' state=[State]
+	event=[Event] ('[' guard=Guard ']')? '=>' state=[State]
 ;

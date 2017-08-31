@@ -11,6 +11,7 @@ import org.eclipse.eef.core.api.controllers.IEEFWidgetController;
 import org.eclipse.eef.core.api.utils.EvalFactory;
 import org.eclipse.eef.ide.ui.api.widgets.AbstractEEFWidgetLifecycleManager;
 import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
@@ -149,6 +150,13 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 				
 				EvalFactory.of(this.interpreter, variables).logIfBlank(eAttribute).call(editExpression);
 			});
+		}
+	}
+
+	protected void updateWidgetUriWithSelf() {
+		final Object self = this.variableManager.getVariables().get(EEFExpressionUtils.SELF);
+		if (self instanceof EObject) {
+			getWidget().updateUri(((EObject) self).eResource().getURI());
 		}
 	}
 }

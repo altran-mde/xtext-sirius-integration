@@ -4,194 +4,125 @@
 package org.eclipse.xtext.example.fowlerdsl.ui.contentassist;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CrossReference;
-import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.*;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 
 /**
- * Represents a generated, default implementation of superclass
- * {@link org.eclipse.xtext.common.ui.contentassist.TerminalsProposalProvider}.
- * Methods are dynamically dispatched on the first parameter, i.e., you can
- * override them with a more concrete subtype.
+ * Represents a generated, default implementation of superclass {@link org.eclipse.xtext.common.ui.contentassist.TerminalsProposalProvider}.
+ * Methods are dynamically dispatched on the first parameter, i.e., you can override them 
+ * with a more concrete subtype. 
  */
 @SuppressWarnings("all")
-public class AbstractStatemachineProposalProvider
-		extends org.eclipse.xtext.common.ui.contentassist.TerminalsProposalProvider {
-	
-	public void completeStatemachine_Events(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+public class AbstractStatemachineProposalProvider extends org.eclipse.xtext.common.ui.contentassist.TerminalsProposalProvider {
+		
+	public void completeStatemachine_Events(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeStatemachine_ResetEvents(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		lookupCrossReference(((CrossReference) assignment.getTerminal()), context, acceptor);
+	public void completeStatemachine_ResetEvents(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeStatemachine_Commands(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeStatemachine_Commands(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeStatemachine_Connstants(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeStatemachine_Connstants(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeStatemachine_States(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeStatemachine_States(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeEvent_Name(final EObject model, final Assignment assignment, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeEvent_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeEvent_Code(final EObject model, final Assignment assignment, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeEvent_Code(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeEvent_Guard(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeEvent_Guard(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeValueGuard_Cond(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeValueGuard_Cond(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeRangeGuard_Min(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeRangeGuard_Min(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeRangeGuard_Max(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeRangeGuard_Max(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeConstantRef_Constant(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		lookupCrossReference(((CrossReference) assignment.getTerminal()), context, acceptor);
+	public void completeConstantRef_Constant(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeIntLiteral_Value(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeIntLiteral_Value(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeCommand_Name(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeCommand_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeCommand_Code(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeCommand_Code(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeConstant_Name(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeConstant_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeConstant_Value(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeConstant_Value(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeState_Name(final EObject model, final Assignment assignment, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeState_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeState_Description(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeState_Description(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeState_Actions(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		lookupCrossReference(((CrossReference) assignment.getTerminal()), context, acceptor);
+	public void completeState_Actions(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeState_Transitions(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall) assignment.getTerminal()), context, acceptor);
+	public void completeState_Transitions(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeTransition_Event(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		lookupCrossReference(((CrossReference) assignment.getTerminal()), context, acceptor);
+	public void completeTransition_Event(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void completeTransition_State(final EObject model, final Assignment assignment,
-			final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-		lookupCrossReference(((CrossReference) assignment.getTerminal()), context, acceptor);
+	public void completeTransition_Guard(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	
-	public void complete_Statemachine(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void completeTransition_State(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
+	}
+    
+	public void complete_Statemachine(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_Event(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_Event(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_Guard(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_Guard(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_ValueGuard(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_ValueGuard(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_RangeGuard(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_RangeGuard(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_Value(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_Value(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_ConstantRef(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_ConstantRef(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_IntLiteral(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_IntLiteral(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_Command(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_Command(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_Constant(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_Constant(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_State(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_State(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	
-	public void complete_Transition(final EObject model, final RuleCall ruleCall, final ContentAssistContext context,
-			final ICompletionProposalAcceptor acceptor) {
+	public void complete_Transition(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
 }
