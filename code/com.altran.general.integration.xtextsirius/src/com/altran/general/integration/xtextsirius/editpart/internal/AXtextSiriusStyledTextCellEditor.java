@@ -4,19 +4,21 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.resource.XtextResource;
+import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
+import org.yakindu.base.xtext.utils.jface.viewers.StyledTextXtextAdapter;
+import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
-import com.altran.general.integration.xtextsirius.editpart.internal.fix.XtextStyledTextCellEditorExFix;
 import com.altran.general.integration.xtextsirius.util.EcoreHelper;
 import com.google.inject.Injector;
 
-public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorExFix {
+public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx {
 	
 	private final boolean multiLine;
-	
+
 	private EObject semanticElement;
-	
+
 	private EObject fallbackContainer;
-	
+
 	public AXtextSiriusStyledTextCellEditor(
 			final int style,
 			final @NonNull Injector injector,
@@ -24,13 +26,20 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 		super(style, injector);
 		this.multiLine = multiLine;
 	}
-	
+
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	public abstract @Nullable Object getValueToCommit();
 
+	@Override
+	protected StyledTextXtextAdapter createXtextAdapter() {
+		return new XtextSiriusStyledTextXtextAdapter(getInjector(),
+				getContextFakeResourceProvider() == null ? IXtextFakeContextResourcesProvider.NULL_CONTEXT_PROVIDER
+						: getContextFakeResourceProvider());
+	}
+	
 	@Override
 	protected void doSetValue(final Object value) {
 		super.doSetValue(value);
@@ -43,21 +52,21 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 			EcoreHelper.updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
 		}
 	}
-
-	public void setSemanticElement(final @Nullable EObject element) {
+	
+	protected void setSemanticElement(final @Nullable EObject element) {
 		this.semanticElement = element;
 	}
-
+	
 	protected @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
-
-	public void setFallbackContainer(final @NonNull EObject fallbackContainer) {
+	
+	protected void setFallbackContainer(final @NonNull EObject fallbackContainer) {
 		this.fallbackContainer = fallbackContainer;
 	}
-
+	
 	protected EObject getFallbackContainer() {
 		return this.fallbackContainer;
 	}
-
+	
 }
