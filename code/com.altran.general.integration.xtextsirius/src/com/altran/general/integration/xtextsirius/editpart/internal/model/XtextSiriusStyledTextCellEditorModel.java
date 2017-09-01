@@ -31,9 +31,9 @@ import com.google.inject.Injector;
 
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {
 	private SemanticElementLocation semanticElementLocation;
-	
+
 	private final Collection<@NonNull String> editableFeatures;
-	
+
 	public XtextSiriusStyledTextCellEditorModel(
 			final int style,
 			final @NonNull Injector injector,
@@ -41,16 +41,16 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		super(style, injector, multiLine);
 		this.editableFeatures = editableFeatures;
 	}
-	
+
 	@SuppressWarnings("restriction")
 	@Override
 	protected void doSetValue(final Object value) {
 		final EObject element = getSemanticElement();
-
+		
 		if (element == null) {
 			return;
 		}
-
+		
 		// final INode node = NodeModelUtils.getNode(element);
 		// if (node == null) {
 		// return;
@@ -62,20 +62,20 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		// StyledTextUtil.calculateAndAdjustEditorOffset(node, text,
 		// isMultiLine());
 		// super.doSetValue(text.toString());
-
-		final Serializer serializer = (Serializer) getInjector().getInstance(ISerializer.class);
 		
+		final Serializer serializer = (Serializer) getInjector().getInstance(ISerializer.class);
+
 		StringBuffer allText;
 		String text;
 		TextRegion textRegion;
-		
+
 		final @Nullable EObject semanticElement = element;
 		// if (semanticElement != null) {
 		final ITextRegionAccess region = serializer.serializeToRegions(EcoreUtil.getRootContainer(semanticElement));
-
+		
 		final ITextRegionAccess textRegionAccess = region.regionForRootEObject().getTextRegionAccess();
 		allText = new StringBuffer(region.regionForDocument().getText());
-
+		
 		final IEObjectRegion semanticRegion = region.regionForEObject(semanticElement);
 		if (getEditableFeatures().isEmpty()) {
 			text = StringUtils.normalizeSpace(semanticRegion.getText());
@@ -101,12 +101,12 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 						}
 					})
 					.collect(Collectors.toList());
-
+			
 			final int startOffset = regions.stream()
 					.map(reg -> reg.getOffset())
 					.min(Integer::compare)
 					.get();
-
+			
 			final int endOffset = regions.stream()
 					.map(reg -> {
 						final ISemanticRegion nextHiddenRegion = reg.getNextSemanticRegion();
@@ -117,48 +117,49 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 					})
 					.max(Integer::compare)
 					.get();
-
+			
 			text = region.regionForRootEObject().getTextRegionAccess().textForOffset(startOffset,
 					endOffset - startOffset);
 			textRegion = new TextRegion(startOffset, endOffset - startOffset);
 		}
-
+		
 		System.out.println("allText1:\n" + allText);
 		allText.insert(textRegion.getOffset(), "\n");
 		textRegion = new TextRegion(textRegion.getOffset() + 1, textRegion.getLength());
 		System.out.println("allText2:\n" + allText);
 		StyledTextUtil.removeNewlinesIfSingleLine(allText, textRegion.getOffset(), textRegion.getLength(), false);
-
+		
 		System.out.println("allText:\n" + allText);
 		System.out.println("text: " + text);
 		System.out.println("textRegion: " + textRegion);
 		// }
-		
+
 		super.doSetValue(allText.toString());
-		
+
 		this.semanticElementLocation = new SemanticElementLocation(element);
-		
+
 		getXtextAdapter().resetVisibleRegion();
 		getXtextAdapter().setVisibleRegion(textRegion.getOffset(), textRegion.getLength());
 	}
-
+	
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}
-
+	
 	@Override
 	public @Nullable Object getValueToCommit() {
 		final SemanticElementLocation location = getSemanticElementLocation();
 		if (location != null) {
-			final EObject element = location.resolve(getXtextAdapter().getFakeResourceContext().getFakeResource());
+			final EObject element = location
+					.resolve(getXtextAdapter().getXtextParseResult().getRootASTElement().eResource());
 			if (element != null) {
 				return EcoreHelper.proxify(element, EcoreUtil.getURI(getSemanticElement()));
 			}
 		}
-		
+
 		return null;
 	}
-
+	
 	public Collection<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}

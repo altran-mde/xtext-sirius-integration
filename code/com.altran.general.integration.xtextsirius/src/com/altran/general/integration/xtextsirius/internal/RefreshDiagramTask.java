@@ -1,5 +1,6 @@
 package com.altran.general.integration.xtextsirius.internal;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.helper.task.AbstractCommandTask;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.FeatureNotFoundException;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
@@ -19,6 +20,12 @@ public class RefreshDiagramTask extends AbstractCommandTask {
 	
 	@Override
 	public void execute() throws MetaClassNotFoundException, FeatureNotFoundException {
+		
+		System.err.println("representationElement: " + System.identityHashCode(this.representationElement));
+		System.err.println("representationTarget: " + System.identityHashCode(this.representationElement.getTarget()));
+
+		EcoreUtil.resolveAll(this.representationElement.getTarget());
+
 		this.representationElement.refresh();
 	}
 }
