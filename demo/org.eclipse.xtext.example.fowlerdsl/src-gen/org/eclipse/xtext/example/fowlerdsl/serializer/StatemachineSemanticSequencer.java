@@ -111,7 +111,7 @@ public class StatemachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.CONSTANT_REF__CONSTANT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConstantRefAccess().getConstantConstantIDTerminalRuleCall_0_1(), semanticObject.eGet(StatemachinePackage.Literals.CONSTANT_REF__CONSTANT, false));
+		feeder.accept(grammarAccess.getConstantRefAccess().getConstantConstantIDTerminalRuleCall_0_1(), semanticObject.getConstant());
 		feeder.finish();
 	}
 	
