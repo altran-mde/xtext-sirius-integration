@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="mars.2" sequenceNumber="24">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.sirius.properties.feature.feature.group" version="4.1.6.201706281051"/>
+<unit id="org.eclipse.sirius.runtime.feature.group" version="4.1.6.201706281051"/>
+<unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="4.1.6.201706281051"/>
+<unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="4.1.6.201706281051"/>
+<unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="4.1.6.201706281051"/>
+<unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="4.1.6.201706281051"/>
+<repository location="http://download.eclipse.org/sirius/updates/releases/4.1.6/mars"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="epp.package.java" version="4.5.2.20160218-0600"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.11.2.v20160212-1500"/>
+<repository location="http://download.eclipse.org/releases/mars"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.e4.rcp.feature.group" version="1.4.1.v20160212-1350"/>
+<unit id="org.eclipse.emf.common.feature.group" version="2.11.1.v20160208-0816"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.2.v20160202-2102"/>
+<unit id="org.eclipse.platform.feature.group" version="4.5.2.v20160212-1500"/>
+<unit id="org.eclipse.rcp.feature.group" version="4.5.2.v20160212-1500"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.5"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.9.1.v201512180746"/>
+<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+</location>
+</locations>
+</target>
