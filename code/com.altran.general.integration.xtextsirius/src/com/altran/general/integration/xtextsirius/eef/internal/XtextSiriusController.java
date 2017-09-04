@@ -1,9 +1,10 @@
 package com.altran.general.integration.xtextsirius.eef.internal;
 
+import java.util.function.Consumer;
+
 import org.eclipse.eef.EEFTextDescription;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.eef.core.api.controllers.AbstractEEFWidgetController;
-import org.eclipse.eef.core.api.controllers.IConsumer;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
@@ -11,7 +12,7 @@ import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 public class XtextSiriusController extends AbstractEEFWidgetController {
 	
 	private final EEFTextDescription controlDescription;
-	private IConsumer<Object> newValueConsumer;
+	private Consumer<Object> newValueConsumer;
 	
 	public XtextSiriusController(final @NonNull EEFTextDescription controlDescription,
 			final @NonNull IVariableManager variableManager,
@@ -29,10 +30,10 @@ public class XtextSiriusController extends AbstractEEFWidgetController {
 	@Override
 	public void refresh() {
 		super.refresh();
-		newEval().call(getDescription().getValueExpression(), this.newValueConsumer);
+		newEval().call(getDescription().getValueExpression(), t -> this.newValueConsumer.accept(t));
 	}
 
-	public void onNewValue(final @NonNull IConsumer<Object> newValueConsumer) {
+	public void onNewValue(final @NonNull Consumer<Object> newValueConsumer) {
 		this.newValueConsumer = newValueConsumer;
 	}
 
