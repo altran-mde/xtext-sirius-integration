@@ -1,12 +1,9 @@
 package com.altran.general.integration.xtextsirius.eef.internal;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import org.apache.commons.lang.StringUtils;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.eef.EEFControlDescription;
 import org.eclipse.eef.EEFTextDescription;
 import org.eclipse.eef.core.api.EditingContextAdapter;
@@ -19,17 +16,37 @@ import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration;
 import com.altran.general.integration.xtextsirius.eef.internal.model.PropertyDescriptorModel;
 import com.altran.general.integration.xtextsirius.eef.internal.value.PropertyDescriptorValue;
+import com.altran.general.integration.xtextsirius.internal.AConfigurationParser;
 
 public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleManagerProvider {
 	
 	private static final String EXTENSION_POINT_ID = "com.altran.general.integration.xtextsirius.xtextProperty";
-	private static final String CONFIG_CLASS_ATTRIBUTE = "configClass";
-	private static final String MULTI_LINE_ATTRIBUTE = "multiLine";
-	private static final String IDENTIFIER_ATTRIBUTE = "identifier";
 	private static final String XTEXT_PROPERTY_MODEL_ELEMENT = "xtextPropertyModel";
 	private static final String XTEXT_PROPERTY_VALUE_ELEMENT = "xtextPropertyValue";
-	private static final String PREFIX_TEXT_ATTRIBUTE = "prefixText";
-	private static final String SUFFIX_TEXT_ATTRIBUTE = "suffixText";
+	
+	private AConfigurationParser<IXtextPropertyConfiguration, APropertyDescriptor> parser;
+	
+	public XtextSiriusEefLifecycleManagerProvider() {
+		createParser();
+	}
+
+	private void createParser() {
+		this.parser = new AConfigurationParser<IXtextPropertyConfiguration, APropertyDescriptor>(EXTENSION_POINT_ID) {
+
+			@Override
+			protected boolean validate(@NonNull final APropertyDescriptor desc) {
+				return desc.isValid();
+			}
+		};
+
+		this.parser.addToken(XTEXT_PROPERTY_MODEL_ELEMENT,
+				(e, identifier, multiLine, config) -> new PropertyDescriptorModel(identifier, multiLine, config,
+						this.parser.collectEditableFeatures(e)));
+		
+		this.parser.addToken(XTEXT_PROPERTY_VALUE_ELEMENT,
+				(e, identifier, multiLine, config) -> new PropertyDescriptorValue(identifier, multiLine, config,
+						this.parser.getPrefixText(e), this.parser.getSuffixText(e)));
+	}
 
 	@Override
 	public boolean canHandle(final EEFControlDescription controlDescription) {
@@ -56,36 +73,12 @@ public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleMana
 	}
 
 	private @NonNull Stream<@NonNull APropertyDescriptor> collectXtextPropertyConfigurations() {
-		return Stream.of(Platform.getExtensionRegistry().getConfigurationElementsFor(EXTENSION_POINT_ID))
-				.filter(e -> e.isValid())
-				.filter(e -> XTEXT_PROPERTY_MODEL_ELEMENT.equals(e.getName())
-						|| XTEXT_PROPERTY_VALUE_ELEMENT.equals(e.getName()))
-				.map(e -> {
-					IXtextPropertyConfiguration configuration = null;
-					try {
-						configuration = (IXtextPropertyConfiguration) e
-								.createExecutableExtension(CONFIG_CLASS_ATTRIBUTE);
-					} catch (final CoreException | ClassCastException ex) {
-						// fail silently, will be handled in filter below
-					}
-					final String identifier = e.getAttribute(IDENTIFIER_ATTRIBUTE);
-					final boolean multiLine = Boolean.parseBoolean(e.getAttribute(MULTI_LINE_ATTRIBUTE));
-					switch (e.getName()) {
-						case XTEXT_PROPERTY_MODEL_ELEMENT:
-							return new PropertyDescriptorModel(identifier, multiLine, configuration);
-						case XTEXT_PROPERTY_VALUE_ELEMENT:
-							return new PropertyDescriptorValue(identifier, multiLine, configuration,
-									e.getAttribute(PREFIX_TEXT_ATTRIBUTE), e.getAttribute(SUFFIX_TEXT_ATTRIBUTE));
-						default:
-							return null;
-					}
-				})
-				.filter(Objects::nonNull)
-				.filter(d -> d.isValid());
+		return this.parser.parse();
 	}
 
 	private @NonNull Predicate<? super @NonNull APropertyDescriptor> createIdentifierFilter(
 			final @NonNull EEFControlDescription controlDescription) {
 		return e -> StringUtils.equals(controlDescription.getIdentifier(), e.getIdentifier());
 	}
+
 }

@@ -1,58 +1,45 @@
 package com.altran.general.integration.xtextsirius.editpart.internal.model;
 
-import java.util.Collections;
+import java.util.Collection;
 
-import org.apache.commons.lang.StringUtils;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.jdt.annotation.Nullable;
-import org.eclipse.xtext.nodemodel.INode;
-import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
-import org.eclipse.xtext.serializer.ISerializer;
 
 import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSiriusEditPart;
 
-public class XtextSiriusEditPartModel extends AXtextSiriusEditPart {
+public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IXtextSiriusEditPartModel {
+	private final Collection<@NonNull String> editableFeatures;
 	
 	public XtextSiriusEditPartModel(final @NonNull EditPartDescriptorModel descriptor, final @NonNull View view) {
 		super(descriptor, view);
+		this.editableFeatures = descriptor.getEditableFeatures();
 	}
 	
+	/**
+	 * This value should never be used. Instead, use
+	 * {@link #getSemanticElement()}.
+	 */
 	@Override
 	public @NonNull String getEditText() {
-		final ISerializer serializer = getInjector().getInstance(ISerializer.class);
-		final String text = serializer.serialize(getSemanticElement());
-		return StringUtils.normalizeSpace(text);
-		// final INode node = getSemanticNode();
-		// if (node != null) {
-		// final String text = node.getText();
-		// return StringUtils.normalizeSpace(text);
-		// }
-		//
-		// return "(empty)";
-	}
-
-	protected @Nullable INode getSemanticNode() {
-		final EObject semanticElement = getSemanticElement();
-		if (semanticElement == null) {
-			return null;
-		}
-		
-		return NodeModelUtils.getNode(semanticElement);
+		return "";
 	}
 
 	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
 		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
-				translateToStyle(), isMultiLine(), Collections.emptySet());
+				translateToStyle(), isMultiLine(), getEditableFeatures());
 	}
 	
 	@Override
 	protected void setContext(final Resource res) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public @NonNull Collection<@NonNull String> getEditableFeatures() {
+		return this.editableFeatures;
 	}
 }

@@ -9,8 +9,9 @@ import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 
 import com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration;
+import com.altran.general.integration.xtextsirius.internal.IDescriptor;
 
-public abstract class APropertyDescriptor {
+public abstract class APropertyDescriptor implements IDescriptor {
 	
 	private final String identifier;
 	private final boolean multiLine;
@@ -25,10 +26,12 @@ public abstract class APropertyDescriptor {
 		this.config = config;
 	}
 
+	@Override
 	public @NonNull String getIdentifier() {
 		return this.identifier;
 	}
 
+	@Override
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
@@ -37,9 +40,9 @@ public abstract class APropertyDescriptor {
 		return this.config;
 	}
 
+	@Override
 	public boolean isValid() {
-		return StringUtils.isNotBlank(getIdentifier()) &&
-				getConfig() instanceof IXtextPropertyConfiguration;
+		return StringUtils.isNotBlank(getIdentifier()) && getConfig() != null;
 	}
 	
 	public abstract @NonNull AXtextSiriusEefLifecycleManager createEefLifecycleManager(

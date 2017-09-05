@@ -1,7 +1,5 @@
 package com.altran.general.integration.xtextsirius.editpart.internal.model;
 
-import static org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR;
-
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
@@ -10,6 +8,7 @@ import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.tools.DirectEditManager;
+import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.notation.View;
@@ -17,22 +16,22 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeNameEditPart;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.swt.SWT;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 import org.yakindu.base.xtext.utils.jface.viewers.XtextStyledTextCellEditor;
 
-import com.altran.general.integration.xtextsirius.editpart.internal.IXtextSiriusAwareLabelEditPart;
+import com.altran.general.integration.xtextsirius.editpart.internal.EditPartHelper;
 import com.altran.general.integration.xtextsirius.editpart.internal.XtextSiriusDirectEditPolicy;
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
-public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implements IXtextSiriusAwareLabelEditPart {
+public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implements IXtextSiriusEditPartModel {
 	
 	private final Injector injector;
 	private final boolean multiLine;
 	private final Collection<@NonNull String> editableFeatures;
 	
-	public XtextSiriusEdgeNameEditPartModel(final @NonNull EditPartDescriptorModel descriptor,
+	public XtextSiriusEdgeNameEditPartModel(
+			final @NonNull EditPartDescriptorModel descriptor,
 			final @NonNull View view) {
 		super(view);
 		this.injector = descriptor.getConfig().getInjector();
@@ -40,9 +39,13 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 		this.editableFeatures = descriptor.getEditableFeatures();
 	}
 	
+	/**
+	 * This value should never be used. Instead, use
+	 * {@link #getSemanticElement()}.
+	 */
 	@Override
 	public String getEditText() {
-		return "(empty)";
+		return "";
 	}
 
 	@Override
@@ -51,14 +54,9 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 		return labelText;
 	}
 
-	// @Override
-	// public void setLabelText(final String arg0) {
-	// // TODO Auto-generated method stub
-	//
-	// }
-	//
 	/**
-	 * Performs direct edit on double click
+	 * Copied from
+	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
 	 */
 	@Override
 	public DragTracker getDragTracker(final Request request) {
@@ -76,6 +74,10 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 		};
 	}
 	
+	/**
+	 * Copied from
+	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
+	 */
 	@Override
 	public void performDirectEditRequest(final Request request) {
 		final DirectEditManager manager = createDirectEditManager();
@@ -87,9 +89,9 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 				public void run() {
 					if (isActive()) {
 						if (theRequest.getExtendedData()
-								.get(REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
 							final Character initialChar = (Character) theRequest.getExtendedData()
-									.get(REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
 							if (manager instanceof XtextDirectEditManager) {
 								final XtextDirectEditManager xtextDirectEditManager = (XtextDirectEditManager) manager;
 								xtextDirectEditManager.show(initialChar);
@@ -101,8 +103,7 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 						}
 						if (manager instanceof XtextDirectEditManager) {
 							final XtextSiriusDirectEditManagerModel xtextDirectEditManager = (XtextSiriusDirectEditManagerModel) manager;
-							final XtextStyledTextCellEditor cellEditor = (XtextStyledTextCellEditor) xtextDirectEditManager
-									.getCellEditor();
+							final XtextStyledTextCellEditor cellEditor = xtextDirectEditManager.getCellEditor();
 							setContext(cellEditor.getXtextAdapter().getFakeResourceContext().getFakeResource());
 						}
 					}
@@ -124,11 +125,7 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 	}
 	
 	protected int translateToStyle() {
-		if (isMultiLine()) {
-			return SWT.MULTI | SWT.WRAP;
-		} else {
-			return SWT.SINGLE;
-		}
+		return EditPartHelper.translateToStyle(isMultiLine());
 	}
 	
 	protected Injector getInjector() {
@@ -140,28 +137,18 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 	}
 
 	@Override
+	public DSemanticDecorator resolveSemanticElement() {
+		return (DSemanticDecorator) super.resolveSemanticElement();
+	}
+	
+	@Override
 	public @Nullable EObject getSemanticElement() {
-		return ((DSemanticDecorator) resolveSemanticElement()).getTarget();
+		return resolveSemanticElement().getTarget();
 	}
 
 	@Override
 	public @NonNull EObject getClosestExistingSemanticElement() {
-		final EObject decorator = resolveSemanticElement();
-		return findClosestExistingSemanticElementRecursive((DSemanticDecorator) decorator);
-	}
-
-	protected @NonNull EObject findClosestExistingSemanticElementRecursive(final DSemanticDecorator decorator) {
-		final EObject target = decorator.getTarget();
-		if (target != null) {
-			return target;
-		}
-		
-		final EObject eContainer = decorator.eContainer();
-		if (eContainer instanceof DSemanticDecorator) {
-			return findClosestExistingSemanticElementRecursive((DSemanticDecorator) eContainer);
-		} else {
-			throw new RuntimeException("cannot find any semantic element");
-		}
+		return EditPartHelper.findClosestExistingSemanticElementRecursive(resolveSemanticElement());
 	}
 
 	@Override
@@ -170,7 +157,8 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new XtextSiriusDirectEditPolicy());
 	}
 	
-	public Collection<@NonNull String> getEditableFeatures() {
+	@Override
+	public @NonNull Collection<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}
 }

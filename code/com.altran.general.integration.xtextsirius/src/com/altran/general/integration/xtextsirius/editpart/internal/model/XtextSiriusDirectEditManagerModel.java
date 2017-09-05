@@ -15,7 +15,7 @@ import com.google.inject.Injector;
 
 public class XtextSiriusDirectEditManagerModel extends XtextSiriusDirectEditManager {
 	private final Collection<@NonNull String> editableFeatures;
-	
+
 	public XtextSiriusDirectEditManagerModel(
 			final @NonNull IXtextAwareEditPart editPart,
 			final @NonNull Injector injector,
@@ -24,28 +24,27 @@ public class XtextSiriusDirectEditManagerModel extends XtextSiriusDirectEditMana
 		super(editPart, injector, editorStyles, multiLine);
 		this.editableFeatures = editableFeatures;
 	}
-
+	
 	@Override
 	protected @NonNull CellEditor createCellEditorOn(final Composite composite) {
 		final Composite parent = new Composite(composite, SWT.None);
 		final FillLayout fillLayout = new FillLayout();
 		fillLayout.marginWidth = 10;
 		parent.setLayout(fillLayout);
-
+		
 		final XtextSiriusStyledTextCellEditorModel editor = new XtextSiriusStyledTextCellEditorModel(getEditorStyles(),
 				getInjector(), isMultiLine(), getEditableFeatures());
 		editor.create(composite);
-
+		
 		return editor;
 	}
-	
+
 	private Collection<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}
-	
+
 	@Override
 	protected AXtextSiriusStyledTextCellEditor getCellEditor() {
-		// TODO Auto-generated method stub
 		return super.getCellEditor();
 	}
 }

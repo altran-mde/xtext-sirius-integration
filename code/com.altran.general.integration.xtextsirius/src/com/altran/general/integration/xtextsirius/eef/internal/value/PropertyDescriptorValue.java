@@ -11,12 +11,13 @@ import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration;
 import com.altran.general.integration.xtextsirius.eef.internal.APropertyDescriptor;
 import com.altran.general.integration.xtextsirius.eef.internal.AXtextSiriusEefLifecycleManager;
+import com.altran.general.integration.xtextsirius.internal.IDescriptorValue;
 
-public class PropertyDescriptorValue extends APropertyDescriptor {
-	
+public class PropertyDescriptorValue extends APropertyDescriptor implements IDescriptorValue {
+
 	private final @Nullable String prefixText;
 	private final @Nullable String suffixText;
-	
+
 	public PropertyDescriptorValue(
 			final @Nullable String identifier,
 			final boolean multiLine,
@@ -27,7 +28,7 @@ public class PropertyDescriptorValue extends APropertyDescriptor {
 		this.prefixText = prefixText;
 		this.suffixText = suffixText;
 	}
-	
+
 	@Override
 	public @NonNull AXtextSiriusEefLifecycleManager createEefLifecycleManager(
 			final @NonNull EEFTextDescription controlDescription,
@@ -37,11 +38,13 @@ public class PropertyDescriptorValue extends APropertyDescriptor {
 		return new XtextSiriusEefLifecycleManagerValue(this, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-
+	
+	@Override
 	public @NonNull String getPrefixText() {
 		return StringUtils.defaultString(this.prefixText);
 	}
-
+	
+	@Override
 	public @NonNull String getSuffixText() {
 		return StringUtils.defaultString(this.suffixText);
 	}

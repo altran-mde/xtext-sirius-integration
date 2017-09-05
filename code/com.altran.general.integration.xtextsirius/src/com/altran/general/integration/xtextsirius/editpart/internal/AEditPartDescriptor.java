@@ -7,8 +7,9 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 
 import com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfiguration;
+import com.altran.general.integration.xtextsirius.internal.IDescriptor;
 
-public abstract class AEditPartDescriptor {
+public abstract class AEditPartDescriptor implements IDescriptor {
 	
 	private final String identifier;
 	private final boolean multiLine;
@@ -23,10 +24,12 @@ public abstract class AEditPartDescriptor {
 		this.config = config;
 	}
 
+	@Override
 	public @NonNull String getIdentifier() {
 		return this.identifier;
 	}
 
+	@Override
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
@@ -35,9 +38,9 @@ public abstract class AEditPartDescriptor {
 		return this.config;
 	}
 
+	@Override
 	public boolean isValid() {
-		return StringUtils.isNotBlank(getIdentifier()) &&
-				getConfig() instanceof IXtextDirectEditConfiguration;
+		return StringUtils.isNotBlank(getIdentifier()) && getConfig() != null;
 	}
 	
 	public abstract @NonNull IXtextAwareEditPart createEditPart(final @NonNull View view);

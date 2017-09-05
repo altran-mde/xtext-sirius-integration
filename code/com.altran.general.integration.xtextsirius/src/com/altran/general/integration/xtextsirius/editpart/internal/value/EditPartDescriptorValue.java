@@ -8,11 +8,12 @@ import org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart;
 
 import com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfiguration;
 import com.altran.general.integration.xtextsirius.editpart.internal.AEditPartDescriptor;
+import com.altran.general.integration.xtextsirius.internal.IDescriptorValue;
 
-public class EditPartDescriptorValue extends AEditPartDescriptor {
+public class EditPartDescriptorValue extends AEditPartDescriptor implements IDescriptorValue {
 	private final @Nullable String prefixText;
 	private final @Nullable String suffixText;
-
+	
 	public EditPartDescriptorValue(
 			final @Nullable String identifier,
 			final boolean multiLine,
@@ -23,16 +24,18 @@ public class EditPartDescriptorValue extends AEditPartDescriptor {
 		this.prefixText = prefixText;
 		this.suffixText = suffixText;
 	}
-	
+
 	@Override
 	public @NonNull XtextLabelEditPart createEditPart(final @NonNull View view) {
 		return new XtextSiriusEditPartValue(this, view);
 	}
-
+	
+	@Override
 	public @NonNull String getPrefixText() {
 		return StringUtils.defaultString(this.prefixText);
 	}
-	
+
+	@Override
 	public @NonNull String getSuffixText() {
 		return StringUtils.defaultString(this.suffixText);
 	}

@@ -20,11 +20,14 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Control;
 
+import com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration;
 import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 
 public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleManager {
-	private final APropertyDescriptor descriptor;
+	private final IXtextPropertyConfiguration propertyConfiguration;
+	private final boolean multiLine;
+	private final Injector injector;
 
 	protected final EEFTextDescription controlDescription;
 	protected final EditingContextAdapter contextAdapter;
@@ -43,9 +46,11 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 			final @NonNull IInterpreter interpreter,
 			final @NonNull EditingContextAdapter contextAdapter) {
 		super(variableManager, interpreter, contextAdapter);
-		this.descriptor = descriptor;
 		this.controlDescription = controlDescription;
 		this.contextAdapter = contextAdapter;
+		this.propertyConfiguration = descriptor.getConfig();
+		this.multiLine = descriptor.isMultiLine();
+		this.injector = createSpecializedInjector(descriptor.getConfig());
 	}
 
 	@Override
@@ -79,7 +84,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	
 	protected void applyGridData(final @Nullable Control widgetControl) {
 		if (widgetControl != null) {
-			final GridData gridData = getDescriptor().getConfig().getLayoutData(translateToGridData());
+			final GridData gridData = getConfig().getLayoutData(translateToGridData());
 			// no idea why we're missing one pixel here
 			gridData.horizontalIndent = VALIDATION_MARKER_OFFSET - 1;
 			widgetControl.setLayoutData(gridData);
@@ -106,7 +111,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	}
 	
 	protected int translateToStyle() {
-		if (getDescriptor().isMultiLine()) {
+		if (isMultiLine()) {
 			return SWT.MULTI | SWT.WRAP | SWT.V_SCROLL | SWT.BORDER;
 		} else {
 			return SWT.SINGLE | SWT.BORDER;
@@ -115,7 +120,7 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	
 	protected @NonNull GridData translateToGridData() {
 		final GridData result = new GridData(SWT.FILL, SWT.BEGINNING, true, false);
-		if (getDescriptor().isMultiLine()) {
+		if (isMultiLine()) {
 			// because it's two times the answer
 			result.heightHint = 42 * 2;
 		}
@@ -123,16 +128,11 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		return result;
 	}
 	
-	protected @NonNull Injector createSpecializedInjector() {
-		return getDescriptor().getConfig().getInjector()
-				.createChildInjector(new XtextEditorSwtStyleOverridingModule(
-						getDescriptor().getConfig().getSwtWidgetStyle(translateToStyle())));
+	protected @NonNull Injector createSpecializedInjector(final @NonNull IXtextPropertyConfiguration config) {
+		return config.getInjector().createChildInjector(
+				new XtextEditorSwtStyleOverridingModule(config.getSwtWidgetStyle(translateToStyle())));
 	}
 
-	public @NonNull APropertyDescriptor getDescriptor() {
-		return this.descriptor;
-	}
-	
 	public AXtextSiriusWidget getWidget() {
 		return this.widget;
 	}
@@ -154,9 +154,31 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	}
 	
 	protected void updateWidgetUriWithSelf() {
+		final EObject self = getSelf();
+		if (self != null) {
+			getWidget().updateUri(self.eResource().getURI());
+		}
+	}
+	
+	protected @Nullable EObject getSelf() {
 		final Object self = this.variableManager.getVariables().get(EEFExpressionUtils.SELF);
 		if (self instanceof EObject) {
-			getWidget().updateUri(((EObject) self).eResource().getURI());
+			return (EObject) self;
 		}
+		
+		return null;
+		
+	}
+
+	protected boolean isMultiLine() {
+		return this.multiLine;
+	}
+
+	protected Injector getInjector() {
+		return this.injector;
+	}
+	
+	protected IXtextPropertyConfiguration getConfig() {
+		return this.propertyConfiguration;
 	}
 }
