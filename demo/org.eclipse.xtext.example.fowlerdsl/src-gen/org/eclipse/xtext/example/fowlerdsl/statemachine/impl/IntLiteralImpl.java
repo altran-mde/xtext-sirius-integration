@@ -156,21 +156,13 @@ public class IntLiteralImpl extends ValueImpl implements IntLiteral
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
+	public String toString() {
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
+		return Integer.toString(this.value);
   }
 
 } //IntLiteralImpl

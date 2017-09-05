@@ -261,4 +261,13 @@ public class RangeGuardImpl extends GuardImpl implements RangeGuard
     return super.eIsSet(featureID);
   }
 
+	@Override
+	public String toString() {
+		if (eIsProxy()) {
+			return super.toString();
+		}
+		
+		return this.min + ".." + this.max;
+	}
+	
 } //RangeGuardImpl
