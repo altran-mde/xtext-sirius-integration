@@ -40,11 +40,24 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 				this.contextAdapter);
 	}
 	
+	private Object oldValue;
+	
+	@Override
+	public void dispose() {
+		this.oldValue = null;
+		super.dispose();
+	}
+	
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
 		
 		this.newValueConsumer = (newValue) -> {
+			if (newValue == this.oldValue) {
+				return;
+			}
+			this.oldValue = newValue;
+			
 			ModelRegionEditorPreparer preparer = null;
 			URI resourceUri = null;
 
@@ -70,8 +83,8 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			}
 
 			if (preparer != null && resourceUri != null) {
-				getWidget().update(preparer.getText(), preparer.getSemanticElementLocation(), preparer.getTextRegion());
 				getWidget().updateUri(resourceUri);
+				getWidget().update(preparer.getText(), preparer.getSemanticElementLocation(), preparer.getTextRegion());
 			}
 
 		};
@@ -87,7 +100,9 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 	protected EStructuralFeature getEditFeature(final @NonNull EObject self) {
 		final String PREFIX = org.eclipse.sirius.common.tools.internal.interpreter.FeatureInterpreter.PREFIX;
 
-		final String valueExpression = getWidgetDescription().getEditExpression();
+		// we're using valueExpression (instead of EditExpression) as there is
+		// no field to explicitly set the editExpression in odesign model.
+		final String valueExpression = getWidgetDescription().getValueExpression();
 		if (StringUtils.startsWith(valueExpression, PREFIX)) {
 			final String featureName = valueExpression.substring(PREFIX.length());
 			final EStructuralFeature feature = self.eClass().getEStructuralFeature(featureName);

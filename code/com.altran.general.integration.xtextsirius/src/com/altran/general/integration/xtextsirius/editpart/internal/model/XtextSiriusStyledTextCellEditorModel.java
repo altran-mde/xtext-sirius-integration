@@ -15,9 +15,9 @@ import com.google.inject.Injector;
 
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {
 	private SemanticElementLocation semanticElementLocation;
-
+	
 	private final Collection<@NonNull String> editableFeatures;
-
+	
 	public XtextSiriusStyledTextCellEditorModel(
 			final int style,
 			final @NonNull Injector injector,
@@ -26,30 +26,30 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		super(style, injector, multiLine);
 		this.editableFeatures = editableFeatures;
 	}
-
+	
 	@Override
 	protected void doSetValue(final Object value) {
 		final EObject semanticElement = getSemanticElement();
-		
+
 		if (semanticElement == null) {
 			return;
 		}
-		
+
 		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(),
 				isMultiLine(), getEditableFeatures());
+
+		super.doSetValue(preparer.getText());
 		
-		super.doSetValue(preparer.getSemanticText());
-
 		this.semanticElementLocation = preparer.getSemanticElementLocation();
-
+		
 		getXtextAdapter().resetVisibleRegion();
 		getXtextAdapter().setVisibleRegion(preparer.getTextRegion().getOffset(), preparer.getTextRegion().getLength());
 	}
-
+	
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}
-	
+
 	@Override
 	public @Nullable Object getValueToCommit() {
 		final SemanticElementLocation location = getSemanticElementLocation();
@@ -60,10 +60,10 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 				return EcoreHelper.proxify(element, EcoreUtil.getURI(getSemanticElement()));
 			}
 		}
-
+		
 		return null;
 	}
-	
+
 	public Collection<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}

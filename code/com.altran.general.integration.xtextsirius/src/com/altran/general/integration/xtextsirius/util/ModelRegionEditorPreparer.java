@@ -115,40 +115,39 @@ public class ModelRegionEditorPreparer {
 			return;
 		}
 
-		EObject element = getSemanticElement();
-
-		if (element != null) {
-			this.semanticElementLocation = new SemanticElementLocation(element);
-		} else {
-			element = getParent();
-			// editableFeatures refer to features of the semanticElement, so we
-			// need to reset
-			getEditableFeatures().clear();
-			getEditableFeatures().add(getSemanticElementFeature().getName());
-
-			this.semanticElementLocation = constructXtextFragmentSchemeBasedLocation();
-		}
+		new RuntimeException("prepare()").printStackTrace();
 
 		this.rootRegion = getSerializer().serializeToRegions(EcoreUtil.getRootContainer(getParent()));
 
 		this.allText = new StringBuffer(this.rootRegion.regionForDocument().getText());
 
-		this.semanticRegion = this.rootRegion.regionForEObject(element);
 
-		if (getEditableFeatures().isEmpty()) {
-			this.textRegion = ensureRequiredGrammarTerminalsPresent(element.eContainer(),
-					element.eContainingFeature());
-		} else {
-			this.definedFeatures = resolveDefinedFeatures(element);
+		final EObject element = getSemanticElement();
 
-			if (!this.definedFeatures.isEmpty()) {
-				this.textRegion = calculateRegionForFeatures(element);
+		if (element != null) {
+			this.semanticElementLocation = new SemanticElementLocation(element);
+			this.semanticRegion = this.rootRegion.regionForEObject(element);
+			
+			if (getEditableFeatures().isEmpty()) {
+				this.textRegion = new TextRegion(this.semanticRegion.getOffset(), this.semanticRegion.getLength());
+				// this.textRegion =
+				// ensureRequiredGrammarTerminalsPresent(element.eContainer(),
+				// element.eContainingFeature());
 			} else {
-				this.textRegion = ensureRequiredGrammarTerminalsPresent(element,
-						this.definedFeatures.iterator().next());
-			}
-		}
+				this.definedFeatures = resolveDefinedFeatures(element);
 
+				if (!this.definedFeatures.isEmpty()) {
+					this.textRegion = calculateRegionForFeatures(element);
+				} else {
+					this.textRegion = ensureRequiredGrammarTerminalsPresent(element,
+							resolveEditableFeatures(element).iterator().next());
+				}
+			}
+		} else {
+			this.semanticElementLocation = constructXtextFragmentSchemeBasedLocation();
+			this.semanticRegion = this.rootRegion.regionForEObject(getParent());
+			this.textRegion = ensureRequiredGrammarTerminalsPresent(getParent(), getSemanticElementFeature());
+		}
 
 		this.textRegion = StyledTextUtil.insertNewline(this.allText, this.textRegion);
 		
