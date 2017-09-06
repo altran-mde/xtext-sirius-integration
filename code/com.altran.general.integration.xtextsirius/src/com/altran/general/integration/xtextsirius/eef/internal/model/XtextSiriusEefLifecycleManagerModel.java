@@ -41,6 +41,7 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 	}
 	
 	private Object oldValue;
+	private boolean updated = false;
 	
 	@Override
 	public void dispose() {
@@ -53,10 +54,11 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 		super.aboutToBeShown();
 		
 		this.newValueConsumer = (newValue) -> {
-			if (newValue == this.oldValue) {
+			if (this.updated && newValue == this.oldValue) {
 				return;
 			}
 			this.oldValue = newValue;
+			this.updated = true;
 			
 			ModelRegionEditorPreparer preparer = null;
 			URI resourceUri = null;
