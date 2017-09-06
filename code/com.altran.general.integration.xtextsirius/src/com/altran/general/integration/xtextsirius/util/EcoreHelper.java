@@ -18,33 +18,33 @@ import org.eclipse.jdt.annotation.NonNull;
 
 public class EcoreHelper {
 	private static final String SYNTHETIC_URI_PREFIX = "__synthetic__";
-	
+
 	public static void updateFakeResourceUri(final @NonNull Resource fakeResource, final @NonNull URI origResourceUri) {
 		final URI newUri = insertSynthetic(origResourceUri);
 		fakeResource.setURI(newUri);
 	}
-
+	
 	protected static @NonNull URI insertSynthetic(final @NonNull URI uri) {
 		return uri.trimSegments(1)
 				.appendSegment(SYNTHETIC_URI_PREFIX + uri.lastSegment());
 	}
-	
+
 	protected static @NonNull URI removeSynthetic(final @NonNull URI uri) {
 		final String lastSegment = uri.lastSegment();
-		
+
 		if (StringUtils.startsWith(lastSegment, SYNTHETIC_URI_PREFIX)) {
 			return uri.trimSegments(1).appendSegment(StringUtils.substring(lastSegment, SYNTHETIC_URI_PREFIX.length()));
 		}
-		
+
 		return uri;
 	}
-
-	public static <T extends EObject> T proxify(final @NonNull T semanticElement, final @NonNull URI originalUri) {
-		final Set<EObject> allReferencedObjects = collectAllReferencedObjectsRecursive(semanticElement)
+	
+	public static <T extends EObject> T proxify(final @NonNull T semanticElement, final @NonNull URI originalResourceUri) {
+		final Set<EObject> allReferencedObjects = collectAllReferencedObjectsDeep(semanticElement)
 				.collect(Collectors.toSet());
-
-		final URI semanticResourceUri = originalUri.trimFragment();
 		
+		final URI semanticResourceUri = originalResourceUri.trimFragment();
+
 		for (final EObject next : allReferencedObjects) {
 			if (!EcoreUtil.isAncestor(semanticElement, next)) {
 				final URI targetUri = EcoreUtil.getURI(next);
@@ -56,23 +56,23 @@ public class EcoreHelper {
 				((InternalEObject) next).eSetProxyURI(createURI);
 			}
 		}
-		
+
 		return semanticElement;
 	}
-	
+
 	protected static boolean equalsDisregardingSynthetic(final @NonNull URI a, final @NonNull URI b) {
 		return a.equals(b) ||
 				a.equals(removeSynthetic(b)) ||
 				removeSynthetic(a).equals(b);
 	}
-	
-	private static Stream<EObject> collectAllReferencedObjectsRecursive(final @NonNull EObject base) {
+
+	protected static Stream<EObject> collectAllReferencedObjectsDeep(final @NonNull EObject base) {
 		return Stream.concat(Stream.of(base), StreamSupport.stream(Spliterators
 				.spliteratorUnknownSize(EcoreUtil.<EObject> getAllContents(base, false), Spliterator.NONNULL), false))
 				.flatMap(obj -> collectAllReferencedObjects(obj));
 	}
-
-	private static Stream<EObject> collectAllReferencedObjects(final EObject base) {
+	
+	protected static Stream<EObject> collectAllReferencedObjects(final @NonNull EObject base) {
 		return base.eClass().getEAllReferences().stream()
 				.filter(ref -> !ref.isContainment())
 				.flatMap(ref -> {

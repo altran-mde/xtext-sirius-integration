@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.test.util;
+package com.altran.general.integration.xtextsirius.test.util.ecollectionutil;
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
@@ -16,9 +16,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestECollectionUtil extends AFowlerdslDefaultModelTest {
+public class TestReplaceOrAddLocal extends AFowlerdslDefaultModelTest {
   @Test
-  public void replaceOrAddLocal_replace() {
+  public void replace() {
     final Statemachine model = this.getDefaultModel();
     final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
     final Event orgEvent = model.getEvents().get(3);
@@ -36,7 +36,7 @@ public class TestECollectionUtil extends AFowlerdslDefaultModelTest {
   }
   
   @Test
-  public void replaceOrAddLocal_add() {
+  public void add() {
     final Statemachine model = this.getDefaultModel();
     final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
     final Event orgEvent = model.getEvents().get(3);
@@ -62,60 +62,6 @@ public class TestECollectionUtil extends AFowlerdslDefaultModelTest {
     _events.add(fakeEvent);
     final int eventCount = model.getEvents().size();
     final Event replacement = ECollectionUtil.<Event>replaceOrAddLocal(model.getEvents(), fakeEvent);
-    Assert.assertNull(replacement);
-    Assert.assertNotEquals(eventCount, model.getEvents().size());
-    final Event replacedEvent = IterableExtensions.<Event>last(model.getEvents());
-    final Constant replacedConst = AFowlerdslTest.<Constant>findFirstTargetOfType(replacedEvent, Constant.class);
-    Assert.assertNotSame(orgEvent, replacedEvent);
-    Assert.assertSame(fakeEvent, replacedEvent);
-    Assert.assertSame(fakeConst, replacedConst);
-  }
-  
-  @Test
-  public void updateOrAddLocal_update() {
-    final Statemachine model = this.getDefaultModel();
-    final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
-    final Event orgEvent = model.getEvents().get(3);
-    final Event fakeEvent = fakeModel.getEvents().get(3);
-    final Constant fakeConst = AFowlerdslTest.<Constant>findFirstTargetOfType(fakeEvent, Constant.class);
-    final int eventCount = model.getEvents().size();
-    final Event replacement = ECollectionUtil.<Event>updateOrAddLocal(model.getEvents(), fakeEvent);
-    Assert.assertSame(orgEvent, replacement);
-    Assert.assertEquals(eventCount, model.getEvents().size());
-    final Event replacedEvent = model.getEvents().get(3);
-    final Constant replacedConst = AFowlerdslTest.<Constant>findFirstTargetOfType(replacedEvent, Constant.class);
-    Assert.assertSame(orgEvent, replacedEvent);
-    Assert.assertNotSame(fakeEvent, replacedEvent);
-    Assert.assertSame(fakeConst, replacedConst);
-  }
-  
-  @Test
-  public void updateOrAddLocal_add() {
-    final Statemachine model = this.getDefaultModel();
-    final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
-    final Event orgEvent = model.getEvents().get(3);
-    final Constant fakeConst = AFowlerdslTest.<Constant>findFirstTargetOfType(fakeModel.getEvents().get(3), Constant.class);
-    Event _createEvent = AFowlerdslDefaultModelTest.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("fakeEvent");
-      it.setCode("xxx");
-      ValueGuard _createValueGuard = AFowlerdslDefaultModelTest.statemachineFactory.createValueGuard();
-      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
-        ConstantRef _createConstantRef = AFowlerdslDefaultModelTest.statemachineFactory.createConstantRef();
-        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
-          it_2.setConstant(fakeConst);
-        };
-        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
-        it_1.setCond(_doubleArrow);
-      };
-      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
-      it.setGuard(_doubleArrow);
-    };
-    final Event fakeEvent = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    EList<Event> _events = fakeModel.getEvents();
-    _events.add(fakeEvent);
-    final int eventCount = model.getEvents().size();
-    final Event replacement = ECollectionUtil.<Event>updateOrAddLocal(model.getEvents(), fakeEvent);
     Assert.assertNull(replacement);
     Assert.assertNotEquals(eventCount, model.getEvents().size());
     final Event replacedEvent = IterableExtensions.<Event>last(model.getEvents());

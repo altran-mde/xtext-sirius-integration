@@ -32,8 +32,34 @@ abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
 			
 			constants
 				constant1 42
-				constant2 23
+				constant2 constant1
 				constant3 constant1X
+			end
+			
+			state State1
+				event1 => State2
+			end
+			
+			state State2
+				description "asdf"
+			end
+			
+			state State3
+				event2 => State32
+				event3 => State33
+				event5 => State35
+			end
+			
+			state State32
+			
+			end
+			
+			state State33
+			
+			end
+			
+			state State35
+			
 			end
 		''')
 	}
