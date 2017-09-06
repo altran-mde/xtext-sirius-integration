@@ -35,28 +35,24 @@ public class ReplaceValueTask extends AbstractCommandTask {
 		
 		final EObject representationTarget = this.parameter.getRepresentationElement().getTarget();
 
-		System.err.println("elementToEdit: " + System.identityHashCode(elementToEdit));
-		System.err.println("value: " + System.identityHashCode(value));
-		System.err.println(
-				"representationElement: " + System.identityHashCode(this.parameter.getRepresentationElement()));
-		System.err.println("representationTarget: " + System.identityHashCode(representationTarget));
-
 		final @Nullable Object oldValue = elementToEdit.eGet(feature);
-		boolean updateRepresentation = representationTarget.equals(oldValue);
+		Object updateRepresentation = value;
 
 		final boolean many = FeatureMapUtil.isMany(elementToEdit, feature);
 		if (many && oldValue instanceof Collection) {
 			@SuppressWarnings("rawtypes")
 			final Collection collection = ((Collection) oldValue);
 			if (value instanceof List) {
-				updateRepresentation = collection.contains(representationTarget);
+				if (collection.contains(representationTarget)) {
+					updateRepresentation = oldValue;
+				}
 
 				final List<?> values = (List<?>) value;
 				collection.clear();
 				collection.addAll(values);
 
 			} else if (value instanceof EObject) {
-				updateRepresentation = ECollectionUtil.replaceOrAddLocal(collection, (EObject) value);
+				updateRepresentation = ECollectionUtil.updateOrAddLocal(collection, (EObject) value);
 			} else {
 				collection.add(value);
 			}
@@ -64,9 +60,8 @@ public class ReplaceValueTask extends AbstractCommandTask {
 			elementToEdit.eSet(feature, value);
 		}
 
-		System.err.println("updateRepresentation: " + updateRepresentation);
-		if (updateRepresentation) {
-			this.parameter.getRepresentationElement().setTarget((EObject) value);
+		if (updateRepresentation instanceof EObject && updateRepresentation != representationTarget) {
+			this.parameter.getRepresentationElement().setTarget((EObject) updateRepresentation);
 		}
 	}
 }

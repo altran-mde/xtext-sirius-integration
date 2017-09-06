@@ -1,14 +1,49 @@
 package com.altran.general.integration.xtextsirius.util;
 
 import java.util.Collection;
+import java.util.function.BiFunction;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 public class ECollectionUtil {
-	public static <@Nullable T extends EObject> boolean replaceOrAddLocal(final Collection<T> collection,
+	public static <@Nullable T extends EObject> T replaceOrAddLocal(
+			final @NonNull Collection<T> collection,
 			final T element) {
+		return processOrAddLocal(collection, element, (existing, newElement) -> {
+			EcoreUtil.replace(existing, newElement);
+			return newElement;
+		});
+	}
+	
+	public static <@Nullable T extends EObject> T updateOrAddLocal(
+			final @NonNull Collection<T> collection,
+			final T element) {
+		return processOrAddLocal(collection, element, (existing, newElement) -> {
+			if (existing != null && newElement != null) {
+				for (final EStructuralFeature feature : newElement.eClass().getEAllStructuralFeatures()) {
+					if (newElement.eIsSet(feature)) {
+						final Object newValue = newElement.eGet(feature, false);
+						existing.eSet(feature, newValue);
+					} else {
+						existing.eUnset(feature);
+					}
+				}
+				return existing;
+			} else {
+				EcoreUtil.delete(element);
+				return null;
+			}
+		});
+	}
+	
+	public static <@Nullable T extends EObject> T processOrAddLocal(
+			final @NonNull Collection<T> collection,
+			final T element,
+			final @NonNull BiFunction<T, T, T> processor) {
 		final String fragment = EcoreUtil.getURI(element).fragment();
 		
 		final T existing = collection.stream()
@@ -18,10 +53,9 @@ public class ECollectionUtil {
 		
 		if (existing == null) {
 			collection.add(element);
-			return false;
+			return null;
 		} else {
-			EcoreUtil.replace(existing, element);
-			return true;
+			return processor.apply(existing, element);
 		}
 	}
 	

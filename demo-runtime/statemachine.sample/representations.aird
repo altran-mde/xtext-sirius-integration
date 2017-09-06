@@ -193,7 +193,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@subNodeMappings[name='EventNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWoGREeeO_NXW2w55ag" name="event4 [org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ConstantImpl@2dfb8de3 (eProxyURI: #//@connstants.1)..org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ConstantImpl@285e483f (eProxyURI: #//@connstants.2)]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWoGREeeO_NXW2w55ag" name="event4 [e..pi]">
         <target xmi:type="statemachine:Event" href="example1.statemachine#//@events.3"/>
         <semanticElements xmi:type="statemachine:Event" href="example1.statemachine#//@events.3"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_IyegW4GREeeO_NXW2w55ag" labelPosition="node">
@@ -201,7 +201,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@subNodeMappings[name='EventNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegXIGREeeO_NXW2w55ag" name="event5 [235]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegXIGREeeO_NXW2w55ag" name="event5 [234]">
         <target xmi:type="statemachine:Event" href="example1.statemachine#//@events.4"/>
         <semanticElements xmi:type="statemachine:Event" href="example1.statemachine#//@events.4"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_IyegXYGREeeO_NXW2w55ag" labelPosition="node">

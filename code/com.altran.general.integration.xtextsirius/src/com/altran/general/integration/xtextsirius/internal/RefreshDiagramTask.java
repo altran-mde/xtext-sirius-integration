@@ -8,24 +8,20 @@ import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
 public class RefreshDiagramTask extends AbstractCommandTask {
 	private final DRepresentationElement representationElement;
-	
+
 	public RefreshDiagramTask(final DRepresentationElement representationElement) {
 		this.representationElement = representationElement;
 	}
-
+	
 	@Override
 	public String getLabel() {
 		return "Refresh diagram";
 	}
-	
+
 	@Override
 	public void execute() throws MetaClassNotFoundException, FeatureNotFoundException {
-		
-		System.err.println("representationElement: " + System.identityHashCode(this.representationElement));
-		System.err.println("representationTarget: " + System.identityHashCode(this.representationElement.getTarget()));
-
 		EcoreUtil.resolveAll(this.representationElement.getTarget());
-
+		
 		this.representationElement.refresh();
 	}
 }

@@ -32,7 +32,7 @@ state State1456
 end
 
 state State2asdf
-	event1456 => State3
+	event1456 [ finalAnswerA ] => State3
 	event2 => State1456
 end
 
