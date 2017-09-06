@@ -31,33 +31,33 @@ public class ReplaceValueTask extends AbstractCommandTask {
 	public void execute() throws MetaClassNotFoundException, FeatureNotFoundException {
 		final EObject elementToEdit = this.parameter.getElementToEdit();
 		final EStructuralFeature feature = this.parameter.getFeature();
-		final Object value = this.parameter.getValue();
+		final Object newValue = this.parameter.getValue();
 		
 		final EObject representationTarget = this.parameter.getRepresentationElement().getTarget();
 
 		final @Nullable Object oldValue = elementToEdit.eGet(feature);
-		Object updateRepresentation = value;
+		Object updateRepresentation = newValue;
 
 		final boolean many = FeatureMapUtil.isMany(elementToEdit, feature);
 		if (many && oldValue instanceof Collection) {
 			@SuppressWarnings("rawtypes")
 			final Collection collection = ((Collection) oldValue);
-			if (value instanceof List) {
+			if (newValue instanceof List) {
 				if (collection.contains(representationTarget)) {
 					updateRepresentation = oldValue;
 				}
 
-				final List<?> values = (List<?>) value;
+				final List<?> values = (List<?>) newValue;
 				collection.clear();
 				collection.addAll(values);
 
-			} else if (value instanceof EObject) {
-				updateRepresentation = ECollectionUtil.updateOrAddLocal(collection, (EObject) value);
+			} else if (newValue instanceof EObject) {
+				updateRepresentation = ECollectionUtil.updateOrAddLocal(collection, (EObject) newValue);
 			} else {
-				collection.add(value);
+				collection.add(newValue);
 			}
 		} else {
-			elementToEdit.eSet(feature, value);
+			elementToEdit.eSet(feature, newValue);
 		}
 
 		if (updateRepresentation instanceof EObject && updateRepresentation != representationTarget) {
