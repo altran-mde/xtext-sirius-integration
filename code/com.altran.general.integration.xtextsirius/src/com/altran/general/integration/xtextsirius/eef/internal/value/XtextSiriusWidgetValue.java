@@ -27,8 +27,9 @@ public class XtextSiriusWidgetValue extends AXtextSiriusWidget {
 	@SuppressWarnings("restriction")
 	public void update(final @NonNull String newValue) {
 		this.editorAccess.updateModel(this.prefixText,
-				StyledTextUtil.removeNewlinesIfSingleLine(new StringBuffer(newValue), 0, newValue.length(),
-						isMultiLine()).toString(),
+				StyledTextUtil.getInstance()
+						.removeNewlinesIfSingleLine(new StringBuffer(newValue), 0, newValue.length(), isMultiLine())
+						.toString(),
 				this.suffixText);
 		resetDirty();
 	}

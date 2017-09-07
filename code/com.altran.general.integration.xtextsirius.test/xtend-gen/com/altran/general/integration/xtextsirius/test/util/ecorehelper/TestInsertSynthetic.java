@@ -11,7 +11,7 @@ public class TestInsertSynthetic extends ATestEcoreHelper {
   public void simple() {
     final String uriString = "/proj/some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    final URI synth = this.getAccessibleEcoreHelper().insertSyntheticA(org);
+    final URI synth = this.getAccessibleEcoreHelper().insertSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());
     Assert.assertNotEquals(org.lastSegment(), synth.lastSegment());
@@ -21,7 +21,7 @@ public class TestInsertSynthetic extends ATestEcoreHelper {
   public void small() {
     final String uriString = "some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    final URI synth = this.getAccessibleEcoreHelper().insertSyntheticA(org);
+    final URI synth = this.getAccessibleEcoreHelper().insertSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());
     Assert.assertNotEquals(org.lastSegment(), synth.lastSegment());
@@ -31,7 +31,7 @@ public class TestInsertSynthetic extends ATestEcoreHelper {
   public void empty() {
     final String uriString = "";
     final URI org = URI.createURI(uriString, false);
-    final URI synth = this.getAccessibleEcoreHelper().insertSyntheticA(org);
+    final URI synth = this.getAccessibleEcoreHelper().insertSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());
     Assert.assertNotEquals(org.lastSegment(), synth.lastSegment());

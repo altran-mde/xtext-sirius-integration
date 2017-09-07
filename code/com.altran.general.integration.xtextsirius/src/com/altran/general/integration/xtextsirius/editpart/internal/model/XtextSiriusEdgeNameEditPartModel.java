@@ -25,11 +25,11 @@ import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
 public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implements IXtextSiriusEditPartModel {
-	
+
 	private final Injector injector;
 	private final boolean multiLine;
 	private final Collection<@NonNull String> editableFeatures;
-	
+
 	public XtextSiriusEdgeNameEditPartModel(
 			final @NonNull EditPartDescriptorModel descriptor,
 			final @NonNull View view) {
@@ -38,7 +38,7 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 		this.multiLine = descriptor.isMultiLine();
 		this.editableFeatures = descriptor.getEditableFeatures();
 	}
-	
+
 	/**
 	 * This value should never be used. Instead, use
 	 * {@link #getSemanticElement()}.
@@ -47,13 +47,13 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 	public String getEditText() {
 		return "";
 	}
-
+	
 	@Override
 	public String getLabelText() {
 		final String labelText = super.getLabelText();
 		return labelText;
 	}
-
+	
 	/**
 	 * Copied from
 	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
@@ -65,7 +65,7 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 			protected boolean isMove() {
 				return true;
 			}
-			
+
 			@Override
 			protected boolean handleDoubleClick(final int button) {
 				performDirectEditRequest(request);
@@ -73,7 +73,7 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 			}
 		};
 	}
-	
+
 	/**
 	 * Copied from
 	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
@@ -84,7 +84,7 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 		final Request theRequest = request;
 		try {
 			getEditingDomain().runExclusive(new Runnable() {
-				
+
 				@Override
 				public void run() {
 					if (isActive()) {
@@ -113,50 +113,50 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected @NonNull DirectEditManager createDirectEditManager() {
 		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
 				translateToStyle(), isMultiLine(), getEditableFeatures());
 	}
-	
+
 	protected void setContext(final Resource res) {
 		// TODO Auto-generated method stub
+		
+	}
 
-	}
-	
 	protected int translateToStyle() {
-		return EditPartHelper.translateToStyle(isMultiLine());
+		return EditPartHelper.getInstance().translateToStyle(isMultiLine());
 	}
-	
+
 	protected Injector getInjector() {
 		return this.injector;
 	}
-
+	
 	protected boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	@Override
 	public DSemanticDecorator resolveSemanticElement() {
 		return (DSemanticDecorator) super.resolveSemanticElement();
 	}
-	
+
 	@Override
 	public @Nullable EObject getSemanticElement() {
 		return resolveSemanticElement().getTarget();
 	}
-
+	
 	@Override
 	public @NonNull EObject getClosestExistingSemanticElement() {
-		return EditPartHelper.findClosestExistingSemanticElementRecursive(resolveSemanticElement());
+		return EditPartHelper.getInstance().findClosestExistingSemanticElementRecursive(resolveSemanticElement());
 	}
-
+	
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new XtextSiriusDirectEditPolicy());
 	}
-	
+
 	@Override
 	public @NonNull Collection<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;

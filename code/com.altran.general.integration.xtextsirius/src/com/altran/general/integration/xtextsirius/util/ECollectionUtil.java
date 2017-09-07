@@ -10,7 +10,21 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 public class ECollectionUtil {
-	public static <@Nullable T extends EObject> T replaceOrAddLocal(
+	private static ECollectionUtil INSTANCE;
+
+	public static ECollectionUtil getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new ECollectionUtil();
+		}
+
+		return INSTANCE;
+	}
+
+	protected ECollectionUtil() {
+
+	}
+
+	public <@Nullable T extends EObject> T replaceOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element) {
 		return processOrAddLocal(collection, element, (existing, newElement) -> {
@@ -18,8 +32,8 @@ public class ECollectionUtil {
 			return newElement;
 		});
 	}
-	
-	public static <@Nullable T extends EObject> T updateOrAddLocal(
+
+	public <@Nullable T extends EObject> T updateOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element) {
 		return processOrAddLocal(collection, element, (existing, newElement) -> {
@@ -39,18 +53,18 @@ public class ECollectionUtil {
 			}
 		});
 	}
-	
-	public static <@Nullable T extends EObject> T processOrAddLocal(
+
+	public <@Nullable T extends EObject> T processOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element,
 			final @NonNull BiFunction<T, T, T> processor) {
 		final String fragment = EcoreUtil.getURI(element).fragment();
-		
+
 		final T existing = collection.stream()
 				.filter(e -> fragment.equals(EcoreUtil.getURI(e).fragment()))
 				.findAny()
 				.orElse(null);
-		
+
 		if (existing == null) {
 			collection.add(element);
 			return null;
@@ -58,5 +72,5 @@ public class ECollectionUtil {
 			return processor.apply(existing, element);
 		}
 	}
-	
+
 }

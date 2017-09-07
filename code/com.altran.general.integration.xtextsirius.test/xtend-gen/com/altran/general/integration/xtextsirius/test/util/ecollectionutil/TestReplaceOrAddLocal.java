@@ -25,7 +25,7 @@ public class TestReplaceOrAddLocal extends AFowlerdslDefaultModelTest {
     final Event fakeEvent = fakeModel.getEvents().get(3);
     final Constant fakeConst = AFowlerdslTest.<Constant>findFirstTargetOfType(fakeEvent, Constant.class);
     final int eventCount = model.getEvents().size();
-    final Event replacement = ECollectionUtil.<Event>replaceOrAddLocal(model.getEvents(), fakeEvent);
+    final Event replacement = ECollectionUtil.getInstance().<Event>replaceOrAddLocal(model.getEvents(), fakeEvent);
     Assert.assertSame(fakeEvent, replacement);
     Assert.assertEquals(eventCount, model.getEvents().size());
     final Event replacedEvent = model.getEvents().get(3);
@@ -61,7 +61,7 @@ public class TestReplaceOrAddLocal extends AFowlerdslDefaultModelTest {
     EList<Event> _events = fakeModel.getEvents();
     _events.add(fakeEvent);
     final int eventCount = model.getEvents().size();
-    final Event replacement = ECollectionUtil.<Event>replaceOrAddLocal(model.getEvents(), fakeEvent);
+    final Event replacement = ECollectionUtil.getInstance().<Event>replaceOrAddLocal(model.getEvents(), fakeEvent);
     Assert.assertNull(replacement);
     Assert.assertNotEquals(eventCount, model.getEvents().size());
     final Event replacedEvent = IterableExtensions.<Event>last(model.getEvents());

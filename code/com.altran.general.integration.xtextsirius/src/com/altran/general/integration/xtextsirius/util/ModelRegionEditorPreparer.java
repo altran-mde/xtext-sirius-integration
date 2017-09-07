@@ -144,9 +144,9 @@ public class ModelRegionEditorPreparer {
 			this.textRegion = ensureRequiredGrammarTerminalsPresent(getParent(), getSemanticElementFeature());
 		}
 		
-		this.textRegion = StyledTextUtil.insertNewline(this.allText, this.textRegion);
+		this.textRegion = StyledTextUtil.getInstance().insertNewline(this.allText, this.textRegion);
 
-		StyledTextUtil.removeNewlinesIfSingleLine(this.allText, this.textRegion, isMultiLine());
+		StyledTextUtil.getInstance().removeNewlinesIfSingleLine(this.allText, this.textRegion, isMultiLine());
 		
 		this.prepared = true;
 	}

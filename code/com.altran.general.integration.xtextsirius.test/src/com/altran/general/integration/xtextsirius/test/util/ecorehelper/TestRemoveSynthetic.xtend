@@ -10,7 +10,7 @@ class TestRemoveSynthetic extends ATestEcoreHelper {
 	def nonSynth_simple() {
 		val uriString = "/proj/some.resource"
 		val org = URI.createPlatformResourceURI(uriString, false)
-		val unsynth = accessibleEcoreHelper.removeSyntheticA(org)
+		val unsynth = accessibleEcoreHelper.removeSynthetic(org)
 
 		assertEquals(org, unsynth)
 	}
@@ -19,7 +19,7 @@ class TestRemoveSynthetic extends ATestEcoreHelper {
 	def nonSynth_small() {
 		val uriString = "some.resource"
 		val org = URI.createPlatformResourceURI(uriString, false)
-		val unsynth = accessibleEcoreHelper.removeSyntheticA(org)
+		val unsynth = accessibleEcoreHelper.removeSynthetic(org)
 
 		assertEquals(org, unsynth)
 	}
@@ -28,7 +28,7 @@ class TestRemoveSynthetic extends ATestEcoreHelper {
 	def nonSynth_empty() {
 		val uriString = ""
 		val org = URI.createURI(uriString, false)
-		val unsynth = accessibleEcoreHelper.removeSyntheticA(org)
+		val unsynth = accessibleEcoreHelper.removeSynthetic(org)
 
 		assertEquals(org, unsynth)
 	}
@@ -37,8 +37,8 @@ class TestRemoveSynthetic extends ATestEcoreHelper {
 	def synth_simple() {
 		val uriString = "/proj/some.resource"
 		val org = URI.createPlatformResourceURI(uriString, false)
-		val synth = accessibleEcoreHelper.insertSyntheticA(org)
-		val unsynth = accessibleEcoreHelper.removeSyntheticA(org)
+		val synth = accessibleEcoreHelper.insertSynthetic(org)
+		val unsynth = accessibleEcoreHelper.removeSynthetic(org)
 
 		assertNotEquals(org, synth)
 		assertEquals(org, unsynth)
@@ -50,8 +50,8 @@ class TestRemoveSynthetic extends ATestEcoreHelper {
 	def synth_small() {
 		val uriString = "some.resource"
 		val org = URI.createPlatformResourceURI(uriString, false)
-		val synth = accessibleEcoreHelper.insertSyntheticA(org)
-		val unsynth = accessibleEcoreHelper.removeSyntheticA(org)
+		val synth = accessibleEcoreHelper.insertSynthetic(org)
+		val unsynth = accessibleEcoreHelper.removeSynthetic(org)
 
 		assertNotEquals(org, synth)
 		assertEquals(org, unsynth)
@@ -63,8 +63,8 @@ class TestRemoveSynthetic extends ATestEcoreHelper {
 	def synth_empty() {
 		val uriString = ""
 		val org = URI.createURI(uriString, false)
-		val synth = accessibleEcoreHelper.insertSyntheticA(org)
-		val unsynth = accessibleEcoreHelper.removeSyntheticA(org)
+		val synth = accessibleEcoreHelper.insertSynthetic(org)
+		val unsynth = accessibleEcoreHelper.removeSynthetic(org)
 
 		assertNotEquals(org, synth)
 		assertEquals(org, unsynth)

@@ -11,7 +11,7 @@ public class TestRemoveSynthetic extends ATestEcoreHelper {
   public void nonSynth_simple() {
     final String uriString = "/proj/some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    final URI unsynth = this.getAccessibleEcoreHelper().removeSyntheticA(org);
+    final URI unsynth = this.getAccessibleEcoreHelper().removeSynthetic(org);
     Assert.assertEquals(org, unsynth);
   }
   
@@ -19,7 +19,7 @@ public class TestRemoveSynthetic extends ATestEcoreHelper {
   public void nonSynth_small() {
     final String uriString = "some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    final URI unsynth = this.getAccessibleEcoreHelper().removeSyntheticA(org);
+    final URI unsynth = this.getAccessibleEcoreHelper().removeSynthetic(org);
     Assert.assertEquals(org, unsynth);
   }
   
@@ -27,7 +27,7 @@ public class TestRemoveSynthetic extends ATestEcoreHelper {
   public void nonSynth_empty() {
     final String uriString = "";
     final URI org = URI.createURI(uriString, false);
-    final URI unsynth = this.getAccessibleEcoreHelper().removeSyntheticA(org);
+    final URI unsynth = this.getAccessibleEcoreHelper().removeSynthetic(org);
     Assert.assertEquals(org, unsynth);
   }
   
@@ -35,8 +35,8 @@ public class TestRemoveSynthetic extends ATestEcoreHelper {
   public void synth_simple() {
     final String uriString = "/proj/some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    final URI synth = this.getAccessibleEcoreHelper().insertSyntheticA(org);
-    final URI unsynth = this.getAccessibleEcoreHelper().removeSyntheticA(org);
+    final URI synth = this.getAccessibleEcoreHelper().insertSynthetic(org);
+    final URI unsynth = this.getAccessibleEcoreHelper().removeSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertEquals(org, unsynth);
     Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());
@@ -47,8 +47,8 @@ public class TestRemoveSynthetic extends ATestEcoreHelper {
   public void synth_small() {
     final String uriString = "some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    final URI synth = this.getAccessibleEcoreHelper().insertSyntheticA(org);
-    final URI unsynth = this.getAccessibleEcoreHelper().removeSyntheticA(org);
+    final URI synth = this.getAccessibleEcoreHelper().insertSynthetic(org);
+    final URI unsynth = this.getAccessibleEcoreHelper().removeSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertEquals(org, unsynth);
     Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());
@@ -59,8 +59,8 @@ public class TestRemoveSynthetic extends ATestEcoreHelper {
   public void synth_empty() {
     final String uriString = "";
     final URI org = URI.createURI(uriString, false);
-    final URI synth = this.getAccessibleEcoreHelper().insertSyntheticA(org);
-    final URI unsynth = this.getAccessibleEcoreHelper().removeSyntheticA(org);
+    final URI synth = this.getAccessibleEcoreHelper().insertSynthetic(org);
+    final URI unsynth = this.getAccessibleEcoreHelper().removeSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertEquals(org, unsynth);
     Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());

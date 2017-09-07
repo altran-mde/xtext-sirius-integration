@@ -8,24 +8,24 @@ import org.eclipse.emf.ecore.EObject
 
 abstract class ATestEcoreHelper extends AFowlerdslDefaultModelTest {
 	protected static class AccessibleEcoreHelper extends EcoreHelper {
-		def insertSyntheticA(URI uri) {
-			EcoreHelper.insertSynthetic(uri)
+		override public insertSynthetic(URI uri) {
+			super.insertSynthetic(uri)
 		}
 
-		def removeSyntheticA(URI uri) {
-			EcoreHelper.removeSynthetic(uri)
+		override public removeSynthetic(URI uri) {
+			super.removeSynthetic(uri)
 		}
 
-		def equalsDisregardingSyntheticA(URI a, URI b) {
-			EcoreHelper.equalsDisregardingSynthetic(a, b)
+		override public equalsDisregardingSynthetic(URI a, URI b) {
+			super.equalsDisregardingSynthetic(a, b)
 		}
 
-		def collectAllReferencedObjectsDeepA(EObject base) {
-			EcoreHelper.collectAllReferencedObjectsDeep(base)
+		override public collectAllReferencedObjectsDeep(EObject base) {
+			super.collectAllReferencedObjectsDeep(base)
 		}
 
-		def collectAllReferencedObjectsA(EObject base) {
-			EcoreHelper.collectAllReferencedObjects(base)
+		override public collectAllReferencedObjects(EObject base) {
+			super.collectAllReferencedObjects(base)
 		}
 	}
 
@@ -37,10 +37,10 @@ abstract class ATestEcoreHelper extends AFowlerdslDefaultModelTest {
 		if (list.size < 2) {
 			return emptyList
 		}
-		
+
 		list.subList(0, list.size - 2)
 	}
-	
+
 	def protected EObject findFirstByName(List<EObject> list, String name) {
 		list.findFirst[it.eGet(it.eClass.getEStructuralFeature("name")) == name]
 	}

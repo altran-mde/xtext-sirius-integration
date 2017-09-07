@@ -16,9 +16,9 @@ public class TestUpdateFakeResourceUri extends ATestEcoreHelper {
     final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
     final URI orgUri = model.eResource().getURI();
     final URI fakeUri = fakeModel.eResource().getURI();
-    EcoreHelper.updateFakeResourceUri(fakeModel.eResource(), orgUri);
+    EcoreHelper.getInstance().updateFakeResourceUri(fakeModel.eResource(), orgUri);
     final URI newUri = fakeModel.eResource().getURI();
-    final URI unsynthNewUri = this.getAccessibleEcoreHelper().removeSyntheticA(newUri);
+    final URI unsynthNewUri = this.getAccessibleEcoreHelper().removeSynthetic(newUri);
     Assert.assertNotEquals(orgUri, fakeUri);
     Assert.assertNotEquals(orgUri, newUri);
     Assert.assertNotEquals(fakeUri, newUri);

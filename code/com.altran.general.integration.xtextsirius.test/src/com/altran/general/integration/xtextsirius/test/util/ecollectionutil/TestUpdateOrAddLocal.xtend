@@ -20,7 +20,7 @@ class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
 		
 		val eventCount = model.events.size
 		
-		val replacement = ECollectionUtil.updateOrAddLocal(model.events, fakeEvent)
+		val replacement = ECollectionUtil.instance.updateOrAddLocal(model.events, fakeEvent)
 		
 		assertSame(orgEvent, replacement)
 		assertEquals(eventCount, model.events.size)
@@ -54,7 +54,7 @@ class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
 		
 		val eventCount = model.events.size
 		
-		val replacement = ECollectionUtil.updateOrAddLocal(model.events, fakeEvent)
+		val replacement = ECollectionUtil.instance.updateOrAddLocal(model.events, fakeEvent)
 		
 		assertNull(replacement)
 		assertNotEquals(eventCount, model.events.size)

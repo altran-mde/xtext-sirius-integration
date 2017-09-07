@@ -17,7 +17,7 @@ public class TestCollectAllReferencedObjectsDeep extends ATestEcoreHelper {
   public void empty() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    final List<EObject> objects = this.getAccessibleEcoreHelper().collectAllReferencedObjectsDeepA(event).collect(Collectors.<EObject>toList());
+    final List<EObject> objects = this.getAccessibleEcoreHelper().collectAllReferencedObjectsDeep(event).collect(Collectors.<EObject>toList());
     Assert.assertEquals(0, objects.size());
   }
   
@@ -25,7 +25,7 @@ public class TestCollectAllReferencedObjectsDeep extends ATestEcoreHelper {
   public void simple() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(2);
-    final List<EObject> objects = this.getAccessibleEcoreHelper().collectAllReferencedObjectsDeepA(event).collect(Collectors.<EObject>toList());
+    final List<EObject> objects = this.getAccessibleEcoreHelper().collectAllReferencedObjectsDeep(event).collect(Collectors.<EObject>toList());
     Assert.assertEquals(1, objects.size());
     EObject _head = IterableExtensions.<EObject>head(objects);
     Assert.assertEquals("constant1", ((Constant) _head).getName());
@@ -35,7 +35,7 @@ public class TestCollectAllReferencedObjectsDeep extends ATestEcoreHelper {
   public void deep() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final List<EObject> objects = this.getAccessibleEcoreHelper().collectAllReferencedObjectsDeepA(event).collect(Collectors.<EObject>toList());
+    final List<EObject> objects = this.getAccessibleEcoreHelper().collectAllReferencedObjectsDeep(event).collect(Collectors.<EObject>toList());
     Assert.assertEquals(objects.toString(), 2, objects.size());
     Assert.assertNotNull(this.findFirstByName(objects, "constant2"));
     Assert.assertNotNull(this.findFirstByName(objects, "constant3X"));

@@ -13,34 +13,34 @@ class TestProxify extends ATestEcoreHelper {
 	def proxify() {
 		val model = defaultModel
 		val fakeModel = createFakeModel(model)
-		
+
 		val orgUri = model.eResource.URI
-		
-		EcoreHelper.updateFakeResourceUri(fakeModel.eResource, orgUri);
-		
+
+		EcoreHelper.instance.updateFakeResourceUri(fakeModel.eResource, orgUri);
+
 		val fakeEvent = fakeModel.events.get(2)
-		
-		val proxified = EcoreHelper.proxify(fakeEvent, orgUri)
-		
+
+		val proxified = EcoreHelper.instance.proxify(fakeEvent, orgUri)
+
 		assertSame(fakeEvent, proxified)
 		assertFalse(proxified.eIsProxy)
-		
+
 		val guard = proxified.guard as ValueGuard
 		assertNotNull(guard)
 		assertFalse(guard.eIsProxy)
-		
+
 		val ref = guard.cond as ConstantRef
 		assertNotNull(ref)
 		assertFalse(ref.eIsProxy)
-		
+
 		val const = ref.constant
 		assertNotNull(const)
 		assertTrue(const.eIsProxy)
 		val proxyUri = (const as InternalEObject).eProxyURI
-		assertEquals(proxyUri, accessibleEcoreHelper.removeSyntheticA(proxyUri))
-		
+		assertEquals(proxyUri, accessibleEcoreHelper.removeSynthetic(proxyUri))
+
 		val transition = fakeModel.states.get(2).transitions.get(1)
 		assertNotNull(transition)
 		assertFalse(transition.event.eIsProxy)
-	}	
+	}
 }

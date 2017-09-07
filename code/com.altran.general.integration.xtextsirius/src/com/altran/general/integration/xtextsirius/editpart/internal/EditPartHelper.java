@@ -16,21 +16,35 @@ import org.eclipse.swt.SWT;
  */
 @SuppressWarnings("restriction")
 public class EditPartHelper {
-	public static int translateToStyle(final boolean multiLine) {
+	private static EditPartHelper INSTANCE;
+
+	public static EditPartHelper getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new EditPartHelper();
+		}
+
+		return INSTANCE;
+	}
+
+	protected EditPartHelper() {
+
+	}
+
+	public int translateToStyle(final boolean multiLine) {
 		if (multiLine) {
 			return SWT.MULTI | SWT.WRAP;
 		} else {
 			return SWT.SINGLE;
 		}
 	}
-	
-	public static @NonNull EObject findClosestExistingSemanticElementRecursive(
+
+	public @NonNull EObject findClosestExistingSemanticElementRecursive(
 			final @NonNull DSemanticDecorator decorator) {
 		final EObject target = decorator.getTarget();
 		if (target != null) {
 			return target;
 		}
-		
+
 		final EObject eContainer = decorator.eContainer();
 		if (eContainer instanceof DSemanticDecorator) {
 			return findClosestExistingSemanticElementRecursive((DSemanticDecorator) eContainer);
@@ -38,5 +52,5 @@ public class EditPartHelper {
 			throw new RuntimeException("cannot find any semantic element");
 		}
 	}
-	
+
 }

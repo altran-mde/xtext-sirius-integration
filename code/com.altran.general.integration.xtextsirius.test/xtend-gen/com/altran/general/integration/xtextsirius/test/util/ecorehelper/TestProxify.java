@@ -23,9 +23,9 @@ public class TestProxify extends ATestEcoreHelper {
     final Statemachine model = this.getDefaultModel();
     final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
     final URI orgUri = model.eResource().getURI();
-    EcoreHelper.updateFakeResourceUri(fakeModel.eResource(), orgUri);
+    EcoreHelper.getInstance().updateFakeResourceUri(fakeModel.eResource(), orgUri);
     final Event fakeEvent = fakeModel.getEvents().get(2);
-    final Event proxified = EcoreHelper.<Event>proxify(fakeEvent, orgUri);
+    final Event proxified = EcoreHelper.getInstance().<Event>proxify(fakeEvent, orgUri);
     Assert.assertSame(fakeEvent, proxified);
     Assert.assertFalse(proxified.eIsProxy());
     Guard _guard = proxified.getGuard();
@@ -40,7 +40,7 @@ public class TestProxify extends ATestEcoreHelper {
     Assert.assertNotNull(const_);
     Assert.assertTrue(const_.eIsProxy());
     final URI proxyUri = ((InternalEObject) const_).eProxyURI();
-    Assert.assertEquals(proxyUri, this.getAccessibleEcoreHelper().removeSyntheticA(proxyUri));
+    Assert.assertEquals(proxyUri, this.getAccessibleEcoreHelper().removeSynthetic(proxyUri));
     final Transition transition = fakeModel.getStates().get(2).getTransitions().get(1);
     Assert.assertNotNull(transition);
     Assert.assertFalse(transition.getEvent().eIsProxy());

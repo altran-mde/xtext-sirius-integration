@@ -12,7 +12,7 @@ import com.altran.general.integration.xtextsirius.util.EcoreHelper;
 import com.google.inject.Injector;
 
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx {
-	
+
 	private final boolean multiLine;
 
 	private EObject semanticElement;
@@ -30,7 +30,7 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
-	
+
 	public abstract @Nullable Object getValueToCommit();
 
 	@Override
@@ -39,34 +39,34 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 				getContextFakeResourceProvider() == null ? IXtextFakeContextResourcesProvider.NULL_CONTEXT_PROVIDER
 						: getContextFakeResourceProvider());
 	}
-	
+
 	@Override
 	protected void doSetValue(final Object value) {
 		super.doSetValue(value);
 		final EObject element = getSemanticElement();
 		final XtextResource fakeResource = getXtextAdapter().getFakeResourceContext().getFakeResource();
 		if (element != null) {
-			EcoreHelper.updateFakeResourceUri(fakeResource, element.eResource().getURI());
+			EcoreHelper.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
 		} else {
 			final EObject fallback = getFallbackContainer();
-			EcoreHelper.updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
+			EcoreHelper.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
 		}
 	}
-	
+
 	protected void setSemanticElement(final @Nullable EObject element) {
 		this.semanticElement = element;
 	}
-	
+
 	protected @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
-	
+
 	protected void setFallbackContainer(final @NonNull EObject fallbackContainer) {
 		this.fallbackContainer = fallbackContainer;
 	}
-	
+
 	protected EObject getFallbackContainer() {
 		return this.fallbackContainer;
 	}
-	
+
 }

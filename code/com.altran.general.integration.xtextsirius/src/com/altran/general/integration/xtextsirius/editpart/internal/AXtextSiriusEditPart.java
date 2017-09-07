@@ -15,17 +15,17 @@ import com.google.inject.Injector;
 public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements IXtextSiriusAwareLabelEditPart {
 	private final boolean multiLine;
 	private final Injector injector;
-	
+
 	public AXtextSiriusEditPart(final @NonNull AEditPartDescriptor descriptor, final @NonNull View view) {
 		super(view);
 		this.injector = descriptor.getConfig().getInjector();
 		this.multiLine = descriptor.isMultiLine();
 	}
-	
+
 	protected int translateToStyle() {
-		return EditPartHelper.translateToStyle(isMultiLine());
+		return EditPartHelper.getInstance().translateToStyle(isMultiLine());
 	}
-	
+
 	protected Injector getInjector() {
 		return this.injector;
 	}
@@ -38,17 +38,17 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements
 	public DSemanticDecorator resolveSemanticElement() {
 		return (DSemanticDecorator) super.resolveSemanticElement();
 	}
-	
+
 	@Override
 	public @Nullable EObject getSemanticElement() {
 		return resolveSemanticElement().getTarget();
 	}
-	
+
 	@Override
 	public @NonNull EObject getClosestExistingSemanticElement() {
-		return EditPartHelper.findClosestExistingSemanticElementRecursive(resolveSemanticElement());
+		return EditPartHelper.getInstance().findClosestExistingSemanticElementRecursive(resolveSemanticElement());
 	}
-	
+
 	@Override
 	protected void handleNotificationEvent(final Notification notification) {
 		if (notification.getFeature().equals(ViewpointPackage.eINSTANCE.getDRepresentationElement_Name())) {
@@ -56,7 +56,7 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements
 		}
 		super.handleNotificationEvent(notification);
 	}
-	
+
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();

@@ -14,24 +14,29 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public abstract class ATestEcoreHelper extends AFowlerdslDefaultModelTest {
   protected static class AccessibleEcoreHelper extends EcoreHelper {
-    public URI insertSyntheticA(final URI uri) {
-      return EcoreHelper.insertSynthetic(uri);
+    @Override
+    public URI insertSynthetic(final URI uri) {
+      return super.insertSynthetic(uri);
     }
     
-    public URI removeSyntheticA(final URI uri) {
-      return EcoreHelper.removeSynthetic(uri);
+    @Override
+    public URI removeSynthetic(final URI uri) {
+      return super.removeSynthetic(uri);
     }
     
-    public boolean equalsDisregardingSyntheticA(final URI a, final URI b) {
-      return EcoreHelper.equalsDisregardingSynthetic(a, b);
+    @Override
+    public boolean equalsDisregardingSynthetic(final URI a, final URI b) {
+      return super.equalsDisregardingSynthetic(a, b);
     }
     
-    public Stream<EObject> collectAllReferencedObjectsDeepA(final EObject base) {
-      return EcoreHelper.collectAllReferencedObjectsDeep(base);
+    @Override
+    public Stream<EObject> collectAllReferencedObjectsDeep(final EObject base) {
+      return super.collectAllReferencedObjectsDeep(base);
     }
     
-    public Stream<EObject> collectAllReferencedObjectsA(final EObject base) {
-      return EcoreHelper.collectAllReferencedObjects(base);
+    @Override
+    public Stream<EObject> collectAllReferencedObjects(final EObject base) {
+      return super.collectAllReferencedObjects(base);
     }
   }
   
