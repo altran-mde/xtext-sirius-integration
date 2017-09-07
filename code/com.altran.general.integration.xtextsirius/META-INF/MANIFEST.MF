@@ -29,4 +29,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.editpart,
  com.altran.general.integration.xtextsirius.eef,
+ com.altran.general.integration.xtextsirius.internal;x-friends:="com.altran.general.integration.xtextsirius.test",
  com.altran.general.integration.xtextsirius.util;x-friends:="com.altran.general.integration.xtextsirius.test"

@@ -7,7 +7,7 @@ import org.junit.Test
 
 import static org.junit.Assert.*
 
-class InsertNewline extends AFowlerdslDefaultModelTest {
+class TestInsertNewline extends AFowlerdslDefaultModelTest {
 	@Test
 	def simple_region() {
 		val text = new StringBuffer("Hello, World!")

@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class RemoveNewlinesIfSingleLine extends AFowlerdslDefaultModelTest {
+public class TestRemoveNewlinesIfSingleLine extends AFowlerdslDefaultModelTest {
   @Test
   public void nothing_singleLine() {
     final StringBuffer text = new StringBuffer("Hello, World!");

@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class InsertNewline extends AFowlerdslDefaultModelTest {
+public class TestInsertNewline extends AFowlerdslDefaultModelTest {
   @Test
   public void simple_region() {
     final StringBuffer text = new StringBuffer("Hello, World!");

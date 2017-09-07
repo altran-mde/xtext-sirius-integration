@@ -7,7 +7,7 @@ import org.junit.Test
 
 import static org.junit.Assert.*
 
-class RemoveNewlinesIfSingleLine extends AFowlerdslDefaultModelTest {
+class TestRemoveNewlinesIfSingleLine extends AFowlerdslDefaultModelTest {
 	@Test
 	def nothing_singleLine() {
 		val text = new StringBuffer("Hello, World!")
