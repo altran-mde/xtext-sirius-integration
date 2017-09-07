@@ -1,11 +1,9 @@
 package com.altran.general.integration.xtextsirius.test
 
-import org.eclipse.xtext.example.fowlerdsl.statemachine.ConstantRef
-import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant
 import org.junit.Test
 
 import static org.junit.Assert.*
-import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant
 
 class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
 	@Test

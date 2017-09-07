@@ -45,6 +45,7 @@ public abstract class AFowlerdslTest {
 		return FowlerdslEnvironment.getInstance().getInjector();
 	}
 
+	@SuppressWarnings("unchecked")
 	protected static <T> @Nullable T findFirstTargetOfType(final @NonNull EObject base,
 			final @NonNull Class<T> type) {
 		if (type.isInstance(base)) {
@@ -58,6 +59,7 @@ public abstract class AFowlerdslTest {
 		for (final EReference ref : base.eClass().getEAllReferences()) {
 			final Object target = base.eGet(ref, false);
 			if (target instanceof EObject) {
+				@SuppressWarnings("null")
 				final T result = findFirstTargetOfType((EObject) target, type);
 				if (result != null) {
 					return result;
