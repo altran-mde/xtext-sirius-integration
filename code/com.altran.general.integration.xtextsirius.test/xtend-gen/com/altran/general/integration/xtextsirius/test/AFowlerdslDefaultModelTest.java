@@ -1,10 +1,15 @@
 package com.altran.general.integration.xtextsirius.test;
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
+import com.google.common.base.Objects;
+import java.util.Collection;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachineFactory;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
 public abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
@@ -47,6 +52,13 @@ public abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
       _builder.newLine();
       this.parseIntoResource(_builder.toString(), "/proj/other.statemachine");
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.newLine();
+      _builder_1.append("\t\t");
+      _builder_1.newLine();
+      _builder_1.newLine();
+      _builder_1.append("     ");
+      _builder_1.newLine();
+      _builder_1.newLine();
       _builder_1.append("events");
       _builder_1.newLine();
       _builder_1.append("\t");
@@ -56,7 +68,12 @@ public abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
       _builder_1.append("event2 bbb [123]");
       _builder_1.newLine();
       _builder_1.append("\t");
-      _builder_1.append("event3 ccc [constant1]");
+      _builder_1.append("event3");
+      _builder_1.newLine();
+      _builder_1.append("ccc\t \t[");
+      _builder_1.newLine();
+      _builder_1.append("constant1\t\t\t]    ");
+      _builder_1.newLine();
       _builder_1.newLine();
       _builder_1.append("\t");
       _builder_1.append("event4 ddd [constant2X]");
@@ -131,5 +148,13 @@ public abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
       _xblockexpression = this.parseIntoResource(_builder_1.toString());
     }
     return _xblockexpression;
+  }
+  
+  protected <T extends EObject> T findFirstByName(final Collection<T> collection, final String name) {
+    final Function1<T, Boolean> _function = (T it) -> {
+      Object _eGet = it.eGet(it.eClass().getEStructuralFeature("name"));
+      return Boolean.valueOf(Objects.equal(_eGet, name));
+    };
+    return IterableExtensions.<T>findFirst(collection, _function);
   }
 }

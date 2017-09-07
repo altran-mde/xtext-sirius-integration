@@ -1,5 +1,7 @@
 package com.altran.general.integration.xtextsirius.test
 
+import java.util.Collection
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachineFactory
 
 abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
@@ -22,10 +24,18 @@ abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
 		''', "/proj/other.statemachine")
 		
 		parseIntoResource('''
+			
+					
+			
+			     
+			
 			events
 				event1 aaa
 				event2 bbb [123]
-				event3 ccc [constant1]
+				event3
+			ccc	 	[
+			constant1			]    
+			
 				event4 ddd [constant2X]
 				event5 eee [constant3X .. constant2]
 			end
@@ -62,5 +72,9 @@ abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
 			
 			end
 		''')
+	}
+	
+	def protected <T extends EObject> T findFirstByName(Collection<T> collection, String name) {
+		collection.findFirst[it.eGet(it.eClass.getEStructuralFeature("name")) == name]
 	}
 }

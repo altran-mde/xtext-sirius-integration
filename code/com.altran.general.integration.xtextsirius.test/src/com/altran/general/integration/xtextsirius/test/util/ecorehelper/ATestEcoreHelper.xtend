@@ -40,8 +40,4 @@ abstract class ATestEcoreHelper extends AFowlerdslDefaultModelTest {
 
 		list.subList(0, list.size - 2)
 	}
-
-	def protected EObject findFirstByName(List<EObject> list, String name) {
-		list.findFirst[it.eGet(it.eClass.getEStructuralFeature("name")) == name]
-	}
 }

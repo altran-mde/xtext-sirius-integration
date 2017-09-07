@@ -34,7 +34,7 @@ public class TestCollectAllReferencedObjects extends ATestEcoreHelper {
     final Guard guard = model.getEvents().get(4).getGuard();
     final List<EObject> objects = this.getAccessibleEcoreHelper().collectAllReferencedObjectsDeep(guard).collect(Collectors.<EObject>toList());
     Assert.assertEquals(objects.toString(), 2, objects.size());
-    Assert.assertNotNull(this.findFirstByName(objects, "constant2"));
-    Assert.assertNotNull(this.findFirstByName(objects, "constant3X"));
+    Assert.assertNotNull(this.<EObject>findFirstByName(objects, "constant2"));
+    Assert.assertNotNull(this.<EObject>findFirstByName(objects, "constant3X"));
   }
 }

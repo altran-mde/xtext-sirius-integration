@@ -1,13 +1,62 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
+import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.google.inject.Injector;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestResolveEditableFeatures extends AModelRegionEditorPreparer {
   @Test
-  public void simple_region() {
-    Assert.assertTrue(true);
+  public void emptyFeatures() {
+    final Statemachine model = this.getDefaultModel();
+    final Event event = model.getEvents().get(0);
+    Injector _injector = AFowlerdslTest.getInjector();
+    List<String> _emptyList = CollectionLiterals.<String>emptyList();
+    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
+    Assert.assertEquals(0, resolved.size());
+  }
+  
+  @Test
+  public void invalidFeatures() {
+    final Statemachine model = this.getDefaultModel();
+    final Event event = model.getEvents().get(0);
+    Injector _injector = AFowlerdslTest.getInjector();
+    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("some", "feature")));
+    final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
+    Assert.assertEquals(0, resolved.size());
+  }
+  
+  @Test
+  public void someInvalidFeatures() {
+    final Statemachine model = this.getDefaultModel();
+    final Event event = model.getEvents().get(0);
+    Injector _injector = AFowlerdslTest.getInjector();
+    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("name", "some", "guard", "cond")));
+    final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
+    Assert.assertEquals(resolved.toString(), 2, resolved.size());
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "guard"));
+  }
+  
+  @Test
+  public void validFeatures() {
+    final Statemachine model = this.getDefaultModel();
+    final Event event = model.getEvents().get(0);
+    Injector _injector = AFowlerdslTest.getInjector();
+    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("name", "guard")));
+    final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
+    Assert.assertEquals(resolved.toString(), 2, resolved.size());
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "guard"));
   }
 }
