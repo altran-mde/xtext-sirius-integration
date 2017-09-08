@@ -89,7 +89,7 @@ class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
 		assertEquals(58, region.offset)
 		assertEquals(30, region.length)
 		val text = rootRegion.resolveRegion(region)
-		assertEquals("event3\r\nccc\t \t[\r\nconstant1\t\t\t]", text)
+		assertEquals("event3\r\n333\t \t[\r\nconstant1\t\t\t]", text)
 	}
 
 }

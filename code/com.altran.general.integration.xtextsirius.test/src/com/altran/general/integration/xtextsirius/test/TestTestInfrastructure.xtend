@@ -10,7 +10,7 @@ class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
 	def parseTest() {
 		val model = parse('''
 			events
-				event1 aaa
+				event1 111
 			end
 		''')
 
@@ -21,7 +21,7 @@ class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
 	def parseIntoResourceTest() {
 		val model = parseIntoResource('''
 			events
-				event1 aaa
+				event1 111
 			end
 		''')
 
@@ -45,7 +45,7 @@ class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
 		val model = defaultModel;
 		
 		assertEquals(5, model.events.size)
-		assertEquals(3, model.connstants.size)
+		assertEquals(3, model.constants.size)
 		
 		val event4 = model.events.get(3)
 		val constant = findFirstTargetOfType(event4, Constant)

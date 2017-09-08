@@ -2682,42 +2682,42 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Statemachine__Group_4__1__Impl"
-    // InternalStatemachine.g:981:1: rule__Statemachine__Group_4__1__Impl : ( ( ( rule__Statemachine__ConnstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConnstantsAssignment_4_1 )* ) ) ;
+    // InternalStatemachine.g:981:1: rule__Statemachine__Group_4__1__Impl : ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) ) ;
     public final void rule__Statemachine__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalStatemachine.g:985:1: ( ( ( ( rule__Statemachine__ConnstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConnstantsAssignment_4_1 )* ) ) )
-            // InternalStatemachine.g:986:1: ( ( ( rule__Statemachine__ConnstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConnstantsAssignment_4_1 )* ) )
+            // InternalStatemachine.g:985:1: ( ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) ) )
+            // InternalStatemachine.g:986:1: ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) )
             {
-            // InternalStatemachine.g:986:1: ( ( ( rule__Statemachine__ConnstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConnstantsAssignment_4_1 )* ) )
-            // InternalStatemachine.g:987:1: ( ( rule__Statemachine__ConnstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConnstantsAssignment_4_1 )* )
+            // InternalStatemachine.g:986:1: ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) )
+            // InternalStatemachine.g:987:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* )
             {
-            // InternalStatemachine.g:987:1: ( ( rule__Statemachine__ConnstantsAssignment_4_1 ) )
-            // InternalStatemachine.g:988:1: ( rule__Statemachine__ConnstantsAssignment_4_1 )
+            // InternalStatemachine.g:987:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 ) )
+            // InternalStatemachine.g:988:1: ( rule__Statemachine__ConstantsAssignment_4_1 )
             {
-             before(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1()); 
-            // InternalStatemachine.g:989:1: ( rule__Statemachine__ConnstantsAssignment_4_1 )
-            // InternalStatemachine.g:989:2: rule__Statemachine__ConnstantsAssignment_4_1
+             before(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); 
+            // InternalStatemachine.g:989:1: ( rule__Statemachine__ConstantsAssignment_4_1 )
+            // InternalStatemachine.g:989:2: rule__Statemachine__ConstantsAssignment_4_1
             {
             pushFollow(FOLLOW_7);
-            rule__Statemachine__ConnstantsAssignment_4_1();
+            rule__Statemachine__ConstantsAssignment_4_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1()); 
+             after(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); 
 
             }
 
-            // InternalStatemachine.g:992:1: ( ( rule__Statemachine__ConnstantsAssignment_4_1 )* )
-            // InternalStatemachine.g:993:1: ( rule__Statemachine__ConnstantsAssignment_4_1 )*
+            // InternalStatemachine.g:992:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 )* )
+            // InternalStatemachine.g:993:1: ( rule__Statemachine__ConstantsAssignment_4_1 )*
             {
-             before(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1()); 
-            // InternalStatemachine.g:994:1: ( rule__Statemachine__ConnstantsAssignment_4_1 )*
+             before(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); 
+            // InternalStatemachine.g:994:1: ( rule__Statemachine__ConstantsAssignment_4_1 )*
             loop11:
             do {
                 int alt11=2;
@@ -2730,10 +2730,10 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalStatemachine.g:994:2: rule__Statemachine__ConnstantsAssignment_4_1
+            	    // InternalStatemachine.g:994:2: rule__Statemachine__ConstantsAssignment_4_1
             	    {
             	    pushFollow(FOLLOW_7);
-            	    rule__Statemachine__ConnstantsAssignment_4_1();
+            	    rule__Statemachine__ConstantsAssignment_4_1();
 
             	    state._fsp--;
 
@@ -2746,7 +2746,7 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
                 }
             } while (true);
 
-             after(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1()); 
+             after(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); 
 
             }
 
@@ -2851,7 +2851,7 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             // InternalStatemachine.g:1045:1: ( rule__Event__Group__0__Impl rule__Event__Group__1 )
             // InternalStatemachine.g:1046:2: rule__Event__Group__0__Impl rule__Event__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_8);
             rule__Event__Group__0__Impl();
 
             state._fsp--;
@@ -2965,27 +2965,38 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Event__Group__1__Impl"
-    // InternalStatemachine.g:1082:1: rule__Event__Group__1__Impl : ( ( rule__Event__CodeAssignment_1 ) ) ;
+    // InternalStatemachine.g:1082:1: rule__Event__Group__1__Impl : ( ( rule__Event__CodeAssignment_1 )? ) ;
     public final void rule__Event__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalStatemachine.g:1086:1: ( ( ( rule__Event__CodeAssignment_1 ) ) )
-            // InternalStatemachine.g:1087:1: ( ( rule__Event__CodeAssignment_1 ) )
+            // InternalStatemachine.g:1086:1: ( ( ( rule__Event__CodeAssignment_1 )? ) )
+            // InternalStatemachine.g:1087:1: ( ( rule__Event__CodeAssignment_1 )? )
             {
-            // InternalStatemachine.g:1087:1: ( ( rule__Event__CodeAssignment_1 ) )
-            // InternalStatemachine.g:1088:1: ( rule__Event__CodeAssignment_1 )
+            // InternalStatemachine.g:1087:1: ( ( rule__Event__CodeAssignment_1 )? )
+            // InternalStatemachine.g:1088:1: ( rule__Event__CodeAssignment_1 )?
             {
              before(grammarAccess.getEventAccess().getCodeAssignment_1()); 
-            // InternalStatemachine.g:1089:1: ( rule__Event__CodeAssignment_1 )
-            // InternalStatemachine.g:1089:2: rule__Event__CodeAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Event__CodeAssignment_1();
+            // InternalStatemachine.g:1089:1: ( rule__Event__CodeAssignment_1 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA12_0==RULE_INT) ) {
+                alt12=1;
+            }
+            switch (alt12) {
+                case 1 :
+                    // InternalStatemachine.g:1089:2: rule__Event__CodeAssignment_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Event__CodeAssignment_1();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
@@ -3059,13 +3070,13 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getEventAccess().getGroup_2()); 
             // InternalStatemachine.g:1117:1: ( rule__Event__Group_2__0 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0==16) ) {
-                alt12=1;
+            if ( (LA13_0==16) ) {
+                alt13=1;
             }
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
                     // InternalStatemachine.g:1117:2: rule__Event__Group_2__0
                     {
@@ -4115,13 +4126,13 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getStateAccess().getGroup_2()); 
             // InternalStatemachine.g:1524:1: ( rule__State__Group_2__0 )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA13_0==20) ) {
-                alt13=1;
+            if ( (LA14_0==20) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
                     // InternalStatemachine.g:1524:2: rule__State__Group_2__0
                     {
@@ -4211,13 +4222,13 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getStateAccess().getGroup_3()); 
             // InternalStatemachine.g:1553:1: ( rule__State__Group_3__0 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==21) ) {
-                alt14=1;
+            if ( (LA15_0==21) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
                     // InternalStatemachine.g:1553:2: rule__State__Group_3__0
                     {
@@ -4307,17 +4318,17 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getStateAccess().getTransitionsAssignment_4()); 
             // InternalStatemachine.g:1582:1: ( rule__State__TransitionsAssignment_4 )*
-            loop15:
+            loop16:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA15_0==RULE_ID) ) {
-                    alt15=1;
+                if ( (LA16_0==RULE_ID) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt16) {
             	case 1 :
             	    // InternalStatemachine.g:1582:2: rule__State__TransitionsAssignment_4
             	    {
@@ -4331,7 +4342,7 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop16;
                 }
             } while (true);
 
@@ -4807,17 +4818,17 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getStateAccess().getActionsAssignment_3_2()); 
             // InternalStatemachine.g:1784:1: ( rule__State__ActionsAssignment_3_2 )*
-            loop16:
+            loop17:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt17=2;
+                int LA17_0 = input.LA(1);
 
-                if ( (LA16_0==RULE_ID) ) {
-                    alt16=1;
+                if ( (LA17_0==RULE_ID) ) {
+                    alt17=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt17) {
             	case 1 :
             	    // InternalStatemachine.g:1784:2: rule__State__ActionsAssignment_3_2
             	    {
@@ -4831,7 +4842,7 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop17;
                 }
             } while (true);
 
@@ -5068,13 +5079,13 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getTransitionAccess().getGroup_1()); 
             // InternalStatemachine.g:1881:1: ( rule__Transition__Group_1__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==16) ) {
-                alt17=1;
+            if ( (LA18_0==16) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
                     // InternalStatemachine.g:1881:2: rule__Transition__Group_1__0
                     {
@@ -5623,9 +5634,9 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__Statemachine__CommandsAssignment_3_1"
 
 
-    // $ANTLR start "rule__Statemachine__ConnstantsAssignment_4_1"
-    // InternalStatemachine.g:2104:1: rule__Statemachine__ConnstantsAssignment_4_1 : ( ruleConstant ) ;
-    public final void rule__Statemachine__ConnstantsAssignment_4_1() throws RecognitionException {
+    // $ANTLR start "rule__Statemachine__ConstantsAssignment_4_1"
+    // InternalStatemachine.g:2104:1: rule__Statemachine__ConstantsAssignment_4_1 : ( ruleConstant ) ;
+    public final void rule__Statemachine__ConstantsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -5636,13 +5647,13 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
             // InternalStatemachine.g:2109:1: ( ruleConstant )
             // InternalStatemachine.g:2110:1: ruleConstant
             {
-             before(grammarAccess.getStatemachineAccess().getConnstantsConstantParserRuleCall_4_1_0()); 
+             before(grammarAccess.getStatemachineAccess().getConstantsConstantParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
             ruleConstant();
 
             state._fsp--;
 
-             after(grammarAccess.getStatemachineAccess().getConnstantsConstantParserRuleCall_4_1_0()); 
+             after(grammarAccess.getStatemachineAccess().getConstantsConstantParserRuleCall_4_1_0()); 
 
             }
 
@@ -5661,7 +5672,7 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__Statemachine__ConnstantsAssignment_4_1"
+    // $ANTLR end "rule__Statemachine__ConstantsAssignment_4_1"
 
 
     // $ANTLR start "rule__Statemachine__StatesAssignment_5"
@@ -5743,21 +5754,21 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Event__CodeAssignment_1"
-    // InternalStatemachine.g:2149:1: rule__Event__CodeAssignment_1 : ( RULE_ID ) ;
+    // InternalStatemachine.g:2149:1: rule__Event__CodeAssignment_1 : ( RULE_INT ) ;
     public final void rule__Event__CodeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalStatemachine.g:2153:1: ( ( RULE_ID ) )
-            // InternalStatemachine.g:2154:1: ( RULE_ID )
+            // InternalStatemachine.g:2153:1: ( ( RULE_INT ) )
+            // InternalStatemachine.g:2154:1: ( RULE_INT )
             {
-            // InternalStatemachine.g:2154:1: ( RULE_ID )
-            // InternalStatemachine.g:2155:1: RULE_ID
+            // InternalStatemachine.g:2154:1: ( RULE_INT )
+            // InternalStatemachine.g:2155:1: RULE_INT
             {
-             before(grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getEventAccess().getCodeINTTerminalRuleCall_1_0()); 
+            match(input,RULE_INT,FOLLOW_2); 
+             after(grammarAccess.getEventAccess().getCodeINTTerminalRuleCall_1_0()); 
 
             }
 
@@ -6479,7 +6490,7 @@ public class InternalStatemachineParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010020L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});

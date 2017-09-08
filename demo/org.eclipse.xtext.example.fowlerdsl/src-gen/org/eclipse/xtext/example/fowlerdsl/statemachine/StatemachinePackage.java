@@ -94,13 +94,13 @@ public interface StatemachinePackage extends EPackage
   int STATEMACHINE__COMMANDS = 2;
 
   /**
-   * The feature id for the '<em><b>Connstants</b></em>' containment reference list.
+   * The feature id for the '<em><b>Constants</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMACHINE__CONNSTANTS = 3;
+  int STATEMACHINE__CONSTANTS = 3;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -545,15 +545,15 @@ public interface StatemachinePackage extends EPackage
   EReference getStatemachine_Commands();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getConnstants <em>Connstants</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getConstants <em>Constants</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Connstants</em>'.
-   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getConnstants()
+   * @return the meta object for the containment reference list '<em>Constants</em>'.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getConstants()
    * @see #getStatemachine()
    * @generated
    */
-  EReference getStatemachine_Connstants();
+  EReference getStatemachine_Constants();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getStates <em>States</em>}'.
@@ -943,12 +943,12 @@ public interface StatemachinePackage extends EPackage
     EReference STATEMACHINE__COMMANDS = eINSTANCE.getStatemachine_Commands();
 
     /**
-     * The meta object literal for the '<em><b>Connstants</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Constants</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATEMACHINE__CONNSTANTS = eINSTANCE.getStatemachine_Connstants();
+    EReference STATEMACHINE__CONSTANTS = eINSTANCE.getStatemachine_Constants();
 
     /**
      * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.

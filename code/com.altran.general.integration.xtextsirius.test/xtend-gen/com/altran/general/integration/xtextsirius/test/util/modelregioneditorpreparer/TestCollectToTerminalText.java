@@ -23,15 +23,21 @@ import org.junit.Test;
 public class TestCollectToTerminalText extends AModelRegionEditorPreparer {
   @Test
   public void empty() {
+    final Statemachine model = this.getDefaultModel();
+    final ITextRegionAccess rootRegion = this.getRootRegion(model);
+    EObject _grammarElement = IterableExtensions.<ISemanticRegion>head(rootRegion.regionForRootEObject().getAllSemanticRegions()).getGrammarElement();
+    final AbstractElement grammarElement = ((AbstractElement) _grammarElement);
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    final String text = preparer.collectToTerminalText(CollectionLiterals.<AbstractElement>emptyList());
-    Assert.assertEquals("", text);
+    final String text = preparer.collectToTerminalText(grammarElement, CollectionLiterals.<AbstractElement>emptyList());
+    Assert.assertEquals(" ", text);
   }
   
   @Test
   public void noTerminals() {
     final Statemachine model = this.getDefaultModel();
     final ITextRegionAccess rootRegion = this.getRootRegion(model);
+    EObject _grammarElement = IterableExtensions.<ISemanticRegion>head(rootRegion.regionForRootEObject().getAllSemanticRegions()).getGrammarElement();
+    final AbstractElement grammarElement = ((AbstractElement) _grammarElement);
     final Function1<ISemanticRegion, EObject> _function = (ISemanticRegion it) -> {
       return it.getSemanticElement();
     };
@@ -40,8 +46,8 @@ public class TestCollectToTerminalText extends AModelRegionEditorPreparer {
     };
     final List<AbstractElement> grammarElements = IterableExtensions.<AbstractElement>toList(IterableExtensions.<AbstractElement>filter(Iterables.<AbstractElement>filter(IterableExtensions.<ISemanticRegion, EObject>map(rootRegion.regionForRootEObject().getAllSemanticRegions(), _function), AbstractElement.class), _function_1));
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    final String text = preparer.collectToTerminalText(grammarElements);
-    Assert.assertEquals("", text);
+    final String text = preparer.collectToTerminalText(grammarElement, grammarElements);
+    Assert.assertEquals(" ", text);
   }
   
   @Test
@@ -53,7 +59,7 @@ public class TestCollectToTerminalText extends AModelRegionEditorPreparer {
     EObject _grammarElement = eventRegion.getPreviousSemanticRegion().getGrammarElement();
     final AbstractElement grammarElement = ((AbstractElement) _grammarElement);
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    final String text = preparer.collectToTerminalText(Collections.<AbstractElement>unmodifiableList(CollectionLiterals.<AbstractElement>newArrayList(grammarElement)));
+    final String text = preparer.collectToTerminalText(grammarElement, Collections.<AbstractElement>unmodifiableList(CollectionLiterals.<AbstractElement>newArrayList(grammarElement)));
     Assert.assertEquals("events", text);
   }
   
@@ -89,7 +95,8 @@ public class TestCollectToTerminalText extends AModelRegionEditorPreparer {
     };
     final List<AbstractElement> grammarElements = IterableExtensions.<AbstractElement>toList(Iterables.<AbstractElement>filter(IterableExtensions.<ISemanticRegion, EObject>map(IterableExtensions.<ISemanticRegion>filter(rootRegion.regionForRootEObject().getAllSemanticRegions(), _function_4), _function_5), AbstractElement.class));
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    final String text = preparer.collectToTerminalText(grammarElements);
+    EObject _grammarElement = eventsRegion.getGrammarElement();
+    final String text = preparer.collectToTerminalText(((AbstractElement) _grammarElement), grammarElements);
     Assert.assertEquals("events[][][][..]end", text);
   }
 }

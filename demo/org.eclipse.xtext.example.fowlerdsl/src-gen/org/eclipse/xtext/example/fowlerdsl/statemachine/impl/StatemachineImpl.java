@@ -35,7 +35,7 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StatemachineImpl#getEvents <em>Events</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StatemachineImpl#getResetEvents <em>Reset Events</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StatemachineImpl#getCommands <em>Commands</em>}</li>
- *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StatemachineImpl#getConnstants <em>Connstants</em>}</li>
+ *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StatemachineImpl#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StatemachineImpl#getStates <em>States</em>}</li>
  * </ul>
  *
@@ -74,14 +74,14 @@ public class StatemachineImpl extends MinimalEObjectImpl.Container implements St
   protected EList<Command> commands;
 
   /**
-   * The cached value of the '{@link #getConnstants() <em>Connstants</em>}' containment reference list.
+   * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConnstants()
+   * @see #getConstants()
    * @generated
    * @ordered
    */
-  protected EList<Constant> connstants;
+  protected EList<Constant> constants;
 
   /**
    * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
@@ -161,13 +161,13 @@ public class StatemachineImpl extends MinimalEObjectImpl.Container implements St
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Constant> getConnstants()
+  public EList<Constant> getConstants()
   {
-    if (connstants == null)
+    if (constants == null)
     {
-      connstants = new EObjectContainmentEList<Constant>(Constant.class, this, StatemachinePackage.STATEMACHINE__CONNSTANTS);
+      constants = new EObjectContainmentEList<Constant>(Constant.class, this, StatemachinePackage.STATEMACHINE__CONSTANTS);
     }
-    return connstants;
+    return constants;
   }
 
   /**
@@ -198,8 +198,8 @@ public class StatemachineImpl extends MinimalEObjectImpl.Container implements St
         return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
       case StatemachinePackage.STATEMACHINE__COMMANDS:
         return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
-      case StatemachinePackage.STATEMACHINE__CONNSTANTS:
-        return ((InternalEList<?>)getConnstants()).basicRemove(otherEnd, msgs);
+      case StatemachinePackage.STATEMACHINE__CONSTANTS:
+        return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
       case StatemachinePackage.STATEMACHINE__STATES:
         return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
     }
@@ -222,8 +222,8 @@ public class StatemachineImpl extends MinimalEObjectImpl.Container implements St
         return getResetEvents();
       case StatemachinePackage.STATEMACHINE__COMMANDS:
         return getCommands();
-      case StatemachinePackage.STATEMACHINE__CONNSTANTS:
-        return getConnstants();
+      case StatemachinePackage.STATEMACHINE__CONSTANTS:
+        return getConstants();
       case StatemachinePackage.STATEMACHINE__STATES:
         return getStates();
     }
@@ -253,9 +253,9 @@ public class StatemachineImpl extends MinimalEObjectImpl.Container implements St
         getCommands().clear();
         getCommands().addAll((Collection<? extends Command>)newValue);
         return;
-      case StatemachinePackage.STATEMACHINE__CONNSTANTS:
-        getConnstants().clear();
-        getConnstants().addAll((Collection<? extends Constant>)newValue);
+      case StatemachinePackage.STATEMACHINE__CONSTANTS:
+        getConstants().clear();
+        getConstants().addAll((Collection<? extends Constant>)newValue);
         return;
       case StatemachinePackage.STATEMACHINE__STATES:
         getStates().clear();
@@ -284,8 +284,8 @@ public class StatemachineImpl extends MinimalEObjectImpl.Container implements St
       case StatemachinePackage.STATEMACHINE__COMMANDS:
         getCommands().clear();
         return;
-      case StatemachinePackage.STATEMACHINE__CONNSTANTS:
-        getConnstants().clear();
+      case StatemachinePackage.STATEMACHINE__CONSTANTS:
+        getConstants().clear();
         return;
       case StatemachinePackage.STATEMACHINE__STATES:
         getStates().clear();
@@ -310,8 +310,8 @@ public class StatemachineImpl extends MinimalEObjectImpl.Container implements St
         return resetEvents != null && !resetEvents.isEmpty();
       case StatemachinePackage.STATEMACHINE__COMMANDS:
         return commands != null && !commands.isEmpty();
-      case StatemachinePackage.STATEMACHINE__CONNSTANTS:
-        return connstants != null && !connstants.isEmpty();
+      case StatemachinePackage.STATEMACHINE__CONSTANTS:
+        return constants != null && !constants.isEmpty();
       case StatemachinePackage.STATEMACHINE__STATES:
         return states != null && !states.isEmpty();
     }

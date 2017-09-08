@@ -8,14 +8,14 @@
 events
 
 
-	event1456 aaa
-	event2 bbb 	event3 asdf [
+	event1456 111
+	event2 222 	event3 3333 [
 finalAnswerA
-	]event4 asdf 
+	]event4 4444 
 	[e..
 		pi
 	]
-	event5 qwer [234]
+	event5 5555 [234]
 end
 
 constants

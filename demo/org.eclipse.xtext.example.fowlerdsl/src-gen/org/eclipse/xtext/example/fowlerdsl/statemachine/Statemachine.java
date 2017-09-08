@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getEvents <em>Events</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getResetEvents <em>Reset Events</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getCommands <em>Commands</em>}</li>
- *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getConnstants <em>Connstants</em>}</li>
+ *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getStates <em>States</em>}</li>
  * </ul>
  *
@@ -77,20 +77,20 @@ public interface Statemachine extends EObject
   EList<Command> getCommands();
 
   /**
-   * Returns the value of the '<em><b>Connstants</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
    * The list contents are of type {@link org.eclipse.xtext.example.fowlerdsl.statemachine.Constant}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Connstants</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Constants</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Connstants</em>' containment reference list.
-   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage#getStatemachine_Connstants()
+   * @return the value of the '<em>Constants</em>' containment reference list.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage#getStatemachine_Constants()
    * @model containment="true"
    * @generated
    */
-  EList<Constant> getConnstants();
+  EList<Constant> getConstants();
 
   /**
    * Returns the value of the '<em><b>States</b></em>' containment reference list.

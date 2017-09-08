@@ -10,10 +10,10 @@ abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
 	def protected getDefaultModel() {
 		parseIntoResource('''
 			events
-				event1X aaa
-				event2X bbb [123]
-				event3X ccc [constant1X]
-				event4X ddd [constant2X .. 234]
+				event1X 111
+				event2X 222 [123]
+				event3X 333 [constant1X]
+				event4X 444 [constant2X .. 234]
 			end
 			
 			constants
@@ -30,14 +30,14 @@ abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
 			     
 			
 			events
-				event1 aaa
-				event2 bbb [123]
+				event1 111
+				event2 222 [123]
 				event3
-			ccc	 	[
+			333	 	[
 			constant1			]    
 			
-				event4 ddd [constant2X]
-				event5 eee [constant3X .. constant2]
+				event4 444 [constant2X]
+				event5 555 [constant3X .. constant2]
 			end
 			
 			constants

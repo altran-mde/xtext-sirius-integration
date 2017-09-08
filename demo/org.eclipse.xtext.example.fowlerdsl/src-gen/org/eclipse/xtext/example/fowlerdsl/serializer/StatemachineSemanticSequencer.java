@@ -142,7 +142,7 @@ public class StatemachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Event returns Event
 	 *
 	 * Constraint:
-	 *     (name=ID code=ID guard=Guard?)
+	 *     (name=ID code=INT? guard=Guard?)
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -207,7 +207,7 @@ public class StatemachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Statemachine returns Statemachine
 	 *
 	 * Constraint:
-	 *     (events+=Event* resetEvents+=[Event|ID]* commands+=Command* connstants+=Constant* states+=State*)
+	 *     (events+=Event* resetEvents+=[Event|ID]* commands+=Command* constants+=Constant* states+=State*)
 	 */
 	protected void sequence_Statemachine(ISerializationContext context, Statemachine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

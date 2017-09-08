@@ -10,6 +10,11 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.xtext.AbstractElement;
+import org.eclipse.xtext.Alternatives;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.Grammar;
+import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
 import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
@@ -21,6 +26,7 @@ import org.eclipse.xtext.util.TextRegion;
 import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.google.inject.Injector;
 
@@ -51,10 +57,11 @@ public abstract class AModelRegionEditorPreparer extends AFowlerdslDefaultModelT
 			super.collectGrammarElementsBeforeAndAfter(containedElement, containingGroup, elementsBefore,
 					elementsAfter);
 		}
-		
+
 		@Override
-		public String collectToTerminalText(final List<AbstractElement> grammarElements) {
-			return super.collectToTerminalText(grammarElements);
+		protected @NonNull String collectToTerminalText(@NonNull final AbstractElement grammarElement,
+				@NonNull final List<@NonNull AbstractElement> grammarElements) {
+			return super.collectToTerminalText(grammarElement, grammarElements);
 		}
 		
 		@Override
@@ -75,9 +82,11 @@ public abstract class AModelRegionEditorPreparer extends AFowlerdslDefaultModelT
 		}
 		
 		@Override
-		public Set<ISemanticRegion> findRegionsOfContainedElements(final IEObjectRegion elementRegion,
-				final List<@NonNull AbstractElement> containedElementPath) {
-			return super.findRegionsOfContainedElements(elementRegion, containedElementPath);
+		protected @NonNull Set<@NonNull ISemanticRegion> findRegionsOfContainedElements(
+				@NonNull final IEObjectRegion elementRegion,
+				@NonNull final List<@NonNull AbstractElement> containedElementPath,
+				@NonNull final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap) {
+			return super.findRegionsOfContainedElements(elementRegion, containedElementPath, parentMap);
 		}
 		
 		@Override
@@ -137,6 +146,10 @@ public abstract class AModelRegionEditorPreparer extends AFowlerdslDefaultModelT
 		public void setRootRegion(final @NonNull ITextRegionAccess rootRegion) {
 			this.rootRegion = rootRegion;
 		}
+		
+		public void setAllText(final @NonNull StringBuffer text) {
+			this.allText = text;
+		}
 	}
 	
 	protected AccessibleModelRegionEditorPreparer getFakePreparer() {
@@ -149,8 +162,59 @@ public abstract class AModelRegionEditorPreparer extends AFowlerdslDefaultModelT
 				.serializeToRegions(EcoreUtil.getRootContainer(obj));
 	}
 
+	protected StringBuffer getAllText(final ITextRegionAccess rootRegion) {
+		return new StringBuffer(rootRegion.regionForDocument().getText());
+	}
+
 	protected String resolveRegion(final ITextRegionAccess rootRegion, final TextRegion region) {
 		return rootRegion.regionForDocument().getText().substring(region.getOffset(),
 				region.getOffset() + region.getLength());
+	}
+	
+	protected Multimap<AbstractElement, AbstractElement> createConstantParentMap(final AbstractElement grammarElement) {
+		final Grammar grammar = GrammarUtil.getGrammar(grammarElement);
+		
+		final Group constantRule = (Group) GrammarUtil.findRuleForName(grammar, "Constant").getAlternatives();
+		final Assignment constantName = (Assignment) constantRule.getElements().get(0);
+		final Assignment constantValue = (Assignment) constantRule.getElements().get(1);
+		
+		final Alternatives valueRule = (Alternatives) GrammarUtil.findRuleForName(grammar, "Value").getAlternatives();
+		final AbstractElement valueConstantRef = valueRule.getElements().get(0);
+		final AbstractElement valueIntLiteral = valueRule.getElements().get(1);
+		
+		final Assignment constantRefRule = (Assignment) GrammarUtil.findRuleForName(grammar, "ConstantRef")
+				.getAlternatives();
+		final CrossReference constantRefConstant = (CrossReference) constantRefRule.getTerminal();
+		
+		final Assignment intLiteralRule = (Assignment) GrammarUtil.findRuleForName(grammar, "IntLiteral")
+				.getAlternatives();
+		
+		final AbstractElement idRule = GrammarUtil.findRuleForName(grammar, "ID").getAlternatives();
+		
+		final AbstractElement intRule = GrammarUtil.findRuleForName(grammar, "INT").getAlternatives();
+		
+		// same as in TestCollectContainedGrammarElementsDeep.deep()
+		final Multimap<AbstractElement, AbstractElement> map = ImmutableMultimap
+				.<AbstractElement, AbstractElement> builder()
+				.put(grammarElement, grammarElement)
+				.put(constantRule, grammarElement)
+				.put(constantName, constantRule)
+				.put(constantName.getTerminal(), constantName)
+				.put(idRule, constantName.getTerminal())
+				.put(constantValue, constantRule)
+				.put(constantValue.getTerminal(), constantValue)
+				.put(valueRule, constantValue.getTerminal())
+				.put(valueConstantRef, valueRule)
+				.put(constantRefRule, valueConstantRef)
+				.put(constantRefConstant, constantRefRule)
+				.put(constantRefConstant.getTerminal(), constantRefConstant)
+				.put(idRule, constantRefConstant.getTerminal())
+				.put(valueIntLiteral, valueRule)
+				.put(intLiteralRule, valueIntLiteral)
+				.put(intLiteralRule.getTerminal(), intLiteralRule)
+				.put(intRule, intLiteralRule.getTerminal())
+				.build();
+		
+		return map;
 	}
 }

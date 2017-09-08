@@ -163,16 +163,16 @@ ruleStatemachine returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStatemachineAccess().getConnstantsConstantParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getStatemachineAccess().getConstantsConstantParserRuleCall_4_1_0()); 
 	    }
-		lv_connstants_11_0=ruleConstant		{
+		lv_constants_11_0=ruleConstant		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStatemachineRule());
 	        }
        		add(
        			$current, 
-       			"connstants",
-        		lv_connstants_11_0, 
+       			"constants",
+        		lv_constants_11_0, 
         		"org.eclipse.xtext.example.fowlerdsl.Statemachine.Constant");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -241,9 +241,9 @@ ruleEvent returns [EObject current=null]
 )
 )(
 (
-		lv_code_1_0=RULE_ID
+		lv_code_1_0=RULE_INT
 		{
-			newLeafNode(lv_code_1_0, grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_code_1_0, grammarAccess.getEventAccess().getCodeINTTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -253,11 +253,11 @@ ruleEvent returns [EObject current=null]
        			$current, 
        			"code",
         		lv_code_1_0, 
-        		"org.eclipse.xtext.common.Terminals.ID");
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )
-)(	otherlv_2='[' 
+)?(	otherlv_2='[' 
     {
     	newLeafNode(otherlv_2, grammarAccess.getEventAccess().getLeftSquareBracketKeyword_2_0());
     }

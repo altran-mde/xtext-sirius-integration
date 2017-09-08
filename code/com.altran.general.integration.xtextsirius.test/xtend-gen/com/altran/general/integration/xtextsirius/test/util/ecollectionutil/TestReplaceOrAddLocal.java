@@ -44,7 +44,7 @@ public class TestReplaceOrAddLocal extends AFowlerdslDefaultModelTest {
     Event _createEvent = AFowlerdslDefaultModelTest.statemachineFactory.createEvent();
     final Procedure1<Event> _function = (Event it) -> {
       it.setName("fakeEvent");
-      it.setCode("xxx");
+      it.setCode(666);
       ValueGuard _createValueGuard = AFowlerdslDefaultModelTest.statemachineFactory.createValueGuard();
       final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
         ConstantRef _createConstantRef = AFowlerdslDefaultModelTest.statemachineFactory.createConstantRef();

@@ -1,13 +1,13 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
 
+import org.eclipse.xtext.AbstractElement
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.GrammarUtil
+import org.eclipse.xtext.Group
+import org.eclipse.xtext.XtextFactory
 import org.junit.Test
 
 import static org.junit.Assert.*
-import org.eclipse.xtext.XtextFactory
-import org.eclipse.xtext.GrammarUtil
-import org.eclipse.xtext.AbstractElement
-import org.eclipse.xtext.Assignment
-import org.eclipse.xtext.Group
 
 class TestCollectGrammarElementsBeforeAndAfter extends AModelRegionEditorPreparer {
 	@Test

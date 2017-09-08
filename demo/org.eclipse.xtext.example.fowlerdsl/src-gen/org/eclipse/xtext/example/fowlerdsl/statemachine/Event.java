@@ -59,12 +59,12 @@ public interface Event extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Code</em>' attribute.
-   * @see #setCode(String)
+   * @see #setCode(int)
    * @see org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage#getEvent_Code()
    * @model
    * @generated
    */
-  String getCode();
+  int getCode();
 
   /**
    * Sets the value of the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Event#getCode <em>Code</em>}' attribute.
@@ -74,7 +74,7 @@ public interface Event extends EObject
    * @see #getCode()
    * @generated
    */
-  void setCode(String value);
+  void setCode(int value);
 
   /**
    * Returns the value of the '<em><b>Guard</b></em>' containment reference.

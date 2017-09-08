@@ -60,7 +60,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @generated
    * @ordered
    */
-  protected static final String CODE_EDEFAULT = null;
+  protected static final int CODE_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
@@ -70,7 +70,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @generated
    * @ordered
    */
-  protected String code = CODE_EDEFAULT;
+  protected int code = CODE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getGuard() <em>Guard</em>}' containment reference.
@@ -131,7 +131,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCode()
+  public int getCode()
   {
     return code;
   }
@@ -141,9 +141,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCode(String newCode)
+  public void setCode(int newCode)
   {
-    String oldCode = code;
+    int oldCode = code;
     code = newCode;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.EVENT__CODE, oldCode, code));
@@ -247,7 +247,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
         setName((String)newValue);
         return;
       case StatemachinePackage.EVENT__CODE:
-        setCode((String)newValue);
+        setCode((Integer)newValue);
         return;
       case StatemachinePackage.EVENT__GUARD:
         setGuard((Guard)newValue);
@@ -292,7 +292,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
       case StatemachinePackage.EVENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case StatemachinePackage.EVENT__CODE:
-        return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+        return code != CODE_EDEFAULT;
       case StatemachinePackage.EVENT__GUARD:
         return guard != null;
     }

@@ -164,17 +164,20 @@ public class ModelRegionEditorPreparer {
 	protected @NonNull TextRegion ensureRequiredGrammarTerminalsPresent(
 			final @NonNull EObject element,
 			final @NonNull EStructuralFeature feature) {
+		if (element.eIsSet(feature)) {
+			throw new IllegalStateException("Feature " + feature + " is set in " + element);
+		}
+		
 		final IEObjectRegion elementRegion = this.rootRegion.regionForEObject(element);
-		final EObject grammarElement = elementRegion.getGrammarElement();
-
-		if (!(grammarElement instanceof RuleCall)) {
+		
+		if (!(elementRegion.getGrammarElement() instanceof RuleCall)) {
 			throw new IllegalArgumentException("element does not resolve to RuleCall grammar element: " + element);
 		}
 
-		final List<@NonNull AbstractElement> containedElementPath = findContainedElementPath(
-				(AbstractElement) grammarElement,
-				feature);
-
+		final RuleCall grammarElement = (RuleCall) elementRegion.getGrammarElement();
+		
+		final List<@NonNull AbstractElement> containedElementPath = findContainedElementPath(grammarElement, feature);
+		
 		if (containedElementPath.isEmpty()) {
 			throw new IllegalArgumentException("Cannot find grammar element for feature " + feature + " in " + element);
 		}
@@ -193,14 +196,28 @@ public class ModelRegionEditorPreparer {
 		final List<AbstractElement> elementsAfter = Lists.newArrayList();
 		collectGrammarElementsBeforeAndAfter(containedElement, containingGroup, elementsBefore, elementsAfter);
 		
-		final String beforeText = collectToTerminalText(elementsBefore);
-		final String afterText = collectToTerminalText(elementsAfter);
+		final String beforeText = collectToTerminalText(grammarElement, elementsBefore);
+		final String afterText = collectToTerminalText(grammarElement, elementsAfter);
 		
+		final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap = collectContainedGrammarElementsDeep(
+				grammarElement, grammarElement, LinkedHashMultimap.create());
 		
 		final Set<@NonNull ISemanticRegion> regionsOfContainedElements = findRegionsOfContainedElements(elementRegion,
-				containedElementPath);
+				containedElementPath, parentMap);
 		
-		final ISemanticRegion max = selectLastmostRegion(regionsOfContainedElements);
+		ISemanticRegion max;
+		// this is probably only a workaround, but it works for the current test
+		// cases and abstract reasoning about possible grammars and token
+		// streams is hard /-:
+		if (regionsOfContainedElements.size() == 1) {
+			max = regionsOfContainedElements.iterator().next();
+		} else {
+			final Set<@NonNull ISemanticRegion> regionsBefore = regionsOfContainedElements.stream()
+					.filter(r -> !containsGrammarElementDeep((AbstractElement) r.getGrammarElement(), elementsAfter,
+							parentMap))
+					.collect(Collectors.toSet());
+			max = selectLastmostRegion(regionsBefore);
+		}
 		
 		final int endOffset = max.getEndOffset();
 		
@@ -208,6 +225,13 @@ public class ModelRegionEditorPreparer {
 		this.allText.insert(endOffset, beforeText);
 		
 		return new TextRegion(endOffset + beforeText.length(), 0);
+	}
+	
+	protected String getWhitespace(final EObject grammarElement) {
+		return EcoreUtil2
+				.getAllContentsOfType(GrammarUtil.findRuleForName(GrammarUtil.getGrammar(grammarElement), "WS"),
+						Keyword.class)
+				.iterator().next().getValue();
 	}
 	
 	protected ISemanticRegion selectLastmostRegion(
@@ -220,15 +244,13 @@ public class ModelRegionEditorPreparer {
 	
 	protected @NonNull Set<@NonNull ISemanticRegion> findRegionsOfContainedElements(
 			final @NonNull IEObjectRegion elementRegion,
-			final @NonNull List<@NonNull AbstractElement> containedElementPath) {
+			final @NonNull List<@NonNull AbstractElement> containedElementPath,
+			final @NonNull Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap) {
 
 		final Set<@NonNull ISemanticRegion> result = Sets.newLinkedHashSet();
 
 		final EObject grammarElement = elementRegion.getGrammarElement();
 		if (grammarElement instanceof AbstractElement) {
-			final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap = collectContainedGrammarElementsDeep(
-					(AbstractElement) grammarElement, (AbstractElement) grammarElement, LinkedHashMultimap.create());
-
 			for (final ISemanticRegion region : elementRegion.getAllSemanticRegions()) {
 				final EObject regionGrammarElement = region.getGrammarElement();
 				if (regionGrammarElement instanceof AbstractElement) {
@@ -302,11 +324,18 @@ public class ModelRegionEditorPreparer {
 		}
 	}
 
-	protected @NonNull String collectToTerminalText(final @NonNull List<@NonNull AbstractElement> grammarElements) {
-		return grammarElements.stream()
+	protected @NonNull String collectToTerminalText(final @NonNull AbstractElement grammarElement,
+			final @NonNull List<@NonNull AbstractElement> grammarElements) {
+		final String result = grammarElements.stream()
 				.filter(e -> e instanceof Keyword)
 				.map(el -> ((Keyword) el).getValue())
 				.collect(Collectors.joining());
+		
+		if (!result.isEmpty()) {
+			return result;
+		}
+		
+		return getWhitespace(grammarElement);
 	}
 
 	protected @NonNull List<@NonNull AbstractElement> findContainedElementPath(

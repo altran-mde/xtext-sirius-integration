@@ -30,7 +30,7 @@ public class TestCollectContainedGrammarElementsDeep extends AModelRegionEditorP
   @Test
   public void simple() {
     final Statemachine model = this.getDefaultModel();
-    final Constant constant = IterableExtensions.<Constant>head(model.getConnstants());
+    final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
@@ -48,7 +48,7 @@ public class TestCollectContainedGrammarElementsDeep extends AModelRegionEditorP
   @Test
   public void deep() {
     final Statemachine model = this.getDefaultModel();
-    final Constant constant = IterableExtensions.<Constant>head(model.getConnstants());
+    final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);

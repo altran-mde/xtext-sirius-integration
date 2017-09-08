@@ -17,7 +17,7 @@ class TestCollectContainedGrammarElementsDeep extends AModelRegionEditorPreparer
 	def simple() {
 		val model = defaultModel
 
-		val constant = model.connstants.head
+		val constant = model.constants.head
 
 		val preparer = fakePreparer
 
@@ -39,7 +39,7 @@ class TestCollectContainedGrammarElementsDeep extends AModelRegionEditorPreparer
 	def void deep() {
 		val model = defaultModel
 
-		val constant = model.connstants.head
+		val constant = model.constants.head
 
 		val preparer = fakePreparer
 

@@ -2,6 +2,8 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.google.common.base.Objects;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
 import java.util.Collections;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -29,7 +31,10 @@ public class TestFindRegionsOfContainedElements extends AModelRegionEditorPrepar
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
-    final Set<ISemanticRegion> regions = preparer.findRegionsOfContainedElements(eventRegion, CollectionLiterals.<AbstractElement>emptyList());
+    EObject _grammarElement = eventRegion.getGrammarElement();
+    final RuleCall eventRuleCall = ((RuleCall) _grammarElement);
+    final Multimap<AbstractElement, AbstractElement> map = preparer.collectContainedGrammarElementsDeep(eventRuleCall, eventRuleCall, LinkedHashMultimap.<AbstractElement, AbstractElement>create());
+    final Set<ISemanticRegion> regions = preparer.findRegionsOfContainedElements(eventRegion, CollectionLiterals.<AbstractElement>emptyList(), map);
     Assert.assertTrue(regions.isEmpty());
   }
   
@@ -50,7 +55,8 @@ public class TestFindRegionsOfContainedElements extends AModelRegionEditorPrepar
     final Group guardGroup = ((Group) _get_1);
     AbstractElement _get_2 = guardGroup.getElements().get(1);
     final Assignment guardAssignment = ((Assignment) _get_2);
-    final Set<ISemanticRegion> regions = preparer.findRegionsOfContainedElements(eventRegion, Collections.<AbstractElement>unmodifiableList(CollectionLiterals.<AbstractElement>newArrayList(eventName, guardAssignment)));
+    final Multimap<AbstractElement, AbstractElement> map = preparer.collectContainedGrammarElementsDeep(eventRuleCall, eventRuleCall, LinkedHashMultimap.<AbstractElement, AbstractElement>create());
+    final Set<ISemanticRegion> regions = preparer.findRegionsOfContainedElements(eventRegion, Collections.<AbstractElement>unmodifiableList(CollectionLiterals.<AbstractElement>newArrayList(eventName, guardAssignment)), map);
     Assert.assertEquals(4, regions.size());
     final Function1<ISemanticRegion, Boolean> _function = (ISemanticRegion it) -> {
       String _text = it.getText();

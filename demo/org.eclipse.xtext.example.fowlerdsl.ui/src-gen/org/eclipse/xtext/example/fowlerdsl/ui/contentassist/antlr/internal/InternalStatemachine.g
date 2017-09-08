@@ -985,14 +985,14 @@ rule__Statemachine__Group_4__1__Impl
 :
 (
 (
-{ before(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1()); }
-(rule__Statemachine__ConnstantsAssignment_4_1)
-{ after(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1()); }
+{ before(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); }
+(rule__Statemachine__ConstantsAssignment_4_1)
+{ after(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); }
 )
 (
-{ before(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1()); }
-(rule__Statemachine__ConnstantsAssignment_4_1)*
-{ after(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1()); }
+{ before(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); }
+(rule__Statemachine__ConstantsAssignment_4_1)*
+{ after(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); }
 )
 )
 
@@ -1086,7 +1086,7 @@ rule__Event__Group__1__Impl
 :
 (
 { before(grammarAccess.getEventAccess().getCodeAssignment_1()); }
-(rule__Event__CodeAssignment_1)
+(rule__Event__CodeAssignment_1)?
 { after(grammarAccess.getEventAccess().getCodeAssignment_1()); }
 )
 
@@ -2101,14 +2101,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Statemachine__ConnstantsAssignment_4_1
+rule__Statemachine__ConstantsAssignment_4_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getStatemachineAccess().getConnstantsConstantParserRuleCall_4_1_0()); }
-	ruleConstant{ after(grammarAccess.getStatemachineAccess().getConnstantsConstantParserRuleCall_4_1_0()); }
+{ before(grammarAccess.getStatemachineAccess().getConstantsConstantParserRuleCall_4_1_0()); }
+	ruleConstant{ after(grammarAccess.getStatemachineAccess().getConstantsConstantParserRuleCall_4_1_0()); }
 )
 
 ;
@@ -2152,8 +2152,8 @@ rule__Event__CodeAssignment_1
     }
 :
 (
-{ before(grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0()); }
-	RULE_ID{ after(grammarAccess.getEventAccess().getCodeIDTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getEventAccess().getCodeINTTerminalRuleCall_1_0()); }
+	RULE_INT{ after(grammarAccess.getEventAccess().getCodeINTTerminalRuleCall_1_0()); }
 )
 
 ;

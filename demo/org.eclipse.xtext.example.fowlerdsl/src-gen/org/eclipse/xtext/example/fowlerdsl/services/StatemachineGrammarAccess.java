@@ -40,19 +40,19 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEndKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cConstantsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cConnstantsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cConnstantsConstantParserRuleCall_4_1_0 = (RuleCall)cConnstantsAssignment_4_1.eContents().get(0);
+		private final Assignment cConstantsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cConstantsConstantParserRuleCall_4_1_0 = (RuleCall)cConstantsAssignment_4_1.eContents().get(0);
 		private final Keyword cEndKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		private final Assignment cStatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cStatesStateParserRuleCall_5_0 = (RuleCall)cStatesAssignment_5.eContents().get(0);
 		
 		//Statemachine:
 		//	{Statemachine} ('events' events+=Event+ 'end')? ('resetEvents' resetEvents+=[Event]+ 'end')? ('commands'
-		//	commands+=Command+ 'end')? ('constants' connstants+=Constant+ 'end')? states+=State*;
+		//	commands+=Command+ 'end')? ('constants' constants+=Constant+ 'end')? states+=State*;
 		@Override public ParserRule getRule() { return rule; }
 
 		//{Statemachine} ('events' events+=Event+ 'end')? ('resetEvents' resetEvents+=[Event]+ 'end')? ('commands'
-		//commands+=Command+ 'end')? ('constants' connstants+=Constant+ 'end')? states+=State*
+		//commands+=Command+ 'end')? ('constants' constants+=Constant+ 'end')? states+=State*
 		public Group getGroup() { return cGroup; }
 
 		//{Statemachine}
@@ -106,17 +106,17 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		//'end'
 		public Keyword getEndKeyword_3_2() { return cEndKeyword_3_2; }
 
-		//('constants' connstants+=Constant+ 'end')?
+		//('constants' constants+=Constant+ 'end')?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//'constants'
 		public Keyword getConstantsKeyword_4_0() { return cConstantsKeyword_4_0; }
 
-		//connstants+=Constant+
-		public Assignment getConnstantsAssignment_4_1() { return cConnstantsAssignment_4_1; }
+		//constants+=Constant+
+		public Assignment getConstantsAssignment_4_1() { return cConstantsAssignment_4_1; }
 
 		//Constant
-		public RuleCall getConnstantsConstantParserRuleCall_4_1_0() { return cConnstantsConstantParserRuleCall_4_1_0; }
+		public RuleCall getConstantsConstantParserRuleCall_4_1_0() { return cConstantsConstantParserRuleCall_4_1_0; }
 
 		//'end'
 		public Keyword getEndKeyword_4_2() { return cEndKeyword_4_2; }
@@ -134,7 +134,7 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Assignment cCodeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCodeIDTerminalRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
+		private final RuleCall cCodeINTTerminalRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cLeftSquareBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cGuardAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -142,10 +142,10 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//Event:
-		//	name=ID code=ID ('[' guard=Guard ']')?;
+		//	name=ID code=INT? ('[' guard=Guard ']')?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//name=ID code=ID ('[' guard=Guard ']')?
+		//name=ID code=INT? ('[' guard=Guard ']')?
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -154,11 +154,11 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 
-		//code=ID
+		//code=INT?
 		public Assignment getCodeAssignment_1() { return cCodeAssignment_1; }
 
-		//ID
-		public RuleCall getCodeIDTerminalRuleCall_1_0() { return cCodeIDTerminalRuleCall_1_0; }
+		//INT
+		public RuleCall getCodeINTTerminalRuleCall_1_0() { return cCodeINTTerminalRuleCall_1_0; }
 
 		//('[' guard=Guard ']')?
 		public Group getGroup_2() { return cGroup_2; }
@@ -564,7 +564,7 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Statemachine:
 	//	{Statemachine} ('events' events+=Event+ 'end')? ('resetEvents' resetEvents+=[Event]+ 'end')? ('commands'
-	//	commands+=Command+ 'end')? ('constants' connstants+=Constant+ 'end')? states+=State*;
+	//	commands+=Command+ 'end')? ('constants' constants+=Constant+ 'end')? states+=State*;
 	public StatemachineElements getStatemachineAccess() {
 		return pStatemachine;
 	}
@@ -574,7 +574,7 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Event:
-	//	name=ID code=ID ('[' guard=Guard ']')?;
+	//	name=ID code=INT? ('[' guard=Guard ']')?;
 	public EventElements getEventAccess() {
 		return pEvent;
 	}

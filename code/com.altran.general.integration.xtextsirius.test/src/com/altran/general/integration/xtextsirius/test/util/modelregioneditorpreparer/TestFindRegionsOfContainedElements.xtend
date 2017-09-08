@@ -1,5 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
 
+import com.google.common.collect.LinkedHashMultimap
 import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.Group
 import org.eclipse.xtext.RuleCall
@@ -18,8 +19,11 @@ class TestFindRegionsOfContainedElements extends AModelRegionEditorPreparer {
 
 		val rootRegion = getRootRegion(event)
 		val eventRegion = rootRegion.regionForEObject(event)
+		val eventRuleCall = eventRegion.grammarElement as RuleCall
 
-		val regions = preparer.findRegionsOfContainedElements(eventRegion, emptyList)
+		val map = preparer.collectContainedGrammarElementsDeep(eventRuleCall, eventRuleCall, LinkedHashMultimap.create)
+				
+		val regions = preparer.findRegionsOfContainedElements(eventRegion, emptyList, map)
 
 		assertTrue(regions.isEmpty)
 	}
@@ -41,7 +45,9 @@ class TestFindRegionsOfContainedElements extends AModelRegionEditorPreparer {
 		val guardGroup = eventGroup.elements.get(2) as Group
 		val guardAssignment = guardGroup.elements.get(1) as Assignment
 
-		val regions = preparer.findRegionsOfContainedElements(eventRegion, #[eventName, guardAssignment])
+		val map = preparer.collectContainedGrammarElementsDeep(eventRuleCall, eventRuleCall, LinkedHashMultimap.create)
+		
+		val regions = preparer.findRegionsOfContainedElements(eventRegion, #[eventName, guardAssignment], map)
 
 		assertEquals(4, regions.size)
 

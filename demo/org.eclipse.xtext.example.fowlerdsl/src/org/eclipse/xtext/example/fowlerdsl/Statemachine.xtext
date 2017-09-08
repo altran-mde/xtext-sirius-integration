@@ -14,13 +14,13 @@ Statemachine :
 		commands+=Command+ 
 	'end')?
 	('constants'
-		connstants+=Constant+
+		constants+=Constant+
 	'end')?
 	states+=State*
 ;
 
 Event:
-	name=ID code=ID ('[' guard=Guard ']')?
+	name=ID code=INT? ('[' guard=Guard ']')?
 ;
 
 Guard:

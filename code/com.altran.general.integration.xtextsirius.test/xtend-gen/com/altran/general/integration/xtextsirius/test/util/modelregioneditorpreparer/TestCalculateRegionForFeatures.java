@@ -91,6 +91,6 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     Assert.assertEquals(58, region.getOffset());
     Assert.assertEquals(30, region.getLength());
     final String text = this.resolveRegion(rootRegion, region);
-    Assert.assertEquals("event3\r\nccc\t \t[\r\nconstant1\t\t\t]", text);
+    Assert.assertEquals("event3\r\n333\t \t[\r\nconstant1\t\t\t]", text);
   }
 }

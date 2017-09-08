@@ -57,7 +57,7 @@ public class StatemachineParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getStatemachineAccess().getEventsAssignment_1_1(), "rule__Statemachine__EventsAssignment_1_1");
 					put(grammarAccess.getStatemachineAccess().getResetEventsAssignment_2_1(), "rule__Statemachine__ResetEventsAssignment_2_1");
 					put(grammarAccess.getStatemachineAccess().getCommandsAssignment_3_1(), "rule__Statemachine__CommandsAssignment_3_1");
-					put(grammarAccess.getStatemachineAccess().getConnstantsAssignment_4_1(), "rule__Statemachine__ConnstantsAssignment_4_1");
+					put(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1(), "rule__Statemachine__ConstantsAssignment_4_1");
 					put(grammarAccess.getStatemachineAccess().getStatesAssignment_5(), "rule__Statemachine__StatesAssignment_5");
 					put(grammarAccess.getEventAccess().getNameAssignment_0(), "rule__Event__NameAssignment_0");
 					put(grammarAccess.getEventAccess().getCodeAssignment_1(), "rule__Event__CodeAssignment_1");

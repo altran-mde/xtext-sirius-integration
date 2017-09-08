@@ -2,11 +2,7 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 
 import com.google.common.collect.ImmutableMultimap
 import org.eclipse.xtext.AbstractElement
-import org.eclipse.xtext.Alternatives
-import org.eclipse.xtext.Assignment
-import org.eclipse.xtext.CrossReference
 import org.eclipse.xtext.GrammarUtil
-import org.eclipse.xtext.Group
 import org.junit.Test
 
 import static org.junit.Assert.*
@@ -16,7 +12,7 @@ class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
 	def emptyGrammarList() {
 		val model = defaultModel
 
-		val constant = model.connstants.head
+		val constant = model.constants.head
 
 		val preparer = fakePreparer
 
@@ -43,7 +39,7 @@ class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
 	def emptyGrammarMapDirect() {
 		val model = defaultModel
 
-		val constant = model.connstants.head
+		val constant = model.constants.head
 
 		val preparer = fakePreparer
 
@@ -64,7 +60,7 @@ class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
 	def emptyGrammarMapIndirect() {
 		val model = defaultModel
 
-		val constant = model.connstants.head
+		val constant = model.constants.head
 
 		val preparer = fakePreparer
 
@@ -88,7 +84,7 @@ class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
 	def simple() {
 		val model = defaultModel
 
-		val constant = model.connstants.head
+		val constant = model.constants.head
 
 		val preparer = fakePreparer
 
@@ -118,7 +114,7 @@ class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
 	def deep() {
 		val model = defaultModel
 
-		val constant = model.connstants.head
+		val constant = model.constants.head
 
 		val preparer = fakePreparer
 
@@ -127,44 +123,9 @@ class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
 		val grammarElement = constantRegion.grammarElement as AbstractElement
 
 		val grammar = GrammarUtil.getGrammar(grammarElement)
-
-		val constantRule = GrammarUtil.findRuleForName(grammar, "Constant").alternatives as Group
-		val constantName = constantRule.elements.head as Assignment
-		val constantValue = constantRule.elements.last as Assignment
-
-		val valueRule = GrammarUtil.findRuleForName(grammar, "Value").alternatives as Alternatives
-		val valueConstantRef = valueRule.elements.head
-		val valueIntLiteral = valueRule.elements.last
-
-		val constantRefRule = GrammarUtil.findRuleForName(grammar, "ConstantRef").alternatives as Assignment
-		val constantRefConstant = constantRefRule.terminal as CrossReference
-
-		val intLiteralRule = GrammarUtil.findRuleForName(grammar, "IntLiteral").alternatives as Assignment
-
-		val idRule = GrammarUtil.findRuleForName(grammar, "ID").alternatives
-
 		val intRule = GrammarUtil.findRuleForName(grammar, "INT").alternatives
-		
-		// same as in TestCollectContainedGrammarElementsDeep.deep()
-		val map = ImmutableMultimap.builder
-			.put(grammarElement, grammarElement)
-			.put(constantRule, grammarElement)
-			.put(constantName, constantRule)
-			.put(constantName.terminal, constantName)
-			.put(idRule, constantName.terminal)
-			.put(constantValue, constantRule)
-			.put(constantValue.terminal, constantValue)
-			.put(valueRule, constantValue.terminal)
-			.put(valueConstantRef, valueRule)
-			.put(constantRefRule, valueConstantRef)
-			.put(constantRefConstant, constantRefRule)
-			.put(constantRefConstant.terminal, constantRefConstant)
-			.put(idRule, constantRefConstant.terminal)
-			.put(valueIntLiteral, valueRule)
-			.put(intLiteralRule, valueIntLiteral)
-			.put(intLiteralRule.terminal, intLiteralRule)
-			.put(intRule, intLiteralRule.terminal)
-			.build
+
+		val map = createConstantParentMap(grammarElement)		
 			
 		val grammarElements = constantRegion.allSemanticRegions.map[it.grammarElement as AbstractElement].toList
 		

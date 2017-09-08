@@ -18,7 +18,7 @@ public class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
     _builder.append("events");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("event1 aaa");
+    _builder.append("event1 111");
     _builder.newLine();
     _builder.append("end");
     _builder.newLine();
@@ -32,7 +32,7 @@ public class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
     _builder.append("events");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("event1 aaa");
+    _builder.append("event1 111");
     _builder.newLine();
     _builder.append("end");
     _builder.newLine();
@@ -54,7 +54,7 @@ public class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
   public void defaultModelTest() {
     final Statemachine model = this.getDefaultModel();
     Assert.assertEquals(5, model.getEvents().size());
-    Assert.assertEquals(3, model.getConnstants().size());
+    Assert.assertEquals(3, model.getConstants().size());
     final Event event4 = model.getEvents().get(3);
     final Constant constant = AFowlerdslTest.<Constant>findFirstTargetOfType(event4, Constant.class);
     Assert.assertNotEquals(event4.eResource(), constant.eResource());

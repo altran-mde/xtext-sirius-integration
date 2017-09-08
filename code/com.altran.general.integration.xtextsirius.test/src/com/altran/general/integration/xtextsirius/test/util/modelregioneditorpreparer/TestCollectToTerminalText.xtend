@@ -9,11 +9,16 @@ import static org.junit.Assert.*
 class TestCollectToTerminalText extends AModelRegionEditorPreparer {
 	@Test
 	def empty() {
+		val model = defaultModel
+		
+		val rootRegion = getRootRegion(model)
+		val grammarElement = rootRegion.regionForRootEObject.allSemanticRegions.head.grammarElement as AbstractElement
+
 		val preparer = fakePreparer
 
-		val text = preparer.collectToTerminalText(emptyList)
+		val text = preparer.collectToTerminalText(grammarElement, emptyList)
 
-		assertEquals("", text)
+		assertEquals(" ", text)
 	}
 
 	@Test
@@ -21,6 +26,7 @@ class TestCollectToTerminalText extends AModelRegionEditorPreparer {
 		val model = defaultModel
 		
 		val rootRegion = getRootRegion(model)
+		val grammarElement = rootRegion.regionForRootEObject.allSemanticRegions.head.grammarElement as AbstractElement
 		
 		val grammarElements = rootRegion.regionForRootEObject.allSemanticRegions
 			.map[it.semanticElement]
@@ -30,9 +36,9 @@ class TestCollectToTerminalText extends AModelRegionEditorPreparer {
 		
 		val preparer = fakePreparer
 
-		val text = preparer.collectToTerminalText(grammarElements)
+		val text = preparer.collectToTerminalText(grammarElement, grammarElements)
 
-		assertEquals("", text)
+		assertEquals(" ", text)
 	}
 
 	@Test
@@ -48,7 +54,7 @@ class TestCollectToTerminalText extends AModelRegionEditorPreparer {
 		
 		val preparer = fakePreparer
 
-		val text = preparer.collectToTerminalText(#[grammarElement])
+		val text = preparer.collectToTerminalText(grammarElement, #[grammarElement])
 
 		assertEquals("events", text)
 	}
@@ -75,7 +81,7 @@ class TestCollectToTerminalText extends AModelRegionEditorPreparer {
 		
 		val preparer = fakePreparer
 
-		val text = preparer.collectToTerminalText(grammarElements)
+		val text = preparer.collectToTerminalText(eventsRegion.grammarElement as AbstractElement, grammarElements)
 
 		assertEquals("events[][][][..]end", text)
 	}

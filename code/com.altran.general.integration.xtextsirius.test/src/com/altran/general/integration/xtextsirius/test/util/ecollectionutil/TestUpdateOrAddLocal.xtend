@@ -43,7 +43,7 @@ class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
 		val fakeConst = findFirstTargetOfType(fakeModel.events.get(3), Constant)
 		val fakeEvent = createEvent => [
 			name = "fakeEvent"
-			code = "xxx"
+			code = 666
 			guard = createValueGuard => [
 				cond = createConstantRef => [
 					constant = fakeConst
