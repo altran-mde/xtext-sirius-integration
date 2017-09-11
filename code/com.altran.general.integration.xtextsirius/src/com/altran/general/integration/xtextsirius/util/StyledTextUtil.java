@@ -4,6 +4,17 @@ import org.apache.commons.lang.StringUtils;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.xtext.util.TextRegion;
 
+/**
+ * Utilities to prepare a {@link StringBuffer} for partial editing in a
+ * StyledTextEditor.
+ *
+ * <p>
+ * Cares for adding or removing appropriate newlines.
+ * </p>
+ *
+ * @author nstotz
+ *
+ */
 public class StyledTextUtil {
 	private static final String CARRIAGE_RETURN = "\r";
 	private static final String LINE_FEED = "\n";
@@ -23,6 +34,23 @@ public class StyledTextUtil {
 		
 	}
 
+	/**
+	 * Replaces all newline characters within {@code textRegion} by spaces if
+	 * {@code multiLine} is set.
+	 *
+	 * <p>
+	 * The length of {@code text} is not altered.
+	 * </p>
+	 *
+	 * @param text
+	 *            Text to replace the newlines in.
+	 * @param textRegion
+	 *            Region to search for newlines.
+	 * @param multiLine
+	 *            Only if {@code false} we actually do anything.
+	 * @return {@code text} (without length changes) with all newlines within
+	 *         {@code textRegion} replaced by spaces.
+	 */
 	public @NonNull StringBuffer removeNewlinesIfSingleLine(
 			final @NonNull StringBuffer text,
 			final @NonNull TextRegion textRegion,
@@ -30,6 +58,25 @@ public class StyledTextUtil {
 		return removeNewlinesIfSingleLine(text, textRegion.getOffset(), textRegion.getLength(), multiLine);
 	}
 	
+	/**
+	 * Replaces all newline characters within positions
+	 * {@code [offset..offset+length]} by spaces if {@code multiLine} is set.
+	 *
+	 * <p>
+	 * The length of {@code text} is not altered.
+	 * </p>
+	 *
+	 * @param text
+	 *            Text to replace the newlines in.
+	 * @param offset
+	 *            First position to search for newlines.
+	 * @param length
+	 *            Length of region to search for newlines.
+	 * @param multiLine
+	 *            Only if {@code false} we actually do anything.
+	 * @return {@code text} (without length changes) with all newlines within
+	 *         positions {@code [offset..offset+length]} replaced by spaces.
+	 */
 	public @NonNull StringBuffer removeNewlinesIfSingleLine(
 			final @NonNull StringBuffer text,
 			final int offset,
@@ -47,12 +94,46 @@ public class StyledTextUtil {
 		return text;
 	}
 
+	/**
+	 * Inserts a newline at the given position.
+	 *
+	 * <p>
+	 * The appropriate newline character is determined by
+	 * {@link #guessNewline(String)}.
+	 * </p>
+	 *
+	 * @param text
+	 *            Text to add the newline to.
+	 * @param textRegion
+	 *            Position where to add the newline.
+	 *
+	 * @return A new TextRegion, based on {@code textRegion}, extended to
+	 *         include the added newline.
+	 */
 	public @NonNull TextRegion insertNewline(
 			final @NonNull StringBuffer text,
 			final @NonNull TextRegion textRegion) {
 		return insertNewline(text, textRegion.getOffset(), textRegion.getLength());
 	}
 	
+	/**
+	 * Inserts a newline at the given position.
+	 *
+	 * <p>
+	 * The appropriate newline character is determined by
+	 * {@link #guessNewline(String)}.
+	 * </p>
+	 *
+	 * @param text
+	 *            Text to add the newline to.
+	 * @param offset
+	 *            Position offset where to add the newline.
+	 * @param length
+	 *            Position length where to add the newline.
+	 *
+	 * @return A new TextRegion, based on {@code offset} and {@code length},
+	 *         extended to include the added newline.
+	 */
 	public @NonNull TextRegion insertNewline(
 			final @NonNull StringBuffer text,
 			final int offset,

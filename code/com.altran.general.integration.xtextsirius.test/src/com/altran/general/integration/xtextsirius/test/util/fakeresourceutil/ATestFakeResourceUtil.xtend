@@ -1,13 +1,13 @@
-package com.altran.general.integration.xtextsirius.test.util.ecorehelper
+package com.altran.general.integration.xtextsirius.test.util.fakeresourceutil
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest
-import com.altran.general.integration.xtextsirius.util.EcoreHelper
+import com.altran.general.integration.xtextsirius.util.FakeResourceUtil
 import java.util.List
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
 
-abstract class ATestEcoreHelper extends AFowlerdslDefaultModelTest {
-	protected static class AccessibleEcoreHelper extends EcoreHelper {
+abstract class ATestFakeResourceUtil extends AFowlerdslDefaultModelTest {
+	protected static class AccessibleFakeResourceUtil extends FakeResourceUtil {
 		override public insertSynthetic(URI uri) {
 			super.insertSynthetic(uri)
 		}
@@ -29,8 +29,8 @@ abstract class ATestEcoreHelper extends AFowlerdslDefaultModelTest {
 		}
 	}
 
-	def protected getAccessibleEcoreHelper() {
-		new AccessibleEcoreHelper()
+	def protected getAccessibleFakeResourceUtil() {
+		new AccessibleFakeResourceUtil()
 	}
 
 	def protected <T> front(List<T> list) {

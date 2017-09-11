@@ -9,7 +9,7 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSiriusStyledTextCellEditor;
 import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
-import com.altran.general.integration.xtextsirius.util.EcoreHelper;
+import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
 import com.google.inject.Injector;
 
@@ -57,7 +57,7 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 			final EObject element = location
 					.resolve(getXtextAdapter().getXtextParseResult().getRootASTElement().eResource());
 			if (element != null) {
-				return EcoreHelper.getInstance().proxify(element, EcoreUtil.getURI(getSemanticElement()));
+				return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(getSemanticElement()));
 			}
 		}
 

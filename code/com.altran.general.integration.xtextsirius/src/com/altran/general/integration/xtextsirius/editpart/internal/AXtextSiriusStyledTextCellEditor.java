@@ -8,7 +8,7 @@ import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
 import org.yakindu.base.xtext.utils.jface.viewers.StyledTextXtextAdapter;
 import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
-import com.altran.general.integration.xtextsirius.util.EcoreHelper;
+import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import com.google.inject.Injector;
 
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx {
@@ -46,10 +46,10 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 		final EObject element = getSemanticElement();
 		final XtextResource fakeResource = getXtextAdapter().getFakeResourceContext().getFakeResource();
 		if (element != null) {
-			EcoreHelper.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
+			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
 		} else {
 			final EObject fallback = getFallbackContainer();
-			EcoreHelper.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
+			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
 		}
 	}
 

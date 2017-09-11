@@ -11,7 +11,7 @@ import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
 
-import com.altran.general.integration.xtextsirius.util.EcoreHelper;
+import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
@@ -89,7 +89,7 @@ public abstract class AXtextSiriusWidget {
 	public void updateUri(final @NonNull URI resourceUri) {
 		this.editor.getDocument()
 				.modify(res -> {
-					EcoreHelper.getInstance().updateFakeResourceUri(res, resourceUri);
+					FakeResourceUtil.getInstance().updateFakeResourceUri(res, resourceUri);
 					return null;
 				});
 

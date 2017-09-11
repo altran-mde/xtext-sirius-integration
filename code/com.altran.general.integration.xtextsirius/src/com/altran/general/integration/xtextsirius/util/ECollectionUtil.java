@@ -9,6 +9,19 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
+/**
+ * Utility for changing existing entries in an EMF collection based on their
+ * URI.
+ *
+ * <p>
+ * <b>Caution:</b> This utility works reliably only on collections of
+ * {@link EObject}s that can be resolved to an {@link URI}. Additionally, no
+ * elements must have been removed or added from the list.
+ * </p>
+ *
+ * @author nstotz
+ *
+ */
 public class ECollectionUtil {
 	private static ECollectionUtil INSTANCE;
 
@@ -24,6 +37,31 @@ public class ECollectionUtil {
 
 	}
 
+	/**
+	 * Replaces {@code element} within {@code collection}, if contained; adds
+	 * otherwise.
+	 *
+	 * <p>
+	 * <i>Replace</i> means we compare the URI of {@code element} with each
+	 * entry of {@code collection}. If we find an entry with the same URI, we
+	 * remove the old entry and add {@code element} instead, i.e. changing the
+	 * Java object identity of the EObject referred to by this URI. If there is
+	 * more than one entry, we change only one of them (arbitrarily selected).
+	 * If there is no such entry, we add {@code element} to {@code collection}.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Caution:</b> This utility works reliably only on collections of
+	 * {@link EObject}s that can be resolved to an {@link URI}. Additionally, no
+	 * elements must have been removed or added from the list.
+	 * </p>
+	 *
+	 * @param collection
+	 *            Collection to modify.
+	 * @param element
+	 *            Element to replace or add.
+	 * @return Element with the same URI contained in the list afterwards.
+	 */
 	public <@Nullable T extends EObject> T replaceOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element) {
@@ -33,6 +71,32 @@ public class ECollectionUtil {
 		});
 	}
 
+	/**
+	 * Updates {@code element} within {@code collection}, if contained; adds
+	 * otherwise.
+	 *
+	 * <p>
+	 * <i>Update</i> means we compare the URI of {@code element} with each entry
+	 * of {@code collection}. If we find an entry with the same URI, we update
+	 * the existing entry with all EFeatures of {@code element}, i.e. retaining
+	 * the Java object identity of the EObject referred to by this URI. If there
+	 * is more than one entry, we update only one of them (arbitrarily
+	 * selected). If there is no such entry, we add {@code element} to
+	 * {@code collection}.
+	 * </p>
+	 *
+	 * <p>
+	 * <b>Caution:</b> This utility works reliably only on collections of
+	 * {@link EObject}s that can be resolved to an {@link URI}. Additionally, no
+	 * elements must have been removed or added from the list.
+	 * </p>
+	 *
+	 * @param collection
+	 *            Collection to modify.
+	 * @param element
+	 *            Element to update or add.
+	 * @return Element with the same URI contained in the list afterwards.
+	 */
 	public <@Nullable T extends EObject> T updateOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element) {
@@ -54,7 +118,7 @@ public class ECollectionUtil {
 		});
 	}
 
-	public <@Nullable T extends EObject> T processOrAddLocal(
+	protected <@Nullable T extends EObject> T processOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element,
 			final @NonNull BiFunction<T, T, T> processor) {

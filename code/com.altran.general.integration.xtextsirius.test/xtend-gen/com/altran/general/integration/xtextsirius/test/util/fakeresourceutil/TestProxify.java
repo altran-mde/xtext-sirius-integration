@@ -1,8 +1,8 @@
-package com.altran.general.integration.xtextsirius.test.util.ecorehelper;
+package com.altran.general.integration.xtextsirius.test.util.fakeresourceutil;
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
-import com.altran.general.integration.xtextsirius.test.util.ecorehelper.ATestEcoreHelper;
-import com.altran.general.integration.xtextsirius.util.EcoreHelper;
+import com.altran.general.integration.xtextsirius.test.util.fakeresourceutil.ATestFakeResourceUtil;
+import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
@@ -17,15 +17,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestProxify extends ATestEcoreHelper {
+public class TestProxify extends ATestFakeResourceUtil {
   @Test
   public void proxify() {
     final Statemachine model = this.getDefaultModel();
     final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
     final URI orgUri = model.eResource().getURI();
-    EcoreHelper.getInstance().updateFakeResourceUri(fakeModel.eResource(), orgUri);
+    FakeResourceUtil.getInstance().updateFakeResourceUri(fakeModel.eResource(), orgUri);
     final Event fakeEvent = fakeModel.getEvents().get(2);
-    final Event proxified = EcoreHelper.getInstance().<Event>proxify(fakeEvent, orgUri);
+    final Event proxified = FakeResourceUtil.getInstance().<Event>proxify(fakeEvent, orgUri);
     Assert.assertSame(fakeEvent, proxified);
     Assert.assertFalse(proxified.eIsProxy());
     Guard _guard = proxified.getGuard();
@@ -40,7 +40,7 @@ public class TestProxify extends ATestEcoreHelper {
     Assert.assertNotNull(const_);
     Assert.assertTrue(const_.eIsProxy());
     final URI proxyUri = ((InternalEObject) const_).eProxyURI();
-    Assert.assertEquals(proxyUri, this.getAccessibleEcoreHelper().removeSynthetic(proxyUri));
+    Assert.assertEquals(proxyUri, this.getAccessibleFakeResourceUtil().removeSynthetic(proxyUri));
     final Transition transition = fakeModel.getStates().get(2).getTransitions().get(1);
     Assert.assertNotNull(transition);
     Assert.assertFalse(transition.getEvent().eIsProxy());
