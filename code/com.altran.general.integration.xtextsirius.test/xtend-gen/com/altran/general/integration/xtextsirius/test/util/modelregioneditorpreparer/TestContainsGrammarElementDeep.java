@@ -85,16 +85,14 @@ public class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
-    EObject _grammarElement = constantRegion.getGrammarElement();
-    final AbstractElement constantGrammarElement = ((AbstractElement) _grammarElement);
     final ISemanticRegion constantValueRegion = IterableExtensions.<ISemanticRegion>last(constantRegion.getAllSemanticRegions());
-    EObject _grammarElement_1 = constantValueRegion.getGrammarElement();
-    final AbstractElement constantValueGrammarElement = ((AbstractElement) _grammarElement_1);
+    EObject _grammarElement = constantValueRegion.getGrammarElement();
+    final AbstractElement constantValueGrammarElement = ((AbstractElement) _grammarElement);
     final AbstractElement intGrammarElement = GrammarUtil.findRuleForName(GrammarUtil.getGrammar(constantValueGrammarElement), "INT").getAlternatives();
     final ImmutableMultimap<AbstractElement, AbstractElement> map = ImmutableMultimap.<AbstractElement, AbstractElement>of(constantValueGrammarElement, constantValueGrammarElement, intGrammarElement, constantValueGrammarElement);
     final Function1<ISemanticRegion, AbstractElement> _function = (ISemanticRegion it) -> {
-      EObject _grammarElement_2 = it.getGrammarElement();
-      return ((AbstractElement) _grammarElement_2);
+      EObject _grammarElement_1 = it.getGrammarElement();
+      return ((AbstractElement) _grammarElement_1);
     };
     final List<AbstractElement> grammarElements = IterableExtensions.<AbstractElement>toList(IterableExtensions.<ISemanticRegion, AbstractElement>map(constantRegion.getAllSemanticRegions(), _function));
     Assert.assertTrue(preparer.containsGrammarElementDeep(constantValueGrammarElement, grammarElements, map));

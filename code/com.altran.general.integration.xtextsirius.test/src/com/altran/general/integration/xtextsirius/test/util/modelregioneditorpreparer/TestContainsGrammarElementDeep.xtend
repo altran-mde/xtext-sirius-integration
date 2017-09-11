@@ -90,7 +90,6 @@ class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
 
 		val rootRegion = getRootRegion(constant)
 		val constantRegion = rootRegion.regionForEObject(constant)
-		val constantGrammarElement = constantRegion.grammarElement as AbstractElement
 		val constantValueRegion = constantRegion.allSemanticRegions.last
 		val constantValueGrammarElement = constantValueRegion.grammarElement as AbstractElement
 

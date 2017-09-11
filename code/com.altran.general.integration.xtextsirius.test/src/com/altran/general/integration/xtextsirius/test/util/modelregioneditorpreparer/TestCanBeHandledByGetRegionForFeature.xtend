@@ -8,7 +8,6 @@ import org.junit.Test
 
 import static org.junit.Assert.*
 
-@SuppressWarnings("accessRestriction")
 class TestCanBeHandledByGetRegionForFeature extends AModelRegionEditorPreparer {
 	protected static class TestSemanticRegionsFinder extends AbstractSemanticRegionsFinder {
 		

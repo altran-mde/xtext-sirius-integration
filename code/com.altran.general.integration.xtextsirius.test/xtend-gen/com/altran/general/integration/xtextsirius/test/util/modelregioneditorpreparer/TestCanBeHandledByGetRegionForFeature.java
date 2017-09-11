@@ -12,7 +12,7 @@ import org.eclipse.xtext.formatting2.regionaccess.internal.AbstractSemanticRegio
 import org.junit.Assert;
 import org.junit.Test;
 
-@SuppressWarnings("accessRestriction")
+@SuppressWarnings("all")
 public class TestCanBeHandledByGetRegionForFeature extends AModelRegionEditorPreparer {
   protected static class TestSemanticRegionsFinder extends AbstractSemanticRegionsFinder {
     @Override
