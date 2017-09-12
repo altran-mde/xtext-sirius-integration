@@ -590,4 +590,124 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 		assertSame(event, preparer.semanticElementLocation.resolve(model.eResource))
 	}
 
+	@Test
+	def transitionOnlyEvent_eventGuard() {
+		val model = parseIntoResource('''
+			events
+				event0
+				event1
+				event2
+			end
+			
+			state state0
+				event0 => state1
+				event1 => state2
+				event2 => state2
+			end
+			
+			state state1
+			end
+			
+			state state2
+			end
+		''')
+
+		val state = model.states.get(0)
+		val transition = state.transitions.get(1)
+
+		val preparer = new ModelRegionEditorPreparer(transition, injector, true, #["event", "guard"])
+
+		assertEquals('''
+			events
+				event0
+				event1
+				event2
+			end
+			
+			state state0
+				event0 => state1
+				
+			event1 => state2
+				event2 => state2
+			end
+			
+			state state1
+			end
+			
+			state state2
+			end
+		'''.toString, preparer.text)
+
+		val textRegion = preparer.textRegion
+		assertEquals("event1", preparer.text.substring(textRegion.offset, textRegion.offset + textRegion.length))
+
+		assertEquals(new TextRegion(78, 6), preparer.textRegion)
+
+		assertSame(transition, preparer.semanticElementLocation.resolve(model.eResource))
+	}
+
+	@Test
+	def transitionEventGuard_eventGuard() {
+		val model = parseIntoResource('''
+			events
+				event0
+				event1
+				event2
+			end
+			
+			constants
+				const0 23
+			end
+			
+			state state0
+				event0 => state1
+				event1 [const0] => state2
+				event2 => state2
+			end
+			
+			state state1
+			end
+			
+			state state2
+			end
+		''')
+
+		val state = model.states.get(0)
+		val transition = state.transitions.get(1)
+
+		val preparer = new ModelRegionEditorPreparer(transition, injector, true, #["event", "guard"])
+
+		assertEquals('''
+			events
+				event0
+				event1
+				event2
+			end
+			
+			constants
+				const0 23
+			end
+			
+			state state0
+				event0 => state1
+				
+			event1 [const0] => state2
+				event2 => state2
+			end
+			
+			state state1
+			end
+			
+			state state2
+			end
+		'''.toString, preparer.text)
+
+		val textRegion = preparer.textRegion
+		assertEquals("event1 [const0]", preparer.text.substring(textRegion.offset, textRegion.offset + textRegion.length))
+
+		assertEquals(new TextRegion(108, 15), preparer.textRegion)
+
+		assertSame(transition, preparer.semanticElementLocation.resolve(model.eResource))
+	}
+
 }

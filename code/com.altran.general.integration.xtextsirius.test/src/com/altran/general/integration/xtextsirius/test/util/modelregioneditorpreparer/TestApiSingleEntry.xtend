@@ -491,4 +491,76 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 		assertSame(event, preparer.semanticElementLocation.resolve(model.eResource))
 	}
 
+	@Test
+	def transitionOnlyEvent_eventGuard() {
+		val model = parseIntoResource('''
+			events
+				event0
+			end
+			
+			state state0
+				event0 => state0
+			end
+		''')
+
+		val state = model.states.get(0)
+		val transition = state.transitions.get(0)
+
+		val preparer = new ModelRegionEditorPreparer(transition, injector, true, #["event", "guard"])
+
+		assertEquals('''
+			events
+				event0
+			end
+			
+			state state0
+				
+			event0 => state0
+			end
+		'''.toString, preparer.text)
+
+		val textRegion = preparer.textRegion
+		assertEquals("event0", preparer.text.substring(textRegion.offset, textRegion.offset + textRegion.length))
+
+		assertEquals(new TextRegion(41, 6), preparer.textRegion)
+
+		assertSame(transition, preparer.semanticElementLocation.resolve(model.eResource))
+	}
+
+	@Test
+	def transitionEventGuard_eventGuard() {
+		val model = parseIntoResource('''
+			events
+				event0
+			end
+			
+			state state0
+				event0 [123] => state0
+			end
+		''')
+
+		val state = model.states.get(0)
+		val transition = state.transitions.get(0)
+
+		val preparer = new ModelRegionEditorPreparer(transition, injector, true, #["event", "guard"])
+
+		assertEquals('''
+			events
+				event0
+			end
+			
+			state state0
+				
+			event0 [123] => state0
+			end
+		'''.toString, preparer.text)
+
+		val textRegion = preparer.textRegion
+		assertEquals("event0 [123]", preparer.text.substring(textRegion.offset, textRegion.offset + textRegion.length))
+
+		assertEquals(new TextRegion(41, 12), preparer.textRegion)
+
+		assertSame(transition, preparer.semanticElementLocation.resolve(model.eResource))
+	}
+
 }

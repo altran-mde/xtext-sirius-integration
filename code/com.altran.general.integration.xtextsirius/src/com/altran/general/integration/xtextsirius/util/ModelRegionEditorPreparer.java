@@ -710,11 +710,27 @@ public class ModelRegionEditorPreparer {
 	 * {@code endRegion}.
 	 */
 	protected ISemanticRegion extendByAttachedTerminals(final EObject semanticElement, ISemanticRegion endRegion) {
+		// this logic is really only trial&error, don't try to find a deeper
+		// meaning
+		
 		final ISemanticRegion nextSemanticRegion = endRegion.getNextSemanticRegion();
 		if (nextSemanticRegion != null && nextSemanticRegion.getGrammarElement() instanceof Keyword) {
-			final ISemanticRegion ongoingSemanticRegion = nextSemanticRegion.getNextSemanticRegion();
 			
-			if (ongoingSemanticRegion != null && ongoingSemanticRegion.getSemanticElement() != semanticElement) {
+			ISemanticRegion ongoingSemanticRegion = nextSemanticRegion;
+			for (;;) {
+				final ISemanticRegion next = ongoingSemanticRegion.getNextSemanticRegion();
+				if (next == null) {
+					break;
+				}
+
+				ongoingSemanticRegion = next;
+				
+				if (!(next.getGrammarElement() instanceof Keyword)) {
+					break;
+				}
+			}
+			
+			if (ongoingSemanticRegion != null) {
 				final Group group = GrammarUtil.containingGroup(nextSemanticRegion.getGrammarElement());
 				
 				if (group != null) {
