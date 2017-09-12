@@ -37,6 +37,7 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 	@Override
 	protected Command getDirectEditCommand(final DirectEditRequest edit) {
 		final CellEditor cellEditor = edit.getCellEditor();
+		
 		if (cellEditor.isDirty()) {
 			if (cellEditor instanceof AXtextSiriusStyledTextCellEditor) {
 				final DRepresentationElement representationElement = extractRepresentationElement();

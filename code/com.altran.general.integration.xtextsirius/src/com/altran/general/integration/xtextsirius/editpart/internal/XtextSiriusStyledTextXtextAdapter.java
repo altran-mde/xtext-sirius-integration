@@ -11,12 +11,12 @@ import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResou
 
 import com.google.inject.Injector;
 
-final class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
+public class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 	XtextSiriusStyledTextXtextAdapter(final Injector injector,
 			final IXtextFakeContextResourcesProvider contextFakeResourceProvider) {
 		super(injector, contextFakeResourceProvider);
 	}
-
+	
 	@Override
 	protected XtextSourceViewer createXtextSourceViewer() {
 		final XtextSourceViewer result = new XtextSourceViewerEx(getStyledText(),
@@ -30,10 +30,13 @@ final class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 					throws BadLocationException {
 				if (slaveDocument instanceof ProjectionDocument) {
 					final ProjectionDocument projection = (ProjectionDocument) slaveDocument;
-					
+
 					final int offset = modelRangeOffset;
 					final int length = modelRangeLength;
-					
+
+					// This "mimicking" does not work for us, so we disable it
+					// (XtextSirius)
+
 					// if (!isProjectionMode()) {
 					// // mimic original TextViewer behavior
 					// final IDocument master = projection.getMasterDocument();
@@ -43,7 +46,7 @@ final class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 					// length = (modelRangeOffset - offset) +
 					// modelRangeLength;
 					// }
-					
+
 					try {
 						// fHandleProjectionChanges= false;
 						setPrivateHandleProjectionChangesField(false);
@@ -60,5 +63,9 @@ final class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 		result.configure(getXtextSourceViewerConfiguration());
 		result.setDocument(getXtextDocument(), new AnnotationModel());
 		return result;
+	}
+
+	public long getModificationStamp() {
+		return getXtextDocument().getModificationStamp();
 	}
 }

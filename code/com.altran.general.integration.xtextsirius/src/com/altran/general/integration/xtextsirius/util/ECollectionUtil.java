@@ -5,6 +5,7 @@ import java.util.function.BiFunction;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
@@ -24,19 +25,19 @@ import org.eclipse.jdt.annotation.Nullable;
  */
 public class ECollectionUtil {
 	private static ECollectionUtil INSTANCE;
-
+	
 	public static ECollectionUtil getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new ECollectionUtil();
 		}
-
+		
 		return INSTANCE;
 	}
-
+	
 	protected ECollectionUtil() {
-
+		
 	}
-
+	
 	/**
 	 * Replaces {@code element} within {@code collection}, if contained; adds
 	 * otherwise.
@@ -70,7 +71,7 @@ public class ECollectionUtil {
 			return newElement;
 		});
 	}
-
+	
 	/**
 	 * Updates {@code element} within {@code collection}, if contained; adds
 	 * otherwise.
@@ -105,6 +106,15 @@ public class ECollectionUtil {
 				for (final EStructuralFeature feature : newElement.eClass().getEAllStructuralFeatures()) {
 					if (newElement.eIsSet(feature)) {
 						final Object newValue = newElement.eGet(feature, false);
+						// TODO: required?
+//						if (newValue instanceof EObject) {
+//							final EObject newEObject = (EObject) newValue;
+//							if (newEObject.eIsProxy() && FakeResourceUtil.getInstance().equalsDisregardingSynthetic(
+//									newEObject.eResource().getURI(), existing.eResource().getURI())) {
+//								((InternalEObject) newEObject).eSetProxyURI(FakeResourceUtil.getInstance()
+//										.removeSynthetic(((InternalEObject) newEObject).eProxyURI()));
+//							}
+//						}
 						existing.eSet(feature, newValue);
 					} else {
 						existing.eUnset(feature);
@@ -117,18 +127,18 @@ public class ECollectionUtil {
 			}
 		});
 	}
-
+	
 	protected <@Nullable T extends EObject> T processOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element,
 			final @NonNull BiFunction<T, T, T> processor) {
 		final String fragment = EcoreUtil.getURI(element).fragment();
-
+		
 		final T existing = collection.stream()
 				.filter(e -> fragment.equals(EcoreUtil.getURI(e).fragment()))
 				.findAny()
 				.orElse(null);
-
+		
 		if (existing == null) {
 			collection.add(element);
 			return null;
@@ -136,5 +146,5 @@ public class ECollectionUtil {
 			return processor.apply(existing, element);
 		}
 	}
-
+	
 }

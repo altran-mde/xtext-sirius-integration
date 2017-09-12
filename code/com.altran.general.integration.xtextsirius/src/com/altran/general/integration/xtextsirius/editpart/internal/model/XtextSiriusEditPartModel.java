@@ -19,12 +19,12 @@ import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSirius
 public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IXtextSiriusEditPartModel {
 	private final Collection<@NonNull String> editableFeatures;
 	private IParser parser;
-
+	
 	public XtextSiriusEditPartModel(final @NonNull EditPartDescriptorModel descriptor, final @NonNull View view) {
 		super(descriptor, view);
 		this.editableFeatures = descriptor.getEditableFeatures();
 	}
-
+	
 	/**
 	 * This value should never be used. Instead, use
 	 * {@link #getSemanticElement()}.
@@ -33,13 +33,12 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	public @NonNull String getEditText() {
 		return "";
 	}
-
+	
 	@Override
 	protected void updateLabelText() {
 		getFigure().setText(getLabelText());
-		;
 	}
-	
+
 	/*
 	 * Stolen from org.eclipse.sirius.diagram.ui.internal.edit.parts.
 	 * DNodeListElementEditPart
@@ -55,7 +54,7 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 		}
 		return this.parser;
 	}
-
+	
 	/*
 	 * Stolen from org.eclipse.sirius.diagram.ui.internal.edit.parts.
 	 * DNodeListElementEditPart
@@ -64,7 +63,7 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	protected IElementType getParserElementType() {
 		return org.eclipse.sirius.diagram.ui.internal.providers.SiriusElementTypes.DNodeListElement_3010;
 	}
-
+	
 	/*
 	 * Stolen from org.eclipse.sirius.diagram.ui.internal.edit.parts.
 	 * DNodeListElementEditPart
@@ -72,7 +71,7 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	protected EObject getParserElement() {
 		return resolveSemanticElement();
 	}
-
+	
 	/*
 	 * Stolen from org.eclipse.sirius.diagram.ui.internal.edit.parts.
 	 * DNodeListElementEditPart
@@ -84,23 +83,23 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 				return getParser().getPrintString(new EObjectAdapter(element), ParserOptions.NONE.intValue());
 			}
 		}
-
+		
 		return null;
 	}
-	
-	
+
+
 	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
 		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
 				translateToStyle(), isMultiLine(), getEditableFeatures());
 	}
-
+	
 	@Override
 	protected void setContext(final Resource res) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public @NonNull Collection<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;

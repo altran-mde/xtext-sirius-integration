@@ -20,7 +20,7 @@ import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer
 
 public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycleManager {
 	private final Collection<@NonNull String> editableFeatures;
-	
+
 	public XtextSiriusEefLifecycleManagerModel(
 			final @NonNull PropertyDescriptorModel descriptor,
 			final @NonNull EEFTextDescription controlDescription,
@@ -30,46 +30,47 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 		super(descriptor, controlDescription, variableManager, interpreter, contextAdapter);
 		this.editableFeatures = descriptor.getEditableFeatures();
 	}
-	
+
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		this.widget = new XtextSiriusWidgetModel(parent, getInjector(), isMultiLine());
 		applyGridData(getWidget().getControl());
-		
+
 		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
 				this.contextAdapter);
 	}
-	
+
 	private Object oldValue;
 	private boolean updated = false;
-	
+
 	@Override
 	public void dispose() {
 		this.oldValue = null;
 		super.dispose();
 	}
-	
+
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
-		
+
 		this.newValueConsumer = (newValue) -> {
+			// TODO: Check if updated is really needed
 			if (this.updated && newValue == this.oldValue) {
 				return;
 			}
 			this.oldValue = newValue;
 			this.updated = true;
-			
+
 			ModelRegionEditorPreparer preparer = null;
 			URI resourceUri = null;
-
+			
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
 				preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(), isMultiLine(),
 						getEditableFeatures());
-
+				
 				resourceUri = semanticElement.eResource().getURI();
-
+				
 			} else if (newValue == null) {
 				final EObject self = getSelf();
 				if (self != null) {
@@ -78,30 +79,30 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 						preparer = new ModelRegionEditorPreparer(null, self, getInjector(), isMultiLine(),
 								getEditableFeatures(),
 								feature);
-
+						
 						resourceUri = self.eResource().getURI();
 					}
 				}
 			}
-
+			
 			if (preparer != null && resourceUri != null) {
 				getWidget().updateUri(resourceUri);
 				getWidget().update(preparer.getText(), preparer.getSemanticElementLocation(), preparer.getTextRegion());
 			}
-
+			
 		};
 		this.controller.onNewValue(this.newValueConsumer);
-		
+
 	}
-	
+
 	private @NonNull Collection<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}
-	
+
 	@SuppressWarnings("restriction")
 	protected EStructuralFeature getEditFeature(final @NonNull EObject self) {
 		final String PREFIX = org.eclipse.sirius.common.tools.internal.interpreter.FeatureInterpreter.PREFIX;
-
+		
 		// we're using valueExpression (instead of EditExpression) as there is
 		// no field to explicitly set the editExpression in odesign model.
 		final String valueExpression = getWidgetDescription().getValueExpression();
@@ -110,18 +111,18 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			final EStructuralFeature feature = self.eClass().getEStructuralFeature(featureName);
 			return feature;
 		}
-
+		
 		return null;
 	}
-	
-	
+
+
 	@Override
 	public void aboutToBeHidden() {
 		final EObject semanticElement = getWidget().getSemanticElement();
 		persistIfDirty(semanticElement);
 		super.aboutToBeHidden();
 	}
-	
+
 	@Override
 	public XtextSiriusWidgetModel getWidget() {
 		return (XtextSiriusWidgetModel) super.getWidget();

@@ -30,6 +30,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
+import org.eclipse.xtext.linking.ILinker;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.serializer.impl.Serializer;
 import org.eclipse.xtext.util.TextRegion;
@@ -258,6 +259,9 @@ public class ModelRegionEditorPreparer {
 	@Inject
 	private ISerializer serializer;
 	
+	@Inject
+	private ILinker linker;
+	
 	private final @Nullable EObject semanticElement;
 	private final @NonNull EObject parentSemanticElement;
 	private final boolean multiLine;
@@ -382,7 +386,11 @@ public class ModelRegionEditorPreparer {
 			return;
 		}
 		
-		this.rootRegion = getSerializer().serializeToRegions(EcoreUtil.getRootContainer(getParent()));
+		final EObject rootContainer = EcoreUtil.getRootContainer(getParent());
+		this.rootRegion = getSerializer().serializeToRegions(rootContainer);
+		// TODO: required?
+		// this.linker.linkModel(rootContainer, new
+		// ListBasedDiagnosticConsumer());
 		
 		this.allText = new StringBuffer(this.rootRegion.regionForDocument().getText());
 		

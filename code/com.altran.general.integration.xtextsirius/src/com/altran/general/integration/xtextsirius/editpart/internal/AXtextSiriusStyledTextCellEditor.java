@@ -3,9 +3,9 @@ package com.altran.general.integration.xtextsirius.editpart.internal;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.jface.text.IDocumentExtension4;
 import org.eclipse.xtext.resource.XtextResource;
 import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
-import org.yakindu.base.xtext.utils.jface.viewers.StyledTextXtextAdapter;
 import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
 import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
@@ -18,6 +18,8 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 	private EObject semanticElement;
 
 	private EObject fallbackContainer;
+	
+	private long modificationStamp = IDocumentExtension4.UNKNOWN_MODIFICATION_STAMP;
 
 	public AXtextSiriusStyledTextCellEditor(
 			final int style,
@@ -34,10 +36,15 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 	public abstract @Nullable Object getValueToCommit();
 
 	@Override
-	protected StyledTextXtextAdapter createXtextAdapter() {
+	protected XtextSiriusStyledTextXtextAdapter createXtextAdapter() {
 		return new XtextSiriusStyledTextXtextAdapter(getInjector(),
 				getContextFakeResourceProvider() == null ? IXtextFakeContextResourcesProvider.NULL_CONTEXT_PROVIDER
 						: getContextFakeResourceProvider());
+	}
+
+	@Override
+	public XtextSiriusStyledTextXtextAdapter getXtextAdapter() {
+		return (XtextSiriusStyledTextXtextAdapter) super.getXtextAdapter();
 	}
 
 	@Override
@@ -51,6 +58,8 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 			final EObject fallback = getFallbackContainer();
 			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
 		}
+		
+		resetDirty();
 	}
 
 	protected void setSemanticElement(final @Nullable EObject element) {
@@ -63,6 +72,19 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 
 	protected void setFallbackContainer(final @NonNull EObject fallbackContainer) {
 		this.fallbackContainer = fallbackContainer;
+	}
+
+	protected void resetDirty() {
+		this.modificationStamp = retrieveModificationStamp();
+	}
+	
+	protected long retrieveModificationStamp() {
+		return getXtextAdapter().getModificationStamp();
+	}
+
+	@Override
+	public boolean isDirty() {
+		return this.modificationStamp != retrieveModificationStamp();
 	}
 
 	protected EObject getFallbackContainer() {
