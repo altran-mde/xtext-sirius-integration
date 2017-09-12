@@ -48,12 +48,6 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 		return "";
 	}
 	
-	@Override
-	public String getLabelText() {
-		final String labelText = super.getLabelText();
-		return labelText;
-	}
-	
 	/**
 	 * Copied from
 	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}

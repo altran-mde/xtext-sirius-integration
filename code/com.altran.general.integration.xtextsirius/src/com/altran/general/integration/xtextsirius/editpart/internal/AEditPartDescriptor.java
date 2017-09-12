@@ -10,11 +10,11 @@ import com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfi
 import com.altran.general.integration.xtextsirius.internal.IDescriptor;
 
 public abstract class AEditPartDescriptor implements IDescriptor {
-	
+
 	private final String identifier;
 	private final boolean multiLine;
 	private final IXtextDirectEditConfiguration config;
-
+	
 	public AEditPartDescriptor(
 			final @Nullable String identifier,
 			final boolean multiLine,
@@ -23,25 +23,29 @@ public abstract class AEditPartDescriptor implements IDescriptor {
 		this.multiLine = multiLine;
 		this.config = config;
 	}
-
+	
 	@Override
 	public @NonNull String getIdentifier() {
 		return this.identifier;
 	}
-
+	
 	@Override
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	public @NonNull IXtextDirectEditConfiguration getConfig() {
 		return this.config;
 	}
-
+	
 	@Override
 	public boolean isValid() {
 		return StringUtils.isNotBlank(getIdentifier()) && getConfig() != null;
 	}
-	
+
+	public boolean matches(final @NonNull View view) {
+		return true;
+	}
+
 	public abstract @NonNull IXtextAwareEditPart createEditPart(final @NonNull View view);
 }

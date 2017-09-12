@@ -79,6 +79,23 @@
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="edgeLabelPosition" use="default" value="center">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="begin">
+                  </enumeration>
+                  <enumeration value="center">
+                  </enumeration>
+                  <enumeration value="end">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
       </complexType>
    </element>
 
