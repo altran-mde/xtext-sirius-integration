@@ -1,91 +1,224 @@
-= AsciiDoc Article Title
-Firstname Lastname <author@asciidoctor.org>
-1.0, July 29, 2014, Asciidoctor 1.5 article template
+= Xtext / Sirius Integration User Guide
+Niko Stotz <niko.stotz@altran.com>
 :toc:
+:miscellaneous.tabsize: 2
 :icons: font
-:quick-uri: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 
-Content entered directly below the header but before the first section heading is called the preamble.
+This plugin enables Xtext editors to be used as direct editor for Sirius diagram elements or Sirius property widgets.
 
-== First level heading
+This document describes to users (i.e. developers using the Xtext editors in their project) how to work with the Xtext / Sirius integration.
 
-This is a paragraph with a *bold* word and an _italicized_ word.
+== Terminology
 
-.Image caption
-image::image-file-name.png[I am the image alt text.]
+Sirius element::
+	Contents of the *.odesign model describing the Sirius application.
+	
+diagram element::
+	Sirius element describing something inside a diagram.
+	
+property element::
+	Sirius element describing something inside the properties view.
+	
+semantic element::
+	EObject of a model the end-user is working with.
+	
+identifier::
+	String entered in the "Id" field of a Sirius element, unique within the Sirius application.
+	
+direct editor::
+	Editor that is displayed inside the diagram if the end-user double-clicks a diagram element or presses F2 while the diagram element is focused.
 
-This is another paragraph.footnote:[I am footnote text and will be rendered at the bottom of the article.]
+overwrite::
+	The end-users starts to type while a diagram element with enabled direct editor is focused. This opens the direct editor, and replaces its contents with the typed text.
+	
+widget::
+	One entry field for a property element inside the properties view.
 
-=== Second level heading
+newline::
+	Platform-dependent invisible character(s) denoting the end of one line of text and the start of a new line of text.
+	
+multi-line::
+	Text entry field that shows (potentially) more than one line, and allows the add and remove newlines. Opposite of single-line.
+	
+single-line::
+	Text entry field that shows only one line, and does not allow to add a newline. Opposite of multi-line.
+	
+injector::
+	Google Guice injector completely configured for an Xtext language.
+	
+feature::
+	Instance of Ecore EStructuralFeature describing a part of a semantic element.
+	
 
-.Unordered list title
-* list item 1
-** nested list item
-*** nested nested list item 1
-*** nested nested list item 2
-* list item 2
+== Overview
+This plugin provides extension points to replace regular text entry fields with Xtext-enabled text entry fields.
 
-This is a paragraph.
+Xtext-enabled editors provide the usual Xtext features: syntax highlighting, auto completion, validation, etc.
 
-.Example block title
-====
-Content in an example block is subject to normal substitutions.
-====
+The text entry fields can be placed 
 
-.Sidebar title
-****
-Sidebars contain aside text and are subject to normal substitutions.
-****
+* either inside a Sirius diagram (direct editors; *directEdit*)
+* or in the Sirius properties view (widgets, *property*). In this case, we may customize
+** the SWT widget style flags (*widgetStyle*),
+** and the SWT GridLayoutData (*layoutData*).
 
-==== Third level heading
+The contents of the editors can be retrieved 
 
-[[id-for-listing-block]]
-.Listing block title
+* either from a semantic element of a model that's used as input to the diagram (*model*),
+* or from a String feature of a semantic element (*value*). In this case, we may supply additional information if we wanted to edit an incomplete model:
+** text (hidden from the end-user) to be pre-pended (*prefixText*),
+** text (hidden from the end-user) to be appended (*suffixText*).
+
+For _model_-based _directEdit_ editors, the contents can be limited to a set of features (*editableFeatures*).
+
+An editor can display
+
+* either single-line contents (*singleLine*),
+* or multi-line contents (*multiLine*).
+
+For all editors, we need to provide
+
+* an identifier to link to the affected Sirius element (*identifier*),
+* and an injector to access the Xtext language to use (*injector*).
+	
+
+All of this can be summarized in one table:
+
+[options="autowidth"]
+|====
+|	^.<| *property*	2+^.<| *directEdit*	| *add. info*
+
+.2+.^| *model*	| singleLine	| singleLine	.2+.^| _editableFeatures_	|
+	| multiLine	| multiLine |
+
+.2+.^| *value*	| singleLine	2+| singleLine	.2+.^| _prefixText, suffixText_
+	| multiLine	2+| multiLine 
+
+| *add. info*	| _widgetStyle, layoutData_ 2+| 	| *for all:* _identifier, injector_
+|====
+
+== Examples
+The following +plugin.xml+ (in conjunction with following '.odesign') content describes:
+
+:warnings: false
+<1> Single-line direct editor of all features of 'Event' instance of Sirius element +EventNode+ with the injector supplied by +EditPartConfigurationFowlerdsl+. 
+	Persisted to itself because 'SelfEdit.Set.featureName' is empty.
+<2> Single-line direct editor of features +{event, guard}+ for the center label of 'Transition' instance of Sirius element +TransitionEdge+ with the injector supplied by +EditPartConfigurationFowlerdsl+.
+	Persisted to itself because 'SelfEdit.Set.featureName' is empty.
+<3> Multi-line direct editor of 'description" feature of 'State' instance of Sirius element +description+ with the injector supplied by +EditPartConfigurationHtml+.
+	The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
+	Persisted to 'State.description' because of 'DescriptionEdit.Set.featureName=description'.
+<4> Single-line property widget of 'guard' feature of 'Event' instance of Sirius element +EventGuardId+ with the injector supplied by +EefConfigurationFowlerdsl+.
+	Persisted to 'Event.guard' because of 'EventGuardId.Set.featureName=guard'.
+<5> Multi-line property widget of 'description' feature of 'State' instance of Sirius element +StateDescriptionId+ with the injector supplied by +EefConfigurationHtml+.
+	The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
+	Persisted to 'State.description' because of 'StateDescriptionId.Set.featureName=description'.
+:warnings: true
+	
+.plugin.xml
+[source,xml]
 ----
-Content in a listing block is subject to verbatim substitutions.
-Listing block content is commonly used to preserve code input.
+<extension point="com.altran.general.integration.xtextsirius.xtextDirectEdit">
+<1>	<xtextDirectEditModel
+		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
+		identifier="EventNode"/>
+<2>	<xtextDirectEditModel
+		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
+		identifier="TransitionEdge">
+		<editableFeature name="event"/>
+		<editableFeature name="guard"/>
+	</xtextDirectEditModel>
+<3>	<xtextDirectEditValue
+		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationHtml"
+		identifier="description"
+		multiLine="true"
+		prefixText="&lt;html&gt;&lt;head&gt;&lt;title&gt;t&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"
+		suffixText="&lt;/body&gt;&lt;/html&gt;"/>
+</extension>
+
+<extension point="com.altran.general.integration.xtextsirius.xtextProperty">
+<4>	<xtextPropertyModel
+		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.eef.EefConfigurationFowlerdsl"
+		identifier="EventGuardId"/>
+<5>	<xtextPropertyValue
+		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.eef.EefConfigurationHtml"
+		identifier="StateDescriptionId"
+		multiLine="true"
+		prefixText="&lt;html&gt;&lt;head&gt;&lt;title&gt;t&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"
+		suffixText="&lt;/body&gt;&lt;/html&gt;"/>
+</extension>
 ----
 
-===== Fourth level heading
+.fowlerdsl.odesign
+[postsubs="quotes,callouts"]
+----
+platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign
+	+ fowlerdsl
+		+ Statemachine
+			+ Statemachine Diagram
+				+ Default
+<2>					+ *TransitionEdge* 
+							id=TransitionEdge
+							domainClass=statemachine.Transition
+							labelDirectEdit=SelfEdit
+						+ Edge Style solid
+							+ *Center Label Style*
+								labelExpression="ocl:self.event.name.concat( ' as Label')"
+					+ EventsContainer
+<1>						+ *EventNode*
+								id=EventNode
+								domainClass=statemachine.Event
+								labelDirectEdit=SelfEdit
+							+ *Square gray*
+								labelExpression="ocl:self.name.concat(if(self.guard.oclIsUndefined()) then \'' else ' [' + self.guard.toString() + \']' endif)"
+					+ CommandsContainer
+					+ StateNode
+<3>						+ *description*
+								id=description
+								domainClass=statemachine.State
+								labelDirectEdit=DescriptionEdit
+							+ *square gray*
+								labelExpression="ocl:'Desc: '.concat(self.description)"
+					+ Section DefaultSection
+						+ Direct Edit Label SimpleTextEdit
+<3>						+ *Direct Edit Label DescriptionEdit*
+								inputLabelExpression="feature:description"
+							+ Edit Mask Variables {0}
+							+ Begin
+								+ *Set description*
+									featureName=description
+<1><2>					+ *Direct Edit Label SelfEdit*
+								inputLabelExpression="var:self"
+							+ Edit Mask Variables {0}
+							+ Begin
+								+ *Set*
+									featureName=_«empty»_
+			+ org.eclipse.xtext.example.fowlerdsl.viewpoint.Services
+		+ Properties
+			+ Default
+				+ Default
+					+ EventProperties
+							domainClass=statemachine.Event
+						+ Text
+<4>						+ *EventGuardId*
+								id=EventGuardId
+								valueExpression="feature:guard"
+							+ Begin
+								+ *Set guard*
+									featureName=guard
+									valueExpression="var:newValue"
+					+ StateProperties
+							domainClass=statemachine.State
+						+ Text
+<5>						+ *StateDescriptionId*
+								id=StateDescriptionId
+								valueExpression="feature:description"
+							+ Begin
+								+ *Set description*
+									featureName=description
+									valueExpression="var:newValue"
+platform:/resource/org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.ecore
+----
 
-.Table title
-|===
-|Column heading 1 |Column heading 2
 
-|Column 1, row 1
-|Column 2, row 1
 
-|Column 1, row 2
-|Column 2, row 2
-|===
-
-====== Fifth level heading
-
-[quote, firstname lastname, movie title]
-____
-I am a block quote or a prose excerpt.
-I am subject to normal substitutions.
-____
-
-[verse, firstname lastname, poem title and more]
-____
-I am a verse block.
-  Indents and endlines are preserved in verse blocks.
-____
-
-== First level heading
-
-TIP: There are five admonition labels: Tip, Note, Important, Caution and Warning.
-
-// I am a comment and won't be rendered.
-
-. ordered list item
-.. nested ordered list item
-. ordered list item
-
-The text at the end of this sentence is cross referenced to <<_third_level_heading,the third level heading>>
-
-== First level heading
-
-This is a link to the http://asciidoctor.org/docs/user-manual/[Asciidoctor User Manual].
-This is an attribute reference {quick-uri}[which links this text to the Asciidoctor Quick Reference Guide].
