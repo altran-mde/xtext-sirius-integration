@@ -25,33 +25,33 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	private static final String XTEXT_DIRECT_EDIT_MODEL_ELEMENT = "xtextDirectEditModel";
 	private static final String XTEXT_DIRECT_EDIT_VALUE_ELEMENT = "xtextDirectEditValue";
 	private static final String EDGE_LABEL_POSITION_ATTRIBUTE = "edgeLabelPosition";
-
+	
 	private AConfigurationParser<IXtextDirectEditConfiguration, AEditPartDescriptor> parser;
-
+	
 	public XtextSiriusEditPartProvider() {
 		super();
 		createParser();
 	}
-	
+
 	private void createParser() {
 		this.parser = new AConfigurationParser<IXtextDirectEditConfiguration, AEditPartDescriptor>(EXTENSION_POINT_ID) {
-			
+
 			@Override
 			protected boolean validate(@NonNull final AEditPartDescriptor desc) {
 				return desc.isValid();
 			}
 		};
-		
+
 		this.parser.addToken(XTEXT_DIRECT_EDIT_MODEL_ELEMENT,
 				(e, identifier, multiLine, config) -> new EditPartDescriptorModel(identifier, multiLine, config,
 						e.getAttribute(EDGE_LABEL_POSITION_ATTRIBUTE),
 						this.parser.collectEditableFeatures(e)));
-
+		
 		this.parser.addToken(XTEXT_DIRECT_EDIT_VALUE_ELEMENT,
 				(e, identifier, multiLine, config) -> new EditPartDescriptorValue(identifier, multiLine, config,
 						this.parser.getPrefixText(e), this.parser.getSuffixText(e)));
 	}
-
+	
 	@Override
 	public boolean provides(final IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
@@ -64,10 +64,10 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 				}
 			}
 		}
-
+		
 		return super.provides(operation);
 	}
-
+	
 	@Override
 	public @NonNull IGraphicalEditPart createGraphicEditPart(final View view) {
 		final String identifier = extractIdentifier(view);
@@ -81,28 +81,28 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 									"Cannot find IXtextDirectEditConfiguration for identifier "
 											+ identifier));
 		}
-		
-		
+
+
 		return super.createGraphicEditPart(view);
 	}
-	
+
 	private @Nullable String extractIdentifier(final @NonNull View view) {
 		final EObject viewElement = view.getElement();
 		if (viewElement instanceof DRepresentationElement) {
 			final DRepresentationElement representationElement = (DRepresentationElement) viewElement;
 			return representationElement.getMapping().getName();
 		}
-		
+
 		return null;
 	}
-	
-	
+
+
 	private @NonNull Predicate<? super AEditPartDescriptor> providesFilter(
 			final @NonNull String identifier,
 			final @NonNull View view) {
 		return d -> identifier.equals(d.getIdentifier()) && d.matches(view);
 	}
-
+	
 	private @NonNull Stream<@NonNull AEditPartDescriptor> collectXtextDirectEditConfigurations() {
 		return this.parser.parse();
 	}

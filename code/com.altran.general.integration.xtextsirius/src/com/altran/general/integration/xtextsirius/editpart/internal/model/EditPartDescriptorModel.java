@@ -60,11 +60,15 @@ public class EditPartDescriptorModel extends AEditPartDescriptor implements IDes
 
 	@Override
 	public @NonNull IXtextAwareEditPart createEditPart(final @NonNull View view) {
-		if (view.getElement() instanceof DEdge) {
+		if (isEdge(view)) {
 			return new XtextSiriusEdgeNameEditPartModel(this, view);
 		}
 
 		return new XtextSiriusEditPartModel(this, view);
+	}
+
+	protected boolean isEdge(final @NonNull View view) {
+		return view.getElement() instanceof DEdge;
 	}
 
 	@Override
@@ -91,8 +95,16 @@ public class EditPartDescriptorModel extends AEditPartDescriptor implements IDes
 	}
 	
 	@Override
-	public boolean matches(@NonNull final View view) {
-		return super.matches(view) && Integer.toString(getEdgeLabelPosition().getVisualId()).equals(view.getType());
+	public boolean matches(final @NonNull View view) {
+		if (isEdge(view) && !matchesEdgeLabelPosition(view)) {
+			return false;
+		}
+		
+		return super.matches(view);
+	}
+
+	protected boolean matchesEdgeLabelPosition(final @NonNull View view) {
+		return Integer.toString(getEdgeLabelPosition().getVisualId()).equals(view.getType());
 	}
 
 	protected void parseEdgeLabelPosition() {
