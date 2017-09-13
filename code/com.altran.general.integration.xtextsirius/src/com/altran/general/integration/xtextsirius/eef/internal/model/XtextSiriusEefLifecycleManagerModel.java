@@ -9,6 +9,7 @@ import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
@@ -16,6 +17,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import com.altran.general.integration.xtextsirius.eef.internal.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.eef.internal.XtextSiriusController;
+import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
 
 public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycleManager {
@@ -118,8 +120,14 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 
 	@Override
 	public void aboutToBeHidden() {
-		final EObject semanticElement = getWidget().getSemanticElement();
-		persistIfDirty(semanticElement);
+		if (getWidget().isDirty()) {
+			EObject semanticElement = getWidget().getSemanticElement();
+			if (semanticElement != null) {
+				semanticElement = FakeResourceUtil.getInstance().proxify(semanticElement, EcoreUtil.getURI(getSelf()));
+			}
+			
+			commit(semanticElement);
+		}
 		super.aboutToBeHidden();
 	}
 
