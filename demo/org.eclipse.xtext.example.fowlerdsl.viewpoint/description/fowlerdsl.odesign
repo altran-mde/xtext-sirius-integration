@@ -44,7 +44,7 @@
         </containerMappings>
         <containerMappings name="StateNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SimpleTextEdit']" semanticCandidatesExpression="feature:states" domainClass="statemachine.State" childrenPresentation="List">
           <subNodeMappings name="description" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SimpleDescriptionEdit']" semanticCandidatesExpression="var:self" domainClass="statemachine.State">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:description" labelAlignment="LEFT" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" width="8" height="5">
+            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="ocl:'Desc: '.concat(self.description)" labelAlignment="LEFT" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" width="8" height="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -90,28 +90,28 @@
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="Properties">
     <pages identifier="Default" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0 //@extensions.0/@groups.1"/>
     <groups identifier="EventProperties" labelExpression="Event" domainClass="statemachine.Event" semanticCandidateExpression="var:self">
-      <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
-        </initialOperation>
-      </controls>
+        <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
       <controls xsi:type="properties:TextDescription" identifier="EventGuardId" labelExpression="Guard" valueExpression="feature:guard">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:SetValue" featureName="guard" valueExpression="var:newValue"/>
-        </initialOperation>
-      </controls>
-    </groups>
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="guard" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
     <groups identifier="StateProperties" labelExpression="State" domainClass="statemachine.State" semanticCandidateExpression="var:self">
-      <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
-        </initialOperation>
-      </controls>
+        <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
       <controls xsi:type="properties:TextAreaDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description">
-        <initialOperation>
-          <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
-        </initialOperation>
-      </controls>
-    </groups>
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
   </extensions>
 </description:Group>

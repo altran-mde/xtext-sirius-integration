@@ -5,59 +5,62 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.sirius.viewpoint.DRepresentationElement;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.description.DiagramElementMapping;
+import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
+import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
+import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
+import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 
 import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSiriusEditPart;
 
 public class XtextSiriusEditPartValue extends AXtextSiriusEditPart {
 	private @NonNull final String prefixText;
 	private @NonNull final String suffixText;
-	private String labelText;
-
+	
 	public XtextSiriusEditPartValue(final @NonNull EditPartDescriptorValue descriptor, final @NonNull View view) {
 		super(descriptor, view);
 		this.prefixText = descriptor.getPrefixText();
 		this.suffixText = descriptor.getSuffixText();
 	}
-
-	@Override
-	public String getEditText() {
-		// TODO Check if this is still valid
-		// this seems not right, but we get update issues otherwise
-		if (this.labelText != null) {
-			final String name = this.labelText;
-			// System.out.println("labelText: " + this.labelText);
-			return name;
+	
+	protected @NonNull String getValueFeature() {
+		final DSemanticDecorator decorator = resolveSemanticElement();
+		if (decorator instanceof DDiagramElement) {
+			final RepresentationElementMapping mapping = ((DDiagramElement) decorator).getMapping();
+			;
+			if (mapping instanceof DiagramElementMapping) {
+				final DirectEditLabel directEdit = ((DiagramElementMapping) mapping).getLabelDirectEdit();
+				final InitialOperation initialOperation = directEdit.getInitialOperation();
+				if (initialOperation != null) {
+					final ModelOperation modelOperation = initialOperation.getFirstModelOperations();
+					if (modelOperation instanceof SetValue) {
+						return ((SetValue) modelOperation).getFeatureName();
+					}
+				}
+			}
 		}
 
-		final EObject semanticElement = resolveSemanticElement();
-		if (semanticElement instanceof DRepresentationElement) {
-			final DRepresentationElement representationElement = (DRepresentationElement) semanticElement;
-			final String name = representationElement.getName();
-			// System.out.println("name: " + name);
-			return name;
-		}
-
-		return "";
-
+		throw new IllegalStateException("Cannot find SetValue operation for directEdit " + this);
 	}
 	
 	@Override
-	public void setLabelText(final String text) {
-		this.labelText = text;
-		// System.out.println("labelText:" + text);
-		super.setLabelText(text);
-	}
-
-	@Override
 	protected DirectEditManager createDirectEditManager() {
-		return new XtextSiriusDirectEditManagerValue(this, getInjector(), translateToStyle(), isMultiLine(),
-				this.prefixText, this.suffixText);
-	}
+		final EObject semanticElement = getSemanticElement();
+		if (semanticElement != null) {
+			return new XtextSiriusDirectEditManagerValue(this, getInjector(), translateToStyle(), isMultiLine(),
+					this.prefixText, this.suffixText,
+					semanticElement.eClass().getEStructuralFeature(getValueFeature()));
+		}
 
+		throw new IllegalStateException("Cannot directEdit a non-existing semanticElement");
+	}
+	
 	@Override
 	protected void setContext(final Resource arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
