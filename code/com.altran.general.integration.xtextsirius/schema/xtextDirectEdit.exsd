@@ -7,7 +7,6 @@
       </appinfo>
       <documentation>
          Replaces the default Sirius direct editor implementation by an Xtext editor.
-
       </documentation>
    </annotation>
 
@@ -189,23 +188,22 @@ Defaults to false, i.e. default is single line.
       </appinfo>
       <documentation>
          &lt;extension point=&quot;com.altran.general.integration.xtextsirius.xtextDirectEdit&quot;&gt;
-	&lt;xtextDirectEditModel
-		configClass=&quot;org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl&quot;
-		identifier=&quot;EventNode&quot;/&gt;
-	&lt;xtextDirectEditModel
-		configClass=&quot;org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl&quot;
-		identifier=&quot;TransitionEdge&quot;&gt;
-		&lt;editableFeature name=&quot;event&quot;/&gt;
-		&lt;editableFeature name=&quot;guard&quot;/&gt;
-	&lt;/xtextDirectEditModel&gt;
-	&lt;xtextDirectEditValue
-		configClass=&quot;org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationHtml&quot;
-		identifier=&quot;description&quot;
-		multiLine=&quot;true&quot;
-		prefixText=&quot;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;t&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&quot;
-		suffixText=&quot;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&quot;/&gt;
+ &lt;xtextDirectEditModel
+  configClass=&quot;org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl&quot;
+  identifier=&quot;EventNode&quot;/&gt;
+ &lt;xtextDirectEditModel
+  configClass=&quot;org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl&quot;
+  identifier=&quot;TransitionEdge&quot;&gt;
+  &lt;editableFeature name=&quot;event&quot;/&gt;
+  &lt;editableFeature name=&quot;guard&quot;/&gt;
+ &lt;/xtextDirectEditModel&gt;
+ &lt;xtextDirectEditValue
+  configClass=&quot;org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationHtml&quot;
+  identifier=&quot;description&quot;
+  multiLine=&quot;true&quot;
+  prefixText=&quot;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;t&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&quot;
+  suffixText=&quot;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&quot;/&gt;
 &lt;/extension&gt;
-
       </documentation>
    </annotation>
 
@@ -214,7 +212,7 @@ Defaults to false, i.e. default is single line.
          <meta.section type="apiinfo"/>
       </appinfo>
       <documentation>
-         The Sirius elment (from *.odesign model) where we attach the Xtext direct editor must fulfill the following criteria:
+         The Sirius diagram element (from *.odesign model) where we attach the Xtext direct editor must fulfill the following criteria:
 
 * unique id
 * defined label
@@ -232,16 +230,7 @@ If the set value operation feature is empty, it is interpreted as to replace $se
          <meta.section type="implementation"/>
       </appinfo>
       <documentation>
-         The Sirius diagram element (from *.odesign model) where we attach the Xtext direct editor must fulfill the following criteria:
-
-* unique id
-* defined label
-* defined direct label edit
-* defined direct label edit set value operation
-
-The label is independent of the edited text, i.e. the label can show a different text than the direct editor.
-
-If the set value operation feature is empty, it is interpreted as to replace $self.
+         No default implementations.
       </documentation>
    </annotation>
 

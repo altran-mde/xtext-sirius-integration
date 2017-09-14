@@ -7,8 +7,8 @@ import com.google.inject.Injector;
 
 public interface IXtextPropertyConfiguration {
 	public @NonNull Injector getInjector();
-	
-	int getSwtWidgetStyle(int defaultStyle);
-	
+
+	int getSwtWidgetStyle(final int defaultStyle);
+
 	public @NonNull GridData getLayoutData(final @NonNull GridData defaultData);
 }
