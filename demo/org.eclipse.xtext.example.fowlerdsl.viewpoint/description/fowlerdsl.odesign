@@ -4,7 +4,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Statemachine Diagram" domainClass="statemachine.Statemachine" enablePopupBars="true">
       <metamodel href="../../org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.ecore#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="TransitionEdge" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='']" sourceMapping="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']" targetFinderExpression="feature:state" sourceFinderExpression="feature:eContainer" domainClass="statemachine.Transition" useDomainElement="true">
+        <edgeMappings name="TransitionEdge" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SelfEdit']" sourceMapping="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']" targetMapping="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']" targetFinderExpression="feature:state" sourceFinderExpression="feature:eContainer" domainClass="statemachine.Transition" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelExpression="ocl:self.event.name.concat( ' as Label')">
@@ -13,7 +13,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="EventsContainer" semanticCandidatesExpression="var:self" domainClass="statemachine.Statemachine" childrenPresentation="List">
-          <subNodeMappings name="EventNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='']" semanticCandidatesExpression="feature:events" domainClass="statemachine.Event">
+          <subNodeMappings name="EventNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SelfEdit']" semanticCandidatesExpression="feature:events" domainClass="statemachine.Event">
             <style xsi:type="style:SquareDescription" labelExpression="ocl:self.name.concat(if(self.guard.oclIsUndefined()) then '' else ' [' + self.guard.toString() + ']' endif)" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -43,7 +43,7 @@
           </style>
         </containerMappings>
         <containerMappings name="StateNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SimpleTextEdit']" semanticCandidatesExpression="feature:states" domainClass="statemachine.State" childrenPresentation="List">
-          <subNodeMappings name="description" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SimpleDescriptionEdit']" semanticCandidatesExpression="var:self" domainClass="statemachine.State">
+          <subNodeMappings name="description" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DescriptionEdit']" semanticCandidatesExpression="var:self" domainClass="statemachine.State">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="ocl:'Desc: '.concat(self.description)" labelAlignment="LEFT" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" width="8" height="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -64,19 +64,13 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="SimpleDescriptionEdit" inputLabelExpression="feature:description">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="DescriptionEdit" inputLabelExpression="feature:description">
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" label="EventNode" inputLabelExpression="var:self">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" label="Transition" inputLabelExpression="var:self">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="SelfEdit" inputLabelExpression="var:self">
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue"/>
