@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
@@ -54,8 +53,6 @@ public class ReplaceValueTask extends AbstractCommandTask {
 				
 			} else if (newValue instanceof EObject) {
 				updateRepresentation = ECollectionUtil.getInstance().updateOrAddLocal(collection, (EObject) newValue);
-				// TODO: resolve required?
-				EcoreUtil.resolveAll(elementToEdit);
 			} else {
 				collection.add(newValue);
 			}

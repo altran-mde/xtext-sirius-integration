@@ -19,13 +19,13 @@ import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSirius
 public class XtextSiriusEditPartValue extends AXtextSiriusEditPart {
 	private @NonNull final String prefixText;
 	private @NonNull final String suffixText;
-	
+
 	public XtextSiriusEditPartValue(final @NonNull EditPartDescriptorValue descriptor, final @NonNull View view) {
 		super(descriptor, view);
 		this.prefixText = descriptor.getPrefixText();
 		this.suffixText = descriptor.getSuffixText();
 	}
-	
+
 	protected @NonNull String getValueFeature() {
 		final DSemanticDecorator decorator = resolveSemanticElement();
 		if (decorator instanceof DDiagramElement) {
@@ -42,10 +42,10 @@ public class XtextSiriusEditPartValue extends AXtextSiriusEditPart {
 				}
 			}
 		}
-
+		
 		throw new IllegalStateException("Cannot find SetValue operation for directEdit " + this);
 	}
-	
+
 	@Override
 	protected DirectEditManager createDirectEditManager() {
 		final EObject semanticElement = getSemanticElement();
@@ -54,13 +54,12 @@ public class XtextSiriusEditPartValue extends AXtextSiriusEditPart {
 					this.prefixText, this.suffixText,
 					semanticElement.eClass().getEStructuralFeature(getValueFeature()));
 		}
-
+		
 		throw new IllegalStateException("Cannot directEdit a non-existing semanticElement");
 	}
-	
+
 	@Override
 	protected void setContext(final Resource arg0) {
-		// TODO Auto-generated method stub
-
+		// we don't use this API
 	}
 }

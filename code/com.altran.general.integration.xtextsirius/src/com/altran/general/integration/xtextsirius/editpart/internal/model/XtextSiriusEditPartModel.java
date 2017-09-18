@@ -11,24 +11,23 @@ import com.altran.general.integration.xtextsirius.editpart.internal.AXtextSirius
 
 public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IXtextSiriusEditPartModel {
 	private final Collection<@NonNull String> editableFeatures;
-	
+
 	public XtextSiriusEditPartModel(final @NonNull EditPartDescriptorModel descriptor, final @NonNull View view) {
 		super(descriptor, view);
 		this.editableFeatures = descriptor.getEditableFeatures();
 	}
-
+	
 	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
 		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
 				translateToStyle(), isMultiLine(), getEditableFeatures());
 	}
-
+	
 	@Override
 	protected void setContext(final Resource res) {
-		// TODO Auto-generated method stub
-		
+		// we don't use this API
 	}
-	
+
 	@Override
 	public @NonNull Collection<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;

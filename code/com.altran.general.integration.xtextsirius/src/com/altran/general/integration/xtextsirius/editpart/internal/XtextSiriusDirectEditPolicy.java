@@ -33,64 +33,63 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 		final String value = (String) request.getCellEditor().getValue();
 		((IXtextAwareEditPart) getHost()).setLabelText(value);
 	}
-
+	
 	@Override
 	protected Command getDirectEditCommand(final DirectEditRequest edit) {
 		final CellEditor cellEditor = edit.getCellEditor();
-		
+
 		if (cellEditor.isDirty()) {
 			if (cellEditor instanceof AXtextSiriusStyledTextCellEditor) {
 				final DRepresentationElement representationElement = extractRepresentationElement();
-
+				
 				final ReplaceValueParameter replaceValueParameter = extractReplaceValueParameter(
 						(AXtextSiriusStyledTextCellEditor) cellEditor, representationElement);
-				
+
 				if (replaceValueParameter != null) {
 					final TransactionalEditingDomain editingDomain = TransactionUtil
 							.getEditingDomain(replaceValueParameter.getElementToEdit());
-					
+
 					final SiriusCommand siriusCommand = new SiriusCommand(editingDomain);
 					siriusCommand.getTasks().add(new ReplaceValueTask(replaceValueParameter));
 					// siriusCommand.getTasks().add(new
 					// RefreshDiagramTask(representationElement));
-					
+
 					return new ICommandProxy(new GMFCommandWrapper(editingDomain, siriusCommand));
 				}
 			}
 		}
-
+		
 		return null;
 	}
-	
+
 	protected ReplaceValueParameter extractReplaceValueParameter(final AXtextSiriusStyledTextCellEditor cellEditor,
 			final @Nullable DRepresentationElement representationElement) {
 		final SetValue setValue = extractSetValue(representationElement);
-		
+
 		if (representationElement != null && setValue != null) {
 			EObject target = representationElement.getTarget();
 			final String featureName = setValue.getFeatureName();
-
+			
 			final EStructuralFeature feature;
-
-			// TODO: Document this
+			
 			if (StringUtils.isNotBlank(featureName)) {
 				feature = target.eClass().getEStructuralFeature(featureName);
 			} else {
 				feature = target.eContainingFeature();
 				target = target.eContainer();
 			}
-			
+
 			final Object newValue = cellEditor.getValueToCommit();
-			
+
 			final ReplaceValueParameter result = new ReplaceValueParameter(target, feature, newValue,
 					representationElement);
-
+			
 			return result;
 		}
-		
+
 		return null;
 	}
-
+	
 	private @Nullable DRepresentationElement extractRepresentationElement() {
 		final EditPart host = getHost();
 		if (host instanceof IXtextSiriusAwareLabelEditPart) {
@@ -102,10 +101,10 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 				}
 			}
 		}
-
+		
 		return null;
 	}
-
+	
 	private @Nullable SetValue extractSetValue(final @Nullable DRepresentationElement representationElement) {
 		if (representationElement != null) {
 			final RepresentationElementMapping mapping = representationElement.getMapping();
@@ -122,8 +121,8 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 				}
 			}
 		}
-
+		
 		return null;
 	}
-	
+
 }

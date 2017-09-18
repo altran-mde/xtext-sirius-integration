@@ -31,21 +31,21 @@ import org.eclipse.jdt.annotation.NonNull;
  */
 public class FakeResourceUtil {
 	private static final String SYNTHETIC_URI_PREFIX = "__synthetic__";
-
+	
 	private static FakeResourceUtil INSTANCE;
-
+	
 	public static FakeResourceUtil getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new FakeResourceUtil();
 		}
-
+		
 		return INSTANCE;
 	}
-
+	
 	protected FakeResourceUtil() {
-
+		
 	}
-
+	
 	/**
 	 * Updates the {@link URI} of {@code fakeResource} to match
 	 * {@code origResourceUri} including a fake resource identifier.
@@ -59,22 +59,22 @@ public class FakeResourceUtil {
 		final URI newUri = insertSynthetic(origResourceUri);
 		fakeResource.setURI(newUri);
 	}
-
+	
 	protected @NonNull URI insertSynthetic(final @NonNull URI uri) {
 		return uri.trimSegments(1)
 				.appendSegment(SYNTHETIC_URI_PREFIX + uri.lastSegment());
 	}
-
+	
 	protected @NonNull URI removeSynthetic(final @NonNull URI uri) {
 		final String lastSegment = uri.lastSegment();
-
+		
 		if (StringUtils.startsWith(lastSegment, SYNTHETIC_URI_PREFIX)) {
 			return uri.trimSegments(1).appendSegment(StringUtils.substring(lastSegment, SYNTHETIC_URI_PREFIX.length()));
 		}
-
+		
 		return uri;
 	}
-
+	
 	/**
 	 * Turns all {@link EObject}s referenced, but not contained by
 	 * {@code semanticElement} into EMF proxies.
@@ -108,9 +108,9 @@ public class FakeResourceUtil {
 	public <T extends EObject> T proxify(final @NonNull T semanticElement, final @NonNull URI originalResourceUri) {
 		final Set<EObject> allReferencedObjects = collectAllReferencedObjectsDeep(semanticElement)
 				.collect(Collectors.toSet());
-
+		
 		final URI semanticResourceUri = originalResourceUri.trimFragment();
-
+		
 		for (final EObject next : allReferencedObjects) {
 			if (!EcoreUtil.isAncestor(semanticElement, next)) {
 				final URI targetUri = EcoreUtil.getURI(next);
@@ -120,20 +120,18 @@ public class FakeResourceUtil {
 					createURI = semanticResourceUri.appendFragment(fragment);
 				}
 				((InternalEObject) next).eSetProxyURI(createURI);
-				//TODO: required?
-//				EcoreUtil.remove(next);
 			}
 		}
-
+		
 		return semanticElement;
 	}
-
+	
 	protected boolean equalsDisregardingSynthetic(final @NonNull URI a, final @NonNull URI b) {
 		return a.equals(b) ||
 				a.equals(removeSynthetic(b)) ||
 				removeSynthetic(a).equals(b);
 	}
-
+	
 	protected Stream<EObject> collectAllReferencedObjectsDeep(final @NonNull EObject base) {
 		return Stream.concat(
 				Stream.of(base),
@@ -141,7 +139,7 @@ public class FakeResourceUtil {
 						EcoreUtil.<EObject> getAllContents(base, false), Spliterator.NONNULL), false))
 				.flatMap(obj -> collectAllReferencedObjects(obj));
 	}
-
+	
 	protected Stream<EObject> collectAllReferencedObjects(final @NonNull EObject base) {
 		return base.eClass().getEAllReferences().stream()
 				.filter(ref -> !ref.isContainment())
