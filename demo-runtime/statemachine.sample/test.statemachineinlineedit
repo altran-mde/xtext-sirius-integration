@@ -1,0 +1,41 @@
+
+
+		
+		
+		
+		
+
+events
+
+
+	Xevent1456 111
+	Xevent2 222 	Xevent3 3333 [
+finalAnswerA
+	]Xevent4 4444 
+	[e..
+		pi
+	]
+	Xevent5 5555 [234]
+end
+
+constants
+	Xpi 314
+	Xe 217
+	XfinalAnswer 42
+	XpreviousAnswer finalAnswerA
+end
+
+state XState1456
+	description "\r\n<p>First paragraa456sdfph</p>\r\n<ul>\r\n\t<li>some <b>important</b> text</b></li>\r\n</ul>\r\n\t"
+	Xevent1456 aaaa => XState2asdf
+	Xevent1456 aaaa => XState3
+end
+
+state XState2asdf description ""
+	Xevent1456 aaaa [ finalAnswerA ]   => XState3
+	Xevent2 aaaa => XState1456
+end
+
+state XState3
+
+description "" end

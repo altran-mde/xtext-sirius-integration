@@ -56,7 +56,12 @@ public class FakeResourceUtil {
 	 *            URI to base the fake URI on.
 	 */
 	public void updateFakeResourceUri(final @NonNull Resource fakeResource, final @NonNull URI origResourceUri) {
-		final URI newUri = insertSynthetic(origResourceUri);
+		final String fakeFileExtension = fakeResource.getURI().fileExtension();
+		URI newUri = insertSynthetic(origResourceUri);
+		final String orgFileExtension = newUri.fileExtension();
+		if (!fakeFileExtension.equals(orgFileExtension)) {
+			newUri = newUri.trimFileExtension().appendFileExtension(fakeFileExtension);
+		}
 		fakeResource.setURI(newUri);
 	}
 	
@@ -127,9 +132,21 @@ public class FakeResourceUtil {
 	}
 	
 	protected boolean equalsDisregardingSynthetic(final @NonNull URI a, final @NonNull URI b) {
-		return a.equals(b) ||
-				a.equals(removeSynthetic(b)) ||
-				removeSynthetic(a).equals(b);
+		if (a.equals(b)) {
+			return true;
+		}
+
+		final URI noSynthB = removeSynthetic(b);
+		if (a.equals(noSynthB)) {
+			return true;
+		}
+
+		final URI noSynthA = removeSynthetic(a);
+		if (noSynthA.equals(b)) {
+			return true;
+		}
+
+		return noSynthA.trimFileExtension().equals(noSynthB.trimFileExtension());
 	}
 	
 	protected Stream<EObject> collectAllReferencedObjectsDeep(final @NonNull EObject base) {

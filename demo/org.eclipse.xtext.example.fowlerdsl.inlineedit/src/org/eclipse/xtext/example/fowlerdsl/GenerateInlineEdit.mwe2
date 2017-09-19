@@ -1,0 +1,157 @@
+module org.eclipse.xtext.example.fowlerdsl.GenerateInlineEdit
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+
+var grammarURI = "classpath:/org/eclipse/xtext/example/fowlerdsl/InlineEdit.xtext"
+var fileExtensions = "statemachineInlineedit"
+var projectName = "org.eclipse.xtext.example.fowlerdsl.inlineedit"
+var runtimeProject = "../${projectName}"
+var generateXtendStub = false
+var encoding = "utf-8"
+var lineDelimiter = '\r\n'
+
+Workflow {
+    bean = StandaloneSetup {
+    	scanClassPath = true
+    	platformUri = "${runtimeProject}/.."
+        registerGeneratedEPackage = "org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage"
+        registerGenModelFile = "platform:/resource/org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.genmodel"
+    	// The following two lines can be removed, if Xbase is not used.
+    	registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
+    	registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
+    }
+
+    component = Generator auto-inject {
+    	pathRtProject = runtimeProject
+    	pathUiProject = "${runtimeProject}.ui"
+//    	pathTestProject = "${runtimeProject}.tests"
+    	projectNameRt = projectName
+    	projectNameUi = "${projectName}.ui"
+    	encoding = encoding
+    	language = auto-inject {
+//			loadedResource = "platform:/resource/org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.genmodel"
+    		
+	   		uri = grammarURI
+	    
+    		// Java API to access grammar elements (required by several other fragments)
+    		fragment = grammarAccess.GrammarAccessFragment auto-inject {}
+    
+    		// generates Java API for the generated EPackages
+    		fragment = ecore.EMFGeneratorFragment auto-inject {}
+    
+    		// the old serialization component
+    		// fragment = parseTreeConstructor.ParseTreeConstructorFragment auto-inject {}    
+    
+    		// serializer 2.0
+    		fragment = serializer.SerializerFragment auto-inject {
+    			generateStub = false
+    		}
+    
+    		// a custom ResourceFactory for use with EMF
+    		fragment = resourceFactory.ResourceFactoryFragment auto-inject {}
+    
+    		// The antlr parser generator fragment.
+    		fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
+    		//  options = {
+    		//      backtrack = true
+    		//  }
+    		}
+    
+    		// Xtend-based API for validation
+    		fragment = validation.ValidatorFragment auto-inject {
+    		//    composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+    		//    composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+    		}
+    
+    		// old scoping and exporting API
+    		// fragment = scoping.ImportURIScopingFragment auto-inject {}
+    		// fragment = exporting.SimpleNamesFragment auto-inject {}
+    
+    		// scoping and exporting API
+    		fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
+    		fragment = exporting.QualifiedNamesFragment auto-inject {}
+    		fragment = builder.BuilderIntegrationFragment auto-inject {}
+    
+    		// generator API
+    		fragment = generator.GeneratorFragment auto-inject {}
+    
+    		// formatter API
+    		fragment = formatting.FormatterFragment auto-inject {}
+    
+    		// labeling API
+    		fragment = labeling.LabelProviderFragment auto-inject {}
+    
+    		// outline API
+    		fragment = outline.OutlineTreeProviderFragment auto-inject {}
+    		fragment = outline.QuickOutlineFragment auto-inject {}
+    
+    		// quickfix API
+    		fragment = quickfix.QuickfixProviderFragment auto-inject {}
+    
+    		// content assist API
+    		fragment = contentAssist.ContentAssistFragment auto-inject {}
+    
+    		// generates a more lightweight Antlr parser and lexer tailored for content assist
+    		fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
+    			partialParsing = true
+    		}
+    
+    		// generates junit test support classes into Generator#pathTestProject
+//    		fragment = junit.Junit4Fragment auto-inject {}
+    
+    		// rename refactoring
+    		fragment = refactoring.RefactorElementNameFragment auto-inject {}
+    
+    		// provides the necessary bindings for java types integration
+    		fragment = types.TypesGeneratorFragment auto-inject {}
+    
+    		// generates the required bindings only if the grammar inherits from Xbase
+    		fragment = xbase.XbaseGeneratorFragment auto-inject {}
+    
+    		// provides a preference page for template proposals
+    		fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
+    
+    		// provides a compare view
+    		fragment = compare.CompareFragment auto-inject {}
+    	}
+    }
+	
+//	component = XtextGenerator {
+//		configuration = {
+//			project = StandardProjectConfig {
+//				baseName = "org.eclipse.xtext.example.fowlerdsl.inlineedit"
+//				rootPath = rootPath
+//				eclipsePlugin = {
+//					enabled = true
+//				}
+//				createEclipseMetaData = true
+//			}
+//			code = {
+//				encoding = "windows-1252"
+//				lineDelimiter = "\r\n"
+//				fileHeader = "/*\n * generated by Xtext \${version}\n */"
+//			}
+//		}
+//		language = StandardLanguage {
+//			name = "org.eclipse.xtext.example.fowlerdsl.InlineEdit"
+//			fileExtensions = "statemachineInlineedit"
+//			referencedResource = "platform:/resource/org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.genmodel"
+//			
+//			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
+//
+//
+////			formatter = Formatter2Fragment {
+////				generateStub = true
+////			}
+//
+//			serializer = {
+//				generateStub = false
+//			}
+//			validator = {
+//				// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+//			}
+//		}
+//	}
+}

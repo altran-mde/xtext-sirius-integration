@@ -13,7 +13,7 @@
 			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
 			identifier="EventNode"/>
 		<xtextDirectEditModel
-			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
+			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdslInlineEdit"
 			identifier="TransitionEdge">
 			<editableFeature name="event"/>
 			<editableFeature name="guard"/>
