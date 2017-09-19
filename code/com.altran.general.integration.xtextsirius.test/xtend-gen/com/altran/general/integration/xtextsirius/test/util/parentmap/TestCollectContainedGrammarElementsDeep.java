@@ -1,10 +1,9 @@
-package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
+package com.altran.general.integration.xtextsirius.test.util.parentmap;
 
-import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.ARegion;
+import com.altran.general.integration.xtextsirius.test.util.parentmap.AccessibleParentMap;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import java.util.Map;
@@ -27,19 +26,17 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestCollectContainedGrammarElementsDeep extends AModelRegionEditorPreparer {
+public class TestCollectContainedGrammarElementsDeep extends ARegion {
   @Test
   public void simple() {
     final Statemachine model = this.getDefaultModel();
     final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
     final ISemanticRegion constantValueRegion = IterableExtensions.<ISemanticRegion>last(constantRegion.getAllSemanticRegions());
     EObject _grammarElement = constantValueRegion.getGrammarElement();
     final AbstractElement constantValueGrammarElement = ((AbstractElement) _grammarElement);
-    final Multimap<AbstractElement, AbstractElement> map = preparer.collectContainedGrammarElementsDeep(constantValueGrammarElement, constantValueGrammarElement, 
-      LinkedHashMultimap.<AbstractElement, AbstractElement>create());
+    final Multimap<AbstractElement, AbstractElement> map = new AccessibleParentMap(constantValueGrammarElement, constantValueGrammarElement).getMap();
     Assert.assertEquals(map.toString(), 2, map.size());
     Assert.assertTrue(map.containsEntry(constantValueGrammarElement, constantValueGrammarElement));
     final AbstractRule intGrammarElement = GrammarUtil.findRuleForName(GrammarUtil.getGrammar(constantValueGrammarElement), "INT");
@@ -50,13 +47,11 @@ public class TestCollectContainedGrammarElementsDeep extends AModelRegionEditorP
   public void deep() {
     final Statemachine model = this.getDefaultModel();
     final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
     EObject _grammarElement = constantRegion.getGrammarElement();
     final AbstractElement grammarElement = ((AbstractElement) _grammarElement);
-    final Multimap<AbstractElement, AbstractElement> mapIncludingXtextTerminals = preparer.collectContainedGrammarElementsDeep(grammarElement, grammarElement, 
-      LinkedHashMultimap.<AbstractElement, AbstractElement>create());
+    final Multimap<AbstractElement, AbstractElement> mapIncludingXtextTerminals = new AccessibleParentMap(grammarElement, grammarElement).getMap();
     final Grammar grammar = GrammarUtil.getGrammar(grammarElement);
     AbstractElement _alternatives = GrammarUtil.findRuleForName(grammar, "Constant").getAlternatives();
     final Group constantRule = ((Group) _alternatives);

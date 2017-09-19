@@ -1,6 +1,6 @@
-package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
+package com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer
 
-import com.google.common.collect.LinkedHashMultimap
+import com.altran.general.integration.xtextsirius.test.util.parentmap.AccessibleParentMap
 import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.Group
 import org.eclipse.xtext.RuleCall
@@ -8,22 +8,26 @@ import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestFindRegionsOfContainedElements extends AModelRegionEditorPreparer {
+class TestFindRegionsOfContainedElements extends ARequiredGrammarTerminalsPresentEnsurer {
 	@Test
 	def void emptyElements() {
 		val model = defaultModel
 
 		val event = model.events.get(4)
 
-		val preparer = fakePreparer
 
 		val rootRegion = getRootRegion(event)
 		val eventRegion = rootRegion.regionForEObject(event)
 		val eventRuleCall = eventRegion.grammarElement as RuleCall
 
-		val map = preparer.collectContainedGrammarElementsDeep(eventRuleCall, eventRuleCall, LinkedHashMultimap.create)
+		val map = new AccessibleParentMap(eventRuleCall, eventRuleCall)
+		val ensurer = fakeEnsurer => [
+			parentMap = map
+			elementRegion = eventRegion
+			containedElementPath = emptyList				
+		]
 				
-		val regions = preparer.findRegionsOfContainedElements(eventRegion, emptyList, map)
+		val regions = ensurer.findRegionsOfContainedElements()
 
 		assertTrue(regions.isEmpty)
 	}
@@ -34,8 +38,6 @@ class TestFindRegionsOfContainedElements extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(4)
 
-		val preparer = fakePreparer
-
 		val rootRegion = getRootRegion(event)
 		val eventRegion = rootRegion.regionForEObject(event)
 
@@ -45,9 +47,14 @@ class TestFindRegionsOfContainedElements extends AModelRegionEditorPreparer {
 		val guardGroup = eventGroup.elements.get(2) as Group
 		val guardAssignment = guardGroup.elements.get(1) as Assignment
 
-		val map = preparer.collectContainedGrammarElementsDeep(eventRuleCall, eventRuleCall, LinkedHashMultimap.create)
+		val map = new AccessibleParentMap(eventRuleCall, eventRuleCall)
+		val ensurer = fakeEnsurer => [
+			parentMap = map
+			elementRegion = eventRegion
+			containedElementPath = #[eventName, guardAssignment]				
+		]
 		
-		val regions = preparer.findRegionsOfContainedElements(eventRegion, #[eventName, guardAssignment], map)
+		val regions = ensurer.findRegionsOfContainedElements()
 
 		assertEquals(4, regions.size)
 

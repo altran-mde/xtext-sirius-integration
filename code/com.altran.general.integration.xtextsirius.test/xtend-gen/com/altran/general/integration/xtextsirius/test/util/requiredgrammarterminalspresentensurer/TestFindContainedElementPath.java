@@ -1,8 +1,8 @@
-package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
+package com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer;
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
-import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.ARequiredGrammarTerminalsPresentEnsurer;
+import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.AccessibleRequiredGrammarTerminalsPresentEnsurer;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.AbstractElement;
@@ -18,17 +18,17 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestFindContainedElementPath extends AModelRegionEditorPreparer {
+public class TestFindContainedElementPath extends ARequiredGrammarTerminalsPresentEnsurer {
   @Test
   public void noPath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = this.getFakeEnsurer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
     final AbstractElement baseElement = ((AbstractElement) _grammarElement);
-    final List<AbstractElement> path = preparer.findContainedElementPath(baseElement, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getState_Transitions());
+    final List<AbstractElement> path = ensurer.findContainedElementPath(baseElement, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getState_Transitions());
     Assert.assertTrue(path.isEmpty());
   }
   
@@ -36,12 +36,12 @@ public class TestFindContainedElementPath extends AModelRegionEditorPreparer {
   public void invalidPath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = this.getFakeEnsurer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
     final AbstractElement baseElement = ((AbstractElement) _grammarElement);
-    final List<AbstractElement> path = preparer.findContainedElementPath(baseElement, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getConstant_Value());
+    final List<AbstractElement> path = ensurer.findContainedElementPath(baseElement, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getConstant_Value());
     Assert.assertTrue(path.isEmpty());
   }
   
@@ -49,12 +49,12 @@ public class TestFindContainedElementPath extends AModelRegionEditorPreparer {
   public void simplePath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = this.getFakeEnsurer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
     final RuleCall baseElement = ((RuleCall) _grammarElement);
-    final List<AbstractElement> path = preparer.findContainedElementPath(baseElement, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name());
+    final List<AbstractElement> path = ensurer.findContainedElementPath(baseElement, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name());
     Assert.assertEquals(path.toString(), 3, path.size());
     Assert.assertEquals(baseElement, IterableExtensions.<AbstractElement>head(path));
     AbstractElement _get = path.get(1);
@@ -75,12 +75,12 @@ public class TestFindContainedElementPath extends AModelRegionEditorPreparer {
   public void complexPath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = this.getFakeEnsurer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
     final RuleCall baseElement = ((RuleCall) _grammarElement);
-    final List<AbstractElement> path = preparer.findContainedElementPath(baseElement, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard());
+    final List<AbstractElement> path = ensurer.findContainedElementPath(baseElement, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard());
     Assert.assertEquals(path.toString(), 4, path.size());
     Assert.assertEquals(baseElement, IterableExtensions.<AbstractElement>head(path));
     AbstractElement _get = path.get(1);

@@ -1,10 +1,10 @@
-package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
+package com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer
 
 import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEditorPreparer {
+class TestEnsureRequiredGrammarTerminalsPresent extends ARequiredGrammarTerminalsPresentEnsurer {
 	@Test(expected=IllegalStateException)
 	def void alreadySet() {
 		val text = '''
@@ -20,13 +20,14 @@ class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEditorPrepar
 
 		val allText = getAllText(rootRegion)
 
-		val preparer = fakePreparer
+		val ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(
+			event, 
+			statemachinePackage.event_Name, 
+			rootRegion, 
+			allText
+		)
 
-		preparer.rootRegion = rootRegion
-
-		preparer.allText = allText
-
-		preparer.ensureRequiredGrammarTerminalsPresent(event, statemachinePackage.event_Name)
+		ensurer.ensure()
 	}
 
 	@Test
@@ -49,13 +50,14 @@ class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEditorPrepar
 
 		val allText = getAllText(rootRegion)
 
-		val preparer = fakePreparer
+		val ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(
+			event, 
+			statemachinePackage.event_Code, 
+			rootRegion, 
+			allText
+		)
 
-		preparer.rootRegion = rootRegion
-
-		preparer.allText = allText
-
-		val resultRegion = preparer.ensureRequiredGrammarTerminalsPresent(event, statemachinePackage.event_Code)
+		val resultRegion = ensurer.ensure()
 
 		assertEquals(expectedText, allText.toString)
 		assertEquals(16, resultRegion.offset)
@@ -82,13 +84,14 @@ class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEditorPrepar
 
 		val allText = getAllText(rootRegion)
 
-		val preparer = fakePreparer
+		val ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(
+			event, 
+			statemachinePackage.event_Code, 
+			rootRegion, 
+			allText
+		)
 
-		preparer.rootRegion = rootRegion
-
-		preparer.allText = allText
-
-		val resultRegion = preparer.ensureRequiredGrammarTerminalsPresent(event, statemachinePackage.event_Code)
+		val resultRegion = ensurer.ensure()
 
 		assertEquals(expectedText, allText.toString)
 		assertEquals(16, resultRegion.offset)
@@ -115,13 +118,14 @@ class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEditorPrepar
 
 		val allText = getAllText(rootRegion)
 
-		val preparer = fakePreparer
+		val ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(
+			event, 
+			statemachinePackage.event_Guard, 
+			rootRegion, 
+			allText
+		)
 
-		preparer.rootRegion = rootRegion
-
-		preparer.allText = allText
-
-		val resultRegion = preparer.ensureRequiredGrammarTerminalsPresent(event, statemachinePackage.event_Guard)
+		val resultRegion = ensurer.ensure()
 
 		assertEquals(expectedText, allText.toString)
 		assertEquals(16, resultRegion.offset)
@@ -148,13 +152,14 @@ class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEditorPrepar
 
 		val allText = getAllText(rootRegion)
 
-		val preparer = fakePreparer
+		val ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(
+			event, 
+			statemachinePackage.event_Guard, 
+			rootRegion, 
+			allText
+		)
 
-		preparer.rootRegion = rootRegion
-
-		preparer.allText = allText
-
-		val resultRegion = preparer.ensureRequiredGrammarTerminalsPresent(event, statemachinePackage.event_Guard)
+		val resultRegion = ensurer.ensure()
 
 		assertEquals(expectedText, allText.toString)
 		assertEquals(20, resultRegion.offset)

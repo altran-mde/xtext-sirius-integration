@@ -1,8 +1,10 @@
-package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
+package com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer;
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
-import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.ARequiredGrammarTerminalsPresentEnsurer;
+import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.AccessibleRequiredGrammarTerminalsPresentEnsurer;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
@@ -13,7 +15,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEditorPreparer {
+public class TestEnsureRequiredGrammarTerminalsPresent extends ARequiredGrammarTerminalsPresentEnsurer {
   @Test(expected = IllegalStateException.class)
   public void alreadySet() {
     StringConcatenation _builder = new StringConcatenation();
@@ -29,10 +31,9 @@ public class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEdito
     final Event event = IterableExtensions.<Event>head(model.getEvents());
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final StringBuffer allText = this.getAllText(rootRegion);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    preparer.setRootRegion(rootRegion);
-    preparer.setAllText(allText);
-    preparer.ensureRequiredGrammarTerminalsPresent(event, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name());
+    EAttribute _event_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(event, _event_Name, rootRegion, allText);
+    ensurer.ensure();
   }
   
   @Test
@@ -59,10 +60,9 @@ public class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEdito
     final Event event = IterableExtensions.<Event>head(model.getEvents());
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final StringBuffer allText = this.getAllText(rootRegion);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    preparer.setRootRegion(rootRegion);
-    preparer.setAllText(allText);
-    final TextRegion resultRegion = preparer.ensureRequiredGrammarTerminalsPresent(event, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Code());
+    EAttribute _event_Code = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Code();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(event, _event_Code, rootRegion, allText);
+    final TextRegion resultRegion = ensurer.ensure();
     Assert.assertEquals(expectedText, allText.toString());
     Assert.assertEquals(16, resultRegion.getOffset());
     Assert.assertEquals(0, resultRegion.getLength());
@@ -92,10 +92,9 @@ public class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEdito
     final Event event = IterableExtensions.<Event>head(model.getEvents());
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final StringBuffer allText = this.getAllText(rootRegion);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    preparer.setRootRegion(rootRegion);
-    preparer.setAllText(allText);
-    final TextRegion resultRegion = preparer.ensureRequiredGrammarTerminalsPresent(event, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Code());
+    EAttribute _event_Code = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Code();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(event, _event_Code, rootRegion, allText);
+    final TextRegion resultRegion = ensurer.ensure();
     Assert.assertEquals(expectedText, allText.toString());
     Assert.assertEquals(16, resultRegion.getOffset());
     Assert.assertEquals(0, resultRegion.getLength());
@@ -125,10 +124,9 @@ public class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEdito
     final Event event = IterableExtensions.<Event>head(model.getEvents());
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final StringBuffer allText = this.getAllText(rootRegion);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    preparer.setRootRegion(rootRegion);
-    preparer.setAllText(allText);
-    final TextRegion resultRegion = preparer.ensureRequiredGrammarTerminalsPresent(event, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard());
+    EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(event, _event_Guard, rootRegion, allText);
+    final TextRegion resultRegion = ensurer.ensure();
     Assert.assertEquals(expectedText, allText.toString());
     Assert.assertEquals(16, resultRegion.getOffset());
     Assert.assertEquals(0, resultRegion.getLength());
@@ -158,10 +156,9 @@ public class TestEnsureRequiredGrammarTerminalsPresent extends AModelRegionEdito
     final Event event = IterableExtensions.<Event>head(model.getEvents());
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final StringBuffer allText = this.getAllText(rootRegion);
-    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
-    preparer.setRootRegion(rootRegion);
-    preparer.setAllText(allText);
-    final TextRegion resultRegion = preparer.ensureRequiredGrammarTerminalsPresent(event, AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard());
+    EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
+    final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = new AccessibleRequiredGrammarTerminalsPresentEnsurer(event, _event_Guard, rootRegion, allText);
+    final TextRegion resultRegion = ensurer.ensure();
     Assert.assertEquals(expectedText, allText.toString());
     Assert.assertEquals(20, resultRegion.getOffset());
     Assert.assertEquals(0, resultRegion.getLength());

@@ -1,20 +1,13 @@
 package com.altran.general.integration.xtextsirius.util;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import java.util.Spliterator;
-import java.util.Spliterators;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -24,30 +17,18 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.AbstractElement;
-import org.eclipse.xtext.AbstractRule;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CompoundElement;
-import org.eclipse.xtext.CrossReference;
-import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
 import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.serializer.impl.Serializer;
-import org.eclipse.xtext.util.Pair;
 import org.eclipse.xtext.util.TextRegion;
-import org.eclipse.xtext.util.Tuples;
 
 import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -99,7 +80,7 @@ import com.google.inject.Injector;
  */
 @SuppressWarnings("restriction")
 public class ModelRegionEditorPreparer {
-
+	
 	/*
 	 * @formatter:off
 	Examples for technical understanding
@@ -182,7 +163,7 @@ public class ModelRegionEditorPreparer {
 					terminal=RuleCall rule=Value
 
 
-	Multimap built by collectContainedGrammarElementsDeep (partial):
+	ParentMap (partial):
 		<<element>>={<<allParentElements>>}
 
 		Event={Event}
@@ -262,27 +243,27 @@ public class ModelRegionEditorPreparer {
 
 	 * @formatter:on
 	 */
-
+	
 	@Inject
 	private ISerializer serializer;
-
+	
 	private final @Nullable EObject semanticElement;
 	private final @NonNull EObject parentSemanticElement;
 	private final boolean multiLine;
 	private final @NonNull Set<@NonNull String> editableFeatures;
 	private final EStructuralFeature semanticElementFeature;
-
+	
 	protected boolean prepared;
-
+	
 	protected ITextRegionAccess rootRegion;
 	protected IEObjectRegion semanticRegion;
 	protected Set<@NonNull EStructuralFeature> definedFeatures;
-
+	
 	protected StringBuffer allText;
 	protected TextRegion textRegion;
 	protected SemanticElementLocation semanticElementLocation;
-
-
+	
+	
 	/**
 	 * Creates a ModelRegionEditorPreparer based on a non-null target.
 	 *
@@ -305,7 +286,7 @@ public class ModelRegionEditorPreparer {
 		this(semanticElement, semanticElement.eContainer(), injector, multiLine, editableFeatures,
 				semanticElement.eContainingFeature());
 	}
-
+	
 	/**
 	 * Creates a ModelRegionEditorPreparer based on a nullable target.
 	 *
@@ -337,10 +318,10 @@ public class ModelRegionEditorPreparer {
 		this.multiLine = multiLine;
 		this.editableFeatures = Sets.newLinkedHashSet(editableFeatures);
 		this.semanticElementFeature = semanticElementFeature;
-
+		
 		injector.injectMembers(this);
 	}
-
+	
 	/**
 	 * Returns the subpart of the text that should be edited.
 	 *
@@ -350,7 +331,7 @@ public class ModelRegionEditorPreparer {
 		prepare();
 		return this.textRegion;
 	}
-
+	
 	/**
 	 * Returns the complete text that should be contained in the editor,
 	 * including hidden parts.
@@ -362,7 +343,7 @@ public class ModelRegionEditorPreparer {
 		prepare();
 		return this.allText.toString();
 	}
-
+	
 	/**
 	 * Returns the location of the target.
 	 *
@@ -372,8 +353,8 @@ public class ModelRegionEditorPreparer {
 		prepare();
 		return this.semanticElementLocation;
 	}
-
-
+	
+	
 	/**
 	 * Returns the substring of the text that should be edited.
 	 *
@@ -384,49 +365,50 @@ public class ModelRegionEditorPreparer {
 		return this.allText.substring(this.textRegion.getOffset(),
 				this.textRegion.getOffset() + this.textRegion.getLength());
 	}
-
+	
 	protected void prepare() {
 		if (this.prepared) {
 			return;
 		}
-
+		
 		final EObject rootContainer = EcoreUtil.getRootContainer(getParent());
 		this.rootRegion = getSerializer().serializeToRegions(rootContainer);
-
+		
 		this.allText = new StringBuffer(this.rootRegion.regionForDocument().getText());
-
-
+		
+		
 		final EObject element = getSemanticElement();
-
+		
 		if (element != null) {
 			this.semanticElementLocation = new SemanticElementLocation(element);
 			this.semanticRegion = this.rootRegion.regionForEObject(element);
-
+			
 			if (getEditableFeatures().isEmpty()) {
 				this.textRegion = new TextRegion(this.semanticRegion.getOffset(), this.semanticRegion.getLength());
 			} else {
 				this.definedFeatures = resolveDefinedFeatures(element);
-
+				
 				if (!this.definedFeatures.isEmpty()) {
 					this.textRegion = calculateRegionForFeatures(element);
 				} else {
-					this.textRegion = ensureRequiredGrammarTerminalsPresent(element,
-							resolveEditableFeatures(element).iterator().next());
+					this.textRegion = new RequiredGrammarTerminalsPresentEnsurer(element,
+							resolveEditableFeatures(element).iterator().next(), this.rootRegion, this.allText).ensure();
 				}
 			}
 		} else {
 			this.semanticElementLocation = constructXtextFragmentSchemeBasedLocation();
 			this.semanticRegion = this.rootRegion.regionForEObject(getParent());
-			this.textRegion = ensureRequiredGrammarTerminalsPresent(getParent(), getSemanticElementFeature());
+			this.textRegion = new RequiredGrammarTerminalsPresentEnsurer(getParent(), getSemanticElementFeature(),
+					this.rootRegion, this.allText).ensure();
 		}
-
+		
 		this.textRegion = StyledTextUtil.getInstance().insertNewline(this.allText, this.textRegion);
-
+		
 		StyledTextUtil.getInstance().removeNewlinesIfSingleLine(this.allText, this.textRegion, isMultiLine());
-
+		
 		this.prepared = true;
 	}
-
+	
 	/**
 	 * Mimics the URI fragment scheme used by Xtext.
 	 */
@@ -436,351 +418,8 @@ public class ModelRegionEditorPreparer {
 		final String fragment = parentFragment + "/@" + feature.getName() + (feature.isMany() ? ".0" : "");
 		return new SemanticElementLocation(fragment, parentFragment, feature, 0);
 	}
-
-	/**
-	 * Tries to find (and add) terminals (aka Keywords) required to be present
-	 * to edit {@code feature} within {@code element}, if any.
-	 */
-	protected @NonNull TextRegion ensureRequiredGrammarTerminalsPresent(
-			final @NonNull EObject element,
-			final @NonNull EStructuralFeature feature) {
-		if (element.eIsSet(feature)) {
-			throw new IllegalStateException("Feature " + feature + " is set in " + element);
-		}
-
-		final IEObjectRegion elementRegion = this.rootRegion.regionForEObject(element);
-
-		if (!(elementRegion.getGrammarElement() instanceof RuleCall)) {
-			throw new IllegalArgumentException("element does not resolve to RuleCall grammar element: " + element);
-		}
-
-		final RuleCall grammarElement = (RuleCall) elementRegion.getGrammarElement();
-
-		final List<@NonNull AbstractElement> containedElementPath = findContainedElementPath(grammarElement, feature);
-
-		if (containedElementPath.isEmpty()) {
-			throw new IllegalArgumentException("Cannot find grammar element for feature " + feature + " in " + element);
-		}
-
-		final AbstractElement containedElement = Iterables.getLast(containedElementPath);
-		final Group containingGroup = GrammarUtil.containingGroup(containedElement);
-		// 0-th entry must be == grammarElement, so we don't need it
-		containedElementPath.remove(0);
-
-		if (containingGroup == null) {
-			throw new IllegalArgumentException(
-					"Cannot find containing group for grammar element of feature " + feature + " in " + element);
-		}
-
-		final List<AbstractElement> elementsBefore = Lists.newArrayList();
-		final List<AbstractElement> elementsAfter = Lists.newArrayList();
-		collectGrammarElementsBeforeAndAfter(containedElement, containingGroup, elementsBefore, elementsAfter);
-
-		final String beforeText = collectToTerminalText(grammarElement, elementsBefore);
-		final String afterText = collectToTerminalText(grammarElement, elementsAfter);
-
-		final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap = collectContainedGrammarElementsDeep(
-				grammarElement, grammarElement, LinkedHashMultimap.create());
-
-		final Set<@NonNull ISemanticRegion> regionsOfContainedElements = findRegionsOfContainedElements(elementRegion,
-				containedElementPath, parentMap);
-
-		int offset;
-
-		final List<@NonNull AbstractElement> ruleLeafs = orderRuleLeafs(GrammarUtil.containingRule(containedElement));
-
-		final AbstractElement containedElementLeaf = findFirstLeaf(containedElement, ruleLeafs, parentMap);
-		final int indexOfContainedElementLeaf = ruleLeafs.indexOf(containedElementLeaf);
-
-		// this is probably only a workaround, but it works for the current test
-		// cases and abstract reasoning about possible grammars and token
-		// streams is hard /-:
-		if (regionsOfContainedElements.size() == 1) {
-			final ISemanticRegion nearestRegion = regionsOfContainedElements.iterator().next();
-			final AbstractElement firstLeaf = findFirstLeaf((AbstractElement) nearestRegion.getGrammarElement(),
-					ruleLeafs, parentMap);
-			if (ruleLeafs.indexOf(firstLeaf) < indexOfContainedElementLeaf) {
-				offset = nearestRegion.getEndOffset();
-			} else {
-				offset = nearestRegion.getOffset();
-			}
-
-		} else {
-			
-			final Set<Pair<AbstractElement, ISemanticRegion>> regionsBefore = regionsOfContainedElements.stream()
-					.filter(r -> !containsGrammarElementDeep((AbstractElement) r.getGrammarElement(), elementsAfter,
-							parentMap))
-					.map(r -> Tuples.pair(findFirstLeaf((AbstractElement) r.getGrammarElement(), ruleLeafs, parentMap),
-							r))
-					.collect(Collectors.toSet());
-			
-			final Set<@NonNull ISemanticRegion> regions = regionsBefore.stream()
-					.map(p -> p.getSecond())
-					.collect(Collectors.toSet());
-			if (regionsBefore.stream().anyMatch(p -> {
-				final int indexOf = ruleLeafs.indexOf(p.getFirst());
-				return indexOf < indexOfContainedElementLeaf;
-			})) {
-				final ISemanticRegion nearestRegion = selectLastmostRegion(regions);
-				offset = nearestRegion.getEndOffset();
-			} else {
-				final ISemanticRegion nearestRegion = selectFirstmostRegion(regions);
-				offset = nearestRegion.getOffset();
-			}
-		}
-
-		this.allText.insert(offset, afterText);
-		this.allText.insert(offset, beforeText);
-
-		return new TextRegion(offset + beforeText.length(), 0);
-	}
-
-	/**
-	 * Finds first parent of {@code el} contained in {@code leafs}.
-	 */
-	protected @NonNull AbstractElement findFirstLeaf(final @NonNull AbstractElement el,
-			final @NonNull List<@NonNull AbstractElement> leafs,
-			final @NonNull Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap) {
-		final Set<AbstractElement> allParents = findAllParents(el, parentMap).collect(Collectors.toSet());
-		final AbstractElement firstLeaf = leafs.stream()
-				.filter(e -> allParents.contains(e))
-				.findFirst()
-				.get();
-
-		return firstLeaf;
-	}
 	
-	/**
-	 * Returns a ordered list of all leafs contained in a grammar model rule.
-	 */
-	protected @NonNull List<@NonNull AbstractElement> orderRuleLeafs(final @NonNull AbstractRule rule) {
-		final ArrayList<@NonNull AbstractElement> result = Lists.newArrayList();
-		
-		orderGrammar(rule.getAlternatives(), result);
-		
-		return result;
-	}
 	
-	protected void orderGrammar(final @NonNull AbstractElement el, final @NonNull List<@NonNull AbstractElement> list) {
-		final EList<EObject> contents = el.eContents();
-		if (contents.isEmpty()) {
-			list.add(el);
-		} else {
-			for (final EObject child : contents) {
-				if (child instanceof AbstractElement) {
-					orderGrammar((AbstractElement) child, list);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Finds all parents of {@code el} recursively, and maps these parents to
-	 * their leaf object in the grammar model.
-	 */
-	protected @NonNull Stream<@NonNull AbstractElement> findAllParents(final @NonNull AbstractElement el,
-			@NonNull final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap) {
-		final Stream<@NonNull AbstractElement> result = parentMap.get(el).stream()
-				.filter(e -> e != el)
-				.flatMap(e -> findAllParents(e, parentMap));
-
-		if (!(el instanceof CompoundElement)) {
-			return Stream.concat(
-					asStream(el.eAllContents())
-							.filter(c -> c.eContents().isEmpty() && c instanceof AbstractElement)
-							.map(c -> (AbstractElement) c),
-					result);
-		} else {
-			return result;
-		}
-	}
-
-	/**
-	 * Extracts a valid whitespace character from the grammar.
-	 */
-	protected String getWhitespace(final EObject grammarElement) {
-		return EcoreUtil2
-				.getAllContentsOfType(GrammarUtil.findRuleForName(GrammarUtil.getGrammar(grammarElement), "WS"),
-						Keyword.class)
-				.iterator().next().getValue();
-	}
-
-	/**
-	 * Finds the region starting closest to the begin of file.
-	 */
-	protected ISemanticRegion selectFirstmostRegion(
-			final @NonNull Set<@NonNull ISemanticRegion> regionsOfContainedElements) {
-		final ISemanticRegion max = regionsOfContainedElements.stream()
-				.min((a, b) -> Integer.compare(a.getOffset(), b.getOffset()))
-				.get();
-		return max;
-	}
-	
-	/**
-	 * Finds the region ending closest to the end of file.
-	 */
-	protected ISemanticRegion selectLastmostRegion(
-			final @NonNull Set<@NonNull ISemanticRegion> regionsOfContainedElements) {
-		final ISemanticRegion max = regionsOfContainedElements.stream()
-				.max((a, b) -> Integer.compare(a.getEndOffset(), b.getEndOffset()))
-				.get();
-		return max;
-	}
-
-	/**
-	 * Converts one path through the grammar tree to semanticRegions.
-	 */
-	protected @NonNull Set<@NonNull ISemanticRegion> findRegionsOfContainedElements(
-			final @NonNull IEObjectRegion elementRegion,
-			final @NonNull List<@NonNull AbstractElement> containedElementPath,
-			final @NonNull Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap) {
-
-		final Set<@NonNull ISemanticRegion> result = Sets.newLinkedHashSet();
-
-		final EObject grammarElement = elementRegion.getGrammarElement();
-		if (grammarElement instanceof AbstractElement) {
-			for (final ISemanticRegion region : elementRegion.getAllSemanticRegions()) {
-				final EObject regionGrammarElement = region.getGrammarElement();
-				if (regionGrammarElement instanceof AbstractElement) {
-					if (containsGrammarElementDeep((AbstractElement) regionGrammarElement, containedElementPath,
-							parentMap)) {
-						result.add(region);
-					}
-				}
-			}
-		}
-
-		return result;
-	}
-
-	/**
-	 * Builds up the inverted grammar tree (child --> allParents).
-	 */
-	protected @NonNull Multimap<@NonNull AbstractElement, @NonNull AbstractElement> collectContainedGrammarElementsDeep(
-			final @NonNull AbstractElement parent,
-			final @NonNull AbstractElement base,
-			final @NonNull Multimap<@NonNull AbstractElement, @NonNull AbstractElement> map) {
-		if (map.containsEntry(base, parent)) {
-			return map;
-		}
-
-		map.put(base, parent);
-
-		if (base instanceof RuleCall) {
-			collectContainedGrammarElementsDeep(base, ((RuleCall) base).getRule().getAlternatives(), map);
-		} else if (base instanceof Assignment) {
-			collectContainedGrammarElementsDeep(base, ((Assignment) base).getTerminal(), map);
-		} else if (base instanceof CrossReference) {
-			collectContainedGrammarElementsDeep(base, ((CrossReference) base).getTerminal(), map);
-		} else if (base instanceof CompoundElement) {
-			for (final AbstractElement element : ((CompoundElement) base).getElements()) {
-				collectContainedGrammarElementsDeep(base, element, map);
-			}
-		}
-
-		return map;
-	}
-
-	/**
-	 * Checks if {@code grammarElement} or any of its (direct and indirect)
-	 * parents in the grammar tree (aka {@code parentMap}) is contained in
-	 * {@code grammarElements}.
-	 */
-	protected boolean containsGrammarElementDeep(
-			final @NonNull AbstractElement grammarElement,
-			final @NonNull List<@NonNull AbstractElement> grammarElements,
-			final @NonNull Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap) {
-		if (grammarElements.contains(grammarElement)) {
-			return true;
-		}
-
-		for (final AbstractElement parent : parentMap.get(grammarElement)) {
-			if (parent != null && parent != grammarElement) {
-				return containsGrammarElementDeep(parent, grammarElements, parentMap);
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Sort elements of {@code containingGroup} into {@code elementsBefore} or
-	 * {@code elementsAfter}, depending on their position relative to
-	 * {@code containedElement}.
-	 */
-	protected void collectGrammarElementsBeforeAndAfter(
-			final @NonNull AbstractElement containedElement,
-			final @NonNull Group containingGroup,
-			final @NonNull List<@NonNull AbstractElement> elementsBefore,
-			final @NonNull List<@NonNull AbstractElement> elementsAfter) {
-		List<AbstractElement> currentList = elementsBefore;
-
-		for (final AbstractElement ae : containingGroup.getElements()) {
-			if (ae == containedElement
-					|| EcoreUtil2.eAllContentsAsList(ae).contains(containedElement)) {
-				currentList = elementsAfter;
-			} else {
-				currentList.add(ae);
-			}
-		}
-	}
-
-	/**
-	 * Merges all terminals' values within {@code grammarElements}, or returns a
-	 * whitespace if there are no terminals.
-	 */
-	protected @NonNull String collectToTerminalText(final @NonNull AbstractElement grammarElement,
-			final @NonNull List<@NonNull AbstractElement> grammarElements) {
-		final String result = grammarElements.stream()
-				.filter(e -> e instanceof Keyword)
-				.map(el -> ((Keyword) el).getValue())
-				.collect(Collectors.joining());
-
-		if (!result.isEmpty()) {
-			return result;
-		}
-
-		return getWhitespace(grammarElement);
-	}
-
-	/**
-	 * Finds the path through grammar from {@code abstractElement} to an
-	 * Assignment to {@code feature}.
-	 */
-	protected @NonNull List<@NonNull AbstractElement> findContainedElementPath(
-			final @NonNull AbstractElement abstractElement,
-			final @NonNull EStructuralFeature feature) {
-		if (abstractElement instanceof Assignment) {
-			if (feature.getName().equals(((Assignment) abstractElement).getFeature())) {
-				return Collections.singletonList(abstractElement);
-			}
-		}
-
-		if (abstractElement instanceof RuleCall) {
-			final AbstractElement alternatives = ((RuleCall) abstractElement).getRule().getAlternatives();
-
-			final List<AbstractElement> alternativesResult = findContainedElementPath(alternatives, feature);
-			if (!alternativesResult.isEmpty()) {
-				final ArrayList<AbstractElement> result = Lists.newArrayList(alternativesResult);
-				result.add(0, abstractElement);
-				return result;
-			}
-		}
-
-		if (abstractElement instanceof CompoundElement) {
-			for (final AbstractElement alternative : ((CompoundElement) abstractElement).getElements()) {
-				final List<AbstractElement> alternativeResult = findContainedElementPath(alternative, feature);
-				if (!alternativeResult.isEmpty()) {
-					final ArrayList<AbstractElement> result = Lists.newArrayList(alternativeResult);
-					result.add(0, abstractElement);
-					return result;
-				}
-			}
-		}
-
-		return Collections.emptyList();
-	}
-
 	/**
 	 * Calculates the TextRegion spanning all <i>definedFeatures</i> of
 	 * {@code semanticElement}, including attached terminals.
@@ -789,18 +428,18 @@ public class ModelRegionEditorPreparer {
 		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(this.definedFeatures,
 				this.semanticRegion,
 				semanticElement, this.rootRegion);
-
-		ISemanticRegion firstRegion = selectFirstmostRegion(featureRegions);
+		
+		ISemanticRegion firstRegion = SemanticRegionNavigator.getInstance().selectFirstmostRegion(featureRegions);
 		firstRegion = extendByAttachedTerminals(semanticElement, firstRegion, (r -> r.getPreviousSemanticRegion()));
 		final int startOffset = firstRegion.getOffset();
-
-		ISemanticRegion endRegion = selectLastmostRegion(featureRegions);
+		
+		ISemanticRegion endRegion = SemanticRegionNavigator.getInstance().selectLastmostRegion(featureRegions);
 		endRegion = extendByAttachedTerminals(semanticElement, endRegion, (r -> r.getNextSemanticRegion()));
 		final int endOffset = endRegion.getEndOffset();
-
+		
 		return new TextRegion(startOffset, endOffset - startOffset);
 	}
-	
+
 	/**
 	 * Returns the SemanticRegion of existing terminals that are attached to the
 	 * semantic contents of {@code endRegion}, if any; otherwise, returns
@@ -810,33 +449,34 @@ public class ModelRegionEditorPreparer {
 			final Function<ISemanticRegion, ISemanticRegion> extender) {
 		// this logic is really only trial&error, don't try to find a deeper
 		// meaning
-
+		
 		final ISemanticRegion nextSemanticRegion = extender.apply(endRegion);
 		if (nextSemanticRegion != null && nextSemanticRegion.getGrammarElement() instanceof Keyword) {
-
+			
 			ISemanticRegion ongoingSemanticRegion = nextSemanticRegion;
 			for (;;) {
 				final ISemanticRegion next = extender.apply(ongoingSemanticRegion);
 				if (next == null) {
 					break;
 				}
-				
-				ongoingSemanticRegion = next;
 
+				ongoingSemanticRegion = next;
+				
 				if (!(next.getGrammarElement() instanceof Keyword)) {
 					break;
 				}
 			}
-
+			
 			if (ongoingSemanticRegion != null) {
 				final Group group = GrammarUtil.containingGroup(nextSemanticRegion.getGrammarElement());
-
+				
 				if (group != null) {
-					final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap = collectContainedGrammarElementsDeep(
-							group, group, LinkedHashMultimap.create());
 
-					if (!containsGrammarElementDeep((AbstractElement) ongoingSemanticRegion.getGrammarElement(),
-							ImmutableList.of(group), parentMap)) {
+					final ParentMap parentMap = new ParentMap(group, group);
+					
+					if (!parentMap.containsGrammarElementDeep(
+							(AbstractElement) ongoingSemanticRegion.getGrammarElement(),
+							ImmutableList.of(group))) {
 						endRegion = nextSemanticRegion;
 					}
 				}
@@ -844,7 +484,7 @@ public class ModelRegionEditorPreparer {
 		}
 		return endRegion;
 	}
-
+	
 	/**
 	 * Collects all <i>editableFeatures</i> that are set for
 	 * {@code semanticElement}.
@@ -856,7 +496,7 @@ public class ModelRegionEditorPreparer {
 				.collect(Collectors.toSet());
 		return definedFeatures;
 	}
-
+	
 	/**
 	 * Collects all SemanticRegions covering {@code features} within
 	 * {@code semanticElement} / {@code semanticRegion}.
@@ -881,7 +521,7 @@ public class ModelRegionEditorPreparer {
 				})
 				.collect(Collectors.toSet());
 	}
-
+	
 	/**
 	 * Inverted version of
 	 * {@link org.eclipse.xtext.formatting2.regionaccess.internal.AbstractSemanticRegionsFinder#assertNoContainment(EStructuralFeature)}.
@@ -890,7 +530,7 @@ public class ModelRegionEditorPreparer {
 		return feature instanceof EAttribute
 				|| (feature instanceof EReference && !((EReference) feature).isContainment());
 	}
-
+	
 	/**
 	 * Converts all <i>editableFeatures</i> (defined as string) into
 	 * {@link EStructuralFeature}s, iff defined for
@@ -899,43 +539,37 @@ public class ModelRegionEditorPreparer {
 	protected @NonNull Set<@NonNull EStructuralFeature> resolveEditableFeatures(
 			final @NonNull EObject semanticElement) {
 		final EClass eClass = semanticElement.eClass();
-
+		
 		return getEditableFeatures().stream()
 				.map(ef -> eClass.getEStructuralFeature(ef))
 				.filter(Objects::nonNull)
 				.collect(Collectors.toSet());
 	}
-
+	
 	private <T> @NonNull Stream<T> asStream(final @NonNull Iterable<T> iter) {
 		return StreamSupport.stream(iter.spliterator(), false);
 	}
-
-	private <T> @NonNull Stream<T> asStream(final @NonNull Iterator<T> iter) {
-		return StreamSupport.stream(
-				Spliterators.spliteratorUnknownSize(iter, Spliterator.ORDERED), false);
-	}
-
-
+	
 	protected EObject getSemanticElement() {
 		return this.semanticElement;
 	}
-
+	
 	protected boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	protected EObject getParent() {
 		return this.parentSemanticElement;
 	}
-
+	
 	protected @NonNull Set<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}
-
+	
 	protected EStructuralFeature getSemanticElementFeature() {
 		return this.semanticElementFeature;
 	}
-
+	
 	protected Serializer getSerializer() {
 		return (Serializer) this.serializer;
 	}

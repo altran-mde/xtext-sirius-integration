@@ -1,6 +1,6 @@
-package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
+package com.altran.general.integration.xtextsirius.test.util.parentmap
 
-import com.google.common.collect.LinkedHashMultimap
+import com.altran.general.integration.xtextsirius.test.util.ARegion
 import com.google.common.collect.Multimaps
 import org.eclipse.xtext.AbstractElement
 import org.eclipse.xtext.Alternatives
@@ -12,22 +12,19 @@ import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestCollectContainedGrammarElementsDeep extends AModelRegionEditorPreparer {
+class TestCollectContainedGrammarElementsDeep extends ARegion {
 	@Test
 	def simple() {
 		val model = defaultModel
 
 		val constant = model.constants.head
 
-		val preparer = fakePreparer
-
 		val rootRegion = getRootRegion(constant)
 		val constantRegion = rootRegion.regionForEObject(constant)
 		val constantValueRegion = constantRegion.allSemanticRegions.last
 		val constantValueGrammarElement = constantValueRegion.grammarElement as AbstractElement
 
-		val map = preparer.collectContainedGrammarElementsDeep(constantValueGrammarElement, constantValueGrammarElement,
-			LinkedHashMultimap.create)
+		val map = new AccessibleParentMap(constantValueGrammarElement, constantValueGrammarElement).map
 
 		assertEquals(map.toString, 2, map.size)
 		assertTrue(map.containsEntry(constantValueGrammarElement, constantValueGrammarElement))
@@ -41,14 +38,11 @@ class TestCollectContainedGrammarElementsDeep extends AModelRegionEditorPreparer
 
 		val constant = model.constants.head
 
-		val preparer = fakePreparer
-
 		val rootRegion = getRootRegion(constant)
 		val constantRegion = rootRegion.regionForEObject(constant)
 		val grammarElement = constantRegion.grammarElement as AbstractElement
 
-		val mapIncludingXtextTerminals = preparer.collectContainedGrammarElementsDeep(grammarElement, grammarElement,
-			LinkedHashMultimap.create)
+		val mapIncludingXtextTerminals = new AccessibleParentMap(grammarElement, grammarElement).map
 
 		val grammar = GrammarUtil.getGrammar(grammarElement)
 
