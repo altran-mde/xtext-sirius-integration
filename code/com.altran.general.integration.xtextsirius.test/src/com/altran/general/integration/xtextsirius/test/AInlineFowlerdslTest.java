@@ -5,14 +5,14 @@ import org.junit.BeforeClass;
 
 import com.google.inject.Injector;
 
-public abstract class AFowlerdslTest extends AXtextTest {
+public abstract class AInlineFowlerdslTest extends AXtextTest {
 	@BeforeClass
 	public static void loadFowlerds() {
-		FowlerdslEnvironment.getInstance();
+		InlineFowlerdslEnvironment.getInstance();
 	}
-
+	
 	@Override
 	protected @NonNull Injector getInjector() {
-		return FowlerdslEnvironment.getInstance().getInjector();
+		return InlineFowlerdslEnvironment.getInstance().getInjector();
 	}
 }

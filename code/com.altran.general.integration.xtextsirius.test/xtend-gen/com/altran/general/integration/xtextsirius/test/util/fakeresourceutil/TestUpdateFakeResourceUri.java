@@ -1,6 +1,5 @@
 package com.altran.general.integration.xtextsirius.test.util.fakeresourceutil;
 
-import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
 import com.altran.general.integration.xtextsirius.test.util.fakeresourceutil.ATestFakeResourceUtil;
 import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import org.eclipse.emf.common.util.URI;
@@ -13,7 +12,7 @@ public class TestUpdateFakeResourceUri extends ATestFakeResourceUtil {
   @Test
   public void update() {
     final Statemachine model = this.getDefaultModel();
-    final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
+    final Statemachine fakeModel = this.createFakeModel(model);
     final URI orgUri = model.eResource().getURI();
     final URI fakeUri = fakeModel.eResource().getURI();
     FakeResourceUtil.getInstance().updateFakeResourceUri(fakeModel.eResource(), orgUri);

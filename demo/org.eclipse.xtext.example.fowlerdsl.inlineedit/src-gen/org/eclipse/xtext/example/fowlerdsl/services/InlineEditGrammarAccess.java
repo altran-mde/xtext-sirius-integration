@@ -47,6 +47,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cStatesStateParserRuleCall_5_0 = (RuleCall)cStatesAssignment_5.eContents().get(0);
 		
+		//// We have to repeat the root element, because Xtext uses the first rule as entry rule.
 		////@Override 
 		//Statemachine:
 		//	{Statemachine} ('events'
@@ -251,6 +252,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
+	//// We have to repeat the root element, because Xtext uses the first rule as entry rule.
 	////@Override 
 	//Statemachine:
 	//	{Statemachine} ('events'

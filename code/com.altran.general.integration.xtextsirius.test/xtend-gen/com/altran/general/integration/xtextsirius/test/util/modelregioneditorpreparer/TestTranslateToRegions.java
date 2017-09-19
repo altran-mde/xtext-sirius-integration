@@ -1,7 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
-import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.google.inject.Injector;
 import java.util.Collections;
@@ -29,7 +28,7 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
   public void emptyFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = AFowlerdslTest.getInjector();
+    Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
@@ -42,7 +41,7 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
   public void oneDefinedFeature() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = AFowlerdslTest.getInjector();
+    Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
@@ -62,7 +61,7 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
   public void someDefinedFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(2);
-    Injector _injector = AFowlerdslTest.getInjector();
+    Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);

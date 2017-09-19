@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.test;
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
-import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
+import com.altran.general.integration.xtextsirius.test.AXtextTest;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
@@ -22,7 +22,7 @@ public class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
     _builder.newLine();
     _builder.append("end");
     _builder.newLine();
-    final Statemachine model = AFowlerdslTest.parse(_builder.toString());
+    final Statemachine model = this.parse(_builder.toString());
     Assert.assertEquals("event1", IterableExtensions.<Event>head(model.getEvents()).getName());
   }
   
@@ -46,7 +46,7 @@ public class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
   public void findFirstTargetOfTypeTest() {
     final Statemachine model = this.getDefaultModel();
     final Event event4 = model.getEvents().get(4);
-    final Constant constant = AFowlerdslTest.<Constant>findFirstTargetOfType(event4, Constant.class);
+    final Constant constant = AXtextTest.<Constant>findFirstTargetOfType(event4, Constant.class);
     Assert.assertEquals("constant3X", constant.getName());
   }
   
@@ -56,14 +56,14 @@ public class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
     Assert.assertEquals(5, model.getEvents().size());
     Assert.assertEquals(3, model.getConstants().size());
     final Event event4 = model.getEvents().get(3);
-    final Constant constant = AFowlerdslTest.<Constant>findFirstTargetOfType(event4, Constant.class);
+    final Constant constant = AXtextTest.<Constant>findFirstTargetOfType(event4, Constant.class);
     Assert.assertNotEquals(event4.eResource(), constant.eResource());
   }
   
   @Test
   public void fakeModelTest() {
     final Statemachine model = this.getDefaultModel();
-    final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
+    final Statemachine fakeModel = this.createFakeModel(model);
     Assert.assertNotEquals(model, fakeModel);
     Assert.assertNotEquals(model.eResource(), fakeModel.eResource());
     Assert.assertNotEquals(model.eResource().getResourceSet(), fakeModel.eResource().getResourceSet());

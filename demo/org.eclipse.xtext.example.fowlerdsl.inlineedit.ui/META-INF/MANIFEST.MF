@@ -6,7 +6,6 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.eclipse.xtext.example.fowlerdsl.inlineedit.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext.example.fowlerdsl.inlineedit,
- org.eclipse.xtext.example.fowlerdsl.inlineedit.ide,
  org.eclipse.xtext.example.fowlerdsl,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,

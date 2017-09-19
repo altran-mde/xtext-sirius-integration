@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.ecollectionutil;
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
-import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
+import com.altran.general.integration.xtextsirius.test.AXtextTest;
 import com.altran.general.integration.xtextsirius.util.ECollectionUtil;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
@@ -20,16 +20,16 @@ public class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
   @Test
   public void update() {
     final Statemachine model = this.getDefaultModel();
-    final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
+    final Statemachine fakeModel = this.createFakeModel(model);
     final Event orgEvent = model.getEvents().get(3);
     final Event fakeEvent = fakeModel.getEvents().get(3);
-    final Constant fakeConst = AFowlerdslTest.<Constant>findFirstTargetOfType(fakeEvent, Constant.class);
+    final Constant fakeConst = AXtextTest.<Constant>findFirstTargetOfType(fakeEvent, Constant.class);
     final int eventCount = model.getEvents().size();
     final Event replacement = ECollectionUtil.getInstance().<Event>updateOrAddLocal(model.getEvents(), fakeEvent);
     Assert.assertSame(orgEvent, replacement);
     Assert.assertEquals(eventCount, model.getEvents().size());
     final Event replacedEvent = model.getEvents().get(3);
-    final Constant replacedConst = AFowlerdslTest.<Constant>findFirstTargetOfType(replacedEvent, Constant.class);
+    final Constant replacedConst = AXtextTest.<Constant>findFirstTargetOfType(replacedEvent, Constant.class);
     Assert.assertSame(orgEvent, replacedEvent);
     Assert.assertNotSame(fakeEvent, replacedEvent);
     Assert.assertSame(fakeConst, replacedConst);
@@ -38,9 +38,9 @@ public class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
   @Test
   public void add() {
     final Statemachine model = this.getDefaultModel();
-    final Statemachine fakeModel = AFowlerdslTest.createFakeModel(model);
+    final Statemachine fakeModel = this.createFakeModel(model);
     final Event orgEvent = model.getEvents().get(3);
-    final Constant fakeConst = AFowlerdslTest.<Constant>findFirstTargetOfType(fakeModel.getEvents().get(3), Constant.class);
+    final Constant fakeConst = AXtextTest.<Constant>findFirstTargetOfType(fakeModel.getEvents().get(3), Constant.class);
     Event _createEvent = AFowlerdslDefaultModelTest.statemachineFactory.createEvent();
     final Procedure1<Event> _function = (Event it) -> {
       it.setName("fakeEvent");
@@ -65,7 +65,7 @@ public class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
     Assert.assertNull(replacement);
     Assert.assertNotEquals(eventCount, model.getEvents().size());
     final Event replacedEvent = IterableExtensions.<Event>last(model.getEvents());
-    final Constant replacedConst = AFowlerdslTest.<Constant>findFirstTargetOfType(replacedEvent, Constant.class);
+    final Constant replacedConst = AXtextTest.<Constant>findFirstTargetOfType(replacedEvent, Constant.class);
     Assert.assertNotSame(orgEvent, replacedEvent);
     Assert.assertSame(fakeEvent, replacedEvent);
     Assert.assertSame(fakeConst, replacedConst);
