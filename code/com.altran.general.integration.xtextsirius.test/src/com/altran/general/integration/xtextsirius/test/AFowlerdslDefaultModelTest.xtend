@@ -40,6 +40,12 @@ abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
 				event5 555 [constant3X .. constant2]
 			end
 			
+			commands
+				command1 123
+				[123] command2 234
+				[constant2X..constant1] command3 345
+			end
+			
 			constants
 				constant1 42
 				constant2 constant1

@@ -2,6 +2,7 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.List;
@@ -30,7 +31,7 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     final Set<ISemanticRegion> regions = preparer.translateToRegions(CollectionLiterals.<EStructuralFeature>emptySet(), eventRegion, event, rootRegion);
@@ -43,7 +44,7 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EAttribute _event_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name();
@@ -63,7 +64,7 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(2);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EAttribute _event_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name();

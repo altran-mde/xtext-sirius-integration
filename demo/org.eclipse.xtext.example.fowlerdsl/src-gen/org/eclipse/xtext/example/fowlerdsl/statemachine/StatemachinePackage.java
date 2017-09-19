@@ -336,13 +336,22 @@ public interface StatemachinePackage extends EPackage
   int COMMAND = 8;
 
   /**
+   * The feature id for the '<em><b>Guard</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND__GUARD = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__NAME = 0;
+  int COMMAND__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -351,7 +360,7 @@ public interface StatemachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND__CODE = 1;
+  int COMMAND__CODE = 2;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -360,7 +369,7 @@ public interface StatemachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND_FEATURE_COUNT = 2;
+  int COMMAND_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ConstantImpl <em>Constant</em>}' class.
@@ -735,6 +744,17 @@ public interface StatemachinePackage extends EPackage
   EClass getCommand();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Command#getGuard <em>Guard</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Guard</em>'.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.Command#getGuard()
+   * @see #getCommand()
+   * @generated
+   */
+  EReference getCommand_Guard();
+
+  /**
    * Returns the meta object for the attribute '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Command#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1101,6 +1121,14 @@ public interface StatemachinePackage extends EPackage
      * @generated
      */
     EClass COMMAND = eINSTANCE.getCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Guard</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMMAND__GUARD = eINSTANCE.getCommand_Guard();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

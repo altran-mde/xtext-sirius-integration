@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -19,7 +20,7 @@ import org.junit.Test;
 public class TestSelectLastmostRegion extends AModelRegionEditorPreparer {
   @Test(expected = NoSuchElementException.class)
   public void emptyRegionList() {
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     preparer.selectLastmostRegion(CollectionLiterals.<ISemanticRegion>emptySet());
   }
   
@@ -27,7 +28,7 @@ public class TestSelectLastmostRegion extends AModelRegionEditorPreparer {
   public void singleEntry() {
     final Statemachine model = this.getDefaultModel();
     final Event event = IterableExtensions.<Event>head(model.getEvents());
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     final ISemanticRegion semanticRegion = IterableExtensions.<ISemanticRegion>head(eventRegion.getSemanticRegions());
@@ -39,7 +40,7 @@ public class TestSelectLastmostRegion extends AModelRegionEditorPreparer {
   public void manyEntries() {
     final Statemachine model = this.getDefaultModel();
     final Event event = IterableExtensions.<Event>head(model.getEvents());
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     final ISemanticRegion lastRegion = IterableExtensions.<ISemanticRegion>last(eventRegion.getSemanticRegions());

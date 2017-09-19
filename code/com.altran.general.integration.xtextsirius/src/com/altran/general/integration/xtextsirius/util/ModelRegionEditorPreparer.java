@@ -3,13 +3,18 @@ package com.altran.general.integration.xtextsirius.util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -19,6 +24,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.AbstractElement;
+import org.eclipse.xtext.AbstractRule;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CompoundElement;
 import org.eclipse.xtext.CrossReference;
@@ -32,7 +38,9 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.serializer.impl.Serializer;
+import org.eclipse.xtext.util.Pair;
 import org.eclipse.xtext.util.TextRegion;
+import org.eclipse.xtext.util.Tuples;
 
 import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
 import com.google.common.collect.ImmutableList;
@@ -477,26 +485,114 @@ public class ModelRegionEditorPreparer {
 		final Set<@NonNull ISemanticRegion> regionsOfContainedElements = findRegionsOfContainedElements(elementRegion,
 				containedElementPath, parentMap);
 
-		ISemanticRegion max;
+		int offset;
+
+		final List<@NonNull AbstractElement> ruleLeafs = orderRuleLeafs(GrammarUtil.containingRule(containedElement));
+
+		final AbstractElement containedElementLeaf = findFirstLeaf(containedElement, ruleLeafs, parentMap);
+		final int indexOfContainedElementLeaf = ruleLeafs.indexOf(containedElementLeaf);
+
 		// this is probably only a workaround, but it works for the current test
 		// cases and abstract reasoning about possible grammars and token
 		// streams is hard /-:
 		if (regionsOfContainedElements.size() == 1) {
-			max = regionsOfContainedElements.iterator().next();
+			final ISemanticRegion nearestRegion = regionsOfContainedElements.iterator().next();
+			final AbstractElement firstLeaf = findFirstLeaf((AbstractElement) nearestRegion.getGrammarElement(),
+					ruleLeafs, parentMap);
+			if (ruleLeafs.indexOf(firstLeaf) < indexOfContainedElementLeaf) {
+				offset = nearestRegion.getEndOffset();
+			} else {
+				offset = nearestRegion.getOffset();
+			}
+
 		} else {
-			final Set<@NonNull ISemanticRegion> regionsBefore = regionsOfContainedElements.stream()
+			
+			final Set<Pair<AbstractElement, ISemanticRegion>> regionsBefore = regionsOfContainedElements.stream()
 					.filter(r -> !containsGrammarElementDeep((AbstractElement) r.getGrammarElement(), elementsAfter,
 							parentMap))
+					.map(r -> Tuples.pair(findFirstLeaf((AbstractElement) r.getGrammarElement(), ruleLeafs, parentMap),
+							r))
 					.collect(Collectors.toSet());
-			max = selectLastmostRegion(regionsBefore);
+			
+			final Set<@NonNull ISemanticRegion> regions = regionsBefore.stream()
+					.map(p -> p.getSecond())
+					.collect(Collectors.toSet());
+			if (regionsBefore.stream().anyMatch(p -> {
+				final int indexOf = ruleLeafs.indexOf(p.getFirst());
+				return indexOf < indexOfContainedElementLeaf;
+			})) {
+				final ISemanticRegion nearestRegion = selectLastmostRegion(regions);
+				offset = nearestRegion.getEndOffset();
+			} else {
+				final ISemanticRegion nearestRegion = selectFirstmostRegion(regions);
+				offset = nearestRegion.getOffset();
+			}
 		}
 
-		final int endOffset = max.getEndOffset();
+		this.allText.insert(offset, afterText);
+		this.allText.insert(offset, beforeText);
 
-		this.allText.insert(endOffset, afterText);
-		this.allText.insert(endOffset, beforeText);
+		return new TextRegion(offset + beforeText.length(), 0);
+	}
 
-		return new TextRegion(endOffset + beforeText.length(), 0);
+	/**
+	 * Finds first parent of {@code el} contained in {@code leafs}.
+	 */
+	protected @NonNull AbstractElement findFirstLeaf(final @NonNull AbstractElement el,
+			final @NonNull List<@NonNull AbstractElement> leafs,
+			final @NonNull Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap) {
+		final Set<AbstractElement> allParents = findAllParents(el, parentMap).collect(Collectors.toSet());
+		final AbstractElement firstLeaf = leafs.stream()
+				.filter(e -> allParents.contains(e))
+				.findFirst()
+				.get();
+
+		return firstLeaf;
+	}
+	
+	/**
+	 * Returns a ordered list of all leafs contained in a grammar model rule.
+	 */
+	protected @NonNull List<@NonNull AbstractElement> orderRuleLeafs(final @NonNull AbstractRule rule) {
+		final ArrayList<@NonNull AbstractElement> result = Lists.newArrayList();
+		
+		orderGrammar(rule.getAlternatives(), result);
+		
+		return result;
+	}
+	
+	protected void orderGrammar(final @NonNull AbstractElement el, final @NonNull List<@NonNull AbstractElement> list) {
+		final EList<EObject> contents = el.eContents();
+		if (contents.isEmpty()) {
+			list.add(el);
+		} else {
+			for (final EObject child : contents) {
+				if (child instanceof AbstractElement) {
+					orderGrammar((AbstractElement) child, list);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Finds all parents of {@code el} recursively, and maps these parents to
+	 * their leaf object in the grammar model.
+	 */
+	protected @NonNull Stream<@NonNull AbstractElement> findAllParents(final @NonNull AbstractElement el,
+			@NonNull final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> parentMap) {
+		final Stream<@NonNull AbstractElement> result = parentMap.get(el).stream()
+				.filter(e -> e != el)
+				.flatMap(e -> findAllParents(e, parentMap));
+
+		if (!(el instanceof CompoundElement)) {
+			return Stream.concat(
+					asStream(el.eAllContents())
+							.filter(c -> c.eContents().isEmpty() && c instanceof AbstractElement)
+							.map(c -> (AbstractElement) c),
+					result);
+		} else {
+			return result;
+		}
 	}
 
 	/**
@@ -509,6 +605,17 @@ public class ModelRegionEditorPreparer {
 				.iterator().next().getValue();
 	}
 
+	/**
+	 * Finds the region starting closest to the begin of file.
+	 */
+	protected ISemanticRegion selectFirstmostRegion(
+			final @NonNull Set<@NonNull ISemanticRegion> regionsOfContainedElements) {
+		final ISemanticRegion max = regionsOfContainedElements.stream()
+				.min((a, b) -> Integer.compare(a.getOffset(), b.getOffset()))
+				.get();
+		return max;
+	}
+	
 	/**
 	 * Finds the region ending closest to the end of file.
 	 */
@@ -683,15 +790,12 @@ public class ModelRegionEditorPreparer {
 				this.semanticRegion,
 				semanticElement, this.rootRegion);
 
-		final int startOffset = featureRegions.stream()
-				.map(reg -> reg.getOffset())
-				.min(Integer::compare)
-				.get();
+		ISemanticRegion firstRegion = selectFirstmostRegion(featureRegions);
+		firstRegion = extendByAttachedTerminals(semanticElement, firstRegion, (r -> r.getPreviousSemanticRegion()));
+		final int startOffset = firstRegion.getOffset();
 
 		ISemanticRegion endRegion = selectLastmostRegion(featureRegions);
-
-		endRegion = extendByAttachedTerminals(semanticElement, endRegion);
-
+		endRegion = extendByAttachedTerminals(semanticElement, endRegion, (r -> r.getNextSemanticRegion()));
 		final int endOffset = endRegion.getEndOffset();
 
 		return new TextRegion(startOffset, endOffset - startOffset);
@@ -702,16 +806,17 @@ public class ModelRegionEditorPreparer {
 	 * semantic contents of {@code endRegion}, if any; otherwise, returns
 	 * {@code endRegion}.
 	 */
-	protected ISemanticRegion extendByAttachedTerminals(final EObject semanticElement, ISemanticRegion endRegion) {
+	protected ISemanticRegion extendByAttachedTerminals(final EObject semanticElement, ISemanticRegion endRegion,
+			final Function<ISemanticRegion, ISemanticRegion> extender) {
 		// this logic is really only trial&error, don't try to find a deeper
 		// meaning
 
-		final ISemanticRegion nextSemanticRegion = endRegion.getNextSemanticRegion();
+		final ISemanticRegion nextSemanticRegion = extender.apply(endRegion);
 		if (nextSemanticRegion != null && nextSemanticRegion.getGrammarElement() instanceof Keyword) {
 
 			ISemanticRegion ongoingSemanticRegion = nextSemanticRegion;
 			for (;;) {
-				final ISemanticRegion next = ongoingSemanticRegion.getNextSemanticRegion();
+				final ISemanticRegion next = extender.apply(ongoingSemanticRegion);
 				if (next == null) {
 					break;
 				}
@@ -803,6 +908,11 @@ public class ModelRegionEditorPreparer {
 
 	private <T> @NonNull Stream<T> asStream(final @NonNull Iterable<T> iter) {
 		return StreamSupport.stream(iter.spliterator(), false);
+	}
+
+	private <T> @NonNull Stream<T> asStream(final @NonNull Iterator<T> iter) {
+		return StreamSupport.stream(
+				Spliterators.spliteratorUnknownSize(iter, Spliterator.ORDERED), false);
 	}
 
 

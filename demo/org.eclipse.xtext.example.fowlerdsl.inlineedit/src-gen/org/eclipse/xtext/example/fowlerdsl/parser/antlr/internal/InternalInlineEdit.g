@@ -634,11 +634,37 @@ ruleCommand returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+((	otherlv_0='[' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getCommandAccess().getLeftSquareBracketKeyword_0_0());
+    }
 (
-		lv_name_0_0=RULE_ID
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCommandAccess().getGuardGuardParserRuleCall_0_1_0()); 
+	    }
+		lv_guard_1_0=ruleGuard		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCommandRule());
+	        }
+       		set(
+       			$current, 
+       			"guard",
+        		lv_guard_1_0, 
+        		"org.eclipse.xtext.example.fowlerdsl.Statemachine.Guard");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2=']' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getCommandAccess().getRightSquareBracketKeyword_0_2());
+    }
+)?(
+(
+		lv_name_3_0=RULE_ID
 		{
-			newLeafNode(lv_name_0_0, grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0()); 
+			newLeafNode(lv_name_3_0, grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -647,16 +673,16 @@ ruleCommand returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_0_0, 
+        		lv_name_3_0, 
         		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
 )(
 (
-		lv_code_1_0=RULE_ID
+		lv_code_4_0=RULE_INT
 		{
-			newLeafNode(lv_code_1_0, grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_code_4_0, grammarAccess.getCommandAccess().getCodeINTTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -665,8 +691,8 @@ ruleCommand returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"code",
-        		lv_code_1_0, 
-        		"org.eclipse.xtext.common.Terminals.ID");
+        		lv_code_4_0, 
+        		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 
 )

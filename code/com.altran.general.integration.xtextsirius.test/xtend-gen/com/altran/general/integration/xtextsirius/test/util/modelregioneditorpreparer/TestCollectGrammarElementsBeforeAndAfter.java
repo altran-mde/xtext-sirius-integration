@@ -2,6 +2,7 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import org.eclipse.emf.ecore.EObject;
@@ -24,7 +25,7 @@ import org.junit.Test;
 public class TestCollectGrammarElementsBeforeAndAfter extends AModelRegionEditorPreparer {
   @Test
   public void emptyGroup() {
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ArrayList<AbstractElement> elementsBefore = CollectionLiterals.<AbstractElement>newArrayList();
     final ArrayList<AbstractElement> elementsAfter = CollectionLiterals.<AbstractElement>newArrayList();
     preparer.collectGrammarElementsBeforeAndAfter(XtextFactory.eINSTANCE.createAbstractElement(), 
@@ -43,7 +44,7 @@ public class TestCollectGrammarElementsBeforeAndAfter extends AModelRegionEditor
     EObject _grammarElement = featureRegion.getGrammarElement();
     final AbstractElement grammarElement = ((AbstractElement) _grammarElement);
     final Group group = GrammarUtil.containingGroup(grammarElement);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ArrayList<AbstractElement> elementsBefore = CollectionLiterals.<AbstractElement>newArrayList();
     final ArrayList<AbstractElement> elementsAfter = CollectionLiterals.<AbstractElement>newArrayList();
     preparer.collectGrammarElementsBeforeAndAfter(grammarElement, group, elementsBefore, elementsAfter);
@@ -71,7 +72,7 @@ public class TestCollectGrammarElementsBeforeAndAfter extends AModelRegionEditor
     EObject _grammarElement = featureRegion.getGrammarElement();
     final AbstractElement grammarElement = ((AbstractElement) _grammarElement);
     final Group group = GrammarUtil.containingGroup(grammarElement);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ArrayList<AbstractElement> elementsBefore = CollectionLiterals.<AbstractElement>newArrayList();
     final ArrayList<AbstractElement> elementsAfter = CollectionLiterals.<AbstractElement>newArrayList();
     preparer.collectGrammarElementsBeforeAndAfter(grammarElement, group, elementsBefore, elementsAfter);
@@ -100,7 +101,7 @@ public class TestCollectGrammarElementsBeforeAndAfter extends AModelRegionEditor
     final Group grammarElement = GrammarUtil.containingGroup(GrammarUtil.containingGroup(((AbstractElement) _grammarElement)));
     EObject _eContainer = grammarElement.eContainer();
     final Group group = ((Group) _eContainer);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ArrayList<AbstractElement> elementsBefore = CollectionLiterals.<AbstractElement>newArrayList();
     final ArrayList<AbstractElement> elementsAfter = CollectionLiterals.<AbstractElement>newArrayList();
     preparer.collectGrammarElementsBeforeAndAfter(grammarElement, group, elementsBefore, elementsAfter);

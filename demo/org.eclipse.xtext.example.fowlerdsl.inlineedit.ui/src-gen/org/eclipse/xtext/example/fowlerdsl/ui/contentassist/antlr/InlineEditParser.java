@@ -50,6 +50,7 @@ public class InlineEditParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getEventAccess().getGroup_2(), "rule__Event__Group_2__0");
 					put(grammarAccess.getRangeGuardAccess().getGroup(), "rule__RangeGuard__Group__0");
 					put(grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
+					put(grammarAccess.getCommandAccess().getGroup_0(), "rule__Command__Group_0__0");
 					put(grammarAccess.getConstantAccess().getGroup(), "rule__Constant__Group__0");
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getStateAccess().getGroup_2(), "rule__State__Group_2__0");
@@ -70,8 +71,9 @@ public class InlineEditParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getRangeGuardAccess().getMaxAssignment_2(), "rule__RangeGuard__MaxAssignment_2");
 					put(grammarAccess.getConstantRefAccess().getConstantAssignment(), "rule__ConstantRef__ConstantAssignment");
 					put(grammarAccess.getIntLiteralAccess().getValueAssignment(), "rule__IntLiteral__ValueAssignment");
-					put(grammarAccess.getCommandAccess().getNameAssignment_0(), "rule__Command__NameAssignment_0");
-					put(grammarAccess.getCommandAccess().getCodeAssignment_1(), "rule__Command__CodeAssignment_1");
+					put(grammarAccess.getCommandAccess().getGuardAssignment_0_1(), "rule__Command__GuardAssignment_0_1");
+					put(grammarAccess.getCommandAccess().getNameAssignment_1(), "rule__Command__NameAssignment_1");
+					put(grammarAccess.getCommandAccess().getCodeAssignment_2(), "rule__Command__CodeAssignment_2");
 					put(grammarAccess.getConstantAccess().getNameAssignment_0(), "rule__Constant__NameAssignment_0");
 					put(grammarAccess.getConstantAccess().getValueAssignment_1(), "rule__Constant__ValueAssignment_1");
 					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");

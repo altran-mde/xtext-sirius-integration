@@ -2,6 +2,7 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
@@ -28,7 +30,7 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     preparer.setDefinedFeatures(CollectionLiterals.<EStructuralFeature>emptySet());
     preparer.calculateRegionForFeatures(event);
   }
@@ -39,7 +41,7 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -58,7 +60,7 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(2);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -77,7 +79,7 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(2);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = new AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -91,5 +93,28 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     Assert.assertEquals(30, region.getLength());
     final String text = this.resolveRegion(rootRegion, region);
     Assert.assertEquals("event3\r\n333\t \t[\r\nconstant1\t\t\t]", text);
+  }
+  
+  @Test
+  public void allPrefixedFeatures() {
+    final Statemachine model = this.getDefaultModel();
+    final Command cmd = model.getCommands().get(1);
+    Injector _injector = this.getInjector();
+    List<String> _emptyList = CollectionLiterals.<String>emptyList();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(cmd, _injector, false, _emptyList);
+    final ITextRegionAccess rootRegion = this.getRootRegion(cmd);
+    preparer.setRootRegion(rootRegion);
+    final IEObjectRegion cmdRegion = rootRegion.regionForEObject(cmd);
+    preparer.setSemanticRegion(cmdRegion);
+    EAttribute _command_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getCommand_Name();
+    EAttribute _command_Code = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getCommand_Code();
+    EReference _command_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getCommand_Guard();
+    Set<? extends EStructuralFeature> _set = IterableExtensions.toSet(Collections.<EStructuralFeature>unmodifiableList(CollectionLiterals.<EStructuralFeature>newArrayList(_command_Name, _command_Code, _command_Guard)));
+    preparer.setDefinedFeatures(((Set<EStructuralFeature>) _set));
+    final TextRegion region = preparer.calculateRegionForFeatures(cmd);
+    Assert.assertEquals(194, region.getOffset());
+    Assert.assertEquals(18, region.getLength());
+    final String text = this.resolveRegion(rootRegion, region);
+    Assert.assertEquals("[123] command2 234", text);
   }
 }

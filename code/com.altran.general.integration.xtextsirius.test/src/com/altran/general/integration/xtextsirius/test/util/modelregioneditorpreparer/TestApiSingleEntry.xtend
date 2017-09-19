@@ -563,4 +563,112 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 		assertSame(transition, preparer.semanticElementLocation.resolve(model.eResource))
 	}
 
+	@Test
+	def commandNameCode_nameCode() {
+		val model = parseIntoResource('''
+			commands
+				cmd1 123
+			end
+		''')
+
+		val cmd = model.commands.get(0)
+
+		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #["code", "name"])
+
+		assertEquals('''
+			commands
+				
+			cmd1 123
+			end
+		'''.toString, preparer.text)
+
+		val textRegion = preparer.textRegion
+		assertEquals("cmd1 123", preparer.text.substring(textRegion.offset, textRegion.offset + textRegion.length))
+
+		assertEquals(new TextRegion(13, 8), preparer.textRegion)
+
+		assertSame(cmd, preparer.semanticElementLocation.resolve(model.eResource))
+	}
+
+	@Test
+	def commandGuardNameCode_nameCode() {
+		val model = parseIntoResource('''
+			commands
+				[123]cmd1 123
+			end
+		''')
+
+		val cmd = model.commands.get(0)
+
+		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #["code", "name"])
+
+		assertEquals('''
+			commands
+				[123]
+			cmd1 123
+			end
+		'''.toString, preparer.text)
+
+		val textRegion = preparer.textRegion
+		assertEquals("cmd1 123", preparer.text.substring(textRegion.offset, textRegion.offset + textRegion.length))
+
+		assertEquals(new TextRegion(18, 8), preparer.textRegion)
+
+		assertSame(cmd, preparer.semanticElementLocation.resolve(model.eResource))
+	}
+
+	@Test
+	def commandGuardNameCode_guardName() {
+		val model = parseIntoResource('''
+			commands
+				[123]cmd1 123
+			end
+		''')
+
+		val cmd = model.commands.get(0)
+
+		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #["guard", "name"])
+
+		assertEquals('''
+			commands
+				
+			[123]cmd1 123
+			end
+		'''.toString, preparer.text)
+
+		val textRegion = preparer.textRegion
+		assertEquals("[123]cmd1", preparer.text.substring(textRegion.offset, textRegion.offset + textRegion.length))
+
+		assertEquals(new TextRegion(13, 9), preparer.textRegion)
+
+		assertSame(cmd, preparer.semanticElementLocation.resolve(model.eResource))
+	}
+
+	@Test
+	def commandNameCode_guard() {
+		val model = parseIntoResource('''
+			commands
+				cmd1 123
+			end
+		''')
+
+		val cmd = model.commands.get(0)
+
+		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #["guard"])
+
+		assertEquals('''
+			commands
+				[
+			]cmd1 123
+			end
+		'''.toString, preparer.text)
+
+		val textRegion = preparer.textRegion
+		assertEquals("", preparer.text.substring(textRegion.offset, textRegion.offset + textRegion.length))
+
+		assertEquals(new TextRegion(14, 0), preparer.textRegion)
+
+		assertSame(cmd, preparer.semanticElementLocation.resolve(model.eResource))
+	}
+
 }

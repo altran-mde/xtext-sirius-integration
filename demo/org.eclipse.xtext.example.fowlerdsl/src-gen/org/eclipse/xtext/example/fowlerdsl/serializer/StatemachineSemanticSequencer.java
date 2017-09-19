@@ -81,19 +81,10 @@ public class StatemachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Command returns Command
 	 *
 	 * Constraint:
-	 *     (name=ID code=ID)
+	 *     (guard=Guard? name=ID code=INT)
 	 */
 	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.COMMAND__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.COMMAND__NAME));
-			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.COMMAND__CODE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.COMMAND__CODE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCommandAccess().getCodeIDTerminalRuleCall_1_0(), semanticObject.getCode());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

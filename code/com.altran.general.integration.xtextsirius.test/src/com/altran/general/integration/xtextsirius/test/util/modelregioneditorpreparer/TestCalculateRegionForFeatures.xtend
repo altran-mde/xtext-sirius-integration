@@ -92,4 +92,29 @@ class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
 		assertEquals("event3\r\n333\t \t[\r\nconstant1\t\t\t]", text)
 	}
 
+	@Test
+	def allPrefixedFeatures() {
+		val model = defaultModel
+
+		val cmd = model.commands.get(1)
+
+		val preparer = new AccessibleModelRegionEditorPreparer(cmd, injector, false, emptyList)
+
+		val rootRegion = getRootRegion(cmd)
+		preparer.rootRegion = rootRegion
+
+		val cmdRegion = rootRegion.regionForEObject(cmd)
+		preparer.semanticRegion = cmdRegion
+		preparer.definedFeatures = #[statemachinePackage.command_Name, statemachinePackage.command_Code,
+			statemachinePackage.command_Guard].toSet as Set<EStructuralFeature>
+
+		val region = preparer.calculateRegionForFeatures(cmd)
+
+		assertEquals(194, region.offset)
+		assertEquals(18, region.length)
+		val text = rootRegion.resolveRegion(region)
+		assertEquals("[123] command2 234", text)
+
+	}
+
 }

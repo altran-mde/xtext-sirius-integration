@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
@@ -794,5 +795,151 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     TextRegion _textRegion = new TextRegion(41, 12);
     Assert.assertEquals(_textRegion, preparer.getTextRegion());
     Assert.assertSame(transition, preparer.getSemanticElementLocation().resolve(model.eResource()));
+  }
+  
+  @Test
+  public void commandNameCode_nameCode() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("commands");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("cmd1 123");
+    _builder.newLine();
+    _builder.append("end");
+    _builder.newLine();
+    final Statemachine model = this.parseIntoResource(_builder.toString());
+    final Command cmd = model.getCommands().get(0);
+    Injector _injector = this.getInjector();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("code", "name")));
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("commands");
+    _builder_1.newLine();
+    _builder_1.append("\t");
+    _builder_1.newLine();
+    _builder_1.append("cmd1 123");
+    _builder_1.newLine();
+    _builder_1.append("end");
+    _builder_1.newLine();
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
+    final TextRegion textRegion = preparer.getTextRegion();
+    String _text = preparer.getText();
+    int _offset = textRegion.getOffset();
+    int _offset_1 = textRegion.getOffset();
+    int _length = textRegion.getLength();
+    int _plus = (_offset_1 + _length);
+    Assert.assertEquals("cmd1 123", _text.substring(_offset, _plus));
+    TextRegion _textRegion = new TextRegion(13, 8);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(cmd, preparer.getSemanticElementLocation().resolve(model.eResource()));
+  }
+  
+  @Test
+  public void commandGuardNameCode_nameCode() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("commands");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("[123]cmd1 123");
+    _builder.newLine();
+    _builder.append("end");
+    _builder.newLine();
+    final Statemachine model = this.parseIntoResource(_builder.toString());
+    final Command cmd = model.getCommands().get(0);
+    Injector _injector = this.getInjector();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("code", "name")));
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("commands");
+    _builder_1.newLine();
+    _builder_1.append("\t");
+    _builder_1.append("[123]");
+    _builder_1.newLine();
+    _builder_1.append("cmd1 123");
+    _builder_1.newLine();
+    _builder_1.append("end");
+    _builder_1.newLine();
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
+    final TextRegion textRegion = preparer.getTextRegion();
+    String _text = preparer.getText();
+    int _offset = textRegion.getOffset();
+    int _offset_1 = textRegion.getOffset();
+    int _length = textRegion.getLength();
+    int _plus = (_offset_1 + _length);
+    Assert.assertEquals("cmd1 123", _text.substring(_offset, _plus));
+    TextRegion _textRegion = new TextRegion(18, 8);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(cmd, preparer.getSemanticElementLocation().resolve(model.eResource()));
+  }
+  
+  @Test
+  public void commandGuardNameCode_guardName() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("commands");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("[123]cmd1 123");
+    _builder.newLine();
+    _builder.append("end");
+    _builder.newLine();
+    final Statemachine model = this.parseIntoResource(_builder.toString());
+    final Command cmd = model.getCommands().get(0);
+    Injector _injector = this.getInjector();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("guard", "name")));
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("commands");
+    _builder_1.newLine();
+    _builder_1.append("\t");
+    _builder_1.newLine();
+    _builder_1.append("[123]cmd1 123");
+    _builder_1.newLine();
+    _builder_1.append("end");
+    _builder_1.newLine();
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
+    final TextRegion textRegion = preparer.getTextRegion();
+    String _text = preparer.getText();
+    int _offset = textRegion.getOffset();
+    int _offset_1 = textRegion.getOffset();
+    int _length = textRegion.getLength();
+    int _plus = (_offset_1 + _length);
+    Assert.assertEquals("[123]cmd1", _text.substring(_offset, _plus));
+    TextRegion _textRegion = new TextRegion(13, 9);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(cmd, preparer.getSemanticElementLocation().resolve(model.eResource()));
+  }
+  
+  @Test
+  public void commandNameCode_guard() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("commands");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("cmd1 123");
+    _builder.newLine();
+    _builder.append("end");
+    _builder.newLine();
+    final Statemachine model = this.parseIntoResource(_builder.toString());
+    final Command cmd = model.getCommands().get(0);
+    Injector _injector = this.getInjector();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("guard")));
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("commands");
+    _builder_1.newLine();
+    _builder_1.append("\t");
+    _builder_1.append("[");
+    _builder_1.newLine();
+    _builder_1.append("]cmd1 123");
+    _builder_1.newLine();
+    _builder_1.append("end");
+    _builder_1.newLine();
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
+    final TextRegion textRegion = preparer.getTextRegion();
+    String _text = preparer.getText();
+    int _offset = textRegion.getOffset();
+    int _offset_1 = textRegion.getOffset();
+    int _length = textRegion.getLength();
+    int _plus = (_offset_1 + _length);
+    Assert.assertEquals("", _text.substring(_offset, _plus));
+    TextRegion _textRegion = new TextRegion(14, 0);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(cmd, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
 }

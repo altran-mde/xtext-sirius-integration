@@ -48,7 +48,7 @@ IntLiteral:
 ;
 
 Command:
-	name=ID code=ID
+	('[' guard=Guard ']')? name=ID code=INT
 ;
 
 Constant:

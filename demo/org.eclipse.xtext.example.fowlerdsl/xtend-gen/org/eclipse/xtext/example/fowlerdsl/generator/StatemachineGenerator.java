@@ -201,7 +201,7 @@ public class StatemachineGenerator implements IGenerator {
     String _name = command.getName();
     _builder.append(_name, "\t");
     _builder.append(" (");
-    String _code = command.getCode();
+    int _code = command.getCode();
     _builder.append(_code, "\t");
     _builder.append(")\");");
     _builder.newLineIfNotEmpty();

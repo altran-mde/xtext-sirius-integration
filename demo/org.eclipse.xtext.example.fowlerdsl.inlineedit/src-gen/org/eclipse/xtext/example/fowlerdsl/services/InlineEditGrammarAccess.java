@@ -355,7 +355,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Command:
-	//	name=ID code=ID;
+	//	('[' guard=Guard ']')? name=ID code=INT;
 	public StatemachineGrammarAccess.CommandElements getCommandAccess() {
 		return gaStatemachine.getCommandAccess();
 	}

@@ -3,13 +3,16 @@
 package org.eclipse.xtext.example.fowlerdsl.statemachine.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Guard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
 
 /**
@@ -20,6 +23,7 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.CommandImpl#getGuard <em>Guard</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.CommandImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.CommandImpl#getCode <em>Code</em>}</li>
  * </ul>
@@ -28,6 +32,16 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
  */
 public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 {
+  /**
+   * The cached value of the '{@link #getGuard() <em>Guard</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGuard()
+   * @generated
+   * @ordered
+   */
+  protected Guard guard;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -56,7 +70,7 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * @generated
    * @ordered
    */
-  protected static final String CODE_EDEFAULT = null;
+  protected static final int CODE_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
@@ -66,7 +80,7 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * @generated
    * @ordered
    */
-  protected String code = CODE_EDEFAULT;
+  protected int code = CODE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,6 +101,54 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   protected EClass eStaticClass()
   {
     return StatemachinePackage.Literals.COMMAND;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Guard getGuard()
+  {
+    return guard;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetGuard(Guard newGuard, NotificationChain msgs)
+  {
+    Guard oldGuard = guard;
+    guard = newGuard;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatemachinePackage.COMMAND__GUARD, oldGuard, newGuard);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGuard(Guard newGuard)
+  {
+    if (newGuard != guard)
+    {
+      NotificationChain msgs = null;
+      if (guard != null)
+        msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatemachinePackage.COMMAND__GUARD, null, msgs);
+      if (newGuard != null)
+        msgs = ((InternalEObject)newGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StatemachinePackage.COMMAND__GUARD, null, msgs);
+      msgs = basicSetGuard(newGuard, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.COMMAND__GUARD, newGuard, newGuard));
   }
 
   /**
@@ -117,7 +179,7 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCode()
+  public int getCode()
   {
     return code;
   }
@@ -127,12 +189,28 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCode(String newCode)
+  public void setCode(int newCode)
   {
-    String oldCode = code;
+    int oldCode = code;
     code = newCode;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, StatemachinePackage.COMMAND__CODE, oldCode, code));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case StatemachinePackage.COMMAND__GUARD:
+        return basicSetGuard(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -145,6 +223,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     switch (featureID)
     {
+      case StatemachinePackage.COMMAND__GUARD:
+        return getGuard();
       case StatemachinePackage.COMMAND__NAME:
         return getName();
       case StatemachinePackage.COMMAND__CODE:
@@ -163,11 +243,14 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     switch (featureID)
     {
+      case StatemachinePackage.COMMAND__GUARD:
+        setGuard((Guard)newValue);
+        return;
       case StatemachinePackage.COMMAND__NAME:
         setName((String)newValue);
         return;
       case StatemachinePackage.COMMAND__CODE:
-        setCode((String)newValue);
+        setCode((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,6 +266,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     switch (featureID)
     {
+      case StatemachinePackage.COMMAND__GUARD:
+        setGuard((Guard)null);
+        return;
       case StatemachinePackage.COMMAND__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -203,10 +289,12 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     switch (featureID)
     {
+      case StatemachinePackage.COMMAND__GUARD:
+        return guard != null;
       case StatemachinePackage.COMMAND__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case StatemachinePackage.COMMAND__CODE:
-        return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+        return code != CODE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

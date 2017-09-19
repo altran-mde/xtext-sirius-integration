@@ -404,9 +404,19 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCommand_Guard()
+  {
+    return (EReference)commandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getCommand_Name()
   {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)commandEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -416,7 +426,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
    */
   public EAttribute getCommand_Code()
   {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)commandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -599,6 +609,7 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
     createEAttribute(intLiteralEClass, INT_LITERAL__VALUE);
 
     commandEClass = createEClass(COMMAND);
+    createEReference(commandEClass, COMMAND__GUARD);
     createEAttribute(commandEClass, COMMAND__NAME);
     createEAttribute(commandEClass, COMMAND__CODE);
 
@@ -683,8 +694,9 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
     initEAttribute(getIntLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCommand_Guard(), this.getGuard(), null, "guard", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCommand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCommand_Code(), ecorePackage.getEString(), "code", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCommand_Code(), ecorePackage.getEInt(), "code", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstant_Name(), ecorePackage.getEString(), "name", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

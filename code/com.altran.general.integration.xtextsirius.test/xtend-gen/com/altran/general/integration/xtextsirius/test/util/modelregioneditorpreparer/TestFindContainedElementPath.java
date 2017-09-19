@@ -2,6 +2,7 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.AbstractElement;
@@ -22,7 +23,7 @@ public class TestFindContainedElementPath extends AModelRegionEditorPreparer {
   public void noPath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
@@ -35,7 +36,7 @@ public class TestFindContainedElementPath extends AModelRegionEditorPreparer {
   public void invalidPath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
@@ -48,7 +49,7 @@ public class TestFindContainedElementPath extends AModelRegionEditorPreparer {
   public void simplePath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
@@ -74,7 +75,7 @@ public class TestFindContainedElementPath extends AModelRegionEditorPreparer {
   public void complexPath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();

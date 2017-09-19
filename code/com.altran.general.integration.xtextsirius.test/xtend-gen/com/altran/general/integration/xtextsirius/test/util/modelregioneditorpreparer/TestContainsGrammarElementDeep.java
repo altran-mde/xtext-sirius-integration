@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import java.util.List;
@@ -25,7 +26,7 @@ public class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
   public void emptyGrammarList() {
     final Statemachine model = this.getDefaultModel();
     final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
     final ISemanticRegion constantValueRegion = IterableExtensions.<ISemanticRegion>last(constantRegion.getAllSemanticRegions());
@@ -41,7 +42,7 @@ public class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
   public void emptyGrammarMapDirect() {
     final Statemachine model = this.getDefaultModel();
     final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
     final ISemanticRegion constantValueRegion = IterableExtensions.<ISemanticRegion>last(constantRegion.getAllSemanticRegions());
@@ -61,7 +62,7 @@ public class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
   public void emptyGrammarMapIndirect() {
     final Statemachine model = this.getDefaultModel();
     final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
     final ISemanticRegion constantValueRegion = IterableExtensions.<ISemanticRegion>last(constantRegion.getAllSemanticRegions());
@@ -82,7 +83,7 @@ public class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
   public void simple() {
     final Statemachine model = this.getDefaultModel();
     final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
     final ISemanticRegion constantValueRegion = IterableExtensions.<ISemanticRegion>last(constantRegion.getAllSemanticRegions());
@@ -103,7 +104,7 @@ public class TestContainsGrammarElementDeep extends AModelRegionEditorPreparer {
   public void deep() {
     final Statemachine model = this.getDefaultModel();
     final Constant constant = IterableExtensions.<Constant>head(model.getConstants());
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(constant);
     final IEObjectRegion constantRegion = rootRegion.regionForEObject(constant);
     EObject _grammarElement = constantRegion.getGrammarElement();

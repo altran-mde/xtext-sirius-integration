@@ -91,40 +91,40 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		//'end'
 		public Keyword getEndKeyword_2_2() { return cEndKeyword_2_2; }
 
-		//('commands' commands+=Command+ 'end')?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.3'
 		public Group getGroup_3() { return cGroup_3; }
 
-		//'commands'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.3/@elements.0'
 		public Keyword getCommandsKeyword_3_0() { return cCommandsKeyword_3_0; }
 
-		//commands+=Command+
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.3/@elements.1'
 		public Assignment getCommandsAssignment_3_1() { return cCommandsAssignment_3_1; }
 
-		//Command
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.3/@elements.1/@terminal'
 		public RuleCall getCommandsCommandParserRuleCall_3_1_0() { return cCommandsCommandParserRuleCall_3_1_0; }
 
-		//'end'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.3/@elements.2'
 		public Keyword getEndKeyword_3_2() { return cEndKeyword_3_2; }
 
-		//('constants' constants+=Constant+ 'end')?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.4'
 		public Group getGroup_4() { return cGroup_4; }
 
-		//'constants'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.4/@elements.0'
 		public Keyword getConstantsKeyword_4_0() { return cConstantsKeyword_4_0; }
 
-		//constants+=Constant+
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.4/@elements.1'
 		public Assignment getConstantsAssignment_4_1() { return cConstantsAssignment_4_1; }
 
-		//Constant
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.4/@elements.1/@terminal'
 		public RuleCall getConstantsConstantParserRuleCall_4_1_0() { return cConstantsConstantParserRuleCall_4_1_0; }
 
-		//'end'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.4/@elements.2'
 		public Keyword getEndKeyword_4_2() { return cEndKeyword_4_2; }
 
-		//states+=State*
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.5'
 		public Assignment getStatesAssignment_5() { return cStatesAssignment_5; }
 
-		//State
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.0/@alternatives/@elements.5/@terminal'
 		public RuleCall getStatesStateParserRuleCall_5_0() { return cStatesStateParserRuleCall_5_0; }
 	}
 
@@ -205,10 +205,10 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		//	cond=Value;
 		@Override public ParserRule getRule() { return rule; }
 
-		//cond=Value
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#XtextFragmentProvider_org.eclipse.xtext.example.fowlerdsl.Statemachine/Value'
 		public Assignment getCondAssignment() { return cCondAssignment; }
 
-		//Value
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.3/@alternatives/@terminal'
 		public RuleCall getCondValueParserRuleCall_0() { return cCondValueParserRuleCall_0; }
 	}
 
@@ -221,23 +221,22 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMaxAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cMaxValueParserRuleCall_2_0 = (RuleCall)cMaxAssignment_2.eContents().get(0);
 		
-		//RangeGuard:
-		//	min=Value '..' max=Value;
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#XtextFragmentProvider_org.eclipse.xtext.example.fowlerdsl.Statemachine/RangeGuard'
 		@Override public ParserRule getRule() { return rule; }
 
-		//min=Value '..' max=Value
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.4/@alternatives'
 		public Group getGroup() { return cGroup; }
 
-		//min=Value
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.4/@alternatives/@elements.0'
 		public Assignment getMinAssignment_0() { return cMinAssignment_0; }
 
-		//Value
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.4/@alternatives/@elements.0/@terminal'
 		public RuleCall getMinValueParserRuleCall_0_0() { return cMinValueParserRuleCall_0_0; }
 
-		//'..'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.4/@alternatives/@elements.1'
 		public Keyword getFullStopFullStopKeyword_1() { return cFullStopFullStopKeyword_1; }
 
-		//max=Value
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.4/@alternatives/@elements.2'
 		public Assignment getMaxAssignment_2() { return cMaxAssignment_2; }
 
 		//Value
@@ -303,29 +302,49 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.xtext.example.fowlerdsl.Statemachine.Command");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Assignment cCodeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCodeIDTerminalRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cGuardAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cGuardGuardParserRuleCall_0_1_0 = (RuleCall)cGuardAssignment_0_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cCodeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCodeINTTerminalRuleCall_2_0 = (RuleCall)cCodeAssignment_2.eContents().get(0);
 		
 		//Command:
-		//	name=ID code=ID;
+		//	('[' guard=Guard ']')? name=ID code=INT;
 		@Override public ParserRule getRule() { return rule; }
 
-		//name=ID code=ID
+		//('[' guard=Guard ']')? name=ID code=INT
 		public Group getGroup() { return cGroup; }
 
+		//('[' guard=Guard ']')?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//'['
+		public Keyword getLeftSquareBracketKeyword_0_0() { return cLeftSquareBracketKeyword_0_0; }
+
+		//guard=Guard
+		public Assignment getGuardAssignment_0_1() { return cGuardAssignment_0_1; }
+
+		//Guard
+		public RuleCall getGuardGuardParserRuleCall_0_1_0() { return cGuardGuardParserRuleCall_0_1_0; }
+
+		//']'
+		public Keyword getRightSquareBracketKeyword_0_2() { return cRightSquareBracketKeyword_0_2; }
+
 		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//code=ID
-		public Assignment getCodeAssignment_1() { return cCodeAssignment_1; }
+		//code=INT
+		public Assignment getCodeAssignment_2() { return cCodeAssignment_2; }
 
-		//ID
-		public RuleCall getCodeIDTerminalRuleCall_1_0() { return cCodeIDTerminalRuleCall_1_0; }
+		//INT
+		public RuleCall getCodeINTTerminalRuleCall_2_0() { return cCodeINTTerminalRuleCall_2_0; }
 	}
 
 	public class ConstantElements extends AbstractParserRuleElementFinder {
@@ -398,43 +417,43 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		//('description' description=STRING)?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//'description'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.2/@elements.0'
 		public Keyword getDescriptionKeyword_2_0() { return cDescriptionKeyword_2_0; }
 
-		//description=STRING
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.2/@elements.1'
 		public Assignment getDescriptionAssignment_2_1() { return cDescriptionAssignment_2_1; }
 
-		//STRING
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.2/@elements.1/@terminal'
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_1_0() { return cDescriptionSTRINGTerminalRuleCall_2_1_0; }
 
-		//('actions' '{' actions+=[Command]+ '}')?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.3'
 		public Group getGroup_3() { return cGroup_3; }
 
-		//'actions'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.3/@elements.0'
 		public Keyword getActionsKeyword_3_0() { return cActionsKeyword_3_0; }
 
-		//'{'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.3/@elements.1'
 		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
 
-		//actions+=[Command]+
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.3/@elements.2'
 		public Assignment getActionsAssignment_3_2() { return cActionsAssignment_3_2; }
 
-		//[Command]
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.3/@elements.2/@terminal'
 		public CrossReference getActionsCommandCrossReference_3_2_0() { return cActionsCommandCrossReference_3_2_0; }
 
-		//ID
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.3/@elements.2/@terminal/@terminal'
 		public RuleCall getActionsCommandIDTerminalRuleCall_3_2_0_1() { return cActionsCommandIDTerminalRuleCall_3_2_0_1; }
 
-		//'}'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.3/@elements.3'
 		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
 
-		//transitions+=Transition*
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.4'
 		public Assignment getTransitionsAssignment_4() { return cTransitionsAssignment_4; }
 
-		//Transition
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.4/@terminal'
 		public RuleCall getTransitionsTransitionParserRuleCall_4_0() { return cTransitionsTransitionParserRuleCall_4_0; }
 
-		//'end'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.10/@alternatives/@elements.5'
 		public Keyword getEndKeyword_5() { return cEndKeyword_5; }
 	}
 
@@ -454,47 +473,46 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cStateStateCrossReference_3_0 = (CrossReference)cStateAssignment_3.eContents().get(0);
 		private final RuleCall cStateStateIDTerminalRuleCall_3_0_1 = (RuleCall)cStateStateCrossReference_3_0.eContents().get(1);
 		
-		//Transition:
-		//	event=[Event] ('[' guard=Guard ']')? '=>' state=[State];
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#XtextFragmentProvider_org.eclipse.xtext.example.fowlerdsl.Statemachine/Transition'
 		@Override public ParserRule getRule() { return rule; }
 
-		//event=[Event] ('[' guard=Guard ']')? '=>' state=[State]
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives'
 		public Group getGroup() { return cGroup; }
 
-		//event=[Event]
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.0'
 		public Assignment getEventAssignment_0() { return cEventAssignment_0; }
 
-		//[Event]
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.0/@terminal'
 		public CrossReference getEventEventCrossReference_0_0() { return cEventEventCrossReference_0_0; }
 
-		//ID
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.0/@terminal/@terminal'
 		public RuleCall getEventEventIDTerminalRuleCall_0_0_1() { return cEventEventIDTerminalRuleCall_0_0_1; }
 
-		//('[' guard=Guard ']')?
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.1'
 		public Group getGroup_1() { return cGroup_1; }
 
-		//'['
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.1/@elements.0'
 		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
 
-		//guard=Guard
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.1/@elements.1'
 		public Assignment getGuardAssignment_1_1() { return cGuardAssignment_1_1; }
 
-		//Guard
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.1/@elements.1/@terminal'
 		public RuleCall getGuardGuardParserRuleCall_1_1_0() { return cGuardGuardParserRuleCall_1_1_0; }
 
-		//']'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.1/@elements.2'
 		public Keyword getRightSquareBracketKeyword_1_2() { return cRightSquareBracketKeyword_1_2; }
 
-		//'=>'
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.2'
 		public Keyword getEqualsSignGreaterThanSignKeyword_2() { return cEqualsSignGreaterThanSignKeyword_2; }
 
-		//state=[State]
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.3'
 		public Assignment getStateAssignment_3() { return cStateAssignment_3; }
 
-		//[State]
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.3/@terminal'
 		public CrossReference getStateStateCrossReference_3_0() { return cStateStateCrossReference_3_0; }
 
-		//ID
+		//org.eclipse.xtext.resource.ClasspathUriResolutionException: org.eclipse.xtext.resource.FileNotFoundOnClasspathException: Couldn't find resource on classpath. URI was 'classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xtext#/0/@rules.11/@alternatives/@elements.3/@terminal/@terminal'
 		public RuleCall getStateStateIDTerminalRuleCall_3_0_1() { return cStateStateIDTerminalRuleCall_3_0_1; }
 	}
 	
@@ -644,7 +662,7 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Command:
-	//	name=ID code=ID;
+	//	('[' guard=Guard ']')? name=ID code=INT;
 	public CommandElements getCommandAccess() {
 		return pCommand;
 	}

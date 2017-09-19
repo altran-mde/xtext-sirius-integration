@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import com.google.common.base.Objects;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
@@ -28,7 +29,7 @@ public class TestFindRegionsOfContainedElements extends AModelRegionEditorPrepar
   public void emptyElements() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
@@ -42,7 +43,7 @@ public class TestFindRegionsOfContainedElements extends AModelRegionEditorPrepar
   public void complexPath() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(4);
-    final AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
+    final AccessibleModelRegionEditorPreparer preparer = this.getFakePreparer();
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();

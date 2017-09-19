@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Command#getGuard <em>Guard</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Command#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Command#getCode <em>Code</em>}</li>
  * </ul>
@@ -23,6 +24,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Command extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Guard</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Guard</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Guard</em>' containment reference.
+   * @see #setGuard(Guard)
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage#getCommand_Guard()
+   * @model containment="true"
+   * @generated
+   */
+  Guard getGuard();
+
+  /**
+   * Sets the value of the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Command#getGuard <em>Guard</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Guard</em>' containment reference.
+   * @see #getGuard()
+   * @generated
+   */
+  void setGuard(Guard value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -58,12 +85,12 @@ public interface Command extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Code</em>' attribute.
-   * @see #setCode(String)
+   * @see #setCode(int)
    * @see org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage#getCommand_Code()
    * @model
    * @generated
    */
-  String getCode();
+  int getCode();
 
   /**
    * Sets the value of the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Command#getCode <em>Code</em>}' attribute.
@@ -73,6 +100,6 @@ public interface Command extends EObject
    * @see #getCode()
    * @generated
    */
-  void setCode(String value);
+  void setCode(int value);
 
 } // Command

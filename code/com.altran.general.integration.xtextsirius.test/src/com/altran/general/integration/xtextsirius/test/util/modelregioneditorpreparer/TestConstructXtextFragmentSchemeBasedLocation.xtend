@@ -1,11 +1,10 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
 
+import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.junit.Test
 
 import static org.junit.Assert.*
-import org.eclipse.emf.ecore.util.EcoreUtil
-import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer.AccessibleModelRegionEditorPreparer
-import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation
 
 class TestConstructXtextFragmentSchemeBasedLocation extends AModelRegionEditorPreparer {
 	@Test
