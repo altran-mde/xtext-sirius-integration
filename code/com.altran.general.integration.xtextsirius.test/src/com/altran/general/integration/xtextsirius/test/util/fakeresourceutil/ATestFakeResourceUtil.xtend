@@ -16,8 +16,8 @@ abstract class ATestFakeResourceUtil extends AFowlerdslDefaultModelTest {
 			super.removeSynthetic(uri)
 		}
 
-		override public equalsDisregardingSynthetic(URI a, URI b) {
-			super.equalsDisregardingSynthetic(a, b)
+		override public equalsDisregardingSyntheticAndFileExtension(URI a, URI b) {
+			super.equalsDisregardingSyntheticAndFileExtension(a, b)
 		}
 
 		override public collectAllReferencedObjectsDeep(EObject base) {

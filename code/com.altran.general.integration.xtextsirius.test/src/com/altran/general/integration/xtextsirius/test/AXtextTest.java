@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.StringReader;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -24,16 +25,17 @@ import org.eclipse.xtext.resource.impl.ListBasedDiagnosticConsumer;
 import org.junit.After;
 import org.junit.Before;
 
+import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 
 public abstract class AXtextTest {
 
-	private XtextResourceSet xtextResourceSet = null;
+	private final Map<Injector, XtextResourceSet> xtextResourceSets = Maps.newLinkedHashMap();
 
 	@Before
 	@After
 	public void deleteXtextResourceSet() {
-		this.xtextResourceSet = null;
+		this.xtextResourceSets.clear();
 	}
 
 	protected abstract @NonNull Injector getInjector();
@@ -62,9 +64,12 @@ public abstract class AXtextTest {
 		return null;
 	}
 
-	@NonNull
-	protected Statemachine parse(final @NonNull String modelText) {
-		final IParser parser = getInjector().getInstance(IParser.class);
+	protected @NonNull Statemachine parse(final @NonNull String modelText) {
+		return parse(modelText, getInjector());
+	}
+
+	protected @NonNull Statemachine parse(final @NonNull String modelText, final @NonNull Injector injector) {
+		final IParser parser = injector.getInstance(IParser.class);
 		final IParseResult parseResult = parser.parse(new StringReader(modelText));
 
 		assertFalse(parseResult.getSyntaxErrors().toString(), parseResult.hasSyntaxErrors());
@@ -76,9 +81,14 @@ public abstract class AXtextTest {
 		return (Statemachine) model;
 	}
 
-	@NonNull
-	protected Statemachine parseAndLink(final @NonNull String modelText, final @NonNull Resource resource) {
-		final Statemachine result = parse(modelText);
+
+	protected @NonNull Statemachine parseAndLink(final @NonNull String modelText, final @NonNull Resource resource) {
+		return parseAndLink(modelText, resource, getInjector());
+	}
+	
+	protected @NonNull Statemachine parseAndLink(final @NonNull String modelText, final @NonNull Resource resource,
+			final @NonNull Injector injector) {
+		final Statemachine result = parse(modelText, injector);
 
 		resource.getContents().add(result);
 
@@ -94,13 +104,15 @@ public abstract class AXtextTest {
 		return result;
 	}
 
-	@NonNull
-	protected XtextResourceSet createResourceSet() {
-		return getInjector().getInstance(XtextResourceSet.class);
+	protected @NonNull XtextResourceSet createResourceSet() {
+		return createResourceSet(getInjector());
 	}
 
-	@NonNull
-	protected Statemachine createFakeModel(final @NonNull Statemachine original) {
+	protected @NonNull XtextResourceSet createResourceSet(final @NonNull Injector injector) {
+		return getInjector().getInstance(XtextResourceSet.class);
+	}
+	
+	protected @NonNull Statemachine createFakeModel(final @NonNull Statemachine original) {
 		final XtextResourceSet resourceSet = createResourceSet();
 		final Resource resource = resourceSet
 				.createResource(URI.createPlatformResourceURI("/proj/fakeModel.statemachine", false));
@@ -108,19 +120,25 @@ public abstract class AXtextTest {
 		return parseAndLink(NodeModelUtils.getNode(original).getText(), resource);
 	}
 
-	@NonNull
-	protected Statemachine parseIntoResource(final @NonNull String modelText, final @NonNull String uri) {
-		return parseAndLink(modelText, getOrCreateResource(URI.createPlatformResourceURI(uri, false)));
+	protected @NonNull Statemachine parseIntoResource(final @NonNull String modelText, final @NonNull String uri) {
+		return parseIntoResource(modelText, uri, getInjector());
 	}
 
-	@NonNull
-	protected Statemachine parseIntoResource(final @NonNull String modelText) {
+	protected @NonNull Statemachine parseIntoResource(final @NonNull String modelText, final @NonNull String uri,
+			final @NonNull Injector injector) {
+		return parseAndLink(modelText, getOrCreateResource(URI.createPlatformResourceURI(uri, false)), injector);
+	}
+	
+	protected @NonNull Statemachine parseIntoResource(final @NonNull String modelText) {
 		return parseIntoResource(modelText, "proj/model.statemachine");
 	}
 
-	@NonNull
-	protected XtextResource getOrCreateResource(final @NonNull URI uri) {
-		final XtextResourceSet resourceSet = getOrCreateResourceSet();
+	protected @NonNull XtextResource getOrCreateResource(final @NonNull URI uri) {
+		return getOrCreateResource(uri, getInjector());
+	}
+	
+	protected @NonNull XtextResource getOrCreateResource(final @NonNull URI uri, final @NonNull Injector injector) {
+		final XtextResourceSet resourceSet = getOrCreateResourceSet(injector);
 		XtextResource resource = (XtextResource) resourceSet.getURIResourceMap().get(uri);
 
 		if (resource == null) {
@@ -130,13 +148,16 @@ public abstract class AXtextTest {
 		return resource;
 	}
 
-	@NonNull
-	protected XtextResourceSet getOrCreateResourceSet() {
-		if (this.xtextResourceSet == null) {
-			this.xtextResourceSet = createResourceSet();
+	protected @NonNull XtextResourceSet getOrCreateResourceSet() {
+		return getOrCreateResourceSet(getInjector());
+	}
+	
+	protected @NonNull XtextResourceSet getOrCreateResourceSet(final @NonNull Injector injector) {
+		if (!this.xtextResourceSets.containsKey(injector)) {
+			this.xtextResourceSets.put(injector, createResourceSet(injector));
 		}
 
-		return this.xtextResourceSet;
+		return this.xtextResourceSets.get(injector);
 	}
 
 }

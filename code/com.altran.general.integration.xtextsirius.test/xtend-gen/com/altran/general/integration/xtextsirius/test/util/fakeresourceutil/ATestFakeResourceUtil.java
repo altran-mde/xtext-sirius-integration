@@ -22,8 +22,8 @@ public abstract class ATestFakeResourceUtil extends AFowlerdslDefaultModelTest {
     }
     
     @Override
-    public boolean equalsDisregardingSynthetic(final URI a, final URI b) {
-      return super.equalsDisregardingSynthetic(a, b);
+    public boolean equalsDisregardingSyntheticAndFileExtension(final URI a, final URI b) {
+      return super.equalsDisregardingSyntheticAndFileExtension(a, b);
     }
     
     @Override
