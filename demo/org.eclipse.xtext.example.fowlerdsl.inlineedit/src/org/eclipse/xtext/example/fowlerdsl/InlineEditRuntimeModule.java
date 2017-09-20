@@ -3,10 +3,11 @@
  */
 package org.eclipse.xtext.example.fowlerdsl;
 
-import org.eclipse.xtext.example.fowlerdsl.formatting.InlineHiddenTokenSequencer;
-import org.eclipse.xtext.example.fowlerdsl.formatting.InlineTextRegionAccessBuilder;
 import org.eclipse.xtext.formatting2.regionaccess.TextRegionAccessBuilder;
 import org.eclipse.xtext.serializer.sequencer.IHiddenTokenSequencer;
+
+import com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer;
+import com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder;
 
 /**
  * Use this class to register components to be used at runtime / without the
@@ -16,12 +17,11 @@ import org.eclipse.xtext.serializer.sequencer.IHiddenTokenSequencer;
 public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl.AbstractInlineEditRuntimeModule {
 
 	public Class<? extends IHiddenTokenSequencer> bindIHiddenTokenSequencer() {
-		return InlineHiddenTokenSequencer.class;
+		return ForceWhitespaceBetweenKeywordsHiddenTokenSequencer.class;
 	}
 
 	public Class<? extends TextRegionAccessBuilder> bindTextRegionAccessBuilder() {
-		return InlineTextRegionAccessBuilder.class;
+		return ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder.class;
 	}
-
-
+	
 }

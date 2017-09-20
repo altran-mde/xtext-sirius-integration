@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.util;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
@@ -20,11 +21,18 @@ import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
 import org.eclipse.xtext.Keyword;
+import org.eclipse.xtext.formatting2.FormatterPreferences;
+import org.eclipse.xtext.formatting2.FormatterRequest;
+import org.eclipse.xtext.formatting2.IFormatter2;
 import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
+import org.eclipse.xtext.formatting2.regionaccess.ITextReplacement;
+import org.eclipse.xtext.preferences.IPreferenceValuesProvider;
+import org.eclipse.xtext.preferences.TypedPreferenceValues;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.serializer.impl.Serializer;
+import org.eclipse.xtext.util.ExceptionAcceptor;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
@@ -32,6 +40,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Provider;
 
 /**
  * Prepares an Xtext-based EObject to be edited in an embedded editor.
@@ -247,6 +256,16 @@ public class ModelRegionEditorPreparer {
 	@Inject
 	private ISerializer serializer;
 	
+	@Inject(optional = true)
+	private Provider<IFormatter2> formatterProvider;
+
+	@Inject(optional = true)
+	private Provider<FormatterRequest> requestProvider;
+	
+	@Inject(optional = true)
+	@FormatterPreferences
+	private IPreferenceValuesProvider preferencesProvider;
+	
 	private final @Nullable EObject semanticElement;
 	private final @NonNull EObject parentSemanticElement;
 	private final boolean multiLine;
@@ -373,9 +392,10 @@ public class ModelRegionEditorPreparer {
 		
 		final EObject rootContainer = EcoreUtil.getRootContainer(getParent());
 		this.rootRegion = getSerializer().serializeToRegions(rootContainer);
-		
+
+		formatIfPossible(rootContainer);
+
 		this.allText = new StringBuffer(this.rootRegion.regionForDocument().getText());
-		
 		
 		final EObject element = getSemanticElement();
 		
@@ -407,6 +427,23 @@ public class ModelRegionEditorPreparer {
 		StyledTextUtil.getInstance().removeNewlinesIfSingleLine(this.allText, this.textRegion, isMultiLine());
 		
 		this.prepared = true;
+	}
+	
+	protected void formatIfPossible(final EObject rootContainer) {
+		if (this.requestProvider != null && this.formatterProvider != null) {
+			final FormatterRequest request = this.requestProvider.get();
+			request.setAllowIdentityEdits(false);
+			request.setFormatUndefinedHiddenRegionsOnly(false);
+			if (this.preferencesProvider != null) {
+				request.setPreferences(TypedPreferenceValues
+						.castOrWrap(this.preferencesProvider.getPreferenceValues(rootContainer.eResource())));
+			}
+			request.setTextRegionAccess(this.rootRegion);
+			request.setExceptionHandler(ExceptionAcceptor.IGNORING);
+			final IFormatter2 formatter = this.formatterProvider.get();
+			final List<ITextReplacement> replacements = formatter.format(request);
+			this.rootRegion.getRewriter().renderToString(replacements);
+		}
 	}
 	
 	/**

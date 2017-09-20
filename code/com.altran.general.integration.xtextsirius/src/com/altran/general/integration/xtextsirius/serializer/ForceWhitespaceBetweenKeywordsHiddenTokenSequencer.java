@@ -1,4 +1,4 @@
-package org.eclipse.xtext.example.fowlerdsl.formatting;
+package com.altran.general.integration.xtextsirius.serializer;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.eclipse.xtext.serializer.sequencer.HiddenTokenSequencer;
  *
  */
 @SuppressWarnings("restriction")
-public class InlineHiddenTokenSequencer extends HiddenTokenSequencer {
+public class ForceWhitespaceBetweenKeywordsHiddenTokenSequencer extends HiddenTokenSequencer {
 	@Override
 	protected void emitHiddenTokens(final List<INode> hiddens) {
 		if (hiddens != null) {

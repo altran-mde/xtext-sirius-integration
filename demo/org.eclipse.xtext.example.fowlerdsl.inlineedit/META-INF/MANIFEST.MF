@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.xtext.example.fowlerdsl;visibility:=reexport,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
  org.eclipse.xtext.common.types,
- org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ com.altran.general.integration.xtextsirius
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.xtext.example.fowlerdsl.generator,
  org.eclipse.xtext.example.fowlerdsl,
@@ -25,6 +26,5 @@ Export-Package: org.eclipse.xtext.example.fowlerdsl.generator,
  org.eclipse.xtext.example.fowlerdsl.services,
  org.eclipse.xtext.example.fowlerdsl.scoping,
  org.eclipse.xtext.example.fowlerdsl.parser.antlr,
- org.eclipse.xtext.example.fowlerdsl.parser.antlr.internal,
- org.eclipse.xtext.example.fowlerdsl.formatting
+ org.eclipse.xtext.example.fowlerdsl.parser.antlr.internal
 Import-Package: org.apache.log4j

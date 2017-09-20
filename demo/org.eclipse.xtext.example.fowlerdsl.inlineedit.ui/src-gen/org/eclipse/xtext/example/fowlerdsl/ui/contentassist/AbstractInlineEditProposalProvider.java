@@ -17,4 +17,7 @@ import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 public class AbstractInlineEditProposalProvider extends org.eclipse.xtext.example.fowlerdsl.ui.contentassist.StatemachineProposalProvider {
 		
     
+	public void complete_InlineStatemachine(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// subclasses may override
+	}
 }

@@ -25,7 +25,7 @@ public class InlineEditParser extends org.eclipse.xtext.parser.antlr.AbstractAnt
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Statemachine";
+		return "InlineStatemachine";
 	}
 	
 	public InlineEditGrammarAccess getGrammarAccess() {

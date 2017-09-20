@@ -75,18 +75,6 @@ public class InlineEditSemanticSequencer extends StatemachineSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Statemachine returns Statemachine
-	 *
-	 * Constraint:
-	 *     (events+=Event* resetEvents+=[Event|ID]* commands+=Command* constants+=Constant* states+=State*)
-	 */
-	protected void sequence_Statemachine(ISerializationContext context, Statemachine semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Transition returns Transition
 	 *
 	 * Constraint:

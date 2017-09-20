@@ -26,12 +26,10 @@ Workflow {
     component = Generator auto-inject {
     	pathRtProject = runtimeProject
     	pathUiProject = "${runtimeProject}.ui"
-//    	pathTestProject = "${runtimeProject}.tests"
     	projectNameRt = projectName
     	projectNameUi = "${projectName}.ui"
     	encoding = encoding
     	language = auto-inject {
-//			loadedResource = "platform:/resource/org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.genmodel"
     		
 	   		uri = grammarURI
 	    
@@ -78,7 +76,7 @@ Workflow {
     		fragment = generator.GeneratorFragment auto-inject {}
     
     		// formatter API
-    		fragment = formatting.FormatterFragment auto-inject {}
+    		fragment = formatting2.Formatter2Fragment auto-inject {}
     
     		// labeling API
     		fragment = labeling.LabelProviderFragment auto-inject {}
