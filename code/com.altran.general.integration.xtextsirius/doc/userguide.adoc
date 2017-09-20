@@ -1,4 +1,4 @@
-= Xtext / Sirius Integration User Guide
+= Xtext / Sirius Integration User Guideasfasdf
 Niko Stotz <niko.stotz@altran.com>
 :toc:
 :toclevels: 5
@@ -54,6 +54,8 @@ This plugin provides extension points to replace regular text entry fields with 
 
 Xtext-enabled editors provide the usual Xtext features: syntax highlighting, auto completion, validation, etc.
 
+The Xtext language does not need to be modified to be used in the editor (except for <<specialEditGrammar, fixing an Xtext bug>>).
+
 The text entry fields can be placed 
 
 * either inside a Sirius diagram (direct editors; <<directEdit, directEdit>>)
@@ -96,6 +98,9 @@ All of this can be summarized in one table:
 
 | *add. info footnoteref:[info]*	| _<<widgetStyle, widgetStyle>>, <<layoutData, layoutData>>_ 2+| 	| *for all:* _<<identifier, identifier>>, <<injector, injector>>_
 |====
+
+
+As an advanced capability, the editor might use a <<specialEditGrammar, different grammar>> (a.k.a. Xtext language) for editing model contents than the one used for serialization.
 
 == Examples
 	
@@ -467,7 +472,7 @@ If the end-user opens the direct editor of the attribute, they can change all th
 
 .Details
 
-The editor assumes the model of the edited diagram is persisted with the same Xtext grammar as supplied to the editor.
+The editor assumes the model of the edited diagram is persisted with the same Xtext grammar as supplied to the editor (except for <<specialEditGrammar, explicit differences>>).
 
 Any changes in the editor are applied to the underlying model of the edited diagram.
 The changes are committed to the Sirius edit session, but only persisted if and when the edited diagram is saved.
@@ -656,6 +661,99 @@ Unfortunately, the Sirius 'odesign' model does not contain identifiers for the d
 Therefore, if the developer attaches a direct editor to an edge, the developer needs to specify which edge label should be equipped with Xtext powers.
 Per default, the +center+ label is selected.
 
+
+[[specialEditGrammar]]
+== Using a Different Grammar for Editing Model Contents
+
+For editing model contents, we might use a grammar that differs from the one used for model serialization.
+
+A typical use-case may allow to change the order of features in order to allow only a subset of them to be modified.
+
+.Example
+
+As an example, assume the following Xtext grammar snippet:
+[source, bison]
+----
+grammar org.eclipse.xtext.example.fowlerdsl.Statemachine with org.eclipse.xtext.common.Terminals
+
+generate statemachine "http://www.eclipse.org/xtext/example/fowlerdsl/Statemachine"
+
+Statemachine :
+     {Statemachine}
+	('events' 
+		events+=Event+ 
+	'end')?
+
+	// ...
+;
+
+Event:
+	name=ID code=INT? ('[' guard=Guard ']')?
+;
+
+// ...
+
+----
+
+In our editor, we want the end-user to edit only the +name+ and +guard+ features of +Event+. This is not possible with the given grammar, as +code+ is placed between them.
+
+To solve this, we create a new language:
+[source, bison]
+----
+grammar org.eclipse.xtext.example.fowlerdsl.InlineEdit with org.eclipse.xtext.example.fowlerdsl.Statemachine
+
+import "http://www.eclipse.org/xtext/example/fowlerdsl/Statemachine" 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+<1>
+InlineStatemachine returns Statemachine:
+	Statemachine
+;
+
+<2>
+//@Override 
+Event:
+	name=ID ('[' guard=Guard ']')? code=INT?
+;
+
+----
+<1> We have to have a root rule, because Xtext uses the first rule as entry rule. We just forward to the original root rule.
+<2> Newer Xtext version know the +@Override+ annotation to redefine a rule.
+
+This creates a grammar (for the identical metamodel) that serializes features +name+ and +guard+ adjacent to each other, so we can limit the editor to them.
+
+
+.Details
+
+The editing grammar must fulfill the following criteria:
+
+* based on identical metamodel
+* has same root element
+* contains rules for all semantic elements also covered by the original grammar (either inherited or self-implemented)
+* must serialize correctly from a model without any previous textual representation
+
+.Fixing serialization issues
+
+If you experience serialization issues, namely keywords get merged resulting in invalid syntax, you can use a workaround provided by this plugin.
+
+Typical symptoms of this issue include invalid auto-completion suggestions in the editor and exceptions on committing the changed elements.
+
+To fix this, register the following classes to the editing language:
+
+[source, java]
+----
+public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl.AbstractInlineEditRuntimeModule {
+
+	public Class<? extends IHiddenTokenSequencer> bindIHiddenTokenSequencer() {
+		return com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer.class;
+	}
+
+	public Class<? extends TextRegionAccessBuilder> bindTextRegionAccessBuilder() {
+		return com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder.class;
+	}
+	
+}
+----
 
 
 
