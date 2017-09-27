@@ -14,7 +14,7 @@ Niko Stotz <niko.stotz@altran.com>
 :prewrap!:
 :docinfo2:
 
-This plugin enables Xtext editors to be used as direct editor for Sirius diagram elements or Sirius property widgets.
+This plugin enables https://www.eclipse.org/Xtext/[Xtext] editors to be used as direct editor for https://www.eclipse.org/sirius/[Sirius] diagram elements or Sirius property widgets.
 
 This document describes to users (i.e. developers using the Xtext editors in their project) how to work with the Xtext / Sirius integration.
 
