@@ -3,8 +3,16 @@ Niko Stotz <niko.stotz@altran.com>
 :toc:
 :toclevels: 5
 :miscellaneous.tabsize: 2
+:tabsize: 2
 :icons: font
 :sectnum: 
+:sectnums: 
+:experimental:
+:commandkey: &#8984;
+:m1keys: Ctrl]/kbd:[{commandkey}
+:source-highlighter: pygments
+:prewrap!:
+:docinfo2:
 
 This plugin enables Xtext editors to be used as direct editor for Sirius diagram elements or Sirius property widgets.
 
@@ -108,16 +116,16 @@ As an advanced capability, the editor might use a <<specialEditGrammar, differen
 [source,xml]
 ----
 <extension point="com.altran.general.integration.xtextsirius.xtextDirectEdit">
-<1>	<xtextDirectEditModel
+	<xtextDirectEditModel      <1>
 		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
 		identifier="EventNode"/>
-<2>	<xtextDirectEditModel
+	<xtextDirectEditModel      <2>
 		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
 		identifier="TransitionEdge">
 		<editableFeature name="event"/>
 		<editableFeature name="guard"/>
 	</xtextDirectEditModel>
-<3>	<xtextDirectEditValue
+	<xtextDirectEditValue      <3>
 		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationHtml"
 		identifier="description"
 		multiLine="true"
@@ -126,10 +134,10 @@ As an advanced capability, the editor might use a <<specialEditGrammar, differen
 </extension>
 
 <extension point="com.altran.general.integration.xtextsirius.xtextProperty">
-<4>	<xtextPropertyModel
+	<xtextPropertyModel        <4>
 		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.eef.EefConfigurationFowlerdsl"
 		identifier="EventGuardId"/>
-<5>	<xtextPropertyValue
+	<xtextPropertyValue        <5>
 		configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.eef.EefConfigurationHtml"
 		identifier="StateDescriptionId"
 		multiLine="true"
@@ -138,9 +146,8 @@ As an advanced capability, the editor might use a <<specialEditGrammar, differen
 </extension>
 ----
 
-
-<1> Single-line direct editor of all features of 'Event' instance of Sirius element +EventNode+ with the injector supplied by +EditPartConfigurationFowlerdsl+. 
-Persisted to itself because 'SelfEdit.Set.featureName' is empty.
+<1> Single-line direct editor of all features of _Event_ instance of Sirius element `EventNode` with the injector supplied by `EditPartConfigurationFowlerdsl`. 
+Persisted to itself because _SelfEdit.Set.featureName_ is empty.
 +
 .Event Label (note it does not show the code)
 image:images/eventLabel.png[]
@@ -148,8 +155,8 @@ image:images/eventLabel.png[]
 .Event Editor
 image:images/eventEditor.png[]
 
-<2> Single-line direct editor of features +{event, guard}+ for the center label of 'Transition' instance of Sirius element +TransitionEdge+ with the injector supplied by +EditPartConfigurationFowlerdsl+.
-Persisted to itself because 'SelfEdit.Set.featureName' is empty.
+<2> Single-line direct editor of features `{event, guard}` for the center label of _Transition_ instance of Sirius element `TransitionEdge` with the injector supplied by `EditPartConfigurationFowlerdsl`.
+Persisted to itself because _SelfEdit.Set.featureName_ is empty.
 +
 .Transition Label (note it does have additional text at the end)
 image:images/transitionLabel.png[]
@@ -157,9 +164,9 @@ image:images/transitionLabel.png[]
 .Transition Editor (note the target of the transition cannot be edited)
 image:images/transitionEditor.png[]
 
-<3> Multi-line direct editor of 'description' feature of 'State' instance of Sirius element +description+ with the injector supplied by +EditPartConfigurationHtml+.
+<3> Multi-line direct editor of _description_ feature of _State_ instance of Sirius element `description` with the injector supplied by `EditPartConfigurationHtml`.
 The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
-Persisted to 'State.description' because of 'DescriptionEdit.Set.featureName=description'.
+Persisted to _State.description_ because of _DescriptionEdit.Set.featureName=description_.
 +
 .Description Label (note it does have additional text at the front)
 image:images/descriptionLabel.png[]
@@ -167,29 +174,29 @@ image:images/descriptionLabel.png[]
 .Description Editor
 image:images/descriptionEditor.png[]
 
-<4> Single-line property editor of 'guard' feature of 'Event' instance of Sirius element +EventGuardId+ with the injector supplied by +EefConfigurationFowlerdsl+.
-Persisted to 'Event.guard' because of 'EventGuardId.Set.featureName=guard'.
+<4> Single-line property editor of _guard_ feature of _Event_ instance of Sirius element `EventGuardId` with the injector supplied by `EefConfigurationFowlerdsl`.
+Persisted to _Event.guard_ because of _EventGuardId.Set.featureName=guard_.
 +
 .Event Guard Property Editor
 image:images/guardProperty.png[]
 
-<5> Multi-line property editor of 'description' feature of 'State' instance of Sirius element +StateDescriptionId+ with the injector supplied by +EefConfigurationHtml+.
+<5> Multi-line property editor of _description_ feature of _State_ instance of Sirius element `StateDescriptionId` with the injector supplied by `EefConfigurationHtml`.
 The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
-Persisted to 'State.description' because of 'StateDescriptionId.Set.featureName=description'.
+Persisted to _State.description_ because of _StateDescriptionId.Set.featureName=description_.
 +
 .State Description Property Editor
 image:images/descriptionProperty.png[]
 
 
 .fowlerdsl.odesign
-[postsubs="quotes,callouts"]
+[source,subs="verbatim,quotes"]
 ----
 platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign
 	+ fowlerdsl
 		+ Statemachine
 			+ Statemachine Diagram
 				+ Default
-<2>					+ *TransitionEdge* 
+					+ *TransitionEdge*                        <2>
 							id=TransitionEdge
 							domainClass=statemachine.Transition
 							labelDirectEdit=SelfEdit
@@ -197,15 +204,15 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fow
 							+ *Center Label Style*
 								labelExpression="ocl:self.event.name.concat( ' as Label')"
 					+ EventsContainer
-<1>						+ *EventNode*
+						+ *EventNode*                           <1>
 								id=EventNode
 								domainClass=statemachine.Event
 								labelDirectEdit=SelfEdit
 							+ *Square gray*
-								labelExpression="ocl:self.name.concat(if(self.guard.oclIsUndefined()) then \'' else ' [' + self.guard.toString() + \']' endif)"
+								labelExpression="ocl:self.name.concat(if(self.guard.oclIsUndefined()) then '' else ' [' + self.guard.toString() + ']' endif)"
 					+ CommandsContainer
 					+ StateNode
-<3>						+ *description*
+						+ *description*                         <3>
 								id=description
 								domainClass=statemachine.State
 								labelDirectEdit=DescriptionEdit
@@ -213,13 +220,13 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fow
 								labelExpression="ocl:'Desc: '.concat(self.description)"
 					+ Section DefaultSection
 						+ Direct Edit Label SimpleTextEdit
-<3>						+ *Direct Edit Label DescriptionEdit*
+						+ *Direct Edit Label DescriptionEdit*   <3>
 								inputLabelExpression="feature:description"
 							+ Edit Mask Variables {0}
 							+ Begin
 								+ *Set description*
 									featureName=description
-<1><2>					+ *Direct Edit Label SelfEdit*
+						+ *Direct Edit Label SelfEdit*          <1><2>
 								inputLabelExpression="var:self"
 							+ Edit Mask Variables {0}
 							+ Begin
@@ -232,7 +239,7 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fow
 					+ EventProperties
 							domainClass=statemachine.Event
 						+ Text
-<4>						+ *EventGuardId*
+						+ *EventGuardId*                        <4>
 								id=EventGuardId
 								valueExpression="feature:guard"
 							+ Begin
@@ -242,7 +249,7 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fow
 					+ StateProperties
 							domainClass=statemachine.State
 						+ Text
-<5>						+ *StateDescriptionId*
+						+ *StateDescriptionId*                  <5>
 								id=StateDescriptionId
 								valueExpression="feature:description"
 							+ Begin
@@ -265,12 +272,12 @@ image:images/exampleOdesign.png[]
 A direct editor is activated by
 
 * double-clicking on the diagram element,
-* pressing F2 key while the diagram element is focused,
+* pressing kbd:[F2] while the diagram element is focused,
 * or starting to type while the diagram element is focused.
 
 The editor replaces the label and is sized to fit its contents.
 
-For single-line editors, the editor closes on pressing the Enter key.
+For single-line editors, the editor closes on pressing kbd:[Enter].
 
 Editor contents are committed to the model when the editor is closed.
 The editor closes when it loses focus, e.g. by a click outside the editor.
@@ -278,7 +285,7 @@ The editor closes when it loses focus, e.g. by a click outside the editor.
 
 .Eclipse plugin.xml API
 
-Direct editors are specified by the extension point +com.altran.general.integration.xtextsirius.xtextDirectEdit+.
+Direct editors are specified by the extension point `com.altran.general.integration.xtextsirius.xtextDirectEdit`.
 
 .xtextDirectEdit.exsd (in digestible form)
 [source,xml]
@@ -304,12 +311,12 @@ Direct editors are specified by the extension point +com.altran.general.integrat
 </extension>
 ----
 
-One extension can contain several +xtextDirectEditModel+ and/or +xtextDirectEditValue+ elements.
+One extension can contain several `xtextDirectEditModel` and/or `xtextDirectEditValue` elements.
 
 
 .Java API
 
-Direct editors require an instance of +IXtextDirectEditConfiguration+ to provide the injector of the Xtext language to use.
+Direct editors require an instance of `IXtextDirectEditConfiguration` to provide the injector of the Xtext language to use.
 
 .IXtextDirectEditConfiguration.java
 [source,java]
@@ -333,7 +340,7 @@ Must fulfill the following criteria:
 
 The label is independent of the edited text, i.e. the label can show a different text than the direct editor.
 
-If the set value operation feature is empty, it is interpreted as to replace 'var:self'.
+If the set value operation feature is empty, it is interpreted as to replace _var:self_.
 
 
 .Capabilities
@@ -345,7 +352,7 @@ Direct editors
 * and require an <<identifier, identifier>> and an <<injector, injector>>.
 
 If the editor contains model contents, it supports to limit the <<editableFeatures, editable features>>.
-If the model element is an edge, the editor requires an <<edgeLabelPosition, edgeLabelPosition>> (defaults to +center+).
+If the model element is an edge, the editor requires an <<edgeLabelPosition, edgeLabelPosition>> (defaults to `center`).
 
 [[property]]
 ==== Property View / Property Editor
@@ -359,7 +366,7 @@ This happens when the end-user selects a different property page or a different 
 
 .Eclipse plugin.xml API
 
-Property editors are specified by the extension point +com.altran.general.integration.xtextsirius.xtextProperty+.
+Property editors are specified by the extension point `com.altran.general.integration.xtextsirius.xtextProperty`.
 
 .xtextProperty.exsd (in digestible form)
 [source,xml]
@@ -381,12 +388,12 @@ Property editors are specified by the extension point +com.altran.general.integr
 </extension>
 ----
 
-One extension can contain several +xtextPropertyModel+ and/or +xtextPropertyValue+ elements.
+One extension can contain several `xtextPropertyModel` and/or `xtextPropertyValue` elements.
 
 
 .Java API
 
-Direct editors require an instance of +IXtextPropertyConfiguration+ to provide the injector of the Xtext language to use.
+Direct editors require an instance of `IXtextPropertyConfiguration` to provide the injector of the Xtext language to use.
 The configuration also allows to customize <<widget, SWT widget style>> and <<layoutData, SWT Grid Layout Data>>.
 
 .IXtextPropertyConfiguration.java
@@ -403,8 +410,8 @@ public interface IXtextPropertyConfiguration {
 }
 ----
 
-The abstract class +com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration+ provides a default implementation for
-+getSwtWidgetStyle()+ and +getLayoutData()+.
+The abstract class `com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration` provides a default implementation for
+`getSwtWidgetStyle()` and `getLayoutData()`.
 
 
 .Sirius element
@@ -432,11 +439,11 @@ Property editors
 
 <<property, Property editors>> allow the customization of their SWT Widget Style.
 
-The method +int com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration.getSwtWidgetStyle(final int defaultStyle)+
+The method `int com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration.getSwtWidgetStyle(final int defaultStyle)`
 receives the default style (determined by several factors, including single-line vs. multi-line), and may modify it.
 The method's result is used as widget style.
 
-The default implementation in +com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration+ does not modify the style.
+The default implementation in `com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration` does not modify the style.
 
 
 [[layoutData]]
@@ -444,11 +451,11 @@ The default implementation in +com.altran.general.integration.xtextsirius.eef.AX
 
 <<property, Property editors>> allow the customization of their SWT Grid Layout Data.
 
-The method +@NonNull org.eclipse.swt.layout.GridData com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration.getLayoutData(final @NonNull org.eclipse.swt.layout.GridData defaultData)+
+The method `@NonNull org.eclipse.swt.layout.GridData com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration.getLayoutData(final @NonNull org.eclipse.swt.layout.GridData defaultData)`
 receives the default GridLayoutData, and may modify it.
 The method's result is used as the widget's layout data.
 
-The default implementation in +com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration+ does not modify the grid layout data.
+The default implementation in `com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration` does not modify the grid layout data.
 
 
 === Editor Contents
@@ -462,7 +469,7 @@ A typical use-case may allow the end-user to edit several features of a semantic
 
 .Example
 
-As an example, think of a UML class attribute displayed as "+++ age: int = 0++".
+As an example, think of a UML class attribute displayed as "``+ age: int = 0``".
 If the end-user opens the direct editor of the attribute, they can change all these features (visibility, name, type, default value) with complete Xtext support, e.g.
 
 * Proposing all possible visibilities
@@ -555,9 +562,9 @@ Instead of storing a complete model into every class' description (and bothering
 In order to complete the model for Xtext, the developer supplies the editor with
 
 prefixText::
-	+<html><head><title>Title</title><head><body>+
+	`<html><head><title>Title</title><head><body>`
 suffixText::
-	+</body></html>+
+	`</body></html>`
 
 This way, Xtext works on a complete model, but only the relevant parts are available to the end-user.
 
@@ -568,7 +575,7 @@ This way, Xtext works on a complete model, but only the relevant parts are avail
 [[identifier]]
 ==== Identifier
 
-An identifier links between the entry in +plugin.xml+ and the Sirius element.
+An identifier links between the entry in `plugin.xml` and the Sirius element.
 
 The identifier must be unique within the whole Sirius application.
 
@@ -592,7 +599,7 @@ Effects for single-line editors:
 
 * All newline characters from the original content are replaced by the same amount of spaces.
 * It is not possible to enter a newline.
-* Enter key closes the direct editor.
+* kbd:[Enter] closes the direct editor.
 
 
 [[editableFeatures]]
@@ -607,7 +614,7 @@ A typical use-case hides the feature defining the source and/or target of an edg
 
 Assume the following Xtext grammar snippet defining an UML-like Association, to be displayed as edge:
 
-[source, bison]
+[source, antlr]
 ----
 Association:
 	name=ID
@@ -622,15 +629,15 @@ Example model:
 	driver 23 Car --> Person
 ----
 
-The label would show +driver 23+.
+The label would show `driver 23`.
 
 The end-user should not be able to change the source and/or target of the association, but use an Xtext editor for the label to edit the other features.
 
-Therefore, the developer supplies the following list of +editableFeatures+:
+Therefore, the developer supplies the following list of `editableFeatures`:
 
-* +name+
-* +code+
-* +guard+
+* `name`
+* `code`
+* `guard`
 
 
 .Limitations
@@ -642,12 +649,12 @@ Therefore, if the model looks like
 	driver 23 [someCondition] Car --> Person
 ----
 
-and the +editableFeatures+ are limited to
+and the `editableFeatures` are limited to
 
-* +name+
-* +guard+
+* `name`
+* `guard`
 
-the editor would 'still' include the +code+ subpart, because it's in between the +name+ and +guard+ subpart.
+the editor would _still_ include the `code` subpart, because it's in between the `name` and `guard` subpart.
 ----
 	driver 23 [someCondition]
 ----
@@ -656,10 +663,10 @@ the editor would 'still' include the +code+ subpart, because it's in between the
 [[edgeLabelPosition]]
 ==== Position of Affected Edge Label
 
-Unfortunately, the Sirius 'odesign' model does not contain identifiers for the different edge labels (+begin+, +center+, +end+).
+Unfortunately, the Sirius _odesign_ model does not contain identifiers for the different edge labels (`begin`, `center`, `end`).
 
 Therefore, if the developer attaches a direct editor to an edge, the developer needs to specify which edge label should be equipped with Xtext powers.
-Per default, the +center+ label is selected.
+Per default, the `center` label is selected.
 
 
 [[specialEditGrammar]]
@@ -672,7 +679,7 @@ A typical use-case may allow to change the order of features in order to allow o
 .Example
 
 As an example, assume the following Xtext grammar snippet:
-[source, bison]
+[source, antlr]
 ----
 grammar org.eclipse.xtext.example.fowlerdsl.Statemachine with org.eclipse.xtext.common.Terminals
 
@@ -695,32 +702,30 @@ Event:
 
 ----
 
-In our editor, we want the end-user to edit only the +name+ and +guard+ features of +Event+. This is not possible with the given grammar, as +code+ is placed between them.
+In our editor, we want the end-user to edit only the `name` and `guard` features of `Event`. This is not possible with the given grammar, as `code` is placed between them.
 
 To solve this, we create a new language:
-[source, bison]
+[source, antlr]
 ----
 grammar org.eclipse.xtext.example.fowlerdsl.InlineEdit with org.eclipse.xtext.example.fowlerdsl.Statemachine
 
 import "http://www.eclipse.org/xtext/example/fowlerdsl/Statemachine" 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-<1>
-InlineStatemachine returns Statemachine:
+InlineStatemachine returns Statemachine:   <1>
 	Statemachine
 ;
 
-<2>
 //@Override 
-Event:
+Event:                                     <2>
 	name=ID ('[' guard=Guard ']')? code=INT?
 ;
 
 ----
 <1> We have to have a root rule, because Xtext uses the first rule as entry rule. We just forward to the original root rule.
-<2> Newer Xtext version know the +@Override+ annotation to redefine a rule.
+<2> Newer Xtext version know the `@Override` annotation to redefine a rule.
 
-This creates a grammar (for the identical metamodel) that serializes features +name+ and +guard+ adjacent to each other, so we can limit the editor to them.
+This creates a grammar (for the identical metamodel) that serializes features `name` and `guard` adjacent to each other, so we can limit the editor to them.
 
 
 .Details
