@@ -146,7 +146,7 @@ As an advanced capability, the editor might use a <<specialEditGrammar, differen
 </extension>
 ----
 
-<1> Single-line direct editor of all features of _Event_ instance of Sirius element `EventNode` with the injector supplied by `EditPartConfigurationFowlerdsl`. 
+1. Single-line direct editor of all features of _Event_ instance of Sirius element `EventNode` with the injector supplied by `EditPartConfigurationFowlerdsl`. 
 Persisted to itself because _SelfEdit.Set.featureName_ is empty.
 +
 .Event Label (note it does not show the code)
@@ -155,7 +155,7 @@ image:images/eventLabel.png[]
 .Event Editor
 image:images/eventEditor.png[]
 
-<2> Single-line direct editor of features `{event, guard}` for the center label of _Transition_ instance of Sirius element `TransitionEdge` with the injector supplied by `EditPartConfigurationFowlerdsl`.
+2. Single-line direct editor of features `{event, guard}` for the center label of _Transition_ instance of Sirius element `TransitionEdge` with the injector supplied by `EditPartConfigurationFowlerdsl`.
 Persisted to itself because _SelfEdit.Set.featureName_ is empty.
 +
 .Transition Label (note it does have additional text at the end)
@@ -164,7 +164,7 @@ image:images/transitionLabel.png[]
 .Transition Editor (note the target of the transition cannot be edited)
 image:images/transitionEditor.png[]
 
-<3> Multi-line direct editor of _description_ feature of _State_ instance of Sirius element `description` with the injector supplied by `EditPartConfigurationHtml`.
+3. Multi-line direct editor of _description_ feature of _State_ instance of Sirius element `description` with the injector supplied by `EditPartConfigurationHtml`.
 The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
 Persisted to _State.description_ because of _DescriptionEdit.Set.featureName=description_.
 +
@@ -174,13 +174,13 @@ image:images/descriptionLabel.png[]
 .Description Editor
 image:images/descriptionEditor.png[]
 
-<4> Single-line property editor of _guard_ feature of _Event_ instance of Sirius element `EventGuardId` with the injector supplied by `EefConfigurationFowlerdsl`.
+4. Single-line property editor of _guard_ feature of _Event_ instance of Sirius element `EventGuardId` with the injector supplied by `EefConfigurationFowlerdsl`.
 Persisted to _Event.guard_ because of _EventGuardId.Set.featureName=guard_.
 +
 .Event Guard Property Editor
 image:images/guardProperty.png[]
 
-<5> Multi-line property editor of _description_ feature of _State_ instance of Sirius element `StateDescriptionId` with the injector supplied by `EefConfigurationHtml`.
+5. Multi-line property editor of _description_ feature of _State_ instance of Sirius element `StateDescriptionId` with the injector supplied by `EefConfigurationHtml`.
 The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
 Persisted to _State.description_ because of _StateDescriptionId.Set.featureName=description_.
 +
