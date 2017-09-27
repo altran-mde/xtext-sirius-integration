@@ -1,4 +1,4 @@
-= Xtext / Sirius Integration User Guideasfasdf
+= Xtext / Sirius Integration User Guide
 Niko Stotz <niko.stotz@altran.com>
 :toc:
 :toclevels: 5
