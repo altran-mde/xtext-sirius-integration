@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram-xtext="http://altran.com/general/integration/xtextsirius/model/diagram/1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-xtext="http://altran.com/general/integration/xtextsirius/model/properties/1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:viewpoint-xtext="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0" name="xtextsirius" version="11.1.1.201610211630">
+  <ownedViewpoints name="MyViewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings/>
+        <edgeMappings useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <diagram-xtext:xtextBeginLabelStyleModelDescription>
+              <labelColor href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </diagram-xtext:xtextBeginLabelStyleModelDescription>
+          </style>
+        </edgeMappings>
+        <toolSections>
+          <ownedTools xsi:type="tool:DirectEditLabel">
+            <mask mask="{0}"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditValueDescription">
+            <mask mask="{0}"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ExternalJavaAction"/>
+          <ownedTools xsi:type="tool:RequestDescription"/>
+          <groupExtensions/>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription">
+      <layers/>
+    </ownedRepresentationExtensions>
+    <ownedRepresentationExtensions xsi:type="viewpoint-xtext:XtextRepresentationExtension"/>
+    <ownedJavaExtensions qualifiedClassName="xtextsirius.design.Services"/>
+    <ownedJavaExtensions/>
+    <ownedMMExtensions extensionGroup="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']"/>
+    <ownedFeatureExtensions xsi:type="viewpoint-xtext:XtextFeatureExtensionDescription" label="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style/@centerLabelStyleDescription"/>
+    <ownedFeatureExtensions xsi:type="viewpoint-xtext:XtextFeatureExtensionDescription" label="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style/@centerLabelStyleDescription"/>
+    <ownedRepresentationExtensions xsi:type="diagram-xtext:XtextRepresentationExtension">
+    </ownedRepresentationExtensions>
+    <ownedFeatureExtensions xsi:type="diagram-xtext:XtextFeatureExtensionDescription" label="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style/@centerLabelStyleDescription">
+    </ownedFeatureExtensions>
+  </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="Properties">
+    <pages identifier="Default" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
+    <groups identifier="Default" labelExpression="Group" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties-xtext:XtextMultiLineModelDescription"/>
+    </groups>
+  </extensions>
+</description:Group>

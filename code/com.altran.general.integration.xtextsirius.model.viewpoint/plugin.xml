@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated viewpoint-xtext -->
+      <package
+            uri="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0"
+            class="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage"
+            genModel="model/viewpoint-xtext.xcore"/>
+   </extension>
+
+</plugin>
