@@ -2,7 +2,7 @@
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext;
 
-import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Xtext
@@ -13,5 +13,5 @@ import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
  * @model annotation="http://www.eclipse.org/emf/2002/GenModel image='true'"
  * @generated
  */
-public interface XtextDirectEditModelDescription extends DirectEditLabel, IXtextDirectEditModelDescription {
+public interface XtextDirectEditModelDescription extends AXtextDirectEditLabel, IXtextDirectEditModelDescription {
 } // XtextDirectEditModelDescription

@@ -10,14 +10,8 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleValueDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleValueDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleValueDescription;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
@@ -67,18 +61,6 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 				return createXtextDirectEditModelDescription();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION:
 				return createXtextDirectEditValueDescription();
-			case DiagramxtextPackage.XTEXT_BEGIN_LABEL_STYLE_MODEL_DESCRIPTION:
-				return createXtextBeginLabelStyleModelDescription();
-			case DiagramxtextPackage.XTEXT_BEGIN_LABEL_STYLE_VALUE_DESCRIPTION:
-				return createXtextBeginLabelStyleValueDescription();
-			case DiagramxtextPackage.XTEXT_CENTER_LABEL_STYLE_MODEL_DESCRIPTION:
-				return createXtextCenterLabelStyleModelDescription();
-			case DiagramxtextPackage.XTEXT_CENTER_LABEL_STYLE_VALUE_DESCRIPTION:
-				return createXtextCenterLabelStyleValueDescription();
-			case DiagramxtextPackage.XTEXT_END_LABEL_STYLE_MODEL_DESCRIPTION:
-				return createXtextEndLabelStyleModelDescription();
-			case DiagramxtextPackage.XTEXT_END_LABEL_STYLE_VALUE_DESCRIPTION:
-				return createXtextEndLabelStyleValueDescription();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -104,72 +86,6 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 	public XtextDirectEditValueDescription createXtextDirectEditValueDescription() {
 		final XtextDirectEditValueDescriptionImpl xtextDirectEditValueDescription = new XtextDirectEditValueDescriptionImpl();
 		return xtextDirectEditValueDescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public XtextBeginLabelStyleModelDescription createXtextBeginLabelStyleModelDescription() {
-		final XtextBeginLabelStyleModelDescriptionImpl xtextBeginLabelStyleModelDescription = new XtextBeginLabelStyleModelDescriptionImpl();
-		return xtextBeginLabelStyleModelDescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public XtextBeginLabelStyleValueDescription createXtextBeginLabelStyleValueDescription() {
-		final XtextBeginLabelStyleValueDescriptionImpl xtextBeginLabelStyleValueDescription = new XtextBeginLabelStyleValueDescriptionImpl();
-		return xtextBeginLabelStyleValueDescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public XtextCenterLabelStyleModelDescription createXtextCenterLabelStyleModelDescription() {
-		final XtextCenterLabelStyleModelDescriptionImpl xtextCenterLabelStyleModelDescription = new XtextCenterLabelStyleModelDescriptionImpl();
-		return xtextCenterLabelStyleModelDescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public XtextCenterLabelStyleValueDescription createXtextCenterLabelStyleValueDescription() {
-		final XtextCenterLabelStyleValueDescriptionImpl xtextCenterLabelStyleValueDescription = new XtextCenterLabelStyleValueDescriptionImpl();
-		return xtextCenterLabelStyleValueDescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public XtextEndLabelStyleModelDescription createXtextEndLabelStyleModelDescription() {
-		final XtextEndLabelStyleModelDescriptionImpl xtextEndLabelStyleModelDescription = new XtextEndLabelStyleModelDescriptionImpl();
-		return xtextEndLabelStyleModelDescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public XtextEndLabelStyleValueDescription createXtextEndLabelStyleValueDescription() {
-		final XtextEndLabelStyleValueDescriptionImpl xtextEndLabelStyleValueDescription = new XtextEndLabelStyleValueDescriptionImpl();
-		return xtextEndLabelStyleValueDescription;
 	}
 
 	/**

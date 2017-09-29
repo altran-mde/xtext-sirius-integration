@@ -39,9 +39,9 @@ public final class DiagramxtextEditPlugin extends EMFPlugin {
 	 */
 	public DiagramxtextEditPlugin() {
 		super(new ResourceLocator[] {
-				XtextsiriusEditPlugin.INSTANCE,
 				DiagramUIPlugin.INSTANCE,
 				SiriusEditPlugin.INSTANCE,
+				XtextsiriusEditPlugin.INSTANCE,
 		});
 	}
 

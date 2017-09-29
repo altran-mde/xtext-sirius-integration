@@ -27,12 +27,9 @@ import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.sirius.viewpoint.DAnalysis;
-import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
-import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.sirius.viewpoint.description.Environment;
 import org.eclipse.sirius.viewpoint.description.util.DescriptionSwitch;
-import org.eclipse.sirius.viewpoint.util.ViewpointSwitch;
 
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextFactory;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
@@ -102,77 +99,54 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 
 	/**
 	 * This keeps track of the one adapter used for all
-	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription}
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription}
 	 * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected XtextFeatureExtensionDescriptionItemProvider xtextFeatureExtensionDescriptionItemProvider;
+	protected XtextEdgeLabelDirectEditModelDescriptionItemProvider xtextEdgeLabelDirectEditModelDescriptionItemProvider;
 
 	/**
 	 * This creates an adapter for a
-	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription}.
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	@Override
-	public Adapter createXtextFeatureExtensionDescriptionAdapter() {
-		if (this.xtextFeatureExtensionDescriptionItemProvider == null) {
-			this.xtextFeatureExtensionDescriptionItemProvider = new XtextFeatureExtensionDescriptionItemProvider(this);
+	public Adapter createXtextEdgeLabelDirectEditModelDescriptionAdapter() {
+		if (this.xtextEdgeLabelDirectEditModelDescriptionItemProvider == null) {
+			this.xtextEdgeLabelDirectEditModelDescriptionItemProvider = new XtextEdgeLabelDirectEditModelDescriptionItemProvider(
+					this);
 		}
 
-		return this.xtextFeatureExtensionDescriptionItemProvider;
+		return this.xtextEdgeLabelDirectEditModelDescriptionItemProvider;
 	}
 
 	/**
 	 * This keeps track of the one adapter used for all
-	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension}
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription}
 	 * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected XtextDFeatureExtensionItemProvider xtextDFeatureExtensionItemProvider;
+	protected XtextEdgeLabelDirectEditValueDescriptionItemProvider xtextEdgeLabelDirectEditValueDescriptionItemProvider;
 
 	/**
 	 * This creates an adapter for a
-	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension}.
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	@Override
-	public Adapter createXtextDFeatureExtensionAdapter() {
-		if (this.xtextDFeatureExtensionItemProvider == null) {
-			this.xtextDFeatureExtensionItemProvider = new XtextDFeatureExtensionItemProvider(this);
+	public Adapter createXtextEdgeLabelDirectEditValueDescriptionAdapter() {
+		if (this.xtextEdgeLabelDirectEditValueDescriptionItemProvider == null) {
+			this.xtextEdgeLabelDirectEditValueDescriptionItemProvider = new XtextEdgeLabelDirectEditValueDescriptionItemProvider(
+					this);
 		}
 
-		return this.xtextDFeatureExtensionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all
-	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension}
-	 * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected XtextRepresentationExtensionItemProvider xtextRepresentationExtensionItemProvider;
-
-	/**
-	 * This creates an adapter for a
-	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createXtextRepresentationExtensionAdapter() {
-		if (this.xtextRepresentationExtensionItemProvider == null) {
-			this.xtextRepresentationExtensionItemProvider = new XtextRepresentationExtensionItemProvider(this);
-		}
-
-		return this.xtextRepresentationExtensionItemProvider;
+		return this.xtextEdgeLabelDirectEditValueDescriptionItemProvider;
 	}
 
 	/**
@@ -308,14 +282,11 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 */
 	@Override
 	public void dispose() {
-		if (this.xtextFeatureExtensionDescriptionItemProvider != null) {
-			this.xtextFeatureExtensionDescriptionItemProvider.dispose();
+		if (this.xtextEdgeLabelDirectEditModelDescriptionItemProvider != null) {
+			this.xtextEdgeLabelDirectEditModelDescriptionItemProvider.dispose();
 		}
-		if (this.xtextDFeatureExtensionItemProvider != null) {
-			this.xtextDFeatureExtensionItemProvider.dispose();
-		}
-		if (this.xtextRepresentationExtensionItemProvider != null) {
-			this.xtextRepresentationExtensionItemProvider.dispose();
+		if (this.xtextEdgeLabelDirectEditValueDescriptionItemProvider != null) {
+			this.xtextEdgeLabelDirectEditValueDescriptionItemProvider.dispose();
 		}
 	}
 
@@ -366,103 +337,14 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * @generated
 			 */
 			@Override
-			public Object caseViewpoint(final Viewpoint object) {
-				this.newChildDescriptors.add(
-						createChildParameter(DescriptionPackage.Literals.VIEWPOINT__OWNED_REPRESENTATION_EXTENSIONS,
-								ViewpointxtextFactory.eINSTANCE.createXtextRepresentationExtension()));
+			public Object caseEnvironment(final Environment object) {
+				this.newChildDescriptors
+						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
+								ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
 
 				this.newChildDescriptors
-						.add(createChildParameter(DescriptionPackage.Literals.VIEWPOINT__OWNED_FEATURE_EXTENSIONS,
-								ViewpointxtextFactory.eINSTANCE.createXtextFeatureExtensionDescription()));
-
-				return null;
-			}
-
-			/**
-			 * <!-- begin-user-doc --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			protected CommandParameter createChildParameter(final Object feature, final Object child) {
-				return new CommandParameter(null, feature, child);
-			}
-
-		}
-
-		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		@Override
-		public Collection<Object> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
-			final ArrayList<Object> result = new ArrayList<>();
-			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
-			return result;
-		}
-
-		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		@Override
-		public ResourceLocator getResourceLocator() {
-			return ViewpointxtextEditPlugin.INSTANCE;
-		}
-	}
-
-	/**
-	 * A child creation extender for the {@link ViewpointPackage}. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public static class ViewpointChildCreationExtender implements IChildCreationExtender {
-		/**
-		 * The switch for creating child descriptors specific to each extended
-		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		protected static class CreationSwitch extends ViewpointSwitch<Object> {
-			/**
-			 * The child descriptors being populated. <!-- begin-user-doc -->
-			 * <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			protected List<Object> newChildDescriptors;
-
-			/**
-			 * The domain in which to create the children. <!-- begin-user-doc
-			 * --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			protected EditingDomain editingDomain;
-
-			/**
-			 * Creates the a switch for populating child descriptors in the
-			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			CreationSwitch(final List<Object> newChildDescriptors, final EditingDomain editingDomain) {
-				this.newChildDescriptors = newChildDescriptors;
-				this.editingDomain = editingDomain;
-			}
-
-			/**
-			 * <!-- begin-user-doc --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			@Override
-			public Object caseDAnalysis(final DAnalysis object) {
-				this.newChildDescriptors
-						.add(createChildParameter(ViewpointPackage.Literals.DANALYSIS__OWNED_FEATURE_EXTENSIONS,
-								ViewpointxtextFactory.eINSTANCE.createXtextDFeatureExtension()));
+						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
+								ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
 
 				return null;
 			}

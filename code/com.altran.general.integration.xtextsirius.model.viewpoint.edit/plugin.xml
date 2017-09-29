@@ -25,9 +25,6 @@
       <extender
             uri="http://www.eclipse.org/sirius/description/1.1.0"
             class="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.provider.ViewpointxtextItemProviderAdapterFactory$DescriptionChildCreationExtender"/>
-      <extender
-            uri="http://www.eclipse.org/sirius/1.1.0"
-            class="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.provider.ViewpointxtextItemProviderAdapterFactory$ViewpointChildCreationExtender"/>
    </extension>
 
 </plugin>

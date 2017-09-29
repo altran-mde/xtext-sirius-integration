@@ -2,12 +2,12 @@
  */
 package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.sirius.viewpoint.ViewpointPackage;
-import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
+import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
+
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
  * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains
@@ -71,85 +71,75 @@ public interface ViewpointxtextPackage extends EPackage {
 
 	/**
 	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextFeatureExtensionDescriptionImpl
-	 * <em>Xtext Feature Extension Description</em>}' class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+	 * <em>IXtext Edge Label Direct Edit Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextFeatureExtensionDescriptionImpl
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextFeatureExtensionDescription()
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getIXtextEdgeLabelDirectEditDescription()
 	 * @generated
 	 */
-	int XTEXT_FEATURE_EXTENSION_DESCRIPTION = 0;
+	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' reference. <!--
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_FEATURE_EXTENSION_DESCRIPTION__LABEL = DescriptionPackage.FEATURE_EXTENSION_DESCRIPTION_FEATURE_COUNT + 0;
+	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Feature Extension
-	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_FEATURE_EXTENSION_DESCRIPTION_FEATURE_COUNT = DescriptionPackage.FEATURE_EXTENSION_DESCRIPTION_FEATURE_COUNT
+	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__MULTI_LINE = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__EDGE_LABEL_MAPPINGS = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
+			+ 0;
+
+	/**
+	 * The number of structural features of the '<em>IXtext Edge Label Direct
+	 * Edit Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
 			+ 1;
 
 	/**
 	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextDFeatureExtensionImpl
-	 * <em>Xtext DFeature Extension</em>}' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditModelDescriptionImpl
+	 * <em>Xtext Edge Label Direct Edit Model Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextDFeatureExtensionImpl
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextDFeatureExtension()
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditModelDescriptionImpl
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextEdgeLabelDirectEditModelDescription()
 	 * @generated
 	 */
-	int XTEXT_DFEATURE_EXTENSION = 1;
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference. <!--
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_DFEATURE_EXTENSION__DESCRIPTION = ViewpointPackage.DFEATURE_EXTENSION__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Dumdidum</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int XTEXT_DFEATURE_EXTENSION__DUMDIDUM = ViewpointPackage.DFEATURE_EXTENSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Xtext DFeature
-	 * Extension</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int XTEXT_DFEATURE_EXTENSION_FEATURE_COUNT = ViewpointPackage.DFEATURE_EXTENSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextRepresentationExtensionImpl
-	 * <em>Xtext Representation Extension</em>}' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextRepresentationExtensionImpl
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextRepresentationExtension()
-	 * @generated
-	 */
-	int XTEXT_REPRESENTATION_EXTENSION = 2;
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__DOCUMENTATION = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
@@ -158,129 +148,311 @@ public interface ViewpointxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_REPRESENTATION_EXTENSION__NAME = DescriptionPackage.REPRESENTATION_EXTENSION_DESCRIPTION__NAME;
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__NAME = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Viewpoint URI</b></em>' attribute. <!--
+	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_REPRESENTATION_EXTENSION__VIEWPOINT_URI = DescriptionPackage.REPRESENTATION_EXTENSION_DESCRIPTION__VIEWPOINT_URI;
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__LABEL = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Representation Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Precondition</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__PRECONDITION = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__PRECONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Force Refresh</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__FORCE_REFRESH = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__FORCE_REFRESH;
+
+	/**
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__FILTERS = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__FILTERS;
+
+	/**
+	 * The feature id for the '<em><b>Elements To Select</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_REPRESENTATION_EXTENSION__REPRESENTATION_NAME = DescriptionPackage.REPRESENTATION_EXTENSION_DESCRIPTION__REPRESENTATION_NAME;
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__ELEMENTS_TO_SELECT = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__ELEMENTS_TO_SELECT;
 
 	/**
-	 * The feature id for the '<em><b>Metamodel</b></em>' reference list. <!--
+	 * The feature id for the '<em><b>Inverse Selection Order</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__INVERSE_SELECTION_ORDER = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__INVERSE_SELECTION_ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_REPRESENTATION_EXTENSION__METAMODEL = DescriptionPackage.REPRESENTATION_EXTENSION_DESCRIPTION__METAMODEL;
-
-	/**
-	 * The feature id for the '<em><b>Lalala</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int XTEXT_REPRESENTATION_EXTENSION__LALALA = DescriptionPackage.REPRESENTATION_EXTENSION_DESCRIPTION_FEATURE_COUNT
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
 			+ 0;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Representation
-	 * Extension</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_REPRESENTATION_EXTENSION_FEATURE_COUNT = DescriptionPackage.REPRESENTATION_EXTENSION_DESCRIPTION_FEATURE_COUNT
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
 			+ 1;
 
+	/**
+	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDGE_LABEL_MAPPINGS = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 3;
+
+	/**
+	 * The number of structural features of the '<em>Xtext Edge Label Direct
+	 * Edit Model Description</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 4;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl
+	 * <em>Xtext Edge Label Direct Edit Value Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextEdgeLabelDirectEditValueDescription()
+	 * @generated
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__DOCUMENTATION = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__NAME = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__LABEL = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Precondition</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__PRECONDITION = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__PRECONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Force Refresh</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__FORCE_REFRESH = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__FORCE_REFRESH;
+
+	/**
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__FILTERS = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__FILTERS;
+
+	/**
+	 * The feature id for the '<em><b>Elements To Select</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__ELEMENTS_TO_SELECT = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__ELEMENTS_TO_SELECT;
+
+	/**
+	 * The feature id for the '<em><b>Inverse Selection Order</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__INVERSE_SELECTION_ORDER = ToolPackage.ABSTRACT_TOOL_DESCRIPTION__INVERSE_SELECTION_ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 0;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+
+	/**
+	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__EDGE_LABEL_MAPPINGS = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 3;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 4;
+
+	/**
+	 * The number of structural features of the '<em>Xtext Edge Label Direct
+	 * Edit Value Description</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION_FEATURE_COUNT = ToolPackage.ABSTRACT_TOOL_DESCRIPTION_FEATURE_COUNT
+			+ 5;
+
 
 	/**
 	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription
-	 * <em>Xtext Feature Extension Description</em>}'. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+	 * <em>IXtext Edge Label Direct Edit Description</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Xtext Feature Extension
+	 * @return the meta object for class '<em>IXtext Edge Label Direct Edit
 	 *         Description</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
 	 * @generated
 	 */
-	EClass getXtextFeatureExtensionDescription();
+	EClass getIXtextEdgeLabelDirectEditDescription();
 
 	/**
-	 * Returns the meta object for the reference
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription#getLabel
-	 * <em>Label</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list
+	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription#getEdgeLabelMappings
+	 * <em>Edge Label Mappings</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
-	 * @return the meta object for the reference '<em>Label</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription#getLabel()
-	 * @see #getXtextFeatureExtensionDescription()
+	 * @return the meta object for the reference list '<em>Edge Label
+	 *         Mappings</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription#getEdgeLabelMappings()
+	 * @see #getIXtextEdgeLabelDirectEditDescription()
 	 * @generated
 	 */
-	EReference getXtextFeatureExtensionDescription_Label();
-
-	/**
-	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension
-	 * <em>Xtext DFeature Extension</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Xtext DFeature Extension</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension
-	 * @generated
-	 */
-	EClass getXtextDFeatureExtension();
-
-	/**
-	 * Returns the meta object for the attribute
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension#getDumdidum
-	 * <em>Dumdidum</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Dumdidum</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension#getDumdidum()
-	 * @see #getXtextDFeatureExtension()
-	 * @generated
-	 */
-	EAttribute getXtextDFeatureExtension_Dumdidum();
+	EReference getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings();
 
 	/**
 	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension
-	 * <em>Xtext Representation Extension</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription
+	 * <em>Xtext Edge Label Direct Edit Model Description</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Xtext Representation
-	 *         Extension</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension
+	 * @return the meta object for class '<em>Xtext Edge Label Direct Edit Model
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription
 	 * @generated
 	 */
-	EClass getXtextRepresentationExtension();
+	EClass getXtextEdgeLabelDirectEditModelDescription();
 
 	/**
-	 * Returns the meta object for the attribute
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension#getLalala
-	 * <em>Lalala</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription
+	 * <em>Xtext Edge Label Direct Edit Value Description</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '<em>Lalala</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension#getLalala()
-	 * @see #getXtextRepresentationExtension()
+	 * @return the meta object for class '<em>Xtext Edge Label Direct Edit Value
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription
 	 * @generated
 	 */
-	EAttribute getXtextRepresentationExtension_Lalala();
+	EClass getXtextEdgeLabelDirectEditValueDescription();
 
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
@@ -307,63 +479,48 @@ public interface ViewpointxtextPackage extends EPackage {
 	interface Literals {
 		/**
 		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextFeatureExtensionDescriptionImpl
-		 * <em>Xtext Feature Extension Description</em>}' class. <!--
+		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+		 * <em>IXtext Edge Label Direct Edit Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
-		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextFeatureExtensionDescriptionImpl
-		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextFeatureExtensionDescription()
+		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getIXtextEdgeLabelDirectEditDescription()
 		 * @generated
 		 */
-		EClass XTEXT_FEATURE_EXTENSION_DESCRIPTION = eINSTANCE.getXtextFeatureExtensionDescription();
+		EClass IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION = eINSTANCE.getIXtextEdgeLabelDirectEditDescription();
 
 		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' reference
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Edge Label Mappings</b></em>'
+		 * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference XTEXT_FEATURE_EXTENSION_DESCRIPTION__LABEL = eINSTANCE.getXtextFeatureExtensionDescription_Label();
-
-		/**
-		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextDFeatureExtensionImpl
-		 * <em>Xtext DFeature Extension</em>}' class. <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextDFeatureExtensionImpl
-		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextDFeatureExtension()
-		 * @generated
-		 */
-		EClass XTEXT_DFEATURE_EXTENSION = eINSTANCE.getXtextDFeatureExtension();
-
-		/**
-		 * The meta object literal for the '<em><b>Dumdidum</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute XTEXT_DFEATURE_EXTENSION__DUMDIDUM = eINSTANCE.getXtextDFeatureExtension_Dumdidum();
+		EReference IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__EDGE_LABEL_MAPPINGS = eINSTANCE
+				.getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings();
 
 		/**
 		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextRepresentationExtensionImpl
-		 * <em>Xtext Representation Extension</em>}' class. <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditModelDescriptionImpl
+		 * <em>Xtext Edge Label Direct Edit Model Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
-		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextRepresentationExtensionImpl
-		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextRepresentationExtension()
+		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditModelDescriptionImpl
+		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextEdgeLabelDirectEditModelDescription()
 		 * @generated
 		 */
-		EClass XTEXT_REPRESENTATION_EXTENSION = eINSTANCE.getXtextRepresentationExtension();
+		EClass XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION = eINSTANCE.getXtextEdgeLabelDirectEditModelDescription();
 
 		/**
-		 * The meta object literal for the '<em><b>Lalala</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl
+		 * <em>Xtext Edge Label Direct Edit Value Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl
+		 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl#getXtextEdgeLabelDirectEditValueDescription()
 		 * @generated
 		 */
-		EAttribute XTEXT_REPRESENTATION_EXTENSION__LALALA = eINSTANCE.getXtextRepresentationExtension_Lalala();
+		EClass XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION = eINSTANCE.getXtextEdgeLabelDirectEditValueDescription();
 
 	}
 

@@ -2,8 +2,6 @@
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext;
 
-import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
-
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 
@@ -17,5 +15,5 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
  * @generated
  */
 public interface XtextDirectEditValueDescription
-		extends DirectEditLabel, IXtextDirectEditDescription, IXtextValueDescription {
+		extends AXtextDirectEditLabel, IXtextDirectEditDescription, IXtextValueDescription {
 } // XtextDirectEditValueDescription

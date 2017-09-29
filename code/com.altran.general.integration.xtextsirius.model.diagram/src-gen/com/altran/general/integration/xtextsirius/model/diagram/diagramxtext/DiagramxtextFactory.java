@@ -42,66 +42,6 @@ public interface DiagramxtextFactory extends EFactory {
 	XtextDirectEditValueDescription createXtextDirectEditValueDescription();
 
 	/**
-	 * Returns a new object of class '<em>Xtext Begin Label Style Model
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Xtext Begin Label Style Model
-	 *         Description</em>'.
-	 * @generated
-	 */
-	XtextBeginLabelStyleModelDescription createXtextBeginLabelStyleModelDescription();
-
-	/**
-	 * Returns a new object of class '<em>Xtext Begin Label Style Value
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Xtext Begin Label Style Value
-	 *         Description</em>'.
-	 * @generated
-	 */
-	XtextBeginLabelStyleValueDescription createXtextBeginLabelStyleValueDescription();
-
-	/**
-	 * Returns a new object of class '<em>Xtext Center Label Style Model
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Xtext Center Label Style Model
-	 *         Description</em>'.
-	 * @generated
-	 */
-	XtextCenterLabelStyleModelDescription createXtextCenterLabelStyleModelDescription();
-
-	/**
-	 * Returns a new object of class '<em>Xtext Center Label Style Value
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Xtext Center Label Style Value
-	 *         Description</em>'.
-	 * @generated
-	 */
-	XtextCenterLabelStyleValueDescription createXtextCenterLabelStyleValueDescription();
-
-	/**
-	 * Returns a new object of class '<em>Xtext End Label Style Model
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Xtext End Label Style Model
-	 *         Description</em>'.
-	 * @generated
-	 */
-	XtextEndLabelStyleModelDescription createXtextEndLabelStyleModelDescription();
-
-	/**
-	 * Returns a new object of class '<em>Xtext End Label Style Value
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Xtext End Label Style Value
-	 *         Description</em>'.
-	 * @generated
-	 */
-	XtextEndLabelStyleValueDescription createXtextEndLabelStyleValueDescription();
-
-	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

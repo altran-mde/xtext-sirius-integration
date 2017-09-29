@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-	<extension point="org.eclipse.sirius.diagram.ui.styleConfigurationProvider">
-		<styleConfigurationProvider
-			providerClass="com.altran.general.integration.xtextsirius.style.ui.internal.XtextSiriusStyleConfigurationProvider"
-		/>
-	</extension>
-	
-	<extension point="org.eclipse.sirius.featureExtensions">
-		<feature class="com.altran.general.integration.xtextsirius.style.ui.internal.XtextSiriusFeatureExtension"/>
-	</extension>
-	
-	<extension point="org.eclipse.sirius.ui.featureExtensionsui">
-		<featureUI class="com.altran.general.integration.xtextsirius.style.ui.internal.XtextFeatureExtensionUi"/>
-	</extension>
- 
-	<extension point="org.eclipse.sirius.editor.menuBuilder">
-		<builder class="com.altran.general.integration.xtextsirius.style.ui.internal.XtextMenuBuilder"/>
-	</extension>
-	
 	<extension point="org.eclipse.sirius.ui.dialectui">
 		<dialectUI class="com.altran.general.integration.xtextsirius.style.ui.internal.XtextDialectUi"/>
 	</extension>

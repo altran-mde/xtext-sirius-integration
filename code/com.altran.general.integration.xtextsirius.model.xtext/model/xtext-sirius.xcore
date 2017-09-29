@@ -49,3 +49,7 @@ interface IXtextPropertyDescription extends IXtextDescription {
 interface IXtextDirectEditDescription extends IXtextDescription {
 	boolean multiLine
 }
+
+interface IXtextDirectEditModelDescription extends IXtextDirectEditDescription, IXtextModelDescription {
+	String[] editableFeatures
+}

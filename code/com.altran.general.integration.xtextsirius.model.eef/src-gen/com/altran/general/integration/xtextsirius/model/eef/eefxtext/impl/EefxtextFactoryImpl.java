@@ -8,7 +8,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFactory;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage;
 
@@ -56,8 +59,14 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 	@Override
 	public EObject create(final EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case EefxtextPackage.EEF_XTEXT_DESCRIPTION:
-				return createEefXtextDescription();
+			case EefxtextPackage.EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION:
+				return createEefXtextSingleLineModelDescription();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION:
+				return createEefXtextMultiLineModelDescription();
+			case EefxtextPackage.EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION:
+				return createEefXtextSingleLineValueDescription();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION:
+				return createEefXtextMultiLineValueDescription();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -69,9 +78,42 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 	 * @generated
 	 */
 	@Override
-	public EefXtextDescription createEefXtextDescription() {
-		final EefXtextDescriptionImpl eefXtextDescription = new EefXtextDescriptionImpl();
-		return eefXtextDescription;
+	public EefXtextSingleLineModelDescription createEefXtextSingleLineModelDescription() {
+		final EefXtextSingleLineModelDescriptionImpl eefXtextSingleLineModelDescription = new EefXtextSingleLineModelDescriptionImpl();
+		return eefXtextSingleLineModelDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EefXtextMultiLineModelDescription createEefXtextMultiLineModelDescription() {
+		final EefXtextMultiLineModelDescriptionImpl eefXtextMultiLineModelDescription = new EefXtextMultiLineModelDescriptionImpl();
+		return eefXtextMultiLineModelDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EefXtextSingleLineValueDescription createEefXtextSingleLineValueDescription() {
+		final EefXtextSingleLineValueDescriptionImpl eefXtextSingleLineValueDescription = new EefXtextSingleLineValueDescriptionImpl();
+		return eefXtextSingleLineValueDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EefXtextMultiLineValueDescription createEefXtextMultiLineValueDescription() {
+		final EefXtextMultiLineValueDescriptionImpl eefXtextMultiLineValueDescription = new EefXtextMultiLineValueDescriptionImpl();
+		return eefXtextMultiLineValueDescription;
 	}
 
 	/**

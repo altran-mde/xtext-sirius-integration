@@ -22,32 +22,24 @@ public interface ViewpointxtextFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Xtext Feature Extension
+	 * Returns a new object of class '<em>Xtext Edge Label Direct Edit Model
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Xtext Feature Extension
+	 * @return a new object of class '<em>Xtext Edge Label Direct Edit Model
 	 *         Description</em>'.
 	 * @generated
 	 */
-	XtextFeatureExtensionDescription createXtextFeatureExtensionDescription();
+	XtextEdgeLabelDirectEditModelDescription createXtextEdgeLabelDirectEditModelDescription();
 
 	/**
-	 * Returns a new object of class '<em>Xtext DFeature Extension</em>'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Xtext Edge Label Direct Edit Value
+	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Xtext DFeature Extension</em>'.
+	 * @return a new object of class '<em>Xtext Edge Label Direct Edit Value
+	 *         Description</em>'.
 	 * @generated
 	 */
-	XtextDFeatureExtension createXtextDFeatureExtension();
-
-	/**
-	 * Returns a new object of class '<em>Xtext Representation Extension</em>'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Xtext Representation Extension</em>'.
-	 * @generated
-	 */
-	XtextRepresentationExtension createXtextRepresentationExtension();
+	XtextEdgeLabelDirectEditValueDescription createXtextEdgeLabelDirectEditValueDescription();
 
 	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc -->

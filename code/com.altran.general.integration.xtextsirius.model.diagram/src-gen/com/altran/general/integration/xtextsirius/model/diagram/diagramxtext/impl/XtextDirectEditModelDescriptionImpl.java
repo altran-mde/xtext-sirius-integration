@@ -9,13 +9,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.sirius.diagram.description.tool.impl.DirectEditLabelImpl;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
@@ -36,7 +35,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  *
  * @generated
  */
-public class XtextDirectEditModelDescriptionImpl extends DirectEditLabelImpl
+public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelImpl
 		implements XtextDirectEditModelDescription {
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
@@ -286,7 +285,7 @@ public class XtextDirectEditModelDescriptionImpl extends DirectEditLabelImpl
 		if (baseClass == IXtextDirectEditModelDescription.class) {
 			switch (derivedFeatureID) {
 				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-					return DiagramxtextPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+					return XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
@@ -325,7 +324,7 @@ public class XtextDirectEditModelDescriptionImpl extends DirectEditLabelImpl
 		}
 		if (baseClass == IXtextDirectEditModelDescription.class) {
 			switch (baseFeatureID) {
-				case DiagramxtextPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				case XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;

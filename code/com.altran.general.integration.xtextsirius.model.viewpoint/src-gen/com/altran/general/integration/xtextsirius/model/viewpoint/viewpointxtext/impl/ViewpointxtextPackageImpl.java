@@ -2,7 +2,6 @@
  */
 package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -14,11 +13,12 @@ import org.eclipse.sirius.viewpoint.description.style.StylePackage;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
 
+import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextFactory;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension;
+import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
@@ -32,21 +32,21 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 	 * 
 	 * @generated
 	 */
-	private EClass xtextFeatureExtensionDescriptionEClass = null;
+	private EClass iXtextEdgeLabelDirectEditDescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private EClass xtextDFeatureExtensionEClass = null;
+	private EClass xtextEdgeLabelDirectEditModelDescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private EClass xtextRepresentationExtensionEClass = null;
+	private EClass xtextEdgeLabelDirectEditValueDescriptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -102,12 +102,13 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 		isInited = true;
 
 		// Initialize simple dependencies
-		DescriptionPackage.eINSTANCE.eClass();
+		XtextsiriusPackage.eINSTANCE.eClass();
 		StylePackage.eINSTANCE.eClass();
-		ViewpointPackage.eINSTANCE.eClass();
-		EcorePackage.eINSTANCE.eClass();
-		ValidationPackage.eINSTANCE.eClass();
 		ToolPackage.eINSTANCE.eClass();
+		DescriptionPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
+		ViewpointPackage.eINSTANCE.eClass();
+		ValidationPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theViewpointxtextPackage.createPackageContents();
@@ -130,8 +131,8 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 	 * @generated
 	 */
 	@Override
-	public EClass getXtextFeatureExtensionDescription() {
-		return this.xtextFeatureExtensionDescriptionEClass;
+	public EClass getIXtextEdgeLabelDirectEditDescription() {
+		return this.iXtextEdgeLabelDirectEditDescriptionEClass;
 	}
 
 	/**
@@ -140,8 +141,8 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 	 * @generated
 	 */
 	@Override
-	public EReference getXtextFeatureExtensionDescription_Label() {
-		return (EReference) this.xtextFeatureExtensionDescriptionEClass.getEStructuralFeatures().get(0);
+	public EReference getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings() {
+		return (EReference) this.iXtextEdgeLabelDirectEditDescriptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -150,8 +151,8 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 	 * @generated
 	 */
 	@Override
-	public EClass getXtextDFeatureExtension() {
-		return this.xtextDFeatureExtensionEClass;
+	public EClass getXtextEdgeLabelDirectEditModelDescription() {
+		return this.xtextEdgeLabelDirectEditModelDescriptionEClass;
 	}
 
 	/**
@@ -160,28 +161,8 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXtextDFeatureExtension_Dumdidum() {
-		return (EAttribute) this.xtextDFeatureExtensionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EClass getXtextRepresentationExtension() {
-		return this.xtextRepresentationExtensionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EAttribute getXtextRepresentationExtension_Lalala() {
-		return (EAttribute) this.xtextRepresentationExtensionEClass.getEStructuralFeatures().get(0);
+	public EClass getXtextEdgeLabelDirectEditValueDescription() {
+		return this.xtextEdgeLabelDirectEditValueDescriptionEClass;
 	}
 
 	/**
@@ -215,14 +196,15 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 		this.isCreated = true;
 
 		// Create classes and their features
-		this.xtextFeatureExtensionDescriptionEClass = createEClass(XTEXT_FEATURE_EXTENSION_DESCRIPTION);
-		createEReference(this.xtextFeatureExtensionDescriptionEClass, XTEXT_FEATURE_EXTENSION_DESCRIPTION__LABEL);
+		this.iXtextEdgeLabelDirectEditDescriptionEClass = createEClass(IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION);
+		createEReference(this.iXtextEdgeLabelDirectEditDescriptionEClass,
+				IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__EDGE_LABEL_MAPPINGS);
 
-		this.xtextDFeatureExtensionEClass = createEClass(XTEXT_DFEATURE_EXTENSION);
-		createEAttribute(this.xtextDFeatureExtensionEClass, XTEXT_DFEATURE_EXTENSION__DUMDIDUM);
+		this.xtextEdgeLabelDirectEditModelDescriptionEClass = createEClass(
+				XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION);
 
-		this.xtextRepresentationExtensionEClass = createEClass(XTEXT_REPRESENTATION_EXTENSION);
-		createEAttribute(this.xtextRepresentationExtensionEClass, XTEXT_REPRESENTATION_EXTENSION__LALALA);
+		this.xtextEdgeLabelDirectEditValueDescriptionEClass = createEClass(
+				XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION);
 	}
 
 	/**
@@ -251,45 +233,45 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final DescriptionPackage theDescriptionPackage = (DescriptionPackage) EPackage.Registry.INSTANCE
-				.getEPackage(DescriptionPackage.eNS_URI);
+		final XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
+				.getEPackage(XtextsiriusPackage.eNS_URI);
 		final StylePackage theStylePackage = (StylePackage) EPackage.Registry.INSTANCE
 				.getEPackage(StylePackage.eNS_URI);
-		final ViewpointPackage theViewpointPackage = (ViewpointPackage) EPackage.Registry.INSTANCE
-				.getEPackage(ViewpointPackage.eNS_URI);
-		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EcorePackage.eNS_URI);
+		final ToolPackage theToolPackage = (ToolPackage) EPackage.Registry.INSTANCE.getEPackage(ToolPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		this.xtextFeatureExtensionDescriptionEClass.getESuperTypes()
-				.add(theDescriptionPackage.getFeatureExtensionDescription());
-		this.xtextDFeatureExtensionEClass.getESuperTypes().add(theViewpointPackage.getDFeatureExtension());
-		this.xtextRepresentationExtensionEClass.getESuperTypes()
-				.add(theDescriptionPackage.getRepresentationExtensionDescription());
+		this.iXtextEdgeLabelDirectEditDescriptionEClass.getESuperTypes()
+				.add(theXtextsiriusPackage.getIXtextDirectEditDescription());
+		this.xtextEdgeLabelDirectEditModelDescriptionEClass.getESuperTypes()
+				.add(theToolPackage.getAbstractToolDescription());
+		this.xtextEdgeLabelDirectEditModelDescriptionEClass.getESuperTypes()
+				.add(getIXtextEdgeLabelDirectEditDescription());
+		this.xtextEdgeLabelDirectEditModelDescriptionEClass.getESuperTypes()
+				.add(theXtextsiriusPackage.getIXtextDirectEditModelDescription());
+		this.xtextEdgeLabelDirectEditValueDescriptionEClass.getESuperTypes()
+				.add(theToolPackage.getAbstractToolDescription());
+		this.xtextEdgeLabelDirectEditValueDescriptionEClass.getESuperTypes()
+				.add(getIXtextEdgeLabelDirectEditDescription());
+		this.xtextEdgeLabelDirectEditValueDescriptionEClass.getESuperTypes()
+				.add(theXtextsiriusPackage.getIXtextValueDescription());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(this.xtextFeatureExtensionDescriptionEClass, XtextFeatureExtensionDescription.class,
-				"XtextFeatureExtensionDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXtextFeatureExtensionDescription_Label(), theStylePackage.getBasicLabelStyleDescription(),
-				null, "label", null, 0, 1, XtextFeatureExtensionDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(this.iXtextEdgeLabelDirectEditDescriptionEClass, IXtextEdgeLabelDirectEditDescription.class,
+				"IXtextEdgeLabelDirectEditDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings(),
+				theStylePackage.getBasicLabelStyleDescription(), null, "edgeLabelMappings", null, 0, -1,
+				IXtextEdgeLabelDirectEditDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(this.xtextDFeatureExtensionEClass, XtextDFeatureExtension.class, "XtextDFeatureExtension",
-				!IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getXtextDFeatureExtension_Dumdidum(), theEcorePackage.getEString(), "dumdidum", null, 0, 1,
-				XtextDFeatureExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(this.xtextEdgeLabelDirectEditModelDescriptionEClass, XtextEdgeLabelDirectEditModelDescription.class,
+				"XtextEdgeLabelDirectEditModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(this.xtextRepresentationExtensionEClass, XtextRepresentationExtension.class,
-				"XtextRepresentationExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getXtextRepresentationExtension_Lalala(), theEcorePackage.getEString(), "lalala", null, 0, 1,
-				XtextRepresentationExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(this.xtextEdgeLabelDirectEditValueDescriptionEClass, XtextEdgeLabelDirectEditValueDescription.class,
+				"XtextEdgeLabelDirectEditValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

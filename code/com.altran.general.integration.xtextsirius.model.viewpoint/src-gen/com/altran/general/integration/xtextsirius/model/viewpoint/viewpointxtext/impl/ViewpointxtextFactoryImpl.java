@@ -10,9 +10,8 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextFactory;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension;
+import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
@@ -58,12 +57,10 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 	@Override
 	public EObject create(final EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ViewpointxtextPackage.XTEXT_FEATURE_EXTENSION_DESCRIPTION:
-				return createXtextFeatureExtensionDescription();
-			case ViewpointxtextPackage.XTEXT_DFEATURE_EXTENSION:
-				return createXtextDFeatureExtension();
-			case ViewpointxtextPackage.XTEXT_REPRESENTATION_EXTENSION:
-				return createXtextRepresentationExtension();
+			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION:
+				return createXtextEdgeLabelDirectEditModelDescription();
+			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION:
+				return createXtextEdgeLabelDirectEditValueDescription();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,9 +72,9 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 	 * @generated
 	 */
 	@Override
-	public XtextFeatureExtensionDescription createXtextFeatureExtensionDescription() {
-		final XtextFeatureExtensionDescriptionImpl xtextFeatureExtensionDescription = new XtextFeatureExtensionDescriptionImpl();
-		return xtextFeatureExtensionDescription;
+	public XtextEdgeLabelDirectEditModelDescription createXtextEdgeLabelDirectEditModelDescription() {
+		final XtextEdgeLabelDirectEditModelDescriptionImpl xtextEdgeLabelDirectEditModelDescription = new XtextEdgeLabelDirectEditModelDescriptionImpl();
+		return xtextEdgeLabelDirectEditModelDescription;
 	}
 
 	/**
@@ -86,20 +83,9 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 	 * @generated
 	 */
 	@Override
-	public XtextDFeatureExtension createXtextDFeatureExtension() {
-		final XtextDFeatureExtensionImpl xtextDFeatureExtension = new XtextDFeatureExtensionImpl();
-		return xtextDFeatureExtension;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public XtextRepresentationExtension createXtextRepresentationExtension() {
-		final XtextRepresentationExtensionImpl xtextRepresentationExtension = new XtextRepresentationExtensionImpl();
-		return xtextRepresentationExtension;
+	public XtextEdgeLabelDirectEditValueDescription createXtextEdgeLabelDirectEditValueDescription() {
+		final XtextEdgeLabelDirectEditValueDescriptionImpl xtextEdgeLabelDirectEditValueDescription = new XtextEdgeLabelDirectEditValueDescriptionImpl();
+		return xtextEdgeLabelDirectEditValueDescription;
 	}
 
 	/**

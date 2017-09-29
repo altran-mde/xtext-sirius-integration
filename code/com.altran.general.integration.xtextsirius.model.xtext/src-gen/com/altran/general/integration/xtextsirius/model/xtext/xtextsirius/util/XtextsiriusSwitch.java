@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
@@ -139,6 +140,23 @@ public class XtextsiriusSwitch<T> {
 				}
 				return result;
 			}
+			case XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION: {
+				final IXtextDirectEditModelDescription iXtextDirectEditModelDescription = (IXtextDirectEditModelDescription) theEObject;
+				T result = caseIXtextDirectEditModelDescription(iXtextDirectEditModelDescription);
+				if (result == null) {
+					result = caseIXtextDirectEditDescription(iXtextDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextModelDescription(iXtextDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(iXtextDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
 			default:
 				return defaultCase(theEObject);
 		}
@@ -226,6 +244,23 @@ public class XtextsiriusSwitch<T> {
 	 * @generated
 	 */
 	public T caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
 		return null;
 	}
 

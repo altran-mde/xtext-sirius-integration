@@ -66,15 +66,153 @@ public interface EefxtextPackage extends EPackage {
 
 	/**
 	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextDescriptionImpl
-	 * <em>Eef Xtext Description</em>}' class. <!-- begin-user-doc --> <!--
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+	 * <em>IEef Xtext Description</em>}' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextDescriptionImpl
-	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextDescription()
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextDescription()
 	 * @generated
 	 */
-	int EEF_XTEXT_DESCRIPTION = 0;
+	int IEEF_XTEXT_DESCRIPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__INJECTOR_ID = 0;
+
+	/**
+	 * The number of structural features of the '<em>IEef Xtext
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+	 * <em>IEef Xtext Model Description</em>}' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextModelDescription()
+	 * @generated
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The number of structural features of the '<em>IEef Xtext Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+	 * <em>IEef Xtext Value Description</em>}' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextValueDescription()
+	 * @generated
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>IEef Xtext Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+	 * <em>IEef Xtext Property Description</em>}' class. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextPropertyDescription()
+	 * @generated
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The number of structural features of the '<em>IEef Xtext Property
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
+	 * <em>Eef Xtext Single Line Model Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextSingleLineModelDescription()
+	 * @generated
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
@@ -83,7 +221,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -92,7 +230,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
@@ -101,7 +239,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
@@ -110,7 +248,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
@@ -119,7 +257,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
 
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
@@ -128,7 +266,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
@@ -137,7 +275,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
@@ -146,7 +284,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -155,7 +293,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
@@ -164,50 +302,569 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
 
 	/**
-	 * The feature id for the '<em><b>Language</b></em>' attribute. <!--
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION__LANGUAGE = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Eef Xtext Description</em>'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Eef Xtext Single Line Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 1;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
+	 * <em>Eef Xtext Multi Line Model Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextMultiLineModelDescription()
+	 * @generated
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Eef Xtext Multi Line Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
+	 * <em>Eef Xtext Single Line Value Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextSingleLineValueDescription()
+	 * @generated
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The number of structural features of the '<em>Eef Xtext Single Line Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
+	 * <em>Eef Xtext Multi Line Value Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextMultiLineValueDescription()
+	 * @generated
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The number of structural features of the '<em>Eef Xtext Multi Line Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 3;
 
 
 	/**
 	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription
-	 * <em>Eef Xtext Description</em>}'. <!-- begin-user-doc --> <!--
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+	 * <em>IEef Xtext Description</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Eef Xtext Description</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription
+	 * @return the meta object for class '<em>IEef Xtext Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
 	 * @generated
 	 */
-	EClass getEefXtextDescription();
+	EClass getIEefXtextDescription();
 
 	/**
 	 * Returns the meta object for the attribute
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription#getLanguage
-	 * <em>Language</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
+	 * <em>Injector Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '<em>Language</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription#getLanguage()
-	 * @see #getEefXtextDescription()
+	 * @return the meta object for the attribute '<em>Injector Id</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId()
+	 * @see #getIEefXtextDescription()
 	 * @generated
 	 */
-	EAttribute getEefXtextDescription_Language();
+	EAttribute getIEefXtextDescription_InjectorId();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+	 * <em>IEef Xtext Model Description</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IEef Xtext Model
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+	 * @generated
+	 */
+	EClass getIEefXtextModelDescription();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+	 * <em>IEef Xtext Value Description</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IEef Xtext Value
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+	 * @generated
+	 */
+	EClass getIEefXtextValueDescription();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
+	 * <em>Prefix Text Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Prefix Text
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression()
+	 * @see #getIEefXtextValueDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextValueDescription_PrefixTextExpression();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
+	 * <em>Suffix Text Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Suffix Text
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression()
+	 * @see #getIEefXtextValueDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextValueDescription_SuffixTextExpression();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+	 * <em>IEef Xtext Property Description</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IEef Xtext Property
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+	 * @generated
+	 */
+	EClass getIEefXtextPropertyDescription();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription
+	 * <em>Eef Xtext Single Line Model Description</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Eef Xtext Single Line Model
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription
+	 * @generated
+	 */
+	EClass getEefXtextSingleLineModelDescription();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription
+	 * <em>Eef Xtext Multi Line Model Description</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Eef Xtext Multi Line Model
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription
+	 * @generated
+	 */
+	EClass getEefXtextMultiLineModelDescription();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription
+	 * <em>Eef Xtext Single Line Value Description</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Eef Xtext Single Line Value
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription
+	 * @generated
+	 */
+	EClass getEefXtextSingleLineValueDescription();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription
+	 * <em>Eef Xtext Multi Line Value Description</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Eef Xtext Multi Line Value
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription
+	 * @generated
+	 */
+	EClass getEefXtextMultiLineValueDescription();
 
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
@@ -234,23 +891,127 @@ public interface EefxtextPackage extends EPackage {
 	interface Literals {
 		/**
 		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextDescriptionImpl
-		 * <em>Eef Xtext Description</em>}' class. <!-- begin-user-doc --> <!--
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+		 * <em>IEef Xtext Description</em>}' class. <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
 		 * 
-		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextDescriptionImpl
-		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextDescription()
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextDescription()
 		 * @generated
 		 */
-		EClass EEF_XTEXT_DESCRIPTION = eINSTANCE.getEefXtextDescription();
+		EClass IEEF_XTEXT_DESCRIPTION = eINSTANCE.getIEefXtextDescription();
 
 		/**
-		 * The meta object literal for the '<em><b>Language</b></em>' attribute
-		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Injector Id</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EAttribute EEF_XTEXT_DESCRIPTION__LANGUAGE = eINSTANCE.getEefXtextDescription_Language();
+		EAttribute IEEF_XTEXT_DESCRIPTION__INJECTOR_ID = eINSTANCE.getIEefXtextDescription_InjectorId();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+		 * <em>IEef Xtext Model Description</em>}' class. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextModelDescription()
+		 * @generated
+		 */
+		EClass IEEF_XTEXT_MODEL_DESCRIPTION = eINSTANCE.getIEefXtextModelDescription();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+		 * <em>IEef Xtext Value Description</em>}' class. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextValueDescription()
+		 * @generated
+		 */
+		EClass IEEF_XTEXT_VALUE_DESCRIPTION = eINSTANCE.getIEefXtextValueDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix Text
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = eINSTANCE
+				.getIEefXtextValueDescription_PrefixTextExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Suffix Text
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = eINSTANCE
+				.getIEefXtextValueDescription_SuffixTextExpression();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+		 * <em>IEef Xtext Property Description</em>}' class. <!-- begin-user-doc
+		 * --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextPropertyDescription()
+		 * @generated
+		 */
+		EClass IEEF_XTEXT_PROPERTY_DESCRIPTION = eINSTANCE.getIEefXtextPropertyDescription();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
+		 * <em>Eef Xtext Single Line Model Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextSingleLineModelDescription()
+		 * @generated
+		 */
+		EClass EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = eINSTANCE.getEefXtextSingleLineModelDescription();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
+		 * <em>Eef Xtext Multi Line Model Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextMultiLineModelDescription()
+		 * @generated
+		 */
+		EClass EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION = eINSTANCE.getEefXtextMultiLineModelDescription();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
+		 * <em>Eef Xtext Single Line Value Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextSingleLineValueDescription()
+		 * @generated
+		 */
+		EClass EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = eINSTANCE.getEefXtextSingleLineValueDescription();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
+		 * <em>Eef Xtext Multi Line Value Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextMultiLineValueDescription()
+		 * @generated
+		 */
+		EClass EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION = eINSTANCE.getEefXtextMultiLineValueDescription();
 
 	}
 

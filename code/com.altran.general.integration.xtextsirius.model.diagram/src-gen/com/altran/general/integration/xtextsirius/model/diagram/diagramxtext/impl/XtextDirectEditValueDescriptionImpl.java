@@ -2,23 +2,9 @@
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
-import org.eclipse.sirius.diagram.description.DescriptionPackage;
-import org.eclipse.sirius.diagram.description.DiagramElementMapping;
-import org.eclipse.sirius.diagram.description.tool.impl.DirectEditLabelImpl;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
@@ -46,124 +32,124 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  *
  * @generated
  */
-public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
+public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelImpl
 		implements XtextDirectEditValueDescription {
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getInjectorId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String INJECTOR_ID_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #getInjectorId()
 	 * @generated
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
-	
+
 	/**
 	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #isMultiLine()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final boolean MULTI_LINE_EDEFAULT = false;
-	
+
 	/**
 	 * The cached value of the '{@link #isMultiLine() <em>Multi Line</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #isMultiLine()
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean multiLine = MULTI_LINE_EDEFAULT;
-	
+
 	/**
 	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * 
 	 * @see #getPrefixTextExpression()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * 
 	 * @see #getPrefixTextExpression()
 	 * @generated
 	 * @ordered
 	 */
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
-	
+
 	/**
 	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * 
 	 * @see #getSuffixTextExpression()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * 
 	 * @see #getSuffixTextExpression()
 	 * @generated
 	 * @ordered
 	 */
 	protected String suffixTextExpression = SUFFIX_TEXT_EXPRESSION_EDEFAULT;
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected XtextDirectEditValueDescriptionImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
 		return DiagramxtextPackage.Literals.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getInjectorId() {
 		return this.injectorId;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -176,20 +162,20 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 					this.injectorId));
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -201,20 +187,20 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 					DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE, oldMultiLine, this.multiLine));
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getPrefixTextExpression() {
 		return this.prefixTextExpression;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -227,20 +213,20 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 					oldPrefixTextExpression, this.prefixTextExpression));
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getSuffixTextExpression() {
 		return this.suffixTextExpression;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -253,10 +239,10 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 					oldSuffixTextExpression, this.suffixTextExpression));
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -273,10 +259,10 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -297,10 +283,10 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 		}
 		super.eSet(featureID, newValue);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -321,10 +307,10 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 		}
 		super.eUnset(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -344,10 +330,10 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -380,10 +366,10 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -416,10 +402,10 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -427,7 +413,7 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 		if (eIsProxy()) {
 			return super.toString();
 		}
-		
+
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
@@ -440,28 +426,5 @@ public class XtextDirectEditValueDescriptionImpl extends DirectEditLabelImpl
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override
-	public EList<DiagramElementMapping> getMapping() {
-		final Resource r = this.eResource();
-		if (r == null) {
-			throw new UnsupportedOperationException();
-		}
-		final ECrossReferenceAdapter crossReferencer = ECrossReferenceAdapter.getCrossReferenceAdapter(r);
-		if (crossReferencer == null) {
-			throw new UnsupportedOperationException();
-		}
-		final List<DiagramElementMapping> diagramElementMappings = new LinkedList<>();
-		final Collection<Setting> settings = crossReferencer.getInverseReferences(this, true);
-		for (final Setting setting : settings) {
-			final EObject eReferencer = setting.getEObject();
-			final EStructuralFeature eFeature = setting.getEStructuralFeature();
-			if (eReferencer instanceof DiagramElementMapping
-					&& eFeature.equals(DescriptionPackage.eINSTANCE.getDiagramElementMapping_LabelDirectEdit())) {
-				diagramElementMappings.add((DiagramElementMapping) eReferencer);
-			}
-		}
-		return new BasicEList<>(diagramElementMappings);
-	}
-	
+
 } // XtextDirectEditValueDescriptionImpl

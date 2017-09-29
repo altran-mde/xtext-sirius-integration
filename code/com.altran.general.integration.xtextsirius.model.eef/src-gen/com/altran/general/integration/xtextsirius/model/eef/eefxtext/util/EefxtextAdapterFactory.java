@@ -10,8 +10,15 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides
@@ -69,8 +76,43 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected EefxtextSwitch<Adapter> modelSwitch = new EefxtextSwitch<Adapter>() {
 		@Override
-		public Adapter caseEefXtextDescription(final EefXtextDescription object) {
-			return createEefXtextDescriptionAdapter();
+		public Adapter caseIEefXtextDescription(final IEefXtextDescription object) {
+			return createIEefXtextDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIEefXtextModelDescription(final IEefXtextModelDescription object) {
+			return createIEefXtextModelDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIEefXtextValueDescription(final IEefXtextValueDescription object) {
+			return createIEefXtextValueDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIEefXtextPropertyDescription(final IEefXtextPropertyDescription object) {
+			return createIEefXtextPropertyDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseEefXtextSingleLineModelDescription(final EefXtextSingleLineModelDescription object) {
+			return createEefXtextSingleLineModelDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseEefXtextMultiLineModelDescription(final EefXtextMultiLineModelDescription object) {
+			return createEefXtextMultiLineModelDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseEefXtextSingleLineValueDescription(final EefXtextSingleLineValueDescription object) {
+			return createEefXtextSingleLineValueDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseEefXtextMultiLineValueDescription(final EefXtextMultiLineValueDescription object) {
+			return createEefXtextMultiLineValueDescriptionAdapter();
 		}
 
 		@Override
@@ -111,17 +153,129 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription
-	 * <em>Eef Xtext Description</em>}'. <!-- begin-user-doc --> This default
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+	 * <em>IEef Xtext Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
 	 * @generated
 	 */
-	public Adapter createEefXtextDescriptionAdapter() {
+	public Adapter createIEefXtextDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+	 * <em>IEef Xtext Model Description</em>}'. <!-- begin-user-doc --> This
+	 * default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases
+	 * anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+	 * @generated
+	 */
+	public Adapter createIEefXtextModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+	 * <em>IEef Xtext Value Description</em>}'. <!-- begin-user-doc --> This
+	 * default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases
+	 * anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+	 * @generated
+	 */
+	public Adapter createIEefXtextValueDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+	 * <em>IEef Xtext Property Description</em>}'. <!-- begin-user-doc --> This
+	 * default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases
+	 * anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+	 * @generated
+	 */
+	public Adapter createIEefXtextPropertyDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription
+	 * <em>Eef Xtext Single Line Model Description</em>}'. <!-- begin-user-doc
+	 * --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription
+	 * @generated
+	 */
+	public Adapter createEefXtextSingleLineModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription
+	 * <em>Eef Xtext Multi Line Model Description</em>}'. <!-- begin-user-doc
+	 * --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription
+	 * @generated
+	 */
+	public Adapter createEefXtextMultiLineModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription
+	 * <em>Eef Xtext Single Line Value Description</em>}'. <!-- begin-user-doc
+	 * --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription
+	 * @generated
+	 */
+	public Adapter createEefXtextSingleLineValueDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription
+	 * <em>Eef Xtext Multi Line Value Description</em>}'. <!-- begin-user-doc
+	 * --> This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription
+	 * @generated
+	 */
+	public Adapter createEefXtextMultiLineValueDescriptionAdapter() {
 		return null;
 	}
 

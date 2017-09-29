@@ -6,14 +6,20 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.viewpoint.DFeatureExtension;
-import org.eclipse.sirius.viewpoint.description.FeatureExtensionDescription;
-import org.eclipse.sirius.viewpoint.description.RepresentationExtensionDescription;
+import org.eclipse.sirius.viewpoint.description.DocumentedElement;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
+import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
+import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
 
+import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextDFeatureExtension;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextFeatureExtensionDescription;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextRepresentationExtension;
+import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance
@@ -88,33 +94,81 @@ public class ViewpointxtextSwitch<T> {
 	 */
 	protected T doSwitch(final int classifierID, final EObject theEObject) {
 		switch (classifierID) {
-			case ViewpointxtextPackage.XTEXT_FEATURE_EXTENSION_DESCRIPTION: {
-				final XtextFeatureExtensionDescription xtextFeatureExtensionDescription = (XtextFeatureExtensionDescription) theEObject;
-				T result = caseXtextFeatureExtensionDescription(xtextFeatureExtensionDescription);
+			case ViewpointxtextPackage.IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION: {
+				final IXtextEdgeLabelDirectEditDescription iXtextEdgeLabelDirectEditDescription = (IXtextEdgeLabelDirectEditDescription) theEObject;
+				T result = caseIXtextEdgeLabelDirectEditDescription(iXtextEdgeLabelDirectEditDescription);
 				if (result == null) {
-					result = caseFeatureExtensionDescription(xtextFeatureExtensionDescription);
+					result = caseIXtextDirectEditDescription(iXtextEdgeLabelDirectEditDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(iXtextEdgeLabelDirectEditDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
 				}
 				return result;
 			}
-			case ViewpointxtextPackage.XTEXT_DFEATURE_EXTENSION: {
-				final XtextDFeatureExtension xtextDFeatureExtension = (XtextDFeatureExtension) theEObject;
-				T result = caseXtextDFeatureExtension(xtextDFeatureExtension);
+			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION: {
+				final XtextEdgeLabelDirectEditModelDescription xtextEdgeLabelDirectEditModelDescription = (XtextEdgeLabelDirectEditModelDescription) theEObject;
+				T result = caseXtextEdgeLabelDirectEditModelDescription(xtextEdgeLabelDirectEditModelDescription);
 				if (result == null) {
-					result = caseDFeatureExtension(xtextDFeatureExtension);
+					result = caseAbstractToolDescription(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextEdgeLabelDirectEditDescription(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDirectEditModelDescription(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseToolEntry(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDirectEditDescription(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextModelDescription(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseDocumentedElement(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIdentifiedElement(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(xtextEdgeLabelDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
 				}
 				return result;
 			}
-			case ViewpointxtextPackage.XTEXT_REPRESENTATION_EXTENSION: {
-				final XtextRepresentationExtension xtextRepresentationExtension = (XtextRepresentationExtension) theEObject;
-				T result = caseXtextRepresentationExtension(xtextRepresentationExtension);
+			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION: {
+				final XtextEdgeLabelDirectEditValueDescription xtextEdgeLabelDirectEditValueDescription = (XtextEdgeLabelDirectEditValueDescription) theEObject;
+				T result = caseXtextEdgeLabelDirectEditValueDescription(xtextEdgeLabelDirectEditValueDescription);
 				if (result == null) {
-					result = caseRepresentationExtensionDescription(xtextRepresentationExtension);
+					result = caseAbstractToolDescription(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextEdgeLabelDirectEditDescription(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextValueDescription(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseToolEntry(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDirectEditDescription(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseDocumentedElement(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseIdentifiedElement(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(xtextEdgeLabelDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
@@ -128,103 +182,205 @@ public class ViewpointxtextSwitch<T> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext Feature Extension Description</em>'. <!-- begin-user-doc -->
+	 * '<em>IXtext Edge Label Direct Edit Description</em>'. <!-- begin-user-doc
+	 * --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Edge Label Direct Edit Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextEdgeLabelDirectEditDescription(final IXtextEdgeLabelDirectEditDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Edge Label Direct Edit Model Description</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null
+	 * result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Edge Label Direct Edit Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXtextEdgeLabelDirectEditModelDescription(final XtextEdgeLabelDirectEditModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Edge Label Direct Edit Value Description</em>'. <!--
+	 * begin-user-doc --> This implementation returns null; returning a non-null
+	 * result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Edge Label Direct Edit Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXtextEdgeLabelDirectEditValueDescription(final XtextEdgeLabelDirectEditValueDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextDescription(final IXtextDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Documented Element</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Documented Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDocumentedElement(final DocumentedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Identified Element</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Identified Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiedElement(final IdentifiedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Entry</em>'. <!-- begin-user-doc --> This implementation returns
+	 * null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseToolEntry(final ToolEntry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Abstract Tool Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Abstract Tool Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractToolDescription(final AbstractToolDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextModelDescription(final IXtextModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext Feature Extension Description</em>'.
+	 *         '<em>IXtext Direct Edit Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXtextFeatureExtensionDescription(final XtextFeatureExtensionDescription object) {
+	public T caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
 		return null;
 	}
 
 	/**
 	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext DFeature Extension</em>'. <!-- begin-user-doc --> This
+	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext DFeature Extension</em>'.
+	 *         '<em>IXtext Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXtextDFeatureExtension(final XtextDFeatureExtension object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext Representation Extension</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext Representation Extension</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXtextRepresentationExtension(final XtextRepresentationExtension object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Feature Extension Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Feature Extension Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFeatureExtensionDescription(final FeatureExtensionDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>DFeature Extension</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>DFeature Extension</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDFeatureExtension(final DFeatureExtension object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Representation Extension Description</em>'. <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will
-	 * terminate the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Representation Extension Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRepresentationExtensionDescription(final RepresentationExtensionDescription object) {
+	public T caseIXtextValueDescription(final IXtextValueDescription object) {
 		return null;
 	}
 

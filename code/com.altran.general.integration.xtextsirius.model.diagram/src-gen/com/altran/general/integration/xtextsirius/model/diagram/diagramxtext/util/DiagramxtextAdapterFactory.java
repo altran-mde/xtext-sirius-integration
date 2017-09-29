@@ -6,29 +6,20 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.diagram.description.style.BeginLabelStyleDescription;
-import org.eclipse.sirius.diagram.description.style.CenterLabelStyleDescription;
-import org.eclipse.sirius.diagram.description.style.EndLabelStyleDescription;
 import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
 import org.eclipse.sirius.viewpoint.description.DocumentedElement;
 import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
-import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription;
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
 import org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription;
 import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.IXtextDirectEditModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleValueDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleValueDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 
@@ -88,8 +79,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected DiagramxtextSwitch<Adapter> modelSwitch = new DiagramxtextSwitch<Adapter>() {
 		@Override
-		public Adapter caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
-			return createIXtextDirectEditModelDescriptionAdapter();
+		public Adapter caseAXtextDirectEditLabel(final AXtextDirectEditLabel object) {
+			return createAXtextDirectEditLabelAdapter();
 		}
 
 		@Override
@@ -100,51 +91,6 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseXtextDirectEditValueDescription(final XtextDirectEditValueDescription object) {
 			return createXtextDirectEditValueDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseXtextBeginLabelStyleModelDescription(final XtextBeginLabelStyleModelDescription object) {
-			return createXtextBeginLabelStyleModelDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseXtextBeginLabelStyleValueDescription(final XtextBeginLabelStyleValueDescription object) {
-			return createXtextBeginLabelStyleValueDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseXtextCenterLabelStyleModelDescription(final XtextCenterLabelStyleModelDescription object) {
-			return createXtextCenterLabelStyleModelDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseXtextCenterLabelStyleValueDescription(final XtextCenterLabelStyleValueDescription object) {
-			return createXtextCenterLabelStyleValueDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseXtextEndLabelStyleModelDescription(final XtextEndLabelStyleModelDescription object) {
-			return createXtextEndLabelStyleModelDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseXtextEndLabelStyleValueDescription(final XtextEndLabelStyleValueDescription object) {
-			return createXtextEndLabelStyleValueDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseIXtextDescription(final IXtextDescription object) {
-			return createIXtextDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
-			return createIXtextDirectEditDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseIXtextModelDescription(final IXtextModelDescription object) {
-			return createIXtextModelDescriptionAdapter();
 		}
 
 		@Override
@@ -178,28 +124,28 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseIXtextDescription(final IXtextDescription object) {
+			return createIXtextDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
+			return createIXtextDirectEditDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextModelDescription(final IXtextModelDescription object) {
+			return createIXtextModelDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
+			return createIXtextDirectEditModelDescriptionAdapter();
+		}
+
+		@Override
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseBasicLabelStyleDescription(final BasicLabelStyleDescription object) {
-			return createBasicLabelStyleDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseBeginLabelStyleDescription(final BeginLabelStyleDescription object) {
-			return createBeginLabelStyleDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseCenterLabelStyleDescription(final CenterLabelStyleDescription object) {
-			return createCenterLabelStyleDescriptionAdapter();
-		}
-
-		@Override
-		public Adapter caseEndLabelStyleDescription(final EndLabelStyleDescription object) {
-			return createEndLabelStyleDescriptionAdapter();
 		}
 
 		@Override
@@ -225,17 +171,17 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.IXtextDirectEditModelDescription
-	 * <em>IXtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the
-	 * cases anyway. <!-- end-user-doc -->
+	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
+	 * <em>AXtext Direct Edit Label</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.IXtextDirectEditModelDescription
+	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
 	 * @generated
 	 */
-	public Adapter createIXtextDirectEditModelDescriptionAdapter() {
+	public Adapter createAXtextDirectEditLabelAdapter() {
 		return null;
 	}
 
@@ -268,150 +214,6 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXtextDirectEditValueDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleModelDescription
-	 * <em>Xtext Begin Label Style Model Description</em>}'. <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the
-	 * cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleModelDescription
-	 * @generated
-	 */
-	public Adapter createXtextBeginLabelStyleModelDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleValueDescription
-	 * <em>Xtext Begin Label Style Value Description</em>}'. <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the
-	 * cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleValueDescription
-	 * @generated
-	 */
-	public Adapter createXtextBeginLabelStyleValueDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleModelDescription
-	 * <em>Xtext Center Label Style Model Description</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we
-	 * can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleModelDescription
-	 * @generated
-	 */
-	public Adapter createXtextCenterLabelStyleModelDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleValueDescription
-	 * <em>Xtext Center Label Style Value Description</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we
-	 * can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleValueDescription
-	 * @generated
-	 */
-	public Adapter createXtextCenterLabelStyleValueDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleModelDescription
-	 * <em>Xtext End Label Style Model Description</em>}'. <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the
-	 * cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleModelDescription
-	 * @generated
-	 */
-	public Adapter createXtextEndLabelStyleModelDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleValueDescription
-	 * <em>Xtext End Label Style Value Description</em>}'. <!-- begin-user-doc
-	 * --> This default implementation returns null so that we can easily ignore
-	 * cases; it's useful to ignore a case when inheritance will catch all the
-	 * cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleValueDescription
-	 * @generated
-	 */
-	public Adapter createXtextEndLabelStyleValueDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
-	 * <em>IXtext Description</em>}'. <!-- begin-user-doc --> This default
-	 * implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
-	 * @generated
-	 */
-	public Adapter createIXtextDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
-	 * <em>IXtext Direct Edit Description</em>}'. <!-- begin-user-doc --> This
-	 * default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases
-	 * anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
-	 * @generated
-	 */
-	public Adapter createIXtextDirectEditDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
-	 * <em>IXtext Model Description</em>}'. <!-- begin-user-doc --> This default
-	 * implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
-	 * @generated
-	 */
-	public Adapter createIXtextModelDescriptionAdapter() {
 		return null;
 	}
 
@@ -513,6 +315,70 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
+	 * <em>IXtext Description</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
+	 * @generated
+	 */
+	public Adapter createIXtextDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
+	 * <em>IXtext Direct Edit Description</em>}'. <!-- begin-user-doc --> This
+	 * default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases
+	 * anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
+	 * @generated
+	 */
+	public Adapter createIXtextDirectEditDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
+	 * <em>IXtext Model Description</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
+	 * @generated
+	 */
+	public Adapter createIXtextModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * <em>IXtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * @generated
+	 */
+	public Adapter createIXtextDirectEditModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 	 * <em>IXtext Value Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
@@ -524,70 +390,6 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIXtextValueDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription
-	 * <em>Basic Label Style Description</em>}'. <!-- begin-user-doc --> This
-	 * default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases
-	 * anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription
-	 * @generated
-	 */
-	public Adapter createBasicLabelStyleDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link org.eclipse.sirius.diagram.description.style.BeginLabelStyleDescription
-	 * <em>Begin Label Style Description</em>}'. <!-- begin-user-doc --> This
-	 * default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases
-	 * anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.sirius.diagram.description.style.BeginLabelStyleDescription
-	 * @generated
-	 */
-	public Adapter createBeginLabelStyleDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link org.eclipse.sirius.diagram.description.style.CenterLabelStyleDescription
-	 * <em>Center Label Style Description</em>}'. <!-- begin-user-doc --> This
-	 * default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases
-	 * anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.sirius.diagram.description.style.CenterLabelStyleDescription
-	 * @generated
-	 */
-	public Adapter createCenterLabelStyleDescriptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class
-	 * '{@link org.eclipse.sirius.diagram.description.style.EndLabelStyleDescription
-	 * <em>End Label Style Description</em>}'. <!-- begin-user-doc --> This
-	 * default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases
-	 * anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.sirius.diagram.description.style.EndLabelStyleDescription
-	 * @generated
-	 */
-	public Adapter createEndLabelStyleDescriptionAdapter() {
 		return null;
 	}
 

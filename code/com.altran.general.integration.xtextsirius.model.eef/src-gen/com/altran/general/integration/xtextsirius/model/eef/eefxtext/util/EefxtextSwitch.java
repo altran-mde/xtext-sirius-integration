@@ -10,8 +10,15 @@ import org.eclipse.eef.EEFWidgetDescription;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance
@@ -86,17 +93,145 @@ public class EefxtextSwitch<T> {
 	 */
 	protected T doSwitch(final int classifierID, final EObject theEObject) {
 		switch (classifierID) {
-			case EefxtextPackage.EEF_XTEXT_DESCRIPTION: {
-				final EefXtextDescription eefXtextDescription = (EefXtextDescription) theEObject;
-				T result = caseEefXtextDescription(eefXtextDescription);
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION: {
+				final IEefXtextDescription iEefXtextDescription = (IEefXtextDescription) theEObject;
+				T result = caseIEefXtextDescription(iEefXtextDescription);
 				if (result == null) {
-					result = caseEEFTextDescription(eefXtextDescription);
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION: {
+				final IEefXtextModelDescription iEefXtextModelDescription = (IEefXtextModelDescription) theEObject;
+				T result = caseIEefXtextModelDescription(iEefXtextModelDescription);
+				if (result == null) {
+					result = caseIEefXtextDescription(iEefXtextModelDescription);
 				}
 				if (result == null) {
-					result = caseEEFWidgetDescription(eefXtextDescription);
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case EefxtextPackage.IEEF_XTEXT_VALUE_DESCRIPTION: {
+				final IEefXtextValueDescription iEefXtextValueDescription = (IEefXtextValueDescription) theEObject;
+				T result = caseIEefXtextValueDescription(iEefXtextValueDescription);
+				if (result == null) {
+					result = caseIEefXtextDescription(iEefXtextValueDescription);
 				}
 				if (result == null) {
-					result = caseEEFControlDescription(eefXtextDescription);
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case EefxtextPackage.IEEF_XTEXT_PROPERTY_DESCRIPTION: {
+				final IEefXtextPropertyDescription iEefXtextPropertyDescription = (IEefXtextPropertyDescription) theEObject;
+				T result = caseIEefXtextPropertyDescription(iEefXtextPropertyDescription);
+				if (result == null) {
+					result = caseIEefXtextDescription(iEefXtextPropertyDescription);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case EefxtextPackage.EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION: {
+				final EefXtextSingleLineModelDescription eefXtextSingleLineModelDescription = (EefXtextSingleLineModelDescription) theEObject;
+				T result = caseEefXtextSingleLineModelDescription(eefXtextSingleLineModelDescription);
+				if (result == null) {
+					result = caseEEFTextDescription(eefXtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextPropertyDescription(eefXtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextModelDescription(eefXtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(eefXtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextDescription(eefXtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFControlDescription(eefXtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION: {
+				final EefXtextMultiLineModelDescription eefXtextMultiLineModelDescription = (EefXtextMultiLineModelDescription) theEObject;
+				T result = caseEefXtextMultiLineModelDescription(eefXtextMultiLineModelDescription);
+				if (result == null) {
+					result = caseEEFTextDescription(eefXtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextPropertyDescription(eefXtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextModelDescription(eefXtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(eefXtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextDescription(eefXtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFControlDescription(eefXtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case EefxtextPackage.EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION: {
+				final EefXtextSingleLineValueDescription eefXtextSingleLineValueDescription = (EefXtextSingleLineValueDescription) theEObject;
+				T result = caseEefXtextSingleLineValueDescription(eefXtextSingleLineValueDescription);
+				if (result == null) {
+					result = caseEEFTextDescription(eefXtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextPropertyDescription(eefXtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextValueDescription(eefXtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(eefXtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextDescription(eefXtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseEEFControlDescription(eefXtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION: {
+				final EefXtextMultiLineValueDescription eefXtextMultiLineValueDescription = (EefXtextMultiLineValueDescription) theEObject;
+				T result = caseEefXtextMultiLineValueDescription(eefXtextMultiLineValueDescription);
+				if (result == null) {
+					result = caseEEFTextDescription(eefXtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextPropertyDescription(eefXtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextValueDescription(eefXtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(eefXtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseIEefXtextDescription(eefXtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseEEFControlDescription(eefXtextMultiLineValueDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
@@ -109,19 +244,138 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Eef
+	 * Returns the result of interpreting the object as an instance of '<em>IEef
 	 * Xtext Description</em>'. <!-- begin-user-doc --> This implementation
 	 * returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Eef
+	 * @return the result of interpreting the object as an instance of '<em>IEef
 	 *         Xtext Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEefXtextDescription(final EefXtextDescription object) {
+	public T caseIEefXtextDescription(final IEefXtextDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IEef
+	 * Xtext Model Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IEef
+	 *         Xtext Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIEefXtextModelDescription(final IEefXtextModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IEef
+	 * Xtext Value Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IEef
+	 *         Xtext Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIEefXtextValueDescription(final IEefXtextValueDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IEef
+	 * Xtext Property Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IEef
+	 *         Xtext Property Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIEefXtextPropertyDescription(final IEefXtextPropertyDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Eef
+	 * Xtext Single Line Model Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Eef
+	 *         Xtext Single Line Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEefXtextSingleLineModelDescription(final EefXtextSingleLineModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Eef
+	 * Xtext Multi Line Model Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Eef
+	 *         Xtext Multi Line Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEefXtextMultiLineModelDescription(final EefXtextMultiLineModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Eef
+	 * Xtext Single Line Value Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Eef
+	 *         Xtext Single Line Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEefXtextSingleLineValueDescription(final EefXtextSingleLineValueDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Eef
+	 * Xtext Multi Line Value Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Eef
+	 *         Xtext Multi Line Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEefXtextMultiLineValueDescription(final EefXtextMultiLineValueDescription object) {
 		return null;
 	}
 

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
@@ -92,6 +93,11 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
 			return createIXtextDirectEditDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
+			return createIXtextDirectEditModelDescriptionAdapter();
 		}
 
 		@Override
@@ -192,6 +198,22 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIXtextDirectEditDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * <em>IXtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * @generated
+	 */
+	public Adapter createIXtextDirectEditModelDescriptionAdapter() {
 		return null;
 	}
 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+		<propertySections contributorId="org.eclipse.sirius.editor.editorPlugin.SiriusEditorContributor">
+			<propertySection
+				afterSection="properties.section.widgetDescription.IsEnabledExpression"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.injectorid.XtextDescriptionInjectorIdPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.injectorid.XtextDescriptionInjectorIdFilter"
+				id="properties.section.xtextDescription.injectorId"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.prefixtext.XtextValueDescriptionPrefixTextPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.prefixtext.XtextValueDescriptionPrefixTextFilter"
+				id="properties.section.xtextValueDescription.prefixText"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextValueDescription.prefixText"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.suffixtext.XtextValueDescriptionSuffixTextPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.suffixtext.XtextValueDescriptionSuffixTextFilter"
+				id="properties.section.xtextValueDescription.suffixText"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.editablefeatures.XtextDirectEditModelDescriptionEditableFeaturesPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.editablefeatures.XtextDirectEditModelDescriptionEditableFeaturesFilter"
+				id="properties.section.xtextDirectEditModelDescription.editableFeatures"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.multiline.XtextDirectEditDescriptionMultiLinePropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.multiline.XtextDirectEditDescriptionMultiLineFilter"
+				id="properties.section.xtextDirectEditDescription.multiLine"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.edgelabelmappings.XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.edgelabelmappings.XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsFilter"
+				id="properties.section.xtextEdgeLabelDirectEditDescription.edgeLabelMapping"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription"/>
+			</propertySection>
+			
+		</propertySections>
+	</extension>
+</plugin>

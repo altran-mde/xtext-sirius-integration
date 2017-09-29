@@ -8,15 +8,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.sirius.diagram.description.tool.provider.DirectEditLabelItemProvider;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
@@ -31,9 +27,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * @generated
  */
 public class XtextDirectEditModelDescriptionItemProvider
-		extends DirectEditLabelItemProvider
-		implements
-		IItemStyledLabelProvider {
+		extends AXtextDirectEditLabelItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -122,7 +116,7 @@ public class XtextDirectEditModelDescriptionItemProvider
 						getString("_UI_PropertyDescriptor_description",
 								"_UI_IXtextDirectEditModelDescription_editableFeatures_feature",
 								"_UI_IXtextDirectEditModelDescription_type"),
-						DiagramxtextPackage.Literals.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
+						XtextsiriusPackage.Literals.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
 						true,
 						false,
 						false,
@@ -231,17 +225,6 @@ public class XtextDirectEditModelDescriptionItemProvider
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
 	}
 
 }

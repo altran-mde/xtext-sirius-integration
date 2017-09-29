@@ -6,29 +6,20 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.diagram.description.style.BeginLabelStyleDescription;
-import org.eclipse.sirius.diagram.description.style.CenterLabelStyleDescription;
-import org.eclipse.sirius.diagram.description.style.EndLabelStyleDescription;
 import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
 import org.eclipse.sirius.viewpoint.description.DocumentedElement;
 import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
-import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription;
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
 import org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription;
 import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.IXtextDirectEditModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleValueDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleValueDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 
@@ -105,17 +96,26 @@ public class DiagramxtextSwitch<T> {
 	 */
 	protected T doSwitch(final int classifierID, final EObject theEObject) {
 		switch (classifierID) {
-			case DiagramxtextPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION: {
-				final IXtextDirectEditModelDescription iXtextDirectEditModelDescription = (IXtextDirectEditModelDescription) theEObject;
-				T result = caseIXtextDirectEditModelDescription(iXtextDirectEditModelDescription);
+			case DiagramxtextPackage.AXTEXT_DIRECT_EDIT_LABEL: {
+				final AXtextDirectEditLabel aXtextDirectEditLabel = (AXtextDirectEditLabel) theEObject;
+				T result = caseAXtextDirectEditLabel(aXtextDirectEditLabel);
 				if (result == null) {
-					result = caseIXtextDirectEditDescription(iXtextDirectEditModelDescription);
+					result = caseDirectEditLabel(aXtextDirectEditLabel);
 				}
 				if (result == null) {
-					result = caseIXtextModelDescription(iXtextDirectEditModelDescription);
+					result = caseMappingBasedToolDescription(aXtextDirectEditLabel);
 				}
 				if (result == null) {
-					result = caseIXtextDescription(iXtextDirectEditModelDescription);
+					result = caseAbstractToolDescription(aXtextDirectEditLabel);
+				}
+				if (result == null) {
+					result = caseToolEntry(aXtextDirectEditLabel);
+				}
+				if (result == null) {
+					result = caseDocumentedElement(aXtextDirectEditLabel);
+				}
+				if (result == null) {
+					result = caseIdentifiedElement(aXtextDirectEditLabel);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
@@ -126,13 +126,13 @@ public class DiagramxtextSwitch<T> {
 				final XtextDirectEditModelDescription xtextDirectEditModelDescription = (XtextDirectEditModelDescription) theEObject;
 				T result = caseXtextDirectEditModelDescription(xtextDirectEditModelDescription);
 				if (result == null) {
-					result = caseDirectEditLabel(xtextDirectEditModelDescription);
+					result = caseAXtextDirectEditLabel(xtextDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDirectEditModelDescription(xtextDirectEditModelDescription);
 				}
 				if (result == null) {
-					result = caseMappingBasedToolDescription(xtextDirectEditModelDescription);
+					result = caseDirectEditLabel(xtextDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDirectEditDescription(xtextDirectEditModelDescription);
@@ -141,10 +141,13 @@ public class DiagramxtextSwitch<T> {
 					result = caseIXtextModelDescription(xtextDirectEditModelDescription);
 				}
 				if (result == null) {
-					result = caseAbstractToolDescription(xtextDirectEditModelDescription);
+					result = caseMappingBasedToolDescription(xtextDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDescription(xtextDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseAbstractToolDescription(xtextDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = caseToolEntry(xtextDirectEditModelDescription);
@@ -164,7 +167,7 @@ public class DiagramxtextSwitch<T> {
 				final XtextDirectEditValueDescription xtextDirectEditValueDescription = (XtextDirectEditValueDescription) theEObject;
 				T result = caseXtextDirectEditValueDescription(xtextDirectEditValueDescription);
 				if (result == null) {
-					result = caseDirectEditLabel(xtextDirectEditValueDescription);
+					result = caseAXtextDirectEditLabel(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDirectEditDescription(xtextDirectEditValueDescription);
@@ -173,10 +176,13 @@ public class DiagramxtextSwitch<T> {
 					result = caseIXtextValueDescription(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
-					result = caseMappingBasedToolDescription(xtextDirectEditValueDescription);
+					result = caseDirectEditLabel(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDescription(xtextDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseMappingBasedToolDescription(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseAbstractToolDescription(xtextDirectEditValueDescription);
@@ -195,153 +201,6 @@ public class DiagramxtextSwitch<T> {
 				}
 				return result;
 			}
-			case DiagramxtextPackage.XTEXT_BEGIN_LABEL_STYLE_MODEL_DESCRIPTION: {
-				final XtextBeginLabelStyleModelDescription xtextBeginLabelStyleModelDescription = (XtextBeginLabelStyleModelDescription) theEObject;
-				T result = caseXtextBeginLabelStyleModelDescription(xtextBeginLabelStyleModelDescription);
-				if (result == null) {
-					result = caseBeginLabelStyleDescription(xtextBeginLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditModelDescription(xtextBeginLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseBasicLabelStyleDescription(xtextBeginLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditDescription(xtextBeginLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextModelDescription(xtextBeginLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDescription(xtextBeginLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
-				return result;
-			}
-			case DiagramxtextPackage.XTEXT_BEGIN_LABEL_STYLE_VALUE_DESCRIPTION: {
-				final XtextBeginLabelStyleValueDescription xtextBeginLabelStyleValueDescription = (XtextBeginLabelStyleValueDescription) theEObject;
-				T result = caseXtextBeginLabelStyleValueDescription(xtextBeginLabelStyleValueDescription);
-				if (result == null) {
-					result = caseBeginLabelStyleDescription(xtextBeginLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditDescription(xtextBeginLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextValueDescription(xtextBeginLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseBasicLabelStyleDescription(xtextBeginLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDescription(xtextBeginLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
-				return result;
-			}
-			case DiagramxtextPackage.XTEXT_CENTER_LABEL_STYLE_MODEL_DESCRIPTION: {
-				final XtextCenterLabelStyleModelDescription xtextCenterLabelStyleModelDescription = (XtextCenterLabelStyleModelDescription) theEObject;
-				T result = caseXtextCenterLabelStyleModelDescription(xtextCenterLabelStyleModelDescription);
-				if (result == null) {
-					result = caseCenterLabelStyleDescription(xtextCenterLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditModelDescription(xtextCenterLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseBasicLabelStyleDescription(xtextCenterLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditDescription(xtextCenterLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextModelDescription(xtextCenterLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDescription(xtextCenterLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
-				return result;
-			}
-			case DiagramxtextPackage.XTEXT_CENTER_LABEL_STYLE_VALUE_DESCRIPTION: {
-				final XtextCenterLabelStyleValueDescription xtextCenterLabelStyleValueDescription = (XtextCenterLabelStyleValueDescription) theEObject;
-				T result = caseXtextCenterLabelStyleValueDescription(xtextCenterLabelStyleValueDescription);
-				if (result == null) {
-					result = caseCenterLabelStyleDescription(xtextCenterLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditDescription(xtextCenterLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextValueDescription(xtextCenterLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseBasicLabelStyleDescription(xtextCenterLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDescription(xtextCenterLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
-				return result;
-			}
-			case DiagramxtextPackage.XTEXT_END_LABEL_STYLE_MODEL_DESCRIPTION: {
-				final XtextEndLabelStyleModelDescription xtextEndLabelStyleModelDescription = (XtextEndLabelStyleModelDescription) theEObject;
-				T result = caseXtextEndLabelStyleModelDescription(xtextEndLabelStyleModelDescription);
-				if (result == null) {
-					result = caseEndLabelStyleDescription(xtextEndLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditModelDescription(xtextEndLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseBasicLabelStyleDescription(xtextEndLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditDescription(xtextEndLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextModelDescription(xtextEndLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDescription(xtextEndLabelStyleModelDescription);
-				}
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
-				return result;
-			}
-			case DiagramxtextPackage.XTEXT_END_LABEL_STYLE_VALUE_DESCRIPTION: {
-				final XtextEndLabelStyleValueDescription xtextEndLabelStyleValueDescription = (XtextEndLabelStyleValueDescription) theEObject;
-				T result = caseXtextEndLabelStyleValueDescription(xtextEndLabelStyleValueDescription);
-				if (result == null) {
-					result = caseEndLabelStyleDescription(xtextEndLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDirectEditDescription(xtextEndLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextValueDescription(xtextEndLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseBasicLabelStyleDescription(xtextEndLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDescription(xtextEndLabelStyleValueDescription);
-				}
-				if (result == null) {
-					result = defaultCase(theEObject);
-				}
-				return result;
-			}
 			default:
 				return defaultCase(theEObject);
 		}
@@ -349,18 +208,18 @@ public class DiagramxtextSwitch<T> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will
-	 * terminate the switch. <!-- end-user-doc -->
+	 * '<em>AXtext Direct Edit Label</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Direct Edit Model Description</em>'.
+	 *         '<em>AXtext Direct Edit Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
+	public T caseAXtextDirectEditLabel(final AXtextDirectEditLabel object) {
 		return null;
 	}
 
@@ -395,159 +254,6 @@ public class DiagramxtextSwitch<T> {
 	 * @generated
 	 */
 	public T caseXtextDirectEditValueDescription(final XtextDirectEditValueDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext Begin Label Style Model Description</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will
-	 * terminate the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext Begin Label Style Model Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXtextBeginLabelStyleModelDescription(final XtextBeginLabelStyleModelDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext Begin Label Style Value Description</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will
-	 * terminate the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext Begin Label Style Value Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXtextBeginLabelStyleValueDescription(final XtextBeginLabelStyleValueDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext Center Label Style Model Description</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null
-	 * result will terminate the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext Center Label Style Model Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXtextCenterLabelStyleModelDescription(final XtextCenterLabelStyleModelDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext Center Label Style Value Description</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null
-	 * result will terminate the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext Center Label Style Value Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXtextCenterLabelStyleValueDescription(final XtextCenterLabelStyleValueDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext End Label Style Model Description</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will
-	 * terminate the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext End Label Style Model Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXtextEndLabelStyleModelDescription(final XtextEndLabelStyleModelDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Xtext End Label Style Value Description</em>'. <!-- begin-user-doc
-	 * --> This implementation returns null; returning a non-null result will
-	 * terminate the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Xtext End Label Style Value Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXtextEndLabelStyleValueDescription(final XtextEndLabelStyleValueDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIXtextDescription(final IXtextDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Direct Edit Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Model Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIXtextModelDescription(final IXtextModelDescription object) {
 		return null;
 	}
 
@@ -655,6 +361,74 @@ public class DiagramxtextSwitch<T> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextDescription(final IXtextDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextModelDescription(final IXtextModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
@@ -667,74 +441,6 @@ public class DiagramxtextSwitch<T> {
 	 * @generated
 	 */
 	public T caseIXtextValueDescription(final IXtextValueDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Basic Label Style Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Basic Label Style Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBasicLabelStyleDescription(final BasicLabelStyleDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Begin Label Style Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Begin Label Style Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBeginLabelStyleDescription(final BeginLabelStyleDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>Center Label Style Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>Center Label Style Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCenterLabelStyleDescription(final CenterLabelStyleDescription object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>End
-	 * Label Style Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>End
-	 *         Label Style Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEndLabelStyleDescription(final EndLabelStyleDescription object) {
 		return null;
 	}
 

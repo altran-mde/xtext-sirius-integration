@@ -243,6 +243,54 @@ public interface XtextsiriusPackage extends EPackage {
 	 */
 	int IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * <em>IXtext Direct Edit Model Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextDirectEditModelDescription()
+	 * @generated
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE = IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>IXtext Direct Edit Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 1;
+
 
 	/**
 	 * Returns the meta object for class
@@ -356,6 +404,33 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextDirectEditDescription_MultiLine();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * <em>IXtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IXtext Direct Edit Model
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * @generated
+	 */
+	EClass getIXtextDirectEditModelDescription();
+
+	/**
+	 * Returns the meta object for the attribute list
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getEditableFeatures
+	 * <em>Editable Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Editable
+	 *         Features</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getEditableFeatures()
+	 * @see #getIXtextDirectEditModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextDirectEditModelDescription_EditableFeatures();
 
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
@@ -475,6 +550,27 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE = eINSTANCE.getIXtextDirectEditDescription_MultiLine();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+		 * <em>IXtext Direct Edit Model Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextDirectEditModelDescription()
+		 * @generated
+		 */
+		EClass IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION = eINSTANCE.getIXtextDirectEditModelDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Editable Features</b></em>'
+		 * attribute list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = eINSTANCE
+				.getIXtextDirectEditModelDescription_EditableFeatures();
 
 	}
 

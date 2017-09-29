@@ -9,9 +9,16 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFactory;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
@@ -25,7 +32,56 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 	 * 
 	 * @generated
 	 */
-	private EClass eefXtextDescriptionEClass = null;
+	private EClass iEefXtextDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iEefXtextModelDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iEefXtextValueDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iEefXtextPropertyDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass eefXtextSingleLineModelDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass eefXtextMultiLineModelDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass eefXtextSingleLineValueDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass eefXtextMultiLineValueDescriptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -81,8 +137,8 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		isInited = true;
 
 		// Initialize simple dependencies
-		EefPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
+		EefPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEefxtextPackage.createPackageContents();
@@ -105,8 +161,8 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getEefXtextDescription() {
-		return this.eefXtextDescriptionEClass;
+	public EClass getIEefXtextDescription() {
+		return this.iEefXtextDescriptionEClass;
 	}
 
 	/**
@@ -115,8 +171,98 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getEefXtextDescription_Language() {
-		return (EAttribute) this.eefXtextDescriptionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getIEefXtextDescription_InjectorId() {
+		return (EAttribute) this.iEefXtextDescriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getIEefXtextModelDescription() {
+		return this.iEefXtextModelDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getIEefXtextValueDescription() {
+		return this.iEefXtextValueDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIEefXtextValueDescription_PrefixTextExpression() {
+		return (EAttribute) this.iEefXtextValueDescriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIEefXtextValueDescription_SuffixTextExpression() {
+		return (EAttribute) this.iEefXtextValueDescriptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getIEefXtextPropertyDescription() {
+		return this.iEefXtextPropertyDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getEefXtextSingleLineModelDescription() {
+		return this.eefXtextSingleLineModelDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getEefXtextMultiLineModelDescription() {
+		return this.eefXtextMultiLineModelDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getEefXtextSingleLineValueDescription() {
+		return this.eefXtextSingleLineValueDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getEefXtextMultiLineValueDescription() {
+		return this.eefXtextMultiLineValueDescriptionEClass;
 	}
 
 	/**
@@ -150,8 +296,24 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		this.isCreated = true;
 
 		// Create classes and their features
-		this.eefXtextDescriptionEClass = createEClass(EEF_XTEXT_DESCRIPTION);
-		createEAttribute(this.eefXtextDescriptionEClass, EEF_XTEXT_DESCRIPTION__LANGUAGE);
+		this.iEefXtextDescriptionEClass = createEClass(IEEF_XTEXT_DESCRIPTION);
+		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__INJECTOR_ID);
+
+		this.iEefXtextModelDescriptionEClass = createEClass(IEEF_XTEXT_MODEL_DESCRIPTION);
+
+		this.iEefXtextValueDescriptionEClass = createEClass(IEEF_XTEXT_VALUE_DESCRIPTION);
+		createEAttribute(this.iEefXtextValueDescriptionEClass, IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION);
+		createEAttribute(this.iEefXtextValueDescriptionEClass, IEEF_XTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION);
+
+		this.iEefXtextPropertyDescriptionEClass = createEClass(IEEF_XTEXT_PROPERTY_DESCRIPTION);
+
+		this.eefXtextSingleLineModelDescriptionEClass = createEClass(EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION);
+
+		this.eefXtextMultiLineModelDescriptionEClass = createEClass(EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION);
+
+		this.eefXtextSingleLineValueDescriptionEClass = createEClass(EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION);
+
+		this.eefXtextMultiLineValueDescriptionEClass = createEClass(EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION);
 	}
 
 	/**
@@ -180,23 +342,64 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final EefPackage theEefPackage = (EefPackage) EPackage.Registry.INSTANCE.getEPackage(EefPackage.eNS_URI);
 		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
 				.getEPackage(EcorePackage.eNS_URI);
+		final EefPackage theEefPackage = (EefPackage) EPackage.Registry.INSTANCE.getEPackage(EefPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		this.eefXtextDescriptionEClass.getESuperTypes().add(theEefPackage.getEEFTextDescription());
+		this.iEefXtextModelDescriptionEClass.getESuperTypes().add(getIEefXtextDescription());
+		this.iEefXtextValueDescriptionEClass.getESuperTypes().add(getIEefXtextDescription());
+		this.iEefXtextPropertyDescriptionEClass.getESuperTypes().add(getIEefXtextDescription());
+		this.eefXtextSingleLineModelDescriptionEClass.getESuperTypes().add(theEefPackage.getEEFTextDescription());
+		this.eefXtextSingleLineModelDescriptionEClass.getESuperTypes().add(getIEefXtextPropertyDescription());
+		this.eefXtextSingleLineModelDescriptionEClass.getESuperTypes().add(getIEefXtextModelDescription());
+		this.eefXtextMultiLineModelDescriptionEClass.getESuperTypes().add(theEefPackage.getEEFTextDescription());
+		this.eefXtextMultiLineModelDescriptionEClass.getESuperTypes().add(getIEefXtextPropertyDescription());
+		this.eefXtextMultiLineModelDescriptionEClass.getESuperTypes().add(getIEefXtextModelDescription());
+		this.eefXtextSingleLineValueDescriptionEClass.getESuperTypes().add(theEefPackage.getEEFTextDescription());
+		this.eefXtextSingleLineValueDescriptionEClass.getESuperTypes().add(getIEefXtextPropertyDescription());
+		this.eefXtextSingleLineValueDescriptionEClass.getESuperTypes().add(getIEefXtextValueDescription());
+		this.eefXtextMultiLineValueDescriptionEClass.getESuperTypes().add(theEefPackage.getEEFTextDescription());
+		this.eefXtextMultiLineValueDescriptionEClass.getESuperTypes().add(getIEefXtextPropertyDescription());
+		this.eefXtextMultiLineValueDescriptionEClass.getESuperTypes().add(getIEefXtextValueDescription());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(this.eefXtextDescriptionEClass, EefXtextDescription.class, "EefXtextDescription", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEefXtextDescription_Language(), theEcorePackage.getEString(), "language", null, 0, 1,
-				EefXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+		initEClass(this.iEefXtextDescriptionEClass, IEefXtextDescription.class, "IEefXtextDescription", IS_ABSTRACT,
+				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIEefXtextDescription_InjectorId(), theEcorePackage.getEString(), "injectorId", null, 0, 1,
+				IEefXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(this.iEefXtextModelDescriptionEClass, IEefXtextModelDescription.class, "IEefXtextModelDescription",
+				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(this.iEefXtextValueDescriptionEClass, IEefXtextValueDescription.class, "IEefXtextValueDescription",
+				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIEefXtextValueDescription_PrefixTextExpression(), theEcorePackage.getEString(),
+				"prefixTextExpression", null, 0, 1, IEefXtextValueDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIEefXtextValueDescription_SuffixTextExpression(), theEcorePackage.getEString(),
+				"suffixTextExpression", null, 0, 1, IEefXtextValueDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(this.iEefXtextPropertyDescriptionEClass, IEefXtextPropertyDescription.class,
+				"IEefXtextPropertyDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(this.eefXtextSingleLineModelDescriptionEClass, EefXtextSingleLineModelDescription.class,
+				"EefXtextSingleLineModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(this.eefXtextMultiLineModelDescriptionEClass, EefXtextMultiLineModelDescription.class,
+				"EefXtextMultiLineModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(this.eefXtextSingleLineValueDescriptionEClass, EefXtextSingleLineValueDescription.class,
+				"EefXtextSingleLineValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(this.eefXtextMultiLineValueDescriptionEClass, EefXtextMultiLineValueDescription.class,
+				"EefXtextMultiLineValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

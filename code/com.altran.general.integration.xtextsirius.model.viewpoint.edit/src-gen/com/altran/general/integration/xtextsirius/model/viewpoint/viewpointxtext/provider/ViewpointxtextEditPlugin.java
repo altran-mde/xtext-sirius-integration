@@ -4,8 +4,9 @@ package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtex
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provider.XtextsiriusEditPlugin;
 
 /**
  * This is the central singleton for the Viewpoint-xtext edit plugin. <!--
@@ -37,8 +38,8 @@ public final class ViewpointxtextEditPlugin extends EMFPlugin {
 	 */
 	public ViewpointxtextEditPlugin() {
 		super(new ResourceLocator[] {
+				XtextsiriusEditPlugin.INSTANCE,
 				SiriusEditPlugin.INSTANCE,
-				EcoreEditPlugin.INSTANCE,
 		});
 	}
 

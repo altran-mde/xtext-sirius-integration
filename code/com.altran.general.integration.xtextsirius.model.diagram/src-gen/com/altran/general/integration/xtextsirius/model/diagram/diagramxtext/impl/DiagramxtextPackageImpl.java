@@ -2,7 +2,6 @@
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -10,23 +9,17 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.sirius.diagram.DiagramPackage;
 import org.eclipse.sirius.diagram.description.concern.ConcernPackage;
 import org.eclipse.sirius.diagram.description.filter.FilterPackage;
-import org.eclipse.sirius.diagram.description.style.StylePackage;
 import org.eclipse.sirius.diagram.description.tool.ToolPackage;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
+import org.eclipse.sirius.viewpoint.description.style.StylePackage;
 import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.IXtextDirectEditModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextBeginLabelStyleValueDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextCenterLabelStyleValueDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleModelDescription;
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextEndLabelStyleValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
@@ -41,7 +34,7 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	 * 
 	 * @generated
 	 */
-	private EClass iXtextDirectEditModelDescriptionEClass = null;
+	private EClass aXtextDirectEditLabelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -56,48 +49,6 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	 * @generated
 	 */
 	private EClass xtextDirectEditValueDescriptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass xtextBeginLabelStyleModelDescriptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass xtextBeginLabelStyleValueDescriptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass xtextCenterLabelStyleModelDescriptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass xtextCenterLabelStyleValueDescriptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass xtextEndLabelStyleModelDescriptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass xtextEndLabelStyleValueDescriptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -153,19 +104,19 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		isInited = true;
 
 		// Initialize simple dependencies
-		XtextsiriusPackage.eINSTANCE.eClass();
-		EcorePackage.eINSTANCE.eClass();
 		ToolPackage.eINSTANCE.eClass();
 		DescriptionPackage.eINSTANCE.eClass();
 		org.eclipse.sirius.viewpoint.description.tool.ToolPackage.eINSTANCE.eClass();
-		StylePackage.eINSTANCE.eClass();
-		org.eclipse.sirius.viewpoint.description.style.StylePackage.eINSTANCE.eClass();
 		org.eclipse.sirius.diagram.description.DescriptionPackage.eINSTANCE.eClass();
+		XtextsiriusPackage.eINSTANCE.eClass();
 		DiagramPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
 		ValidationPackage.eINSTANCE.eClass();
-		ViewpointPackage.eINSTANCE.eClass();
+		StylePackage.eINSTANCE.eClass();
 		FilterPackage.eINSTANCE.eClass();
 		ConcernPackage.eINSTANCE.eClass();
+		ViewpointPackage.eINSTANCE.eClass();
+		org.eclipse.sirius.diagram.description.style.StylePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDiagramxtextPackage.createPackageContents();
@@ -188,18 +139,8 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	 * @generated
 	 */
 	@Override
-	public EClass getIXtextDirectEditModelDescription() {
-		return this.iXtextDirectEditModelDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIXtextDirectEditModelDescription_EditableFeatures() {
-		return (EAttribute) this.iXtextDirectEditModelDescriptionEClass.getEStructuralFeatures().get(0);
+	public EClass getAXtextDirectEditLabel() {
+		return this.aXtextDirectEditLabelEClass;
 	}
 
 	/**
@@ -220,66 +161,6 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	@Override
 	public EClass getXtextDirectEditValueDescription() {
 		return this.xtextDirectEditValueDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EClass getXtextBeginLabelStyleModelDescription() {
-		return this.xtextBeginLabelStyleModelDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EClass getXtextBeginLabelStyleValueDescription() {
-		return this.xtextBeginLabelStyleValueDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EClass getXtextCenterLabelStyleModelDescription() {
-		return this.xtextCenterLabelStyleModelDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EClass getXtextCenterLabelStyleValueDescription() {
-		return this.xtextCenterLabelStyleValueDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EClass getXtextEndLabelStyleModelDescription() {
-		return this.xtextEndLabelStyleModelDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EClass getXtextEndLabelStyleValueDescription() {
-		return this.xtextEndLabelStyleValueDescriptionEClass;
 	}
 
 	/**
@@ -313,25 +194,11 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		this.isCreated = true;
 
 		// Create classes and their features
-		this.iXtextDirectEditModelDescriptionEClass = createEClass(IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION);
-		createEAttribute(this.iXtextDirectEditModelDescriptionEClass,
-				IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
+		this.aXtextDirectEditLabelEClass = createEClass(AXTEXT_DIRECT_EDIT_LABEL);
 
 		this.xtextDirectEditModelDescriptionEClass = createEClass(XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION);
 
 		this.xtextDirectEditValueDescriptionEClass = createEClass(XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION);
-
-		this.xtextBeginLabelStyleModelDescriptionEClass = createEClass(XTEXT_BEGIN_LABEL_STYLE_MODEL_DESCRIPTION);
-
-		this.xtextBeginLabelStyleValueDescriptionEClass = createEClass(XTEXT_BEGIN_LABEL_STYLE_VALUE_DESCRIPTION);
-
-		this.xtextCenterLabelStyleModelDescriptionEClass = createEClass(XTEXT_CENTER_LABEL_STYLE_MODEL_DESCRIPTION);
-
-		this.xtextCenterLabelStyleValueDescriptionEClass = createEClass(XTEXT_CENTER_LABEL_STYLE_VALUE_DESCRIPTION);
-
-		this.xtextEndLabelStyleModelDescriptionEClass = createEClass(XTEXT_END_LABEL_STYLE_MODEL_DESCRIPTION);
-
-		this.xtextEndLabelStyleValueDescriptionEClass = createEClass(XTEXT_END_LABEL_STYLE_VALUE_DESCRIPTION);
 	}
 
 	/**
@@ -360,88 +227,40 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		final ToolPackage theToolPackage = (ToolPackage) EPackage.Registry.INSTANCE.getEPackage(ToolPackage.eNS_URI);
+		final org.eclipse.sirius.diagram.description.DescriptionPackage theDescriptionPackage_1 = (org.eclipse.sirius.diagram.description.DescriptionPackage) EPackage.Registry.INSTANCE
+				.getEPackage(org.eclipse.sirius.diagram.description.DescriptionPackage.eNS_URI);
 		final XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(XtextsiriusPackage.eNS_URI);
-		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EcorePackage.eNS_URI);
-		final ToolPackage theToolPackage = (ToolPackage) EPackage.Registry.INSTANCE.getEPackage(ToolPackage.eNS_URI);
-		final StylePackage theStylePackage = (StylePackage) EPackage.Registry.INSTANCE
-				.getEPackage(StylePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		this.iXtextDirectEditModelDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextDirectEditDescription());
-		this.iXtextDirectEditModelDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextModelDescription());
-		this.xtextDirectEditModelDescriptionEClass.getESuperTypes().add(theToolPackage.getDirectEditLabel());
-		this.xtextDirectEditModelDescriptionEClass.getESuperTypes().add(getIXtextDirectEditModelDescription());
-		this.xtextDirectEditValueDescriptionEClass.getESuperTypes().add(theToolPackage.getDirectEditLabel());
+		this.aXtextDirectEditLabelEClass.getESuperTypes().add(theToolPackage.getDirectEditLabel());
+		this.xtextDirectEditModelDescriptionEClass.getESuperTypes().add(getAXtextDirectEditLabel());
+		this.xtextDirectEditModelDescriptionEClass.getESuperTypes()
+				.add(theXtextsiriusPackage.getIXtextDirectEditModelDescription());
+		this.xtextDirectEditValueDescriptionEClass.getESuperTypes().add(getAXtextDirectEditLabel());
 		this.xtextDirectEditValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextDirectEditDescription());
 		this.xtextDirectEditValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextValueDescription());
-		this.xtextBeginLabelStyleModelDescriptionEClass.getESuperTypes()
-				.add(theStylePackage.getBeginLabelStyleDescription());
-		this.xtextBeginLabelStyleModelDescriptionEClass.getESuperTypes().add(getIXtextDirectEditModelDescription());
-		this.xtextBeginLabelStyleValueDescriptionEClass.getESuperTypes()
-				.add(theStylePackage.getBeginLabelStyleDescription());
-		this.xtextBeginLabelStyleValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextDirectEditDescription());
-		this.xtextBeginLabelStyleValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextValueDescription());
-		this.xtextCenterLabelStyleModelDescriptionEClass.getESuperTypes()
-				.add(theStylePackage.getCenterLabelStyleDescription());
-		this.xtextCenterLabelStyleModelDescriptionEClass.getESuperTypes().add(getIXtextDirectEditModelDescription());
-		this.xtextCenterLabelStyleValueDescriptionEClass.getESuperTypes()
-				.add(theStylePackage.getCenterLabelStyleDescription());
-		this.xtextCenterLabelStyleValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextDirectEditDescription());
-		this.xtextCenterLabelStyleValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextValueDescription());
-		this.xtextEndLabelStyleModelDescriptionEClass.getESuperTypes()
-				.add(theStylePackage.getEndLabelStyleDescription());
-		this.xtextEndLabelStyleModelDescriptionEClass.getESuperTypes().add(getIXtextDirectEditModelDescription());
-		this.xtextEndLabelStyleValueDescriptionEClass.getESuperTypes()
-				.add(theStylePackage.getEndLabelStyleDescription());
-		this.xtextEndLabelStyleValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextDirectEditDescription());
-		this.xtextEndLabelStyleValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextValueDescription());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(this.iXtextDirectEditModelDescriptionEClass, IXtextDirectEditModelDescription.class,
-				"IXtextDirectEditModelDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIXtextDirectEditModelDescription_EditableFeatures(), theEcorePackage.getEString(),
-				"editableFeatures", null, 0, -1, IXtextDirectEditModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(this.aXtextDirectEditLabelEClass, AXtextDirectEditLabel.class, "AXtextDirectEditLabel", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(this.aXtextDirectEditLabelEClass, theDescriptionPackage_1.getDiagramElementMapping(),
+				"getMapping", 0,
+				-1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(this.xtextDirectEditModelDescriptionEClass, XtextDirectEditModelDescription.class,
 				"XtextDirectEditModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(this.xtextDirectEditValueDescriptionEClass, XtextDirectEditValueDescription.class,
 				"XtextDirectEditValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(this.xtextBeginLabelStyleModelDescriptionEClass, XtextBeginLabelStyleModelDescription.class,
-				"XtextBeginLabelStyleModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(this.xtextBeginLabelStyleValueDescriptionEClass, XtextBeginLabelStyleValueDescription.class,
-				"XtextBeginLabelStyleValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(this.xtextCenterLabelStyleModelDescriptionEClass, XtextCenterLabelStyleModelDescription.class,
-				"XtextCenterLabelStyleModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(this.xtextCenterLabelStyleValueDescriptionEClass, XtextCenterLabelStyleValueDescription.class,
-				"XtextCenterLabelStyleValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(this.xtextEndLabelStyleModelDescriptionEClass, XtextEndLabelStyleModelDescription.class,
-				"XtextEndLabelStyleModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(this.xtextEndLabelStyleValueDescriptionEClass, XtextEndLabelStyleValueDescription.class,
-				"XtextEndLabelStyleValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
