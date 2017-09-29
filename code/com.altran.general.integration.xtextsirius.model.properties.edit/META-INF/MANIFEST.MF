@@ -4,10 +4,10 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.mode.properties.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provider.XtextsiriusEditPlugin$Implementation
+Bundle-Activator: com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.provider.PropertiesxtextEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.provider,
  com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provider
 Require-Bundle: org.eclipse.core.runtime,

@@ -35,7 +35,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public XtextEdgeLabelDirectEditValueDescriptionItemProvider(final AdapterFactory adapterFactory) {
@@ -45,7 +45,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -65,7 +65,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void addInjectorIdPropertyDescriptor(final Object object) {
@@ -88,7 +88,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Multi Line feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void addMultiLinePropertyDescriptor(final Object object) {
@@ -178,7 +178,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	/**
 	 * This returns XtextEdgeLabelDirectEditValueDescription.gif. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -201,7 +201,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	/**
 	 * This returns the label styled text for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -245,7 +245,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -257,7 +257,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

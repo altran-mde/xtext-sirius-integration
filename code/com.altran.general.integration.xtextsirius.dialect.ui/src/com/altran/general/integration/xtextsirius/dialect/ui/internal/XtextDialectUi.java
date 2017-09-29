@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.style.ui.internal;
+package com.altran.general.integration.xtextsirius.dialect.ui.internal;
 
 import java.util.Collection;
 import java.util.Collections;

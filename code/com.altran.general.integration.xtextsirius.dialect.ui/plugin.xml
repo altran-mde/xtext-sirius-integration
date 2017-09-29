@@ -2,6 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension point="org.eclipse.sirius.ui.dialectui">
-		<dialectUI class="com.altran.general.integration.xtextsirius.style.ui.internal.XtextDialectUi"/>
+		<dialectUI class="com.altran.general.integration.xtextsirius.dialect.ui.internal.XtextDialectUi"/>
 	</extension>
 </plugin>

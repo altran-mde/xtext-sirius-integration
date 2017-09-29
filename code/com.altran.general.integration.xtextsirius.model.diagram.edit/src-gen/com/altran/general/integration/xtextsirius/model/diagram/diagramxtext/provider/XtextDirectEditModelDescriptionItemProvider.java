@@ -26,12 +26,11 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * 
  * @generated
  */
-public class XtextDirectEditModelDescriptionItemProvider
-		extends AXtextDirectEditLabelItemProvider {
+public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEditLabelItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public XtextDirectEditModelDescriptionItemProvider(final AdapterFactory adapterFactory) {
@@ -41,7 +40,7 @@ public class XtextDirectEditModelDescriptionItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -59,7 +58,7 @@ public class XtextDirectEditModelDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void addInjectorIdPropertyDescriptor(final Object object) {
@@ -82,7 +81,7 @@ public class XtextDirectEditModelDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Multi Line feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void addMultiLinePropertyDescriptor(final Object object) {
@@ -104,7 +103,7 @@ public class XtextDirectEditModelDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Editable Features feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void addEditableFeaturesPropertyDescriptor(final Object object) {
@@ -150,7 +149,7 @@ public class XtextDirectEditModelDescriptionItemProvider
 	/**
 	 * This returns the label styled text for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -194,7 +193,7 @@ public class XtextDirectEditModelDescriptionItemProvider
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -206,7 +205,7 @@ public class XtextDirectEditModelDescriptionItemProvider
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

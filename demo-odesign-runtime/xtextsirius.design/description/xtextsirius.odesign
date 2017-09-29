@@ -3,8 +3,8 @@
   <ownedViewpoints name="MyViewpoint">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" enablePopupBars="true">
       <defaultLayer name="Default">
-        <nodeMappings labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="change.ChangeDescription"/>
-        <edgeMappings labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="table.DColumn" useDomainElement="true">
+        <nodeMappings labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@toolSections.0/@ownedTools[name='id2']" domainClass="change.ChangeDescription"/>
+        <edgeMappings name="id23" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@toolSections.0/@ownedTools[name='id2']" domainClass="table.DColumn" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -17,18 +17,18 @@
             <mask mask="{0}"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditValueDescription">
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditValueDescription" name="id1">
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription">
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="id2">
             <editableFeatures>ChangeDescription.objectsToDetach</editableFeatures>
             <editableFeatures>ChangeDescription.resourceChanges</editableFeatures>
           </ownedTools>
-          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" edgeLabelMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style/@centerLabelStyleDescription">
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="id3" edgeLabelMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='id23']/@style/@centerLabelStyleDescription">
             <editableFeatures>DColumn.originMapping</editableFeatures>
             <editableFeatures>DRepresentationElement.name</editableFeatures>
           </ownedTools>
-          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditValueDescription" multiLine="true"/>
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditValueDescription" name="id4" multiLine="true"/>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
@@ -37,7 +37,7 @@
     <pages identifier="Default" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
     <groups identifier="Default" labelExpression="Group" semanticCandidateExpression="var:self">
       <controls xsi:type="properties-xtext:XtextMultiLineModelDescription"/>
-      <controls xsi:type="properties-xtext:XtextMultiLineValueDescription"/>
+      <controls xsi:type="properties-xtext:XtextMultiLineValueDescription" lineCount="3"/>
       <controls xsi:type="properties-xtext:XtextSingleLineModelDescription"/>
       <controls xsi:type="properties-xtext:XtextSingleLineValueDescription"/>
     </groups>

@@ -152,7 +152,7 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 	}
 	
 	@Override
-	protected void handleFeatureModified(final List result) {
+	protected void handleFeatureModified(final @SuppressWarnings("rawtypes") List result) {
 		final boolean equals = isEqual(result);
 		
 		if (!equals) {
