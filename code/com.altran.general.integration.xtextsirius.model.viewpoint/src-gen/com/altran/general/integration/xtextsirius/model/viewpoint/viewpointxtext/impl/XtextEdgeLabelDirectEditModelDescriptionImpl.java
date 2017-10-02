@@ -330,14 +330,14 @@ public class XtextEdgeLabelDirectEditModelDescriptionImpl extends AbstractToolDe
 		}
 		if (baseClass == IXtextModelDescription.class) {
 			switch (derivedFeatureID) {
+				case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
 		}
 		if (baseClass == IXtextDirectEditModelDescription.class) {
 			switch (derivedFeatureID) {
-				case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-					return XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
@@ -378,14 +378,14 @@ public class XtextEdgeLabelDirectEditModelDescriptionImpl extends AbstractToolDe
 		}
 		if (baseClass == IXtextModelDescription.class) {
 			switch (baseFeatureID) {
+				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
 		}
 		if (baseClass == IXtextDirectEditModelDescription.class) {
 			switch (baseFeatureID) {
-				case XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-					return ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}

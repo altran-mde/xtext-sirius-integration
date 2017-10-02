@@ -20,6 +20,7 @@ import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.Xte
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 
@@ -170,19 +171,22 @@ public class DiagramxtextSwitch<T> {
 					result = caseAXtextDirectEditLabel(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
+					result = caseIXtextDirectEditValueDescription(xtextDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseDirectEditLabel(xtextDirectEditValueDescription);
+				}
+				if (result == null) {
 					result = caseIXtextDirectEditDescription(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextValueDescription(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
-					result = caseDirectEditLabel(xtextDirectEditValueDescription);
+					result = caseMappingBasedToolDescription(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDescription(xtextDirectEditValueDescription);
-				}
-				if (result == null) {
-					result = caseMappingBasedToolDescription(xtextDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseAbstractToolDescription(xtextDirectEditValueDescription);
@@ -441,6 +445,23 @@ public class DiagramxtextSwitch<T> {
 	 * @generated
 	 */
 	public T caseIXtextValueDescription(final IXtextValueDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
 		return null;
 	}
 

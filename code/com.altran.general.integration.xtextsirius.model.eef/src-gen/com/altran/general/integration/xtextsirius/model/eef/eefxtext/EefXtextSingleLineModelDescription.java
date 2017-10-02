@@ -2,7 +2,6 @@
  */
 package com.altran.general.integration.xtextsirius.model.eef.eefxtext;
 
-import org.eclipse.eef.EEFTextDescription;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Eef
@@ -13,6 +12,5 @@ import org.eclipse.eef.EEFTextDescription;
  * @model
  * @generated
  */
-public interface EefXtextSingleLineModelDescription
-		extends EEFTextDescription, IEefXtextPropertyDescription, IEefXtextModelDescription {
+public interface EefXtextSingleLineModelDescription extends IEefXtextPropertyDescription, IEefXtextModelDescription {
 } // EefXtextSingleLineModelDescription

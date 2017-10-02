@@ -26,7 +26,7 @@ package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtex
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription
 
@@ -43,6 +43,6 @@ class XtextEdgeLabelDirectEditModelDescription extends AbstractToolDescription, 
 }
 
 @GenModel(image="true")
-class XtextEdgeLabelDirectEditValueDescription extends AbstractToolDescription, IXtextEdgeLabelDirectEditDescription, IXtextValueDescription {
+class XtextEdgeLabelDirectEditValueDescription extends AbstractToolDescription, IXtextEdgeLabelDirectEditDescription, 	IXtextDirectEditValueDescription {
 	
 }

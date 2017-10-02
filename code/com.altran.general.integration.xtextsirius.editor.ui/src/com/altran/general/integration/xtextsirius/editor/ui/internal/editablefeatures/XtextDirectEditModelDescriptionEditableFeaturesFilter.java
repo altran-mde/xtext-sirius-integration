@@ -7,15 +7,15 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 public class XtextDirectEditModelDescriptionEditableFeaturesFilter extends ViewpointPropertyFilter {
-
+	
 	@Override
 	protected EStructuralFeature getFeature() {
-		return XtextsiriusPackage.eINSTANCE.getIXtextDirectEditModelDescription_EditableFeatures();
+		return XtextsiriusPackage.eINSTANCE.getIXtextModelDescription_EditableFeatures();
 	}
-
+	
 	@Override
 	protected boolean isRightInputType(final Object arg0) {
 		return arg0 instanceof IXtextDirectEditModelDescription;
 	}
-	
+
 }

@@ -34,13 +34,14 @@ interface IXtextDescription {
 }
 
 interface IXtextModelDescription extends IXtextDescription {
-	
+	String[] editableFeatures
 }
 
 interface IXtextValueDescription extends IXtextDescription {
 	String prefixTextExpression
 	String suffixTextExpression
 }
+
 
 interface IXtextPropertyDescription extends IXtextDescription {
 	
@@ -50,6 +51,20 @@ interface IXtextDirectEditDescription extends IXtextDescription {
 	boolean multiLine
 }
 
+
 interface IXtextDirectEditModelDescription extends IXtextDirectEditDescription, IXtextModelDescription {
-	String[] editableFeatures
+
+}
+
+interface IXtextDirectEditValueDescription extends IXtextDirectEditDescription, IXtextValueDescription {
+	
+}
+
+
+interface IXtextPropertyModelDescription extends IXtextPropertyDescription, IXtextModelDescription {
+	
+}
+
+interface IXtextPropertyValueDescription extends IXtextPropertyDescription, IXtextValueDescription {
+	
 }

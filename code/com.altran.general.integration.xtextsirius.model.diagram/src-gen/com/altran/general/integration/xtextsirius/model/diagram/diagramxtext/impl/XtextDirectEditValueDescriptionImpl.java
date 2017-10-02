@@ -10,6 +10,7 @@ import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.Dia
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
@@ -364,6 +365,12 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 					return -1;
 			}
 		}
+		if (baseClass == IXtextDirectEditValueDescription.class) {
+			switch (derivedFeatureID) {
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -396,6 +403,12 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
 				case XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
+				default:
+					return -1;
+			}
+		}
+		if (baseClass == IXtextDirectEditValueDescription.class) {
+			switch (baseFeatureID) {
 				default:
 					return -1;
 			}

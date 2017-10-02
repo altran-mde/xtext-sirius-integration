@@ -4,7 +4,7 @@ package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtex
 
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Xtext
@@ -16,5 +16,5 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
  * @generated
  */
 public interface XtextEdgeLabelDirectEditValueDescription
-		extends AbstractToolDescription, IXtextEdgeLabelDirectEditDescription, IXtextValueDescription {
+		extends AbstractToolDescription, IXtextEdgeLabelDirectEditDescription, IXtextDirectEditValueDescription {
 } // XtextEdgeLabelDirectEditValueDescription

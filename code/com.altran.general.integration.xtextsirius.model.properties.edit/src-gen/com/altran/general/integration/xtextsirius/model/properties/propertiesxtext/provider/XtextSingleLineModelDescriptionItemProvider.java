@@ -35,7 +35,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public XtextSingleLineModelDescriptionItemProvider(final AdapterFactory adapterFactory) {
@@ -45,7 +45,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -54,6 +54,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addInjectorIdPropertyDescriptor(object);
+			addEditableFeaturesPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
 	}
@@ -61,7 +62,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addInjectorIdPropertyDescriptor(final Object object) {
@@ -79,6 +80,28 @@ public class XtextSingleLineModelDescriptionItemProvider
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 						null,
 						null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Editable Features feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	protected void addEditableFeaturesPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextModelDescription_editableFeatures_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_IXtextModelDescription_editableFeatures_feature",
+						"_UI_IXtextModelDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
@@ -106,7 +129,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 	/**
 	 * This returns the label styled text for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,6 +161,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 
 		switch (notification.getFeatureID(XtextSingleLineModelDescription.class)) {
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -148,7 +172,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,7 +184,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

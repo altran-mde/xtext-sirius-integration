@@ -244,9 +244,7 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 				.add(theXtextsiriusPackage.getIXtextDirectEditModelDescription());
 		this.xtextDirectEditValueDescriptionEClass.getESuperTypes().add(getAXtextDirectEditLabel());
 		this.xtextDirectEditValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextDirectEditDescription());
-		this.xtextDirectEditValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextValueDescription());
+				.add(theXtextsiriusPackage.getIXtextDirectEditValueDescription());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(this.aXtextDirectEditLabelEClass, AXtextDirectEditLabel.class, "AXtextDirectEditLabel", IS_ABSTRACT,

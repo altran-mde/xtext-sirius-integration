@@ -11,6 +11,7 @@ import com.altran.general.integration.xtextsirius.model.properties.propertiesxte
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
@@ -316,6 +317,12 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 					return -1;
 			}
 		}
+		if (baseClass == IXtextPropertyValueDescription.class) {
+			switch (derivedFeatureID) {
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -346,6 +353,12 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
 				case XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
 					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
+				default:
+					return -1;
+			}
+		}
+		if (baseClass == IXtextPropertyValueDescription.class) {
+			switch (baseFeatureID) {
 				default:
 					return -1;
 			}

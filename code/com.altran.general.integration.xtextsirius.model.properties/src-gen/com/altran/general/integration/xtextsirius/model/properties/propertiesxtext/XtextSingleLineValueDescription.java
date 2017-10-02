@@ -4,8 +4,7 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 
 import org.eclipse.sirius.properties.TextDescription;
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Xtext
@@ -16,8 +15,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
  * @model annotation="http://www.eclipse.org/emf/2002/GenModel image='true'"
  * @generated
  */
-public interface XtextSingleLineValueDescription
-		extends TextDescription, IXtextPropertyDescription, IXtextValueDescription {
+public interface XtextSingleLineValueDescription extends TextDescription, IXtextPropertyValueDescription {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

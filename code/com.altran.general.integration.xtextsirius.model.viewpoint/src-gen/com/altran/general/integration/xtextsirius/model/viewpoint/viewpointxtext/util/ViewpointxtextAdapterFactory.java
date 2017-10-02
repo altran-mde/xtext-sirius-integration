@@ -18,6 +18,7 @@ import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 
@@ -136,6 +137,11 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
+			return createIXtextDirectEditValueDescriptionAdapter();
 		}
 
 		@Override
@@ -348,6 +354,22 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIXtextValueDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * <em>IXtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * @generated
+	 */
+	public Adapter createIXtextDirectEditValueDescriptionAdapter() {
 		return null;
 	}
 

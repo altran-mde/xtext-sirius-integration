@@ -11,8 +11,8 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.util.TextRegion;
 
-import com.altran.general.integration.xtextsirius.internal.SemanticElementLocation;
 import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
 import com.google.inject.Injector;
 
 class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {

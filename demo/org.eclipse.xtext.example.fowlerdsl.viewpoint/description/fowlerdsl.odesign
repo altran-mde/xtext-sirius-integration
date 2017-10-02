@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="fowlerdsl" version="11.1.1.201610211630">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram-xtext="http://altran.com/general/integration/xtextsirius/model/diagram/1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-xtext="http://altran.com/general/integration/xtextsirius/model/properties/1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:viewpoint-xtext="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0" name="fowlerdsl" version="11.1.1.201610211630">
   <ownedViewpoints name="Statemachine" modelFileExtension="statemachine">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Statemachine Diagram" domainClass="statemachine.Statemachine" enablePopupBars="true">
       <metamodel href="../../org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.ecore#/"/>
@@ -13,7 +13,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="EventsContainer" semanticCandidatesExpression="var:self" domainClass="statemachine.Statemachine" childrenPresentation="List">
-          <subNodeMappings name="EventNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SelfEdit']" semanticCandidatesExpression="feature:events" domainClass="statemachine.Event">
+          <subNodeMappings name="EventNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='EventEdit']" semanticCandidatesExpression="feature:events" domainClass="statemachine.Event">
             <style xsi:type="style:SquareDescription" labelExpression="ocl:self.name.concat(if(self.guard.oclIsUndefined()) then '' else ' [' + self.guard.toString() + ']' endif)" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -64,16 +64,18 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="DescriptionEdit" inputLabelExpression="feature:description">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:0"/>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="SelfEdit" inputLabelExpression="var:self">
             <mask mask="{0}"/>
+          </ownedTools>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="EventEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId" edgeLabelMappings="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style/@centerLabelStyleDescription"/>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditValueDescription" name="DescriptionEdit" inputLabelExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" multiLine="true" prefixTextExpression="&lt;html>&lt;head>&lt;title>t&lt;/title>&lt;/head>&lt;body>" suffixTextExpression="&lt;/body>&lt;/html>">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -84,28 +86,29 @@
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="Properties">
     <pages identifier="Default" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0 //@extensions.0/@groups.1"/>
     <groups identifier="EventProperties" labelExpression="Event" domainClass="statemachine.Event" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-      <controls xsi:type="properties:TextDescription" identifier="EventGuardId" labelExpression="Guard" valueExpression="feature:guard">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="guard" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-      </groups>
+      <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+      <controls xsi:type="properties-xtext:XtextSingleLineModelDescription" identifier="EventGuardId" labelExpression="Guard" valueExpression="feature:guard" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:SetValue" featureName="guard" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+    </groups>
     <groups identifier="StateProperties" labelExpression="State" domainClass="statemachine.State" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-      <controls xsi:type="properties:TextAreaDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-      </groups>
+      <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+      <controls xsi:type="properties:TextAreaDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description"/>
+      <controls xsi:type="properties-xtext:XtextMultiLineValueDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" prefixTextExpression="&lt;html>&lt;head>&lt;title>t&lt;/title>&lt;/head>&lt;body>" suffixTextExpression="&lt;/body>&lt;/html>">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+    </groups>
   </extensions>
 </description:Group>

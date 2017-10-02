@@ -39,6 +39,9 @@ public class XtextMultiLineModelDescriptionConverter extends AbstractDescription
 			eefDescription.setLineCount(propertyDescription.getLineCount());
 			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
+			eefDescription.setMultiLine(propertyDescription.isMultiLine());
+			
+			eefDescription.getEditableFeatures().addAll(propertyDescription.getEditableFeatures());
 
 			// Let's not forget to populate the cache for the other converters
 			// or link resolvers

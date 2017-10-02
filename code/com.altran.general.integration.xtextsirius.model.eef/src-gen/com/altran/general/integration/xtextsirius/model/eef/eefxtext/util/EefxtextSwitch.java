@@ -97,6 +97,15 @@ public class EefxtextSwitch<T> {
 				final IEefXtextDescription iEefXtextDescription = (IEefXtextDescription) theEObject;
 				T result = caseIEefXtextDescription(iEefXtextDescription);
 				if (result == null) {
+					result = caseEEFTextDescription(iEefXtextDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(iEefXtextDescription);
+				}
+				if (result == null) {
+					result = caseEEFControlDescription(iEefXtextDescription);
+				}
+				if (result == null) {
 					result = defaultCase(theEObject);
 				}
 				return result;
@@ -106,6 +115,15 @@ public class EefxtextSwitch<T> {
 				T result = caseIEefXtextModelDescription(iEefXtextModelDescription);
 				if (result == null) {
 					result = caseIEefXtextDescription(iEefXtextModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFTextDescription(iEefXtextModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(iEefXtextModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFControlDescription(iEefXtextModelDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
@@ -119,6 +137,15 @@ public class EefxtextSwitch<T> {
 					result = caseIEefXtextDescription(iEefXtextValueDescription);
 				}
 				if (result == null) {
+					result = caseEEFTextDescription(iEefXtextValueDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(iEefXtextValueDescription);
+				}
+				if (result == null) {
+					result = caseEEFControlDescription(iEefXtextValueDescription);
+				}
+				if (result == null) {
 					result = defaultCase(theEObject);
 				}
 				return result;
@@ -130,6 +157,15 @@ public class EefxtextSwitch<T> {
 					result = caseIEefXtextDescription(iEefXtextPropertyDescription);
 				}
 				if (result == null) {
+					result = caseEEFTextDescription(iEefXtextPropertyDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(iEefXtextPropertyDescription);
+				}
+				if (result == null) {
+					result = caseEEFControlDescription(iEefXtextPropertyDescription);
+				}
+				if (result == null) {
 					result = defaultCase(theEObject);
 				}
 				return result;
@@ -138,19 +174,19 @@ public class EefxtextSwitch<T> {
 				final EefXtextSingleLineModelDescription eefXtextSingleLineModelDescription = (EefXtextSingleLineModelDescription) theEObject;
 				T result = caseEefXtextSingleLineModelDescription(eefXtextSingleLineModelDescription);
 				if (result == null) {
-					result = caseEEFTextDescription(eefXtextSingleLineModelDescription);
-				}
-				if (result == null) {
 					result = caseIEefXtextPropertyDescription(eefXtextSingleLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIEefXtextModelDescription(eefXtextSingleLineModelDescription);
 				}
 				if (result == null) {
-					result = caseEEFWidgetDescription(eefXtextSingleLineModelDescription);
+					result = caseIEefXtextDescription(eefXtextSingleLineModelDescription);
 				}
 				if (result == null) {
-					result = caseIEefXtextDescription(eefXtextSingleLineModelDescription);
+					result = caseEEFTextDescription(eefXtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(eefXtextSingleLineModelDescription);
 				}
 				if (result == null) {
 					result = caseEEFControlDescription(eefXtextSingleLineModelDescription);
@@ -164,19 +200,19 @@ public class EefxtextSwitch<T> {
 				final EefXtextMultiLineModelDescription eefXtextMultiLineModelDescription = (EefXtextMultiLineModelDescription) theEObject;
 				T result = caseEefXtextMultiLineModelDescription(eefXtextMultiLineModelDescription);
 				if (result == null) {
-					result = caseEEFTextDescription(eefXtextMultiLineModelDescription);
-				}
-				if (result == null) {
 					result = caseIEefXtextPropertyDescription(eefXtextMultiLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIEefXtextModelDescription(eefXtextMultiLineModelDescription);
 				}
 				if (result == null) {
-					result = caseEEFWidgetDescription(eefXtextMultiLineModelDescription);
+					result = caseIEefXtextDescription(eefXtextMultiLineModelDescription);
 				}
 				if (result == null) {
-					result = caseIEefXtextDescription(eefXtextMultiLineModelDescription);
+					result = caseEEFTextDescription(eefXtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(eefXtextMultiLineModelDescription);
 				}
 				if (result == null) {
 					result = caseEEFControlDescription(eefXtextMultiLineModelDescription);
@@ -190,19 +226,19 @@ public class EefxtextSwitch<T> {
 				final EefXtextSingleLineValueDescription eefXtextSingleLineValueDescription = (EefXtextSingleLineValueDescription) theEObject;
 				T result = caseEefXtextSingleLineValueDescription(eefXtextSingleLineValueDescription);
 				if (result == null) {
-					result = caseEEFTextDescription(eefXtextSingleLineValueDescription);
-				}
-				if (result == null) {
 					result = caseIEefXtextPropertyDescription(eefXtextSingleLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIEefXtextValueDescription(eefXtextSingleLineValueDescription);
 				}
 				if (result == null) {
-					result = caseEEFWidgetDescription(eefXtextSingleLineValueDescription);
+					result = caseIEefXtextDescription(eefXtextSingleLineValueDescription);
 				}
 				if (result == null) {
-					result = caseIEefXtextDescription(eefXtextSingleLineValueDescription);
+					result = caseEEFTextDescription(eefXtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(eefXtextSingleLineValueDescription);
 				}
 				if (result == null) {
 					result = caseEEFControlDescription(eefXtextSingleLineValueDescription);
@@ -216,19 +252,19 @@ public class EefxtextSwitch<T> {
 				final EefXtextMultiLineValueDescription eefXtextMultiLineValueDescription = (EefXtextMultiLineValueDescription) theEObject;
 				T result = caseEefXtextMultiLineValueDescription(eefXtextMultiLineValueDescription);
 				if (result == null) {
-					result = caseEEFTextDescription(eefXtextMultiLineValueDescription);
-				}
-				if (result == null) {
 					result = caseIEefXtextPropertyDescription(eefXtextMultiLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIEefXtextValueDescription(eefXtextMultiLineValueDescription);
 				}
 				if (result == null) {
-					result = caseEEFWidgetDescription(eefXtextMultiLineValueDescription);
+					result = caseIEefXtextDescription(eefXtextMultiLineValueDescription);
 				}
 				if (result == null) {
-					result = caseIEefXtextDescription(eefXtextMultiLineValueDescription);
+					result = caseEEFTextDescription(eefXtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseEEFWidgetDescription(eefXtextMultiLineValueDescription);
 				}
 				if (result == null) {
 					result = caseEEFControlDescription(eefXtextMultiLineValueDescription);

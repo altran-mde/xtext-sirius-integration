@@ -12,14 +12,14 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provid
 /**
  * This is the central singleton for the Properties-xtext edit plugin. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public final class PropertiesxtextEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static final PropertiesxtextEditPlugin INSTANCE = new PropertiesxtextEditPlugin();
@@ -27,7 +27,7 @@ public final class PropertiesxtextEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static Implementation plugin;
@@ -71,7 +71,7 @@ public final class PropertiesxtextEditPlugin extends EMFPlugin {
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static class Implementation extends EclipsePlugin {

@@ -19,6 +19,8 @@ import com.altran.general.integration.xtextsirius.model.properties.propertiesxte
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 
 /**
@@ -101,19 +103,22 @@ public class PropertiesxtextSwitch<T> {
 					result = caseTextDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
+					result = caseIXtextPropertyModelDescription(xtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseWidgetDescription(xtextSingleLineModelDescription);
+				}
+				if (result == null) {
 					result = caseIXtextPropertyDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextModelDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
-					result = caseWidgetDescription(xtextSingleLineModelDescription);
+					result = caseControlDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDescription(xtextSingleLineModelDescription);
-				}
-				if (result == null) {
-					result = caseControlDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
@@ -127,19 +132,22 @@ public class PropertiesxtextSwitch<T> {
 					result = caseTextAreaDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
+					result = caseIXtextPropertyModelDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseTextDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
 					result = caseIXtextPropertyDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextModelDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
-					result = caseTextDescription(xtextMultiLineModelDescription);
+					result = caseWidgetDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDescription(xtextMultiLineModelDescription);
-				}
-				if (result == null) {
-					result = caseWidgetDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
 					result = caseControlDescription(xtextMultiLineModelDescription);
@@ -156,19 +164,22 @@ public class PropertiesxtextSwitch<T> {
 					result = caseTextDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
+					result = caseIXtextPropertyValueDescription(xtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseWidgetDescription(xtextSingleLineValueDescription);
+				}
+				if (result == null) {
 					result = caseIXtextPropertyDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextValueDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
-					result = caseWidgetDescription(xtextSingleLineValueDescription);
+					result = caseControlDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDescription(xtextSingleLineValueDescription);
-				}
-				if (result == null) {
-					result = caseControlDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
@@ -182,19 +193,22 @@ public class PropertiesxtextSwitch<T> {
 					result = caseTextAreaDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
+					result = caseIXtextPropertyValueDescription(xtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseTextDescription(xtextMultiLineValueDescription);
+				}
+				if (result == null) {
 					result = caseIXtextPropertyDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextValueDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
-					result = caseTextDescription(xtextMultiLineValueDescription);
+					result = caseWidgetDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDescription(xtextMultiLineValueDescription);
-				}
-				if (result == null) {
-					result = caseWidgetDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
 					result = caseControlDescription(xtextMultiLineValueDescription);
@@ -380,6 +394,23 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Property Model Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Property Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Text
 	 * Area Description</em>'. <!-- begin-user-doc --> This implementation
 	 * returns null; returning a non-null result will terminate the switch. <!--
@@ -410,6 +441,23 @@ public class PropertiesxtextSwitch<T> {
 	 * @generated
 	 */
 	public T caseIXtextValueDescription(final IXtextValueDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Property Value Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Property Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
 		return null;
 	}
 

@@ -255,24 +255,16 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		// Add supertypes to classes
 		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
 		this.xtextSingleLineModelDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextPropertyDescription());
-		this.xtextSingleLineModelDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextModelDescription());
+				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
 		this.xtextMultiLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
 		this.xtextMultiLineModelDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextPropertyDescription());
-		this.xtextMultiLineModelDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextModelDescription());
+				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
 		this.xtextSingleLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
 		this.xtextSingleLineValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextPropertyDescription());
-		this.xtextSingleLineValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextValueDescription());
+				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
 		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
 		this.xtextMultiLineValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextPropertyDescription());
-		this.xtextMultiLineValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextValueDescription());
+				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(this.xtextSingleLineModelDescriptionEClass, XtextSingleLineModelDescription.class,

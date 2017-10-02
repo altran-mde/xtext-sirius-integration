@@ -118,13 +118,22 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_DESCRIPTION__INJECTOR_ID;
 
 	/**
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>IXtext Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int IXTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the
@@ -291,6 +300,150 @@ public interface XtextsiriusPackage extends EPackage {
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 1;
 
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * <em>IXtext Direct Edit Value Description</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextDirectEditValueDescription()
+	 * @generated
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID = IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE = IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>IXtext Direct Edit Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * <em>IXtext Property Model Description</em>}' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextPropertyModelDescription()
+	 * @generated
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>IXtext Property Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * <em>IXtext Property Value Description</em>}' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextPropertyValueDescription()
+	 * @generated
+	 */
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__INJECTOR_ID = IXTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>IXtext Property Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
+
 
 	/**
 	 * Returns the meta object for class
@@ -327,6 +480,20 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextModelDescription();
+
+	/**
+	 * Returns the meta object for the attribute list
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getEditableFeatures
+	 * <em>Editable Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Editable
+	 *         Features</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getEditableFeatures()
+	 * @see #getIXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextModelDescription_EditableFeatures();
 
 	/**
 	 * Returns the meta object for class
@@ -419,18 +586,43 @@ public interface XtextsiriusPackage extends EPackage {
 	EClass getIXtextDirectEditModelDescription();
 
 	/**
-	 * Returns the meta object for the attribute list
-	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getEditableFeatures
-	 * <em>Editable Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * <em>IXtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute list '<em>Editable
-	 *         Features</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getEditableFeatures()
-	 * @see #getIXtextDirectEditModelDescription()
+	 * @return the meta object for class '<em>IXtext Direct Edit Value
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 	 * @generated
 	 */
-	EAttribute getIXtextDirectEditModelDescription_EditableFeatures();
+	EClass getIXtextDirectEditValueDescription();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * <em>IXtext Property Model Description</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IXtext Property Model
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * @generated
+	 */
+	EClass getIXtextPropertyModelDescription();
+
+	/**
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * <em>IXtext Property Value Description</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>IXtext Property Value
+	 *         Description</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * @generated
+	 */
+	EClass getIXtextPropertyValueDescription();
 
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
@@ -486,6 +678,14 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_MODEL_DESCRIPTION = eINSTANCE.getIXtextModelDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Editable Features</b></em>'
+		 * attribute list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = eINSTANCE.getIXtextModelDescription_EditableFeatures();
 
 		/**
 		 * The meta object literal for the
@@ -564,13 +764,40 @@ public interface XtextsiriusPackage extends EPackage {
 		EClass IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION = eINSTANCE.getIXtextDirectEditModelDescription();
 
 		/**
-		 * The meta object literal for the '<em><b>Editable Features</b></em>'
-		 * attribute list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+		 * <em>IXtext Direct Edit Value Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextDirectEditValueDescription()
 		 * @generated
 		 */
-		EAttribute IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = eINSTANCE
-				.getIXtextDirectEditModelDescription_EditableFeatures();
+		EClass IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION = eINSTANCE.getIXtextDirectEditValueDescription();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+		 * <em>IXtext Property Model Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextPropertyModelDescription()
+		 * @generated
+		 */
+		EClass IXTEXT_PROPERTY_MODEL_DESCRIPTION = eINSTANCE.getIXtextPropertyModelDescription();
+
+		/**
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+		 * <em>IXtext Property Value Description</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextPropertyValueDescription()
+		 * @generated
+		 */
+		EClass IXTEXT_PROPERTY_VALUE_DESCRIPTION = eINSTANCE.getIXtextPropertyValueDescription();
 
 	}
 

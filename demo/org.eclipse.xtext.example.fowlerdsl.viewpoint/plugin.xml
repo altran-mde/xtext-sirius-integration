@@ -8,33 +8,19 @@
 			name="fowlerdsl"/>
 	</extension>
 	
-	<extension point="com.altran.general.integration.xtextsirius.xtextDirectEdit">
-		<xtextDirectEditModel
-			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdsl"
-			identifier="EventNode"/>
-		<xtextDirectEditModel
-			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationFowlerdslInlineEdit"
-			identifier="TransitionEdge">
-			<editableFeature name="event"/>
-			<editableFeature name="guard"/>
-		</xtextDirectEditModel>
-		<xtextDirectEditValue
-			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.editPart.EditPartConfigurationHtml"
-			identifier="description"
-			multiLine="true"
-			prefixText="&lt;html&gt;&lt;head&gt;&lt;title&gt;t&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"
-			suffixText="&lt;/body&gt;&lt;/html&gt;"/>
-	</extension>
-	
-	<extension point="com.altran.general.integration.xtextsirius.xtextProperty">
-		<xtextPropertyModel
-			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.eef.EefConfigurationFowlerdsl"
-			identifier="EventGuardId"/>
-		<xtextPropertyValue
-			configClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.eef.EefConfigurationHtml"
-			identifier="StateDescriptionId"
-			multiLine="true"
-			prefixText="&lt;html&gt;&lt;head&gt;&lt;title&gt;t&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"
-			suffixText="&lt;/body&gt;&lt;/html&gt;"/>
+	<extension point="com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector">
+		<injector
+			id="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId"
+			class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.FowlerdslLanguageInjector"
+		/>
+		<injector
+			id="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId"
+			class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.InlineEditLanguageInjector"
+		/>
+		
+		<injector
+			id="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"
+			class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.HtmlLanguageInjector"
+		/>
 	</extension>
 </plugin>

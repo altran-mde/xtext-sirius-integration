@@ -8,7 +8,7 @@ Bundle-Vendor: Altran
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.junit,
- com.altran.general.integration.xtextsirius,
+ com.altran.general.integration.xtextsirius.runtime,
  org.eclipse.xtext.example.fowlerdsl,
  org.eclipse.xtext.example.fowlerdsl.inlineedit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

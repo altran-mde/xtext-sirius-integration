@@ -2,15 +2,12 @@
  */
 package com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl;
 
-import org.eclipse.eef.impl.EEFTextDescriptionImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage;
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 
 /**
@@ -20,8 +17,6 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextVa
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl#getInjectorId
- * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl#getSuffixTextExpression
@@ -30,28 +25,8 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextVa
  *
  * @generated
  */
-public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImpl
+public class EefXtextMultiLineValueDescriptionImpl extends IEefXtextDescriptionImpl
 		implements EefXtextMultiLineValueDescription {
-	/**
-	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getInjectorId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String INJECTOR_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getInjectorId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String injectorId = INJECTOR_ID_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -121,32 +96,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImp
 	 * @generated
 	 */
 	@Override
-	public String getInjectorId() {
-		return this.injectorId;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setInjectorId(final String newInjectorId) {
-		final String oldInjectorId = this.injectorId;
-		this.injectorId = newInjectorId;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID, oldInjectorId,
-					this.injectorId));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public String getPrefixTextExpression() {
 		return this.prefixTextExpression;
 	}
@@ -201,8 +150,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImp
 	@Override
 	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
-				return getInjectorId();
 			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				return getPrefixTextExpression();
 			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
@@ -219,9 +166,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImp
 	@Override
 	public void eSet(final int featureID, final Object newValue) {
 		switch (featureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
-				setInjectorId((String) newValue);
-				return;
 			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				setPrefixTextExpression((String) newValue);
 				return;
@@ -240,9 +184,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImp
 	@Override
 	public void eUnset(final int featureID) {
 		switch (featureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
-				setInjectorId(INJECTOR_ID_EDEFAULT);
-				return;
 			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				setPrefixTextExpression(PREFIX_TEXT_EXPRESSION_EDEFAULT);
 				return;
@@ -261,9 +202,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImp
 	@Override
 	public boolean eIsSet(final int featureID) {
 		switch (featureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
-				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
-						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
 			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				return PREFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.prefixTextExpression != null
 						: !PREFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.prefixTextExpression);
@@ -281,20 +219,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImp
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-		if (baseClass == IEefXtextDescription.class) {
-			switch (derivedFeatureID) {
-				case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
-					return EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID;
-				default:
-					return -1;
-			}
-		}
-		if (baseClass == IEefXtextPropertyDescription.class) {
-			switch (derivedFeatureID) {
-				default:
-					return -1;
-			}
-		}
 		if (baseClass == IEefXtextValueDescription.class) {
 			switch (derivedFeatureID) {
 				case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
@@ -315,20 +239,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImp
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-		if (baseClass == IEefXtextDescription.class) {
-			switch (baseFeatureID) {
-				case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
-					return EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID;
-				default:
-					return -1;
-			}
-		}
-		if (baseClass == IEefXtextPropertyDescription.class) {
-			switch (baseFeatureID) {
-				default:
-					return -1;
-			}
-		}
 		if (baseClass == IEefXtextValueDescription.class) {
 			switch (baseFeatureID) {
 				case EefxtextPackage.IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
@@ -354,9 +264,7 @@ public class EefXtextMultiLineValueDescriptionImpl extends EEFTextDescriptionImp
 		}
 
 		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (injectorId: ");
-		result.append(this.injectorId);
-		result.append(", prefixTextExpression: ");
+		result.append(" (prefixTextExpression: ");
 		result.append(this.prefixTextExpression);
 		result.append(", suffixTextExpression: ");
 		result.append(this.suffixTextExpression);

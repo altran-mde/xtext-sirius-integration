@@ -278,14 +278,14 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		if (baseClass == IXtextModelDescription.class) {
 			switch (derivedFeatureID) {
+				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
 		}
 		if (baseClass == IXtextDirectEditModelDescription.class) {
 			switch (derivedFeatureID) {
-				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-					return XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
@@ -318,14 +318,14 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		if (baseClass == IXtextModelDescription.class) {
 			switch (baseFeatureID) {
+				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
 		}
 		if (baseClass == IXtextDirectEditModelDescription.class) {
 			switch (baseFeatureID) {
-				case XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}

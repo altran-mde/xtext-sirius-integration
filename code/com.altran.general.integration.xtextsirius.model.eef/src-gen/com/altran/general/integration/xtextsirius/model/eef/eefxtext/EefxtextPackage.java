@@ -66,15 +66,105 @@ public interface EefxtextPackage extends EPackage {
 
 	/**
 	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl
 	 * <em>IEef Xtext Description</em>}' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextDescription()
 	 * @generated
 	 */
 	int IEEF_XTEXT_DESCRIPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
@@ -83,7 +173,16 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_DESCRIPTION__INJECTOR_ID = 0;
+	int IEEF_XTEXT_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__MULTI_LINE = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>IEef Xtext
@@ -92,7 +191,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT = 1;
+	int IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
@@ -107,6 +206,96 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_MODEL_DESCRIPTION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__IDENTIFIER = IEEF_XTEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__LABEL_EXPRESSION = IEEF_XTEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__HELP_EXPRESSION = IEEF_XTEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = IEEF_XTEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__PROPERTY_VALIDATION_RULES = IEEF_XTEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__VALUE_EXPRESSION = IEEF_XTEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__EDIT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__EDIT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__LINE_COUNT = IEEF_XTEXT_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__STYLE = IEEF_XTEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__CONDITIONAL_STYLES = IEEF_XTEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -116,13 +305,31 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_MODEL_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_DESCRIPTION__INJECTOR_ID;
 
 	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>IEef Xtext Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int IEEF_XTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the
@@ -137,6 +344,96 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_VALUE_DESCRIPTION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__IDENTIFIER = IEEF_XTEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__LABEL_EXPRESSION = IEEF_XTEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__HELP_EXPRESSION = IEEF_XTEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = IEEF_XTEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__PROPERTY_VALIDATION_RULES = IEEF_XTEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__VALUE_EXPRESSION = IEEF_XTEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__EDIT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__EDIT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__LINE_COUNT = IEEF_XTEXT_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__STYLE = IEEF_XTEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__CONDITIONAL_STYLES = IEEF_XTEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -144,6 +441,15 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int IEEF_XTEXT_VALUE_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_DESCRIPTION__MULTI_LINE;
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
@@ -185,6 +491,96 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_PROPERTY_DESCRIPTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__IDENTIFIER = IEEF_XTEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__LABEL_EXPRESSION = IEEF_XTEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__HELP_EXPRESSION = IEEF_XTEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__IS_ENABLED_EXPRESSION = IEEF_XTEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__PROPERTY_VALIDATION_RULES = IEEF_XTEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__VALUE_EXPRESSION = IEEF_XTEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__EDIT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__EDIT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__LINE_COUNT = IEEF_XTEXT_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__STYLE = IEEF_XTEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__CONDITIONAL_STYLES = IEEF_XTEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -192,6 +588,15 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int IEEF_XTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_DESCRIPTION__MULTI_LINE;
 
 	/**
 	 * The number of structural features of the '<em>IEef Xtext Property
@@ -221,7 +626,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IDENTIFIER = IEEF_XTEXT_PROPERTY_DESCRIPTION__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -230,7 +635,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__LABEL_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
@@ -239,7 +644,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__HELP_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
@@ -248,7 +653,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__IS_ENABLED_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
@@ -257,7 +662,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__PROPERTY_VALIDATION_RULES = IEEF_XTEXT_PROPERTY_DESCRIPTION__PROPERTY_VALIDATION_RULES;
 
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
@@ -266,7 +671,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
@@ -275,7 +680,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDIT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__EDIT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
@@ -284,7 +689,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LINE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION__LINE_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -293,7 +698,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__STYLE = IEEF_XTEXT_PROPERTY_DESCRIPTION__STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
@@ -302,7 +707,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = IEEF_XTEXT_PROPERTY_DESCRIPTION__CONDITIONAL_STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
@@ -311,7 +716,25 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Eef Xtext Single Line Model
@@ -320,7 +743,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 1;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the
@@ -341,7 +764,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IDENTIFIER = IEEF_XTEXT_PROPERTY_DESCRIPTION__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -350,7 +773,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__LABEL_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
@@ -359,7 +782,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__HELP_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
@@ -368,7 +791,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__IS_ENABLED_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
@@ -377,7 +800,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PROPERTY_VALIDATION_RULES = IEEF_XTEXT_PROPERTY_DESCRIPTION__PROPERTY_VALIDATION_RULES;
 
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
@@ -386,7 +809,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
@@ -395,7 +818,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDIT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__EDIT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
@@ -404,7 +827,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LINE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION__LINE_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -413,7 +836,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__STYLE = IEEF_XTEXT_PROPERTY_DESCRIPTION__STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
@@ -422,7 +845,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = IEEF_XTEXT_PROPERTY_DESCRIPTION__CONDITIONAL_STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
@@ -431,7 +854,25 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Eef Xtext Multi Line Model
@@ -440,7 +881,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 1;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the
@@ -461,7 +902,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IDENTIFIER = IEEF_XTEXT_PROPERTY_DESCRIPTION__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -470,7 +911,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__LABEL_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
@@ -479,7 +920,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__HELP_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
@@ -488,7 +929,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__IS_ENABLED_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
@@ -497,7 +938,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PROPERTY_VALIDATION_RULES = IEEF_XTEXT_PROPERTY_DESCRIPTION__PROPERTY_VALIDATION_RULES;
 
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
@@ -506,7 +947,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
@@ -515,7 +956,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__EDIT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__EDIT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
@@ -524,7 +965,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LINE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION__LINE_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -533,7 +974,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__STYLE = IEEF_XTEXT_PROPERTY_DESCRIPTION__STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
@@ -542,7 +983,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = IEEF_XTEXT_PROPERTY_DESCRIPTION__CONDITIONAL_STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
@@ -551,7 +992,16 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE;
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
@@ -560,8 +1010,8 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 1;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 0;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -570,8 +1020,8 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 2;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 1;
 
 	/**
 	 * The number of structural features of the '<em>Eef Xtext Single Line Value
@@ -580,7 +1030,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
@@ -601,7 +1051,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IDENTIFIER = EefPackage.EEF_TEXT_DESCRIPTION__IDENTIFIER;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IDENTIFIER = IEEF_XTEXT_PROPERTY_DESCRIPTION__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
@@ -610,7 +1060,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__LABEL_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__LABEL_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
@@ -619,7 +1069,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__HELP_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__HELP_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
@@ -628,7 +1078,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__IS_ENABLED_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Property Validation Rules</b></em>'
@@ -637,7 +1087,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PROPERTY_VALIDATION_RULES = EefPackage.EEF_TEXT_DESCRIPTION__PROPERTY_VALIDATION_RULES;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PROPERTY_VALIDATION_RULES = IEEF_XTEXT_PROPERTY_DESCRIPTION__PROPERTY_VALIDATION_RULES;
 
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
@@ -646,7 +1096,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__VALUE_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
@@ -655,7 +1105,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__EDIT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__EDIT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__EDIT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
@@ -664,7 +1114,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LINE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION__LINE_COUNT;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LINE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION__LINE_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
@@ -673,7 +1123,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__STYLE = EefPackage.EEF_TEXT_DESCRIPTION__STYLE;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__STYLE = IEEF_XTEXT_PROPERTY_DESCRIPTION__STYLE;
 
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
@@ -682,7 +1132,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = EefPackage.EEF_TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = IEEF_XTEXT_PROPERTY_DESCRIPTION__CONDITIONAL_STYLES;
 
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
@@ -691,7 +1141,16 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = IEEF_XTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
+
+	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE;
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
@@ -700,8 +1159,8 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 1;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 0;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -710,8 +1169,8 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 2;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 1;
 
 	/**
 	 * The number of structural features of the '<em>Eef Xtext Multi Line Value
@@ -720,7 +1179,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
 
 
 	/**
@@ -748,6 +1207,18 @@ public interface EefxtextPackage extends EPackage {
 	EAttribute getIEefXtextDescription_InjectorId();
 
 	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
+	 * <em>Multi Line</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Multi Line</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine()
+	 * @see #getIEefXtextDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextDescription_MultiLine();
+
+	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
 	 * <em>IEef Xtext Model Description</em>}'. <!-- begin-user-doc --> <!--
@@ -759,6 +1230,20 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIEefXtextModelDescription();
+
+	/**
+	 * Returns the meta object for the attribute list
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures
+	 * <em>Editable Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Editable
+	 *         Features</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures()
+	 * @see #getIEefXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextModelDescription_EditableFeatures();
 
 	/**
 	 * Returns the meta object for class
@@ -891,11 +1376,11 @@ public interface EefxtextPackage extends EPackage {
 	interface Literals {
 		/**
 		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl
 		 * <em>IEef Xtext Description</em>}' class. <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
 		 * 
-		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getIEefXtextDescription()
 		 * @generated
 		 */
@@ -910,6 +1395,14 @@ public interface EefxtextPackage extends EPackage {
 		EAttribute IEEF_XTEXT_DESCRIPTION__INJECTOR_ID = eINSTANCE.getIEefXtextDescription_InjectorId();
 
 		/**
+		 * The meta object literal for the '<em><b>Multi Line</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_DESCRIPTION__MULTI_LINE = eINSTANCE.getIEefXtextDescription_MultiLine();
+
+		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
 		 * <em>IEef Xtext Model Description</em>}' class. <!-- begin-user-doc
@@ -920,6 +1413,15 @@ public interface EefxtextPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IEEF_XTEXT_MODEL_DESCRIPTION = eINSTANCE.getIEefXtextModelDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Editable Features</b></em>'
+		 * attribute list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = eINSTANCE
+				.getIEefXtextModelDescription_EditableFeatures();
 
 		/**
 		 * The meta object literal for the

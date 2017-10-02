@@ -10,8 +10,11 @@ import org.eclipse.emf.ecore.EObject;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
@@ -157,6 +160,57 @@ public class XtextsiriusSwitch<T> {
 				}
 				return result;
 			}
+			case XtextsiriusPackage.IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION: {
+				final IXtextDirectEditValueDescription iXtextDirectEditValueDescription = (IXtextDirectEditValueDescription) theEObject;
+				T result = caseIXtextDirectEditValueDescription(iXtextDirectEditValueDescription);
+				if (result == null) {
+					result = caseIXtextDirectEditDescription(iXtextDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextValueDescription(iXtextDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(iXtextDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case XtextsiriusPackage.IXTEXT_PROPERTY_MODEL_DESCRIPTION: {
+				final IXtextPropertyModelDescription iXtextPropertyModelDescription = (IXtextPropertyModelDescription) theEObject;
+				T result = caseIXtextPropertyModelDescription(iXtextPropertyModelDescription);
+				if (result == null) {
+					result = caseIXtextPropertyDescription(iXtextPropertyModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextModelDescription(iXtextPropertyModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(iXtextPropertyModelDescription);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
+			case XtextsiriusPackage.IXTEXT_PROPERTY_VALUE_DESCRIPTION: {
+				final IXtextPropertyValueDescription iXtextPropertyValueDescription = (IXtextPropertyValueDescription) theEObject;
+				T result = caseIXtextPropertyValueDescription(iXtextPropertyValueDescription);
+				if (result == null) {
+					result = caseIXtextPropertyDescription(iXtextPropertyValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextValueDescription(iXtextPropertyValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(iXtextPropertyValueDescription);
+				}
+				if (result == null) {
+					result = defaultCase(theEObject);
+				}
+				return result;
+			}
 			default:
 				return defaultCase(theEObject);
 		}
@@ -261,6 +315,57 @@ public class XtextsiriusSwitch<T> {
 	 * @generated
 	 */
 	public T caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Property Model Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Property Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Property Value Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Property Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
 		return null;
 	}
 

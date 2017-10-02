@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.eef.ide.ui.eefLifecycleManagerProvider">
+		<descriptor
+			class="com.altran.general.integration.xtextsirius.runtime.eef.ui.internal.XtextSiriusEefLifecycleManagerProvider"
+			description="description"
+			id="com.altran.general.integration.xtextsirius.descriptor1"
+			label="label"/>
+	</extension>
+
+</plugin>

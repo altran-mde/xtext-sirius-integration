@@ -24,9 +24,8 @@
 )
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
 import org.eclipse.sirius.properties.TextAreaDescription
 import org.eclipse.sirius.properties.TextDescription 
 
@@ -34,28 +33,28 @@ annotation "http://www.eclipse.org/emf/2002/Ecore" as Ecore
 annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel
 
 @GenModel(image="true")
-class XtextSingleLineModelDescription extends TextDescription, IXtextPropertyDescription, IXtextModelDescription {
+class XtextSingleLineModelDescription extends TextDescription, IXtextPropertyModelDescription {
 
 	op boolean isMultiLine() { false }
 
 }
 
 @GenModel(image="true")
-class XtextMultiLineModelDescription extends TextAreaDescription, IXtextPropertyDescription, IXtextModelDescription {
+class XtextMultiLineModelDescription extends TextAreaDescription, IXtextPropertyModelDescription {
 	
 	op boolean isMultiLine() { true }
 
 }
 
 @GenModel(image="true")
-class XtextSingleLineValueDescription extends TextDescription, IXtextPropertyDescription, IXtextValueDescription {
+class XtextSingleLineValueDescription extends TextDescription, IXtextPropertyValueDescription {
 
 	op boolean isMultiLine() { false }
 	
 }
 
 @GenModel(image="true")
-class XtextMultiLineValueDescription extends TextAreaDescription, IXtextPropertyDescription, IXtextValueDescription {
+class XtextMultiLineValueDescription extends TextAreaDescription, IXtextPropertyValueDescription {
 	
 	op boolean isMultiLine() { true }
 

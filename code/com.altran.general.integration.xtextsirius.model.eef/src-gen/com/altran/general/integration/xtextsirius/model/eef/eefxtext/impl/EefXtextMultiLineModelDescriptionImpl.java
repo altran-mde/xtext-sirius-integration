@@ -2,16 +2,15 @@
  */
 package com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl;
 
-import org.eclipse.eef.impl.EEFTextDescriptionImpl;
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage;
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription;
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Eef
@@ -20,33 +19,24 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPr
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl#getInjectorId
- * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl#getEditableFeatures
+ * <em>Editable Features</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImpl
+public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionImpl
 		implements EefXtextMultiLineModelDescription {
 	/**
-	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
+	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
-	 * @see #getInjectorId()
+	 * @see #getEditableFeatures()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String INJECTOR_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getInjectorId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String injectorId = INJECTOR_ID_EDEFAULT;
+	protected EList<String> editableFeatures;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -73,24 +63,12 @@ public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImp
 	 * @generated
 	 */
 	@Override
-	public String getInjectorId() {
-		return this.injectorId;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setInjectorId(final String newInjectorId) {
-		final String oldInjectorId = this.injectorId;
-		this.injectorId = newInjectorId;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID, oldInjectorId,
-					this.injectorId));
+	public EList<String> getEditableFeatures() {
+		if (this.editableFeatures == null) {
+			this.editableFeatures = new EDataTypeEList<>(String.class, this,
+					EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		}
+		return this.editableFeatures;
 	}
 
 	/**
@@ -101,8 +79,8 @@ public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImp
 	@Override
 	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-				return getInjectorId();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				return getEditableFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,11 +90,13 @@ public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImp
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(final int featureID, final Object newValue) {
 		switch (featureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-				setInjectorId((String) newValue);
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				getEditableFeatures().clear();
+				getEditableFeatures().addAll((Collection<? extends String>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,8 +110,8 @@ public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImp
 	@Override
 	public void eUnset(final int featureID) {
 		switch (featureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-				setInjectorId(INJECTOR_ID_EDEFAULT);
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				getEditableFeatures().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -145,9 +125,8 @@ public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImp
 	@Override
 	public boolean eIsSet(final int featureID) {
 		switch (featureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
-						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -159,22 +138,10 @@ public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImp
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-		if (baseClass == IEefXtextDescription.class) {
-			switch (derivedFeatureID) {
-				case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-					return EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID;
-				default:
-					return -1;
-			}
-		}
-		if (baseClass == IEefXtextPropertyDescription.class) {
-			switch (derivedFeatureID) {
-				default:
-					return -1;
-			}
-		}
 		if (baseClass == IEefXtextModelDescription.class) {
 			switch (derivedFeatureID) {
+				case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
@@ -189,22 +156,10 @@ public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImp
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-		if (baseClass == IEefXtextDescription.class) {
-			switch (baseFeatureID) {
-				case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
-					return EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID;
-				default:
-					return -1;
-			}
-		}
-		if (baseClass == IEefXtextPropertyDescription.class) {
-			switch (baseFeatureID) {
-				default:
-					return -1;
-			}
-		}
 		if (baseClass == IEefXtextModelDescription.class) {
 			switch (baseFeatureID) {
+				case EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				default:
 					return -1;
 			}
@@ -224,8 +179,8 @@ public class EefXtextMultiLineModelDescriptionImpl extends EEFTextDescriptionImp
 		}
 
 		final StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (injectorId: ");
-		result.append(this.injectorId);
+		result.append(" (editableFeatures: ");
+		result.append(this.editableFeatures);
 		result.append(')');
 		return result.toString();
 	}

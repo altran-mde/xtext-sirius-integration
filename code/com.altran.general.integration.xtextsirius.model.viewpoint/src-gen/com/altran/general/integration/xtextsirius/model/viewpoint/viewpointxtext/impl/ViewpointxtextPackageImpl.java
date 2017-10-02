@@ -257,7 +257,7 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 		this.xtextEdgeLabelDirectEditValueDescriptionEClass.getESuperTypes()
 				.add(getIXtextEdgeLabelDirectEditDescription());
 		this.xtextEdgeLabelDirectEditValueDescriptionEClass.getESuperTypes()
-				.add(theXtextsiriusPackage.getIXtextValueDescription());
+				.add(theXtextsiriusPackage.getIXtextDirectEditValueDescription());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(this.iXtextEdgeLabelDirectEditDescriptionEClass, IXtextEdgeLabelDirectEditDescription.class,

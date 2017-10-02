@@ -35,7 +35,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public XtextEdgeLabelDirectEditModelDescriptionItemProvider(final AdapterFactory adapterFactory) {
@@ -45,7 +45,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -64,7 +64,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addInjectorIdPropertyDescriptor(final Object object) {
@@ -87,7 +87,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Multi Line feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMultiLinePropertyDescriptor(final Object object) {
@@ -109,7 +109,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Edge Label Mappings feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addEdgeLabelMappingsPropertyDescriptor(final Object object) {
@@ -133,31 +133,29 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Editable Features feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addEditableFeaturesPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextDirectEditModelDescription_editableFeatures_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IXtextDirectEditModelDescription_editableFeatures_feature",
-								"_UI_IXtextDirectEditModelDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null,
-						null));
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextModelDescription_editableFeatures_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_IXtextModelDescription_editableFeatures_feature",
+						"_UI_IXtextModelDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
 	 * This returns XtextEdgeLabelDirectEditModelDescription.gif. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -180,7 +178,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	/**
 	 * This returns the label styled text for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -223,7 +221,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -235,7 +233,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -19,6 +19,8 @@ import com.altran.general.integration.xtextsirius.model.properties.propertiesxte
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 
 /**
@@ -127,6 +129,11 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
+			return createIXtextPropertyModelDescriptionAdapter();
+		}
+
+		@Override
 		public Adapter caseTextAreaDescription(final TextAreaDescription object) {
 			return createTextAreaDescriptionAdapter();
 		}
@@ -134,6 +141,11 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
+			return createIXtextPropertyValueDescriptionAdapter();
 		}
 
 		@Override
@@ -319,6 +331,22 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * <em>IXtext Property Model Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * @generated
+	 */
+	public Adapter createIXtextPropertyModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.TextAreaDescription <em>Text Area
 	 * Description</em>}'. <!-- begin-user-doc --> This default implementation
 	 * returns null so that we can easily ignore cases; it's useful to ignore a
@@ -346,6 +374,22 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIXtextValueDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * <em>IXtext Property Value Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * @generated
+	 */
+	public Adapter createIXtextPropertyValueDescriptionAdapter() {
 		return null;
 	}
 

@@ -2,9 +2,13 @@
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.sirius.properties.impl.TextAreaDescriptionImpl;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
@@ -12,6 +16,7 @@ import com.altran.general.integration.xtextsirius.model.properties.propertiesxte
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
@@ -23,6 +28,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getEditableFeatures
+ * <em>Editable Features</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,6 +55,17 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
+	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @see #getEditableFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> editableFeatures;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -100,6 +118,20 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 	 * @generated
 	 */
 	@Override
+	public EList<String> getEditableFeatures() {
+		if (this.editableFeatures == null) {
+			this.editableFeatures = new EDataTypeEList<>(String.class, this,
+					PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES);
+		}
+		return this.editableFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public boolean isMultiLine() {
 		return true;
 	}
@@ -114,6 +146,8 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 		switch (featureID) {
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				return getInjectorId();
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				return getEditableFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,11 +157,16 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(final int featureID, final Object newValue) {
 		switch (featureID) {
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId((String) newValue);
+				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				getEditableFeatures().clear();
+				getEditableFeatures().addAll((Collection<? extends String>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -144,6 +183,9 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId(INJECTOR_ID_EDEFAULT);
 				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				getEditableFeatures().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -159,6 +201,8 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -185,6 +229,14 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 			}
 		}
 		if (baseClass == IXtextModelDescription.class) {
+			switch (derivedFeatureID) {
+				case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+				default:
+					return -1;
+			}
+		}
+		if (baseClass == IXtextPropertyModelDescription.class) {
 			switch (derivedFeatureID) {
 				default:
 					return -1;
@@ -216,6 +268,14 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		if (baseClass == IXtextModelDescription.class) {
 			switch (baseFeatureID) {
+				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+				default:
+					return -1;
+			}
+		}
+		if (baseClass == IXtextPropertyModelDescription.class) {
+			switch (baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -237,6 +297,8 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
+		result.append(", editableFeatures: ");
+		result.append(this.editableFeatures);
 		result.append(')');
 		return result.toString();
 	}

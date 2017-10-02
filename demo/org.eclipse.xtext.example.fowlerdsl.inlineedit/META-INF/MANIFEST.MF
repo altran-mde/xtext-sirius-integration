@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.xtext.example.fowlerdsl;visibility:=reexport,
  org.eclipse.emf.common,
  org.eclipse.xtext.common.types,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
- com.altran.general.integration.xtextsirius
+ com.altran.general.integration.xtextsirius.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.xtext.example.fowlerdsl.generator,
  org.eclipse.xtext.example.fowlerdsl,

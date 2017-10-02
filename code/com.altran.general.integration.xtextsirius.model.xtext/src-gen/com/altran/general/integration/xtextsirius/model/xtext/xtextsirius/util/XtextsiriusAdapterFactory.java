@@ -10,8 +10,11 @@ import org.eclipse.emf.ecore.EObject;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
@@ -98,6 +101,21 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
 			return createIXtextDirectEditModelDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
+			return createIXtextDirectEditValueDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
+			return createIXtextPropertyModelDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
+			return createIXtextPropertyValueDescriptionAdapter();
 		}
 
 		@Override
@@ -214,6 +232,54 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIXtextDirectEditModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * <em>IXtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * @generated
+	 */
+	public Adapter createIXtextDirectEditValueDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * <em>IXtext Property Model Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * @generated
+	 */
+	public Adapter createIXtextPropertyModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * <em>IXtext Property Value Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * @generated
+	 */
+	public Adapter createIXtextPropertyValueDescriptionAdapter() {
 		return null;
 	}
 

@@ -11,8 +11,11 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusFactory;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
@@ -65,6 +68,27 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * @generated
 	 */
 	private EClass iXtextDirectEditModelDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iXtextDirectEditValueDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iXtextPropertyModelDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iXtextPropertyValueDescriptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -173,6 +197,16 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIXtextModelDescription_EditableFeatures() {
+		return (EAttribute) this.iXtextModelDescriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getIXtextValueDescription() {
 		return this.iXtextValueDescriptionEClass;
 	}
@@ -243,8 +277,28 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIXtextDirectEditModelDescription_EditableFeatures() {
-		return (EAttribute) this.iXtextDirectEditModelDescriptionEClass.getEStructuralFeatures().get(0);
+	public EClass getIXtextDirectEditValueDescription() {
+		return this.iXtextDirectEditValueDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getIXtextPropertyModelDescription() {
+		return this.iXtextPropertyModelDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getIXtextPropertyValueDescription() {
+		return this.iXtextPropertyValueDescriptionEClass;
 	}
 
 	/**
@@ -282,6 +336,7 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		createEAttribute(this.iXtextDescriptionEClass, IXTEXT_DESCRIPTION__INJECTOR_ID);
 
 		this.iXtextModelDescriptionEClass = createEClass(IXTEXT_MODEL_DESCRIPTION);
+		createEAttribute(this.iXtextModelDescriptionEClass, IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 
 		this.iXtextValueDescriptionEClass = createEClass(IXTEXT_VALUE_DESCRIPTION);
 		createEAttribute(this.iXtextValueDescriptionEClass, IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION);
@@ -293,8 +348,12 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		createEAttribute(this.iXtextDirectEditDescriptionEClass, IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE);
 
 		this.iXtextDirectEditModelDescriptionEClass = createEClass(IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION);
-		createEAttribute(this.iXtextDirectEditModelDescriptionEClass,
-				IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
+
+		this.iXtextDirectEditValueDescriptionEClass = createEClass(IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION);
+
+		this.iXtextPropertyModelDescriptionEClass = createEClass(IXTEXT_PROPERTY_MODEL_DESCRIPTION);
+
+		this.iXtextPropertyValueDescriptionEClass = createEClass(IXTEXT_PROPERTY_VALUE_DESCRIPTION);
 	}
 
 	/**
@@ -337,6 +396,12 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		this.iXtextDirectEditDescriptionEClass.getESuperTypes().add(getIXtextDescription());
 		this.iXtextDirectEditModelDescriptionEClass.getESuperTypes().add(getIXtextDirectEditDescription());
 		this.iXtextDirectEditModelDescriptionEClass.getESuperTypes().add(getIXtextModelDescription());
+		this.iXtextDirectEditValueDescriptionEClass.getESuperTypes().add(getIXtextDirectEditDescription());
+		this.iXtextDirectEditValueDescriptionEClass.getESuperTypes().add(getIXtextValueDescription());
+		this.iXtextPropertyModelDescriptionEClass.getESuperTypes().add(getIXtextPropertyDescription());
+		this.iXtextPropertyModelDescriptionEClass.getESuperTypes().add(getIXtextModelDescription());
+		this.iXtextPropertyValueDescriptionEClass.getESuperTypes().add(getIXtextPropertyDescription());
+		this.iXtextPropertyValueDescriptionEClass.getESuperTypes().add(getIXtextValueDescription());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(this.iXtextDescriptionEClass, IXtextDescription.class, "IXtextDescription", IS_ABSTRACT,
@@ -352,6 +417,9 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		initEClass(this.iXtextModelDescriptionEClass, IXtextModelDescription.class, "IXtextModelDescription",
 				IS_ABSTRACT,
 				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIXtextModelDescription_EditableFeatures(), theEcorePackage.getEString(), "editableFeatures",
+				null, 0, -1, IXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(this.iXtextValueDescriptionEClass, IXtextValueDescription.class, "IXtextValueDescription",
 				IS_ABSTRACT,
@@ -375,9 +443,15 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 
 		initEClass(this.iXtextDirectEditModelDescriptionEClass, IXtextDirectEditModelDescription.class,
 				"IXtextDirectEditModelDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIXtextDirectEditModelDescription_EditableFeatures(), theEcorePackage.getEString(),
-				"editableFeatures", null, 0, -1, IXtextDirectEditModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(this.iXtextDirectEditValueDescriptionEClass, IXtextDirectEditValueDescription.class,
+				"IXtextDirectEditValueDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(this.iXtextPropertyModelDescriptionEClass, IXtextPropertyModelDescription.class,
+				"IXtextPropertyModelDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(this.iXtextPropertyValueDescriptionEClass, IXtextPropertyValueDescription.class,
+				"IXtextPropertyValueDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
