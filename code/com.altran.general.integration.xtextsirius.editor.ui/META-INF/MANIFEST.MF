@@ -5,13 +5,12 @@ Bundle-SymbolicName: com.altran.general.integration.xtextsirius.editor.ui;single
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.editor.ui.internal.XtextSiriusEditorUiPlugin
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.ui.views.properties.tabbed,
- org.eclipse.sirius.editor,
- org.eclipse.emf.edit.ui,
- com.altran.general.integration.xtextsirius.model.viewpoint,
- org.eclipse.sirius.diagram,
  org.apache.commons.lang,
- org.eclipse.emf.ecore,
- org.eclipse.xtext
+ org.eclipse.xtext,
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.emf.edit.ui,
+ org.eclipse.sirius.editor,
+ org.eclipse.sirius.diagram,
+ com.altran.general.integration.xtextsirius.model.viewpoint
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

@@ -5,10 +5,7 @@ Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime.eef.ui;s
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.eef.ui.internal.XtextSiriusRuntimeEefUiPlugin
 Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional;visibility:=reexport,
- org.eclipse.ui,
- org.eclipse.core.runtime,
- com.google.inject,
- org.eclipse.eef,
+ org.apache.commons.lang,
  org.eclipse.eef.core,
  org.eclipse.eef.common.ui,
  org.eclipse.eef.ide.ui,
@@ -16,8 +13,6 @@ Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional
  org.eclipse.sirius.common.interpreter,
  org.eclipse.xtext.ui,
  com.altran.general.integration.xtextsirius.runtime,
- com.altran.general.integration.xtextsirius.model.xtext,
- org.apache.commons.lang,
  com.altran.general.integration.xtextsirius.model.properties,
  com.altran.general.integration.xtextsirius.model.eef
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
