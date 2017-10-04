@@ -31,7 +31,7 @@ public class TestResolveEditableFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("some", "feature")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.some", "Event.feature")));
     final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
     Assert.assertEquals(0, resolved.size());
   }
@@ -41,7 +41,7 @@ public class TestResolveEditableFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("name", "some", "guard", "cond")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.some", "Event.guard", "Event.cond")));
     final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
     Assert.assertEquals(resolved.toString(), 2, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
@@ -53,7 +53,7 @@ public class TestResolveEditableFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("name", "guard")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
     final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
     Assert.assertEquals(resolved.toString(), 2, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
