@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="mars.2" sequenceNumber="31">
+<?pde version="3.8"?><target name="mars.2" sequenceNumber="32">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
@@ -113,6 +113,11 @@
 <unit id="org.eclipse.mylyn.wikitext.extras_feature.feature.group" version="3.0.19.201709251150"/>
 <unit id="org.eclipse.mylyn.wikitext_feature.feature.group" version="3.0.19.201709251150"/>
 <repository location="http://download.eclipse.org/mylyn/snapshots/nightly/docs/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
+<unit id="com.google.guava.source" version="21.0.0.v20170206-1425"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository"/>
 </location>
 </locations>
 <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>

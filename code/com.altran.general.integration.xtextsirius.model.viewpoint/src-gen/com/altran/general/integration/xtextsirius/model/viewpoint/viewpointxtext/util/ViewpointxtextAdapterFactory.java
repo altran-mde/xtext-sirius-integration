@@ -6,11 +6,16 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
 import org.eclipse.sirius.viewpoint.description.DocumentedElement;
 import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
+import org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription;
 import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription;
@@ -125,6 +130,21 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseMappingBasedToolDescription(final MappingBasedToolDescription object) {
+			return createMappingBasedToolDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseDirectEditLabel(final DirectEditLabel object) {
+			return createDirectEditLabelAdapter();
+		}
+
+		@Override
+		public Adapter caseAXtextDirectEditLabel(final AXtextDirectEditLabel object) {
+			return createAXtextDirectEditLabelAdapter();
+		}
+
+		@Override
 		public Adapter caseIXtextModelDescription(final IXtextModelDescription object) {
 			return createIXtextModelDescriptionAdapter();
 		}
@@ -135,6 +155,11 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseXtextDirectEditModelDescription(final XtextDirectEditModelDescription object) {
+			return createXtextDirectEditModelDescriptionAdapter();
+		}
+
+		@Override
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
 		}
@@ -142,6 +167,11 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
 			return createIXtextDirectEditValueDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseXtextDirectEditValueDescription(final XtextDirectEditValueDescription object) {
+			return createXtextDirectEditValueDescriptionAdapter();
 		}
 
 		@Override
@@ -311,6 +341,54 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription
+	 * <em>Mapping Based Tool Description</em>}'. <!-- begin-user-doc --> This
+	 * default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases
+	 * anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription
+	 * @generated
+	 */
+	public Adapter createMappingBasedToolDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.diagram.description.tool.DirectEditLabel
+	 * <em>Direct Edit Label</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.diagram.description.tool.DirectEditLabel
+	 * @generated
+	 */
+	public Adapter createDirectEditLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
+	 * <em>AXtext Direct Edit Label</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
+	 * @generated
+	 */
+	public Adapter createAXtextDirectEditLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
 	 * <em>IXtext Model Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
@@ -343,6 +421,22 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
+	 * <em>Xtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
+	 * @generated
+	 */
+	public Adapter createXtextDirectEditModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 	 * <em>IXtext Value Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
@@ -370,6 +464,22 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIXtextDirectEditValueDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
+	 * <em>Xtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
+	 * @generated
+	 */
+	public Adapter createXtextDirectEditValueDescriptionAdapter() {
 		return null;
 	}
 

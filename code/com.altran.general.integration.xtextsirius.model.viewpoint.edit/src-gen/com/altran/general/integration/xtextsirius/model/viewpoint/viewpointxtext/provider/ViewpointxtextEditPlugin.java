@@ -4,8 +4,10 @@ package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtex
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider.DiagramxtextEditPlugin;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provider.XtextsiriusEditPlugin;
 
 /**
@@ -40,6 +42,8 @@ public final class ViewpointxtextEditPlugin extends EMFPlugin {
 		super(new ResourceLocator[] {
 				XtextsiriusEditPlugin.INSTANCE,
 				SiriusEditPlugin.INSTANCE,
+				DiagramxtextEditPlugin.INSTANCE,
+				DiagramUIPlugin.INSTANCE,
 		});
 	}
 

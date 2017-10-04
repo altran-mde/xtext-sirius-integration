@@ -1,6 +1,5 @@
 package com.altran.general.integration.xtextsirius.editor.ui.internal.editablefeatures;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
@@ -22,115 +21,37 @@ import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
 import org.eclipse.sirius.editor.editorPlugin.SiriusEditorPlugin;
 import org.eclipse.sirius.editor.properties.sections.common.AbstractEditorDialogPropertySection;
 import org.eclipse.sirius.editor.tools.internal.assist.TypeAssistant;
-import org.eclipse.xtext.EcoreUtil2;
 
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
+@SuppressWarnings("restriction")
 public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 		extends AbstractEditorDialogPropertySection {
-
+	
 	@Override
 	protected boolean isEqual(final List<?> newList) {
 		return newList.equals(getValue());
 	}
-
+	
 	@Override
 	protected EStructuralFeature getFeature() {
 		return XtextsiriusPackage.eINSTANCE.getIXtextModelDescription_EditableFeatures();
 	}
-	
-	// @Override
-	// protected String getFeatureAsText() {
-	// String string = new String();
-	//
-	// if (eObject.eIsSet(getFeature())) {
-	// List<?> values = getValue();
-	// for (Iterator<?> iterator = values.iterator(); iterator.hasNext();) {
-	// EObject eObj = (EObject) iterator.next();
-	// string += getAdapterFactoryLabelProvider(eObj).getText(eObj);
-	// if (iterator.hasNext()) {
-	// string += ", ";
-	// }
-	// }
-	// }
-	//
-	// return string;
-	// }
-	
+
 	protected List<?> getValue() {
 		return (List<?>) this.eObject.eGet(getFeature());
 	}
-
-	@SuppressWarnings("restriction")
+	
 	protected Stream<EClass> getContextEClasses() {
 		return new TypeAssistant(SiriusEditorPlugin.getPlugin().getWorkspaceEPackageRegistry(), this).proposal("")
 				.stream()
-				.filter(c -> c instanceof EClass)
-				.map(c -> (EClass) c);
+				.filter(EClass.class::isInstance)
+				.map(EClass.class::cast);
 	}
-	
+
 	protected List<EClass> collectApplicableEClasses() {
-		if (this.eObject instanceof DirectEditLabel) {
-			return collectApplicableEClassesFromDirectEditLabel();
-		} else if (this.eObject instanceof XtextEdgeLabelDirectEditModelDescription) {
-			return collectApplicableEClassesFromXtextEdgeLabelDirectEditModelDescription();
-		}
-		return Collections.emptyList();
-	}
-	
-	protected List<EClass> collectApplicableEClassesFromXtextEdgeLabelDirectEditModelDescription() {
-		final XtextEdgeLabelDirectEditModelDescription desc = (XtextEdgeLabelDirectEditModelDescription) this.eObject;
-
-		return findEClassesByName(desc.getEdgeLabelMappings().stream()
-				.map(l -> EcoreUtil2.getContainerOfType(l, EdgeMapping.class))
-				.map(m -> m.getDomainClass()));
-	}
-	
-	protected List<EClass> findEClassesByName(final Stream<String> classNames) {
-		return classNames
-				.filter(Objects::nonNull)
-				.map(seName -> {
-					final String[] split = StringUtils.split(seName, '.');
-
-					Predicate<EClass> secondFilter = null;
-					String eClassName = null;
-					if (split.length == 1) {
-						eClassName = split[0];
-					} else if (split.length == 2) {
-						eClassName = split[1];
-
-						final String ePackageName = split[0];
-						if (StringUtils.isNotBlank(ePackageName)) {
-							secondFilter = eClass -> ePackageName.equals(eClass.getEPackage().getName());
-						}
-					}
-					
-					if (StringUtils.isNotBlank(eClassName)) {
-						final String eClassName2 = eClassName;
-
-						Stream<EClass> stream = getContextEClasses()
-								.filter(eClass -> eClass.getName().equals(eClassName2));
-						if (secondFilter != null) {
-							stream = stream.filter(secondFilter);
-						}
-
-						final EClass result = stream
-								.findAny()
-								.orElse(null);
-						
-						return result;
-					}
-					
-					return null;
-				})
-				.filter(Objects::nonNull)
-				.collect(Collectors.toList());
-	}
-
-	protected List<EClass> collectApplicableEClassesFromDirectEditLabel() {
 		final DirectEditLabel label = ((DirectEditLabel) this.eObject);
-		
+
 		return findEClassesByName(label.getMapping().stream()
 				.map(m -> {
 					if (m instanceof AbstractNodeMapping) {
@@ -138,11 +59,52 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 					} else if (m instanceof EdgeMapping) {
 						return ((EdgeMapping) m).getDomainClass();
 					}
-
+					
 					return null;
 				}));
 	}
 
+	protected List<EClass> findEClassesByName(final Stream<String> classNames) {
+		return classNames
+				.filter(Objects::nonNull)
+				.map(seName -> {
+					final String[] split = StringUtils.split(seName, '.');
+					
+					Predicate<EClass> secondFilter = null;
+					String eClassName = null;
+					if (split.length == 1) {
+						eClassName = split[0];
+					} else if (split.length == 2) {
+						eClassName = split[1];
+						
+						final String ePackageName = split[0];
+						if (StringUtils.isNotBlank(ePackageName)) {
+							secondFilter = eClass -> ePackageName.equals(eClass.getEPackage().getName());
+						}
+					}
+
+					if (StringUtils.isNotBlank(eClassName)) {
+						final String eClassName2 = eClassName;
+						
+						Stream<EClass> stream = getContextEClasses()
+								.filter(eClass -> eClass.getName().equals(eClassName2));
+						if (secondFilter != null) {
+							stream = stream.filter(secondFilter);
+						}
+						
+						final EClass result = stream
+								.findAny()
+								.orElse(null);
+
+						return result;
+					}
+
+					return null;
+				})
+				.filter(Objects::nonNull)
+				.collect(Collectors.toList());
+	}
+	
 	@Override
 	protected List<String> getChoiceOfValues(final List<?> currentValues) {
 		return collectApplicableEClasses().stream()
@@ -152,15 +114,15 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 				.filter(s -> !currentValues.contains(s))
 				.collect(Collectors.toList());
 	}
-	
+
 	@Override
 	protected void handleFeatureModified(final @SuppressWarnings("rawtypes") List result) {
 		final boolean equals = isEqual(result);
-		
+
 		if (!equals) {
 			final EditingDomain editingDomain = ((IEditingDomainProvider) getPart()).getEditingDomain();
 			final Object value = result;
-			
+
 			if (this.eObjectList.size() == 1) {
 				// apply the property change to single selected object
 				editingDomain.getCommandStack()
@@ -176,13 +138,13 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 			}
 		}
 	}
-	
-	
+
+
 	@Override
 	protected String getLabelText() {
 		return super.getLabelText() + ":";
 	}
-
+	
 	@Override
 	protected String getDefaultLabelText() {
 		return "Editable features";

@@ -6,11 +6,16 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
 import org.eclipse.sirius.viewpoint.description.DocumentedElement;
 import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
+import org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription;
 import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription;
@@ -113,16 +118,19 @@ public class ViewpointxtextSwitch<T> {
 				final XtextEdgeLabelDirectEditModelDescription xtextEdgeLabelDirectEditModelDescription = (XtextEdgeLabelDirectEditModelDescription) theEObject;
 				T result = caseXtextEdgeLabelDirectEditModelDescription(xtextEdgeLabelDirectEditModelDescription);
 				if (result == null) {
-					result = caseAbstractToolDescription(xtextEdgeLabelDirectEditModelDescription);
+					result = caseXtextDirectEditModelDescription(xtextEdgeLabelDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextEdgeLabelDirectEditDescription(xtextEdgeLabelDirectEditModelDescription);
 				}
 				if (result == null) {
+					result = caseAXtextDirectEditLabel(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
 					result = caseIXtextDirectEditModelDescription(xtextEdgeLabelDirectEditModelDescription);
 				}
 				if (result == null) {
-					result = caseToolEntry(xtextEdgeLabelDirectEditModelDescription);
+					result = caseDirectEditLabel(xtextEdgeLabelDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDirectEditDescription(xtextEdgeLabelDirectEditModelDescription);
@@ -131,13 +139,22 @@ public class ViewpointxtextSwitch<T> {
 					result = caseIXtextModelDescription(xtextEdgeLabelDirectEditModelDescription);
 				}
 				if (result == null) {
+					result = caseMappingBasedToolDescription(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseAbstractToolDescription(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
+					result = caseToolEntry(xtextEdgeLabelDirectEditModelDescription);
+				}
+				if (result == null) {
 					result = caseDocumentedElement(xtextEdgeLabelDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = caseIdentifiedElement(xtextEdgeLabelDirectEditModelDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDescription(xtextEdgeLabelDirectEditModelDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
@@ -148,16 +165,19 @@ public class ViewpointxtextSwitch<T> {
 				final XtextEdgeLabelDirectEditValueDescription xtextEdgeLabelDirectEditValueDescription = (XtextEdgeLabelDirectEditValueDescription) theEObject;
 				T result = caseXtextEdgeLabelDirectEditValueDescription(xtextEdgeLabelDirectEditValueDescription);
 				if (result == null) {
-					result = caseAbstractToolDescription(xtextEdgeLabelDirectEditValueDescription);
+					result = caseXtextDirectEditValueDescription(xtextEdgeLabelDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextEdgeLabelDirectEditDescription(xtextEdgeLabelDirectEditValueDescription);
 				}
 				if (result == null) {
+					result = caseAXtextDirectEditLabel(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
 					result = caseIXtextDirectEditValueDescription(xtextEdgeLabelDirectEditValueDescription);
 				}
 				if (result == null) {
-					result = caseToolEntry(xtextEdgeLabelDirectEditValueDescription);
+					result = caseDirectEditLabel(xtextEdgeLabelDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextDirectEditDescription(xtextEdgeLabelDirectEditValueDescription);
@@ -166,13 +186,22 @@ public class ViewpointxtextSwitch<T> {
 					result = caseIXtextValueDescription(xtextEdgeLabelDirectEditValueDescription);
 				}
 				if (result == null) {
+					result = caseMappingBasedToolDescription(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseAbstractToolDescription(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
+					result = caseToolEntry(xtextEdgeLabelDirectEditValueDescription);
+				}
+				if (result == null) {
 					result = caseDocumentedElement(xtextEdgeLabelDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = caseIdentifiedElement(xtextEdgeLabelDirectEditValueDescription);
-				}
-				if (result == null) {
-					result = caseIXtextDescription(xtextEdgeLabelDirectEditValueDescription);
 				}
 				if (result == null) {
 					result = defaultCase(theEObject);
@@ -339,6 +368,57 @@ public class ViewpointxtextSwitch<T> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Mapping Based Tool Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Mapping Based Tool Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMappingBasedToolDescription(final MappingBasedToolDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Direct Edit Label</em>'. <!-- begin-user-doc --> This implementation
+	 * returns null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Direct Edit Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDirectEditLabel(final DirectEditLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>AXtext Direct Edit Label</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>AXtext Direct Edit Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAXtextDirectEditLabel(final AXtextDirectEditLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
@@ -373,6 +453,23 @@ public class ViewpointxtextSwitch<T> {
 
 	/**
 	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Direct Edit Model Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXtextDirectEditModelDescription(final XtextDirectEditModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
@@ -402,6 +499,23 @@ public class ViewpointxtextSwitch<T> {
 	 * @generated
 	 */
 	public T caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Direct Edit Value Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXtextDirectEditValueDescription(final XtextDirectEditValueDescription object) {
 		return null;
 	}
 

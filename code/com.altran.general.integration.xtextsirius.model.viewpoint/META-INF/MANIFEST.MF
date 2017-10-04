@@ -15,6 +15,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore.xcore.lib,
  org.eclipse.sirius;visibility:=reexport,
- com.altran.general.integration.xtextsirius.model.xtext;visibility:=reexport
+ com.altran.general.integration.xtextsirius.model.xtext;visibility:=reexport,
+ com.altran.general.integration.xtextsirius.model.diagram;visibility:=reexport,
+ org.eclipse.sirius.diagram;visibility:=reexport
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy

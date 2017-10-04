@@ -10,16 +10,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
-import org.eclipse.sirius.viewpoint.description.tool.provider.AbstractToolDescriptionItemProvider;
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider.XtextDirectEditValueDescriptionItemProvider;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription;
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
  * This is the item provider adapter for a
@@ -29,9 +25,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * @generated
  */
 public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
-		extends AbstractToolDescriptionItemProvider
-		implements
-		IItemStyledLabelProvider {
+		extends XtextDirectEditValueDescriptionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -53,58 +47,9 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInjectorIdPropertyDescriptor(object);
-			addMultiLinePropertyDescriptor(object);
 			addEdgeLabelMappingsPropertyDescriptor(object);
-			addPrefixTextExpressionPropertyDescriptor(object);
-			addSuffixTextExpressionPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Injector Id feature. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	protected void addInjectorIdPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextDescription_injectorId_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_IXtextDescription_injectorId_feature",
-								"_UI_IXtextDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__INJECTOR_ID,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null,
-						null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Multi Line feature. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	protected void addMultiLinePropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_IXtextDirectEditDescription_multiLine_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_IXtextDirectEditDescription_multiLine_feature",
-						"_UI_IXtextDirectEditDescription_type"),
-				XtextsiriusPackage.Literals.IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE,
-				true,
-				false,
-				false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				null,
-				null));
 	}
 
 	/**
@@ -129,50 +74,6 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 						null,
 						null,
 						null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Prefix Text Expression feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addPrefixTextExpressionPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_IXtextValueDescription_prefixTextExpression_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_IXtextValueDescription_prefixTextExpression_feature", "_UI_IXtextValueDescription_type"),
-				XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
-				true,
-				false,
-				false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null,
-				null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Suffix Text Expression feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addSuffixTextExpressionPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_IXtextValueDescription_suffixTextExpression_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_IXtextValueDescription_suffixTextExpression_feature", "_UI_IXtextValueDescription_type"),
-				XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
-				true,
-				false,
-				false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null,
-				null));
 	}
 
 	/**
@@ -229,15 +130,6 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	@Override
 	public void notifyChanged(final Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(XtextEdgeLabelDirectEditValueDescription.class)) {
-			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
-			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
-			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -266,7 +158,10 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 		final Object childFeature = feature;
 		final Object childObject = child;
 
-		final boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS;
+		final boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS ||
+				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__MASK
+				||
+				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__INITIAL_OPERATION;
 
 		if (qualify) {
 			return getString("_UI_CreateChild_text2",

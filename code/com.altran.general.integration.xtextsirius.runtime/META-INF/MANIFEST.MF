@@ -9,10 +9,11 @@ Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional
  org.apache.commons.lang,
  org.eclipse.core.runtime,
  org.eclipse.eef,
+ org.eclipse.sirius.common,
  org.eclipse.sirius.diagram,
  org.eclipse.sirius.ecore.extender,
- org.eclipse.xtext,
- org.eclipse.sirius.common
+ com.google.guava;bundle-version=21,
+ org.eclipse.xtext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.runtime,
