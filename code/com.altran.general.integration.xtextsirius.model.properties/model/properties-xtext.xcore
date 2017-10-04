@@ -16,7 +16,7 @@
 	codeFormatting="true",
 	importOrganizing="true",
 	cleanup="true",
-	styleProviders="true",
+	styleProviders="false",
 	
 	disposableProviderFactory="true",
 	extensibleProviderFactory="true",

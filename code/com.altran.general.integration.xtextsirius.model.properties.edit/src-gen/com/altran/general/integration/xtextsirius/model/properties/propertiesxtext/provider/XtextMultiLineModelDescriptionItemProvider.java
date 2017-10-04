@@ -10,11 +10,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.provider.TextAreaDescriptionItemProvider;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
@@ -25,13 +24,11 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * This is the item provider adapter for a
  * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class XtextMultiLineModelDescriptionItemProvider
-		extends TextAreaDescriptionItemProvider
-		implements
-		IItemStyledLabelProvider {
+		extends TextAreaDescriptionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -107,7 +104,7 @@ public class XtextMultiLineModelDescriptionItemProvider
 	/**
 	 * This returns XtextMultiLineModelDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -118,33 +115,14 @@ public class XtextMultiLineModelDescriptionItemProvider
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
-	 * @generated
+	 *
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(final Object object) {
-		return ((StyledString) getStyledText(object)).getString();
-	}
-
-	/**
-	 * This returns the label styled text for the adapted class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
-	public Object getStyledText(final Object object) {
-		final String label = ((XtextMultiLineModelDescription) object).getIdentifier();
-		final StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_XtextMultiLineModelDescription_type"),
-					StyledString.Style.QUALIFIER_STYLER);
-		} else {
-			styledLabel
-					.append(getString("_UI_XtextMultiLineModelDescription_type"), StyledString.Style.QUALIFIER_STYLER)
-					.append(" " + label);
-		}
-		return styledLabel;
+		final String label = ((TextAreaDescription) object).getLabelExpression();
+		return label == null || label.length() == 0 ? getString("_UI_XtextMultiLineModelDescription_type") : //$NON-NLS-1$
+				label;
 	}
 
 	/**
@@ -152,7 +130,7 @@ public class XtextMultiLineModelDescriptionItemProvider
 	 * update any cached children and by creating a viewer notification, which
 	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -27,7 +27,7 @@ import org.eclipse.sirius.diagram.description.tool.ToolPackage;
  *        editDirectory='/com.altran.general.integration.xtextsirius.model.diagram.edit/src-gen'
  *        editPluginID='com.altran.general.integration.xtextsirius.mode.diagram.edit'
  *        codeFormatting='true' importOrganizing='true' cleanup='true'
- *        styleProviders='true' disposableProviderFactory='true'
+ *        styleProviders='false' disposableProviderFactory='true'
  *        extensibleProviderFactory='true' childCreationExtenders='true'
  *        basePackage='com.altran.general.integration.xtextsirius.model.diagram'"
  *        annotation="http://www.eclipse.org/emf/2011/Xcore

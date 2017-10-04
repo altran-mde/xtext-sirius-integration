@@ -10,11 +10,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.properties.TextDescription;
 import org.eclipse.sirius.properties.provider.TextDescriptionItemProvider;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
@@ -25,13 +24,11 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * This is the item provider adapter for a
  * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class XtextSingleLineValueDescriptionItemProvider
-		extends TextDescriptionItemProvider
-		implements
-		IItemStyledLabelProvider {
+		extends TextDescriptionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -41,7 +38,7 @@ public class XtextSingleLineValueDescriptionItemProvider
 	public XtextSingleLineValueDescriptionItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-
+	
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -52,14 +49,14 @@ public class XtextSingleLineValueDescriptionItemProvider
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
 		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-
+			
 			addInjectorIdPropertyDescriptor(object);
 			addPrefixTextExpressionPropertyDescriptor(object);
 			addSuffixTextExpressionPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -82,11 +79,11 @@ public class XtextSingleLineValueDescriptionItemProvider
 						null,
 						null));
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Prefix Text Expression feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addPrefixTextExpressionPropertyDescriptor(final Object object) {
@@ -104,11 +101,11 @@ public class XtextSingleLineValueDescriptionItemProvider
 				null,
 				null));
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Suffix Text Expression feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addSuffixTextExpressionPropertyDescriptor(final Object object) {
@@ -126,62 +123,43 @@ public class XtextSingleLineValueDescriptionItemProvider
 				null,
 				null));
 	}
-
+	
 	/**
 	 * This returns XtextSingleLineValueDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
 	public Object getImage(final Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/XtextSingleLineValueDescription"));
 	}
-
+	
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
-	 * @generated
+	 *
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(final Object object) {
-		return ((StyledString) getStyledText(object)).getString();
+		final String label = ((TextDescription) object).getLabelExpression();
+		return label == null || label.length() == 0 ? getString("_UI_XtextSingleLineValueDescription_type") : //$NON-NLS-1$
+				label;
 	}
-
-	/**
-	 * This returns the label styled text for the adapted class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
-	public Object getStyledText(final Object object) {
-		final String label = ((XtextSingleLineValueDescription) object).getIdentifier();
-		final StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_XtextSingleLineValueDescription_type"),
-					StyledString.Style.QUALIFIER_STYLER);
-		} else {
-			styledLabel
-					.append(getString("_UI_XtextSingleLineValueDescription_type"), StyledString.Style.QUALIFIER_STYLER)
-					.append(" " + label);
-		}
-		return styledLabel;
-	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which
 	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(final Notification notification) {
 		updateChildren(notification);
-
+		
 		switch (notification.getFeatureID(XtextSingleLineValueDescription.class)) {
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
@@ -191,7 +169,7 @@ public class XtextSingleLineValueDescriptionItemProvider
 		}
 		super.notifyChanged(notification);
 	}
-
+	
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
@@ -203,7 +181,7 @@ public class XtextSingleLineValueDescriptionItemProvider
 	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-
+	
 	/**
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
@@ -216,14 +194,14 @@ public class XtextSingleLineValueDescriptionItemProvider
 			final Collection<?> selection) {
 		final Object childFeature = feature;
 		final Object childObject = child;
-
+		
 		final boolean qualify = childFeature == PropertiesPackage.Literals.TEXT_DESCRIPTION__INITIAL_OPERATION;
-
+		
 		if (qualify) {
 			return getString("_UI_CreateChild_text2",
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
-
+	
 }

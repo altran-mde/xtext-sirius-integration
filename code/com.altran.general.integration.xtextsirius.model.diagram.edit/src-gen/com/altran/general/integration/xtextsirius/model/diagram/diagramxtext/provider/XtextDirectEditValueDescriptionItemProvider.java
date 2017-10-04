@@ -11,8 +11,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
@@ -23,7 +24,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * This is the item provider adapter for a
  * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEditLabelItemProvider {
@@ -36,7 +37,7 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	public XtextDirectEditValueDescriptionItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-
+	
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -47,7 +48,7 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
 		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-
+			
 			addInjectorIdPropertyDescriptor(object);
 			addMultiLinePropertyDescriptor(object);
 			addPrefixTextExpressionPropertyDescriptor(object);
@@ -55,7 +56,7 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 		}
 		return this.itemPropertyDescriptors;
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -78,7 +79,7 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 						null,
 						null));
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Multi Line feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -100,11 +101,11 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 				null,
 				null));
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Prefix Text Expression feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addPrefixTextExpressionPropertyDescriptor(final Object object) {
@@ -122,11 +123,11 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 				null,
 				null));
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Suffix Text Expression feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addSuffixTextExpressionPropertyDescriptor(final Object object) {
@@ -144,62 +145,43 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 				null,
 				null));
 	}
-
+	
 	/**
 	 * This returns XtextDirectEditValueDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
 	public Object getImage(final Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/XtextDirectEditValueDescription"));
 	}
-
+	
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
-	 * @generated
+	 *
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(final Object object) {
-		return ((StyledString) getStyledText(object)).getString();
+		final String label = new IdentifiedElementQuery((IdentifiedElement) object).getLabel();
+		return label == null || label.length() == 0 ? getString("_UI_XtextDirectEditValueDescription_type")
+				: getString("_UI_XtextDirectEditValueDescription_type") + " " + label;
 	}
-
-	/**
-	 * This returns the label styled text for the adapted class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
-	public Object getStyledText(final Object object) {
-		final String label = ((XtextDirectEditValueDescription) object).getName();
-		final StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_XtextDirectEditValueDescription_type"),
-					StyledString.Style.QUALIFIER_STYLER);
-		} else {
-			styledLabel
-					.append(getString("_UI_XtextDirectEditValueDescription_type"), StyledString.Style.QUALIFIER_STYLER)
-					.append(" " + label);
-		}
-		return styledLabel;
-	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which
 	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(final Notification notification) {
 		updateChildren(notification);
-
+		
 		switch (notification.getFeatureID(XtextDirectEditValueDescription.class)) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
@@ -210,7 +192,7 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 		}
 		super.notifyChanged(notification);
 	}
-
+	
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
@@ -222,7 +204,7 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-
+	
 	/**
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
@@ -235,17 +217,17 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 			final Collection<?> selection) {
 		final Object childFeature = feature;
 		final Object childObject = child;
-
+		
 		final boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS ||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__MASK
 				||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__INITIAL_OPERATION;
-
+		
 		if (qualify) {
 			return getString("_UI_CreateChild_text2",
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
-
+	
 }

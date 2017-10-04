@@ -16,49 +16,35 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="com.altran.general.integration.xtextsirius.runtime.feature"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.xtext.xbase.lib"/>
       <import plugin="org.eclipse.emf.ecore.xcore.lib"/>
-      <import plugin="org.apache.commons.lang"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
-      <import plugin="org.yakindu.base.xtext.utils.jface"/>
-      <import plugin="org.yakindu.base.xtext.utils.gmf"/>
-      <import plugin="org.eclipse.xtext.ui"/>
-      <import plugin="org.eclipse.sirius.diagram.ui"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.eclipse.sirius"/>
       <import plugin="org.eclipse.sirius.ui"/>
       <import plugin="org.eclipse.sirius.diagram"/>
+      <import plugin="org.eclipse.sirius.diagram.ui"/>
       <import plugin="org.eclipse.sirius.properties"/>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.sirius.ui.properties"/>
       <import plugin="org.eclipse.emf.ecore.edit"/>
-      <import plugin="org.eclipse.eef"/>
-      <import plugin="org.eclipse.sirius.common"/>
-      <import plugin="org.eclipse.sirius.ecore.extender"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
       <import plugin="com.google.guava" version="21.0.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.commons.lang"/>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.ui.views.properties.tabbed"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.sirius.editor"/>
-      <import plugin="org.eclipse.eef.core"/>
-      <import plugin="org.eclipse.eef.common.ui"/>
-      <import plugin="org.eclipse.eef.ide.ui"/>
-      <import plugin="org.eclipse.sirius.common.interpreter"/>
+      <import plugin="org.eclipse.eef"/>
       <import plugin="org.eclipse.sirius.properties.edit"/>
    </requires>
 
    <plugin
          id="com.altran.general.integration.xtextsirius.model.xtext"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.editpart.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -86,21 +72,7 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.converter.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="com.altran.general.integration.xtextsirius.mode.diagram.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.runtime"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -128,13 +100,6 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.eef.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="com.altran.general.integration.xtextsirius.model.viewpoint"
          download-size="0"
          install-size="0"
@@ -143,6 +108,13 @@
 
    <plugin
          id="com.altran.general.integration.xtextsirius.mode.properties.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.xtext.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"

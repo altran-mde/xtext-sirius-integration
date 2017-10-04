@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.sirius.diagram;visibility:=reexport,
  org.eclipse.sirius.diagram.ui;visibility:=reexport,
  com.altran.general.integration.xtextsirius.model.xtext;visibility:=reexport,
+ com.altran.general.integration.xtextsirius.model.xtext.edit;visibility:=reexport,
  com.altran.general.integration.xtextsirius.mode.properties.edit;visibility:=reexport,
  org.eclipse.sirius;visibility:=reexport,
  org.eclipse.sirius.ui;visibility:=reexport

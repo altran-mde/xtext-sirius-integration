@@ -10,18 +10,18 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.StyledString;
+import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider.XtextDirectEditValueDescriptionItemProvider;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription;
 
 /**
  * This is the item provider adapter for a
  * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
@@ -35,7 +35,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	public XtextEdgeLabelDirectEditValueDescriptionItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-
+	
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -46,12 +46,12 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
 		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-
+			
 			addEdgeLabelMappingsPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Edge Label Mappings feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -75,7 +75,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 						null,
 						null));
 	}
-
+	
 	/**
 	 * This returns XtextEdgeLabelDirectEditValueDescription.gif. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -87,44 +87,26 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 		return overlayImage(object,
 				getResourceLocator().getImage("full/obj16/XtextEdgeLabelDirectEditValueDescription"));
 	}
-
+	
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(final Object object) {
-		return ((StyledString) getStyledText(object)).getString();
-	}
-
-	/**
-	 * This returns the label styled text for the adapted class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	@Override
-	public Object getStyledText(final Object object) {
-		final String label = ((XtextEdgeLabelDirectEditValueDescription) object).getName();
-		final StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_XtextEdgeLabelDirectEditValueDescription_type"),
-					StyledString.Style.QUALIFIER_STYLER);
-		} else {
-			styledLabel.append(getString("_UI_XtextEdgeLabelDirectEditValueDescription_type"),
-					StyledString.Style.QUALIFIER_STYLER).append(" " + label);
-		}
-		return styledLabel;
+	public String getText(final Object object) {
+		final String label = new IdentifiedElementQuery((IdentifiedElement) object).getLabel();
+		return label == null || label.length() == 0 ? getString("_UI_XtextEdgeLabelDirectEditValueDescription_type")
+				: getString("_UI_XtextEdgeLabelDirectEditValueDescription_type") + " " + label;
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which
 	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,7 +114,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
-
+	
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
@@ -144,7 +126,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-
+	
 	/**
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
@@ -157,17 +139,17 @@ public class XtextEdgeLabelDirectEditValueDescriptionItemProvider
 			final Collection<?> selection) {
 		final Object childFeature = feature;
 		final Object childObject = child;
-
+		
 		final boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS ||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__MASK
 				||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__INITIAL_OPERATION;
-
+		
 		if (qualify) {
 			return getString("_UI_CreateChild_text2",
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
-
+	
 }

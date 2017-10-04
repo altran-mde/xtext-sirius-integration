@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.EPackage;
  *        complianceLevel='6.0' runtimeVersion='2.3' nonNLSMarkers='false'
  *        copyrightFields='false' creationIcons='false'
  *        modelDirectory='/com.altran.general.integration.xtextsirius.model.xtext/src-gen'
- *        editDirectory='/com.altran.general.integration.xtextsirius.model.properties.edit/src-gen'
- *        editPluginID='com.altran.general.integration.xtextsirius.mode.properties.edit'
+ *        editDirectory='/com.altran.general.integration.xtextsirius.model.xtext.edit/src-gen'
+ *        editPluginID='com.altran.general.integration.xtextsirius.model.xtext.edit'
  *        codeFormatting='true' importOrganizing='true' cleanup='true'
- *        styleProviders='true' disposableProviderFactory='true'
+ *        styleProviders='false' disposableProviderFactory='true'
  *        extensibleProviderFactory='true' childCreationExtenders='true'
  *        basePackage='com.altran.general.integration.xtextsirius.model.xtext'"
  *        annotation="http://www.eclipse.org/emf/2011/Xcore

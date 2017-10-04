@@ -69,7 +69,7 @@
               <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="TransitionEdit" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId" edgeLabelMappings="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style/@centerLabelStyleDescription">
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="TransitionEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId" edgeLabelMappings="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style/@centerLabelStyleDescription">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
             </initialOperation>
@@ -106,7 +106,6 @@
           <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
         </initialOperation>
       </controls>
-      <controls xsi:type="properties:TextAreaDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description"/>
       <controls xsi:type="properties-xtext:XtextMultiLineValueDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" prefixTextExpression="&lt;html>&lt;head>&lt;title>t&lt;/title>&lt;/head>&lt;body>" suffixTextExpression="&lt;/body>&lt;/html>">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
