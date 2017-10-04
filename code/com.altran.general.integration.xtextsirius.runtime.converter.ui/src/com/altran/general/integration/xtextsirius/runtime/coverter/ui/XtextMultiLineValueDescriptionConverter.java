@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.coverter.ui.internal;
+package com.altran.general.integration.xtextsirius.runtime.coverter.ui;
 
 import java.util.Map;
 

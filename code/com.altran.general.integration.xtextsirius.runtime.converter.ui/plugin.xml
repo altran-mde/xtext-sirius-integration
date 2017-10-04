@@ -3,25 +3,25 @@
 <plugin>
 	<extension point="org.eclipse.sirius.ui.properties.descriptionConverter">
 		<descriptor
-			class="com.altran.general.integration.xtextsirius.coverter.ui.internal.XtextMultiLineModelDescriptionConverter"
+			class="com.altran.general.integration.xtextsirius.runtime.coverter.ui.XtextMultiLineModelDescriptionConverter"
 			description="This extension is used to convert the definition of the Xtext Multi-line Model Widget."
 			id="com.altran.general.integration.xtextsirius.converter.ui.xtextMultiLineModelDescriptionConverter"
 			label="Sirius Extension Xtext Multi-line Model Widget Converter"
 		/>
 		<descriptor
-			class="com.altran.general.integration.xtextsirius.coverter.ui.internal.XtextMultiLineValueDescriptionConverter"
+			class="com.altran.general.integration.xtextsirius.runtime.coverter.ui.XtextMultiLineValueDescriptionConverter"
 			description="This extension is used to convert the definition of the Xtext Multi-line Value Widget."
 			id="com.altran.general.integration.xtextsirius.converter.ui.xtextMultiLineValueDescriptionConverter"
 			label="Sirius Extension Xtext Multi-line Value Widget Converter"
 		/>
 		<descriptor
-			class="com.altran.general.integration.xtextsirius.coverter.ui.internal.XtextSingleLineModelDescriptionConverter"
+			class="com.altran.general.integration.xtextsirius.runtime.coverter.ui.XtextSingleLineModelDescriptionConverter"
 			description="This extension is used to convert the definition of the Xtext Single-line Model Widget."
 			id="com.altran.general.integration.xtextsirius.converter.ui.xtextSingleLineModelDescriptionConverter"
 			label="Sirius Extension Xtext Single-line Model Widget Converter"
 		/>
 		<descriptor
-			class="com.altran.general.integration.xtextsirius.coverter.ui.internal.XtextSingleLineValueDescriptionConverter"
+			class="com.altran.general.integration.xtextsirius.runtime.coverter.ui.XtextSingleLineValueDescriptionConverter"
 			description="This extension is used to convert the definition of the Xtext Single-line Value Widget."
 			id="com.altran.general.integration.xtextsirius.converter.ui.xtextSingleLineValueDescriptionConverter"
 			label="Sirius Extension Xtext Single-line Value Widget Converter"

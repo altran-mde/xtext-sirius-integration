@@ -3,7 +3,7 @@
 <plugin>
 	<extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
 		<editpartProvider 
-			class="com.altran.general.integration.xtextsirius.runtime.editpart.ui.internal.XtextSiriusEditPartProvider">
+			class="com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusEditPartProvider">
 			<Priority name="High"/>
 		</editpartProvider>
 	</extension>

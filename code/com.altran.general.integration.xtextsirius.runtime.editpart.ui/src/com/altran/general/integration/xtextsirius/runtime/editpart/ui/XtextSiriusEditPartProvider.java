@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.runtime.editpart.ui.internal;
+package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
 
 import java.util.List;
 import java.util.Optional;

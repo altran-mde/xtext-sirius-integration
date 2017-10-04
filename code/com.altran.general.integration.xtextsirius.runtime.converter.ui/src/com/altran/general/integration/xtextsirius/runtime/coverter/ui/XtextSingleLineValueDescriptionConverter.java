@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.coverter.ui.internal;
+package com.altran.general.integration.xtextsirius.runtime.coverter.ui;
 
 import java.util.Map;
 
@@ -7,25 +7,25 @@ import org.eclipse.sirius.ui.properties.api.AbstractDescriptionConverter;
 import org.eclipse.sirius.ui.properties.api.DescriptionCache;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFactory;
-import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
+import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription;
 
-public class XtextMultiLineModelDescriptionConverter extends AbstractDescriptionConverter {
+public class XtextSingleLineValueDescriptionConverter extends AbstractDescriptionConverter {
 
 	@Override
 	public boolean canHandle(final EObject description) {
-		return description instanceof XtextMultiLineModelDescription;
+		return description instanceof XtextSingleLineValueDescription;
 	}
 
 	@Override
 	public EObject convert(final EObject description, final Map<String, Object> parameters,
 			final DescriptionCache cache) {
-		if (description instanceof XtextMultiLineModelDescription) {
-			final XtextMultiLineModelDescription propertyDescription = (XtextMultiLineModelDescription) description;
+		if (description instanceof XtextSingleLineValueDescription) {
+			final XtextSingleLineValueDescription propertyDescription = (XtextSingleLineValueDescription) description;
 
-			final EefXtextMultiLineModelDescription eefDescription = EefxtextFactory.eINSTANCE
-					.createEefXtextMultiLineModelDescription();
+			final EefXtextSingleLineValueDescription eefDescription = EefxtextFactory.eINSTANCE
+					.createEefXtextSingleLineValueDescription();
 			eefDescription.setIdentifier(propertyDescription.getIdentifier());
 			eefDescription.setHelpExpression(propertyDescription.getHelpExpression());
 			eefDescription.setIsEnabledExpression(propertyDescription.getIsEnabledExpression());
@@ -36,13 +36,14 @@ public class XtextMultiLineModelDescriptionConverter extends AbstractDescription
 			final InitialOperation initialOperation = propertyDescription.getInitialOperation();
 			eefDescription.setEditExpression(this.getExpressionForOperation(initialOperation));
 			
-			eefDescription.setLineCount(propertyDescription.getLineCount());
+			eefDescription.setLineCount(1);
 			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
-			
-			eefDescription.getEditableFeatures().addAll(propertyDescription.getEditableFeatures());
 
+			eefDescription.setPrefixTextExpression(propertyDescription.getPrefixTextExpression());
+			eefDescription.setSuffixTextExpression(propertyDescription.getSuffixTextExpression());
+			
 			// Let's not forget to populate the cache for the other converters
 			// or link resolvers
 			cache.put(propertyDescription, eefDescription);
