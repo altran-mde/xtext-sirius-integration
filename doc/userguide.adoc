@@ -521,12 +521,17 @@ Instead of storing a complete model into every class' description (and bothering
 
 In order to complete the model for Xtext, the developer supplies the editor with
 
-prefixText::
+prefixTextExpression::
 	`<html><head><title>Title</title><head><body>`
-suffixText::
-	`</body></html>`
+suffixTextExpression::
+	`ocl:'</body>'.concat('</html>')` +
+	(the expression does not make sense really, it's only to show we actually _can_ use expressions.)
 
 This way, Xtext works on a complete model, but only the relevant parts are available to the end-user.
+
+
+We provide these infos via the `prefixTextExpression` / `suffixTextExpression` properties.
+As hinted by the name, these fields accept both a simple string as well as any expression supported by Sirius.
 
 
 
@@ -567,6 +572,8 @@ public interface IXtextLanguageInjector {
 	
 }
 ----
+
+We refer to the id via the `InjectorId` property.
 
 
 
