@@ -95,13 +95,27 @@ All of this can be summarized in one table:
 |====
 |	^.<| *<<property, property>>*	2+^.<| *<<directEdit, directEdit>>*	| *add. info footnoteref:[info]*
 
-.2+.^| *<<model, model>>*	| <<singleLine-multiLine, singleLine>>	| <<singleLine-multiLine, singleLine>>	.2+.^| _<<editableFeatures, editableFeatures>>, <<edgeLabelPosition, edgeLabelPosition>>_	|
-	| <<singleLine-multiLine, multiLine>>	| <<singleLine-multiLine, multiLine>> |
+.2+.^| *<<model, model>>*	
+| <<singleLine-multiLine, image:images/XtextSingleLineModelDescription.gif[] singleLine>>	
+| <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.gif[] singleLine>>	
+.2+.^| _<<editableFeatures, editableFeatures>>, +
+ <<edgeLabelPosition, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] image:images/XtextEdgeLabelDirectEditValueDescription.gif[] edgeLabelPosition>>_	
+|
+| <<singleLine-multiLine, image:images/XtextMultiLineModelDescription.gif[] multiLine>>	
+| <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.gif[] multiLine>> 
+|
 
-.2+.^| *<<value, value>>*	| <<singleLine-multiLine, singleLine>>	2+| <<singleLine-multiLine, singleLine>>	.2+.^| _<<prefixText-suffixText, prefixText>>, <<prefixText-suffixText, suffixText>>_
-	| <<singleLine-multiLine, multiLine>>	2+| <<singleLine-multiLine, multiLine>> 
+.2+.^| *<<value, value>>*	
+| <<singleLine-multiLine, image:images/XtextSingleLineValueDescription.gif[] singleLine>>	
+2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.gif[] singleLine>>	
+.2+.^| _<<prefixText-suffixText, prefixText>>, <<prefixText-suffixText, suffixText>>_
+| <<singleLine-multiLine, image:images/XtextMultiLineValueDescription.gif[] multiLine>>	
+2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.gif[] multiLine>> 
 
-| *add. info footnoteref:[info]*	|  2+| 	| *for all:* _<<injector, injector>>_
+| *add. info footnoteref:[info]*	
+|  
+2+| 	
+| *for all:* _<<injector, injector>>_
 |====
 
 
@@ -117,27 +131,6 @@ we provide two different Eclipse features:
 
 == Examples
 	
-.plugin.xml
-[source,xml]
-----
-<extension point="com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector">
-	<injector
-		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId"
-		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.FowlerdslLanguageInjector"
-	/>
-	<injector
-		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId"
-		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.InlineEditLanguageInjector"
-	/>
-	
-	<injector
-		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"
-		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.HtmlLanguageInjector"
-	/>
-</extension>
-----
-
-
 .Screenshot of fowlerdsl.odesign
 image:images/exampleOdesign.png[]
 
@@ -173,6 +166,7 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fow
 						+ Direct Edit Label SimpleTextEdit
 						+ *Xtext Model Direct Edit Label EventEdit*             <1>
 								id=EventEdit
+								mapping=EventNode
 								inputLabelExpression="var:self"
 								injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId"
 								lines=singleLine
@@ -182,6 +176,7 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fow
 									valueExpression="var:newValue"
 						+ *Xtext Edge Model Direct Edit Label TransitionEdit*   <2>
 								id=TransitionEdit
+								mapping=TransitionEdge
 								inputLabelExpression="var:self"
 								injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId"
 								edgeLabelMappings=Center Label Style 8
@@ -193,6 +188,7 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fow
 									valueExpression="var:newValue"
 						+ *Xtext Value Direct Edit Label DescriptionEdit*       <3>
 								id=DescriptionEdit
+								mapping=description
 								inputLabelExpression="feature:description"
 								injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"
 								lines=multiLine
@@ -237,8 +233,8 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl/model/generated/Statemach
 ----
 
 
-1. Single-line direct editor of all features of _Event_ instance of Sirius element `EventNode` with the injector supplied by `EditPartConfigurationFowlerdsl`. 
-Persisted to itself because _SelfEdit.Set.featureName_ is empty.
+1. Single-line direct editor of all features of _Event_ instance of Sirius element `EventNode` with the injector supplied by `FowlerdslLanguageInjector`. 
+Persisted to itself because _EventEdit.Set.featureName_ is empty.
 +
 .Event Label (note it does not show the code)
 image:images/eventLabel.png[]
@@ -246,8 +242,8 @@ image:images/eventLabel.png[]
 .Event Editor
 image:images/eventEditor.png[]
 
-2. Single-line direct editor of features `{event, guard}` for the center label of _Transition_ instance of Sirius element `TransitionEdge` with the injector supplied by `EditPartConfigurationFowlerdsl`.
-Persisted to itself because _SelfEdit.Set.featureName_ is empty.
+2. Single-line direct editor of features `{Transition.event, Transition.guard}` of _Transition_ instance of the `Center Label Style 8` label of Sirius element `TransitionEdge` with the injector supplied by `InlineEditLanguageInjector`.
+Persisted to itself because _TransitionEdit.Set.featureName_ is empty.
 +
 .Transition Label (note it does have additional text at the end)
 image:images/transitionLabel.png[]
@@ -255,7 +251,7 @@ image:images/transitionLabel.png[]
 .Transition Editor (note the target of the transition cannot be edited)
 image:images/transitionEditor.png[]
 
-3. Multi-line direct editor of _description_ feature of _State_ instance of Sirius element `description` with the injector supplied by `EditPartConfigurationHtml`.
+3. Multi-line direct editor of _description_ feature of _State_ instance of Sirius element `description` with the injector supplied by `HtmlLanguageInjector`.
 The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
 Persisted to _State.description_ because of _DescriptionEdit.Set.featureName=description_.
 +
@@ -265,18 +261,53 @@ image:images/descriptionLabel.png[]
 .Description Editor
 image:images/descriptionEditor.png[]
 
-4. Single-line property editor of _guard_ feature of _Event_ instance of Sirius element `EventGuardId` with the injector supplied by `EefConfigurationFowlerdsl`.
+4. Single-line property editor of _guard_ feature of _Event_ instance of Sirius element `EventGuardId` with the injector supplied by `FowlerdslLanguageInjector`.
 Persisted to _Event.guard_ because of _EventGuardId.Set.featureName=guard_.
 +
 .Event Guard Property Editor
 image:images/guardProperty.png[]
 
-5. Multi-line property editor of _description_ feature of _State_ instance of Sirius element `StateDescriptionId` with the injector supplied by `EefConfigurationHtml`.
+5. Multi-line property editor of _description_ feature of _State_ instance of Sirius element `StateDescriptionId` with the injector supplied by `HtmlLanguageInjector`.
 The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
 Persisted to _State.description_ because of _StateDescriptionId.Set.featureName=description_.
 +
 .State Description Property Editor
 image:images/descriptionProperty.png[]
+
+
+.plugin.xml
+[source,xml]
+----
+<extension point="com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector">
+	<injector
+		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId"
+		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.FowlerdslLanguageInjector"
+	/>
+	<injector
+		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId"
+		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.InlineEditLanguageInjector"
+	/>
+	<injector
+		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"
+		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.HtmlLanguageInjector"
+	/>
+</extension>
+----
+
+
+.Properties View of __Xtext Edge Model Direct Edit Label *TransitionEdit* __
+image:images/edgeModelProperties.png[]
+
+.Properties View of __Xtext Value Direct Edit Label *DescriptionEdit* __
+image:images/directEditValueProperties.png[]
+
+
+.Properties View of __Xtext Model Text *EventGuardId* __
+image:images/singleLineModelWidgetProperties.png[]
+
+.Properties View of __Xtext Value Text Area *StateDescriptionId* __
+image:images/multiLineValueWidgetProperties.png[]
+
 
 
 
@@ -306,58 +337,17 @@ The editor closes when it loses focus, e.g. by a click outside the editor.
 Direct editors are specified as tool in the odesign editor.
 image:images/newDirectEditor.png[]
 
+We provide the following variants:
 
+* image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content
+* image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content
+* image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content
+* image:images/XtextDirectEditValueDescription.gif[] Direct Editor for Value content
 
-.xtextDirectEdit.exsd (in digestible form)
-[source,xml]
-----
-<extension point="com.altran.general.integration.xtextsirius.xtextDirectEdit">
-	<!-- [0..*] model contents -->
-	<xtextDirectEditModel
-		configClass="«instance of com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfiguration»"
-		identifier="«Sirius element id»"
-		multiLine="«true | false (default)»"
-		edgeLabelPosition="«begin | center (default) | end»">
-			<!-- [0..*] -->
-			<editableFeature name="«feature name»"/>
-	</xtextDirectEditModel>
-	
-	<!-- [0..*] value contents -->
-	<xtextDirectEditValue
-		configClass="«instance of com.altran.general.integration.xtextsirius.editpart.IXtextDirectEditConfiguration»"
-		identifier="«Sirius element id»"
-		multiLine="«true | false (default)»"
-		prefixText="«text to pre-pend (optional)»"
-		suffixText="«text to append (optional)»"/>
-</extension>
-----
+They can be added to the tools section the same as a regular _Direct Edit Label_ tool.
+Accordingly, they need to be selected as _Label Direct Edit_ on the _Behavior_ page of the edited Sirius element.
 
-One extension can contain several `xtextDirectEditModel` and/or `xtextDirectEditValue` elements.
-
-
-.Java API
-
-Direct editors require an instance of `IXtextDirectEditConfiguration` to provide the injector of the Xtext language to use.
-
-.IXtextDirectEditConfiguration.java
-[source,java]
-----
-package com.altran.general.integration.xtextsirius.editpart;
-
-public interface IXtextDirectEditConfiguration {
-	public @NonNull com.google.inject.Injector getInjector();
-}
-----
-
-
-.Sirius element
-
-Must fulfill the following criteria:
-
-* unique id
-* defined label
-* defined direct label edit
-* defined direct label edit set value operation
+image:images/behaviorLabelDirectEditSelection.png[]
 
 The label is independent of the edited text, i.e. the label can show a different text than the direct editor.
 
@@ -370,16 +360,18 @@ Direct editors
 
 * can contain <<model, model>> or <<value, value>> contents, 
 * may display as <<singleLine-multiLine, single-line>> or <<singleLine-multiLine, multi-line>> editor, 
-* and require an <<identifier, identifier>> and an <<injector, injector>>.
+* and require an <<injector, injector>>.
 
 If the editor contains model contents, it supports to limit the <<editableFeatures, editable features>>.
-If the model element is an edge, the editor requires an <<edgeLabelPosition, edgeLabelPosition>> (defaults to `center`).
+If the Sirius element is an edge, the editor requires to select an <<edgeLabelPosition, edgeLabelPosition>>.
+
+
+
 
 [[property]]
 ==== Property View / Property Editor
 
 The Eclipse Properties View contains the property editors.
-The editor replaces the original widget.
 
 Editor contents are committed when the editor is hidden.
 This happens when the end-user selects a different property page or a different diagram element.
@@ -390,64 +382,14 @@ This happens when the end-user selects a different property page or a different 
 Property editors are specified as property widgets in the odesign editor.
 image:images/newPropertyWidget.png[]
 
-.Eclipse plugin.xml API
+We provide the following variants:
 
-Property editors are specified by the extension point `com.altran.general.integration.xtextsirius.xtextProperty`.
+* image:images/XtextSingleLineModelDescription.gif[] Text (aka single-line) Widget for Model content
+* image:images/XtextMultiLineModelDescription.gif[] Text Area (aka multi-line) Widget for Model content
+* image:images/XtextSingleLineValueDescription.gif[] Text (aka single-line) Widget for Value content
+* image:images/XtextMultiLineValueDescription.gif[] Text Area (aka multi-line) Widget for Value content
 
-.xtextProperty.exsd (in digestible form)
-[source,xml]
-----
-<extension point="com.altran.general.integration.xtextsirius.xtextProperty">
-	<!-- [0..*] model contents -->
-	<xtextPropertyModel
-		configClass="«instance of com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration»"
-		identifier="«Sirius element id»"
-		multiLine="«true | false (default)»"/>
-	
-	<!-- [0..*] value contents -->
-	<xtextPropertyValue
-		configClass="«instance of com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration»"
-		identifier="«Sirius element id»"
-		multiLine="«true | false (default)»"
-		prefixText="«text to pre-pend (optional)»"
-		suffixText="«text to append (optional)»"/>
-</extension>
-----
-
-One extension can contain several `xtextPropertyModel` and/or `xtextPropertyValue` elements.
-
-
-.Java API
-
-Direct editors require an instance of `IXtextPropertyConfiguration` to provide the injector of the Xtext language to use.
-The configuration also allows to customize <<widget, SWT widget style>> and <<layoutData, SWT Grid Layout Data>>.
-
-.IXtextPropertyConfiguration.java
-[source,java]
-----
-package com.altran.general.integration.xtextsirius.eef;
-
-public interface IXtextPropertyConfiguration {
-	public @NonNull com.google.inject.Injector getInjector();
-	
-	int getSwtWidgetStyle(int defaultStyle);
-	
-	public @NonNull org.eclipse.swt.layout.GridData getLayoutData(final @NonNull org.eclipse.swt.layout.GridData defaultData);
-}
-----
-
-The abstract class `com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration` provides a default implementation for
-`getSwtWidgetStyle()` and `getLayoutData()`.
-
-
-.Sirius element
-
-Must fulfill the following criteria:
-
-* Text or TextArea widget
-* unique id
-* defined valueExpression
-* defined set value operation
+They can be added as a widget to a Properties Sirius element the same as regular widgets.
 
 
 .Capabilities
@@ -456,32 +398,8 @@ Property editors
 
 * can contain <<model, model>> or <<value, value>> contents, 
 * may display as <<singleLine-multiLine, single-line>> or <<singleLine-multiLine, multi-line>> editor, 
-* require an <<identifier, identifier>> and an <<injector, injector>>,
-* and can customize the <<widgetStyle, widgetStyle>> and/or <<layoutData, layoutData>>.
+* and require an <<injector, injector>>.
 
-
-[[widgetStyle]]
-===== SWT Widget Style
-
-<<property, Property editors>> allow the customization of their SWT Widget Style.
-
-The method `int com.altran.general.integration.xtextsirius.eef.IXtextPropertyConfiguration.getSwtWidgetStyle(final int defaultStyle)`
-receives the default style (determined by several factors, including single-line vs. multi-line), and may modify it.
-The method's result is used as widget style.
-
-The default implementation in `com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration` does not modify the style.
-
-
-[[layoutData]]
-===== SWT GridLayoutData
-
-<<property, Property editors>> allow the customization of their SWT Grid Layout Data.
-
-The method `@NonNull org.eclipse.swt.layout.GridData com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration.getLayoutData(final @NonNull org.eclipse.swt.layout.GridData defaultData)`
-receives the default GridLayoutData, and may modify it.
-The method's result is used as the widget's layout data.
-
-The default implementation in `com.altran.general.integration.xtextsirius.eef.AXtextPropertyConfiguration` does not modify the grid layout data.
 
 
 === Editor Contents
@@ -495,7 +413,7 @@ A typical use-case may allow the end-user to edit several features of a semantic
 
 .Example
 
-As an example, think of a UML class attribute displayed as "``+ age: int = 0``".
+As an example, think of a UML class attribute displayed as `+ age: int = 0`.
 If the end-user opens the direct editor of the attribute, they can change all these features (visibility, name, type, default value) with complete Xtext support, e.g.
 
 * Proposing all possible visibilities
@@ -522,11 +440,19 @@ This may lead to incorrectly selected subsections. However, the result should on
 The editor reintegrates its contents into the edited diagram's model on model level, not on text level.
 This means if the end-user modified any part of the model not contained within the edited semantic element, these changes are not committed.
 
+.Available implementations
+
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content>>
+* <<property, image:images/XtextSingleLineModelDescription.gif[] Text (aka single-line) Widget for Model content>>
+* <<property, image:images/XtextMultiLineModelDescription.gif[] Text Area (aka multi-line) Widget for Model content>>
+
+
 
 [[value]]
 ==== Editing Values
 
-The editor can interpret simple String features of semantic elements as Xtext models.
+The editor can interpret simple String feature of semantic elements as Xtext models.
 
 A typical use-case may allow the end-user to edit the description feature of a semantic element as markup text with complete Xtext support.
 
@@ -539,6 +465,14 @@ An Xtext value editor (primed with an Xtext implementation of HTML) for the desc
 
 Any changes in the editor are stored in the semantic element's String feature as-is.
 The changes are committed to the Sirius edit session, but only persisted if and when the edited diagram is saved.
+
+.Available implementations
+
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content>>
+* <<directEdit, image:images/XtextDirectEditValueDescription.gif[] Direct Editor for Value content>>
+* <<property, image:images/XtextSingleLineValueDescription.gif[] Text (aka single-line) Widget for Value content>>
+* <<property, image:images/XtextMultiLineValueDescription.gif[] Text Area (aka multi-line) Widget for Value content>>
+
 
 
 [[prefixText-suffixText]]
@@ -598,22 +532,42 @@ This way, Xtext works on a complete model, but only the relevant parts are avail
 
 === Editor Infos footnoteref:[info,	These are actually properties of the editor -- but this term is already used a lot.]
 
-[[identifier]]
-==== Identifier
-
-An identifier links between the entry in `plugin.xml` and the Sirius element.
-
-The identifier must be unique within the whole Sirius application.
-
-The identifier is compared case-sensitive.
-
-
 [[injector]]
 ==== Injector
 
 An injector describes a complete Xtext configuration for a language.
 
-The editor relies heavily on the instances provided by the injector. Incomplete configurations will lead to all kind of strange effects.
+In order to avoid class loading issues, we provide injectors via Eclipse extension point `com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector`.
+
+.xtextLanguageInjector.exsd (in digestible form)
+[source, xml]
+----
+<extension point="com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector">
+  <!-- [0..*] injectors -->
+  <injector
+    id="«unique id of this injector to be referenced from odesign model»"
+    class="«fully qualified name of instance of com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector»"
+  />
+</extension>
+----
+
+For each injector, we need to define an `id` (to be referenced from the odesign model) and a `class` that implements `com.altran.general.integration.xtextsirius.runtime.IXtextLanguageInjector`.
+
+.IXtextLanguageInjector.java
+[source, java]
+----
+package com.altran.general.integration.xtextsirius.runtime;
+
+import com.google.inject.Injector;
+
+public interface IXtextLanguageInjector {
+	public static final String EXTENSION_POINT_ID = "com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector";
+	
+	public Injector getInjector();
+	
+}
+----
+
 
 
 [[singleLine-multiLine]]
@@ -626,6 +580,31 @@ Effects for single-line editors:
 * All newline characters from the original content are replaced by the same amount of spaces.
 * It is not possible to enter a newline.
 * kbd:[Enter] closes the direct editor.
+
+For _direct editors_, we define this info via the `Lines` property.
+It will adjust its size automatically.
+
+For _property editors_, we define this info by selecting the appropriate widget.
+For _Text Area_ widgets, we can define the number of lines to be shown via the `Line Count` property.
+
+.Available *single-line* implementations
+
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditValueDescription.gif[] Direct Editor for Value content>>
+* <<property, image:images/XtextSingleLineModelDescription.gif[] Text (aka single-line) Widget for Model content>>
+* <<property, image:images/XtextSingleLineValueDescription.gif[] Text (aka single-line) Widget for Value content>>
+
+.Available *multi-line* implementations
+
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditValueDescription.gif[] Direct Editor for Value content>>
+* <<property, image:images/XtextMultiLineValueDescription.gif[] Text Area (aka multi-line) Widget for Value content>>
+* <<property, image:images/XtextMultiLineModelDescription.gif[] Text Area (aka multi-line) Widget for Model content>>
+
 
 
 [[editableFeatures]]
@@ -661,9 +640,9 @@ The end-user should not be able to change the source and/or target of the associ
 
 Therefore, the developer supplies the following list of `editableFeatures`:
 
-* `name`
-* `code`
-* `guard`
+* `Association.name`
+* `Association.code`
+* `Association.guard`
 
 
 .Limitations
@@ -677,8 +656,8 @@ Therefore, if the model looks like
 
 and the `editableFeatures` are limited to
 
-* `name`
-* `guard`
+* `Association.name`
+* `Association.guard`
 
 the editor would _still_ include the `code` subpart, because it's in between the `name` and `guard` subpart.
 ----
@@ -686,13 +665,37 @@ the editor would _still_ include the `code` subpart, because it's in between the
 ----
 
 
+.Design
+
+The `Editable Features` property contains a read-only list of features.
+Edit it by activating the btn:[...] button.
+This opens a pop-up window listing all available and currently selected features.
+
+
+.Available implementations
+
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content>>
+
+
+
 [[edgeLabelPosition]]
 ==== Position of Affected Edge Label
 
-Unfortunately, the Sirius _odesign_ model does not contain identifiers for the different edge labels (`begin`, `center`, `end`).
+Unfortunately, we cannot assign different _Direct Edit Label_ tools to different edge labels (`begin`, `center`, `end`).
 
 Therefore, if the developer attaches a direct editor to an edge, the developer needs to specify which edge label should be equipped with Xtext powers.
-Per default, the `center` label is selected.
+This info is contained in the `Edge Label Mappings` property.
+The read-only list is edited by activating the btn:[...] button.
+This opens a pop-up window listing all available and currently selected edge labels.
+
+
+.Available implementations
+
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content>>
+
+
 
 
 [[specialEditGrammar]]
@@ -742,8 +745,8 @@ InlineStatemachine returns Statemachine:   <1>
 	Statemachine
 ;
 
-//@Override 
-Event:                                     <2>
+//@Override                                <2>
+Event:
 	name=ID ('[' guard=Guard ']')? code=INT?
 ;
 
@@ -765,7 +768,7 @@ The editing grammar must fulfill the following criteria:
 
 .Fixing serialization issues
 
-If you experience serialization issues, namely keywords get merged resulting in invalid syntax, you can use a workaround provided by this plugin.
+If you experience serialization issues, namely keywords get merged resulting in invalid syntax, you can use a workaround provided by `com.altran.general.integration.xtextsirius.runtime` plug-in.
 
 Typical symptoms of this issue include invalid auto-completion suggestions in the editor and exceptions on committing the changed elements.
 
