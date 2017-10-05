@@ -20,7 +20,7 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
  * This is the item provider adapter for a
  * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class AXtextDirectEditLabelItemProvider
@@ -34,7 +34,7 @@ public class AXtextDirectEditLabelItemProvider
 	public AXtextDirectEditLabelItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-	
+
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -45,11 +45,11 @@ public class AXtextDirectEditLabelItemProvider
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
 		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-			
+
 		}
 		return this.itemPropertyDescriptors;
 	}
-	
+
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -62,13 +62,13 @@ public class AXtextDirectEditLabelItemProvider
 		return label == null || label.length() == 0 ? getString("_UI_AXtextDirectEditLabel_type")
 				: getString("_UI_AXtextDirectEditLabel_type") + " " + label;
 	}
-	
+
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which
 	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,7 +76,7 @@ public class AXtextDirectEditLabelItemProvider
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
-	
+
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
@@ -88,7 +88,7 @@ public class AXtextDirectEditLabelItemProvider
 	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-	
+
 	/**
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
@@ -101,19 +101,19 @@ public class AXtextDirectEditLabelItemProvider
 			final Collection<?> selection) {
 		final Object childFeature = feature;
 		final Object childObject = child;
-		
+
 		final boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS ||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__MASK
 				||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__INITIAL_OPERATION;
-		
+
 		if (qualify) {
 			return getString("_UI_CreateChild_text2",
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
-	
+
 	/**
 	 * Return the resource locator for this item provider's resources. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -124,5 +124,5 @@ public class AXtextDirectEditLabelItemProvider
 	public ResourceLocator getResourceLocator() {
 		return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
 	}
-	
+
 }

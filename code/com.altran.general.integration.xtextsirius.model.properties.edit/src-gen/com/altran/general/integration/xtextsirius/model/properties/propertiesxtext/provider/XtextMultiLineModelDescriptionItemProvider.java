@@ -24,7 +24,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * This is the item provider adapter for a
  * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class XtextMultiLineModelDescriptionItemProvider
@@ -104,7 +104,7 @@ public class XtextMultiLineModelDescriptionItemProvider
 	/**
 	 * This returns XtextMultiLineModelDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -130,7 +130,7 @@ public class XtextMultiLineModelDescriptionItemProvider
 	 * update any cached children and by creating a viewer notification, which
 	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

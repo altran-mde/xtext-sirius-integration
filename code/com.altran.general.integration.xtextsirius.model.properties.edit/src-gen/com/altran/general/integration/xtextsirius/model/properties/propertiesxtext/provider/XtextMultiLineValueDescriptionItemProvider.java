@@ -24,7 +24,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * This is the item provider adapter for a
  * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class XtextMultiLineValueDescriptionItemProvider
@@ -83,7 +83,7 @@ public class XtextMultiLineValueDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Prefix Text Expression feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void addPrefixTextExpressionPropertyDescriptor(final Object object) {
@@ -105,7 +105,7 @@ public class XtextMultiLineValueDescriptionItemProvider
 	/**
 	 * This adds a property descriptor for the Suffix Text Expression feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void addSuffixTextExpressionPropertyDescriptor(final Object object) {
@@ -127,7 +127,7 @@ public class XtextMultiLineValueDescriptionItemProvider
 	/**
 	 * This returns XtextMultiLineValueDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -153,7 +153,7 @@ public class XtextMultiLineValueDescriptionItemProvider
 	 * update any cached children and by creating a viewer notification, which
 	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

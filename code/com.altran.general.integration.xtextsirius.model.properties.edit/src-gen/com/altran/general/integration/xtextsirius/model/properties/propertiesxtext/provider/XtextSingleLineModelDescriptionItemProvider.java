@@ -24,7 +24,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * This is the item provider adapter for a
  * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class XtextSingleLineModelDescriptionItemProvider
@@ -38,7 +38,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 	public XtextSingleLineModelDescriptionItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-	
+
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -49,13 +49,13 @@ public class XtextSingleLineModelDescriptionItemProvider
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
 		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-			
+
 			addInjectorIdPropertyDescriptor(object);
 			addEditableFeaturesPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
 	}
-	
+
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -78,7 +78,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 						null,
 						null));
 	}
-	
+
 	/**
 	 * This adds a property descriptor for the Editable Features feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -100,18 +100,18 @@ public class XtextSingleLineModelDescriptionItemProvider
 				null,
 				null));
 	}
-	
+
 	/**
 	 * This returns XtextSingleLineModelDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object getImage(final Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/XtextSingleLineModelDescription"));
 	}
-	
+
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -124,19 +124,19 @@ public class XtextSingleLineModelDescriptionItemProvider
 		return label == null || label.length() == 0 ? getString("_UI_XtextSingleLineModelDescription_type") : //$NON-NLS-1$
 				label;
 	}
-	
+
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which
 	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(final Notification notification) {
 		updateChildren(notification);
-		
+
 		switch (notification.getFeatureID(XtextSingleLineModelDescription.class)) {
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
@@ -145,7 +145,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 		}
 		super.notifyChanged(notification);
 	}
-	
+
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
@@ -157,7 +157,7 @@ public class XtextSingleLineModelDescriptionItemProvider
 	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-	
+
 	/**
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
@@ -170,14 +170,14 @@ public class XtextSingleLineModelDescriptionItemProvider
 			final Collection<?> selection) {
 		final Object childFeature = feature;
 		final Object childObject = child;
-		
+
 		final boolean qualify = childFeature == PropertiesPackage.Literals.TEXT_DESCRIPTION__INITIAL_OPERATION;
-		
+
 		if (qualify) {
 			return getString("_UI_CreateChild_text2",
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
-	
+
 }

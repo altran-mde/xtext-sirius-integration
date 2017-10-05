@@ -7,6 +7,7 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
+import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
 import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 import com.google.inject.Injector;
 
@@ -14,7 +15,7 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 	private final @NonNull String prefixTextExpression;
 	private final @NonNull String suffixTextExpression;
 	private final EStructuralFeature valueFeature;
-
+	
 	public XtextSiriusStyledTextCellEditorValue(
 			final int style,
 			final @NonNull Injector injector,
@@ -27,7 +28,7 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 		this.suffixTextExpression = suffixTextExpression;
 		this.valueFeature = valueFeature;
 	}
-
+	
 	@Override
 	protected void doSetValue(final Object value) {
 		if (value instanceof String) {
@@ -35,30 +36,44 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 			if (StringUtils.isBlank(newText)) {
 				newText = retrieveValueFromModel(newText);
 			}
-			
+
 			final StringBuffer text = new StringBuffer(newText);
 			StyledTextUtil.getInstance().removeNewlinesIfSingleLine(text, 0, text.length(), isMultiLine());
-
-			getXtextAdapter().resetVisibleRegion();
-			super.doSetValue(this.prefixTextExpression + StyledTextUtil.getInstance().guessNewline(text.toString()) + text
-					+ this.suffixTextExpression);
 			
-			getXtextAdapter().setVisibleRegion(this.prefixTextExpression.length() + 1, text.length());
+			getXtextAdapter().resetVisibleRegion();
+			final String prefixText = interpret(this.prefixTextExpression);
+			final String suffixText = interpret(this.suffixTextExpression);
+			super.doSetValue(prefixText + StyledTextUtil.getInstance().guessNewline(text.toString()) + text
+					+ suffixText);
+
+			getXtextAdapter().setVisibleRegion(prefixText.length() + 1, text.length());
 		}
 	}
 
-	protected String retrieveValueFromModel(String newText) {
+	protected @NonNull String interpret(final @NonNull String expression) {
+		final EObject self = getSemanticElement();
+		if (self != null) {
+			return EvaluateHelper.getInstance().evaluateString(expression, self);
+		}
+		
+		return "";
+	}
+	
+	
+	protected @Nullable String retrieveValueFromModel(final @Nullable String newText) {
 		final EObject semanticElement = getSemanticElement();
+		
+		String result = newText;
 		if (semanticElement != null) {
-			newText = StringUtils.defaultString((String) semanticElement.eGet(getValueFeature()));
+			result = StringUtils.defaultString((String) semanticElement.eGet(getValueFeature()));
 		}
-		return newText;
+		return result;
 	}
-
+	
 	protected @NonNull EStructuralFeature getValueFeature() {
 		return this.valueFeature;
 	}
-
+	
 	@Override
 	public @Nullable Object getValueToCommit() {
 		return getValue();

@@ -2,6 +2,7 @@ package com.altran.general.integration.xtextsirius.runtime.eef.ui.value;
 
 import org.eclipse.eef.common.ui.api.IEEFFormContainer;
 import org.eclipse.eef.core.api.EditingContextAdapter;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
@@ -10,6 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusController;
+import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycleManager {
@@ -29,12 +31,22 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
-		this.widget = new XtextSiriusWidgetValue(parent, getInjector(), isMultiLine(), getPrefixTextExpression(),
-				getSuffixTextExpression());
+		this.widget = new XtextSiriusWidgetValue(parent, getInjector(), isMultiLine(),
+				interpret(getPrefixTextExpression()),
+				interpret(getSuffixTextExpression()));
 		applyGridData(getWidget().getControl());
 		
 		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
 				this.contextAdapter);
+	}
+	
+	protected @NonNull String interpret(final @NonNull String expression) {
+		final EObject self = getSelf();
+		if (self != null) {
+			return EvaluateHelper.getInstance().evaluateString(expression, self);
+		}
+
+		return "";
 	}
 
 	@Override

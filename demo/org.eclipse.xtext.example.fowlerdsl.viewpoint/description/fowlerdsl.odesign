@@ -76,7 +76,7 @@
             <editableFeatures>Transition.event</editableFeatures>
             <editableFeatures>Transition.guard</editableFeatures>
           </ownedTools>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditValueDescription" name="DescriptionEdit" inputLabelExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" multiLine="true" prefixTextExpression="&lt;html>&lt;head>&lt;title>t&lt;/title>&lt;/head>&lt;body>" suffixTextExpression="&lt;/body>&lt;/html>">
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditValueDescription" name="DescriptionEdit" inputLabelExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" multiLine="true" prefixTextExpression="ocl:'&lt;html>&lt;head>&lt;title>t&lt;/title>&lt;/head>&lt;body>'" suffixTextExpression="ocl:'&lt;/body>'.concat('&lt;/html>')">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
             </initialOperation>
@@ -106,7 +106,7 @@
           <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
         </initialOperation>
       </controls>
-      <controls xsi:type="properties-xtext:XtextMultiLineValueDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" prefixTextExpression="&lt;html>&lt;head>&lt;title>t&lt;/title>&lt;/head>&lt;body>" suffixTextExpression="&lt;/body>&lt;/html>">
+      <controls xsi:type="properties-xtext:XtextMultiLineValueDescription" identifier="StateDescriptionId" labelExpression="Description" valueExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" prefixTextExpression="ocl:'&lt;html>&lt;head>&lt;title>t&lt;/title>'.concat('&lt;/head>&lt;body>')" suffixTextExpression="&lt;/body>&lt;/html>">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
         </initialOperation>
