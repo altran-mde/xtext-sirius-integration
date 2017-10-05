@@ -798,6 +798,22 @@ public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl
 
 
 
+== Versions
+
+This asset was developed using the following features and versions.
+
+[horizontal]
+
+Eclipse:: 4.5.2 (Mars SR2)
+Google Guava:: 21.0
+Apache Commons:: 2.6
+Eclipse Xcore:: 1.2.1
+Eclipse Xtext:: 2.9.2
+Eclipse Sirius:: 4.1.6
+Yakindu Statecharts Xtext Support:: 3.1.0
+
+
+
 == Known Issues
 
 * Determining the correct subsection for <<model, model content>> is not always possible.
