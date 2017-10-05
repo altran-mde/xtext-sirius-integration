@@ -36,7 +36,7 @@ identifier::
 	String entered in the "Id" field of a Sirius element, unique within the Sirius application.
 	
 direct editor::
-	Editor that is displayed inside the diagram if the end-user double-clicks a diagram element or presses F2 while the diagram element is focused.
+	Editor that is displayed inside the diagram if the end-user double-clicks a diagram element or presses kbd:[F2] while the diagram figure is focused.
 
 widget::
 	One entry field for a property element inside the properties view.
@@ -110,7 +110,7 @@ All of this can be summarized in one table:
 2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.gif[] singleLine>>	
 .2+.^| _<<prefixText-suffixText, prefixText>>, <<prefixText-suffixText, suffixText>>_
 | <<singleLine-multiLine, image:images/XtextMultiLineValueDescription.gif[] multiLine>>	
-2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.gif[] multiLine>> 
+2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.gif[] multiLine>>
 
 | *add. info footnoteref:[info]*	
 |  
@@ -507,7 +507,7 @@ Think of a simplified version of HTML implemented as Xtext language. A complete 
 This language should be used for the description feature of classes in an entity model.
 
 However, the model may contain several such classes, and the description of all of them should end up in only one HTML file (in a later generation step).
-Instead of storing a complete model into every class' description (and bothering the end-user with it), only the description contains only the following part:
+Instead of storing a complete model into every class' description (and bothering the end-user with it), the description contains only the following part:
 
 [source, html]
 ----
