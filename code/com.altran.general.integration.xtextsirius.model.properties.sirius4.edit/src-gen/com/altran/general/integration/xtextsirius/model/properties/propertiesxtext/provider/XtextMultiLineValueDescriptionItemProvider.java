@@ -8,13 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.properties.provider.TextAreaDescriptionItemProvider;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription;
@@ -27,7 +26,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * 
  * @generated
  */
-public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdapter {
+public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescriptionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -142,7 +141,7 @@ public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdap
 	 */
 	@Override
 	public String getText(final Object object) {
-		final String label = ((XtextMultiLineValueDescription) object).getInjectorId();
+		final String label = ((XtextMultiLineValueDescription) object).getIdentifier();
 		return label == null || label.length() == 0 ? getString("_UI_XtextMultiLineValueDescription_type")
 				: getString("_UI_XtextMultiLineValueDescription_type") + " " + label;
 	}
@@ -183,14 +182,25 @@ public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdap
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!--
+	 * This returns the label text for
+	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator() {
-		return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
+	public String getCreateChildText(final Object owner, final Object feature, final Object child,
+			final Collection<?> selection) {
+		final Object childFeature = feature;
+		final Object childObject = child;
+
+		final boolean qualify = childFeature == PropertiesPackage.Literals.TEXT_DESCRIPTION__INITIAL_OPERATION;
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2",
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

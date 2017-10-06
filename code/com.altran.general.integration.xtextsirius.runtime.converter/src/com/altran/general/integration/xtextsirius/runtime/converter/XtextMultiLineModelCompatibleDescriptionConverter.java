@@ -12,12 +12,12 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFac
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
 
 public class XtextMultiLineModelCompatibleDescriptionConverter implements ICompatibleDescriptionConverter {
-	
+
 	@Override
 	public boolean canHandle(final EObject description) {
 		return description instanceof XtextMultiLineModelDescription;
 	}
-	
+
 	@Override
 	public EObject convert(
 			final EObject description,
@@ -27,33 +27,33 @@ public class XtextMultiLineModelCompatibleDescriptionConverter implements ICompa
 			final Function<InitialOperation, String> expressionForOperationGetter) {
 		if (description instanceof XtextMultiLineModelDescription) {
 			final XtextMultiLineModelDescription propertyDescription = (XtextMultiLineModelDescription) description;
-			
+
 			final EefXtextMultiLineModelDescription eefDescription = EefxtextFactory.eINSTANCE
 					.createEefXtextMultiLineModelDescription();
 			eefDescription.setIdentifier(identifierGetter.apply(propertyDescription));
 			eefDescription.setHelpExpression(propertyDescription.getHelpExpression());
 			eefDescription.setIsEnabledExpression(propertyDescription.getIsEnabledExpression());
 			eefDescription.setLabelExpression(propertyDescription.getLabelExpression());
-			
-			eefDescription.setValueExpression(propertyDescription.getValueExpression());
 
+			eefDescription.setValueExpression(propertyDescription.getValueExpression());
+			
 			final InitialOperation initialOperation = propertyDescription.getInitialOperation();
 			eefDescription.setEditExpression(expressionForOperationGetter.apply(initialOperation));
-
+			
 			eefDescription.setLineCount(propertyDescription.getLineCount());
-
+			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
-
-			eefDescription.getEditableFeatures().addAll(propertyDescription.getEditableFeatures());
 			
+			eefDescription.getEditableFeatures().addAll(propertyDescription.getEditableFeatures());
+
 			// Let's not forget to populate the cache for the other converters
 			// or link resolvers
 			cache.put(propertyDescription, eefDescription);
-			
+
 			return eefDescription;
 		}
 		return null;
 	}
-
+	
 }

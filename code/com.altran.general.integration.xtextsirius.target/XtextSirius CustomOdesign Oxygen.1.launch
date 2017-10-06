@@ -13,7 +13,6 @@
 <booleanAttribute key="default" value="false"/>
 <booleanAttribute key="includeOptional" value="false"/>
 <stringAttribute key="location" value="${workspace_loc}/../runtime-XtextSiriusCustomOdesignOxygen1"/>
-<booleanAttribute key="org.eclipse.debug.ui.ATTR_APPEND_TO_FILE" value="true"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>

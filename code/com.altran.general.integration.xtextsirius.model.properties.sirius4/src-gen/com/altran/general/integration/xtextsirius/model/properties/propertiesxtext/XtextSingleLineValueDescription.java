@@ -2,7 +2,7 @@
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.properties.TextDescription;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 
@@ -12,12 +12,10 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
  *
  *
  * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage#getXtextSingleLineValueDescription()
- * @model superTypes="org.eclipse.emf.ecore.EJavaObject
- *        com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel image='true'"
+ * @model annotation="http://www.eclipse.org/emf/2002/GenModel image='true'"
  * @generated
  */
-public interface XtextSingleLineValueDescription extends EObject, IXtextPropertyValueDescription {
+public interface XtextSingleLineValueDescription extends TextDescription, IXtextPropertyValueDescription {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

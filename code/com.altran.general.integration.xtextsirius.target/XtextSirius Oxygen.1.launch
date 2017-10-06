@@ -12,8 +12,7 @@
 <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/XtextSirius Oxygen.1"/>
 <booleanAttribute key="default" value="false"/>
 <booleanAttribute key="includeOptional" value="false"/>
-<stringAttribute key="location" value="${workspace_loc}/../runtime-Launch.Oxygen"/>
-<booleanAttribute key="org.eclipse.debug.ui.ATTR_APPEND_TO_FILE" value="true"/>
+<stringAttribute key="location" value="${workspace_loc}/../runtime-XtextSiriusOxygen1"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>

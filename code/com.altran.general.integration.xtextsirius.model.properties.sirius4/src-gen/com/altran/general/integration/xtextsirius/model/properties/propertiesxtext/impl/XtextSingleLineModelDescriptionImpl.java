@@ -8,8 +8,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.sirius.properties.impl.TextDescriptionImpl;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription;
@@ -34,7 +34,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  *
  * @generated
  */
-public class XtextSingleLineModelDescriptionImpl extends EObjectImpl implements XtextSingleLineModelDescription {
+public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
+		implements XtextSingleLineModelDescription {
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->

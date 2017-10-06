@@ -10,6 +10,8 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
@@ -24,7 +26,13 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.sirius.properties.ContainerDescription;
+import org.eclipse.sirius.properties.DynamicMappingIf;
+import org.eclipse.sirius.properties.GroupDescription;
+import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.properties.util.PropertiesSwitch;
 
+import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextFactory;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.util.PropertiesxtextAdapterFactory;
 
@@ -333,6 +341,155 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 		}
 		if (this.xtextMultiLineValueDescriptionItemProvider != null) {
 			this.xtextMultiLineValueDescriptionItemProvider.dispose();
+		}
+	}
+
+	/**
+	 * A child creation extender for the {@link PropertiesPackage}. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public static class PropertiesChildCreationExtender implements IChildCreationExtender {
+		/**
+		 * The switch for creating child descriptors specific to each extended
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		protected static class CreationSwitch extends PropertiesSwitch<Object> {
+			/**
+			 * The child descriptors being populated. <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			protected List<Object> newChildDescriptors;
+
+			/**
+			 * The domain in which to create the children. <!-- begin-user-doc
+			 * --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			protected EditingDomain editingDomain;
+
+			/**
+			 * Creates the a switch for populating child descriptors in the
+			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			CreationSwitch(final List<Object> newChildDescriptors, final EditingDomain editingDomain) {
+				this.newChildDescriptors = newChildDescriptors;
+				this.editingDomain = editingDomain;
+			}
+
+			/**
+			 * <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			@Override
+			public Object caseGroupDescription(final GroupDescription object) {
+				this.newChildDescriptors
+						.add(createChildParameter(PropertiesPackage.Literals.GROUP_DESCRIPTION__CONTROLS,
+								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineModelDescription()));
+
+				this.newChildDescriptors
+						.add(createChildParameter(PropertiesPackage.Literals.GROUP_DESCRIPTION__CONTROLS,
+								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineModelDescription()));
+
+				this.newChildDescriptors
+						.add(createChildParameter(PropertiesPackage.Literals.GROUP_DESCRIPTION__CONTROLS,
+								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineValueDescription()));
+
+				this.newChildDescriptors
+						.add(createChildParameter(PropertiesPackage.Literals.GROUP_DESCRIPTION__CONTROLS,
+								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineValueDescription()));
+
+				return null;
+			}
+
+			/**
+			 * <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			@Override
+			public Object caseContainerDescription(final ContainerDescription object) {
+				this.newChildDescriptors
+						.add(createChildParameter(PropertiesPackage.Literals.CONTAINER_DESCRIPTION__CONTROLS,
+								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineModelDescription()));
+
+				this.newChildDescriptors
+						.add(createChildParameter(PropertiesPackage.Literals.CONTAINER_DESCRIPTION__CONTROLS,
+								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineModelDescription()));
+
+				this.newChildDescriptors
+						.add(createChildParameter(PropertiesPackage.Literals.CONTAINER_DESCRIPTION__CONTROLS,
+								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineValueDescription()));
+
+				this.newChildDescriptors
+						.add(createChildParameter(PropertiesPackage.Literals.CONTAINER_DESCRIPTION__CONTROLS,
+								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineValueDescription()));
+
+				return null;
+			}
+
+			/**
+			 * <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			@Override
+			public Object caseDynamicMappingIf(final DynamicMappingIf object) {
+				this.newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.DYNAMIC_MAPPING_IF__WIDGET,
+						PropertiesxtextFactory.eINSTANCE.createXtextSingleLineModelDescription()));
+
+				this.newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.DYNAMIC_MAPPING_IF__WIDGET,
+						PropertiesxtextFactory.eINSTANCE.createXtextMultiLineModelDescription()));
+
+				this.newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.DYNAMIC_MAPPING_IF__WIDGET,
+						PropertiesxtextFactory.eINSTANCE.createXtextSingleLineValueDescription()));
+
+				this.newChildDescriptors.add(createChildParameter(PropertiesPackage.Literals.DYNAMIC_MAPPING_IF__WIDGET,
+						PropertiesxtextFactory.eINSTANCE.createXtextMultiLineValueDescription()));
+
+				return null;
+			}
+
+			/**
+			 * <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			protected CommandParameter createChildParameter(final Object feature, final Object child) {
+				return new CommandParameter(null, feature, child);
+			}
+
+		}
+
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		@Override
+		public Collection<Object> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+			final ArrayList<Object> result = new ArrayList<>();
+			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
+			return result;
+		}
+
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		@Override
+		public ResourceLocator getResourceLocator() {
+			return PropertiesxtextEditPlugin.INSTANCE;
 		}
 	}
 

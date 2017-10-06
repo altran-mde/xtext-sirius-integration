@@ -4,7 +4,7 @@
 )
 @GenModel(
 	modelName="Properties-xtext",
-	modelPluginID="com.altran.general.integration.xtextsirius.model.properties",
+	modelPluginID="com.altran.general.integration.xtextsirius.model.properties.sirius4",
 	complianceLevel="6.0",
 	runtimeVersion="2.3",
 	nonNLSMarkers="false",
@@ -12,7 +12,7 @@
 	creationIcons="false",
 	modelDirectory="/com.altran.general.integration.xtextsirius.model.properties.sirius4/src-gen",
 	editDirectory="/com.altran.general.integration.xtextsirius.model.properties.sirius4.edit/src-gen",
-	editPluginID="com.altran.general.integration.xtextsirius.model.properties.edit",
+	editPluginID="com.altran.general.integration.xtextsirius.model.properties.sirius4.edit",
 	codeFormatting="true",
 	importOrganizing="true",
 	cleanup="true",
