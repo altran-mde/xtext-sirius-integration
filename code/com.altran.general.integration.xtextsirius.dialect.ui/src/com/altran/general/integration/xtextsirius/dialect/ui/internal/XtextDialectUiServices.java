@@ -30,7 +30,7 @@ import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.Dia
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextFactory;
 import com.google.common.collect.ImmutableList;
 
-final class XtextDialectUiServices implements DialectUIServices {
+public class XtextDialectUiServices implements DialectUIServices {
 	@Override
 	public void setSelection(final DialectEditor dialectEditor, final List<DRepresentationElement> selection) {
 		throw new UnsupportedOperationException();
@@ -166,5 +166,10 @@ final class XtextDialectUiServices implements DialectUIServices {
 	@Override
 	public boolean canExport(final ExportFormat format) {
 		return false;
+	}
+	
+	// @Override
+	public void refreshEditor(final DialectEditor dialectEditor, final IProgressMonitor monitor) {
+		throw new UnsupportedOperationException();
 	}
 }

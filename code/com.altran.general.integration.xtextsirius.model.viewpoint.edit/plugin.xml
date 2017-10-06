@@ -6,6 +6,7 @@
 
 <plugin>
 
+
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated viewpoint-xtext -->
       <factory
@@ -28,5 +29,4 @@
             uri="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0"
             class="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.provider.ViewpointxtextItemProviderAdapterFactory$ToolChildCreationExtender"/>
    </extension>
-
 </plugin>

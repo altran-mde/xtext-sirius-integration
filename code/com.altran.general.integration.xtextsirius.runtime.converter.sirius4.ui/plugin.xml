@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.sirius.ui.properties.descriptionConverter">
+		<descriptor
+			class="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.XtextMultiLineModelDescriptionConverter4"
+			description="This extension is used to convert the definition of the Xtext Multi-line Model Widget."
+			id="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.xtextMultiLineModelDescriptionConverter"
+			label="Sirius Extension Xtext Multi-line Model Widget Converter"
+		/>
+		<descriptor
+			class="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.XtextMultiLineValueDescriptionConverter4"
+			description="This extension is used to convert the definition of the Xtext Multi-line Value Widget."
+			id="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.xtextMultiLineValueDescriptionConverter"
+			label="Sirius Extension Xtext Multi-line Value Widget Converter"
+		/>
+		<descriptor
+			class="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.XtextSingleLineModelDescriptionConverter4"
+			description="This extension is used to convert the definition of the Xtext Single-line Model Widget."
+			id="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.xtextSingleLineModelDescriptionConverter"
+			label="Sirius Extension Xtext Single-line Model Widget Converter"
+		/>
+		<descriptor
+			class="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.XtextSingleLineValueDescriptionConverter4"
+			description="This extension is used to convert the definition of the Xtext Single-line Value Widget."
+			id="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.xtextSingleLineValueDescriptionConverter"
+			label="Sirius Extension Xtext Single-line Value Widget Converter"
+		/>
+	</extension>
+</plugin>

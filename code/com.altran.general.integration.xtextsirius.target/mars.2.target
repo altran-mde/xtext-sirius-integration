@@ -103,12 +103,6 @@
 <repository location="http://download.eclipse.org/sirius/updates/releases/4.1.6/mars"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.mylyn.wikitext.editors_feature.feature.group" version="3.0.19.201709251150"/>
-<unit id="org.eclipse.mylyn.wikitext.extras_feature.feature.group" version="3.0.19.201709251150"/>
-<unit id="org.eclipse.mylyn.wikitext_feature.feature.group" version="3.0.19.201709251150"/>
-<repository location="http://download.eclipse.org/mylyn/snapshots/nightly/docs/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
 <unit id="com.google.guava.source" version="21.0.0.v20170206-1425"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository"/>

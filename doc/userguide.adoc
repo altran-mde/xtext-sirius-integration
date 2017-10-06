@@ -800,10 +800,9 @@ public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl
 
 == Versions
 
-This asset was developed using the following features and versions.
+This asset was developed using the following components and versions.
 
 [horizontal]
-
 Eclipse:: 4.5.2 (Mars SR2)
 Google Guava:: 21.0
 Apache Commons:: 2.6
@@ -812,6 +811,17 @@ Eclipse Xtext:: 2.9.2
 Eclipse Sirius:: 4.1.6
 Yakindu Statecharts Xtext Support:: 3.1.0
 
+
+Additionally, it was tested with the following components and versions.
+
+[horizontal]
+Eclipse:: 4.7.1 (Oxygen SR1)
+Google Guava:: 21.0
+Apache Commons:: 2.6
+Eclipse Xcore:: 1.5.0
+Eclipse Xtext:: 2.12.0
+Eclipse Sirius:: 5.0.2
+Yakindu Statecharts Xtext Support:: 3.1.0
 
 
 == Known Issues
