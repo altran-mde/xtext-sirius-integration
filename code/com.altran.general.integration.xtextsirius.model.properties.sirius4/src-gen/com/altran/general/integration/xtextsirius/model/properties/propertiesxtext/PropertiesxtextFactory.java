@@ -22,41 +22,45 @@ public interface PropertiesxtextFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Xtext Single Line Model
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Xtext Single Line Model Description</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Xtext Single Line Model
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Xtext Single Line Model Description</em>'.
 	 * @generated
 	 */
 	XtextSingleLineModelDescription createXtextSingleLineModelDescription();
 
 	/**
-	 * Returns a new object of class '<em>Xtext Multi Line Model
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Xtext Multi Line Model Description</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Xtext Multi Line Model
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Xtext Multi Line Model Description</em>'.
 	 * @generated
 	 */
 	XtextMultiLineModelDescription createXtextMultiLineModelDescription();
 
 	/**
-	 * Returns a new object of class '<em>Xtext Single Line Value
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Xtext Single Line Value Description</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Xtext Single Line Value
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Xtext Single Line Value Description</em>'.
 	 * @generated
 	 */
 	XtextSingleLineValueDescription createXtextSingleLineValueDescription();
 
 	/**
-	 * Returns a new object of class '<em>Xtext Multi Line Value
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Xtext Multi Line Value Description</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Xtext Multi Line Value
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Xtext Multi Line Value Description</em>'.
 	 * @generated
 	 */
 	XtextMultiLineValueDescription createXtextMultiLineValueDescription();

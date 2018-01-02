@@ -29,6 +29,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.runtime.XtextLanguageInjectorManager;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusBorderEditPartModel;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusEdgeNameEditPartModel;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusEditPartModel;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.value.XtextSiriusEditPartValue;
@@ -41,6 +42,10 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 			org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeBeginNameEditPart.VISUAL_ID,
 			org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeNameEditPart.VISUAL_ID,
 			org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEndNameEditPart.VISUAL_ID);
+
+	@SuppressWarnings("restriction")
+	private static final Set<Integer> BORDERED_LABEL_EDIT_VISUAL_IDS = ImmutableSet.of(
+			org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode4EditPart.VISUAL_ID);
 
 	@Override
 	public boolean provides(final IOperation operation) {
@@ -66,6 +71,17 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 		}
 	}
 	
+	protected boolean isBorderNode(final View view) {
+		try {
+			return BORDERED_LABEL_EDIT_VISUAL_IDS.contains(Integer.parseInt(view.getType()));
+		} catch (final NumberFormatException e) {
+			return false;
+		}
+		// return
+		// DescriptionPackage.eINSTANCE.getAbstractNodeMapping_BorderedNodeMappings()
+		// .equals(mapping.eContainingFeature());
+	}
+	
 	@Override
 	public IGraphicalEditPart createGraphicEditPart(final View view) {
 		final RepresentationElementMapping mapping = extractMapping(view);
@@ -75,8 +91,14 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 			
 			if (labelDirectEdit instanceof IXtextDirectEditModelDescription) {
 				final IXtextDirectEditModelDescription modelNodeDescription = (IXtextDirectEditModelDescription) labelDirectEdit;
-				return new XtextSiriusEditPartModel(modelNodeDescription, resolveLanguageInjector(modelNodeDescription),
-						view);
+				if (!isBorderNode(view)) {
+					return new XtextSiriusEditPartModel(modelNodeDescription,
+							resolveLanguageInjector(modelNodeDescription),
+							view);
+				} else {
+					return new XtextSiriusBorderEditPartModel(modelNodeDescription,
+							resolveLanguageInjector(modelNodeDescription), view);
+				}
 				
 			} else if (labelDirectEdit instanceof IXtextDirectEditValueDescription) {
 				final IXtextDirectEditValueDescription valueNodeDescription = (IXtextDirectEditValueDescription) labelDirectEdit;

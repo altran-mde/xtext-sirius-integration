@@ -21,10 +21,8 @@ import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.Xte
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
- * This is the item provider adapter for a
- * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription}
- * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ * This is the item provider adapter for a {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription} object.
+ * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
 public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEditLabelItemProvider {
@@ -34,10 +32,10 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	 *
 	 * @generated
 	 */
-	public XtextDirectEditValueDescriptionItemProvider(final AdapterFactory adapterFactory) {
+	public XtextDirectEditValueDescriptionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-
+	
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -45,28 +43,27 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-		if (this.itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-
+			
 			addInjectorIdPropertyDescriptor(object);
 			addMultiLinePropertyDescriptor(object);
 			addPrefixTextExpressionPropertyDescriptor(object);
 			addSuffixTextExpressionPropertyDescriptor(object);
 		}
-		return this.itemPropertyDescriptors;
+		return itemPropertyDescriptors;
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
-	protected void addInjectorIdPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+	protected void addInjectorIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 						getResourceLocator(),
 						getString("_UI_IXtextDescription_injectorId_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_IXtextDescription_injectorId_feature",
@@ -79,84 +76,85 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 						null,
 						null));
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Multi Line feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
-	protected void addMultiLinePropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_IXtextDirectEditDescription_multiLine_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_IXtextDirectEditDescription_multiLine_feature",
-						"_UI_IXtextDirectEditDescription_type"),
-				XtextsiriusPackage.Literals.IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE,
-				true,
-				false,
-				false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				null,
-				null));
+	protected void addMultiLinePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextDirectEditDescription_multiLine_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_IXtextDirectEditDescription_multiLine_feature",
+								"_UI_IXtextDirectEditDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+						null,
+						null));
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Prefix Text Expression feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	protected void addPrefixTextExpressionPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_IXtextValueDescription_prefixTextExpression_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_IXtextValueDescription_prefixTextExpression_feature", "_UI_IXtextValueDescription_type"),
-				XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
-				true,
-				false,
-				false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null,
-				null));
+	protected void addPrefixTextExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextValueDescription_prefixTextExpression_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_IXtextValueDescription_prefixTextExpression_feature",
+								"_UI_IXtextValueDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null,
+						null));
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Suffix Text Expression feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	protected void addSuffixTextExpressionPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_IXtextValueDescription_suffixTextExpression_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_IXtextValueDescription_suffixTextExpression_feature", "_UI_IXtextValueDescription_type"),
-				XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
-				true,
-				false,
-				false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				null,
-				null));
+	protected void addSuffixTextExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextValueDescription_suffixTextExpression_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_IXtextValueDescription_suffixTextExpression_feature",
+								"_UI_IXtextValueDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null,
+						null));
 	}
-
+	
 	/**
-	 * This returns XtextDirectEditValueDescription.gif. <!-- begin-user-doc -->
+	 * This returns XtextDirectEditValueDescription.gif.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
-	public Object getImage(final Object object) {
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/XtextDirectEditValueDescription"));
 	}
-
+	
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -169,19 +167,18 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 		return label == null || label.length() == 0 ? getString("_UI_XtextDirectEditValueDescription_type")
 				: getString("_UI_XtextDirectEditValueDescription_type") + " " + label;
 	}
-
+	
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to
-	 * update any cached children and by creating a viewer notification, which
-	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(final Notification notification) {
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
+		
 		switch (notification.getFeatureID(XtextDirectEditValueDescription.class)) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
@@ -192,7 +189,7 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 		}
 		super.notifyChanged(notification);
 	}
-
+	
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
@@ -201,10 +198,10 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-
+	
 	/**
 	 * This returns the label text for
 	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
@@ -213,21 +210,20 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(final Object owner, final Object feature, final Object child,
-			final Collection<?> selection) {
-		final Object childFeature = feature;
-		final Object childObject = child;
-
-		final boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS ||
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+		
+		boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS ||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__MASK
 				||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__INITIAL_OPERATION;
-
+		
 		if (qualify) {
 			return getString("_UI_CreateChild_text2",
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
-
+	
 }

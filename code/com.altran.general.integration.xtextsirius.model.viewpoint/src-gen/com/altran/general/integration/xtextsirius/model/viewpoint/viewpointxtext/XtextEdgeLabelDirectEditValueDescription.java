@@ -5,8 +5,9 @@ package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtex
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Xtext
- * Edge Label Direct Edit Value Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Xtext Edge Label Direct Edit Value Description</b></em>'. <!--
+ * end-user-doc -->
  *
  *
  * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage#getXtextEdgeLabelDirectEditValueDescription()

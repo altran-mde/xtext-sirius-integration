@@ -280,15 +280,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IEef
-	 * Xtext Description</em>'. <!-- begin-user-doc --> This implementation
-	 * returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IEef Xtext Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IEef
-	 *         Xtext Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IEef Xtext Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -297,15 +297,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IEef
-	 * Xtext Model Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IEef Xtext Model Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IEef
-	 *         Xtext Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IEef Xtext Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -314,15 +314,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IEef
-	 * Xtext Value Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IEef Xtext Value Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IEef
-	 *         Xtext Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IEef Xtext Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -331,15 +331,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IEef
-	 * Xtext Property Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IEef Xtext Property Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IEef
-	 *         Xtext Property Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IEef Xtext Property Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -348,15 +348,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Eef
-	 * Xtext Single Line Model Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Eef Xtext Single Line Model Description</em>'. <!-- begin-user-doc
+	 * --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Eef
-	 *         Xtext Single Line Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Eef Xtext Single Line Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -365,15 +365,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Eef
-	 * Xtext Multi Line Model Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Eef Xtext Multi Line Model Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Eef
-	 *         Xtext Multi Line Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Eef Xtext Multi Line Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -382,15 +382,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Eef
-	 * Xtext Single Line Value Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Eef Xtext Single Line Value Description</em>'. <!-- begin-user-doc
+	 * --> This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Eef
-	 *         Xtext Single Line Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Eef Xtext Single Line Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -399,15 +399,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Eef
-	 * Xtext Multi Line Value Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Eef Xtext Multi Line Value Description</em>'. <!-- begin-user-doc -->
+	 * This implementation returns null; returning a non-null result will
+	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Eef
-	 *         Xtext Multi Line Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Eef Xtext Multi Line Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -416,15 +416,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EEF
-	 * Control Description</em>'. <!-- begin-user-doc --> This implementation
-	 * returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>EEF Control Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EEF
-	 *         Control Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>EEF Control Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -433,15 +433,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EEF
-	 * Widget Description</em>'. <!-- begin-user-doc --> This implementation
-	 * returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>EEF Widget Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EEF
-	 *         Widget Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>EEF Widget Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -450,15 +450,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EEF
-	 * Text Description</em>'. <!-- begin-user-doc --> This implementation
-	 * returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>EEF Text Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EEF
-	 *         Text Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>EEF Text Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -467,15 +467,15 @@ public class EefxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
 	 * null; returning a non-null result will terminate the switch, but this is
 	 * the last case anyway. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>EObject</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

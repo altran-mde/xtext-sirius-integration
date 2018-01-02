@@ -131,6 +131,15 @@ public interface StatemachineFactory extends EFactory
   Transition createTransition();
 
   /**
+   * Returns a new object of class '<em>Thing</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Thing</em>'.
+   * @generated
+   */
+  Thing createThing();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -20,6 +20,7 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachineFactory;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Thing;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Value;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard;
@@ -115,6 +116,13 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
    * @generated
    */
   private EClass transitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass thingEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -514,6 +522,16 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getState_Things()
+  {
+    return (EReference)stateEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTransition()
   {
     return transitionEClass;
@@ -547,6 +565,36 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
   public EReference getTransition_State()
   {
     return (EReference)transitionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getThing()
+  {
+    return thingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getThing_Name()
+  {
+    return (EAttribute)thingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getThing_Guard()
+  {
+    return (EReference)thingEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -622,11 +670,16 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
     createEAttribute(stateEClass, STATE__DESCRIPTION);
     createEReference(stateEClass, STATE__ACTIONS);
     createEReference(stateEClass, STATE__TRANSITIONS);
+    createEReference(stateEClass, STATE__THINGS);
 
     transitionEClass = createEClass(TRANSITION);
     createEReference(transitionEClass, TRANSITION__EVENT);
     createEReference(transitionEClass, TRANSITION__GUARD);
     createEReference(transitionEClass, TRANSITION__STATE);
+
+    thingEClass = createEClass(THING);
+    createEAttribute(thingEClass, THING__NAME);
+    createEReference(thingEClass, THING__GUARD);
   }
 
   /**
@@ -707,11 +760,16 @@ public class StatemachinePackageImpl extends EPackageImpl implements Statemachin
     initEAttribute(getState_Description(), ecorePackage.getEString(), "description", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Actions(), this.getCommand(), null, "actions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getState_Things(), this.getThing(), null, "things", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTransition_Event(), this.getEvent(), null, "event", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_Guard(), this.getGuard(), null, "guard", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_State(), this.getState(), null, "state", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(thingEClass, Thing.class, "Thing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getThing_Name(), ecorePackage.getEString(), "name", null, 0, 1, Thing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getThing_Guard(), this.getGuard(), null, "guard", null, 0, 1, Thing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

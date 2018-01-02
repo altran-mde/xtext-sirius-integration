@@ -21,21 +21,10 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <!-- end-user-doc -->
  * 
  * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextFactory
- * @model kind="package" annotation="http://www.eclipse.org/emf/2002/GenModel
- *        modelName='Viewpoint-xtext'
- *        modelPluginID='com.altran.general.integration.xtextsirius.model.viewpoint'
- *        complianceLevel='6.0' runtimeVersion='2.3' nonNLSMarkers='false'
- *        copyrightFields='false' creationIcons='false'
- *        modelDirectory='/com.altran.general.integration.xtextsirius.model.viewpoint/src-gen'
- *        editDirectory='/com.altran.general.integration.xtextsirius.model.viewpoint.edit/src-gen'
- *        editPluginID='com.altran.general.integration.xtextsirius.mode.viewpoint.edit'
- *        codeFormatting='true' importOrganizing='true' cleanup='true'
- *        styleProviders='false' disposableProviderFactory='true'
- *        extensibleProviderFactory='true' childCreationExtenders='true'
- *        basePackage='com.altran.general.integration.xtextsirius.model.viewpoint'"
- *        annotation="http://www.eclipse.org/emf/2011/Xcore
- *        Ecore='http://www.eclipse.org/emf/2002/Ecore'
- *        GenModel='http://www.eclipse.org/emf/2002/GenModel'"
+ * @model kind="package" annotation=
+ *        "http://www.eclipse.org/emf/2002/GenModel modelName='Viewpoint-xtext' modelPluginID='com.altran.general.integration.xtextsirius.model.viewpoint' complianceLevel='6.0' runtimeVersion='2.3' nonNLSMarkers='false' copyrightFields='false' creationIcons='false' modelDirectory='/com.altran.general.integration.xtextsirius.model.viewpoint/src-gen' editDirectory='/com.altran.general.integration.xtextsirius.model.viewpoint.edit/src-gen' editPluginID='com.altran.general.integration.xtextsirius.mode.viewpoint.edit' codeFormatting='true' importOrganizing='true' cleanup='true' styleProviders='false' disposableProviderFactory='true' extensibleProviderFactory='true' childCreationExtenders='true' basePackage='com.altran.general.integration.xtextsirius.model.viewpoint'"
+ *        annotation=
+ *        "http://www.eclipse.org/emf/2011/Xcore Ecore='http://www.eclipse.org/emf/2002/Ecore' GenModel='http://www.eclipse.org/emf/2002/GenModel'"
  * @generated
  */
 public interface ViewpointxtextPackage extends EPackage {
@@ -70,8 +59,8 @@ public interface ViewpointxtextPackage extends EPackage {
 			.init();
 
 	/**
-	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
 	 * <em>IXtext Edge Label Direct Edit Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -110,9 +99,9 @@ public interface ViewpointxtextPackage extends EPackage {
 			+ 0;
 
 	/**
-	 * The number of structural features of the '<em>IXtext Edge Label Direct
-	 * Edit Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The number of structural features of the '
+	 * <em>IXtext Edge Label Direct Edit Description</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -121,8 +110,8 @@ public interface ViewpointxtextPackage extends EPackage {
 			+ 1;
 
 	/**
-	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditModelDescriptionImpl
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditModelDescriptionImpl
 	 * <em>Xtext Edge Label Direct Edit Model Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -269,9 +258,9 @@ public interface ViewpointxtextPackage extends EPackage {
 			+ 0;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Edge Label Direct
-	 * Edit Model Description</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '
+	 * <em>Xtext Edge Label Direct Edit Model Description</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -280,8 +269,8 @@ public interface ViewpointxtextPackage extends EPackage {
 			+ 1;
 
 	/**
-	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl
 	 * <em>Xtext Edge Label Direct Edit Value Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -437,9 +426,9 @@ public interface ViewpointxtextPackage extends EPackage {
 			+ 0;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Edge Label Direct
-	 * Edit Value Description</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The number of structural features of the '
+	 * <em>Xtext Edge Label Direct Edit Value Description</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -449,26 +438,26 @@ public interface ViewpointxtextPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
 	 * <em>IXtext Edge Label Direct Edit Description</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>IXtext Edge Label Direct Edit
-	 *         Description</em>'.
+	 * @return the meta object for class '
+	 *         <em>IXtext Edge Label Direct Edit Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
 	 * @generated
 	 */
 	EClass getIXtextEdgeLabelDirectEditDescription();
 
 	/**
-	 * Returns the meta object for the reference list
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription#getEdgeLabelMappings
+	 * Returns the meta object for the reference list '
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription#getEdgeLabelMappings
 	 * <em>Edge Label Mappings</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
-	 * @return the meta object for the reference list '<em>Edge Label
-	 *         Mappings</em>'.
+	 * @return the meta object for the reference list '
+	 *         <em>Edge Label Mappings</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription#getEdgeLabelMappings()
 	 * @see #getIXtextEdgeLabelDirectEditDescription()
 	 * @generated
@@ -476,26 +465,26 @@ public interface ViewpointxtextPackage extends EPackage {
 	EReference getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings();
 
 	/**
-	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription
 	 * <em>Xtext Edge Label Direct Edit Model Description</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Xtext Edge Label Direct Edit Model
-	 *         Description</em>'.
+	 * @return the meta object for class '
+	 *         <em>Xtext Edge Label Direct Edit Model Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription
 	 * @generated
 	 */
 	EClass getXtextEdgeLabelDirectEditModelDescription();
 
 	/**
-	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription
 	 * <em>Xtext Edge Label Direct Edit Value Description</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Xtext Edge Label Direct Edit Value
-	 *         Description</em>'.
+	 * @return the meta object for class '
+	 *         <em>Xtext Edge Label Direct Edit Value Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription
 	 * @generated
 	 */
@@ -525,8 +514,8 @@ public interface ViewpointxtextPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
 		 * <em>IXtext Edge Label Direct Edit Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -546,8 +535,8 @@ public interface ViewpointxtextPackage extends EPackage {
 				.getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings();
 
 		/**
-		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditModelDescriptionImpl
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditModelDescriptionImpl
 		 * <em>Xtext Edge Label Direct Edit Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -558,8 +547,8 @@ public interface ViewpointxtextPackage extends EPackage {
 		EClass XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION = eINSTANCE.getXtextEdgeLabelDirectEditModelDescription();
 
 		/**
-		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl
 		 * <em>Xtext Edge Label Direct Edit Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 

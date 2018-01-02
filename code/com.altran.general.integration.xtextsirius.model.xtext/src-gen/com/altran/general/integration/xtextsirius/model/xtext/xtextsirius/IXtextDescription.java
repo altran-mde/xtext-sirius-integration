@@ -5,14 +5,15 @@ package com.altran.general.integration.xtextsirius.model.xtext.xtextsirius;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>IXtext
- * Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>IXtext Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
  * <em>Injector Id</em>}</li>
  * </ul>
  *
@@ -39,8 +40,8 @@ public interface IXtextDescription extends EObject {
 	String getInjectorId();
 
 	/**
-	 * Sets the value of the
-	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
+	 * Sets the value of the '
+	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
 	 * <em>Injector Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 

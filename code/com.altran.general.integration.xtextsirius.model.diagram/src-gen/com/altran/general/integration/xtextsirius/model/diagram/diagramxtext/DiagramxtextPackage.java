@@ -18,21 +18,10 @@ import org.eclipse.sirius.diagram.description.tool.ToolPackage;
  * <!-- end-user-doc -->
  * 
  * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory
- * @model kind="package" annotation="http://www.eclipse.org/emf/2002/GenModel
- *        modelName='Diagram-xtext'
- *        modelPluginID='com.altran.general.integration.xtextsirius.model.diagram'
- *        complianceLevel='6.0' runtimeVersion='2.3' nonNLSMarkers='false'
- *        copyrightFields='false' creationIcons='false'
- *        modelDirectory='/com.altran.general.integration.xtextsirius.model.diagram/src-gen'
- *        editDirectory='/com.altran.general.integration.xtextsirius.model.diagram.edit/src-gen'
- *        editPluginID='com.altran.general.integration.xtextsirius.mode.diagram.edit'
- *        codeFormatting='true' importOrganizing='true' cleanup='true'
- *        styleProviders='false' disposableProviderFactory='true'
- *        extensibleProviderFactory='true' childCreationExtenders='true'
- *        basePackage='com.altran.general.integration.xtextsirius.model.diagram'"
- *        annotation="http://www.eclipse.org/emf/2011/Xcore
- *        Ecore='http://www.eclipse.org/emf/2002/Ecore'
- *        GenModel='http://www.eclipse.org/emf/2002/GenModel'"
+ * @model kind="package" annotation=
+ *        "http://www.eclipse.org/emf/2002/GenModel modelName='Diagram-xtext' modelPluginID='com.altran.general.integration.xtextsirius.model.diagram' complianceLevel='6.0' runtimeVersion='2.3' nonNLSMarkers='false' copyrightFields='false' creationIcons='false' modelDirectory='/com.altran.general.integration.xtextsirius.model.diagram/src-gen' editDirectory='/com.altran.general.integration.xtextsirius.model.diagram.edit/src-gen' editPluginID='com.altran.general.integration.xtextsirius.mode.diagram.edit' codeFormatting='true' importOrganizing='true' cleanup='true' styleProviders='false' disposableProviderFactory='true' extensibleProviderFactory='true' childCreationExtenders='true' basePackage='com.altran.general.integration.xtextsirius.model.diagram'"
+ *        annotation=
+ *        "http://www.eclipse.org/emf/2011/Xcore Ecore='http://www.eclipse.org/emf/2002/Ecore' GenModel='http://www.eclipse.org/emf/2002/GenModel'"
  * @generated
  */
 public interface DiagramxtextPackage extends EPackage {
@@ -67,8 +56,8 @@ public interface DiagramxtextPackage extends EPackage {
 			.init();
 
 	/**
-	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.AXtextDirectEditLabelImpl
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.AXtextDirectEditLabelImpl
 	 * <em>AXtext Direct Edit Label</em>}' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -178,8 +167,9 @@ public interface DiagramxtextPackage extends EPackage {
 	int AXTEXT_DIRECT_EDIT_LABEL__INPUT_LABEL_EXPRESSION = ToolPackage.DIRECT_EDIT_LABEL__INPUT_LABEL_EXPRESSION;
 
 	/**
-	 * The number of structural features of the '<em>AXtext Direct Edit
-	 * Label</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '
+	 * <em>AXtext Direct Edit Label</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -187,8 +177,8 @@ public interface DiagramxtextPackage extends EPackage {
 	int AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT = ToolPackage.DIRECT_EDIT_LABEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl
 	 * <em>Xtext Direct Edit Model Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -325,8 +315,9 @@ public interface DiagramxtextPackage extends EPackage {
 	int XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Direct Edit Model
-	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '
+	 * <em>Xtext Direct Edit Model Description</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -334,8 +325,8 @@ public interface DiagramxtextPackage extends EPackage {
 	int XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl
 	 * <em>Xtext Direct Edit Value Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -481,8 +472,9 @@ public interface DiagramxtextPackage extends EPackage {
 	int XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Direct Edit Value
-	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '
+	 * <em>Xtext Direct Edit Value Description</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -491,8 +483,8 @@ public interface DiagramxtextPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
 	 * <em>AXtext Direct Edit Label</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -503,26 +495,26 @@ public interface DiagramxtextPackage extends EPackage {
 	EClass getAXtextDirectEditLabel();
 
 	/**
-	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
 	 * <em>Xtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Xtext Direct Edit Model
-	 *         Description</em>'.
+	 * @return the meta object for class '
+	 *         <em>Xtext Direct Edit Model Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
 	 * @generated
 	 */
 	EClass getXtextDirectEditModelDescription();
 
 	/**
-	 * Returns the meta object for class
-	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
 	 * <em>Xtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Xtext Direct Edit Value
-	 *         Description</em>'.
+	 * @return the meta object for class '
+	 *         <em>Xtext Direct Edit Value Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
 	 * @generated
 	 */
@@ -552,8 +544,8 @@ public interface DiagramxtextPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.AXtextDirectEditLabelImpl
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.AXtextDirectEditLabelImpl
 		 * <em>AXtext Direct Edit Label</em>}' class. <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -564,8 +556,8 @@ public interface DiagramxtextPackage extends EPackage {
 		EClass AXTEXT_DIRECT_EDIT_LABEL = eINSTANCE.getAXtextDirectEditLabel();
 
 		/**
-		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl
 		 * <em>Xtext Direct Edit Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -576,8 +568,8 @@ public interface DiagramxtextPackage extends EPackage {
 		EClass XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION = eINSTANCE.getXtextDirectEditModelDescription();
 
 		/**
-		 * The meta object literal for the
-		 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl
 		 * <em>Xtext Direct Edit Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 

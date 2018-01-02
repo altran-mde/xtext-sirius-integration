@@ -22,41 +22,45 @@ public interface EefxtextFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Eef Xtext Single Line Model
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Eef Xtext Single Line Model Description</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Eef Xtext Single Line Model
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Eef Xtext Single Line Model Description</em>'.
 	 * @generated
 	 */
 	EefXtextSingleLineModelDescription createEefXtextSingleLineModelDescription();
 
 	/**
-	 * Returns a new object of class '<em>Eef Xtext Multi Line Model
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Eef Xtext Multi Line Model Description</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Eef Xtext Multi Line Model
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Eef Xtext Multi Line Model Description</em>'.
 	 * @generated
 	 */
 	EefXtextMultiLineModelDescription createEefXtextMultiLineModelDescription();
 
 	/**
-	 * Returns a new object of class '<em>Eef Xtext Single Line Value
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Eef Xtext Single Line Value Description</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Eef Xtext Single Line Value
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Eef Xtext Single Line Value Description</em>'.
 	 * @generated
 	 */
 	EefXtextSingleLineValueDescription createEefXtextSingleLineValueDescription();
 
 	/**
-	 * Returns a new object of class '<em>Eef Xtext Multi Line Value
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Eef Xtext Multi Line Value Description</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Eef Xtext Multi Line Value
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Eef Xtext Multi Line Value Description</em>'.
 	 * @generated
 	 */
 	EefXtextMultiLineValueDescription createEefXtextMultiLineValueDescription();

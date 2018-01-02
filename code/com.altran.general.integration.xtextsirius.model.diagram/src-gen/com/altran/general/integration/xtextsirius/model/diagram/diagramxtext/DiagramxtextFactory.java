@@ -22,21 +22,23 @@ public interface DiagramxtextFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Xtext Direct Edit Model
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Xtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Xtext Direct Edit Model
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Xtext Direct Edit Model Description</em>'.
 	 * @generated
 	 */
 	XtextDirectEditModelDescription createXtextDirectEditModelDescription();
 
 	/**
-	 * Returns a new object of class '<em>Xtext Direct Edit Value
-	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '
+	 * <em>Xtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Xtext Direct Edit Value
-	 *         Description</em>'.
+	 * @return a new object of class '
+	 *         <em>Xtext Direct Edit Value Description</em>'.
 	 * @generated
 	 */
 	XtextDirectEditValueDescription createXtextDirectEditValueDescription();

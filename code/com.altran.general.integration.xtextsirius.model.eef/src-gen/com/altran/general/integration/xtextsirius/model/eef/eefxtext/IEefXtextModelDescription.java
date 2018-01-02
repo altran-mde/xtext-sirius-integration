@@ -5,14 +5,15 @@ package com.altran.general.integration.xtextsirius.model.eef.eefxtext;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>IEef
- * Xtext Model Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>IEef Xtext Model Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures
  * <em>Editable Features</em>}</li>
  * </ul>
  *

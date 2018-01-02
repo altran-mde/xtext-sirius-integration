@@ -13,13 +13,15 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPac
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Eef
- * Xtext Single Line Model Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Eef Xtext Single Line Model Description</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl#getEditableFeatures
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
  * </ul>
  *
@@ -28,9 +30,9 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextMo
 public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescriptionImpl
 		implements EefXtextSingleLineModelDescription {
 	/**
-	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
-	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The cached value of the '{@link #getEditableFeatures()
+	 * <em>Editable Features</em>}' attribute list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getEditableFeatures()
 	 * @generated
@@ -65,7 +67,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	@Override
 	public EList<String> getEditableFeatures() {
 		if (this.editableFeatures == null) {
-			this.editableFeatures = new EDataTypeEList<>(String.class, this,
+			this.editableFeatures = new EDataTypeEList<String>(String.class, this,
 					EefxtextPackage.EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		}
 		return this.editableFeatures;

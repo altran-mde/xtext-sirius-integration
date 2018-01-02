@@ -20,6 +20,7 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.RangeGuard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Thing;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard;
 import org.eclipse.xtext.serializer.ISerializationContext;
@@ -64,6 +65,9 @@ public class StatemachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 				return; 
 			case StatemachinePackage.STATEMACHINE:
 				sequence_Statemachine(context, (Statemachine) semanticObject); 
+				return; 
+			case StatemachinePackage.THING:
+				sequence_Thing(context, (Thing) semanticObject); 
 				return; 
 			case StatemachinePackage.TRANSITION:
 				sequence_Transition(context, (Transition) semanticObject); 
@@ -186,7 +190,7 @@ public class StatemachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     State returns State
 	 *
 	 * Constraint:
-	 *     (name=ID description=STRING? actions+=[Command|ID]* transitions+=Transition*)
+	 *     (name=ID description=STRING? actions+=[Command|ID]* transitions+=Transition* things+=Thing*)
 	 */
 	protected void sequence_State(ISerializationContext context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -202,6 +206,27 @@ public class StatemachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 */
 	protected void sequence_Statemachine(ISerializationContext context, Statemachine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Thing returns Thing
+	 *
+	 * Constraint:
+	 *     (name=ID guard=Guard)
+	 */
+	protected void sequence_Thing(ISerializationContext context, Thing semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.THING__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.THING__NAME));
+			if (transientValues.isValueTransient(semanticObject, StatemachinePackage.Literals.THING__GUARD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, StatemachinePackage.Literals.THING__GUARD));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getThingAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getThingAccess().getGuardGuardParserRuleCall_1_0(), semanticObject.getGuard());
+		feeder.finish();
 	}
 	
 	

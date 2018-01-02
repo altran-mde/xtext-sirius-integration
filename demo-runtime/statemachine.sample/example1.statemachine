@@ -29,6 +29,10 @@ state State1456
 	description "\r\n<p>First paragraa456sdfph</p>\r\n<ul>\r\n\t<li>some <b>important</b> text</b></li>\r\n</ul>\r\n\t"
 	event1456 => State2asdf
 	event1456 => State3
+	things
+		a cologne
+		b e..pi
+		c 1..e
 end
 
 state State2asdf description ""

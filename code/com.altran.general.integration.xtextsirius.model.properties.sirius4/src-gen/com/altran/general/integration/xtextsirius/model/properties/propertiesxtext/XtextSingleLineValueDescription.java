@@ -7,8 +7,8 @@ import org.eclipse.sirius.properties.TextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Xtext
- * Single Line Value Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Xtext Single Line Value Description</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage#getXtextSingleLineValueDescription()
@@ -19,9 +19,8 @@ public interface XtextSingleLineValueDescription extends TextDescription, IXtext
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return
-	 *        false;'"
+	 * @model kind="operation" unique="false" annotation=
+	 *        "http://www.eclipse.org/emf/2002/GenModel body='return false;'"
 	 * @generated
 	 */
 	@Override

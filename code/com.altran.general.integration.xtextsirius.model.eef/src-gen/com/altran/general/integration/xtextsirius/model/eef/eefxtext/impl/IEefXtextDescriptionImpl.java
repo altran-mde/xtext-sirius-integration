@@ -11,15 +11,17 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPac
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>IEef
- * Xtext Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>IEef Xtext Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#getInjectorId
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isMultiLine
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isMultiLine
  * <em>Multi Line</em>}</li>
  * </ul>
  *

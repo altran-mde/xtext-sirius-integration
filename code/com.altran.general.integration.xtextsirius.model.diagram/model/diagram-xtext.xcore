@@ -50,12 +50,12 @@ abstract class AXtextDirectEditLabel extends DirectEditLabel {
         for (setting : settings) {
             val eReferencer = setting.getEObject()
             val eFeature = setting.getEStructuralFeature()
-            if (eReferencer instanceof DiagramElementMapping && eFeature == DescriptionPackage.eINSTANCE.getDiagramElementMapping_LabelDirectEdit()) {
-                diagramElementMappings.add(eReferencer as DiagramElementMapping);
+            if (eReferencer instanceof org.eclipse.sirius.diagram.description.DiagramElementMapping && eFeature == DescriptionPackage.eINSTANCE.getDiagramElementMapping_LabelDirectEdit()) {
+                diagramElementMappings.add(eReferencer as org.eclipse.sirius.diagram.description.DiagramElementMapping);
             }
         }
         
-        return new BasicEList<DiagramElementMapping>(diagramElementMappings);
+        return new BasicEList<org.eclipse.sirius.diagram.description.DiagramElementMapping>(diagramElementMappings);
 	}
 	
 }

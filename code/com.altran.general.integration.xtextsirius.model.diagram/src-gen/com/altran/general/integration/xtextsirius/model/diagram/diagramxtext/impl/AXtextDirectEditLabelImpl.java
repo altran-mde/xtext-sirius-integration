@@ -23,8 +23,8 @@ import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.Dia
 import com.google.common.base.Objects;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>AXtext
- * Direct Edit Label</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>AXtext Direct Edit Label</b></em>'. <!-- end-user-doc -->
  *
  * @generated
  */
@@ -76,7 +76,7 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 				}
 			}
 		}
-		return new BasicEList<>(diagramElementMappings);
+		return new BasicEList<DiagramElementMapping>(diagramElementMappings);
 	}
 
 } // AXtextDirectEditLabelImpl

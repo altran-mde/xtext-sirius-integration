@@ -23,8 +23,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.xtext.example.fowlerdsl.InlineEdit.InlineStatemachine");
 		private final RuleCall cStatemachineParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//// We have to repeat the root element, because Xtext uses the first rule as entry rule.
-		////@Override 
+		//// We have to have a root element, because Xtext uses the first rule as entry rule.
 		//InlineStatemachine Statemachine:
 		//	Statemachine
 		@Override public ParserRule getRule() { return rule; }
@@ -146,8 +145,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//// We have to repeat the root element, because Xtext uses the first rule as entry rule.
-	////@Override 
+	//// We have to have a root element, because Xtext uses the first rule as entry rule.
 	//InlineStatemachine Statemachine:
 	//	Statemachine
 	public InlineStatemachineElements getInlineStatemachineAccess() {
@@ -272,13 +270,23 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 
 	//State:
 	//	'state' name=ID ('description' description=STRING)? ('actions' '{' actions+=[Command]+ '}')?
-	//	transitions+=super::Transition* 'end';
+	//	transitions+=super::Transition* ('things' things+=Thing*)? 'end';
 	public StatemachineGrammarAccess.StateElements getStateAccess() {
 		return gaStatemachine.getStateAccess();
 	}
 	
 	public ParserRule getStateRule() {
 		return getStateAccess().getRule();
+	}
+
+	//Thing:
+	//	name=ID guard=Guard;
+	public StatemachineGrammarAccess.ThingElements getThingAccess() {
+		return gaStatemachine.getThingAccess();
+	}
+	
+	public ParserRule getThingRule() {
+		return getThingAccess().getRule();
 	}
 
 	//terminal ID:

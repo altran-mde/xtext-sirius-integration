@@ -217,15 +217,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate
-	 * the switch. <!-- end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Description</em>'. <!-- begin-user-doc --> This implementation
+	 * returns null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -234,15 +234,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -251,15 +251,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -268,15 +268,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Property Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Property Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Property Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Property Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -285,15 +285,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Direct Edit Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Direct Edit Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -302,15 +302,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Direct Edit Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Direct Edit Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -319,15 +319,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Direct Edit Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Direct Edit Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -336,15 +336,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Property Model Description</em>'. <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will
-	 * terminate the switch. <!-- end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Property Model Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Property Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Property Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -353,15 +353,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>IXtext Property Value Description</em>'. <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will
-	 * terminate the switch. <!-- end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>IXtext Property Value Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>IXtext Property Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>IXtext Property Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -370,15 +370,15 @@ public class XtextsiriusSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of
-	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
 	 * null; returning a non-null result will terminate the switch, but this is
 	 * the last case anyway. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of
-	 *         '<em>EObject</em>'.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

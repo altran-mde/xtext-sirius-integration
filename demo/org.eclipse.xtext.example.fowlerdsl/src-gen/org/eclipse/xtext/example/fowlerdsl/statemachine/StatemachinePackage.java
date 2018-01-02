@@ -455,13 +455,22 @@ public interface StatemachinePackage extends EPackage
   int STATE__TRANSITIONS = 3;
 
   /**
+   * The feature id for the '<em><b>Things</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__THINGS = 4;
+
+  /**
    * The number of structural features of the '<em>State</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_FEATURE_COUNT = 4;
+  int STATE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.TransitionImpl <em>Transition</em>}' class.
@@ -508,6 +517,43 @@ public interface StatemachinePackage extends EPackage
    * @ordered
    */
   int TRANSITION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ThingImpl <em>Thing</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ThingImpl
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StatemachinePackageImpl#getThing()
+   * @generated
+   */
+  int THING = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THING__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Guard</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THING__GUARD = 1;
+
+  /**
+   * The number of structural features of the '<em>Thing</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THING_FEATURE_COUNT = 2;
 
 
   /**
@@ -863,6 +909,17 @@ public interface StatemachinePackage extends EPackage
   EReference getState_Transitions();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.State#getThings <em>Things</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Things</em>'.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.State#getThings()
+   * @see #getState()
+   * @generated
+   */
+  EReference getState_Things();
+
+  /**
    * Returns the meta object for class '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Transition <em>Transition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -904,6 +961,38 @@ public interface StatemachinePackage extends EPackage
    * @generated
    */
   EReference getTransition_State();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Thing <em>Thing</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Thing</em>'.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.Thing
+   * @generated
+   */
+  EClass getThing();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Thing#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.Thing#getName()
+   * @see #getThing()
+   * @generated
+   */
+  EAttribute getThing_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Thing#getGuard <em>Guard</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Guard</em>'.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.Thing#getGuard()
+   * @see #getThing()
+   * @generated
+   */
+  EReference getThing_Guard();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1215,6 +1304,14 @@ public interface StatemachinePackage extends EPackage
     EReference STATE__TRANSITIONS = eINSTANCE.getState_Transitions();
 
     /**
+     * The meta object literal for the '<em><b>Things</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE__THINGS = eINSTANCE.getState_Things();
+
+    /**
      * The meta object literal for the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.TransitionImpl <em>Transition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1247,6 +1344,32 @@ public interface StatemachinePackage extends EPackage
      * @generated
      */
     EReference TRANSITION__STATE = eINSTANCE.getTransition_State();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ThingImpl <em>Thing</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ThingImpl
+     * @see org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StatemachinePackageImpl#getThing()
+     * @generated
+     */
+    EClass THING = eINSTANCE.getThing();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute THING__NAME = eINSTANCE.getThing_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Guard</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THING__GUARD = eINSTANCE.getThing_Guard();
 
   }
 

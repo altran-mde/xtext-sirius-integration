@@ -29,7 +29,7 @@ import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 
 public abstract class AXtextTest {
-
+	
 	private final Map<Injector, XtextResourceSet> xtextResourceSets = Maps.newLinkedHashMap();
 
 	@Before
@@ -53,7 +53,6 @@ public abstract class AXtextTest {
 		for (final EReference ref : base.eClass().getEAllReferences()) {
 			final Object target = base.eGet(ref, false);
 			if (target instanceof EObject) {
-				@SuppressWarnings("null")
 				final T result = findFirstTargetOfType((EObject) target, type);
 				if (result != null) {
 					return result;

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalInlineEditParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'=>'", "'['", "']'", "'events'", "'end'", "'resetEvents'", "'commands'", "'constants'", "'..'", "'state'", "'description'", "'actions'", "'{'", "'}'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'=>'", "'['", "']'", "'events'", "'end'", "'resetEvents'", "'commands'", "'constants'", "'..'", "'state'", "'description'", "'actions'", "'{'", "'}'", "'things'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -44,6 +44,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
     public static final int T__24=24;
+    public static final int T__25=25;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -1079,25 +1080,102 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
     // $ANTLR end "ruleState"
 
 
+    // $ANTLR start "entryRuleThing"
+    // InternalInlineEdit.g:424:1: entryRuleThing : ruleThing EOF ;
+    public final void entryRuleThing() throws RecognitionException {
+        try {
+            // InternalInlineEdit.g:425:1: ( ruleThing EOF )
+            // InternalInlineEdit.g:426:1: ruleThing EOF
+            {
+             before(grammarAccess.getThingRule()); 
+            pushFollow(FOLLOW_1);
+            ruleThing();
+
+            state._fsp--;
+
+             after(grammarAccess.getThingRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleThing"
+
+
+    // $ANTLR start "ruleThing"
+    // InternalInlineEdit.g:433:1: ruleThing : ( ( rule__Thing__Group__0 ) ) ;
+    public final void ruleThing() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:437:2: ( ( ( rule__Thing__Group__0 ) ) )
+            // InternalInlineEdit.g:438:1: ( ( rule__Thing__Group__0 ) )
+            {
+            // InternalInlineEdit.g:438:1: ( ( rule__Thing__Group__0 ) )
+            // InternalInlineEdit.g:439:1: ( rule__Thing__Group__0 )
+            {
+             before(grammarAccess.getThingAccess().getGroup()); 
+            // InternalInlineEdit.g:440:1: ( rule__Thing__Group__0 )
+            // InternalInlineEdit.g:440:2: rule__Thing__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Thing__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getThingAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleThing"
+
+
     // $ANTLR start "rule__Guard__Alternatives"
-    // InternalInlineEdit.g:424:1: rule__Guard__Alternatives : ( ( ruleValueGuard ) | ( ruleRangeGuard ) );
+    // InternalInlineEdit.g:452:1: rule__Guard__Alternatives : ( ( ruleValueGuard ) | ( ruleRangeGuard ) );
     public final void rule__Guard__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:428:1: ( ( ruleValueGuard ) | ( ruleRangeGuard ) )
+            // InternalInlineEdit.g:456:1: ( ( ruleValueGuard ) | ( ruleRangeGuard ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
             if ( (LA1_0==RULE_ID) ) {
                 int LA1_1 = input.LA(2);
 
-                if ( (LA1_1==19) ) {
-                    alt1=2;
-                }
-                else if ( (LA1_1==EOF||LA1_1==13) ) {
+                if ( (LA1_1==EOF||LA1_1==RULE_ID||LA1_1==13||LA1_1==15) ) {
                     alt1=1;
+                }
+                else if ( (LA1_1==19) ) {
+                    alt1=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1109,11 +1187,11 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             else if ( (LA1_0==RULE_INT) ) {
                 int LA1_2 = input.LA(2);
 
-                if ( (LA1_2==EOF||LA1_2==13) ) {
-                    alt1=1;
-                }
-                else if ( (LA1_2==19) ) {
+                if ( (LA1_2==19) ) {
                     alt1=2;
+                }
+                else if ( (LA1_2==EOF||LA1_2==RULE_ID||LA1_2==13||LA1_2==15) ) {
+                    alt1=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1130,10 +1208,10 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt1) {
                 case 1 :
-                    // InternalInlineEdit.g:429:1: ( ruleValueGuard )
+                    // InternalInlineEdit.g:457:1: ( ruleValueGuard )
                     {
-                    // InternalInlineEdit.g:429:1: ( ruleValueGuard )
-                    // InternalInlineEdit.g:430:1: ruleValueGuard
+                    // InternalInlineEdit.g:457:1: ( ruleValueGuard )
+                    // InternalInlineEdit.g:458:1: ruleValueGuard
                     {
                      before(grammarAccess.getGuardAccess().getValueGuardParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1149,10 +1227,10 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalInlineEdit.g:435:6: ( ruleRangeGuard )
+                    // InternalInlineEdit.g:463:6: ( ruleRangeGuard )
                     {
-                    // InternalInlineEdit.g:435:6: ( ruleRangeGuard )
-                    // InternalInlineEdit.g:436:1: ruleRangeGuard
+                    // InternalInlineEdit.g:463:6: ( ruleRangeGuard )
+                    // InternalInlineEdit.g:464:1: ruleRangeGuard
                     {
                      before(grammarAccess.getGuardAccess().getRangeGuardParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1185,13 +1263,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Value__Alternatives"
-    // InternalInlineEdit.g:446:1: rule__Value__Alternatives : ( ( ruleConstantRef ) | ( ruleIntLiteral ) );
+    // InternalInlineEdit.g:474:1: rule__Value__Alternatives : ( ( ruleConstantRef ) | ( ruleIntLiteral ) );
     public final void rule__Value__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:450:1: ( ( ruleConstantRef ) | ( ruleIntLiteral ) )
+            // InternalInlineEdit.g:478:1: ( ( ruleConstantRef ) | ( ruleIntLiteral ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1209,10 +1287,10 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt2) {
                 case 1 :
-                    // InternalInlineEdit.g:451:1: ( ruleConstantRef )
+                    // InternalInlineEdit.g:479:1: ( ruleConstantRef )
                     {
-                    // InternalInlineEdit.g:451:1: ( ruleConstantRef )
-                    // InternalInlineEdit.g:452:1: ruleConstantRef
+                    // InternalInlineEdit.g:479:1: ( ruleConstantRef )
+                    // InternalInlineEdit.g:480:1: ruleConstantRef
                     {
                      before(grammarAccess.getValueAccess().getConstantRefParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1228,10 +1306,10 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalInlineEdit.g:457:6: ( ruleIntLiteral )
+                    // InternalInlineEdit.g:485:6: ( ruleIntLiteral )
                     {
-                    // InternalInlineEdit.g:457:6: ( ruleIntLiteral )
-                    // InternalInlineEdit.g:458:1: ruleIntLiteral
+                    // InternalInlineEdit.g:485:6: ( ruleIntLiteral )
+                    // InternalInlineEdit.g:486:1: ruleIntLiteral
                     {
                      before(grammarAccess.getValueAccess().getIntLiteralParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1264,14 +1342,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group__0"
-    // InternalInlineEdit.g:470:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
+    // InternalInlineEdit.g:498:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
     public final void rule__Transition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:474:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
-            // InternalInlineEdit.g:475:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
+            // InternalInlineEdit.g:502:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
+            // InternalInlineEdit.g:503:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Transition__Group__0__Impl();
@@ -1302,20 +1380,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group__0__Impl"
-    // InternalInlineEdit.g:482:1: rule__Transition__Group__0__Impl : ( ( rule__Transition__Group_0__0 )? ) ;
+    // InternalInlineEdit.g:510:1: rule__Transition__Group__0__Impl : ( ( rule__Transition__Group_0__0 )? ) ;
     public final void rule__Transition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:486:1: ( ( ( rule__Transition__Group_0__0 )? ) )
-            // InternalInlineEdit.g:487:1: ( ( rule__Transition__Group_0__0 )? )
+            // InternalInlineEdit.g:514:1: ( ( ( rule__Transition__Group_0__0 )? ) )
+            // InternalInlineEdit.g:515:1: ( ( rule__Transition__Group_0__0 )? )
             {
-            // InternalInlineEdit.g:487:1: ( ( rule__Transition__Group_0__0 )? )
-            // InternalInlineEdit.g:488:1: ( rule__Transition__Group_0__0 )?
+            // InternalInlineEdit.g:515:1: ( ( rule__Transition__Group_0__0 )? )
+            // InternalInlineEdit.g:516:1: ( rule__Transition__Group_0__0 )?
             {
              before(grammarAccess.getTransitionAccess().getGroup_0()); 
-            // InternalInlineEdit.g:489:1: ( rule__Transition__Group_0__0 )?
+            // InternalInlineEdit.g:517:1: ( rule__Transition__Group_0__0 )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1324,7 +1402,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt3) {
                 case 1 :
-                    // InternalInlineEdit.g:489:2: rule__Transition__Group_0__0
+                    // InternalInlineEdit.g:517:2: rule__Transition__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Transition__Group_0__0();
@@ -1360,14 +1438,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group__1"
-    // InternalInlineEdit.g:499:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
+    // InternalInlineEdit.g:527:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
     public final void rule__Transition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:503:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
-            // InternalInlineEdit.g:504:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
+            // InternalInlineEdit.g:531:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
+            // InternalInlineEdit.g:532:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Transition__Group__1__Impl();
@@ -1398,21 +1476,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group__1__Impl"
-    // InternalInlineEdit.g:511:1: rule__Transition__Group__1__Impl : ( ( rule__Transition__EventAssignment_1 ) ) ;
+    // InternalInlineEdit.g:539:1: rule__Transition__Group__1__Impl : ( ( rule__Transition__EventAssignment_1 ) ) ;
     public final void rule__Transition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:515:1: ( ( ( rule__Transition__EventAssignment_1 ) ) )
-            // InternalInlineEdit.g:516:1: ( ( rule__Transition__EventAssignment_1 ) )
+            // InternalInlineEdit.g:543:1: ( ( ( rule__Transition__EventAssignment_1 ) ) )
+            // InternalInlineEdit.g:544:1: ( ( rule__Transition__EventAssignment_1 ) )
             {
-            // InternalInlineEdit.g:516:1: ( ( rule__Transition__EventAssignment_1 ) )
-            // InternalInlineEdit.g:517:1: ( rule__Transition__EventAssignment_1 )
+            // InternalInlineEdit.g:544:1: ( ( rule__Transition__EventAssignment_1 ) )
+            // InternalInlineEdit.g:545:1: ( rule__Transition__EventAssignment_1 )
             {
              before(grammarAccess.getTransitionAccess().getEventAssignment_1()); 
-            // InternalInlineEdit.g:518:1: ( rule__Transition__EventAssignment_1 )
-            // InternalInlineEdit.g:518:2: rule__Transition__EventAssignment_1
+            // InternalInlineEdit.g:546:1: ( rule__Transition__EventAssignment_1 )
+            // InternalInlineEdit.g:546:2: rule__Transition__EventAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Transition__EventAssignment_1();
@@ -1445,14 +1523,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group__2"
-    // InternalInlineEdit.g:528:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl rule__Transition__Group__3 ;
+    // InternalInlineEdit.g:556:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl rule__Transition__Group__3 ;
     public final void rule__Transition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:532:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
-            // InternalInlineEdit.g:533:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
+            // InternalInlineEdit.g:560:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
+            // InternalInlineEdit.g:561:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
             {
             pushFollow(FOLLOW_3);
             rule__Transition__Group__2__Impl();
@@ -1483,17 +1561,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group__2__Impl"
-    // InternalInlineEdit.g:540:1: rule__Transition__Group__2__Impl : ( '=>' ) ;
+    // InternalInlineEdit.g:568:1: rule__Transition__Group__2__Impl : ( '=>' ) ;
     public final void rule__Transition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:544:1: ( ( '=>' ) )
-            // InternalInlineEdit.g:545:1: ( '=>' )
+            // InternalInlineEdit.g:572:1: ( ( '=>' ) )
+            // InternalInlineEdit.g:573:1: ( '=>' )
             {
-            // InternalInlineEdit.g:545:1: ( '=>' )
-            // InternalInlineEdit.g:546:1: '=>'
+            // InternalInlineEdit.g:573:1: ( '=>' )
+            // InternalInlineEdit.g:574:1: '=>'
             {
              before(grammarAccess.getTransitionAccess().getEqualsSignGreaterThanSignKeyword_2()); 
             match(input,11,FOLLOW_2); 
@@ -1520,14 +1598,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group__3"
-    // InternalInlineEdit.g:559:1: rule__Transition__Group__3 : rule__Transition__Group__3__Impl ;
+    // InternalInlineEdit.g:587:1: rule__Transition__Group__3 : rule__Transition__Group__3__Impl ;
     public final void rule__Transition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:563:1: ( rule__Transition__Group__3__Impl )
-            // InternalInlineEdit.g:564:2: rule__Transition__Group__3__Impl
+            // InternalInlineEdit.g:591:1: ( rule__Transition__Group__3__Impl )
+            // InternalInlineEdit.g:592:2: rule__Transition__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Transition__Group__3__Impl();
@@ -1553,21 +1631,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group__3__Impl"
-    // InternalInlineEdit.g:570:1: rule__Transition__Group__3__Impl : ( ( rule__Transition__StateAssignment_3 ) ) ;
+    // InternalInlineEdit.g:598:1: rule__Transition__Group__3__Impl : ( ( rule__Transition__StateAssignment_3 ) ) ;
     public final void rule__Transition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:574:1: ( ( ( rule__Transition__StateAssignment_3 ) ) )
-            // InternalInlineEdit.g:575:1: ( ( rule__Transition__StateAssignment_3 ) )
+            // InternalInlineEdit.g:602:1: ( ( ( rule__Transition__StateAssignment_3 ) ) )
+            // InternalInlineEdit.g:603:1: ( ( rule__Transition__StateAssignment_3 ) )
             {
-            // InternalInlineEdit.g:575:1: ( ( rule__Transition__StateAssignment_3 ) )
-            // InternalInlineEdit.g:576:1: ( rule__Transition__StateAssignment_3 )
+            // InternalInlineEdit.g:603:1: ( ( rule__Transition__StateAssignment_3 ) )
+            // InternalInlineEdit.g:604:1: ( rule__Transition__StateAssignment_3 )
             {
              before(grammarAccess.getTransitionAccess().getStateAssignment_3()); 
-            // InternalInlineEdit.g:577:1: ( rule__Transition__StateAssignment_3 )
-            // InternalInlineEdit.g:577:2: rule__Transition__StateAssignment_3
+            // InternalInlineEdit.g:605:1: ( rule__Transition__StateAssignment_3 )
+            // InternalInlineEdit.g:605:2: rule__Transition__StateAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Transition__StateAssignment_3();
@@ -1600,14 +1678,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group_0__0"
-    // InternalInlineEdit.g:595:1: rule__Transition__Group_0__0 : rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1 ;
+    // InternalInlineEdit.g:623:1: rule__Transition__Group_0__0 : rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1 ;
     public final void rule__Transition__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:599:1: ( rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1 )
-            // InternalInlineEdit.g:600:2: rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1
+            // InternalInlineEdit.g:627:1: ( rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1 )
+            // InternalInlineEdit.g:628:2: rule__Transition__Group_0__0__Impl rule__Transition__Group_0__1
             {
             pushFollow(FOLLOW_5);
             rule__Transition__Group_0__0__Impl();
@@ -1638,17 +1716,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group_0__0__Impl"
-    // InternalInlineEdit.g:607:1: rule__Transition__Group_0__0__Impl : ( '[' ) ;
+    // InternalInlineEdit.g:635:1: rule__Transition__Group_0__0__Impl : ( '[' ) ;
     public final void rule__Transition__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:611:1: ( ( '[' ) )
-            // InternalInlineEdit.g:612:1: ( '[' )
+            // InternalInlineEdit.g:639:1: ( ( '[' ) )
+            // InternalInlineEdit.g:640:1: ( '[' )
             {
-            // InternalInlineEdit.g:612:1: ( '[' )
-            // InternalInlineEdit.g:613:1: '['
+            // InternalInlineEdit.g:640:1: ( '[' )
+            // InternalInlineEdit.g:641:1: '['
             {
              before(grammarAccess.getTransitionAccess().getLeftSquareBracketKeyword_0_0()); 
             match(input,12,FOLLOW_2); 
@@ -1675,14 +1753,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group_0__1"
-    // InternalInlineEdit.g:626:1: rule__Transition__Group_0__1 : rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2 ;
+    // InternalInlineEdit.g:654:1: rule__Transition__Group_0__1 : rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2 ;
     public final void rule__Transition__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:630:1: ( rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2 )
-            // InternalInlineEdit.g:631:2: rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2
+            // InternalInlineEdit.g:658:1: ( rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2 )
+            // InternalInlineEdit.g:659:2: rule__Transition__Group_0__1__Impl rule__Transition__Group_0__2
             {
             pushFollow(FOLLOW_6);
             rule__Transition__Group_0__1__Impl();
@@ -1713,21 +1791,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group_0__1__Impl"
-    // InternalInlineEdit.g:638:1: rule__Transition__Group_0__1__Impl : ( ( rule__Transition__GuardAssignment_0_1 ) ) ;
+    // InternalInlineEdit.g:666:1: rule__Transition__Group_0__1__Impl : ( ( rule__Transition__GuardAssignment_0_1 ) ) ;
     public final void rule__Transition__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:642:1: ( ( ( rule__Transition__GuardAssignment_0_1 ) ) )
-            // InternalInlineEdit.g:643:1: ( ( rule__Transition__GuardAssignment_0_1 ) )
+            // InternalInlineEdit.g:670:1: ( ( ( rule__Transition__GuardAssignment_0_1 ) ) )
+            // InternalInlineEdit.g:671:1: ( ( rule__Transition__GuardAssignment_0_1 ) )
             {
-            // InternalInlineEdit.g:643:1: ( ( rule__Transition__GuardAssignment_0_1 ) )
-            // InternalInlineEdit.g:644:1: ( rule__Transition__GuardAssignment_0_1 )
+            // InternalInlineEdit.g:671:1: ( ( rule__Transition__GuardAssignment_0_1 ) )
+            // InternalInlineEdit.g:672:1: ( rule__Transition__GuardAssignment_0_1 )
             {
              before(grammarAccess.getTransitionAccess().getGuardAssignment_0_1()); 
-            // InternalInlineEdit.g:645:1: ( rule__Transition__GuardAssignment_0_1 )
-            // InternalInlineEdit.g:645:2: rule__Transition__GuardAssignment_0_1
+            // InternalInlineEdit.g:673:1: ( rule__Transition__GuardAssignment_0_1 )
+            // InternalInlineEdit.g:673:2: rule__Transition__GuardAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__Transition__GuardAssignment_0_1();
@@ -1760,14 +1838,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group_0__2"
-    // InternalInlineEdit.g:655:1: rule__Transition__Group_0__2 : rule__Transition__Group_0__2__Impl ;
+    // InternalInlineEdit.g:683:1: rule__Transition__Group_0__2 : rule__Transition__Group_0__2__Impl ;
     public final void rule__Transition__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:659:1: ( rule__Transition__Group_0__2__Impl )
-            // InternalInlineEdit.g:660:2: rule__Transition__Group_0__2__Impl
+            // InternalInlineEdit.g:687:1: ( rule__Transition__Group_0__2__Impl )
+            // InternalInlineEdit.g:688:2: rule__Transition__Group_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Transition__Group_0__2__Impl();
@@ -1793,17 +1871,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__Group_0__2__Impl"
-    // InternalInlineEdit.g:666:1: rule__Transition__Group_0__2__Impl : ( ']' ) ;
+    // InternalInlineEdit.g:694:1: rule__Transition__Group_0__2__Impl : ( ']' ) ;
     public final void rule__Transition__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:670:1: ( ( ']' ) )
-            // InternalInlineEdit.g:671:1: ( ']' )
+            // InternalInlineEdit.g:698:1: ( ( ']' ) )
+            // InternalInlineEdit.g:699:1: ( ']' )
             {
-            // InternalInlineEdit.g:671:1: ( ']' )
-            // InternalInlineEdit.g:672:1: ']'
+            // InternalInlineEdit.g:699:1: ( ']' )
+            // InternalInlineEdit.g:700:1: ']'
             {
              before(grammarAccess.getTransitionAccess().getRightSquareBracketKeyword_0_2()); 
             match(input,13,FOLLOW_2); 
@@ -1830,14 +1908,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__0"
-    // InternalInlineEdit.g:691:1: rule__Statemachine__Group__0 : rule__Statemachine__Group__0__Impl rule__Statemachine__Group__1 ;
+    // InternalInlineEdit.g:719:1: rule__Statemachine__Group__0 : rule__Statemachine__Group__0__Impl rule__Statemachine__Group__1 ;
     public final void rule__Statemachine__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:695:1: ( rule__Statemachine__Group__0__Impl rule__Statemachine__Group__1 )
-            // InternalInlineEdit.g:696:2: rule__Statemachine__Group__0__Impl rule__Statemachine__Group__1
+            // InternalInlineEdit.g:723:1: ( rule__Statemachine__Group__0__Impl rule__Statemachine__Group__1 )
+            // InternalInlineEdit.g:724:2: rule__Statemachine__Group__0__Impl rule__Statemachine__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Statemachine__Group__0__Impl();
@@ -1868,21 +1946,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__0__Impl"
-    // InternalInlineEdit.g:703:1: rule__Statemachine__Group__0__Impl : ( () ) ;
+    // InternalInlineEdit.g:731:1: rule__Statemachine__Group__0__Impl : ( () ) ;
     public final void rule__Statemachine__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:707:1: ( ( () ) )
-            // InternalInlineEdit.g:708:1: ( () )
+            // InternalInlineEdit.g:735:1: ( ( () ) )
+            // InternalInlineEdit.g:736:1: ( () )
             {
-            // InternalInlineEdit.g:708:1: ( () )
-            // InternalInlineEdit.g:709:1: ()
+            // InternalInlineEdit.g:736:1: ( () )
+            // InternalInlineEdit.g:737:1: ()
             {
              before(grammarAccess.getStatemachineAccess().getStatemachineAction_0()); 
-            // InternalInlineEdit.g:710:1: ()
-            // InternalInlineEdit.g:712:1: 
+            // InternalInlineEdit.g:738:1: ()
+            // InternalInlineEdit.g:740:1: 
             {
             }
 
@@ -1905,14 +1983,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__1"
-    // InternalInlineEdit.g:722:1: rule__Statemachine__Group__1 : rule__Statemachine__Group__1__Impl rule__Statemachine__Group__2 ;
+    // InternalInlineEdit.g:750:1: rule__Statemachine__Group__1 : rule__Statemachine__Group__1__Impl rule__Statemachine__Group__2 ;
     public final void rule__Statemachine__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:726:1: ( rule__Statemachine__Group__1__Impl rule__Statemachine__Group__2 )
-            // InternalInlineEdit.g:727:2: rule__Statemachine__Group__1__Impl rule__Statemachine__Group__2
+            // InternalInlineEdit.g:754:1: ( rule__Statemachine__Group__1__Impl rule__Statemachine__Group__2 )
+            // InternalInlineEdit.g:755:2: rule__Statemachine__Group__1__Impl rule__Statemachine__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__Statemachine__Group__1__Impl();
@@ -1943,20 +2021,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__1__Impl"
-    // InternalInlineEdit.g:734:1: rule__Statemachine__Group__1__Impl : ( ( rule__Statemachine__Group_1__0 )? ) ;
+    // InternalInlineEdit.g:762:1: rule__Statemachine__Group__1__Impl : ( ( rule__Statemachine__Group_1__0 )? ) ;
     public final void rule__Statemachine__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:738:1: ( ( ( rule__Statemachine__Group_1__0 )? ) )
-            // InternalInlineEdit.g:739:1: ( ( rule__Statemachine__Group_1__0 )? )
+            // InternalInlineEdit.g:766:1: ( ( ( rule__Statemachine__Group_1__0 )? ) )
+            // InternalInlineEdit.g:767:1: ( ( rule__Statemachine__Group_1__0 )? )
             {
-            // InternalInlineEdit.g:739:1: ( ( rule__Statemachine__Group_1__0 )? )
-            // InternalInlineEdit.g:740:1: ( rule__Statemachine__Group_1__0 )?
+            // InternalInlineEdit.g:767:1: ( ( rule__Statemachine__Group_1__0 )? )
+            // InternalInlineEdit.g:768:1: ( rule__Statemachine__Group_1__0 )?
             {
              before(grammarAccess.getStatemachineAccess().getGroup_1()); 
-            // InternalInlineEdit.g:741:1: ( rule__Statemachine__Group_1__0 )?
+            // InternalInlineEdit.g:769:1: ( rule__Statemachine__Group_1__0 )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1965,7 +2043,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt4) {
                 case 1 :
-                    // InternalInlineEdit.g:741:2: rule__Statemachine__Group_1__0
+                    // InternalInlineEdit.g:769:2: rule__Statemachine__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Statemachine__Group_1__0();
@@ -2001,14 +2079,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__2"
-    // InternalInlineEdit.g:751:1: rule__Statemachine__Group__2 : rule__Statemachine__Group__2__Impl rule__Statemachine__Group__3 ;
+    // InternalInlineEdit.g:779:1: rule__Statemachine__Group__2 : rule__Statemachine__Group__2__Impl rule__Statemachine__Group__3 ;
     public final void rule__Statemachine__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:755:1: ( rule__Statemachine__Group__2__Impl rule__Statemachine__Group__3 )
-            // InternalInlineEdit.g:756:2: rule__Statemachine__Group__2__Impl rule__Statemachine__Group__3
+            // InternalInlineEdit.g:783:1: ( rule__Statemachine__Group__2__Impl rule__Statemachine__Group__3 )
+            // InternalInlineEdit.g:784:2: rule__Statemachine__Group__2__Impl rule__Statemachine__Group__3
             {
             pushFollow(FOLLOW_7);
             rule__Statemachine__Group__2__Impl();
@@ -2039,20 +2117,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__2__Impl"
-    // InternalInlineEdit.g:763:1: rule__Statemachine__Group__2__Impl : ( ( rule__Statemachine__Group_2__0 )? ) ;
+    // InternalInlineEdit.g:791:1: rule__Statemachine__Group__2__Impl : ( ( rule__Statemachine__Group_2__0 )? ) ;
     public final void rule__Statemachine__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:767:1: ( ( ( rule__Statemachine__Group_2__0 )? ) )
-            // InternalInlineEdit.g:768:1: ( ( rule__Statemachine__Group_2__0 )? )
+            // InternalInlineEdit.g:795:1: ( ( ( rule__Statemachine__Group_2__0 )? ) )
+            // InternalInlineEdit.g:796:1: ( ( rule__Statemachine__Group_2__0 )? )
             {
-            // InternalInlineEdit.g:768:1: ( ( rule__Statemachine__Group_2__0 )? )
-            // InternalInlineEdit.g:769:1: ( rule__Statemachine__Group_2__0 )?
+            // InternalInlineEdit.g:796:1: ( ( rule__Statemachine__Group_2__0 )? )
+            // InternalInlineEdit.g:797:1: ( rule__Statemachine__Group_2__0 )?
             {
              before(grammarAccess.getStatemachineAccess().getGroup_2()); 
-            // InternalInlineEdit.g:770:1: ( rule__Statemachine__Group_2__0 )?
+            // InternalInlineEdit.g:798:1: ( rule__Statemachine__Group_2__0 )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2061,7 +2139,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt5) {
                 case 1 :
-                    // InternalInlineEdit.g:770:2: rule__Statemachine__Group_2__0
+                    // InternalInlineEdit.g:798:2: rule__Statemachine__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Statemachine__Group_2__0();
@@ -2097,14 +2175,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__3"
-    // InternalInlineEdit.g:780:1: rule__Statemachine__Group__3 : rule__Statemachine__Group__3__Impl rule__Statemachine__Group__4 ;
+    // InternalInlineEdit.g:808:1: rule__Statemachine__Group__3 : rule__Statemachine__Group__3__Impl rule__Statemachine__Group__4 ;
     public final void rule__Statemachine__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:784:1: ( rule__Statemachine__Group__3__Impl rule__Statemachine__Group__4 )
-            // InternalInlineEdit.g:785:2: rule__Statemachine__Group__3__Impl rule__Statemachine__Group__4
+            // InternalInlineEdit.g:812:1: ( rule__Statemachine__Group__3__Impl rule__Statemachine__Group__4 )
+            // InternalInlineEdit.g:813:2: rule__Statemachine__Group__3__Impl rule__Statemachine__Group__4
             {
             pushFollow(FOLLOW_7);
             rule__Statemachine__Group__3__Impl();
@@ -2135,20 +2213,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__3__Impl"
-    // InternalInlineEdit.g:792:1: rule__Statemachine__Group__3__Impl : ( ( rule__Statemachine__Group_3__0 )? ) ;
+    // InternalInlineEdit.g:820:1: rule__Statemachine__Group__3__Impl : ( ( rule__Statemachine__Group_3__0 )? ) ;
     public final void rule__Statemachine__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:796:1: ( ( ( rule__Statemachine__Group_3__0 )? ) )
-            // InternalInlineEdit.g:797:1: ( ( rule__Statemachine__Group_3__0 )? )
+            // InternalInlineEdit.g:824:1: ( ( ( rule__Statemachine__Group_3__0 )? ) )
+            // InternalInlineEdit.g:825:1: ( ( rule__Statemachine__Group_3__0 )? )
             {
-            // InternalInlineEdit.g:797:1: ( ( rule__Statemachine__Group_3__0 )? )
-            // InternalInlineEdit.g:798:1: ( rule__Statemachine__Group_3__0 )?
+            // InternalInlineEdit.g:825:1: ( ( rule__Statemachine__Group_3__0 )? )
+            // InternalInlineEdit.g:826:1: ( rule__Statemachine__Group_3__0 )?
             {
              before(grammarAccess.getStatemachineAccess().getGroup_3()); 
-            // InternalInlineEdit.g:799:1: ( rule__Statemachine__Group_3__0 )?
+            // InternalInlineEdit.g:827:1: ( rule__Statemachine__Group_3__0 )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2157,7 +2235,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt6) {
                 case 1 :
-                    // InternalInlineEdit.g:799:2: rule__Statemachine__Group_3__0
+                    // InternalInlineEdit.g:827:2: rule__Statemachine__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Statemachine__Group_3__0();
@@ -2193,14 +2271,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__4"
-    // InternalInlineEdit.g:809:1: rule__Statemachine__Group__4 : rule__Statemachine__Group__4__Impl rule__Statemachine__Group__5 ;
+    // InternalInlineEdit.g:837:1: rule__Statemachine__Group__4 : rule__Statemachine__Group__4__Impl rule__Statemachine__Group__5 ;
     public final void rule__Statemachine__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:813:1: ( rule__Statemachine__Group__4__Impl rule__Statemachine__Group__5 )
-            // InternalInlineEdit.g:814:2: rule__Statemachine__Group__4__Impl rule__Statemachine__Group__5
+            // InternalInlineEdit.g:841:1: ( rule__Statemachine__Group__4__Impl rule__Statemachine__Group__5 )
+            // InternalInlineEdit.g:842:2: rule__Statemachine__Group__4__Impl rule__Statemachine__Group__5
             {
             pushFollow(FOLLOW_7);
             rule__Statemachine__Group__4__Impl();
@@ -2231,20 +2309,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__4__Impl"
-    // InternalInlineEdit.g:821:1: rule__Statemachine__Group__4__Impl : ( ( rule__Statemachine__Group_4__0 )? ) ;
+    // InternalInlineEdit.g:849:1: rule__Statemachine__Group__4__Impl : ( ( rule__Statemachine__Group_4__0 )? ) ;
     public final void rule__Statemachine__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:825:1: ( ( ( rule__Statemachine__Group_4__0 )? ) )
-            // InternalInlineEdit.g:826:1: ( ( rule__Statemachine__Group_4__0 )? )
+            // InternalInlineEdit.g:853:1: ( ( ( rule__Statemachine__Group_4__0 )? ) )
+            // InternalInlineEdit.g:854:1: ( ( rule__Statemachine__Group_4__0 )? )
             {
-            // InternalInlineEdit.g:826:1: ( ( rule__Statemachine__Group_4__0 )? )
-            // InternalInlineEdit.g:827:1: ( rule__Statemachine__Group_4__0 )?
+            // InternalInlineEdit.g:854:1: ( ( rule__Statemachine__Group_4__0 )? )
+            // InternalInlineEdit.g:855:1: ( rule__Statemachine__Group_4__0 )?
             {
              before(grammarAccess.getStatemachineAccess().getGroup_4()); 
-            // InternalInlineEdit.g:828:1: ( rule__Statemachine__Group_4__0 )?
+            // InternalInlineEdit.g:856:1: ( rule__Statemachine__Group_4__0 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2253,7 +2331,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt7) {
                 case 1 :
-                    // InternalInlineEdit.g:828:2: rule__Statemachine__Group_4__0
+                    // InternalInlineEdit.g:856:2: rule__Statemachine__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Statemachine__Group_4__0();
@@ -2289,14 +2367,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__5"
-    // InternalInlineEdit.g:838:1: rule__Statemachine__Group__5 : rule__Statemachine__Group__5__Impl ;
+    // InternalInlineEdit.g:866:1: rule__Statemachine__Group__5 : rule__Statemachine__Group__5__Impl ;
     public final void rule__Statemachine__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:842:1: ( rule__Statemachine__Group__5__Impl )
-            // InternalInlineEdit.g:843:2: rule__Statemachine__Group__5__Impl
+            // InternalInlineEdit.g:870:1: ( rule__Statemachine__Group__5__Impl )
+            // InternalInlineEdit.g:871:2: rule__Statemachine__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Statemachine__Group__5__Impl();
@@ -2322,20 +2400,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group__5__Impl"
-    // InternalInlineEdit.g:849:1: rule__Statemachine__Group__5__Impl : ( ( rule__Statemachine__StatesAssignment_5 )* ) ;
+    // InternalInlineEdit.g:877:1: rule__Statemachine__Group__5__Impl : ( ( rule__Statemachine__StatesAssignment_5 )* ) ;
     public final void rule__Statemachine__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:853:1: ( ( ( rule__Statemachine__StatesAssignment_5 )* ) )
-            // InternalInlineEdit.g:854:1: ( ( rule__Statemachine__StatesAssignment_5 )* )
+            // InternalInlineEdit.g:881:1: ( ( ( rule__Statemachine__StatesAssignment_5 )* ) )
+            // InternalInlineEdit.g:882:1: ( ( rule__Statemachine__StatesAssignment_5 )* )
             {
-            // InternalInlineEdit.g:854:1: ( ( rule__Statemachine__StatesAssignment_5 )* )
-            // InternalInlineEdit.g:855:1: ( rule__Statemachine__StatesAssignment_5 )*
+            // InternalInlineEdit.g:882:1: ( ( rule__Statemachine__StatesAssignment_5 )* )
+            // InternalInlineEdit.g:883:1: ( rule__Statemachine__StatesAssignment_5 )*
             {
              before(grammarAccess.getStatemachineAccess().getStatesAssignment_5()); 
-            // InternalInlineEdit.g:856:1: ( rule__Statemachine__StatesAssignment_5 )*
+            // InternalInlineEdit.g:884:1: ( rule__Statemachine__StatesAssignment_5 )*
             loop8:
             do {
                 int alt8=2;
@@ -2348,7 +2426,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalInlineEdit.g:856:2: rule__Statemachine__StatesAssignment_5
+            	    // InternalInlineEdit.g:884:2: rule__Statemachine__StatesAssignment_5
             	    {
             	    pushFollow(FOLLOW_8);
             	    rule__Statemachine__StatesAssignment_5();
@@ -2387,14 +2465,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_1__0"
-    // InternalInlineEdit.g:878:1: rule__Statemachine__Group_1__0 : rule__Statemachine__Group_1__0__Impl rule__Statemachine__Group_1__1 ;
+    // InternalInlineEdit.g:906:1: rule__Statemachine__Group_1__0 : rule__Statemachine__Group_1__0__Impl rule__Statemachine__Group_1__1 ;
     public final void rule__Statemachine__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:882:1: ( rule__Statemachine__Group_1__0__Impl rule__Statemachine__Group_1__1 )
-            // InternalInlineEdit.g:883:2: rule__Statemachine__Group_1__0__Impl rule__Statemachine__Group_1__1
+            // InternalInlineEdit.g:910:1: ( rule__Statemachine__Group_1__0__Impl rule__Statemachine__Group_1__1 )
+            // InternalInlineEdit.g:911:2: rule__Statemachine__Group_1__0__Impl rule__Statemachine__Group_1__1
             {
             pushFollow(FOLLOW_3);
             rule__Statemachine__Group_1__0__Impl();
@@ -2425,17 +2503,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_1__0__Impl"
-    // InternalInlineEdit.g:890:1: rule__Statemachine__Group_1__0__Impl : ( 'events' ) ;
+    // InternalInlineEdit.g:918:1: rule__Statemachine__Group_1__0__Impl : ( 'events' ) ;
     public final void rule__Statemachine__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:894:1: ( ( 'events' ) )
-            // InternalInlineEdit.g:895:1: ( 'events' )
+            // InternalInlineEdit.g:922:1: ( ( 'events' ) )
+            // InternalInlineEdit.g:923:1: ( 'events' )
             {
-            // InternalInlineEdit.g:895:1: ( 'events' )
-            // InternalInlineEdit.g:896:1: 'events'
+            // InternalInlineEdit.g:923:1: ( 'events' )
+            // InternalInlineEdit.g:924:1: 'events'
             {
              before(grammarAccess.getStatemachineAccess().getEventsKeyword_1_0()); 
             match(input,14,FOLLOW_2); 
@@ -2462,14 +2540,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_1__1"
-    // InternalInlineEdit.g:909:1: rule__Statemachine__Group_1__1 : rule__Statemachine__Group_1__1__Impl rule__Statemachine__Group_1__2 ;
+    // InternalInlineEdit.g:937:1: rule__Statemachine__Group_1__1 : rule__Statemachine__Group_1__1__Impl rule__Statemachine__Group_1__2 ;
     public final void rule__Statemachine__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:913:1: ( rule__Statemachine__Group_1__1__Impl rule__Statemachine__Group_1__2 )
-            // InternalInlineEdit.g:914:2: rule__Statemachine__Group_1__1__Impl rule__Statemachine__Group_1__2
+            // InternalInlineEdit.g:941:1: ( rule__Statemachine__Group_1__1__Impl rule__Statemachine__Group_1__2 )
+            // InternalInlineEdit.g:942:2: rule__Statemachine__Group_1__1__Impl rule__Statemachine__Group_1__2
             {
             pushFollow(FOLLOW_9);
             rule__Statemachine__Group_1__1__Impl();
@@ -2500,24 +2578,24 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_1__1__Impl"
-    // InternalInlineEdit.g:921:1: rule__Statemachine__Group_1__1__Impl : ( ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* ) ) ;
+    // InternalInlineEdit.g:949:1: rule__Statemachine__Group_1__1__Impl : ( ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* ) ) ;
     public final void rule__Statemachine__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:925:1: ( ( ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* ) ) )
-            // InternalInlineEdit.g:926:1: ( ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* ) )
+            // InternalInlineEdit.g:953:1: ( ( ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* ) ) )
+            // InternalInlineEdit.g:954:1: ( ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* ) )
             {
-            // InternalInlineEdit.g:926:1: ( ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* ) )
-            // InternalInlineEdit.g:927:1: ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* )
+            // InternalInlineEdit.g:954:1: ( ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* ) )
+            // InternalInlineEdit.g:955:1: ( ( rule__Statemachine__EventsAssignment_1_1 ) ) ( ( rule__Statemachine__EventsAssignment_1_1 )* )
             {
-            // InternalInlineEdit.g:927:1: ( ( rule__Statemachine__EventsAssignment_1_1 ) )
-            // InternalInlineEdit.g:928:1: ( rule__Statemachine__EventsAssignment_1_1 )
+            // InternalInlineEdit.g:955:1: ( ( rule__Statemachine__EventsAssignment_1_1 ) )
+            // InternalInlineEdit.g:956:1: ( rule__Statemachine__EventsAssignment_1_1 )
             {
              before(grammarAccess.getStatemachineAccess().getEventsAssignment_1_1()); 
-            // InternalInlineEdit.g:929:1: ( rule__Statemachine__EventsAssignment_1_1 )
-            // InternalInlineEdit.g:929:2: rule__Statemachine__EventsAssignment_1_1
+            // InternalInlineEdit.g:957:1: ( rule__Statemachine__EventsAssignment_1_1 )
+            // InternalInlineEdit.g:957:2: rule__Statemachine__EventsAssignment_1_1
             {
             pushFollow(FOLLOW_10);
             rule__Statemachine__EventsAssignment_1_1();
@@ -2531,11 +2609,11 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
             }
 
-            // InternalInlineEdit.g:932:1: ( ( rule__Statemachine__EventsAssignment_1_1 )* )
-            // InternalInlineEdit.g:933:1: ( rule__Statemachine__EventsAssignment_1_1 )*
+            // InternalInlineEdit.g:960:1: ( ( rule__Statemachine__EventsAssignment_1_1 )* )
+            // InternalInlineEdit.g:961:1: ( rule__Statemachine__EventsAssignment_1_1 )*
             {
              before(grammarAccess.getStatemachineAccess().getEventsAssignment_1_1()); 
-            // InternalInlineEdit.g:934:1: ( rule__Statemachine__EventsAssignment_1_1 )*
+            // InternalInlineEdit.g:962:1: ( rule__Statemachine__EventsAssignment_1_1 )*
             loop9:
             do {
                 int alt9=2;
@@ -2548,7 +2626,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalInlineEdit.g:934:2: rule__Statemachine__EventsAssignment_1_1
+            	    // InternalInlineEdit.g:962:2: rule__Statemachine__EventsAssignment_1_1
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__Statemachine__EventsAssignment_1_1();
@@ -2590,14 +2668,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_1__2"
-    // InternalInlineEdit.g:945:1: rule__Statemachine__Group_1__2 : rule__Statemachine__Group_1__2__Impl ;
+    // InternalInlineEdit.g:973:1: rule__Statemachine__Group_1__2 : rule__Statemachine__Group_1__2__Impl ;
     public final void rule__Statemachine__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:949:1: ( rule__Statemachine__Group_1__2__Impl )
-            // InternalInlineEdit.g:950:2: rule__Statemachine__Group_1__2__Impl
+            // InternalInlineEdit.g:977:1: ( rule__Statemachine__Group_1__2__Impl )
+            // InternalInlineEdit.g:978:2: rule__Statemachine__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Statemachine__Group_1__2__Impl();
@@ -2623,17 +2701,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_1__2__Impl"
-    // InternalInlineEdit.g:956:1: rule__Statemachine__Group_1__2__Impl : ( 'end' ) ;
+    // InternalInlineEdit.g:984:1: rule__Statemachine__Group_1__2__Impl : ( 'end' ) ;
     public final void rule__Statemachine__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:960:1: ( ( 'end' ) )
-            // InternalInlineEdit.g:961:1: ( 'end' )
+            // InternalInlineEdit.g:988:1: ( ( 'end' ) )
+            // InternalInlineEdit.g:989:1: ( 'end' )
             {
-            // InternalInlineEdit.g:961:1: ( 'end' )
-            // InternalInlineEdit.g:962:1: 'end'
+            // InternalInlineEdit.g:989:1: ( 'end' )
+            // InternalInlineEdit.g:990:1: 'end'
             {
              before(grammarAccess.getStatemachineAccess().getEndKeyword_1_2()); 
             match(input,15,FOLLOW_2); 
@@ -2660,14 +2738,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_2__0"
-    // InternalInlineEdit.g:981:1: rule__Statemachine__Group_2__0 : rule__Statemachine__Group_2__0__Impl rule__Statemachine__Group_2__1 ;
+    // InternalInlineEdit.g:1009:1: rule__Statemachine__Group_2__0 : rule__Statemachine__Group_2__0__Impl rule__Statemachine__Group_2__1 ;
     public final void rule__Statemachine__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:985:1: ( rule__Statemachine__Group_2__0__Impl rule__Statemachine__Group_2__1 )
-            // InternalInlineEdit.g:986:2: rule__Statemachine__Group_2__0__Impl rule__Statemachine__Group_2__1
+            // InternalInlineEdit.g:1013:1: ( rule__Statemachine__Group_2__0__Impl rule__Statemachine__Group_2__1 )
+            // InternalInlineEdit.g:1014:2: rule__Statemachine__Group_2__0__Impl rule__Statemachine__Group_2__1
             {
             pushFollow(FOLLOW_3);
             rule__Statemachine__Group_2__0__Impl();
@@ -2698,17 +2776,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_2__0__Impl"
-    // InternalInlineEdit.g:993:1: rule__Statemachine__Group_2__0__Impl : ( 'resetEvents' ) ;
+    // InternalInlineEdit.g:1021:1: rule__Statemachine__Group_2__0__Impl : ( 'resetEvents' ) ;
     public final void rule__Statemachine__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:997:1: ( ( 'resetEvents' ) )
-            // InternalInlineEdit.g:998:1: ( 'resetEvents' )
+            // InternalInlineEdit.g:1025:1: ( ( 'resetEvents' ) )
+            // InternalInlineEdit.g:1026:1: ( 'resetEvents' )
             {
-            // InternalInlineEdit.g:998:1: ( 'resetEvents' )
-            // InternalInlineEdit.g:999:1: 'resetEvents'
+            // InternalInlineEdit.g:1026:1: ( 'resetEvents' )
+            // InternalInlineEdit.g:1027:1: 'resetEvents'
             {
              before(grammarAccess.getStatemachineAccess().getResetEventsKeyword_2_0()); 
             match(input,16,FOLLOW_2); 
@@ -2735,14 +2813,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_2__1"
-    // InternalInlineEdit.g:1012:1: rule__Statemachine__Group_2__1 : rule__Statemachine__Group_2__1__Impl rule__Statemachine__Group_2__2 ;
+    // InternalInlineEdit.g:1040:1: rule__Statemachine__Group_2__1 : rule__Statemachine__Group_2__1__Impl rule__Statemachine__Group_2__2 ;
     public final void rule__Statemachine__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1016:1: ( rule__Statemachine__Group_2__1__Impl rule__Statemachine__Group_2__2 )
-            // InternalInlineEdit.g:1017:2: rule__Statemachine__Group_2__1__Impl rule__Statemachine__Group_2__2
+            // InternalInlineEdit.g:1044:1: ( rule__Statemachine__Group_2__1__Impl rule__Statemachine__Group_2__2 )
+            // InternalInlineEdit.g:1045:2: rule__Statemachine__Group_2__1__Impl rule__Statemachine__Group_2__2
             {
             pushFollow(FOLLOW_9);
             rule__Statemachine__Group_2__1__Impl();
@@ -2773,24 +2851,24 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_2__1__Impl"
-    // InternalInlineEdit.g:1024:1: rule__Statemachine__Group_2__1__Impl : ( ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* ) ) ;
+    // InternalInlineEdit.g:1052:1: rule__Statemachine__Group_2__1__Impl : ( ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* ) ) ;
     public final void rule__Statemachine__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1028:1: ( ( ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* ) ) )
-            // InternalInlineEdit.g:1029:1: ( ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* ) )
+            // InternalInlineEdit.g:1056:1: ( ( ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* ) ) )
+            // InternalInlineEdit.g:1057:1: ( ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* ) )
             {
-            // InternalInlineEdit.g:1029:1: ( ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* ) )
-            // InternalInlineEdit.g:1030:1: ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* )
+            // InternalInlineEdit.g:1057:1: ( ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* ) )
+            // InternalInlineEdit.g:1058:1: ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) ) ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* )
             {
-            // InternalInlineEdit.g:1030:1: ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) )
-            // InternalInlineEdit.g:1031:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )
+            // InternalInlineEdit.g:1058:1: ( ( rule__Statemachine__ResetEventsAssignment_2_1 ) )
+            // InternalInlineEdit.g:1059:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )
             {
              before(grammarAccess.getStatemachineAccess().getResetEventsAssignment_2_1()); 
-            // InternalInlineEdit.g:1032:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )
-            // InternalInlineEdit.g:1032:2: rule__Statemachine__ResetEventsAssignment_2_1
+            // InternalInlineEdit.g:1060:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )
+            // InternalInlineEdit.g:1060:2: rule__Statemachine__ResetEventsAssignment_2_1
             {
             pushFollow(FOLLOW_10);
             rule__Statemachine__ResetEventsAssignment_2_1();
@@ -2804,11 +2882,11 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
             }
 
-            // InternalInlineEdit.g:1035:1: ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* )
-            // InternalInlineEdit.g:1036:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )*
+            // InternalInlineEdit.g:1063:1: ( ( rule__Statemachine__ResetEventsAssignment_2_1 )* )
+            // InternalInlineEdit.g:1064:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )*
             {
              before(grammarAccess.getStatemachineAccess().getResetEventsAssignment_2_1()); 
-            // InternalInlineEdit.g:1037:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )*
+            // InternalInlineEdit.g:1065:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )*
             loop10:
             do {
                 int alt10=2;
@@ -2821,7 +2899,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalInlineEdit.g:1037:2: rule__Statemachine__ResetEventsAssignment_2_1
+            	    // InternalInlineEdit.g:1065:2: rule__Statemachine__ResetEventsAssignment_2_1
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__Statemachine__ResetEventsAssignment_2_1();
@@ -2863,14 +2941,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_2__2"
-    // InternalInlineEdit.g:1048:1: rule__Statemachine__Group_2__2 : rule__Statemachine__Group_2__2__Impl ;
+    // InternalInlineEdit.g:1076:1: rule__Statemachine__Group_2__2 : rule__Statemachine__Group_2__2__Impl ;
     public final void rule__Statemachine__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1052:1: ( rule__Statemachine__Group_2__2__Impl )
-            // InternalInlineEdit.g:1053:2: rule__Statemachine__Group_2__2__Impl
+            // InternalInlineEdit.g:1080:1: ( rule__Statemachine__Group_2__2__Impl )
+            // InternalInlineEdit.g:1081:2: rule__Statemachine__Group_2__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Statemachine__Group_2__2__Impl();
@@ -2896,17 +2974,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_2__2__Impl"
-    // InternalInlineEdit.g:1059:1: rule__Statemachine__Group_2__2__Impl : ( 'end' ) ;
+    // InternalInlineEdit.g:1087:1: rule__Statemachine__Group_2__2__Impl : ( 'end' ) ;
     public final void rule__Statemachine__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1063:1: ( ( 'end' ) )
-            // InternalInlineEdit.g:1064:1: ( 'end' )
+            // InternalInlineEdit.g:1091:1: ( ( 'end' ) )
+            // InternalInlineEdit.g:1092:1: ( 'end' )
             {
-            // InternalInlineEdit.g:1064:1: ( 'end' )
-            // InternalInlineEdit.g:1065:1: 'end'
+            // InternalInlineEdit.g:1092:1: ( 'end' )
+            // InternalInlineEdit.g:1093:1: 'end'
             {
              before(grammarAccess.getStatemachineAccess().getEndKeyword_2_2()); 
             match(input,15,FOLLOW_2); 
@@ -2933,14 +3011,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_3__0"
-    // InternalInlineEdit.g:1084:1: rule__Statemachine__Group_3__0 : rule__Statemachine__Group_3__0__Impl rule__Statemachine__Group_3__1 ;
+    // InternalInlineEdit.g:1112:1: rule__Statemachine__Group_3__0 : rule__Statemachine__Group_3__0__Impl rule__Statemachine__Group_3__1 ;
     public final void rule__Statemachine__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1088:1: ( rule__Statemachine__Group_3__0__Impl rule__Statemachine__Group_3__1 )
-            // InternalInlineEdit.g:1089:2: rule__Statemachine__Group_3__0__Impl rule__Statemachine__Group_3__1
+            // InternalInlineEdit.g:1116:1: ( rule__Statemachine__Group_3__0__Impl rule__Statemachine__Group_3__1 )
+            // InternalInlineEdit.g:1117:2: rule__Statemachine__Group_3__0__Impl rule__Statemachine__Group_3__1
             {
             pushFollow(FOLLOW_11);
             rule__Statemachine__Group_3__0__Impl();
@@ -2971,17 +3049,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_3__0__Impl"
-    // InternalInlineEdit.g:1096:1: rule__Statemachine__Group_3__0__Impl : ( 'commands' ) ;
+    // InternalInlineEdit.g:1124:1: rule__Statemachine__Group_3__0__Impl : ( 'commands' ) ;
     public final void rule__Statemachine__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1100:1: ( ( 'commands' ) )
-            // InternalInlineEdit.g:1101:1: ( 'commands' )
+            // InternalInlineEdit.g:1128:1: ( ( 'commands' ) )
+            // InternalInlineEdit.g:1129:1: ( 'commands' )
             {
-            // InternalInlineEdit.g:1101:1: ( 'commands' )
-            // InternalInlineEdit.g:1102:1: 'commands'
+            // InternalInlineEdit.g:1129:1: ( 'commands' )
+            // InternalInlineEdit.g:1130:1: 'commands'
             {
              before(grammarAccess.getStatemachineAccess().getCommandsKeyword_3_0()); 
             match(input,17,FOLLOW_2); 
@@ -3008,14 +3086,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_3__1"
-    // InternalInlineEdit.g:1115:1: rule__Statemachine__Group_3__1 : rule__Statemachine__Group_3__1__Impl rule__Statemachine__Group_3__2 ;
+    // InternalInlineEdit.g:1143:1: rule__Statemachine__Group_3__1 : rule__Statemachine__Group_3__1__Impl rule__Statemachine__Group_3__2 ;
     public final void rule__Statemachine__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1119:1: ( rule__Statemachine__Group_3__1__Impl rule__Statemachine__Group_3__2 )
-            // InternalInlineEdit.g:1120:2: rule__Statemachine__Group_3__1__Impl rule__Statemachine__Group_3__2
+            // InternalInlineEdit.g:1147:1: ( rule__Statemachine__Group_3__1__Impl rule__Statemachine__Group_3__2 )
+            // InternalInlineEdit.g:1148:2: rule__Statemachine__Group_3__1__Impl rule__Statemachine__Group_3__2
             {
             pushFollow(FOLLOW_9);
             rule__Statemachine__Group_3__1__Impl();
@@ -3046,24 +3124,24 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_3__1__Impl"
-    // InternalInlineEdit.g:1127:1: rule__Statemachine__Group_3__1__Impl : ( ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* ) ) ;
+    // InternalInlineEdit.g:1155:1: rule__Statemachine__Group_3__1__Impl : ( ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* ) ) ;
     public final void rule__Statemachine__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1131:1: ( ( ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* ) ) )
-            // InternalInlineEdit.g:1132:1: ( ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* ) )
+            // InternalInlineEdit.g:1159:1: ( ( ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* ) ) )
+            // InternalInlineEdit.g:1160:1: ( ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* ) )
             {
-            // InternalInlineEdit.g:1132:1: ( ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* ) )
-            // InternalInlineEdit.g:1133:1: ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* )
+            // InternalInlineEdit.g:1160:1: ( ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* ) )
+            // InternalInlineEdit.g:1161:1: ( ( rule__Statemachine__CommandsAssignment_3_1 ) ) ( ( rule__Statemachine__CommandsAssignment_3_1 )* )
             {
-            // InternalInlineEdit.g:1133:1: ( ( rule__Statemachine__CommandsAssignment_3_1 ) )
-            // InternalInlineEdit.g:1134:1: ( rule__Statemachine__CommandsAssignment_3_1 )
+            // InternalInlineEdit.g:1161:1: ( ( rule__Statemachine__CommandsAssignment_3_1 ) )
+            // InternalInlineEdit.g:1162:1: ( rule__Statemachine__CommandsAssignment_3_1 )
             {
              before(grammarAccess.getStatemachineAccess().getCommandsAssignment_3_1()); 
-            // InternalInlineEdit.g:1135:1: ( rule__Statemachine__CommandsAssignment_3_1 )
-            // InternalInlineEdit.g:1135:2: rule__Statemachine__CommandsAssignment_3_1
+            // InternalInlineEdit.g:1163:1: ( rule__Statemachine__CommandsAssignment_3_1 )
+            // InternalInlineEdit.g:1163:2: rule__Statemachine__CommandsAssignment_3_1
             {
             pushFollow(FOLLOW_12);
             rule__Statemachine__CommandsAssignment_3_1();
@@ -3077,11 +3155,11 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
             }
 
-            // InternalInlineEdit.g:1138:1: ( ( rule__Statemachine__CommandsAssignment_3_1 )* )
-            // InternalInlineEdit.g:1139:1: ( rule__Statemachine__CommandsAssignment_3_1 )*
+            // InternalInlineEdit.g:1166:1: ( ( rule__Statemachine__CommandsAssignment_3_1 )* )
+            // InternalInlineEdit.g:1167:1: ( rule__Statemachine__CommandsAssignment_3_1 )*
             {
              before(grammarAccess.getStatemachineAccess().getCommandsAssignment_3_1()); 
-            // InternalInlineEdit.g:1140:1: ( rule__Statemachine__CommandsAssignment_3_1 )*
+            // InternalInlineEdit.g:1168:1: ( rule__Statemachine__CommandsAssignment_3_1 )*
             loop11:
             do {
                 int alt11=2;
@@ -3094,7 +3172,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalInlineEdit.g:1140:2: rule__Statemachine__CommandsAssignment_3_1
+            	    // InternalInlineEdit.g:1168:2: rule__Statemachine__CommandsAssignment_3_1
             	    {
             	    pushFollow(FOLLOW_12);
             	    rule__Statemachine__CommandsAssignment_3_1();
@@ -3136,14 +3214,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_3__2"
-    // InternalInlineEdit.g:1151:1: rule__Statemachine__Group_3__2 : rule__Statemachine__Group_3__2__Impl ;
+    // InternalInlineEdit.g:1179:1: rule__Statemachine__Group_3__2 : rule__Statemachine__Group_3__2__Impl ;
     public final void rule__Statemachine__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1155:1: ( rule__Statemachine__Group_3__2__Impl )
-            // InternalInlineEdit.g:1156:2: rule__Statemachine__Group_3__2__Impl
+            // InternalInlineEdit.g:1183:1: ( rule__Statemachine__Group_3__2__Impl )
+            // InternalInlineEdit.g:1184:2: rule__Statemachine__Group_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Statemachine__Group_3__2__Impl();
@@ -3169,17 +3247,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_3__2__Impl"
-    // InternalInlineEdit.g:1162:1: rule__Statemachine__Group_3__2__Impl : ( 'end' ) ;
+    // InternalInlineEdit.g:1190:1: rule__Statemachine__Group_3__2__Impl : ( 'end' ) ;
     public final void rule__Statemachine__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1166:1: ( ( 'end' ) )
-            // InternalInlineEdit.g:1167:1: ( 'end' )
+            // InternalInlineEdit.g:1194:1: ( ( 'end' ) )
+            // InternalInlineEdit.g:1195:1: ( 'end' )
             {
-            // InternalInlineEdit.g:1167:1: ( 'end' )
-            // InternalInlineEdit.g:1168:1: 'end'
+            // InternalInlineEdit.g:1195:1: ( 'end' )
+            // InternalInlineEdit.g:1196:1: 'end'
             {
              before(grammarAccess.getStatemachineAccess().getEndKeyword_3_2()); 
             match(input,15,FOLLOW_2); 
@@ -3206,14 +3284,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_4__0"
-    // InternalInlineEdit.g:1187:1: rule__Statemachine__Group_4__0 : rule__Statemachine__Group_4__0__Impl rule__Statemachine__Group_4__1 ;
+    // InternalInlineEdit.g:1215:1: rule__Statemachine__Group_4__0 : rule__Statemachine__Group_4__0__Impl rule__Statemachine__Group_4__1 ;
     public final void rule__Statemachine__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1191:1: ( rule__Statemachine__Group_4__0__Impl rule__Statemachine__Group_4__1 )
-            // InternalInlineEdit.g:1192:2: rule__Statemachine__Group_4__0__Impl rule__Statemachine__Group_4__1
+            // InternalInlineEdit.g:1219:1: ( rule__Statemachine__Group_4__0__Impl rule__Statemachine__Group_4__1 )
+            // InternalInlineEdit.g:1220:2: rule__Statemachine__Group_4__0__Impl rule__Statemachine__Group_4__1
             {
             pushFollow(FOLLOW_3);
             rule__Statemachine__Group_4__0__Impl();
@@ -3244,17 +3322,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_4__0__Impl"
-    // InternalInlineEdit.g:1199:1: rule__Statemachine__Group_4__0__Impl : ( 'constants' ) ;
+    // InternalInlineEdit.g:1227:1: rule__Statemachine__Group_4__0__Impl : ( 'constants' ) ;
     public final void rule__Statemachine__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1203:1: ( ( 'constants' ) )
-            // InternalInlineEdit.g:1204:1: ( 'constants' )
+            // InternalInlineEdit.g:1231:1: ( ( 'constants' ) )
+            // InternalInlineEdit.g:1232:1: ( 'constants' )
             {
-            // InternalInlineEdit.g:1204:1: ( 'constants' )
-            // InternalInlineEdit.g:1205:1: 'constants'
+            // InternalInlineEdit.g:1232:1: ( 'constants' )
+            // InternalInlineEdit.g:1233:1: 'constants'
             {
              before(grammarAccess.getStatemachineAccess().getConstantsKeyword_4_0()); 
             match(input,18,FOLLOW_2); 
@@ -3281,14 +3359,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_4__1"
-    // InternalInlineEdit.g:1218:1: rule__Statemachine__Group_4__1 : rule__Statemachine__Group_4__1__Impl rule__Statemachine__Group_4__2 ;
+    // InternalInlineEdit.g:1246:1: rule__Statemachine__Group_4__1 : rule__Statemachine__Group_4__1__Impl rule__Statemachine__Group_4__2 ;
     public final void rule__Statemachine__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1222:1: ( rule__Statemachine__Group_4__1__Impl rule__Statemachine__Group_4__2 )
-            // InternalInlineEdit.g:1223:2: rule__Statemachine__Group_4__1__Impl rule__Statemachine__Group_4__2
+            // InternalInlineEdit.g:1250:1: ( rule__Statemachine__Group_4__1__Impl rule__Statemachine__Group_4__2 )
+            // InternalInlineEdit.g:1251:2: rule__Statemachine__Group_4__1__Impl rule__Statemachine__Group_4__2
             {
             pushFollow(FOLLOW_9);
             rule__Statemachine__Group_4__1__Impl();
@@ -3319,24 +3397,24 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_4__1__Impl"
-    // InternalInlineEdit.g:1230:1: rule__Statemachine__Group_4__1__Impl : ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) ) ;
+    // InternalInlineEdit.g:1258:1: rule__Statemachine__Group_4__1__Impl : ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) ) ;
     public final void rule__Statemachine__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1234:1: ( ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) ) )
-            // InternalInlineEdit.g:1235:1: ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) )
+            // InternalInlineEdit.g:1262:1: ( ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) ) )
+            // InternalInlineEdit.g:1263:1: ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) )
             {
-            // InternalInlineEdit.g:1235:1: ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) )
-            // InternalInlineEdit.g:1236:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* )
+            // InternalInlineEdit.g:1263:1: ( ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* ) )
+            // InternalInlineEdit.g:1264:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 ) ) ( ( rule__Statemachine__ConstantsAssignment_4_1 )* )
             {
-            // InternalInlineEdit.g:1236:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 ) )
-            // InternalInlineEdit.g:1237:1: ( rule__Statemachine__ConstantsAssignment_4_1 )
+            // InternalInlineEdit.g:1264:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 ) )
+            // InternalInlineEdit.g:1265:1: ( rule__Statemachine__ConstantsAssignment_4_1 )
             {
              before(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); 
-            // InternalInlineEdit.g:1238:1: ( rule__Statemachine__ConstantsAssignment_4_1 )
-            // InternalInlineEdit.g:1238:2: rule__Statemachine__ConstantsAssignment_4_1
+            // InternalInlineEdit.g:1266:1: ( rule__Statemachine__ConstantsAssignment_4_1 )
+            // InternalInlineEdit.g:1266:2: rule__Statemachine__ConstantsAssignment_4_1
             {
             pushFollow(FOLLOW_10);
             rule__Statemachine__ConstantsAssignment_4_1();
@@ -3350,11 +3428,11 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
             }
 
-            // InternalInlineEdit.g:1241:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 )* )
-            // InternalInlineEdit.g:1242:1: ( rule__Statemachine__ConstantsAssignment_4_1 )*
+            // InternalInlineEdit.g:1269:1: ( ( rule__Statemachine__ConstantsAssignment_4_1 )* )
+            // InternalInlineEdit.g:1270:1: ( rule__Statemachine__ConstantsAssignment_4_1 )*
             {
              before(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); 
-            // InternalInlineEdit.g:1243:1: ( rule__Statemachine__ConstantsAssignment_4_1 )*
+            // InternalInlineEdit.g:1271:1: ( rule__Statemachine__ConstantsAssignment_4_1 )*
             loop12:
             do {
                 int alt12=2;
@@ -3367,7 +3445,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalInlineEdit.g:1243:2: rule__Statemachine__ConstantsAssignment_4_1
+            	    // InternalInlineEdit.g:1271:2: rule__Statemachine__ConstantsAssignment_4_1
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__Statemachine__ConstantsAssignment_4_1();
@@ -3409,14 +3487,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_4__2"
-    // InternalInlineEdit.g:1254:1: rule__Statemachine__Group_4__2 : rule__Statemachine__Group_4__2__Impl ;
+    // InternalInlineEdit.g:1282:1: rule__Statemachine__Group_4__2 : rule__Statemachine__Group_4__2__Impl ;
     public final void rule__Statemachine__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1258:1: ( rule__Statemachine__Group_4__2__Impl )
-            // InternalInlineEdit.g:1259:2: rule__Statemachine__Group_4__2__Impl
+            // InternalInlineEdit.g:1286:1: ( rule__Statemachine__Group_4__2__Impl )
+            // InternalInlineEdit.g:1287:2: rule__Statemachine__Group_4__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Statemachine__Group_4__2__Impl();
@@ -3442,17 +3520,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__Group_4__2__Impl"
-    // InternalInlineEdit.g:1265:1: rule__Statemachine__Group_4__2__Impl : ( 'end' ) ;
+    // InternalInlineEdit.g:1293:1: rule__Statemachine__Group_4__2__Impl : ( 'end' ) ;
     public final void rule__Statemachine__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1269:1: ( ( 'end' ) )
-            // InternalInlineEdit.g:1270:1: ( 'end' )
+            // InternalInlineEdit.g:1297:1: ( ( 'end' ) )
+            // InternalInlineEdit.g:1298:1: ( 'end' )
             {
-            // InternalInlineEdit.g:1270:1: ( 'end' )
-            // InternalInlineEdit.g:1271:1: 'end'
+            // InternalInlineEdit.g:1298:1: ( 'end' )
+            // InternalInlineEdit.g:1299:1: 'end'
             {
              before(grammarAccess.getStatemachineAccess().getEndKeyword_4_2()); 
             match(input,15,FOLLOW_2); 
@@ -3479,14 +3557,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group__0"
-    // InternalInlineEdit.g:1290:1: rule__Event__Group__0 : rule__Event__Group__0__Impl rule__Event__Group__1 ;
+    // InternalInlineEdit.g:1318:1: rule__Event__Group__0 : rule__Event__Group__0__Impl rule__Event__Group__1 ;
     public final void rule__Event__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1294:1: ( rule__Event__Group__0__Impl rule__Event__Group__1 )
-            // InternalInlineEdit.g:1295:2: rule__Event__Group__0__Impl rule__Event__Group__1
+            // InternalInlineEdit.g:1322:1: ( rule__Event__Group__0__Impl rule__Event__Group__1 )
+            // InternalInlineEdit.g:1323:2: rule__Event__Group__0__Impl rule__Event__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__Event__Group__0__Impl();
@@ -3517,21 +3595,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group__0__Impl"
-    // InternalInlineEdit.g:1302:1: rule__Event__Group__0__Impl : ( ( rule__Event__NameAssignment_0 ) ) ;
+    // InternalInlineEdit.g:1330:1: rule__Event__Group__0__Impl : ( ( rule__Event__NameAssignment_0 ) ) ;
     public final void rule__Event__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1306:1: ( ( ( rule__Event__NameAssignment_0 ) ) )
-            // InternalInlineEdit.g:1307:1: ( ( rule__Event__NameAssignment_0 ) )
+            // InternalInlineEdit.g:1334:1: ( ( ( rule__Event__NameAssignment_0 ) ) )
+            // InternalInlineEdit.g:1335:1: ( ( rule__Event__NameAssignment_0 ) )
             {
-            // InternalInlineEdit.g:1307:1: ( ( rule__Event__NameAssignment_0 ) )
-            // InternalInlineEdit.g:1308:1: ( rule__Event__NameAssignment_0 )
+            // InternalInlineEdit.g:1335:1: ( ( rule__Event__NameAssignment_0 ) )
+            // InternalInlineEdit.g:1336:1: ( rule__Event__NameAssignment_0 )
             {
              before(grammarAccess.getEventAccess().getNameAssignment_0()); 
-            // InternalInlineEdit.g:1309:1: ( rule__Event__NameAssignment_0 )
-            // InternalInlineEdit.g:1309:2: rule__Event__NameAssignment_0
+            // InternalInlineEdit.g:1337:1: ( rule__Event__NameAssignment_0 )
+            // InternalInlineEdit.g:1337:2: rule__Event__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Event__NameAssignment_0();
@@ -3564,14 +3642,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group__1"
-    // InternalInlineEdit.g:1319:1: rule__Event__Group__1 : rule__Event__Group__1__Impl rule__Event__Group__2 ;
+    // InternalInlineEdit.g:1347:1: rule__Event__Group__1 : rule__Event__Group__1__Impl rule__Event__Group__2 ;
     public final void rule__Event__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1323:1: ( rule__Event__Group__1__Impl rule__Event__Group__2 )
-            // InternalInlineEdit.g:1324:2: rule__Event__Group__1__Impl rule__Event__Group__2
+            // InternalInlineEdit.g:1351:1: ( rule__Event__Group__1__Impl rule__Event__Group__2 )
+            // InternalInlineEdit.g:1352:2: rule__Event__Group__1__Impl rule__Event__Group__2
             {
             pushFollow(FOLLOW_13);
             rule__Event__Group__1__Impl();
@@ -3602,20 +3680,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group__1__Impl"
-    // InternalInlineEdit.g:1331:1: rule__Event__Group__1__Impl : ( ( rule__Event__CodeAssignment_1 )? ) ;
+    // InternalInlineEdit.g:1359:1: rule__Event__Group__1__Impl : ( ( rule__Event__CodeAssignment_1 )? ) ;
     public final void rule__Event__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1335:1: ( ( ( rule__Event__CodeAssignment_1 )? ) )
-            // InternalInlineEdit.g:1336:1: ( ( rule__Event__CodeAssignment_1 )? )
+            // InternalInlineEdit.g:1363:1: ( ( ( rule__Event__CodeAssignment_1 )? ) )
+            // InternalInlineEdit.g:1364:1: ( ( rule__Event__CodeAssignment_1 )? )
             {
-            // InternalInlineEdit.g:1336:1: ( ( rule__Event__CodeAssignment_1 )? )
-            // InternalInlineEdit.g:1337:1: ( rule__Event__CodeAssignment_1 )?
+            // InternalInlineEdit.g:1364:1: ( ( rule__Event__CodeAssignment_1 )? )
+            // InternalInlineEdit.g:1365:1: ( rule__Event__CodeAssignment_1 )?
             {
              before(grammarAccess.getEventAccess().getCodeAssignment_1()); 
-            // InternalInlineEdit.g:1338:1: ( rule__Event__CodeAssignment_1 )?
+            // InternalInlineEdit.g:1366:1: ( rule__Event__CodeAssignment_1 )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -3624,7 +3702,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt13) {
                 case 1 :
-                    // InternalInlineEdit.g:1338:2: rule__Event__CodeAssignment_1
+                    // InternalInlineEdit.g:1366:2: rule__Event__CodeAssignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__Event__CodeAssignment_1();
@@ -3660,14 +3738,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group__2"
-    // InternalInlineEdit.g:1348:1: rule__Event__Group__2 : rule__Event__Group__2__Impl ;
+    // InternalInlineEdit.g:1376:1: rule__Event__Group__2 : rule__Event__Group__2__Impl ;
     public final void rule__Event__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1352:1: ( rule__Event__Group__2__Impl )
-            // InternalInlineEdit.g:1353:2: rule__Event__Group__2__Impl
+            // InternalInlineEdit.g:1380:1: ( rule__Event__Group__2__Impl )
+            // InternalInlineEdit.g:1381:2: rule__Event__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Event__Group__2__Impl();
@@ -3693,20 +3771,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group__2__Impl"
-    // InternalInlineEdit.g:1359:1: rule__Event__Group__2__Impl : ( ( rule__Event__Group_2__0 )? ) ;
+    // InternalInlineEdit.g:1387:1: rule__Event__Group__2__Impl : ( ( rule__Event__Group_2__0 )? ) ;
     public final void rule__Event__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1363:1: ( ( ( rule__Event__Group_2__0 )? ) )
-            // InternalInlineEdit.g:1364:1: ( ( rule__Event__Group_2__0 )? )
+            // InternalInlineEdit.g:1391:1: ( ( ( rule__Event__Group_2__0 )? ) )
+            // InternalInlineEdit.g:1392:1: ( ( rule__Event__Group_2__0 )? )
             {
-            // InternalInlineEdit.g:1364:1: ( ( rule__Event__Group_2__0 )? )
-            // InternalInlineEdit.g:1365:1: ( rule__Event__Group_2__0 )?
+            // InternalInlineEdit.g:1392:1: ( ( rule__Event__Group_2__0 )? )
+            // InternalInlineEdit.g:1393:1: ( rule__Event__Group_2__0 )?
             {
              before(grammarAccess.getEventAccess().getGroup_2()); 
-            // InternalInlineEdit.g:1366:1: ( rule__Event__Group_2__0 )?
+            // InternalInlineEdit.g:1394:1: ( rule__Event__Group_2__0 )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -3715,7 +3793,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt14) {
                 case 1 :
-                    // InternalInlineEdit.g:1366:2: rule__Event__Group_2__0
+                    // InternalInlineEdit.g:1394:2: rule__Event__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Event__Group_2__0();
@@ -3751,14 +3829,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group_2__0"
-    // InternalInlineEdit.g:1382:1: rule__Event__Group_2__0 : rule__Event__Group_2__0__Impl rule__Event__Group_2__1 ;
+    // InternalInlineEdit.g:1410:1: rule__Event__Group_2__0 : rule__Event__Group_2__0__Impl rule__Event__Group_2__1 ;
     public final void rule__Event__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1386:1: ( rule__Event__Group_2__0__Impl rule__Event__Group_2__1 )
-            // InternalInlineEdit.g:1387:2: rule__Event__Group_2__0__Impl rule__Event__Group_2__1
+            // InternalInlineEdit.g:1414:1: ( rule__Event__Group_2__0__Impl rule__Event__Group_2__1 )
+            // InternalInlineEdit.g:1415:2: rule__Event__Group_2__0__Impl rule__Event__Group_2__1
             {
             pushFollow(FOLLOW_5);
             rule__Event__Group_2__0__Impl();
@@ -3789,17 +3867,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group_2__0__Impl"
-    // InternalInlineEdit.g:1394:1: rule__Event__Group_2__0__Impl : ( '[' ) ;
+    // InternalInlineEdit.g:1422:1: rule__Event__Group_2__0__Impl : ( '[' ) ;
     public final void rule__Event__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1398:1: ( ( '[' ) )
-            // InternalInlineEdit.g:1399:1: ( '[' )
+            // InternalInlineEdit.g:1426:1: ( ( '[' ) )
+            // InternalInlineEdit.g:1427:1: ( '[' )
             {
-            // InternalInlineEdit.g:1399:1: ( '[' )
-            // InternalInlineEdit.g:1400:1: '['
+            // InternalInlineEdit.g:1427:1: ( '[' )
+            // InternalInlineEdit.g:1428:1: '['
             {
              before(grammarAccess.getEventAccess().getLeftSquareBracketKeyword_2_0()); 
             match(input,12,FOLLOW_2); 
@@ -3826,14 +3904,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group_2__1"
-    // InternalInlineEdit.g:1413:1: rule__Event__Group_2__1 : rule__Event__Group_2__1__Impl rule__Event__Group_2__2 ;
+    // InternalInlineEdit.g:1441:1: rule__Event__Group_2__1 : rule__Event__Group_2__1__Impl rule__Event__Group_2__2 ;
     public final void rule__Event__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1417:1: ( rule__Event__Group_2__1__Impl rule__Event__Group_2__2 )
-            // InternalInlineEdit.g:1418:2: rule__Event__Group_2__1__Impl rule__Event__Group_2__2
+            // InternalInlineEdit.g:1445:1: ( rule__Event__Group_2__1__Impl rule__Event__Group_2__2 )
+            // InternalInlineEdit.g:1446:2: rule__Event__Group_2__1__Impl rule__Event__Group_2__2
             {
             pushFollow(FOLLOW_6);
             rule__Event__Group_2__1__Impl();
@@ -3864,21 +3942,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group_2__1__Impl"
-    // InternalInlineEdit.g:1425:1: rule__Event__Group_2__1__Impl : ( ( rule__Event__GuardAssignment_2_1 ) ) ;
+    // InternalInlineEdit.g:1453:1: rule__Event__Group_2__1__Impl : ( ( rule__Event__GuardAssignment_2_1 ) ) ;
     public final void rule__Event__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1429:1: ( ( ( rule__Event__GuardAssignment_2_1 ) ) )
-            // InternalInlineEdit.g:1430:1: ( ( rule__Event__GuardAssignment_2_1 ) )
+            // InternalInlineEdit.g:1457:1: ( ( ( rule__Event__GuardAssignment_2_1 ) ) )
+            // InternalInlineEdit.g:1458:1: ( ( rule__Event__GuardAssignment_2_1 ) )
             {
-            // InternalInlineEdit.g:1430:1: ( ( rule__Event__GuardAssignment_2_1 ) )
-            // InternalInlineEdit.g:1431:1: ( rule__Event__GuardAssignment_2_1 )
+            // InternalInlineEdit.g:1458:1: ( ( rule__Event__GuardAssignment_2_1 ) )
+            // InternalInlineEdit.g:1459:1: ( rule__Event__GuardAssignment_2_1 )
             {
              before(grammarAccess.getEventAccess().getGuardAssignment_2_1()); 
-            // InternalInlineEdit.g:1432:1: ( rule__Event__GuardAssignment_2_1 )
-            // InternalInlineEdit.g:1432:2: rule__Event__GuardAssignment_2_1
+            // InternalInlineEdit.g:1460:1: ( rule__Event__GuardAssignment_2_1 )
+            // InternalInlineEdit.g:1460:2: rule__Event__GuardAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Event__GuardAssignment_2_1();
@@ -3911,14 +3989,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group_2__2"
-    // InternalInlineEdit.g:1442:1: rule__Event__Group_2__2 : rule__Event__Group_2__2__Impl ;
+    // InternalInlineEdit.g:1470:1: rule__Event__Group_2__2 : rule__Event__Group_2__2__Impl ;
     public final void rule__Event__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1446:1: ( rule__Event__Group_2__2__Impl )
-            // InternalInlineEdit.g:1447:2: rule__Event__Group_2__2__Impl
+            // InternalInlineEdit.g:1474:1: ( rule__Event__Group_2__2__Impl )
+            // InternalInlineEdit.g:1475:2: rule__Event__Group_2__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Event__Group_2__2__Impl();
@@ -3944,17 +4022,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__Group_2__2__Impl"
-    // InternalInlineEdit.g:1453:1: rule__Event__Group_2__2__Impl : ( ']' ) ;
+    // InternalInlineEdit.g:1481:1: rule__Event__Group_2__2__Impl : ( ']' ) ;
     public final void rule__Event__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1457:1: ( ( ']' ) )
-            // InternalInlineEdit.g:1458:1: ( ']' )
+            // InternalInlineEdit.g:1485:1: ( ( ']' ) )
+            // InternalInlineEdit.g:1486:1: ( ']' )
             {
-            // InternalInlineEdit.g:1458:1: ( ']' )
-            // InternalInlineEdit.g:1459:1: ']'
+            // InternalInlineEdit.g:1486:1: ( ']' )
+            // InternalInlineEdit.g:1487:1: ']'
             {
              before(grammarAccess.getEventAccess().getRightSquareBracketKeyword_2_2()); 
             match(input,13,FOLLOW_2); 
@@ -3981,14 +4059,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__Group__0"
-    // InternalInlineEdit.g:1478:1: rule__RangeGuard__Group__0 : rule__RangeGuard__Group__0__Impl rule__RangeGuard__Group__1 ;
+    // InternalInlineEdit.g:1506:1: rule__RangeGuard__Group__0 : rule__RangeGuard__Group__0__Impl rule__RangeGuard__Group__1 ;
     public final void rule__RangeGuard__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1482:1: ( rule__RangeGuard__Group__0__Impl rule__RangeGuard__Group__1 )
-            // InternalInlineEdit.g:1483:2: rule__RangeGuard__Group__0__Impl rule__RangeGuard__Group__1
+            // InternalInlineEdit.g:1510:1: ( rule__RangeGuard__Group__0__Impl rule__RangeGuard__Group__1 )
+            // InternalInlineEdit.g:1511:2: rule__RangeGuard__Group__0__Impl rule__RangeGuard__Group__1
             {
             pushFollow(FOLLOW_14);
             rule__RangeGuard__Group__0__Impl();
@@ -4019,21 +4097,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__Group__0__Impl"
-    // InternalInlineEdit.g:1490:1: rule__RangeGuard__Group__0__Impl : ( ( rule__RangeGuard__MinAssignment_0 ) ) ;
+    // InternalInlineEdit.g:1518:1: rule__RangeGuard__Group__0__Impl : ( ( rule__RangeGuard__MinAssignment_0 ) ) ;
     public final void rule__RangeGuard__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1494:1: ( ( ( rule__RangeGuard__MinAssignment_0 ) ) )
-            // InternalInlineEdit.g:1495:1: ( ( rule__RangeGuard__MinAssignment_0 ) )
+            // InternalInlineEdit.g:1522:1: ( ( ( rule__RangeGuard__MinAssignment_0 ) ) )
+            // InternalInlineEdit.g:1523:1: ( ( rule__RangeGuard__MinAssignment_0 ) )
             {
-            // InternalInlineEdit.g:1495:1: ( ( rule__RangeGuard__MinAssignment_0 ) )
-            // InternalInlineEdit.g:1496:1: ( rule__RangeGuard__MinAssignment_0 )
+            // InternalInlineEdit.g:1523:1: ( ( rule__RangeGuard__MinAssignment_0 ) )
+            // InternalInlineEdit.g:1524:1: ( rule__RangeGuard__MinAssignment_0 )
             {
              before(grammarAccess.getRangeGuardAccess().getMinAssignment_0()); 
-            // InternalInlineEdit.g:1497:1: ( rule__RangeGuard__MinAssignment_0 )
-            // InternalInlineEdit.g:1497:2: rule__RangeGuard__MinAssignment_0
+            // InternalInlineEdit.g:1525:1: ( rule__RangeGuard__MinAssignment_0 )
+            // InternalInlineEdit.g:1525:2: rule__RangeGuard__MinAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__RangeGuard__MinAssignment_0();
@@ -4066,14 +4144,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__Group__1"
-    // InternalInlineEdit.g:1507:1: rule__RangeGuard__Group__1 : rule__RangeGuard__Group__1__Impl rule__RangeGuard__Group__2 ;
+    // InternalInlineEdit.g:1535:1: rule__RangeGuard__Group__1 : rule__RangeGuard__Group__1__Impl rule__RangeGuard__Group__2 ;
     public final void rule__RangeGuard__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1511:1: ( rule__RangeGuard__Group__1__Impl rule__RangeGuard__Group__2 )
-            // InternalInlineEdit.g:1512:2: rule__RangeGuard__Group__1__Impl rule__RangeGuard__Group__2
+            // InternalInlineEdit.g:1539:1: ( rule__RangeGuard__Group__1__Impl rule__RangeGuard__Group__2 )
+            // InternalInlineEdit.g:1540:2: rule__RangeGuard__Group__1__Impl rule__RangeGuard__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__RangeGuard__Group__1__Impl();
@@ -4104,17 +4182,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__Group__1__Impl"
-    // InternalInlineEdit.g:1519:1: rule__RangeGuard__Group__1__Impl : ( '..' ) ;
+    // InternalInlineEdit.g:1547:1: rule__RangeGuard__Group__1__Impl : ( '..' ) ;
     public final void rule__RangeGuard__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1523:1: ( ( '..' ) )
-            // InternalInlineEdit.g:1524:1: ( '..' )
+            // InternalInlineEdit.g:1551:1: ( ( '..' ) )
+            // InternalInlineEdit.g:1552:1: ( '..' )
             {
-            // InternalInlineEdit.g:1524:1: ( '..' )
-            // InternalInlineEdit.g:1525:1: '..'
+            // InternalInlineEdit.g:1552:1: ( '..' )
+            // InternalInlineEdit.g:1553:1: '..'
             {
              before(grammarAccess.getRangeGuardAccess().getFullStopFullStopKeyword_1()); 
             match(input,19,FOLLOW_2); 
@@ -4141,14 +4219,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__Group__2"
-    // InternalInlineEdit.g:1538:1: rule__RangeGuard__Group__2 : rule__RangeGuard__Group__2__Impl ;
+    // InternalInlineEdit.g:1566:1: rule__RangeGuard__Group__2 : rule__RangeGuard__Group__2__Impl ;
     public final void rule__RangeGuard__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1542:1: ( rule__RangeGuard__Group__2__Impl )
-            // InternalInlineEdit.g:1543:2: rule__RangeGuard__Group__2__Impl
+            // InternalInlineEdit.g:1570:1: ( rule__RangeGuard__Group__2__Impl )
+            // InternalInlineEdit.g:1571:2: rule__RangeGuard__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RangeGuard__Group__2__Impl();
@@ -4174,21 +4252,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__Group__2__Impl"
-    // InternalInlineEdit.g:1549:1: rule__RangeGuard__Group__2__Impl : ( ( rule__RangeGuard__MaxAssignment_2 ) ) ;
+    // InternalInlineEdit.g:1577:1: rule__RangeGuard__Group__2__Impl : ( ( rule__RangeGuard__MaxAssignment_2 ) ) ;
     public final void rule__RangeGuard__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1553:1: ( ( ( rule__RangeGuard__MaxAssignment_2 ) ) )
-            // InternalInlineEdit.g:1554:1: ( ( rule__RangeGuard__MaxAssignment_2 ) )
+            // InternalInlineEdit.g:1581:1: ( ( ( rule__RangeGuard__MaxAssignment_2 ) ) )
+            // InternalInlineEdit.g:1582:1: ( ( rule__RangeGuard__MaxAssignment_2 ) )
             {
-            // InternalInlineEdit.g:1554:1: ( ( rule__RangeGuard__MaxAssignment_2 ) )
-            // InternalInlineEdit.g:1555:1: ( rule__RangeGuard__MaxAssignment_2 )
+            // InternalInlineEdit.g:1582:1: ( ( rule__RangeGuard__MaxAssignment_2 ) )
+            // InternalInlineEdit.g:1583:1: ( rule__RangeGuard__MaxAssignment_2 )
             {
              before(grammarAccess.getRangeGuardAccess().getMaxAssignment_2()); 
-            // InternalInlineEdit.g:1556:1: ( rule__RangeGuard__MaxAssignment_2 )
-            // InternalInlineEdit.g:1556:2: rule__RangeGuard__MaxAssignment_2
+            // InternalInlineEdit.g:1584:1: ( rule__RangeGuard__MaxAssignment_2 )
+            // InternalInlineEdit.g:1584:2: rule__RangeGuard__MaxAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__RangeGuard__MaxAssignment_2();
@@ -4221,14 +4299,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group__0"
-    // InternalInlineEdit.g:1572:1: rule__Command__Group__0 : rule__Command__Group__0__Impl rule__Command__Group__1 ;
+    // InternalInlineEdit.g:1600:1: rule__Command__Group__0 : rule__Command__Group__0__Impl rule__Command__Group__1 ;
     public final void rule__Command__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1576:1: ( rule__Command__Group__0__Impl rule__Command__Group__1 )
-            // InternalInlineEdit.g:1577:2: rule__Command__Group__0__Impl rule__Command__Group__1
+            // InternalInlineEdit.g:1604:1: ( rule__Command__Group__0__Impl rule__Command__Group__1 )
+            // InternalInlineEdit.g:1605:2: rule__Command__Group__0__Impl rule__Command__Group__1
             {
             pushFollow(FOLLOW_11);
             rule__Command__Group__0__Impl();
@@ -4259,20 +4337,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group__0__Impl"
-    // InternalInlineEdit.g:1584:1: rule__Command__Group__0__Impl : ( ( rule__Command__Group_0__0 )? ) ;
+    // InternalInlineEdit.g:1612:1: rule__Command__Group__0__Impl : ( ( rule__Command__Group_0__0 )? ) ;
     public final void rule__Command__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1588:1: ( ( ( rule__Command__Group_0__0 )? ) )
-            // InternalInlineEdit.g:1589:1: ( ( rule__Command__Group_0__0 )? )
+            // InternalInlineEdit.g:1616:1: ( ( ( rule__Command__Group_0__0 )? ) )
+            // InternalInlineEdit.g:1617:1: ( ( rule__Command__Group_0__0 )? )
             {
-            // InternalInlineEdit.g:1589:1: ( ( rule__Command__Group_0__0 )? )
-            // InternalInlineEdit.g:1590:1: ( rule__Command__Group_0__0 )?
+            // InternalInlineEdit.g:1617:1: ( ( rule__Command__Group_0__0 )? )
+            // InternalInlineEdit.g:1618:1: ( rule__Command__Group_0__0 )?
             {
              before(grammarAccess.getCommandAccess().getGroup_0()); 
-            // InternalInlineEdit.g:1591:1: ( rule__Command__Group_0__0 )?
+            // InternalInlineEdit.g:1619:1: ( rule__Command__Group_0__0 )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -4281,7 +4359,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt15) {
                 case 1 :
-                    // InternalInlineEdit.g:1591:2: rule__Command__Group_0__0
+                    // InternalInlineEdit.g:1619:2: rule__Command__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Command__Group_0__0();
@@ -4317,14 +4395,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group__1"
-    // InternalInlineEdit.g:1601:1: rule__Command__Group__1 : rule__Command__Group__1__Impl rule__Command__Group__2 ;
+    // InternalInlineEdit.g:1629:1: rule__Command__Group__1 : rule__Command__Group__1__Impl rule__Command__Group__2 ;
     public final void rule__Command__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1605:1: ( rule__Command__Group__1__Impl rule__Command__Group__2 )
-            // InternalInlineEdit.g:1606:2: rule__Command__Group__1__Impl rule__Command__Group__2
+            // InternalInlineEdit.g:1633:1: ( rule__Command__Group__1__Impl rule__Command__Group__2 )
+            // InternalInlineEdit.g:1634:2: rule__Command__Group__1__Impl rule__Command__Group__2
             {
             pushFollow(FOLLOW_15);
             rule__Command__Group__1__Impl();
@@ -4355,21 +4433,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group__1__Impl"
-    // InternalInlineEdit.g:1613:1: rule__Command__Group__1__Impl : ( ( rule__Command__NameAssignment_1 ) ) ;
+    // InternalInlineEdit.g:1641:1: rule__Command__Group__1__Impl : ( ( rule__Command__NameAssignment_1 ) ) ;
     public final void rule__Command__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1617:1: ( ( ( rule__Command__NameAssignment_1 ) ) )
-            // InternalInlineEdit.g:1618:1: ( ( rule__Command__NameAssignment_1 ) )
+            // InternalInlineEdit.g:1645:1: ( ( ( rule__Command__NameAssignment_1 ) ) )
+            // InternalInlineEdit.g:1646:1: ( ( rule__Command__NameAssignment_1 ) )
             {
-            // InternalInlineEdit.g:1618:1: ( ( rule__Command__NameAssignment_1 ) )
-            // InternalInlineEdit.g:1619:1: ( rule__Command__NameAssignment_1 )
+            // InternalInlineEdit.g:1646:1: ( ( rule__Command__NameAssignment_1 ) )
+            // InternalInlineEdit.g:1647:1: ( rule__Command__NameAssignment_1 )
             {
              before(grammarAccess.getCommandAccess().getNameAssignment_1()); 
-            // InternalInlineEdit.g:1620:1: ( rule__Command__NameAssignment_1 )
-            // InternalInlineEdit.g:1620:2: rule__Command__NameAssignment_1
+            // InternalInlineEdit.g:1648:1: ( rule__Command__NameAssignment_1 )
+            // InternalInlineEdit.g:1648:2: rule__Command__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Command__NameAssignment_1();
@@ -4402,14 +4480,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group__2"
-    // InternalInlineEdit.g:1630:1: rule__Command__Group__2 : rule__Command__Group__2__Impl ;
+    // InternalInlineEdit.g:1658:1: rule__Command__Group__2 : rule__Command__Group__2__Impl ;
     public final void rule__Command__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1634:1: ( rule__Command__Group__2__Impl )
-            // InternalInlineEdit.g:1635:2: rule__Command__Group__2__Impl
+            // InternalInlineEdit.g:1662:1: ( rule__Command__Group__2__Impl )
+            // InternalInlineEdit.g:1663:2: rule__Command__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Command__Group__2__Impl();
@@ -4435,21 +4513,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group__2__Impl"
-    // InternalInlineEdit.g:1641:1: rule__Command__Group__2__Impl : ( ( rule__Command__CodeAssignment_2 ) ) ;
+    // InternalInlineEdit.g:1669:1: rule__Command__Group__2__Impl : ( ( rule__Command__CodeAssignment_2 ) ) ;
     public final void rule__Command__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1645:1: ( ( ( rule__Command__CodeAssignment_2 ) ) )
-            // InternalInlineEdit.g:1646:1: ( ( rule__Command__CodeAssignment_2 ) )
+            // InternalInlineEdit.g:1673:1: ( ( ( rule__Command__CodeAssignment_2 ) ) )
+            // InternalInlineEdit.g:1674:1: ( ( rule__Command__CodeAssignment_2 ) )
             {
-            // InternalInlineEdit.g:1646:1: ( ( rule__Command__CodeAssignment_2 ) )
-            // InternalInlineEdit.g:1647:1: ( rule__Command__CodeAssignment_2 )
+            // InternalInlineEdit.g:1674:1: ( ( rule__Command__CodeAssignment_2 ) )
+            // InternalInlineEdit.g:1675:1: ( rule__Command__CodeAssignment_2 )
             {
              before(grammarAccess.getCommandAccess().getCodeAssignment_2()); 
-            // InternalInlineEdit.g:1648:1: ( rule__Command__CodeAssignment_2 )
-            // InternalInlineEdit.g:1648:2: rule__Command__CodeAssignment_2
+            // InternalInlineEdit.g:1676:1: ( rule__Command__CodeAssignment_2 )
+            // InternalInlineEdit.g:1676:2: rule__Command__CodeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Command__CodeAssignment_2();
@@ -4482,14 +4560,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group_0__0"
-    // InternalInlineEdit.g:1664:1: rule__Command__Group_0__0 : rule__Command__Group_0__0__Impl rule__Command__Group_0__1 ;
+    // InternalInlineEdit.g:1692:1: rule__Command__Group_0__0 : rule__Command__Group_0__0__Impl rule__Command__Group_0__1 ;
     public final void rule__Command__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1668:1: ( rule__Command__Group_0__0__Impl rule__Command__Group_0__1 )
-            // InternalInlineEdit.g:1669:2: rule__Command__Group_0__0__Impl rule__Command__Group_0__1
+            // InternalInlineEdit.g:1696:1: ( rule__Command__Group_0__0__Impl rule__Command__Group_0__1 )
+            // InternalInlineEdit.g:1697:2: rule__Command__Group_0__0__Impl rule__Command__Group_0__1
             {
             pushFollow(FOLLOW_5);
             rule__Command__Group_0__0__Impl();
@@ -4520,17 +4598,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group_0__0__Impl"
-    // InternalInlineEdit.g:1676:1: rule__Command__Group_0__0__Impl : ( '[' ) ;
+    // InternalInlineEdit.g:1704:1: rule__Command__Group_0__0__Impl : ( '[' ) ;
     public final void rule__Command__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1680:1: ( ( '[' ) )
-            // InternalInlineEdit.g:1681:1: ( '[' )
+            // InternalInlineEdit.g:1708:1: ( ( '[' ) )
+            // InternalInlineEdit.g:1709:1: ( '[' )
             {
-            // InternalInlineEdit.g:1681:1: ( '[' )
-            // InternalInlineEdit.g:1682:1: '['
+            // InternalInlineEdit.g:1709:1: ( '[' )
+            // InternalInlineEdit.g:1710:1: '['
             {
              before(grammarAccess.getCommandAccess().getLeftSquareBracketKeyword_0_0()); 
             match(input,12,FOLLOW_2); 
@@ -4557,14 +4635,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group_0__1"
-    // InternalInlineEdit.g:1695:1: rule__Command__Group_0__1 : rule__Command__Group_0__1__Impl rule__Command__Group_0__2 ;
+    // InternalInlineEdit.g:1723:1: rule__Command__Group_0__1 : rule__Command__Group_0__1__Impl rule__Command__Group_0__2 ;
     public final void rule__Command__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1699:1: ( rule__Command__Group_0__1__Impl rule__Command__Group_0__2 )
-            // InternalInlineEdit.g:1700:2: rule__Command__Group_0__1__Impl rule__Command__Group_0__2
+            // InternalInlineEdit.g:1727:1: ( rule__Command__Group_0__1__Impl rule__Command__Group_0__2 )
+            // InternalInlineEdit.g:1728:2: rule__Command__Group_0__1__Impl rule__Command__Group_0__2
             {
             pushFollow(FOLLOW_6);
             rule__Command__Group_0__1__Impl();
@@ -4595,21 +4673,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group_0__1__Impl"
-    // InternalInlineEdit.g:1707:1: rule__Command__Group_0__1__Impl : ( ( rule__Command__GuardAssignment_0_1 ) ) ;
+    // InternalInlineEdit.g:1735:1: rule__Command__Group_0__1__Impl : ( ( rule__Command__GuardAssignment_0_1 ) ) ;
     public final void rule__Command__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1711:1: ( ( ( rule__Command__GuardAssignment_0_1 ) ) )
-            // InternalInlineEdit.g:1712:1: ( ( rule__Command__GuardAssignment_0_1 ) )
+            // InternalInlineEdit.g:1739:1: ( ( ( rule__Command__GuardAssignment_0_1 ) ) )
+            // InternalInlineEdit.g:1740:1: ( ( rule__Command__GuardAssignment_0_1 ) )
             {
-            // InternalInlineEdit.g:1712:1: ( ( rule__Command__GuardAssignment_0_1 ) )
-            // InternalInlineEdit.g:1713:1: ( rule__Command__GuardAssignment_0_1 )
+            // InternalInlineEdit.g:1740:1: ( ( rule__Command__GuardAssignment_0_1 ) )
+            // InternalInlineEdit.g:1741:1: ( rule__Command__GuardAssignment_0_1 )
             {
              before(grammarAccess.getCommandAccess().getGuardAssignment_0_1()); 
-            // InternalInlineEdit.g:1714:1: ( rule__Command__GuardAssignment_0_1 )
-            // InternalInlineEdit.g:1714:2: rule__Command__GuardAssignment_0_1
+            // InternalInlineEdit.g:1742:1: ( rule__Command__GuardAssignment_0_1 )
+            // InternalInlineEdit.g:1742:2: rule__Command__GuardAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__Command__GuardAssignment_0_1();
@@ -4642,14 +4720,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group_0__2"
-    // InternalInlineEdit.g:1724:1: rule__Command__Group_0__2 : rule__Command__Group_0__2__Impl ;
+    // InternalInlineEdit.g:1752:1: rule__Command__Group_0__2 : rule__Command__Group_0__2__Impl ;
     public final void rule__Command__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1728:1: ( rule__Command__Group_0__2__Impl )
-            // InternalInlineEdit.g:1729:2: rule__Command__Group_0__2__Impl
+            // InternalInlineEdit.g:1756:1: ( rule__Command__Group_0__2__Impl )
+            // InternalInlineEdit.g:1757:2: rule__Command__Group_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Command__Group_0__2__Impl();
@@ -4675,17 +4753,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__Group_0__2__Impl"
-    // InternalInlineEdit.g:1735:1: rule__Command__Group_0__2__Impl : ( ']' ) ;
+    // InternalInlineEdit.g:1763:1: rule__Command__Group_0__2__Impl : ( ']' ) ;
     public final void rule__Command__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1739:1: ( ( ']' ) )
-            // InternalInlineEdit.g:1740:1: ( ']' )
+            // InternalInlineEdit.g:1767:1: ( ( ']' ) )
+            // InternalInlineEdit.g:1768:1: ( ']' )
             {
-            // InternalInlineEdit.g:1740:1: ( ']' )
-            // InternalInlineEdit.g:1741:1: ']'
+            // InternalInlineEdit.g:1768:1: ( ']' )
+            // InternalInlineEdit.g:1769:1: ']'
             {
              before(grammarAccess.getCommandAccess().getRightSquareBracketKeyword_0_2()); 
             match(input,13,FOLLOW_2); 
@@ -4712,14 +4790,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Constant__Group__0"
-    // InternalInlineEdit.g:1760:1: rule__Constant__Group__0 : rule__Constant__Group__0__Impl rule__Constant__Group__1 ;
+    // InternalInlineEdit.g:1788:1: rule__Constant__Group__0 : rule__Constant__Group__0__Impl rule__Constant__Group__1 ;
     public final void rule__Constant__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1764:1: ( rule__Constant__Group__0__Impl rule__Constant__Group__1 )
-            // InternalInlineEdit.g:1765:2: rule__Constant__Group__0__Impl rule__Constant__Group__1
+            // InternalInlineEdit.g:1792:1: ( rule__Constant__Group__0__Impl rule__Constant__Group__1 )
+            // InternalInlineEdit.g:1793:2: rule__Constant__Group__0__Impl rule__Constant__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__Constant__Group__0__Impl();
@@ -4750,21 +4828,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Constant__Group__0__Impl"
-    // InternalInlineEdit.g:1772:1: rule__Constant__Group__0__Impl : ( ( rule__Constant__NameAssignment_0 ) ) ;
+    // InternalInlineEdit.g:1800:1: rule__Constant__Group__0__Impl : ( ( rule__Constant__NameAssignment_0 ) ) ;
     public final void rule__Constant__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1776:1: ( ( ( rule__Constant__NameAssignment_0 ) ) )
-            // InternalInlineEdit.g:1777:1: ( ( rule__Constant__NameAssignment_0 ) )
+            // InternalInlineEdit.g:1804:1: ( ( ( rule__Constant__NameAssignment_0 ) ) )
+            // InternalInlineEdit.g:1805:1: ( ( rule__Constant__NameAssignment_0 ) )
             {
-            // InternalInlineEdit.g:1777:1: ( ( rule__Constant__NameAssignment_0 ) )
-            // InternalInlineEdit.g:1778:1: ( rule__Constant__NameAssignment_0 )
+            // InternalInlineEdit.g:1805:1: ( ( rule__Constant__NameAssignment_0 ) )
+            // InternalInlineEdit.g:1806:1: ( rule__Constant__NameAssignment_0 )
             {
              before(grammarAccess.getConstantAccess().getNameAssignment_0()); 
-            // InternalInlineEdit.g:1779:1: ( rule__Constant__NameAssignment_0 )
-            // InternalInlineEdit.g:1779:2: rule__Constant__NameAssignment_0
+            // InternalInlineEdit.g:1807:1: ( rule__Constant__NameAssignment_0 )
+            // InternalInlineEdit.g:1807:2: rule__Constant__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Constant__NameAssignment_0();
@@ -4797,14 +4875,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Constant__Group__1"
-    // InternalInlineEdit.g:1789:1: rule__Constant__Group__1 : rule__Constant__Group__1__Impl ;
+    // InternalInlineEdit.g:1817:1: rule__Constant__Group__1 : rule__Constant__Group__1__Impl ;
     public final void rule__Constant__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1793:1: ( rule__Constant__Group__1__Impl )
-            // InternalInlineEdit.g:1794:2: rule__Constant__Group__1__Impl
+            // InternalInlineEdit.g:1821:1: ( rule__Constant__Group__1__Impl )
+            // InternalInlineEdit.g:1822:2: rule__Constant__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Constant__Group__1__Impl();
@@ -4830,21 +4908,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Constant__Group__1__Impl"
-    // InternalInlineEdit.g:1800:1: rule__Constant__Group__1__Impl : ( ( rule__Constant__ValueAssignment_1 ) ) ;
+    // InternalInlineEdit.g:1828:1: rule__Constant__Group__1__Impl : ( ( rule__Constant__ValueAssignment_1 ) ) ;
     public final void rule__Constant__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1804:1: ( ( ( rule__Constant__ValueAssignment_1 ) ) )
-            // InternalInlineEdit.g:1805:1: ( ( rule__Constant__ValueAssignment_1 ) )
+            // InternalInlineEdit.g:1832:1: ( ( ( rule__Constant__ValueAssignment_1 ) ) )
+            // InternalInlineEdit.g:1833:1: ( ( rule__Constant__ValueAssignment_1 ) )
             {
-            // InternalInlineEdit.g:1805:1: ( ( rule__Constant__ValueAssignment_1 ) )
-            // InternalInlineEdit.g:1806:1: ( rule__Constant__ValueAssignment_1 )
+            // InternalInlineEdit.g:1833:1: ( ( rule__Constant__ValueAssignment_1 ) )
+            // InternalInlineEdit.g:1834:1: ( rule__Constant__ValueAssignment_1 )
             {
              before(grammarAccess.getConstantAccess().getValueAssignment_1()); 
-            // InternalInlineEdit.g:1807:1: ( rule__Constant__ValueAssignment_1 )
-            // InternalInlineEdit.g:1807:2: rule__Constant__ValueAssignment_1
+            // InternalInlineEdit.g:1835:1: ( rule__Constant__ValueAssignment_1 )
+            // InternalInlineEdit.g:1835:2: rule__Constant__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Constant__ValueAssignment_1();
@@ -4877,14 +4955,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__0"
-    // InternalInlineEdit.g:1821:1: rule__State__Group__0 : rule__State__Group__0__Impl rule__State__Group__1 ;
+    // InternalInlineEdit.g:1849:1: rule__State__Group__0 : rule__State__Group__0__Impl rule__State__Group__1 ;
     public final void rule__State__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1825:1: ( rule__State__Group__0__Impl rule__State__Group__1 )
-            // InternalInlineEdit.g:1826:2: rule__State__Group__0__Impl rule__State__Group__1
+            // InternalInlineEdit.g:1853:1: ( rule__State__Group__0__Impl rule__State__Group__1 )
+            // InternalInlineEdit.g:1854:2: rule__State__Group__0__Impl rule__State__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__State__Group__0__Impl();
@@ -4915,17 +4993,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__0__Impl"
-    // InternalInlineEdit.g:1833:1: rule__State__Group__0__Impl : ( 'state' ) ;
+    // InternalInlineEdit.g:1861:1: rule__State__Group__0__Impl : ( 'state' ) ;
     public final void rule__State__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1837:1: ( ( 'state' ) )
-            // InternalInlineEdit.g:1838:1: ( 'state' )
+            // InternalInlineEdit.g:1865:1: ( ( 'state' ) )
+            // InternalInlineEdit.g:1866:1: ( 'state' )
             {
-            // InternalInlineEdit.g:1838:1: ( 'state' )
-            // InternalInlineEdit.g:1839:1: 'state'
+            // InternalInlineEdit.g:1866:1: ( 'state' )
+            // InternalInlineEdit.g:1867:1: 'state'
             {
              before(grammarAccess.getStateAccess().getStateKeyword_0()); 
             match(input,20,FOLLOW_2); 
@@ -4952,14 +5030,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__1"
-    // InternalInlineEdit.g:1852:1: rule__State__Group__1 : rule__State__Group__1__Impl rule__State__Group__2 ;
+    // InternalInlineEdit.g:1880:1: rule__State__Group__1 : rule__State__Group__1__Impl rule__State__Group__2 ;
     public final void rule__State__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1856:1: ( rule__State__Group__1__Impl rule__State__Group__2 )
-            // InternalInlineEdit.g:1857:2: rule__State__Group__1__Impl rule__State__Group__2
+            // InternalInlineEdit.g:1884:1: ( rule__State__Group__1__Impl rule__State__Group__2 )
+            // InternalInlineEdit.g:1885:2: rule__State__Group__1__Impl rule__State__Group__2
             {
             pushFollow(FOLLOW_16);
             rule__State__Group__1__Impl();
@@ -4990,21 +5068,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__1__Impl"
-    // InternalInlineEdit.g:1864:1: rule__State__Group__1__Impl : ( ( rule__State__NameAssignment_1 ) ) ;
+    // InternalInlineEdit.g:1892:1: rule__State__Group__1__Impl : ( ( rule__State__NameAssignment_1 ) ) ;
     public final void rule__State__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1868:1: ( ( ( rule__State__NameAssignment_1 ) ) )
-            // InternalInlineEdit.g:1869:1: ( ( rule__State__NameAssignment_1 ) )
+            // InternalInlineEdit.g:1896:1: ( ( ( rule__State__NameAssignment_1 ) ) )
+            // InternalInlineEdit.g:1897:1: ( ( rule__State__NameAssignment_1 ) )
             {
-            // InternalInlineEdit.g:1869:1: ( ( rule__State__NameAssignment_1 ) )
-            // InternalInlineEdit.g:1870:1: ( rule__State__NameAssignment_1 )
+            // InternalInlineEdit.g:1897:1: ( ( rule__State__NameAssignment_1 ) )
+            // InternalInlineEdit.g:1898:1: ( rule__State__NameAssignment_1 )
             {
              before(grammarAccess.getStateAccess().getNameAssignment_1()); 
-            // InternalInlineEdit.g:1871:1: ( rule__State__NameAssignment_1 )
-            // InternalInlineEdit.g:1871:2: rule__State__NameAssignment_1
+            // InternalInlineEdit.g:1899:1: ( rule__State__NameAssignment_1 )
+            // InternalInlineEdit.g:1899:2: rule__State__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__State__NameAssignment_1();
@@ -5037,14 +5115,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__2"
-    // InternalInlineEdit.g:1881:1: rule__State__Group__2 : rule__State__Group__2__Impl rule__State__Group__3 ;
+    // InternalInlineEdit.g:1909:1: rule__State__Group__2 : rule__State__Group__2__Impl rule__State__Group__3 ;
     public final void rule__State__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1885:1: ( rule__State__Group__2__Impl rule__State__Group__3 )
-            // InternalInlineEdit.g:1886:2: rule__State__Group__2__Impl rule__State__Group__3
+            // InternalInlineEdit.g:1913:1: ( rule__State__Group__2__Impl rule__State__Group__3 )
+            // InternalInlineEdit.g:1914:2: rule__State__Group__2__Impl rule__State__Group__3
             {
             pushFollow(FOLLOW_16);
             rule__State__Group__2__Impl();
@@ -5075,20 +5153,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__2__Impl"
-    // InternalInlineEdit.g:1893:1: rule__State__Group__2__Impl : ( ( rule__State__Group_2__0 )? ) ;
+    // InternalInlineEdit.g:1921:1: rule__State__Group__2__Impl : ( ( rule__State__Group_2__0 )? ) ;
     public final void rule__State__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1897:1: ( ( ( rule__State__Group_2__0 )? ) )
-            // InternalInlineEdit.g:1898:1: ( ( rule__State__Group_2__0 )? )
+            // InternalInlineEdit.g:1925:1: ( ( ( rule__State__Group_2__0 )? ) )
+            // InternalInlineEdit.g:1926:1: ( ( rule__State__Group_2__0 )? )
             {
-            // InternalInlineEdit.g:1898:1: ( ( rule__State__Group_2__0 )? )
-            // InternalInlineEdit.g:1899:1: ( rule__State__Group_2__0 )?
+            // InternalInlineEdit.g:1926:1: ( ( rule__State__Group_2__0 )? )
+            // InternalInlineEdit.g:1927:1: ( rule__State__Group_2__0 )?
             {
              before(grammarAccess.getStateAccess().getGroup_2()); 
-            // InternalInlineEdit.g:1900:1: ( rule__State__Group_2__0 )?
+            // InternalInlineEdit.g:1928:1: ( rule__State__Group_2__0 )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -5097,7 +5175,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt16) {
                 case 1 :
-                    // InternalInlineEdit.g:1900:2: rule__State__Group_2__0
+                    // InternalInlineEdit.g:1928:2: rule__State__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__State__Group_2__0();
@@ -5133,14 +5211,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__3"
-    // InternalInlineEdit.g:1910:1: rule__State__Group__3 : rule__State__Group__3__Impl rule__State__Group__4 ;
+    // InternalInlineEdit.g:1938:1: rule__State__Group__3 : rule__State__Group__3__Impl rule__State__Group__4 ;
     public final void rule__State__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1914:1: ( rule__State__Group__3__Impl rule__State__Group__4 )
-            // InternalInlineEdit.g:1915:2: rule__State__Group__3__Impl rule__State__Group__4
+            // InternalInlineEdit.g:1942:1: ( rule__State__Group__3__Impl rule__State__Group__4 )
+            // InternalInlineEdit.g:1943:2: rule__State__Group__3__Impl rule__State__Group__4
             {
             pushFollow(FOLLOW_16);
             rule__State__Group__3__Impl();
@@ -5171,20 +5249,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__3__Impl"
-    // InternalInlineEdit.g:1922:1: rule__State__Group__3__Impl : ( ( rule__State__Group_3__0 )? ) ;
+    // InternalInlineEdit.g:1950:1: rule__State__Group__3__Impl : ( ( rule__State__Group_3__0 )? ) ;
     public final void rule__State__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1926:1: ( ( ( rule__State__Group_3__0 )? ) )
-            // InternalInlineEdit.g:1927:1: ( ( rule__State__Group_3__0 )? )
+            // InternalInlineEdit.g:1954:1: ( ( ( rule__State__Group_3__0 )? ) )
+            // InternalInlineEdit.g:1955:1: ( ( rule__State__Group_3__0 )? )
             {
-            // InternalInlineEdit.g:1927:1: ( ( rule__State__Group_3__0 )? )
-            // InternalInlineEdit.g:1928:1: ( rule__State__Group_3__0 )?
+            // InternalInlineEdit.g:1955:1: ( ( rule__State__Group_3__0 )? )
+            // InternalInlineEdit.g:1956:1: ( rule__State__Group_3__0 )?
             {
              before(grammarAccess.getStateAccess().getGroup_3()); 
-            // InternalInlineEdit.g:1929:1: ( rule__State__Group_3__0 )?
+            // InternalInlineEdit.g:1957:1: ( rule__State__Group_3__0 )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -5193,7 +5271,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             }
             switch (alt17) {
                 case 1 :
-                    // InternalInlineEdit.g:1929:2: rule__State__Group_3__0
+                    // InternalInlineEdit.g:1957:2: rule__State__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__State__Group_3__0();
@@ -5229,14 +5307,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__4"
-    // InternalInlineEdit.g:1939:1: rule__State__Group__4 : rule__State__Group__4__Impl rule__State__Group__5 ;
+    // InternalInlineEdit.g:1967:1: rule__State__Group__4 : rule__State__Group__4__Impl rule__State__Group__5 ;
     public final void rule__State__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1943:1: ( rule__State__Group__4__Impl rule__State__Group__5 )
-            // InternalInlineEdit.g:1944:2: rule__State__Group__4__Impl rule__State__Group__5
+            // InternalInlineEdit.g:1971:1: ( rule__State__Group__4__Impl rule__State__Group__5 )
+            // InternalInlineEdit.g:1972:2: rule__State__Group__4__Impl rule__State__Group__5
             {
             pushFollow(FOLLOW_16);
             rule__State__Group__4__Impl();
@@ -5267,20 +5345,20 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__4__Impl"
-    // InternalInlineEdit.g:1951:1: rule__State__Group__4__Impl : ( ( rule__State__TransitionsAssignment_4 )* ) ;
+    // InternalInlineEdit.g:1979:1: rule__State__Group__4__Impl : ( ( rule__State__TransitionsAssignment_4 )* ) ;
     public final void rule__State__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1955:1: ( ( ( rule__State__TransitionsAssignment_4 )* ) )
-            // InternalInlineEdit.g:1956:1: ( ( rule__State__TransitionsAssignment_4 )* )
+            // InternalInlineEdit.g:1983:1: ( ( ( rule__State__TransitionsAssignment_4 )* ) )
+            // InternalInlineEdit.g:1984:1: ( ( rule__State__TransitionsAssignment_4 )* )
             {
-            // InternalInlineEdit.g:1956:1: ( ( rule__State__TransitionsAssignment_4 )* )
-            // InternalInlineEdit.g:1957:1: ( rule__State__TransitionsAssignment_4 )*
+            // InternalInlineEdit.g:1984:1: ( ( rule__State__TransitionsAssignment_4 )* )
+            // InternalInlineEdit.g:1985:1: ( rule__State__TransitionsAssignment_4 )*
             {
              before(grammarAccess.getStateAccess().getTransitionsAssignment_4()); 
-            // InternalInlineEdit.g:1958:1: ( rule__State__TransitionsAssignment_4 )*
+            // InternalInlineEdit.g:1986:1: ( rule__State__TransitionsAssignment_4 )*
             loop18:
             do {
                 int alt18=2;
@@ -5293,7 +5371,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
                 switch (alt18) {
             	case 1 :
-            	    // InternalInlineEdit.g:1958:2: rule__State__TransitionsAssignment_4
+            	    // InternalInlineEdit.g:1986:2: rule__State__TransitionsAssignment_4
             	    {
             	    pushFollow(FOLLOW_12);
             	    rule__State__TransitionsAssignment_4();
@@ -5332,17 +5410,22 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__5"
-    // InternalInlineEdit.g:1968:1: rule__State__Group__5 : rule__State__Group__5__Impl ;
+    // InternalInlineEdit.g:1996:1: rule__State__Group__5 : rule__State__Group__5__Impl rule__State__Group__6 ;
     public final void rule__State__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1972:1: ( rule__State__Group__5__Impl )
-            // InternalInlineEdit.g:1973:2: rule__State__Group__5__Impl
+            // InternalInlineEdit.g:2000:1: ( rule__State__Group__5__Impl rule__State__Group__6 )
+            // InternalInlineEdit.g:2001:2: rule__State__Group__5__Impl rule__State__Group__6
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_16);
             rule__State__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__State__Group__6();
 
             state._fsp--;
 
@@ -5365,21 +5448,42 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group__5__Impl"
-    // InternalInlineEdit.g:1979:1: rule__State__Group__5__Impl : ( 'end' ) ;
+    // InternalInlineEdit.g:2008:1: rule__State__Group__5__Impl : ( ( rule__State__Group_5__0 )? ) ;
     public final void rule__State__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:1983:1: ( ( 'end' ) )
-            // InternalInlineEdit.g:1984:1: ( 'end' )
+            // InternalInlineEdit.g:2012:1: ( ( ( rule__State__Group_5__0 )? ) )
+            // InternalInlineEdit.g:2013:1: ( ( rule__State__Group_5__0 )? )
             {
-            // InternalInlineEdit.g:1984:1: ( 'end' )
-            // InternalInlineEdit.g:1985:1: 'end'
+            // InternalInlineEdit.g:2013:1: ( ( rule__State__Group_5__0 )? )
+            // InternalInlineEdit.g:2014:1: ( rule__State__Group_5__0 )?
             {
-             before(grammarAccess.getStateAccess().getEndKeyword_5()); 
-            match(input,15,FOLLOW_2); 
-             after(grammarAccess.getStateAccess().getEndKeyword_5()); 
+             before(grammarAccess.getStateAccess().getGroup_5()); 
+            // InternalInlineEdit.g:2015:1: ( rule__State__Group_5__0 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
+
+            if ( (LA19_0==25) ) {
+                alt19=1;
+            }
+            switch (alt19) {
+                case 1 :
+                    // InternalInlineEdit.g:2015:2: rule__State__Group_5__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__State__Group_5__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getStateAccess().getGroup_5()); 
 
             }
 
@@ -5401,15 +5505,85 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__State__Group__5__Impl"
 
 
+    // $ANTLR start "rule__State__Group__6"
+    // InternalInlineEdit.g:2025:1: rule__State__Group__6 : rule__State__Group__6__Impl ;
+    public final void rule__State__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2029:1: ( rule__State__Group__6__Impl )
+            // InternalInlineEdit.g:2030:2: rule__State__Group__6__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__State__Group__6__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__State__Group__6"
+
+
+    // $ANTLR start "rule__State__Group__6__Impl"
+    // InternalInlineEdit.g:2036:1: rule__State__Group__6__Impl : ( 'end' ) ;
+    public final void rule__State__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2040:1: ( ( 'end' ) )
+            // InternalInlineEdit.g:2041:1: ( 'end' )
+            {
+            // InternalInlineEdit.g:2041:1: ( 'end' )
+            // InternalInlineEdit.g:2042:1: 'end'
+            {
+             before(grammarAccess.getStateAccess().getEndKeyword_6()); 
+            match(input,15,FOLLOW_2); 
+             after(grammarAccess.getStateAccess().getEndKeyword_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__State__Group__6__Impl"
+
+
     // $ANTLR start "rule__State__Group_2__0"
-    // InternalInlineEdit.g:2010:1: rule__State__Group_2__0 : rule__State__Group_2__0__Impl rule__State__Group_2__1 ;
+    // InternalInlineEdit.g:2069:1: rule__State__Group_2__0 : rule__State__Group_2__0__Impl rule__State__Group_2__1 ;
     public final void rule__State__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2014:1: ( rule__State__Group_2__0__Impl rule__State__Group_2__1 )
-            // InternalInlineEdit.g:2015:2: rule__State__Group_2__0__Impl rule__State__Group_2__1
+            // InternalInlineEdit.g:2073:1: ( rule__State__Group_2__0__Impl rule__State__Group_2__1 )
+            // InternalInlineEdit.g:2074:2: rule__State__Group_2__0__Impl rule__State__Group_2__1
             {
             pushFollow(FOLLOW_17);
             rule__State__Group_2__0__Impl();
@@ -5440,17 +5614,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_2__0__Impl"
-    // InternalInlineEdit.g:2022:1: rule__State__Group_2__0__Impl : ( 'description' ) ;
+    // InternalInlineEdit.g:2081:1: rule__State__Group_2__0__Impl : ( 'description' ) ;
     public final void rule__State__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2026:1: ( ( 'description' ) )
-            // InternalInlineEdit.g:2027:1: ( 'description' )
+            // InternalInlineEdit.g:2085:1: ( ( 'description' ) )
+            // InternalInlineEdit.g:2086:1: ( 'description' )
             {
-            // InternalInlineEdit.g:2027:1: ( 'description' )
-            // InternalInlineEdit.g:2028:1: 'description'
+            // InternalInlineEdit.g:2086:1: ( 'description' )
+            // InternalInlineEdit.g:2087:1: 'description'
             {
              before(grammarAccess.getStateAccess().getDescriptionKeyword_2_0()); 
             match(input,21,FOLLOW_2); 
@@ -5477,14 +5651,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_2__1"
-    // InternalInlineEdit.g:2041:1: rule__State__Group_2__1 : rule__State__Group_2__1__Impl ;
+    // InternalInlineEdit.g:2100:1: rule__State__Group_2__1 : rule__State__Group_2__1__Impl ;
     public final void rule__State__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2045:1: ( rule__State__Group_2__1__Impl )
-            // InternalInlineEdit.g:2046:2: rule__State__Group_2__1__Impl
+            // InternalInlineEdit.g:2104:1: ( rule__State__Group_2__1__Impl )
+            // InternalInlineEdit.g:2105:2: rule__State__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__State__Group_2__1__Impl();
@@ -5510,21 +5684,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_2__1__Impl"
-    // InternalInlineEdit.g:2052:1: rule__State__Group_2__1__Impl : ( ( rule__State__DescriptionAssignment_2_1 ) ) ;
+    // InternalInlineEdit.g:2111:1: rule__State__Group_2__1__Impl : ( ( rule__State__DescriptionAssignment_2_1 ) ) ;
     public final void rule__State__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2056:1: ( ( ( rule__State__DescriptionAssignment_2_1 ) ) )
-            // InternalInlineEdit.g:2057:1: ( ( rule__State__DescriptionAssignment_2_1 ) )
+            // InternalInlineEdit.g:2115:1: ( ( ( rule__State__DescriptionAssignment_2_1 ) ) )
+            // InternalInlineEdit.g:2116:1: ( ( rule__State__DescriptionAssignment_2_1 ) )
             {
-            // InternalInlineEdit.g:2057:1: ( ( rule__State__DescriptionAssignment_2_1 ) )
-            // InternalInlineEdit.g:2058:1: ( rule__State__DescriptionAssignment_2_1 )
+            // InternalInlineEdit.g:2116:1: ( ( rule__State__DescriptionAssignment_2_1 ) )
+            // InternalInlineEdit.g:2117:1: ( rule__State__DescriptionAssignment_2_1 )
             {
              before(grammarAccess.getStateAccess().getDescriptionAssignment_2_1()); 
-            // InternalInlineEdit.g:2059:1: ( rule__State__DescriptionAssignment_2_1 )
-            // InternalInlineEdit.g:2059:2: rule__State__DescriptionAssignment_2_1
+            // InternalInlineEdit.g:2118:1: ( rule__State__DescriptionAssignment_2_1 )
+            // InternalInlineEdit.g:2118:2: rule__State__DescriptionAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__State__DescriptionAssignment_2_1();
@@ -5557,14 +5731,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_3__0"
-    // InternalInlineEdit.g:2073:1: rule__State__Group_3__0 : rule__State__Group_3__0__Impl rule__State__Group_3__1 ;
+    // InternalInlineEdit.g:2132:1: rule__State__Group_3__0 : rule__State__Group_3__0__Impl rule__State__Group_3__1 ;
     public final void rule__State__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2077:1: ( rule__State__Group_3__0__Impl rule__State__Group_3__1 )
-            // InternalInlineEdit.g:2078:2: rule__State__Group_3__0__Impl rule__State__Group_3__1
+            // InternalInlineEdit.g:2136:1: ( rule__State__Group_3__0__Impl rule__State__Group_3__1 )
+            // InternalInlineEdit.g:2137:2: rule__State__Group_3__0__Impl rule__State__Group_3__1
             {
             pushFollow(FOLLOW_18);
             rule__State__Group_3__0__Impl();
@@ -5595,17 +5769,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_3__0__Impl"
-    // InternalInlineEdit.g:2085:1: rule__State__Group_3__0__Impl : ( 'actions' ) ;
+    // InternalInlineEdit.g:2144:1: rule__State__Group_3__0__Impl : ( 'actions' ) ;
     public final void rule__State__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2089:1: ( ( 'actions' ) )
-            // InternalInlineEdit.g:2090:1: ( 'actions' )
+            // InternalInlineEdit.g:2148:1: ( ( 'actions' ) )
+            // InternalInlineEdit.g:2149:1: ( 'actions' )
             {
-            // InternalInlineEdit.g:2090:1: ( 'actions' )
-            // InternalInlineEdit.g:2091:1: 'actions'
+            // InternalInlineEdit.g:2149:1: ( 'actions' )
+            // InternalInlineEdit.g:2150:1: 'actions'
             {
              before(grammarAccess.getStateAccess().getActionsKeyword_3_0()); 
             match(input,22,FOLLOW_2); 
@@ -5632,14 +5806,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_3__1"
-    // InternalInlineEdit.g:2104:1: rule__State__Group_3__1 : rule__State__Group_3__1__Impl rule__State__Group_3__2 ;
+    // InternalInlineEdit.g:2163:1: rule__State__Group_3__1 : rule__State__Group_3__1__Impl rule__State__Group_3__2 ;
     public final void rule__State__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2108:1: ( rule__State__Group_3__1__Impl rule__State__Group_3__2 )
-            // InternalInlineEdit.g:2109:2: rule__State__Group_3__1__Impl rule__State__Group_3__2
+            // InternalInlineEdit.g:2167:1: ( rule__State__Group_3__1__Impl rule__State__Group_3__2 )
+            // InternalInlineEdit.g:2168:2: rule__State__Group_3__1__Impl rule__State__Group_3__2
             {
             pushFollow(FOLLOW_3);
             rule__State__Group_3__1__Impl();
@@ -5670,17 +5844,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_3__1__Impl"
-    // InternalInlineEdit.g:2116:1: rule__State__Group_3__1__Impl : ( '{' ) ;
+    // InternalInlineEdit.g:2175:1: rule__State__Group_3__1__Impl : ( '{' ) ;
     public final void rule__State__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2120:1: ( ( '{' ) )
-            // InternalInlineEdit.g:2121:1: ( '{' )
+            // InternalInlineEdit.g:2179:1: ( ( '{' ) )
+            // InternalInlineEdit.g:2180:1: ( '{' )
             {
-            // InternalInlineEdit.g:2121:1: ( '{' )
-            // InternalInlineEdit.g:2122:1: '{'
+            // InternalInlineEdit.g:2180:1: ( '{' )
+            // InternalInlineEdit.g:2181:1: '{'
             {
              before(grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3_1()); 
             match(input,23,FOLLOW_2); 
@@ -5707,14 +5881,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_3__2"
-    // InternalInlineEdit.g:2135:1: rule__State__Group_3__2 : rule__State__Group_3__2__Impl rule__State__Group_3__3 ;
+    // InternalInlineEdit.g:2194:1: rule__State__Group_3__2 : rule__State__Group_3__2__Impl rule__State__Group_3__3 ;
     public final void rule__State__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2139:1: ( rule__State__Group_3__2__Impl rule__State__Group_3__3 )
-            // InternalInlineEdit.g:2140:2: rule__State__Group_3__2__Impl rule__State__Group_3__3
+            // InternalInlineEdit.g:2198:1: ( rule__State__Group_3__2__Impl rule__State__Group_3__3 )
+            // InternalInlineEdit.g:2199:2: rule__State__Group_3__2__Impl rule__State__Group_3__3
             {
             pushFollow(FOLLOW_19);
             rule__State__Group_3__2__Impl();
@@ -5745,24 +5919,24 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_3__2__Impl"
-    // InternalInlineEdit.g:2147:1: rule__State__Group_3__2__Impl : ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) ) ;
+    // InternalInlineEdit.g:2206:1: rule__State__Group_3__2__Impl : ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) ) ;
     public final void rule__State__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2151:1: ( ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) ) )
-            // InternalInlineEdit.g:2152:1: ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) )
+            // InternalInlineEdit.g:2210:1: ( ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) ) )
+            // InternalInlineEdit.g:2211:1: ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) )
             {
-            // InternalInlineEdit.g:2152:1: ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) )
-            // InternalInlineEdit.g:2153:1: ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* )
+            // InternalInlineEdit.g:2211:1: ( ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* ) )
+            // InternalInlineEdit.g:2212:1: ( ( rule__State__ActionsAssignment_3_2 ) ) ( ( rule__State__ActionsAssignment_3_2 )* )
             {
-            // InternalInlineEdit.g:2153:1: ( ( rule__State__ActionsAssignment_3_2 ) )
-            // InternalInlineEdit.g:2154:1: ( rule__State__ActionsAssignment_3_2 )
+            // InternalInlineEdit.g:2212:1: ( ( rule__State__ActionsAssignment_3_2 ) )
+            // InternalInlineEdit.g:2213:1: ( rule__State__ActionsAssignment_3_2 )
             {
              before(grammarAccess.getStateAccess().getActionsAssignment_3_2()); 
-            // InternalInlineEdit.g:2155:1: ( rule__State__ActionsAssignment_3_2 )
-            // InternalInlineEdit.g:2155:2: rule__State__ActionsAssignment_3_2
+            // InternalInlineEdit.g:2214:1: ( rule__State__ActionsAssignment_3_2 )
+            // InternalInlineEdit.g:2214:2: rule__State__ActionsAssignment_3_2
             {
             pushFollow(FOLLOW_10);
             rule__State__ActionsAssignment_3_2();
@@ -5776,24 +5950,24 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
             }
 
-            // InternalInlineEdit.g:2158:1: ( ( rule__State__ActionsAssignment_3_2 )* )
-            // InternalInlineEdit.g:2159:1: ( rule__State__ActionsAssignment_3_2 )*
+            // InternalInlineEdit.g:2217:1: ( ( rule__State__ActionsAssignment_3_2 )* )
+            // InternalInlineEdit.g:2218:1: ( rule__State__ActionsAssignment_3_2 )*
             {
              before(grammarAccess.getStateAccess().getActionsAssignment_3_2()); 
-            // InternalInlineEdit.g:2160:1: ( rule__State__ActionsAssignment_3_2 )*
-            loop19:
+            // InternalInlineEdit.g:2219:1: ( rule__State__ActionsAssignment_3_2 )*
+            loop20:
             do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                if ( (LA19_0==RULE_ID) ) {
-                    alt19=1;
+                if ( (LA20_0==RULE_ID) ) {
+                    alt20=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt20) {
             	case 1 :
-            	    // InternalInlineEdit.g:2160:2: rule__State__ActionsAssignment_3_2
+            	    // InternalInlineEdit.g:2219:2: rule__State__ActionsAssignment_3_2
             	    {
             	    pushFollow(FOLLOW_10);
             	    rule__State__ActionsAssignment_3_2();
@@ -5805,7 +5979,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop19;
+            	    break loop20;
                 }
             } while (true);
 
@@ -5835,14 +6009,14 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_3__3"
-    // InternalInlineEdit.g:2171:1: rule__State__Group_3__3 : rule__State__Group_3__3__Impl ;
+    // InternalInlineEdit.g:2230:1: rule__State__Group_3__3 : rule__State__Group_3__3__Impl ;
     public final void rule__State__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2175:1: ( rule__State__Group_3__3__Impl )
-            // InternalInlineEdit.g:2176:2: rule__State__Group_3__3__Impl
+            // InternalInlineEdit.g:2234:1: ( rule__State__Group_3__3__Impl )
+            // InternalInlineEdit.g:2235:2: rule__State__Group_3__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__State__Group_3__3__Impl();
@@ -5868,17 +6042,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__Group_3__3__Impl"
-    // InternalInlineEdit.g:2182:1: rule__State__Group_3__3__Impl : ( '}' ) ;
+    // InternalInlineEdit.g:2241:1: rule__State__Group_3__3__Impl : ( '}' ) ;
     public final void rule__State__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2186:1: ( ( '}' ) )
-            // InternalInlineEdit.g:2187:1: ( '}' )
+            // InternalInlineEdit.g:2245:1: ( ( '}' ) )
+            // InternalInlineEdit.g:2246:1: ( '}' )
             {
-            // InternalInlineEdit.g:2187:1: ( '}' )
-            // InternalInlineEdit.g:2188:1: '}'
+            // InternalInlineEdit.g:2246:1: ( '}' )
+            // InternalInlineEdit.g:2247:1: '}'
             {
              before(grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3()); 
             match(input,24,FOLLOW_2); 
@@ -5904,18 +6078,356 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__State__Group_3__3__Impl"
 
 
+    // $ANTLR start "rule__State__Group_5__0"
+    // InternalInlineEdit.g:2268:1: rule__State__Group_5__0 : rule__State__Group_5__0__Impl rule__State__Group_5__1 ;
+    public final void rule__State__Group_5__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2272:1: ( rule__State__Group_5__0__Impl rule__State__Group_5__1 )
+            // InternalInlineEdit.g:2273:2: rule__State__Group_5__0__Impl rule__State__Group_5__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__State__Group_5__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__State__Group_5__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__State__Group_5__0"
+
+
+    // $ANTLR start "rule__State__Group_5__0__Impl"
+    // InternalInlineEdit.g:2280:1: rule__State__Group_5__0__Impl : ( 'things' ) ;
+    public final void rule__State__Group_5__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2284:1: ( ( 'things' ) )
+            // InternalInlineEdit.g:2285:1: ( 'things' )
+            {
+            // InternalInlineEdit.g:2285:1: ( 'things' )
+            // InternalInlineEdit.g:2286:1: 'things'
+            {
+             before(grammarAccess.getStateAccess().getThingsKeyword_5_0()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getStateAccess().getThingsKeyword_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__State__Group_5__0__Impl"
+
+
+    // $ANTLR start "rule__State__Group_5__1"
+    // InternalInlineEdit.g:2299:1: rule__State__Group_5__1 : rule__State__Group_5__1__Impl ;
+    public final void rule__State__Group_5__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2303:1: ( rule__State__Group_5__1__Impl )
+            // InternalInlineEdit.g:2304:2: rule__State__Group_5__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__State__Group_5__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__State__Group_5__1"
+
+
+    // $ANTLR start "rule__State__Group_5__1__Impl"
+    // InternalInlineEdit.g:2310:1: rule__State__Group_5__1__Impl : ( ( rule__State__ThingsAssignment_5_1 )* ) ;
+    public final void rule__State__Group_5__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2314:1: ( ( ( rule__State__ThingsAssignment_5_1 )* ) )
+            // InternalInlineEdit.g:2315:1: ( ( rule__State__ThingsAssignment_5_1 )* )
+            {
+            // InternalInlineEdit.g:2315:1: ( ( rule__State__ThingsAssignment_5_1 )* )
+            // InternalInlineEdit.g:2316:1: ( rule__State__ThingsAssignment_5_1 )*
+            {
+             before(grammarAccess.getStateAccess().getThingsAssignment_5_1()); 
+            // InternalInlineEdit.g:2317:1: ( rule__State__ThingsAssignment_5_1 )*
+            loop21:
+            do {
+                int alt21=2;
+                int LA21_0 = input.LA(1);
+
+                if ( (LA21_0==RULE_ID) ) {
+                    alt21=1;
+                }
+
+
+                switch (alt21) {
+            	case 1 :
+            	    // InternalInlineEdit.g:2317:2: rule__State__ThingsAssignment_5_1
+            	    {
+            	    pushFollow(FOLLOW_10);
+            	    rule__State__ThingsAssignment_5_1();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop21;
+                }
+            } while (true);
+
+             after(grammarAccess.getStateAccess().getThingsAssignment_5_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__State__Group_5__1__Impl"
+
+
+    // $ANTLR start "rule__Thing__Group__0"
+    // InternalInlineEdit.g:2331:1: rule__Thing__Group__0 : rule__Thing__Group__0__Impl rule__Thing__Group__1 ;
+    public final void rule__Thing__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2335:1: ( rule__Thing__Group__0__Impl rule__Thing__Group__1 )
+            // InternalInlineEdit.g:2336:2: rule__Thing__Group__0__Impl rule__Thing__Group__1
+            {
+            pushFollow(FOLLOW_5);
+            rule__Thing__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Thing__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Thing__Group__0"
+
+
+    // $ANTLR start "rule__Thing__Group__0__Impl"
+    // InternalInlineEdit.g:2343:1: rule__Thing__Group__0__Impl : ( ( rule__Thing__NameAssignment_0 ) ) ;
+    public final void rule__Thing__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2347:1: ( ( ( rule__Thing__NameAssignment_0 ) ) )
+            // InternalInlineEdit.g:2348:1: ( ( rule__Thing__NameAssignment_0 ) )
+            {
+            // InternalInlineEdit.g:2348:1: ( ( rule__Thing__NameAssignment_0 ) )
+            // InternalInlineEdit.g:2349:1: ( rule__Thing__NameAssignment_0 )
+            {
+             before(grammarAccess.getThingAccess().getNameAssignment_0()); 
+            // InternalInlineEdit.g:2350:1: ( rule__Thing__NameAssignment_0 )
+            // InternalInlineEdit.g:2350:2: rule__Thing__NameAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Thing__NameAssignment_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getThingAccess().getNameAssignment_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Thing__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Thing__Group__1"
+    // InternalInlineEdit.g:2360:1: rule__Thing__Group__1 : rule__Thing__Group__1__Impl ;
+    public final void rule__Thing__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2364:1: ( rule__Thing__Group__1__Impl )
+            // InternalInlineEdit.g:2365:2: rule__Thing__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Thing__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Thing__Group__1"
+
+
+    // $ANTLR start "rule__Thing__Group__1__Impl"
+    // InternalInlineEdit.g:2371:1: rule__Thing__Group__1__Impl : ( ( rule__Thing__GuardAssignment_1 ) ) ;
+    public final void rule__Thing__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2375:1: ( ( ( rule__Thing__GuardAssignment_1 ) ) )
+            // InternalInlineEdit.g:2376:1: ( ( rule__Thing__GuardAssignment_1 ) )
+            {
+            // InternalInlineEdit.g:2376:1: ( ( rule__Thing__GuardAssignment_1 ) )
+            // InternalInlineEdit.g:2377:1: ( rule__Thing__GuardAssignment_1 )
+            {
+             before(grammarAccess.getThingAccess().getGuardAssignment_1()); 
+            // InternalInlineEdit.g:2378:1: ( rule__Thing__GuardAssignment_1 )
+            // InternalInlineEdit.g:2378:2: rule__Thing__GuardAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Thing__GuardAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getThingAccess().getGuardAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Thing__Group__1__Impl"
+
+
     // $ANTLR start "rule__Transition__GuardAssignment_0_1"
-    // InternalInlineEdit.g:2210:1: rule__Transition__GuardAssignment_0_1 : ( ruleGuard ) ;
+    // InternalInlineEdit.g:2393:1: rule__Transition__GuardAssignment_0_1 : ( ruleGuard ) ;
     public final void rule__Transition__GuardAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2214:1: ( ( ruleGuard ) )
-            // InternalInlineEdit.g:2215:1: ( ruleGuard )
+            // InternalInlineEdit.g:2397:1: ( ( ruleGuard ) )
+            // InternalInlineEdit.g:2398:1: ( ruleGuard )
             {
-            // InternalInlineEdit.g:2215:1: ( ruleGuard )
-            // InternalInlineEdit.g:2216:1: ruleGuard
+            // InternalInlineEdit.g:2398:1: ( ruleGuard )
+            // InternalInlineEdit.g:2399:1: ruleGuard
             {
              before(grammarAccess.getTransitionAccess().getGuardGuardParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -5946,21 +6458,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__EventAssignment_1"
-    // InternalInlineEdit.g:2225:1: rule__Transition__EventAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalInlineEdit.g:2408:1: rule__Transition__EventAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__Transition__EventAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2229:1: ( ( ( RULE_ID ) ) )
-            // InternalInlineEdit.g:2230:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2412:1: ( ( ( RULE_ID ) ) )
+            // InternalInlineEdit.g:2413:1: ( ( RULE_ID ) )
             {
-            // InternalInlineEdit.g:2230:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2231:1: ( RULE_ID )
+            // InternalInlineEdit.g:2413:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2414:1: ( RULE_ID )
             {
              before(grammarAccess.getTransitionAccess().getEventEventCrossReference_1_0()); 
-            // InternalInlineEdit.g:2232:1: ( RULE_ID )
-            // InternalInlineEdit.g:2233:1: RULE_ID
+            // InternalInlineEdit.g:2415:1: ( RULE_ID )
+            // InternalInlineEdit.g:2416:1: RULE_ID
             {
              before(grammarAccess.getTransitionAccess().getEventEventIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5991,21 +6503,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__StateAssignment_3"
-    // InternalInlineEdit.g:2244:1: rule__Transition__StateAssignment_3 : ( ( RULE_ID ) ) ;
+    // InternalInlineEdit.g:2427:1: rule__Transition__StateAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__Transition__StateAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2248:1: ( ( ( RULE_ID ) ) )
-            // InternalInlineEdit.g:2249:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2431:1: ( ( ( RULE_ID ) ) )
+            // InternalInlineEdit.g:2432:1: ( ( RULE_ID ) )
             {
-            // InternalInlineEdit.g:2249:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2250:1: ( RULE_ID )
+            // InternalInlineEdit.g:2432:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2433:1: ( RULE_ID )
             {
              before(grammarAccess.getTransitionAccess().getStateStateCrossReference_3_0()); 
-            // InternalInlineEdit.g:2251:1: ( RULE_ID )
-            // InternalInlineEdit.g:2252:1: RULE_ID
+            // InternalInlineEdit.g:2434:1: ( RULE_ID )
+            // InternalInlineEdit.g:2435:1: RULE_ID
             {
              before(grammarAccess.getTransitionAccess().getStateStateIDTerminalRuleCall_3_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6036,17 +6548,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__EventsAssignment_1_1"
-    // InternalInlineEdit.g:2263:1: rule__Statemachine__EventsAssignment_1_1 : ( ruleEvent ) ;
+    // InternalInlineEdit.g:2446:1: rule__Statemachine__EventsAssignment_1_1 : ( ruleEvent ) ;
     public final void rule__Statemachine__EventsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2267:1: ( ( ruleEvent ) )
-            // InternalInlineEdit.g:2268:1: ( ruleEvent )
+            // InternalInlineEdit.g:2450:1: ( ( ruleEvent ) )
+            // InternalInlineEdit.g:2451:1: ( ruleEvent )
             {
-            // InternalInlineEdit.g:2268:1: ( ruleEvent )
-            // InternalInlineEdit.g:2269:1: ruleEvent
+            // InternalInlineEdit.g:2451:1: ( ruleEvent )
+            // InternalInlineEdit.g:2452:1: ruleEvent
             {
              before(grammarAccess.getStatemachineAccess().getEventsEventParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6077,21 +6589,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__ResetEventsAssignment_2_1"
-    // InternalInlineEdit.g:2278:1: rule__Statemachine__ResetEventsAssignment_2_1 : ( ( RULE_ID ) ) ;
+    // InternalInlineEdit.g:2461:1: rule__Statemachine__ResetEventsAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__Statemachine__ResetEventsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2282:1: ( ( ( RULE_ID ) ) )
-            // InternalInlineEdit.g:2283:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2465:1: ( ( ( RULE_ID ) ) )
+            // InternalInlineEdit.g:2466:1: ( ( RULE_ID ) )
             {
-            // InternalInlineEdit.g:2283:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2284:1: ( RULE_ID )
+            // InternalInlineEdit.g:2466:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2467:1: ( RULE_ID )
             {
              before(grammarAccess.getStatemachineAccess().getResetEventsEventCrossReference_2_1_0()); 
-            // InternalInlineEdit.g:2285:1: ( RULE_ID )
-            // InternalInlineEdit.g:2286:1: RULE_ID
+            // InternalInlineEdit.g:2468:1: ( RULE_ID )
+            // InternalInlineEdit.g:2469:1: RULE_ID
             {
              before(grammarAccess.getStatemachineAccess().getResetEventsEventIDTerminalRuleCall_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6122,17 +6634,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__CommandsAssignment_3_1"
-    // InternalInlineEdit.g:2297:1: rule__Statemachine__CommandsAssignment_3_1 : ( ruleCommand ) ;
+    // InternalInlineEdit.g:2480:1: rule__Statemachine__CommandsAssignment_3_1 : ( ruleCommand ) ;
     public final void rule__Statemachine__CommandsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2301:1: ( ( ruleCommand ) )
-            // InternalInlineEdit.g:2302:1: ( ruleCommand )
+            // InternalInlineEdit.g:2484:1: ( ( ruleCommand ) )
+            // InternalInlineEdit.g:2485:1: ( ruleCommand )
             {
-            // InternalInlineEdit.g:2302:1: ( ruleCommand )
-            // InternalInlineEdit.g:2303:1: ruleCommand
+            // InternalInlineEdit.g:2485:1: ( ruleCommand )
+            // InternalInlineEdit.g:2486:1: ruleCommand
             {
              before(grammarAccess.getStatemachineAccess().getCommandsCommandParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6163,17 +6675,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__ConstantsAssignment_4_1"
-    // InternalInlineEdit.g:2312:1: rule__Statemachine__ConstantsAssignment_4_1 : ( ruleConstant ) ;
+    // InternalInlineEdit.g:2495:1: rule__Statemachine__ConstantsAssignment_4_1 : ( ruleConstant ) ;
     public final void rule__Statemachine__ConstantsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2316:1: ( ( ruleConstant ) )
-            // InternalInlineEdit.g:2317:1: ( ruleConstant )
+            // InternalInlineEdit.g:2499:1: ( ( ruleConstant ) )
+            // InternalInlineEdit.g:2500:1: ( ruleConstant )
             {
-            // InternalInlineEdit.g:2317:1: ( ruleConstant )
-            // InternalInlineEdit.g:2318:1: ruleConstant
+            // InternalInlineEdit.g:2500:1: ( ruleConstant )
+            // InternalInlineEdit.g:2501:1: ruleConstant
             {
              before(grammarAccess.getStatemachineAccess().getConstantsConstantParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6204,17 +6716,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Statemachine__StatesAssignment_5"
-    // InternalInlineEdit.g:2327:1: rule__Statemachine__StatesAssignment_5 : ( ruleState ) ;
+    // InternalInlineEdit.g:2510:1: rule__Statemachine__StatesAssignment_5 : ( ruleState ) ;
     public final void rule__Statemachine__StatesAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2331:1: ( ( ruleState ) )
-            // InternalInlineEdit.g:2332:1: ( ruleState )
+            // InternalInlineEdit.g:2514:1: ( ( ruleState ) )
+            // InternalInlineEdit.g:2515:1: ( ruleState )
             {
-            // InternalInlineEdit.g:2332:1: ( ruleState )
-            // InternalInlineEdit.g:2333:1: ruleState
+            // InternalInlineEdit.g:2515:1: ( ruleState )
+            // InternalInlineEdit.g:2516:1: ruleState
             {
              before(grammarAccess.getStatemachineAccess().getStatesStateParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -6245,17 +6757,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__NameAssignment_0"
-    // InternalInlineEdit.g:2342:1: rule__Event__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalInlineEdit.g:2525:1: rule__Event__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Event__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2346:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2347:1: ( RULE_ID )
+            // InternalInlineEdit.g:2529:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2530:1: ( RULE_ID )
             {
-            // InternalInlineEdit.g:2347:1: ( RULE_ID )
-            // InternalInlineEdit.g:2348:1: RULE_ID
+            // InternalInlineEdit.g:2530:1: ( RULE_ID )
+            // InternalInlineEdit.g:2531:1: RULE_ID
             {
              before(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6282,17 +6794,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__CodeAssignment_1"
-    // InternalInlineEdit.g:2357:1: rule__Event__CodeAssignment_1 : ( RULE_INT ) ;
+    // InternalInlineEdit.g:2540:1: rule__Event__CodeAssignment_1 : ( RULE_INT ) ;
     public final void rule__Event__CodeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2361:1: ( ( RULE_INT ) )
-            // InternalInlineEdit.g:2362:1: ( RULE_INT )
+            // InternalInlineEdit.g:2544:1: ( ( RULE_INT ) )
+            // InternalInlineEdit.g:2545:1: ( RULE_INT )
             {
-            // InternalInlineEdit.g:2362:1: ( RULE_INT )
-            // InternalInlineEdit.g:2363:1: RULE_INT
+            // InternalInlineEdit.g:2545:1: ( RULE_INT )
+            // InternalInlineEdit.g:2546:1: RULE_INT
             {
              before(grammarAccess.getEventAccess().getCodeINTTerminalRuleCall_1_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -6319,17 +6831,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Event__GuardAssignment_2_1"
-    // InternalInlineEdit.g:2372:1: rule__Event__GuardAssignment_2_1 : ( ruleGuard ) ;
+    // InternalInlineEdit.g:2555:1: rule__Event__GuardAssignment_2_1 : ( ruleGuard ) ;
     public final void rule__Event__GuardAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2376:1: ( ( ruleGuard ) )
-            // InternalInlineEdit.g:2377:1: ( ruleGuard )
+            // InternalInlineEdit.g:2559:1: ( ( ruleGuard ) )
+            // InternalInlineEdit.g:2560:1: ( ruleGuard )
             {
-            // InternalInlineEdit.g:2377:1: ( ruleGuard )
-            // InternalInlineEdit.g:2378:1: ruleGuard
+            // InternalInlineEdit.g:2560:1: ( ruleGuard )
+            // InternalInlineEdit.g:2561:1: ruleGuard
             {
              before(grammarAccess.getEventAccess().getGuardGuardParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6360,17 +6872,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValueGuard__CondAssignment"
-    // InternalInlineEdit.g:2387:1: rule__ValueGuard__CondAssignment : ( ruleValue ) ;
+    // InternalInlineEdit.g:2570:1: rule__ValueGuard__CondAssignment : ( ruleValue ) ;
     public final void rule__ValueGuard__CondAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2391:1: ( ( ruleValue ) )
-            // InternalInlineEdit.g:2392:1: ( ruleValue )
+            // InternalInlineEdit.g:2574:1: ( ( ruleValue ) )
+            // InternalInlineEdit.g:2575:1: ( ruleValue )
             {
-            // InternalInlineEdit.g:2392:1: ( ruleValue )
-            // InternalInlineEdit.g:2393:1: ruleValue
+            // InternalInlineEdit.g:2575:1: ( ruleValue )
+            // InternalInlineEdit.g:2576:1: ruleValue
             {
              before(grammarAccess.getValueGuardAccess().getCondValueParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -6401,17 +6913,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__MinAssignment_0"
-    // InternalInlineEdit.g:2402:1: rule__RangeGuard__MinAssignment_0 : ( ruleValue ) ;
+    // InternalInlineEdit.g:2585:1: rule__RangeGuard__MinAssignment_0 : ( ruleValue ) ;
     public final void rule__RangeGuard__MinAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2406:1: ( ( ruleValue ) )
-            // InternalInlineEdit.g:2407:1: ( ruleValue )
+            // InternalInlineEdit.g:2589:1: ( ( ruleValue ) )
+            // InternalInlineEdit.g:2590:1: ( ruleValue )
             {
-            // InternalInlineEdit.g:2407:1: ( ruleValue )
-            // InternalInlineEdit.g:2408:1: ruleValue
+            // InternalInlineEdit.g:2590:1: ( ruleValue )
+            // InternalInlineEdit.g:2591:1: ruleValue
             {
              before(grammarAccess.getRangeGuardAccess().getMinValueParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -6442,17 +6954,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__MaxAssignment_2"
-    // InternalInlineEdit.g:2417:1: rule__RangeGuard__MaxAssignment_2 : ( ruleValue ) ;
+    // InternalInlineEdit.g:2600:1: rule__RangeGuard__MaxAssignment_2 : ( ruleValue ) ;
     public final void rule__RangeGuard__MaxAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2421:1: ( ( ruleValue ) )
-            // InternalInlineEdit.g:2422:1: ( ruleValue )
+            // InternalInlineEdit.g:2604:1: ( ( ruleValue ) )
+            // InternalInlineEdit.g:2605:1: ( ruleValue )
             {
-            // InternalInlineEdit.g:2422:1: ( ruleValue )
-            // InternalInlineEdit.g:2423:1: ruleValue
+            // InternalInlineEdit.g:2605:1: ( ruleValue )
+            // InternalInlineEdit.g:2606:1: ruleValue
             {
              before(grammarAccess.getRangeGuardAccess().getMaxValueParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -6483,21 +6995,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ConstantRef__ConstantAssignment"
-    // InternalInlineEdit.g:2432:1: rule__ConstantRef__ConstantAssignment : ( ( RULE_ID ) ) ;
+    // InternalInlineEdit.g:2615:1: rule__ConstantRef__ConstantAssignment : ( ( RULE_ID ) ) ;
     public final void rule__ConstantRef__ConstantAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2436:1: ( ( ( RULE_ID ) ) )
-            // InternalInlineEdit.g:2437:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2619:1: ( ( ( RULE_ID ) ) )
+            // InternalInlineEdit.g:2620:1: ( ( RULE_ID ) )
             {
-            // InternalInlineEdit.g:2437:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2438:1: ( RULE_ID )
+            // InternalInlineEdit.g:2620:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2621:1: ( RULE_ID )
             {
              before(grammarAccess.getConstantRefAccess().getConstantConstantCrossReference_0()); 
-            // InternalInlineEdit.g:2439:1: ( RULE_ID )
-            // InternalInlineEdit.g:2440:1: RULE_ID
+            // InternalInlineEdit.g:2622:1: ( RULE_ID )
+            // InternalInlineEdit.g:2623:1: RULE_ID
             {
              before(grammarAccess.getConstantRefAccess().getConstantConstantIDTerminalRuleCall_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6528,17 +7040,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IntLiteral__ValueAssignment"
-    // InternalInlineEdit.g:2451:1: rule__IntLiteral__ValueAssignment : ( RULE_INT ) ;
+    // InternalInlineEdit.g:2634:1: rule__IntLiteral__ValueAssignment : ( RULE_INT ) ;
     public final void rule__IntLiteral__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2455:1: ( ( RULE_INT ) )
-            // InternalInlineEdit.g:2456:1: ( RULE_INT )
+            // InternalInlineEdit.g:2638:1: ( ( RULE_INT ) )
+            // InternalInlineEdit.g:2639:1: ( RULE_INT )
             {
-            // InternalInlineEdit.g:2456:1: ( RULE_INT )
-            // InternalInlineEdit.g:2457:1: RULE_INT
+            // InternalInlineEdit.g:2639:1: ( RULE_INT )
+            // InternalInlineEdit.g:2640:1: RULE_INT
             {
              before(grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -6565,17 +7077,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__GuardAssignment_0_1"
-    // InternalInlineEdit.g:2466:1: rule__Command__GuardAssignment_0_1 : ( ruleGuard ) ;
+    // InternalInlineEdit.g:2649:1: rule__Command__GuardAssignment_0_1 : ( ruleGuard ) ;
     public final void rule__Command__GuardAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2470:1: ( ( ruleGuard ) )
-            // InternalInlineEdit.g:2471:1: ( ruleGuard )
+            // InternalInlineEdit.g:2653:1: ( ( ruleGuard ) )
+            // InternalInlineEdit.g:2654:1: ( ruleGuard )
             {
-            // InternalInlineEdit.g:2471:1: ( ruleGuard )
-            // InternalInlineEdit.g:2472:1: ruleGuard
+            // InternalInlineEdit.g:2654:1: ( ruleGuard )
+            // InternalInlineEdit.g:2655:1: ruleGuard
             {
              before(grammarAccess.getCommandAccess().getGuardGuardParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6606,17 +7118,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__NameAssignment_1"
-    // InternalInlineEdit.g:2481:1: rule__Command__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalInlineEdit.g:2664:1: rule__Command__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Command__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2485:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2486:1: ( RULE_ID )
+            // InternalInlineEdit.g:2668:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2669:1: ( RULE_ID )
             {
-            // InternalInlineEdit.g:2486:1: ( RULE_ID )
-            // InternalInlineEdit.g:2487:1: RULE_ID
+            // InternalInlineEdit.g:2669:1: ( RULE_ID )
+            // InternalInlineEdit.g:2670:1: RULE_ID
             {
              before(grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6643,17 +7155,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Command__CodeAssignment_2"
-    // InternalInlineEdit.g:2496:1: rule__Command__CodeAssignment_2 : ( RULE_INT ) ;
+    // InternalInlineEdit.g:2679:1: rule__Command__CodeAssignment_2 : ( RULE_INT ) ;
     public final void rule__Command__CodeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2500:1: ( ( RULE_INT ) )
-            // InternalInlineEdit.g:2501:1: ( RULE_INT )
+            // InternalInlineEdit.g:2683:1: ( ( RULE_INT ) )
+            // InternalInlineEdit.g:2684:1: ( RULE_INT )
             {
-            // InternalInlineEdit.g:2501:1: ( RULE_INT )
-            // InternalInlineEdit.g:2502:1: RULE_INT
+            // InternalInlineEdit.g:2684:1: ( RULE_INT )
+            // InternalInlineEdit.g:2685:1: RULE_INT
             {
              before(grammarAccess.getCommandAccess().getCodeINTTerminalRuleCall_2_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -6680,17 +7192,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Constant__NameAssignment_0"
-    // InternalInlineEdit.g:2511:1: rule__Constant__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalInlineEdit.g:2694:1: rule__Constant__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Constant__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2515:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2516:1: ( RULE_ID )
+            // InternalInlineEdit.g:2698:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2699:1: ( RULE_ID )
             {
-            // InternalInlineEdit.g:2516:1: ( RULE_ID )
-            // InternalInlineEdit.g:2517:1: RULE_ID
+            // InternalInlineEdit.g:2699:1: ( RULE_ID )
+            // InternalInlineEdit.g:2700:1: RULE_ID
             {
              before(grammarAccess.getConstantAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6717,17 +7229,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Constant__ValueAssignment_1"
-    // InternalInlineEdit.g:2526:1: rule__Constant__ValueAssignment_1 : ( ruleValue ) ;
+    // InternalInlineEdit.g:2709:1: rule__Constant__ValueAssignment_1 : ( ruleValue ) ;
     public final void rule__Constant__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2530:1: ( ( ruleValue ) )
-            // InternalInlineEdit.g:2531:1: ( ruleValue )
+            // InternalInlineEdit.g:2713:1: ( ( ruleValue ) )
+            // InternalInlineEdit.g:2714:1: ( ruleValue )
             {
-            // InternalInlineEdit.g:2531:1: ( ruleValue )
-            // InternalInlineEdit.g:2532:1: ruleValue
+            // InternalInlineEdit.g:2714:1: ( ruleValue )
+            // InternalInlineEdit.g:2715:1: ruleValue
             {
              before(grammarAccess.getConstantAccess().getValueValueParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6758,17 +7270,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__NameAssignment_1"
-    // InternalInlineEdit.g:2541:1: rule__State__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalInlineEdit.g:2724:1: rule__State__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__State__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2545:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2546:1: ( RULE_ID )
+            // InternalInlineEdit.g:2728:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2729:1: ( RULE_ID )
             {
-            // InternalInlineEdit.g:2546:1: ( RULE_ID )
-            // InternalInlineEdit.g:2547:1: RULE_ID
+            // InternalInlineEdit.g:2729:1: ( RULE_ID )
+            // InternalInlineEdit.g:2730:1: RULE_ID
             {
              before(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6795,17 +7307,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__DescriptionAssignment_2_1"
-    // InternalInlineEdit.g:2556:1: rule__State__DescriptionAssignment_2_1 : ( RULE_STRING ) ;
+    // InternalInlineEdit.g:2739:1: rule__State__DescriptionAssignment_2_1 : ( RULE_STRING ) ;
     public final void rule__State__DescriptionAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2560:1: ( ( RULE_STRING ) )
-            // InternalInlineEdit.g:2561:1: ( RULE_STRING )
+            // InternalInlineEdit.g:2743:1: ( ( RULE_STRING ) )
+            // InternalInlineEdit.g:2744:1: ( RULE_STRING )
             {
-            // InternalInlineEdit.g:2561:1: ( RULE_STRING )
-            // InternalInlineEdit.g:2562:1: RULE_STRING
+            // InternalInlineEdit.g:2744:1: ( RULE_STRING )
+            // InternalInlineEdit.g:2745:1: RULE_STRING
             {
              before(grammarAccess.getStateAccess().getDescriptionSTRINGTerminalRuleCall_2_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -6832,21 +7344,21 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__ActionsAssignment_3_2"
-    // InternalInlineEdit.g:2571:1: rule__State__ActionsAssignment_3_2 : ( ( RULE_ID ) ) ;
+    // InternalInlineEdit.g:2754:1: rule__State__ActionsAssignment_3_2 : ( ( RULE_ID ) ) ;
     public final void rule__State__ActionsAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2575:1: ( ( ( RULE_ID ) ) )
-            // InternalInlineEdit.g:2576:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2758:1: ( ( ( RULE_ID ) ) )
+            // InternalInlineEdit.g:2759:1: ( ( RULE_ID ) )
             {
-            // InternalInlineEdit.g:2576:1: ( ( RULE_ID ) )
-            // InternalInlineEdit.g:2577:1: ( RULE_ID )
+            // InternalInlineEdit.g:2759:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2760:1: ( RULE_ID )
             {
              before(grammarAccess.getStateAccess().getActionsCommandCrossReference_3_2_0()); 
-            // InternalInlineEdit.g:2578:1: ( RULE_ID )
-            // InternalInlineEdit.g:2579:1: RULE_ID
+            // InternalInlineEdit.g:2761:1: ( RULE_ID )
+            // InternalInlineEdit.g:2762:1: RULE_ID
             {
              before(grammarAccess.getStateAccess().getActionsCommandIDTerminalRuleCall_3_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6877,17 +7389,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__TransitionsAssignment_4"
-    // InternalInlineEdit.g:2590:1: rule__State__TransitionsAssignment_4 : ( ruleTransition ) ;
+    // InternalInlineEdit.g:2773:1: rule__State__TransitionsAssignment_4 : ( ruleTransition ) ;
     public final void rule__State__TransitionsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:2594:1: ( ( ruleTransition ) )
-            // InternalInlineEdit.g:2595:1: ( ruleTransition )
+            // InternalInlineEdit.g:2777:1: ( ( ruleTransition ) )
+            // InternalInlineEdit.g:2778:1: ( ruleTransition )
             {
-            // InternalInlineEdit.g:2595:1: ( ruleTransition )
-            // InternalInlineEdit.g:2596:1: ruleTransition
+            // InternalInlineEdit.g:2778:1: ( ruleTransition )
+            // InternalInlineEdit.g:2779:1: ruleTransition
             {
              before(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -6916,6 +7428,125 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
     }
     // $ANTLR end "rule__State__TransitionsAssignment_4"
 
+
+    // $ANTLR start "rule__State__ThingsAssignment_5_1"
+    // InternalInlineEdit.g:2788:1: rule__State__ThingsAssignment_5_1 : ( ruleThing ) ;
+    public final void rule__State__ThingsAssignment_5_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2792:1: ( ( ruleThing ) )
+            // InternalInlineEdit.g:2793:1: ( ruleThing )
+            {
+            // InternalInlineEdit.g:2793:1: ( ruleThing )
+            // InternalInlineEdit.g:2794:1: ruleThing
+            {
+             before(grammarAccess.getStateAccess().getThingsThingParserRuleCall_5_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleThing();
+
+            state._fsp--;
+
+             after(grammarAccess.getStateAccess().getThingsThingParserRuleCall_5_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__State__ThingsAssignment_5_1"
+
+
+    // $ANTLR start "rule__Thing__NameAssignment_0"
+    // InternalInlineEdit.g:2803:1: rule__Thing__NameAssignment_0 : ( RULE_ID ) ;
+    public final void rule__Thing__NameAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2807:1: ( ( RULE_ID ) )
+            // InternalInlineEdit.g:2808:1: ( RULE_ID )
+            {
+            // InternalInlineEdit.g:2808:1: ( RULE_ID )
+            // InternalInlineEdit.g:2809:1: RULE_ID
+            {
+             before(grammarAccess.getThingAccess().getNameIDTerminalRuleCall_0_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getThingAccess().getNameIDTerminalRuleCall_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Thing__NameAssignment_0"
+
+
+    // $ANTLR start "rule__Thing__GuardAssignment_1"
+    // InternalInlineEdit.g:2818:1: rule__Thing__GuardAssignment_1 : ( ruleGuard ) ;
+    public final void rule__Thing__GuardAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalInlineEdit.g:2822:1: ( ( ruleGuard ) )
+            // InternalInlineEdit.g:2823:1: ( ruleGuard )
+            {
+            // InternalInlineEdit.g:2823:1: ( ruleGuard )
+            // InternalInlineEdit.g:2824:1: ruleGuard
+            {
+             before(grammarAccess.getThingAccess().getGuardGuardParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleGuard();
+
+            state._fsp--;
+
+             after(grammarAccess.getThingAccess().getGuardGuardParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Thing__GuardAssignment_1"
+
     // Delegated rules
 
 
@@ -6936,7 +7567,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000001020L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000609010L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002609010L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001000000L});
