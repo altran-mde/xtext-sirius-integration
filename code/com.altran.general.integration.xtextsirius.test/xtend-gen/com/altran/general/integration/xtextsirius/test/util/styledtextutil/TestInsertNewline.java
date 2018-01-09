@@ -14,38 +14,51 @@ public class TestInsertNewline extends AFowlerdslDefaultModelTest {
     StyledTextUtil _instance = StyledTextUtil.getInstance();
     TextRegion _textRegion = new TextRegion(6, 20);
     final TextRegion newRegion = _instance.insertNewline(text, _textRegion);
-    Assert.assertEquals("Hello,\n World!", text.toString());
-    Assert.assertEquals(7, newRegion.getOffset());
-    Assert.assertEquals(20, newRegion.getLength());
+    String _string = text.toString();
+    Assert.assertEquals("Hello,\n World!", _string);
+    int _offset = newRegion.getOffset();
+    Assert.assertEquals(7, _offset);
+    int _length = newRegion.getLength();
+    Assert.assertEquals(20, _length);
   }
   
   @Test
   public void simple_ints() {
     final StringBuffer text = new StringBuffer("Hello, World!");
-    final TextRegion newRegion = StyledTextUtil.getInstance().insertNewline(text, 6, 20);
-    Assert.assertEquals("Hello,\n World!", text.toString());
-    Assert.assertEquals(7, newRegion.getOffset());
-    Assert.assertEquals(20, newRegion.getLength());
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    final TextRegion newRegion = _instance.insertNewline(text, 6, 20);
+    String _string = text.toString();
+    Assert.assertEquals("Hello,\n World!", _string);
+    int _offset = newRegion.getOffset();
+    Assert.assertEquals(7, _offset);
+    int _length = newRegion.getLength();
+    Assert.assertEquals(20, _length);
   }
   
   @Test
   public void empty() {
     final StringBuffer text = new StringBuffer("");
-    final TextRegion newRegion = StyledTextUtil.getInstance().insertNewline(text, 0, 20);
-    Assert.assertEquals("\n", text.toString());
-    Assert.assertEquals(1, newRegion.getOffset());
-    Assert.assertEquals(20, newRegion.getLength());
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    final TextRegion newRegion = _instance.insertNewline(text, 0, 20);
+    String _string = text.toString();
+    Assert.assertEquals("\n", _string);
+    int _offset = newRegion.getOffset();
+    Assert.assertEquals(1, _offset);
+    int _length = newRegion.getLength();
+    Assert.assertEquals(20, _length);
   }
   
   @Test(expected = StringIndexOutOfBoundsException.class)
   public void after() {
     final StringBuffer text = new StringBuffer("Hello, World!");
-    StyledTextUtil.getInstance().insertNewline(text, 20, 20);
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    _instance.insertNewline(text, 20, 20);
   }
   
   @Test(expected = StringIndexOutOfBoundsException.class)
   public void after_empty() {
     final StringBuffer text = new StringBuffer("");
-    StyledTextUtil.getInstance().insertNewline(text, 1, 20);
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    _instance.insertNewline(text, 1, 20);
   }
 }

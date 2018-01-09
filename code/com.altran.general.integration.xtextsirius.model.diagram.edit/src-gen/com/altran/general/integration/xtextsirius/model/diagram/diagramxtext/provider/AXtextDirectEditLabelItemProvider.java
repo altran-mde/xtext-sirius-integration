@@ -2,7 +2,6 @@
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -21,8 +20,7 @@ import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class AXtextDirectEditLabelItemProvider
-		extends DirectEditLabelItemProvider {
+public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->

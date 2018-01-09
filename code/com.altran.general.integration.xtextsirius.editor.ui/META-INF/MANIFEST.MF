@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.editor.ui.internal.XtextSiriusEditorUiPlugin
 Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.lang,
- com.google.guava;bundle-version=21,
+ com.google.guava,
  org.eclipse.xtext,
  org.eclipse.ui.views.properties.tabbed,
  org.eclipse.emf.edit.ui,

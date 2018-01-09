@@ -3,7 +3,9 @@
  */
 package org.eclipse.xtext.example.fowlerdsl.generator;
 
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -30,13 +32,17 @@ public class StatemachineGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     String _className = this.className(resource);
     String _plus = (_className + ".java");
-    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
-    fsa.generateFile(_plus, this.toJavaCode(((Statemachine) _head)));
+    EList<EObject> _contents = resource.getContents();
+    EObject _head = IterableExtensions.<EObject>head(_contents);
+    CharSequence _javaCode = this.toJavaCode(((Statemachine) _head));
+    fsa.generateFile(_plus, _javaCode);
   }
   
   public String className(final Resource res) {
-    String name = res.getURI().lastSegment();
-    return name.substring(0, name.indexOf("."));
+    URI _uRI = res.getURI();
+    String name = _uRI.lastSegment();
+    int _indexOf = name.indexOf(".");
+    return name.substring(0, _indexOf);
   }
   
   public CharSequence toJavaCode(final Statemachine sm) {
@@ -49,8 +55,9 @@ public class StatemachineGenerator implements IGenerator {
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
-    String _className = this.className(sm.eResource());
-    _builder.append(_className);
+    Resource _eResource = sm.eResource();
+    String _className = this.className(_eResource);
+    _builder.append(_className, "");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -60,7 +67,8 @@ public class StatemachineGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("new ");
-    String _className_1 = this.className(sm.eResource());
+    Resource _eResource_1 = sm.eResource();
+    String _className_1 = this.className(_eResource_1);
     _builder.append(_className_1, "\t\t");
     _builder.append("().run();");
     _builder.newLineIfNotEmpty();
@@ -88,7 +96,8 @@ public class StatemachineGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("String currentState = \"");
-    State _head = IterableExtensions.<State>head(sm.getStates());
+    EList<State> _states = sm.getStates();
+    State _head = IterableExtensions.<State>head(_states);
     String _name = null;
     if (_head!=null) {
       _name=_head.getName();
@@ -103,8 +112,8 @@ public class StatemachineGenerator implements IGenerator {
     _builder.append("while (true) {");
     _builder.newLine();
     {
-      EList<State> _states = sm.getStates();
-      for(final State state : _states) {
+      EList<State> _states_1 = sm.getStates();
+      for(final State state : _states_1) {
         _builder.append("\t\t\t");
         CharSequence _generateCode = this.generateCode(state);
         _builder.append(_generateCode, "\t\t\t");
@@ -127,7 +136,8 @@ public class StatemachineGenerator implements IGenerator {
         _builder.append("\t\t\t");
         _builder.append("\t");
         _builder.append("currentState = \"");
-        State _head_1 = IterableExtensions.<State>head(sm.getStates());
+        EList<State> _states_2 = sm.getStates();
+        State _head_1 = IterableExtensions.<State>head(_states_2);
         String _name_2 = null;
         if (_head_1!=null) {
           _name_2=_head_1.getName();
@@ -192,14 +202,15 @@ public class StatemachineGenerator implements IGenerator {
   public CharSequence declareCommand(final Command command) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("protected void do");
-    String _firstUpper = StringExtensions.toFirstUpper(command.getName());
-    _builder.append(_firstUpper);
+    String _name = command.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    _builder.append(_firstUpper, "");
     _builder.append("() {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("System.out.println(\"Executing command ");
-    String _name = command.getName();
-    _builder.append(_name, "\t");
+    String _name_1 = command.getName();
+    _builder.append(_name_1, "\t");
     _builder.append(" (");
     int _code = command.getCode();
     _builder.append(_code, "\t");
@@ -214,7 +225,7 @@ public class StatemachineGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("if (currentState.equals(\"");
     String _name = state.getName();
-    _builder.append(_name);
+    _builder.append(_name, "");
     _builder.append("\")) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -225,7 +236,8 @@ public class StatemachineGenerator implements IGenerator {
       for(final Command c : _actions) {
         _builder.append("\t\t");
         _builder.append("do");
-        String _firstUpper = StringExtensions.toFirstUpper(c.getName());
+        String _name_1 = c.getName();
+        String _firstUpper = StringExtensions.toFirstUpper(_name_1);
         _builder.append(_firstUpper, "\t\t");
         _builder.append("();");
         _builder.newLineIfNotEmpty();
@@ -239,13 +251,19 @@ public class StatemachineGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("System.out.println(\"Your are now in state \'");
-    String _name_1 = state.getName();
-    _builder.append(_name_1, "\t");
+    String _name_2 = state.getName();
+    _builder.append(_name_2, "\t");
     _builder.append("\'. Possible events are [");
-    final Function1<Transition, String> _function = (Transition t) -> {
-      return t.getEvent().getName();
+    EList<Transition> _transitions = state.getTransitions();
+    final Function1<Transition, String> _function = new Function1<Transition, String>() {
+      @Override
+      public String apply(final Transition t) {
+        Event _event = t.getEvent();
+        return _event.getName();
+      }
     };
-    String _join = IterableExtensions.join(ListExtensions.<Transition, String>map(state.getTransitions(), _function), ", ");
+    List<String> _map = ListExtensions.<Transition, String>map(_transitions, _function);
+    String _join = IterableExtensions.join(_map, ", ");
     _builder.append(_join, "\t");
     _builder.append("].\");");
     _builder.newLineIfNotEmpty();
@@ -253,19 +271,21 @@ public class StatemachineGenerator implements IGenerator {
     _builder.append("lastEvent = receiveEvent();");
     _builder.newLine();
     {
-      EList<Transition> _transitions = state.getTransitions();
-      for(final Transition t : _transitions) {
+      EList<Transition> _transitions_1 = state.getTransitions();
+      for(final Transition t : _transitions_1) {
         _builder.append("\t");
         _builder.append("if (\"");
-        String _name_2 = t.getEvent().getName();
-        _builder.append(_name_2, "\t");
+        Event _event = t.getEvent();
+        String _name_3 = _event.getName();
+        _builder.append(_name_3, "\t");
         _builder.append("\".equals(lastEvent)) {");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("currentState = \"");
-        String _name_3 = t.getState().getName();
-        _builder.append(_name_3, "\t\t");
+        State _state = t.getState();
+        String _name_4 = _state.getName();
+        _builder.append(_name_4, "\t\t");
         _builder.append("\";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");

@@ -11,6 +11,7 @@ import nl.altran.example.xtext.html.HtmlLangStandaloneSetupGenerated;
 @SuppressWarnings("all")
 public class HtmlLangStandaloneSetup extends HtmlLangStandaloneSetupGenerated {
   public static void doSetup() {
-    new HtmlLangStandaloneSetup().createInjectorAndDoEMFRegistration();
+    HtmlLangStandaloneSetup _htmlLangStandaloneSetup = new HtmlLangStandaloneSetup();
+    _htmlLangStandaloneSetup.createInjectorAndDoEMFRegistration();
   }
 }

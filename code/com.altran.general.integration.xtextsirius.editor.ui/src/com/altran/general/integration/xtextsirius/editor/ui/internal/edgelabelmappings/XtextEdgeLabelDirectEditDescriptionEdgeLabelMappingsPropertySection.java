@@ -1,7 +1,11 @@
 package com.altran.general.integration.xtextsirius.editor.ui.internal.edgelabelmappings;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Spliterators;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
@@ -18,7 +22,6 @@ import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
-import com.google.common.collect.Streams;
 
 public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 		extends AbstractEditorDialogWithListPropertySection {
@@ -50,12 +53,16 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 	@Override
 	protected List<BasicLabelStyleDescription> getChoiceOfValues() {
 		return ((AXtextDirectEditLabel) getDescription()).getMapping().stream()
-				.flatMap(m -> Streams.stream(m.eAllContents()))
+				.flatMap(m -> stream(m.eAllContents()))
 				.filter(BasicLabelStyleDescription.class::isInstance)
 				.map(BasicLabelStyleDescription.class::cast)
 				.collect(Collectors.toList());
 	}
 	
+	public static <T> Stream<T> stream(final Iterator<T> iterator) {
+		return StreamSupport.stream(Spliterators.spliteratorUnknownSize(iterator, 0), false);
+	}
+
 	/*
 	 * stolen and adapted from
 	 * org.eclipse.sirius.editor.properties.sections.tool.

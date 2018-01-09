@@ -2,11 +2,13 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.internal.AbstractSemanticRegionsFinder;
 import org.junit.Assert;
@@ -33,22 +35,34 @@ public class TestCanBeHandledByGetRegionForFeature extends AModelRegionEditorPre
   
   @Test
   public void eAttribute() {
-    final EAttribute feature = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Code();
-    new TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder().assertNoContainment(feature);
-    Assert.assertTrue(this.getFakePreparer().canBeHandledByGetRegionForFeature(feature));
+    StatemachinePackage _statemachinePackage = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
+    final EAttribute feature = _statemachinePackage.getEvent_Code();
+    TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder _testSemanticRegionsFinder = new TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder();
+    _testSemanticRegionsFinder.assertNoContainment(feature);
+    AccessibleModelRegionEditorPreparer _fakePreparer = this.getFakePreparer();
+    boolean _canBeHandledByGetRegionForFeature = _fakePreparer.canBeHandledByGetRegionForFeature(feature);
+    Assert.assertTrue(_canBeHandledByGetRegionForFeature);
   }
   
   @Test
   public void eReferenceNoContainment() {
-    final EReference feature = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getConstantRef_Constant();
-    new TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder().assertNoContainment(feature);
-    Assert.assertTrue(this.getFakePreparer().canBeHandledByGetRegionForFeature(feature));
+    StatemachinePackage _statemachinePackage = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
+    final EReference feature = _statemachinePackage.getConstantRef_Constant();
+    TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder _testSemanticRegionsFinder = new TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder();
+    _testSemanticRegionsFinder.assertNoContainment(feature);
+    AccessibleModelRegionEditorPreparer _fakePreparer = this.getFakePreparer();
+    boolean _canBeHandledByGetRegionForFeature = _fakePreparer.canBeHandledByGetRegionForFeature(feature);
+    Assert.assertTrue(_canBeHandledByGetRegionForFeature);
   }
   
   @Test(expected = IllegalStateException.class)
   public void eReferenceContainment() {
-    final EReference feature = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
-    Assert.assertFalse(this.getFakePreparer().canBeHandledByGetRegionForFeature(feature));
-    new TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder().assertNoContainment(feature);
+    StatemachinePackage _statemachinePackage = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
+    final EReference feature = _statemachinePackage.getEvent_Guard();
+    AccessibleModelRegionEditorPreparer _fakePreparer = this.getFakePreparer();
+    boolean _canBeHandledByGetRegionForFeature = _fakePreparer.canBeHandledByGetRegionForFeature(feature);
+    Assert.assertFalse(_canBeHandledByGetRegionForFeature);
+    TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder _testSemanticRegionsFinder = new TestCanBeHandledByGetRegionForFeature.TestSemanticRegionsFinder();
+    _testSemanticRegionsFinder.assertNoContainment(feature);
   }
 }
