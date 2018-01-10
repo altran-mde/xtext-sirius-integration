@@ -32,7 +32,7 @@
       <import plugin="org.eclipse.sirius.diagram.ui"/>
       <import plugin="org.eclipse.emf.ecore.edit"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
-      <import plugin="com.google.guava" version="21.0.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava" version="15.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.lang"/>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.ui.views.properties.tabbed"/>
@@ -126,6 +126,13 @@
 
    <plugin
          id="com.altran.general.integration.xtextsirius.model.properties.sirius5"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.google.guava.patch"
          download-size="0"
          install-size="0"
          version="0.0.0"

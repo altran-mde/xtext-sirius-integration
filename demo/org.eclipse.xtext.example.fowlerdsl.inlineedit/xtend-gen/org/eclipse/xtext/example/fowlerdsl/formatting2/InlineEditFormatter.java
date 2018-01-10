@@ -12,7 +12,6 @@ import org.eclipse.xtext.example.fowlerdsl.services.InlineEditGrammarAccess;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
-import org.eclipse.xtext.example.fowlerdsl.statemachine.Guard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.RangeGuard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
@@ -50,8 +49,7 @@ public class InlineEditFormatter extends StatemachineFormatter {
   
   @Override
   protected void _format(final Transition transition, @Extension final IFormattableDocument document) {
-    Guard _guard = transition.getGuard();
-    this.format(_guard, document);
+    this.format(transition.getGuard(), document);
   }
   
   public void format(final Object statemachine, final IFormattableDocument document) {

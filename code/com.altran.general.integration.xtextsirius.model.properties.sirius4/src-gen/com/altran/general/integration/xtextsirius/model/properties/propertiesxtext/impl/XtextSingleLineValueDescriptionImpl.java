@@ -1,4 +1,7 @@
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 /**
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl;
@@ -6,7 +9,11 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+=======
+import org.eclipse.sirius.properties.impl.TextDescriptionImpl;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription;
@@ -17,23 +24,44 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
  * Single Line Value Description</b></em>'. <!-- end-user-doc -->
+=======
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Xtext Single Line Value Description</b></em>'. <!-- end-user-doc -->
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl#getSuffixTextExpression
+=======
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl#getInjectorId
+ * <em>Injector Id</em>}</li>
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl#getPrefixTextExpression
+ * <em>Prefix Text Expression</em>}</li>
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl#getSuffixTextExpression
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
  * <em>Suffix Text Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 public class XtextSingleLineValueDescriptionImpl extends EObjectImpl implements XtextSingleLineValueDescription {
+=======
+public class XtextSingleLineValueDescriptionImpl extends TextDescriptionImpl
+		implements XtextSingleLineValueDescription {
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -55,8 +83,13 @@ public class XtextSingleLineValueDescriptionImpl extends EObjectImpl implements 
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+=======
+	 * The default value of the '{@link #getPrefixTextExpression()
+	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -66,8 +99,13 @@ public class XtextSingleLineValueDescriptionImpl extends EObjectImpl implements 
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+=======
+	 * The cached value of the '{@link #getPrefixTextExpression()
+	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -77,8 +115,13 @@ public class XtextSingleLineValueDescriptionImpl extends EObjectImpl implements 
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+=======
+	 * The default value of the '{@link #getSuffixTextExpression()
+	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()
@@ -88,8 +131,13 @@ public class XtextSingleLineValueDescriptionImpl extends EObjectImpl implements 
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+=======
+	 * The cached value of the '{@link #getSuffixTextExpression()
+	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()
@@ -389,6 +437,7 @@ public class XtextSingleLineValueDescriptionImpl extends EObjectImpl implements 
 	}
 
 } // XtextSingleLineValueDescriptionImpl
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 /**
  */
@@ -775,3 +824,5 @@ public class XtextSingleLineValueDescriptionImpl extends TextDescriptionImpl
 
 } //XtextSingleLineValueDescriptionImpl
 >>>>>>> preliminary fix for using guava v16
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy

@@ -16,8 +16,10 @@ import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 /**
- * This is the item provider adapter for a {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel} object.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel}
+ * object. <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvider {
@@ -27,7 +29,7 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	 *
 	 * @generated
 	 */
-	public AXtextDirectEditLabelItemProvider(AdapterFactory adapterFactory) {
+	public AXtextDirectEditLabelItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 	
@@ -38,12 +40,12 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 			
 		}
-		return itemPropertyDescriptors;
+		return this.itemPropertyDescriptors;
 	}
 	
 	/**
@@ -60,14 +62,15 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	}
 	
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to
+	 * update any cached children and by creating a viewer notification, which
+	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChanged(final Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -80,7 +83,7 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 	
@@ -92,6 +95,7 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	 * @generated
 	 */
 	@Override
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
@@ -101,6 +105,18 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 				||
 				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__INITIAL_OPERATION;
 		
+=======
+	public String getCreateChildText(final Object owner, final Object feature, final Object child,
+			final Collection<?> selection) {
+		final Object childFeature = feature;
+		final Object childObject = child;
+
+		final boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS ||
+				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__MASK
+				||
+				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__INITIAL_OPERATION;
+
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		if (qualify) {
 			return getString("_UI_CreateChild_text2",
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
@@ -116,7 +132,7 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+		return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
 	}
 	
 }

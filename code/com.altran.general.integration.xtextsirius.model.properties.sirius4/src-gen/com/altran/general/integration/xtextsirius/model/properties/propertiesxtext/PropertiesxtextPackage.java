@@ -1,11 +1,18 @@
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 /**
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 import org.eclipse.emf.ecore.EcorePackage;
+=======
+import org.eclipse.sirius.properties.PropertiesPackage;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 /**
  * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains
@@ -19,6 +26,7 @@ import org.eclipse.emf.ecore.EcorePackage;
  * <!-- end-user-doc -->
  * 
  * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextFactory
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * @model kind="package" annotation="http://www.eclipse.org/emf/2002/GenModel
  *        modelName='Properties-xtext'
  *        modelPluginID='com.altran.general.integration.xtextsirius.model.properties.sirius4'
@@ -34,6 +42,12 @@ import org.eclipse.emf.ecore.EcorePackage;
  *        annotation="http://www.eclipse.org/emf/2011/Xcore
  *        Ecore='http://www.eclipse.org/emf/2002/Ecore'
  *        GenModel='http://www.eclipse.org/emf/2002/GenModel'"
+=======
+ * @model kind="package" annotation=
+ *        "http://www.eclipse.org/emf/2002/GenModel modelName='Properties-xtext' modelPluginID='com.altran.general.integration.xtextsirius.model.properties.sirius4' complianceLevel='6.0' runtimeVersion='2.3' nonNLSMarkers='false' copyrightFields='false' creationIcons='false' modelDirectory='/com.altran.general.integration.xtextsirius.model.properties.sirius4/src-gen' editDirectory='/com.altran.general.integration.xtextsirius.model.properties.sirius4.edit/src-gen' editPluginID='com.altran.general.integration.xtextsirius.model.properties.sirius4.edit' codeFormatting='true' importOrganizing='true' cleanup='true' styleProviders='false' disposableProviderFactory='true' extensibleProviderFactory='true' childCreationExtenders='true' basePackage='com.altran.general.integration.xtextsirius.model.properties'"
+ *        annotation=
+ *        "http://www.eclipse.org/emf/2011/Xcore Ecore='http://www.eclipse.org/emf/2002/Ecore' GenModel='http://www.eclipse.org/emf/2002/GenModel'"
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
  * @generated
  */
 public interface PropertiesxtextPackage extends EPackage {
@@ -68,8 +82,13 @@ public interface PropertiesxtextPackage extends EPackage {
 			.init();
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
+=======
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>Xtext Single Line Model Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -80,13 +99,92 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = 0;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IDENTIFIER = PropertiesPackage.TEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_DESCRIPTION__INITIAL_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__STYLE = PropertiesPackage.TEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
+=======
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -95,20 +193,37 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+=======
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '
+	 * <em>Xtext Single Line Model Description</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
+=======
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>Xtext Multi Line Model Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -119,13 +234,101 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION = 1;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IDENTIFIER = PropertiesPackage.TEXT_AREA_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__INITIAL_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__STYLE = PropertiesPackage.TEXT_AREA_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_AREA_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LINE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION__LINE_COUNT;
+
+	/**
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
+=======
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -134,20 +337,38 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+=======
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+
+	/**
+	 * The number of structural features of the '
+	 * <em>Xtext Multi Line Model Description</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
+=======
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>Xtext Single Line Value Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -158,13 +379,92 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = 2;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IDENTIFIER = PropertiesPackage.TEXT_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_DESCRIPTION__INITIAL_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__STYLE = PropertiesPackage.TEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
+=======
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
@@ -173,7 +473,12 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
+=======
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -182,20 +487,38 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Value
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+=======
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The number of structural features of the '
+	 * <em>Xtext Single Line Value Description</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
+=======
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>Xtext Multi Line Value Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -206,13 +529,101 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION = 3;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IDENTIFIER = PropertiesPackage.TEXT_AREA_DESCRIPTION__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__INITIAL_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__STYLE = PropertiesPackage.TEXT_AREA_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_AREA_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LINE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION__LINE_COUNT;
+
+	/**
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
+=======
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
@@ -221,7 +632,12 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
+=======
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -230,15 +646,26 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Value
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+=======
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The number of structural features of the '
+	 * <em>Xtext Multi Line Value Description</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 3;
 
 
@@ -250,12 +677,26 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>Xtext Single Line Model
 	 *         Description</em>'.
+=======
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 3;
+
+
+	/**
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription
+	 * <em>Xtext Single Line Model Description</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '
+	 *         <em>Xtext Single Line Model Description</em>'.
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription
 	 * @generated
 	 */
 	EClass getXtextSingleLineModelDescription();
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
 	 * <em>Xtext Multi Line Model Description</em>}'. <!-- begin-user-doc -->
@@ -263,12 +704,22 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>Xtext Multi Line Model
 	 *         Description</em>'.
+=======
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
+	 * <em>Xtext Multi Line Model Description</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '
+	 *         <em>Xtext Multi Line Model Description</em>'.
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
 	 * @generated
 	 */
 	EClass getXtextMultiLineModelDescription();
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
 	 * <em>Xtext Single Line Value Description</em>}'. <!-- begin-user-doc -->
@@ -276,12 +727,22 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>Xtext Single Line Value
 	 *         Description</em>'.
+=======
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
+	 * <em>Xtext Single Line Value Description</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '
+	 *         <em>Xtext Single Line Value Description</em>'.
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
 	 * @generated
 	 */
 	EClass getXtextSingleLineValueDescription();
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
 	 * <em>Xtext Multi Line Value Description</em>}'. <!-- begin-user-doc -->
@@ -289,6 +750,15 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * 
 	 * @return the meta object for class '<em>Xtext Multi Line Value
 	 *         Description</em>'.
+=======
+	 * Returns the meta object for class '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
+	 * <em>Xtext Multi Line Value Description</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '
+	 *         <em>Xtext Multi Line Value Description</em>'.
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
 	 * @generated
 	 */
@@ -318,8 +788,13 @@ public interface PropertiesxtextPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
+=======
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		 * <em>Xtext Single Line Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -330,8 +805,13 @@ public interface PropertiesxtextPackage extends EPackage {
 		EClass XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = eINSTANCE.getXtextSingleLineModelDescription();
 
 		/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
+=======
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		 * <em>Xtext Multi Line Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -342,8 +822,13 @@ public interface PropertiesxtextPackage extends EPackage {
 		EClass XTEXT_MULTI_LINE_MODEL_DESCRIPTION = eINSTANCE.getXtextMultiLineModelDescription();
 
 		/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
+=======
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		 * <em>Xtext Single Line Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -354,8 +839,13 @@ public interface PropertiesxtextPackage extends EPackage {
 		EClass XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = eINSTANCE.getXtextSingleLineValueDescription();
 
 		/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
+=======
+		 * The meta object literal for the '
+		 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		 * <em>Xtext Multi Line Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -368,6 +858,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	}
 
 } // PropertiesxtextPackage
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 /**
  */
@@ -1012,3 +1503,5 @@ public interface PropertiesxtextPackage extends EPackage {
 
 } //PropertiesxtextPackage
 >>>>>>> preliminary fix for using guava v16
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy

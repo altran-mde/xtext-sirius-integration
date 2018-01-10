@@ -3,20 +3,15 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
 import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.List;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
-import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
 import org.eclipse.xtext.util.TextRegion;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -42,8 +37,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptyList);
@@ -62,24 +56,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1", _substring);
+    Assert.assertEquals("event1", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(20, 6);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -99,8 +86,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptyList);
@@ -119,24 +105,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1 2", _substring);
+    Assert.assertEquals("event1 2", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(22, 8);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -164,8 +143,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptyList);
@@ -192,24 +170,18 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1 2 [42]", _substring);
+    Assert.assertEquals("event1 2 [42]", 
+      _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(30, 13);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -229,8 +201,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -248,24 +219,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1", _substring);
+    Assert.assertEquals("event1", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(20, 6);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -285,8 +249,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -304,24 +267,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1", _substring);
+    Assert.assertEquals("event1", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(24, 6);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -341,8 +297,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -360,24 +315,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1 234", _substring);
+    Assert.assertEquals("event1 234", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(24, 10);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -397,8 +345,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -416,24 +363,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1", _substring);
+    Assert.assertEquals("event1", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(28, 6);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -453,8 +393,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -472,24 +411,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1 [42]", _substring);
+    Assert.assertEquals("event1 [42]", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(28, 11);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -509,8 +441,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -528,24 +459,18 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1 234 [42]", _substring);
+    Assert.assertEquals("event1 234 [42]", 
+      _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(32, 15);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -565,8 +490,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -584,24 +508,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1", _substring);
+    Assert.assertEquals("event1", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(20, 6);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -621,8 +538,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code", "Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -640,24 +556,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1", _substring);
+    Assert.assertEquals("event1", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(20, 6);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -677,8 +586,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -697,24 +605,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("", _substring);
+    Assert.assertEquals("", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(27, 0);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -734,11 +635,9 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    StatemachinePackage _statemachinePackage = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
-    EReference _event_Guard = _statemachinePackage.getEvent_Guard();
+    EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(null, event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.guard")), _event_Guard);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
@@ -756,24 +655,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("", _substring);
+    Assert.assertEquals("", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(27, 0);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertNull(_resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertNull(preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -814,8 +706,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, false, _emptyList);
@@ -848,24 +739,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1  \t  \t  \t2", _substring);
+    Assert.assertEquals("event1  \t  \t  \t2", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(30, 16);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -894,8 +778,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -913,24 +796,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1  \t[  \t    42  \t    \t]", _substring);
+    Assert.assertEquals("event1  \t[  \t    42  \t    \t]", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(53, 28);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -971,8 +847,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptyList);
@@ -1012,24 +887,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1\r\n\t\r\n\t\r\n\t2", _substring);
+    Assert.assertEquals("event1\r\n\t\r\n\t\r\n\t2", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(30, 16);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -1058,8 +926,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -1086,24 +953,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1\r\n\t[\r\n\t    42\r\n\t    \t]", _substring);
+    Assert.assertEquals("event1\r\n\t[\r\n\t    42\r\n\t    \t]", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(53, 28);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(event, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(event, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -1147,10 +1007,8 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<State> _states = model.getStates();
-    final State state = _states.get(0);
-    EList<Transition> _transitions = state.getTransitions();
-    final Transition transition = _transitions.get(1);
+    final State state = model.getStates().get(0);
+    final Transition transition = state.getTransitions().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(transition, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.event", "Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -1192,24 +1050,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1", _substring);
+    Assert.assertEquals("event1", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(78, 6);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(transition, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(transition, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -1261,10 +1112,8 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<State> _states = model.getStates();
-    final State state = _states.get(0);
-    EList<Transition> _transitions = state.getTransitions();
-    final Transition transition = _transitions.get(1);
+    final State state = model.getStates().get(0);
+    final Transition transition = state.getTransitions().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(transition, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.event", "Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -1314,24 +1163,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("event1 [const0]", _substring);
+    Assert.assertEquals("event1 [const0]", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(108, 15);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(transition, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(transition, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -1362,8 +1204,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Command> _commands = model.getCommands();
-    final Command cmd = _commands.get(1);
+    final Command cmd = model.getCommands().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.code", "Event.name")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -1392,24 +1233,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("cmd1 123", _substring);
+    Assert.assertEquals("cmd1 123", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(23, 8);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(cmd, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(cmd, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -1440,8 +1274,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Command> _commands = model.getCommands();
-    final Command cmd = _commands.get(1);
+    final Command cmd = model.getCommands().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.code", "Event.name")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -1471,24 +1304,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("cmd1 123", _substring);
+    Assert.assertEquals("cmd1 123", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(29, 8);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(cmd, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(cmd, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -1519,8 +1345,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Command> _commands = model.getCommands();
-    final Command cmd = _commands.get(2);
+    final Command cmd = model.getCommands().get(2);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.guard", "Event.name")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -1549,24 +1374,17 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("[e.. pi] cmd2", _substring);
+    Assert.assertEquals("[e.. pi] cmd2", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(40, 13);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(cmd, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(cmd, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
   
   @Test
@@ -1597,8 +1415,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.append("end");
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
-    EList<Command> _commands = model.getCommands();
-    final Command cmd = _commands.get(1);
+    final Command cmd = model.getCommands().get(1);
     Injector _injector = this.getInjector();
     final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -1628,23 +1445,16 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder_1.newLine();
     _builder_1.append("end");
     _builder_1.newLine();
-    String _string = _builder_1.toString();
-    String _text = preparer.getText();
-    Assert.assertEquals(_string, _text);
+    Assert.assertEquals(_builder_1.toString(), preparer.getText());
     final TextRegion textRegion = preparer.getTextRegion();
-    String _text_1 = preparer.getText();
+    String _text = preparer.getText();
     int _offset = textRegion.getOffset();
     int _offset_1 = textRegion.getOffset();
     int _length = textRegion.getLength();
     int _plus = (_offset_1 + _length);
-    String _substring = _text_1.substring(_offset, _plus);
-    Assert.assertEquals("", _substring);
+    Assert.assertEquals("", _text.substring(_offset, _plus));
     TextRegion _textRegion = new TextRegion(24, 0);
-    TextRegion _textRegion_1 = preparer.getTextRegion();
-    Assert.assertEquals(_textRegion, _textRegion_1);
-    SemanticElementLocation _semanticElementLocation = preparer.getSemanticElementLocation();
-    Resource _eResource = model.eResource();
-    EObject _resolve = _semanticElementLocation.resolve(_eResource);
-    Assert.assertSame(cmd, _resolve);
+    Assert.assertEquals(_textRegion, preparer.getTextRegion());
+    Assert.assertSame(cmd, preparer.getSemanticElementLocation().resolve(model.eResource()));
   }
 }

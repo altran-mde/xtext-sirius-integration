@@ -12,21 +12,22 @@ import org.eclipse.xtext.RuleCall;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Streams;
 
 public class ParentMap {
 	protected final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> map = LinkedHashMultimap.create();
 	private final AbstractElement parent;
 	private final AbstractElement base;
-
+	
 	public ParentMap(
 			final @NonNull AbstractElement parent,
 			final @NonNull AbstractElement base) {
 		this.parent = parent;
 		this.base = base;
-
+		
 		collectContainedGrammarElementsDeep(this.parent, this.base);
 	}
-
+	
 	/**
 	 * Builds up the inverted grammar tree (child --> allParents).
 	 */
@@ -36,9 +37,9 @@ public class ParentMap {
 		if (this.map.containsEntry(base, parent)) {
 			return;
 		}
-		
+
 		this.map.put(base, parent);
-		
+
 		if (base instanceof RuleCall) {
 			collectContainedGrammarElementsDeep(base, ((RuleCall) base).getRule().getAlternatives());
 		} else if (base instanceof Assignment) {
@@ -51,7 +52,7 @@ public class ParentMap {
 			}
 		}
 	}
-	
+
 	/**
 	 * Checks if {@code grammarElement} or any of its (direct and indirect)
 	 * parents in the grammar tree (aka {@code parentMap}) is contained in
@@ -63,16 +64,16 @@ public class ParentMap {
 		if (grammarElements.contains(grammarElement)) {
 			return true;
 		}
-		
+
 		for (final AbstractElement parent : this.map.get(grammarElement)) {
 			if (parent != null && parent != grammarElement) {
 				return containsGrammarElementDeep(parent, grammarElements);
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	 * Finds all parents of {@code el} recursively, and maps these parents to
 	 * their leaf object in the grammar model.
@@ -81,7 +82,7 @@ public class ParentMap {
 		final Stream<@NonNull AbstractElement> result = this.map.get(el).stream()
 				.filter(e -> e != el)
 				.flatMap(e -> findAllParents(e));
-
+		
 		if (!(el instanceof CompoundElement)) {
 			return Stream.concat(
 					Streams.stream(el.eAllContents())
@@ -92,5 +93,5 @@ public class ParentMap {
 			return result;
 		}
 	}
-
+	
 }

@@ -1,4 +1,7 @@
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 /**
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.util;
@@ -7,6 +10,13 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+import org.eclipse.sirius.properties.ControlDescription;
+import org.eclipse.sirius.properties.TextAreaDescription;
+import org.eclipse.sirius.properties.TextDescription;
+import org.eclipse.sirius.properties.WidgetDescription;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
@@ -96,6 +106,24 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+		public Adapter caseControlDescription(final ControlDescription object) {
+			return createControlDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseWidgetDescription(final WidgetDescription object) {
+			return createWidgetDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseTextDescription(final TextDescription object) {
+			return createTextDescriptionAdapter();
+		}
+
+		@Override
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		public Adapter caseIXtextDescription(final IXtextDescription object) {
 			return createIXtextDescriptionAdapter();
 		}
@@ -116,6 +144,14 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+		public Adapter caseTextAreaDescription(final TextAreaDescription object) {
+			return createTextAreaDescriptionAdapter();
+		}
+
+		@Override
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
 		}
@@ -147,8 +183,13 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>Xtext Single Line Model Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -163,8 +204,13 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>Xtext Multi Line Model Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -179,8 +225,13 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>Xtext Single Line Value Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -195,8 +246,13 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>Xtext Multi Line Value Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -211,8 +267,61 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.sirius.properties.ControlDescription
+	 * <em>Control Description</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.ControlDescription
+	 * @generated
+	 */
+	public Adapter createControlDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.sirius.properties.WidgetDescription
+	 * <em>Widget Description</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.WidgetDescription
+	 * @generated
+	 */
+	public Adapter createWidgetDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.sirius.properties.TextDescription
+	 * <em>Text Description</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.TextDescription
+	 * @generated
+	 */
+	public Adapter createTextDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>IXtext Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -227,8 +336,13 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>IXtext Property Description</em>}'. <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
@@ -243,8 +357,13 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>IXtext Model Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -259,8 +378,13 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>IXtext Property Model Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -275,8 +399,29 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.sirius.properties.TextAreaDescription
+	 * <em>Text Area Description</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.TextAreaDescription
+	 * @generated
+	 */
+	public Adapter createTextAreaDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>IXtext Value Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -291,8 +436,13 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+=======
+	 * Creates a new adapter for an object of class '
+	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * <em>IXtext Property Value Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -318,6 +468,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 } // PropertiesxtextAdapterFactory
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 /**
  */
@@ -698,3 +849,5 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 
 } //PropertiesxtextAdapterFactory
 >>>>>>> preliminary fix for using guava v16
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy

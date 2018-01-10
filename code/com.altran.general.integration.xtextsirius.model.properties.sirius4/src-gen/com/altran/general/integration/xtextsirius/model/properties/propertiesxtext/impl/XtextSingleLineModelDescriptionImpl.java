@@ -1,4 +1,7 @@
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 /**
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl;
@@ -9,8 +12,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+=======
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.sirius.properties.impl.TextDescriptionImpl;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription;
@@ -21,21 +29,39 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
  * Single Line Model Description</b></em>'. <!-- end-user-doc -->
+=======
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Xtext Single Line Model Description</b></em>'. <!-- end-user-doc -->
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getEditableFeatures
+=======
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getInjectorId
+ * <em>Injector Id</em>}</li>
+ * <li>
+ * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getEditableFeatures
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
  * <em>Editable Features</em>}</li>
  * </ul>
  *
  * @generated
  */
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 public class XtextSingleLineModelDescriptionImpl extends EObjectImpl implements XtextSingleLineModelDescription {
+=======
+public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
+		implements XtextSingleLineModelDescription {
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -57,9 +83,15 @@ public class XtextSingleLineModelDescriptionImpl extends EObjectImpl implements 
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
 
 	/**
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
 	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
+=======
+	 * The cached value of the '{@link #getEditableFeatures()
+	 * <em>Editable Features</em>}' attribute list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 	 * 
 	 * @see #getEditableFeatures()
 	 * @generated
@@ -120,7 +152,11 @@ public class XtextSingleLineModelDescriptionImpl extends EObjectImpl implements 
 	@Override
 	public EList<String> getEditableFeatures() {
 		if (this.editableFeatures == null) {
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 			this.editableFeatures = new EDataTypeEList<>(String.class, this,
+=======
+			this.editableFeatures = new EDataTypeEList<String>(String.class, this,
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 					PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		}
 		return this.editableFeatures;
@@ -304,6 +340,7 @@ public class XtextSingleLineModelDescriptionImpl extends EObjectImpl implements 
 	}
 
 } // XtextSingleLineModelDescriptionImpl
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 /**
  */
@@ -613,3 +650,5 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 
 } //XtextSingleLineModelDescriptionImpl
 >>>>>>> preliminary fix for using guava v16
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy

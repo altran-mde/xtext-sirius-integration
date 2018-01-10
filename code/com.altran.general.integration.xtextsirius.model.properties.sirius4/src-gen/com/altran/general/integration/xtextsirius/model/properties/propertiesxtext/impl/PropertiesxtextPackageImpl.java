@@ -1,4 +1,7 @@
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 /**
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl;
@@ -7,6 +10,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
+import org.eclipse.sirius.viewpoint.description.style.StylePackage;
+import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
+import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextFactory;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
@@ -106,8 +117,17 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		isInited = true;
 
 		// Initialize simple dependencies
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 		XtextsiriusPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
+=======
+		ValidationPackage.eINSTANCE.eClass();
+		StylePackage.eINSTANCE.eClass();
+		DescriptionPackage.eINSTANCE.eClass();
+		PropertiesPackage.eINSTANCE.eClass();
+		XtextsiriusPackage.eINSTANCE.eClass();
+		ToolPackage.eINSTANCE.eClass();
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 
 		// Create package meta-data objects
 		thePropertiesxtextPackage.createPackageContents();
@@ -230,6 +250,11 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+		final PropertiesPackage thePropertiesPackage = (PropertiesPackage) EPackage.Registry.INSTANCE
+				.getEPackage(PropertiesPackage.eNS_URI);
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		final XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(XtextsiriusPackage.eNS_URI);
 		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
@@ -240,6 +265,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
 		this.xtextSingleLineModelDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
@@ -250,6 +276,18 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		this.xtextSingleLineValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
 		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
+=======
+		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
+		this.xtextSingleLineModelDescriptionEClass.getESuperTypes()
+				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
+		this.xtextMultiLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
+		this.xtextMultiLineModelDescriptionEClass.getESuperTypes()
+				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
+		this.xtextSingleLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
+		this.xtextSingleLineValueDescriptionEClass.getESuperTypes()
+				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
+		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 		this.xtextMultiLineValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
 
@@ -304,6 +342,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 	}
 
 } // PropertiesxtextPackageImpl
+<<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 /**
  */
@@ -615,3 +654,5 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 
 } //PropertiesxtextPackageImpl
 >>>>>>> preliminary fix for using guava v16
+=======
+>>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
