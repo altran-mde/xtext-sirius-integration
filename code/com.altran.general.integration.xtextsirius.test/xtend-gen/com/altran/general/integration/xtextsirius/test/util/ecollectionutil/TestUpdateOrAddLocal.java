@@ -21,14 +21,22 @@ public class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
   public void update() {
     final Statemachine model = this.getDefaultModel();
     final Statemachine fakeModel = this.createFakeModel(model);
-    final Event orgEvent = model.getEvents().get(3);
-    final Event fakeEvent = fakeModel.getEvents().get(3);
+    EList<Event> _events = model.getEvents();
+    final Event orgEvent = _events.get(3);
+    EList<Event> _events_1 = fakeModel.getEvents();
+    final Event fakeEvent = _events_1.get(3);
     final Constant fakeConst = AXtextTest.<Constant>findFirstTargetOfType(fakeEvent, Constant.class);
-    final int eventCount = model.getEvents().size();
-    final Event replacement = ECollectionUtil.getInstance().<Event>updateOrAddLocal(model.getEvents(), fakeEvent);
+    EList<Event> _events_2 = model.getEvents();
+    final int eventCount = _events_2.size();
+    ECollectionUtil _instance = ECollectionUtil.getInstance();
+    EList<Event> _events_3 = model.getEvents();
+    final Event replacement = _instance.<Event>updateOrAddLocal(_events_3, fakeEvent);
     Assert.assertSame(orgEvent, replacement);
-    Assert.assertEquals(eventCount, model.getEvents().size());
-    final Event replacedEvent = model.getEvents().get(3);
+    EList<Event> _events_4 = model.getEvents();
+    int _size = _events_4.size();
+    Assert.assertEquals(eventCount, _size);
+    EList<Event> _events_5 = model.getEvents();
+    final Event replacedEvent = _events_5.get(3);
     final Constant replacedConst = AXtextTest.<Constant>findFirstTargetOfType(replacedEvent, Constant.class);
     Assert.assertSame(orgEvent, replacedEvent);
     Assert.assertNotSame(fakeEvent, replacedEvent);
@@ -39,8 +47,11 @@ public class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
   public void add() {
     final Statemachine model = this.getDefaultModel();
     final Statemachine fakeModel = this.createFakeModel(model);
-    final Event orgEvent = model.getEvents().get(3);
-    final Constant fakeConst = AXtextTest.<Constant>findFirstTargetOfType(fakeModel.getEvents().get(3), Constant.class);
+    EList<Event> _events = model.getEvents();
+    final Event orgEvent = _events.get(3);
+    EList<Event> _events_1 = fakeModel.getEvents();
+    Event _get = _events_1.get(3);
+    final Constant fakeConst = AXtextTest.<Constant>findFirstTargetOfType(_get, Constant.class);
     Event _createEvent = AFowlerdslDefaultModelTest.statemachineFactory.createEvent();
     final Procedure1<Event> _function = (Event it) -> {
       it.setName("fakeEvent");
@@ -58,13 +69,19 @@ public class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
       it.setGuard(_doubleArrow);
     };
     final Event fakeEvent = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    EList<Event> _events = fakeModel.getEvents();
-    _events.add(fakeEvent);
-    final int eventCount = model.getEvents().size();
-    final Event replacement = ECollectionUtil.getInstance().<Event>updateOrAddLocal(model.getEvents(), fakeEvent);
+    EList<Event> _events_2 = fakeModel.getEvents();
+    _events_2.add(fakeEvent);
+    EList<Event> _events_3 = model.getEvents();
+    final int eventCount = _events_3.size();
+    ECollectionUtil _instance = ECollectionUtil.getInstance();
+    EList<Event> _events_4 = model.getEvents();
+    final Event replacement = _instance.<Event>updateOrAddLocal(_events_4, fakeEvent);
     Assert.assertNull(replacement);
-    Assert.assertNotEquals(eventCount, model.getEvents().size());
-    final Event replacedEvent = IterableExtensions.<Event>last(model.getEvents());
+    EList<Event> _events_5 = model.getEvents();
+    int _size = _events_5.size();
+    Assert.assertNotEquals(eventCount, _size);
+    EList<Event> _events_6 = model.getEvents();
+    final Event replacedEvent = IterableExtensions.<Event>last(_events_6);
     final Constant replacedConst = AXtextTest.<Constant>findFirstTargetOfType(replacedEvent, Constant.class);
     Assert.assertNotSame(orgEvent, replacedEvent);
     Assert.assertSame(fakeEvent, replacedEvent);

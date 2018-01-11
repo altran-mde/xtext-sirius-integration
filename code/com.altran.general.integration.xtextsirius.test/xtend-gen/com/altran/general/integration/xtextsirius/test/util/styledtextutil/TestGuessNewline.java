@@ -8,97 +8,134 @@ import org.junit.Test;
 public class TestGuessNewline {
   @Test
   public void empty() {
-    Assert.assertEquals("\n", StyledTextUtil.getInstance().guessNewline(""));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("");
+    Assert.assertEquals("\n", _guessNewline);
   }
   
   @Test
   public void short_lf() {
-    Assert.assertEquals("\n", StyledTextUtil.getInstance().guessNewline("\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\n");
+    Assert.assertEquals("\n", _guessNewline);
   }
   
   @Test
   public void short_cr() {
-    Assert.assertEquals("\r", StyledTextUtil.getInstance().guessNewline("\r"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\r");
+    Assert.assertEquals("\r", _guessNewline);
   }
   
   @Test
   public void short_crlf() {
-    Assert.assertEquals("\r\n", StyledTextUtil.getInstance().guessNewline("\r\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\r\n");
+    Assert.assertEquals("\r\n", _guessNewline);
   }
   
   @Test
   public void simple_lf() {
-    Assert.assertEquals("\n", StyledTextUtil.getInstance().guessNewline("Hello,\nWorld!"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\nWorld!");
+    Assert.assertEquals("\n", _guessNewline);
   }
   
   @Test
   public void simple_cr() {
-    Assert.assertEquals("\r", StyledTextUtil.getInstance().guessNewline("Hello,\rWorld!"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\rWorld!");
+    Assert.assertEquals("\r", _guessNewline);
   }
   
   @Test
   public void simple_crlf() {
-    Assert.assertEquals("\r\n", StyledTextUtil.getInstance().guessNewline("Hello,\r\nWorld!"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\r\nWorld!");
+    Assert.assertEquals("\r\n", _guessNewline);
   }
   
   @Test
   public void multiline_lf() {
-    Assert.assertEquals("\n", StyledTextUtil.getInstance().guessNewline("Hello,\nWorld!\nPan\nGalactic\nGargle\nBlaster\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\nWorld!\nPan\nGalactic\nGargle\nBlaster\n");
+    Assert.assertEquals("\n", _guessNewline);
   }
   
   @Test
   public void multiline_cr() {
-    Assert.assertEquals("\r", StyledTextUtil.getInstance().guessNewline("Hello,\rWorld!\rPan\rGalactic\rGargle\rBlaster\r"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\rWorld!\rPan\rGalactic\rGargle\rBlaster\r");
+    Assert.assertEquals("\r", _guessNewline);
   }
   
   @Test
   public void multiline_crlf() {
-    Assert.assertEquals("\r\n", 
-      StyledTextUtil.getInstance().guessNewline("Hello,\r\nWorld!\r\nPan\r\nGalactic\r\nGargle\r\nBlaster\r\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\r\nWorld!\r\nPan\r\nGalactic\r\nGargle\r\nBlaster\r\n");
+    Assert.assertEquals("\r\n", _guessNewline);
   }
   
   @Test
   public void equal_mixed_lf() {
-    Assert.assertEquals("\n", StyledTextUtil.getInstance().guessNewline("Hello,\nWorld!\r\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\nWorld!\r\n");
+    Assert.assertEquals("\n", _guessNewline);
   }
   
   @Test
   public void equal_mixed_cr() {
-    Assert.assertEquals("\r\n", StyledTextUtil.getInstance().guessNewline("Hello,\rWorld!\r\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\rWorld!\r\n");
+    Assert.assertEquals("\r\n", _guessNewline);
   }
   
   @Test
   public void equal_mixed_crlf() {
-    Assert.assertEquals("\n", StyledTextUtil.getInstance().guessNewline("Hello,\rWorld!\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("Hello,\rWorld!\n");
+    Assert.assertEquals("\n", _guessNewline);
   }
   
   @Test
   public void double_mixed_lf_crlf() {
-    Assert.assertEquals("\n", StyledTextUtil.getInstance().guessNewline("\nHello,\nWorld!\r\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\nHello,\nWorld!\r\n");
+    Assert.assertEquals("\n", _guessNewline);
   }
   
   @Test
   public void double_mixed_cr_crlf() {
-    Assert.assertEquals("\r", StyledTextUtil.getInstance().guessNewline("\rHello,\rWorld!\r\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\rHello,\rWorld!\r\n");
+    Assert.assertEquals("\r", _guessNewline);
   }
   
   @Test
   public void double_mixed_lf_cr() {
-    Assert.assertEquals("\n", StyledTextUtil.getInstance().guessNewline("\nHello,\nWorld!\r"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\nHello,\nWorld!\r");
+    Assert.assertEquals("\n", _guessNewline);
   }
   
   @Test
   public void double_mixed_cr_lf() {
-    Assert.assertEquals("\r", StyledTextUtil.getInstance().guessNewline("\nHello,\rWorld!\r"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\nHello,\rWorld!\r");
+    Assert.assertEquals("\r", _guessNewline);
   }
   
   @Test
   public void double_mixed_crlf_lf() {
-    Assert.assertEquals("\r\n", StyledTextUtil.getInstance().guessNewline("\r\nHello,\nWorld!\r\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\r\nHello,\nWorld!\r\n");
+    Assert.assertEquals("\r\n", _guessNewline);
   }
   
   @Test
   public void double_mixed_crlf_cr() {
-    Assert.assertEquals("\r\n", StyledTextUtil.getInstance().guessNewline("\r\nHello,\rWorld!\r\n"));
+    StyledTextUtil _instance = StyledTextUtil.getInstance();
+    String _guessNewline = _instance.guessNewline("\r\nHello,\rWorld!\r\n");
+    Assert.assertEquals("\r\n", _guessNewline);
   }
 }
