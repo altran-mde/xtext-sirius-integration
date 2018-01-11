@@ -4,13 +4,15 @@ package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.im
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.sirius.diagram.DiagramPackage;
-import org.eclipse.sirius.diagram.description.DescriptionPackage;
 import org.eclipse.sirius.diagram.description.concern.ConcernPackage;
 import org.eclipse.sirius.diagram.description.filter.FilterPackage;
+import org.eclipse.sirius.diagram.description.tool.ToolPackage;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.eclipse.sirius.viewpoint.description.style.StylePackage;
-import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
@@ -102,17 +104,19 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		isInited = true;
 
 		// Initialize simple dependencies
-		DiagramPackage.eINSTANCE.eClass();
 		ToolPackage.eINSTANCE.eClass();
-		XtextsiriusPackage.eINSTANCE.eClass();
-		FilterPackage.eINSTANCE.eClass();
-		ValidationPackage.eINSTANCE.eClass();
 		DescriptionPackage.eINSTANCE.eClass();
-		ConcernPackage.eINSTANCE.eClass();
-		org.eclipse.sirius.viewpoint.description.DescriptionPackage.eINSTANCE.eClass();
+		org.eclipse.sirius.viewpoint.description.tool.ToolPackage.eINSTANCE.eClass();
+		org.eclipse.sirius.diagram.description.DescriptionPackage.eINSTANCE.eClass();
+		XtextsiriusPackage.eINSTANCE.eClass();
+		DiagramPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
+		ValidationPackage.eINSTANCE.eClass();
 		StylePackage.eINSTANCE.eClass();
+		FilterPackage.eINSTANCE.eClass();
+		ConcernPackage.eINSTANCE.eClass();
+		ViewpointPackage.eINSTANCE.eClass();
 		org.eclipse.sirius.diagram.description.style.StylePackage.eINSTANCE.eClass();
-		org.eclipse.sirius.diagram.description.tool.ToolPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDiagramxtextPackage.createPackageContents();
@@ -223,10 +227,9 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final org.eclipse.sirius.diagram.description.tool.ToolPackage theToolPackage_1 = (org.eclipse.sirius.diagram.description.tool.ToolPackage) EPackage.Registry.INSTANCE
-				.getEPackage(org.eclipse.sirius.diagram.description.tool.ToolPackage.eNS_URI);
-		final DescriptionPackage theDescriptionPackage = (DescriptionPackage) EPackage.Registry.INSTANCE
-				.getEPackage(DescriptionPackage.eNS_URI);
+		final ToolPackage theToolPackage = (ToolPackage) EPackage.Registry.INSTANCE.getEPackage(ToolPackage.eNS_URI);
+		final org.eclipse.sirius.diagram.description.DescriptionPackage theDescriptionPackage_1 = (org.eclipse.sirius.diagram.description.DescriptionPackage) EPackage.Registry.INSTANCE
+				.getEPackage(org.eclipse.sirius.diagram.description.DescriptionPackage.eNS_URI);
 		final XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(XtextsiriusPackage.eNS_URI);
 
@@ -235,7 +238,7 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		this.aXtextDirectEditLabelEClass.getESuperTypes().add(theToolPackage_1.getDirectEditLabel());
+		this.aXtextDirectEditLabelEClass.getESuperTypes().add(theToolPackage.getDirectEditLabel());
 		this.xtextDirectEditModelDescriptionEClass.getESuperTypes().add(getAXtextDirectEditLabel());
 		this.xtextDirectEditModelDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextDirectEditModelDescription());
@@ -247,8 +250,8 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		initEClass(this.aXtextDirectEditLabelEClass, AXtextDirectEditLabel.class, "AXtextDirectEditLabel", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(this.aXtextDirectEditLabelEClass, theDescriptionPackage.getDiagramElementMapping(), "getMapping",
-				0,
+		addEOperation(this.aXtextDirectEditLabelEClass, theDescriptionPackage_1.getDiagramElementMapping(),
+				"getMapping", 0,
 				-1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(this.xtextDirectEditModelDescriptionEClass, XtextDirectEditModelDescription.class,

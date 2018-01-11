@@ -85,21 +85,19 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 	 * @generated
 	 */
 	protected void addMultiLinePropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextDirectEditDescription_multiLine_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IXtextDirectEditDescription_multiLine_feature",
-								"_UI_IXtextDirectEditDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-						null,
-						null));
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextDirectEditDescription_multiLine_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_IXtextDirectEditDescription_multiLine_feature",
+						"_UI_IXtextDirectEditDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
@@ -109,21 +107,19 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 	 * @generated
 	 */
 	protected void addEditableFeaturesPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextModelDescription_editableFeatures_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IXtextModelDescription_editableFeatures_feature",
-								"_UI_IXtextModelDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null,
-						null));
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextModelDescription_editableFeatures_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_IXtextModelDescription_editableFeatures_feature",
+						"_UI_IXtextModelDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**

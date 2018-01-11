@@ -19,10 +19,18 @@ import org.eclipse.emf.ecore.EPackage;
  * <!-- end-user-doc -->
  * 
  * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/GenModel modelName='Eef-xtext' modelPluginID='com.altran.general.integration.xtextsirius.model.eef' complianceLevel='6.0' runtimeVersion='2.3' nonNLSMarkers='false' copyrightFields='false' creationIcons='false' modelDirectory='/com.altran.general.integration.xtextsirius.model.eef/src-gen' codeFormatting='true' importOrganizing='true' cleanup='true' containmentProxies='true' disposableProviderFactory='true' basePackage='com.altran.general.integration.xtextsirius.model.eef'"
- *        annotation=
- *        "http://www.eclipse.org/emf/2011/Xcore Ecore='http://www.eclipse.org/emf/2002/Ecore' GenModel='http://www.eclipse.org/emf/2002/GenModel'"
+ * @model kind="package" annotation="http://www.eclipse.org/emf/2002/GenModel
+ *        modelName='Eef-xtext'
+ *        modelPluginID='com.altran.general.integration.xtextsirius.model.eef'
+ *        complianceLevel='6.0' runtimeVersion='2.3' nonNLSMarkers='false'
+ *        copyrightFields='false' creationIcons='false'
+ *        modelDirectory='/com.altran.general.integration.xtextsirius.model.eef/src-gen'
+ *        codeFormatting='true' importOrganizing='true' cleanup='true'
+ *        containmentProxies='true' disposableProviderFactory='true'
+ *        basePackage='com.altran.general.integration.xtextsirius.model.eef'"
+ *        annotation="http://www.eclipse.org/emf/2011/Xcore
+ *        Ecore='http://www.eclipse.org/emf/2002/Ecore'
+ *        GenModel='http://www.eclipse.org/emf/2002/GenModel'"
  * @generated
  */
 public interface EefxtextPackage extends EPackage {
@@ -57,8 +65,8 @@ public interface EefxtextPackage extends EPackage {
 			.init();
 
 	/**
-	 * The meta object id for the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl
 	 * <em>IEef Xtext Description</em>}' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -177,8 +185,8 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_DESCRIPTION__MULTI_LINE = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>IEef Xtext Description</em>
-	 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>IEef Xtext
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -186,8 +194,8 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
 	 * <em>IEef Xtext Model Description</em>}' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -315,9 +323,8 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '
-	 * <em>IEef Xtext Model Description</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>IEef Xtext Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -325,8 +332,8 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
 	 * <em>IEef Xtext Value Description</em>}' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -463,9 +470,8 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '
-	 * <em>IEef Xtext Value Description</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>IEef Xtext Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -473,8 +479,8 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
 	 * <em>IEef Xtext Property Description</em>}' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -593,9 +599,8 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_DESCRIPTION__MULTI_LINE;
 
 	/**
-	 * The number of structural features of the '
-	 * <em>IEef Xtext Property Description</em>' class. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>IEef Xtext Property
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -603,8 +608,8 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
 	 * <em>Eef Xtext Single Line Model Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -732,9 +737,8 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '
-	 * <em>Eef Xtext Single Line Model Description</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Eef Xtext Single Line Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -742,8 +746,8 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
 	 * <em>Eef Xtext Multi Line Model Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -871,9 +875,8 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '
-	 * <em>Eef Xtext Multi Line Model Description</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Eef Xtext Multi Line Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -881,8 +884,8 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
 	 * <em>Eef Xtext Single Line Value Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1021,9 +1024,8 @@ public interface EefxtextPackage extends EPackage {
 			+ 1;
 
 	/**
-	 * The number of structural features of the '
-	 * <em>Eef Xtext Single Line Value Description</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Eef Xtext Single Line Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1031,8 +1033,8 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
 	 * <em>Eef Xtext Multi Line Value Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1171,9 +1173,8 @@ public interface EefxtextPackage extends EPackage {
 			+ 1;
 
 	/**
-	 * The number of structural features of the '
-	 * <em>Eef Xtext Multi Line Value Description</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Eef Xtext Multi Line Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -1182,8 +1183,8 @@ public interface EefxtextPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
 	 * <em>IEef Xtext Description</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -1194,8 +1195,8 @@ public interface EefxtextPackage extends EPackage {
 	EClass getIEefXtextDescription();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
 	 * <em>Injector Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Injector Id</em>'.
@@ -1206,8 +1207,8 @@ public interface EefxtextPackage extends EPackage {
 	EAttribute getIEefXtextDescription_InjectorId();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
 	 * <em>Multi Line</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Multi Line</em>'.
@@ -1218,26 +1219,26 @@ public interface EefxtextPackage extends EPackage {
 	EAttribute getIEefXtextDescription_MultiLine();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
 	 * <em>IEef Xtext Model Description</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>IEef Xtext Model Description</em>
-	 *         '.
+	 * @return the meta object for class '<em>IEef Xtext Model
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
 	 * @generated
 	 */
 	EClass getIEefXtextModelDescription();
 
 	/**
-	 * Returns the meta object for the attribute list '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures
+	 * Returns the meta object for the attribute list
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures
 	 * <em>Editable Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
-	 * @return the meta object for the attribute list '
-	 *         <em>Editable Features</em>'.
+	 * @return the meta object for the attribute list '<em>Editable
+	 *         Features</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures()
 	 * @see #getIEefXtextModelDescription()
 	 * @generated
@@ -1245,26 +1246,26 @@ public interface EefxtextPackage extends EPackage {
 	EAttribute getIEefXtextModelDescription_EditableFeatures();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
 	 * <em>IEef Xtext Value Description</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>IEef Xtext Value Description</em>
-	 *         '.
+	 * @return the meta object for class '<em>IEef Xtext Value
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
 	 * @generated
 	 */
 	EClass getIEefXtextValueDescription();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
 	 * <em>Prefix Text Expression</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '
-	 *         <em>Prefix Text Expression</em>'.
+	 * @return the meta object for the attribute '<em>Prefix Text
+	 *         Expression</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression()
 	 * @see #getIEefXtextValueDescription()
 	 * @generated
@@ -1272,13 +1273,13 @@ public interface EefxtextPackage extends EPackage {
 	EAttribute getIEefXtextValueDescription_PrefixTextExpression();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
 	 * <em>Suffix Text Expression</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @return the meta object for the attribute '
-	 *         <em>Suffix Text Expression</em>'.
+	 * @return the meta object for the attribute '<em>Suffix Text
+	 *         Expression</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression()
 	 * @see #getIEefXtextValueDescription()
 	 * @generated
@@ -1286,65 +1287,65 @@ public interface EefxtextPackage extends EPackage {
 	EAttribute getIEefXtextValueDescription_SuffixTextExpression();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
 	 * <em>IEef Xtext Property Description</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @return the meta object for class '
-	 *         <em>IEef Xtext Property Description</em>'.
+	 * @return the meta object for class '<em>IEef Xtext Property
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
 	 * @generated
 	 */
 	EClass getIEefXtextPropertyDescription();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription
 	 * <em>Eef Xtext Single Line Model Description</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '
-	 *         <em>Eef Xtext Single Line Model Description</em>'.
+	 * @return the meta object for class '<em>Eef Xtext Single Line Model
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription
 	 * @generated
 	 */
 	EClass getEefXtextSingleLineModelDescription();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription
 	 * <em>Eef Xtext Multi Line Model Description</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '
-	 *         <em>Eef Xtext Multi Line Model Description</em>'.
+	 * @return the meta object for class '<em>Eef Xtext Multi Line Model
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription
 	 * @generated
 	 */
 	EClass getEefXtextMultiLineModelDescription();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription
 	 * <em>Eef Xtext Single Line Value Description</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '
-	 *         <em>Eef Xtext Single Line Value Description</em>'.
+	 * @return the meta object for class '<em>Eef Xtext Single Line Value
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription
 	 * @generated
 	 */
 	EClass getEefXtextSingleLineValueDescription();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription
 	 * <em>Eef Xtext Multi Line Value Description</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '
-	 *         <em>Eef Xtext Multi Line Value Description</em>'.
+	 * @return the meta object for class '<em>Eef Xtext Multi Line Value
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription
 	 * @generated
 	 */
@@ -1374,8 +1375,8 @@ public interface EefxtextPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '
-		 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl
 		 * <em>IEef Xtext Description</em>}' class. <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
 		 * 
@@ -1402,8 +1403,8 @@ public interface EefxtextPackage extends EPackage {
 		EAttribute IEEF_XTEXT_DESCRIPTION__MULTI_LINE = eINSTANCE.getIEefXtextDescription_MultiLine();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
 		 * <em>IEef Xtext Model Description</em>}' class. <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
 		 * 
@@ -1423,8 +1424,8 @@ public interface EefxtextPackage extends EPackage {
 				.getIEefXtextModelDescription_EditableFeatures();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
 		 * <em>IEef Xtext Value Description</em>}' class. <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
 		 * 
@@ -1435,9 +1436,9 @@ public interface EefxtextPackage extends EPackage {
 		EClass IEEF_XTEXT_VALUE_DESCRIPTION = eINSTANCE.getIEefXtextValueDescription();
 
 		/**
-		 * The meta object literal for the '
-		 * <em><b>Prefix Text Expression</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Prefix Text
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -1445,9 +1446,9 @@ public interface EefxtextPackage extends EPackage {
 				.getIEefXtextValueDescription_PrefixTextExpression();
 
 		/**
-		 * The meta object literal for the '
-		 * <em><b>Suffix Text Expression</b></em>' attribute feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Suffix Text
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
 		 * 
 		 * @generated
 		 */
@@ -1455,8 +1456,8 @@ public interface EefxtextPackage extends EPackage {
 				.getIEefXtextValueDescription_SuffixTextExpression();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
 		 * <em>IEef Xtext Property Description</em>}' class. <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
 		 * 
@@ -1467,8 +1468,8 @@ public interface EefxtextPackage extends EPackage {
 		EClass IEEF_XTEXT_PROPERTY_DESCRIPTION = eINSTANCE.getIEefXtextPropertyDescription();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
 		 * <em>Eef Xtext Single Line Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -1479,8 +1480,8 @@ public interface EefxtextPackage extends EPackage {
 		EClass EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = eINSTANCE.getEefXtextSingleLineModelDescription();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
 		 * <em>Eef Xtext Multi Line Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -1491,8 +1492,8 @@ public interface EefxtextPackage extends EPackage {
 		EClass EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION = eINSTANCE.getEefXtextMultiLineModelDescription();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
 		 * <em>Eef Xtext Single Line Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -1503,8 +1504,8 @@ public interface EefxtextPackage extends EPackage {
 		EClass EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = eINSTANCE.getEefXtextSingleLineValueDescription();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
+		 * The meta object literal for the
+		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
 		 * <em>Eef Xtext Multi Line Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 

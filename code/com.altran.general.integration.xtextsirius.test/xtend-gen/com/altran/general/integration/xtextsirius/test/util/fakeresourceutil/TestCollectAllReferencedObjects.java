@@ -2,10 +2,7 @@ package com.altran.general.integration.xtextsirius.test.util.fakeresourceutil;
 
 import com.altran.general.integration.xtextsirius.test.util.fakeresourceutil.ATestFakeResourceUtil;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Guard;
@@ -18,45 +15,26 @@ public class TestCollectAllReferencedObjects extends ATestFakeResourceUtil {
   @Test
   public void empty() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(0);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    Stream<EObject> _collectAllReferencedObjects = _accessibleFakeResourceUtil.collectAllReferencedObjects(event);
-    Collector<EObject, ?, List<EObject>> _list = Collectors.<EObject>toList();
-    final List<EObject> objects = _collectAllReferencedObjects.collect(_list);
-    int _size = objects.size();
-    Assert.assertEquals(0, _size);
+    final Event event = model.getEvents().get(0);
+    final List<EObject> objects = this.getAccessibleFakeResourceUtil().collectAllReferencedObjects(event).collect(Collectors.<EObject>toList());
+    Assert.assertEquals(0, objects.size());
   }
   
   @Test
   public void empty_shallow() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(2);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    Stream<EObject> _collectAllReferencedObjects = _accessibleFakeResourceUtil.collectAllReferencedObjects(event);
-    Collector<EObject, ?, List<EObject>> _list = Collectors.<EObject>toList();
-    final List<EObject> objects = _collectAllReferencedObjects.collect(_list);
-    int _size = objects.size();
-    Assert.assertEquals(0, _size);
+    final Event event = model.getEvents().get(2);
+    final List<EObject> objects = this.getAccessibleFakeResourceUtil().collectAllReferencedObjects(event).collect(Collectors.<EObject>toList());
+    Assert.assertEquals(0, objects.size());
   }
   
   @Test
   public void simple() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    Event _get = _events.get(4);
-    final Guard guard = _get.getGuard();
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    Stream<EObject> _collectAllReferencedObjectsDeep = _accessibleFakeResourceUtil.collectAllReferencedObjectsDeep(guard);
-    Collector<EObject, ?, List<EObject>> _list = Collectors.<EObject>toList();
-    final List<EObject> objects = _collectAllReferencedObjectsDeep.collect(_list);
-    String _string = objects.toString();
-    int _size = objects.size();
-    Assert.assertEquals(_string, 2, _size);
-    EObject _findFirstByName = this.<EObject>findFirstByName(objects, "constant2");
-    Assert.assertNotNull(_findFirstByName);
-    EObject _findFirstByName_1 = this.<EObject>findFirstByName(objects, "constant3X");
-    Assert.assertNotNull(_findFirstByName_1);
+    final Guard guard = model.getEvents().get(4).getGuard();
+    final List<EObject> objects = this.getAccessibleFakeResourceUtil().collectAllReferencedObjectsDeep(guard).collect(Collectors.<EObject>toList());
+    Assert.assertEquals(objects.toString(), 2, objects.size());
+    Assert.assertNotNull(this.<EObject>findFirstByName(objects, "constant2"));
+    Assert.assertNotNull(this.<EObject>findFirstByName(objects, "constant3X"));
   }
 }

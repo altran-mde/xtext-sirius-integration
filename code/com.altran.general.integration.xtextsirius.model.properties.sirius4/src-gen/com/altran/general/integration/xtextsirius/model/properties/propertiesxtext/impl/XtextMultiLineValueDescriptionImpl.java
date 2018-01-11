@@ -9,11 +9,15 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 =======
 import org.eclipse.sirius.properties.impl.TextAreaDescriptionImpl;
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+>>>>>>> updated to Oxygen.2
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription;
@@ -24,6 +28,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
  * Multi Line Value Description</b></em>'. <!-- end-user-doc -->
@@ -31,10 +36,15 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Xtext Multi Line Value Description</b></em>'. <!-- end-user-doc -->
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
+ * Multi Line Value Description</b></em>'. <!-- end-user-doc -->
+>>>>>>> updated to Oxygen.2
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
@@ -44,24 +54,34 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
 =======
  * <li>
  * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getInjectorId
+=======
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getInjectorId
+>>>>>>> updated to Oxygen.2
  * <em>Injector Id</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getPrefixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
  * <li>
  * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getSuffixTextExpression
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getSuffixTextExpression
+>>>>>>> updated to Oxygen.2
  * <em>Suffix Text Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 public class XtextMultiLineValueDescriptionImpl extends EObjectImpl implements XtextMultiLineValueDescription {
 =======
 public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		implements XtextMultiLineValueDescription {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+public class XtextMultiLineValueDescriptionImpl extends EObjectImpl implements XtextMultiLineValueDescription {
+>>>>>>> updated to Oxygen.2
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -83,6 +103,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -90,6 +111,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * The default value of the '{@link #getPrefixTextExpression()
 	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+>>>>>>> updated to Oxygen.2
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -99,6 +124,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -106,6 +132,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * The cached value of the '{@link #getPrefixTextExpression()
 	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+>>>>>>> updated to Oxygen.2
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -115,6 +145,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -122,6 +153,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * The default value of the '{@link #getSuffixTextExpression()
 	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+>>>>>>> updated to Oxygen.2
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()
@@ -131,6 +166,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -138,6 +174,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * The cached value of the '{@link #getSuffixTextExpression()
 	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+>>>>>>> updated to Oxygen.2
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()

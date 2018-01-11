@@ -11,18 +11,15 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPac
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Eef Xtext Multi Line Value Description</b></em>'. <!-- end-user-doc
- * -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Eef
+ * Xtext Multi Line Value Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl#getPrefixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl#getSuffixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl#getSuffixTextExpression
  * <em>Suffix Text Expression</em>}</li>
  * </ul>
  *
@@ -31,8 +28,8 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextVa
 public class EefXtextMultiLineValueDescriptionImpl extends IEefXtextDescriptionImpl
 		implements EefXtextMultiLineValueDescription {
 	/**
-	 * The default value of the '{@link #getPrefixTextExpression()
-	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -42,8 +39,8 @@ public class EefXtextMultiLineValueDescriptionImpl extends IEefXtextDescriptionI
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPrefixTextExpression()
-	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -53,8 +50,8 @@ public class EefXtextMultiLineValueDescriptionImpl extends IEefXtextDescriptionI
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSuffixTextExpression()
-	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()
@@ -64,8 +61,8 @@ public class EefXtextMultiLineValueDescriptionImpl extends IEefXtextDescriptionI
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSuffixTextExpression()
-	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()

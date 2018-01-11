@@ -5,18 +5,16 @@ package com.altran.general.integration.xtextsirius.model.eef.eefxtext;
 import org.eclipse.eef.EEFTextDescription;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>IEef Xtext Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>IEef
+ * Xtext Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
  * <em>Injector Id</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
  * <em>Multi Line</em>}</li>
  * </ul>
  *
@@ -43,8 +41,8 @@ public interface IEefXtextDescription extends EEFTextDescription {
 	String getInjectorId();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
+	 * Sets the value of the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
 	 * <em>Injector Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -73,8 +71,8 @@ public interface IEefXtextDescription extends EEFTextDescription {
 	boolean isMultiLine();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
+	 * Sets the value of the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
 	 * <em>Multi Line</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 

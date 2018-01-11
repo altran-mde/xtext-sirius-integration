@@ -176,8 +176,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
 	 * <em>AXtext Direct Edit Label</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -192,8 +192,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
 	 * <em>Xtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -208,8 +208,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
 	 * <em>Xtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -224,8 +224,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.sirius.viewpoint.description.DocumentedElement
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.viewpoint.description.DocumentedElement
 	 * <em>Documented Element</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -240,8 +240,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.sirius.viewpoint.description.IdentifiedElement
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.viewpoint.description.IdentifiedElement
 	 * <em>Identified Element</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -256,8 +256,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.sirius.viewpoint.description.tool.ToolEntry
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.viewpoint.description.tool.ToolEntry
 	 * <em>Entry</em>}'. <!-- begin-user-doc --> This default implementation
 	 * returns null so that we can easily ignore cases; it's useful to ignore a
 	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
@@ -272,8 +272,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription
 	 * <em>Abstract Tool Description</em>}'. <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
@@ -288,8 +288,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription
 	 * <em>Mapping Based Tool Description</em>}'. <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
@@ -304,8 +304,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.sirius.diagram.description.tool.DirectEditLabel
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.diagram.description.tool.DirectEditLabel
 	 * <em>Direct Edit Label</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -320,8 +320,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
 	 * <em>IXtext Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -336,8 +336,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
 	 * <em>IXtext Direct Edit Description</em>}'. <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
@@ -352,8 +352,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
 	 * <em>IXtext Model Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -368,8 +368,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
 	 * <em>IXtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
@@ -384,8 +384,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 	 * <em>IXtext Value Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
@@ -400,8 +400,8 @@ public class DiagramxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 	 * <em>IXtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the

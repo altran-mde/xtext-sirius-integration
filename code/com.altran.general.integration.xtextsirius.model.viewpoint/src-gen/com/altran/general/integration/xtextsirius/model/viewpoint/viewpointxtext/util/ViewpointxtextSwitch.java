@@ -214,15 +214,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>IXtext Edge Label Direct Edit Description</em>'. <!-- begin-user-doc
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Edge Label Direct Edit Description</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>IXtext Edge Label Direct Edit Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Edge Label Direct Edit Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -231,15 +231,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Xtext Edge Label Direct Edit Model Description</em>'. <!--
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Edge Label Direct Edit Model Description</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null
 	 * result will terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Xtext Edge Label Direct Edit Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Edge Label Direct Edit Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -248,15 +248,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Xtext Edge Label Direct Edit Value Description</em>'. <!--
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Edge Label Direct Edit Value Description</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null
 	 * result will terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Xtext Edge Label Direct Edit Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Edge Label Direct Edit Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -265,15 +265,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>IXtext Description</em>'. <!-- begin-user-doc --> This implementation
-	 * returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>IXtext Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -282,15 +282,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>IXtext Direct Edit Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -299,15 +299,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Documented Element</em>'. <!-- begin-user-doc --> This implementation
-	 * returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Documented Element</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Documented Element</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Documented Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -316,15 +316,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Identified Element</em>'. <!-- begin-user-doc --> This implementation
-	 * returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Identified Element</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Identified Element</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Identified Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -333,15 +333,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Entry</em>'. <!-- begin-user-doc --> This implementation returns
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Entry</em>'. <!-- begin-user-doc --> This implementation returns
 	 * null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Entry</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Entry</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -350,15 +350,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Abstract Tool Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Abstract Tool Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Abstract Tool Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Abstract Tool Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -367,15 +367,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Mapping Based Tool Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Mapping Based Tool Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Mapping Based Tool Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Mapping Based Tool Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -384,15 +384,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Direct Edit Label</em>'. <!-- begin-user-doc --> This implementation
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Direct Edit Label</em>'. <!-- begin-user-doc --> This implementation
 	 * returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Direct Edit Label</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Direct Edit Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -401,15 +401,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>AXtext Direct Edit Label</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>AXtext Direct Edit Label</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>AXtext Direct Edit Label</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>AXtext Direct Edit Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -418,15 +418,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>IXtext Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -435,15 +435,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>IXtext Direct Edit Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -452,15 +452,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Xtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Xtext Direct Edit Model Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Direct Edit Model Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -469,15 +469,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>IXtext Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -486,15 +486,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>IXtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>IXtext Direct Edit Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Direct Edit Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -503,15 +503,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>Xtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>Xtext Direct Edit Value Description</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Direct Edit Value Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -520,15 +520,15 @@ public class ViewpointxtextSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '
-	 * <em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
 	 * null; returning a non-null result will terminate the switch, but this is
 	 * the last case anyway. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '
-	 *         <em>EObject</em>'.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

@@ -8,14 +8,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
-import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
 import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.util.TextRegion;
@@ -29,21 +27,18 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
   @Test(expected = NoSuchElementException.class)
   public void emptyFeatures() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(0);
+    final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
-    Set<EStructuralFeature> _emptySet = CollectionLiterals.<EStructuralFeature>emptySet();
-    preparer.setDefinedFeatures(_emptySet);
+    preparer.setDefinedFeatures(CollectionLiterals.<EStructuralFeature>emptySet());
     preparer.calculateRegionForFeatures(event);
   }
   
   @Test
   public void oneDefinedFeature() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(0);
+    final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
@@ -51,24 +46,18 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     preparer.setSemanticRegion(eventRegion);
-    StatemachinePackage _statemachinePackage = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
-    EAttribute _event_Name = _statemachinePackage.getEvent_Name();
-    Set<EStructuralFeature> _set = IterableExtensions.<EStructuralFeature>toSet(Collections.<EStructuralFeature>unmodifiableList(CollectionLiterals.<EStructuralFeature>newArrayList(((EStructuralFeature) _event_Name))));
-    preparer.setDefinedFeatures(_set);
+    EAttribute _event_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name();
+    preparer.setDefinedFeatures(IterableExtensions.<EStructuralFeature>toSet(Collections.<EStructuralFeature>unmodifiableList(CollectionLiterals.<EStructuralFeature>newArrayList(((EStructuralFeature) _event_Name)))));
     final TextRegion region = preparer.calculateRegionForFeatures(event);
-    int _offset = region.getOffset();
-    Assert.assertEquals(26, _offset);
-    int _length = region.getLength();
-    Assert.assertEquals(6, _length);
-    String _resolveRegion = this.resolveRegion(rootRegion, region);
-    Assert.assertEquals("event1", _resolveRegion);
+    Assert.assertEquals(26, region.getOffset());
+    Assert.assertEquals(6, region.getLength());
+    Assert.assertEquals("event1", this.resolveRegion(rootRegion, region));
   }
   
   @Test
   public void oneDefinedFeatureLong() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(2);
+    final Event event = model.getEvents().get(2);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
@@ -76,24 +65,18 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     preparer.setSemanticRegion(eventRegion);
-    StatemachinePackage _statemachinePackage = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
-    EAttribute _event_Name = _statemachinePackage.getEvent_Name();
-    Set<EStructuralFeature> _set = IterableExtensions.<EStructuralFeature>toSet(Collections.<EStructuralFeature>unmodifiableList(CollectionLiterals.<EStructuralFeature>newArrayList(((EStructuralFeature) _event_Name))));
-    preparer.setDefinedFeatures(_set);
+    EAttribute _event_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name();
+    preparer.setDefinedFeatures(IterableExtensions.<EStructuralFeature>toSet(Collections.<EStructuralFeature>unmodifiableList(CollectionLiterals.<EStructuralFeature>newArrayList(((EStructuralFeature) _event_Name)))));
     final TextRegion region = preparer.calculateRegionForFeatures(event);
-    int _offset = region.getOffset();
-    Assert.assertEquals(58, _offset);
-    int _length = region.getLength();
-    Assert.assertEquals(6, _length);
-    String _resolveRegion = this.resolveRegion(rootRegion, region);
-    Assert.assertEquals("event3", _resolveRegion);
+    Assert.assertEquals(58, region.getOffset());
+    Assert.assertEquals(6, region.getLength());
+    Assert.assertEquals("event3", this.resolveRegion(rootRegion, region));
   }
   
   @Test
   public void someDefinedFeatures() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(2);
+    final Event event = model.getEvents().get(2);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
@@ -101,17 +84,13 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     preparer.setSemanticRegion(eventRegion);
-    StatemachinePackage _statemachinePackage = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
-    EAttribute _event_Name = _statemachinePackage.getEvent_Name();
-    StatemachinePackage _statemachinePackage_1 = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
-    EReference _event_Guard = _statemachinePackage_1.getEvent_Guard();
+    EAttribute _event_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name();
+    EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
     Set<? extends EStructuralFeature> _set = IterableExtensions.toSet(Collections.<EStructuralFeature>unmodifiableList(CollectionLiterals.<EStructuralFeature>newArrayList(_event_Name, _event_Guard)));
     preparer.setDefinedFeatures(((Set<EStructuralFeature>) _set));
     final TextRegion region = preparer.calculateRegionForFeatures(event);
-    int _offset = region.getOffset();
-    Assert.assertEquals(58, _offset);
-    int _length = region.getLength();
-    Assert.assertEquals(30, _length);
+    Assert.assertEquals(58, region.getOffset());
+    Assert.assertEquals(30, region.getLength());
     final String text = this.resolveRegion(rootRegion, region);
     Assert.assertEquals("event3\r\n333\t \t[\r\nconstant1\t\t\t]", text);
   }
@@ -119,8 +98,7 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
   @Test
   public void allPrefixedFeatures() {
     final Statemachine model = this.getDefaultModel();
-    EList<Command> _commands = model.getCommands();
-    final Command cmd = _commands.get(1);
+    final Command cmd = model.getCommands().get(1);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(cmd, _injector, false, _emptyList);
@@ -128,19 +106,14 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion cmdRegion = rootRegion.regionForEObject(cmd);
     preparer.setSemanticRegion(cmdRegion);
-    StatemachinePackage _statemachinePackage = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
-    EAttribute _command_Name = _statemachinePackage.getCommand_Name();
-    StatemachinePackage _statemachinePackage_1 = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
-    EAttribute _command_Code = _statemachinePackage_1.getCommand_Code();
-    StatemachinePackage _statemachinePackage_2 = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage();
-    EReference _command_Guard = _statemachinePackage_2.getCommand_Guard();
+    EAttribute _command_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getCommand_Name();
+    EAttribute _command_Code = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getCommand_Code();
+    EReference _command_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getCommand_Guard();
     Set<? extends EStructuralFeature> _set = IterableExtensions.toSet(Collections.<EStructuralFeature>unmodifiableList(CollectionLiterals.<EStructuralFeature>newArrayList(_command_Name, _command_Code, _command_Guard)));
     preparer.setDefinedFeatures(((Set<EStructuralFeature>) _set));
     final TextRegion region = preparer.calculateRegionForFeatures(cmd);
-    int _offset = region.getOffset();
-    Assert.assertEquals(194, _offset);
-    int _length = region.getLength();
-    Assert.assertEquals(18, _length);
+    Assert.assertEquals(194, region.getOffset());
+    Assert.assertEquals(18, region.getLength());
     final String text = this.resolveRegion(rootRegion, region);
     Assert.assertEquals("[123] command2 234", text);
   }

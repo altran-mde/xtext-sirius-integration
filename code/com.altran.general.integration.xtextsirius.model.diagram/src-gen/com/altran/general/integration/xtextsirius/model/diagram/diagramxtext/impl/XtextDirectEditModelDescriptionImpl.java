@@ -19,20 +19,17 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Xtext Direct Edit Model Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
+ * Direct Edit Model Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getInjectorId
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#isMultiLine
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#isMultiLine
  * <em>Multi Line</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getEditableFeatures
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
  * </ul>
  *
@@ -81,9 +78,9 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	protected boolean multiLine = MULTI_LINE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEditableFeatures()
-	 * <em>Editable Features</em>}' attribute list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
+	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #getEditableFeatures()
 	 * @generated
@@ -169,7 +166,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	@Override
 	public EList<String> getEditableFeatures() {
 		if (this.editableFeatures == null) {
-			this.editableFeatures = new EDataTypeEList<String>(String.class, this,
+			this.editableFeatures = new EDataTypeEList<>(String.class, this,
 					DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		}
 		return this.editableFeatures;

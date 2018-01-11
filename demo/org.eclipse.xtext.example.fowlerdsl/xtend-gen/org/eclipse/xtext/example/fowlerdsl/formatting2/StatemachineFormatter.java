@@ -11,12 +11,10 @@ import org.eclipse.xtext.example.fowlerdsl.services.StatemachineGrammarAccess;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
-import org.eclipse.xtext.example.fowlerdsl.statemachine.Guard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.RangeGuard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
-import org.eclipse.xtext.example.fowlerdsl.statemachine.Value;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
@@ -49,30 +47,24 @@ public class StatemachineFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final Event event, @Extension final IFormattableDocument document) {
-    Guard _guard = event.getGuard();
-    this.format(_guard, document);
+    this.format(event.getGuard(), document);
   }
   
   protected void _format(final ValueGuard valueguard, @Extension final IFormattableDocument document) {
-    Value _cond = valueguard.getCond();
-    this.format(_cond, document);
+    this.format(valueguard.getCond(), document);
   }
   
   protected void _format(final RangeGuard rangeguard, @Extension final IFormattableDocument document) {
-    Value _min = rangeguard.getMin();
-    this.format(_min, document);
-    Value _max = rangeguard.getMax();
-    this.format(_max, document);
+    this.format(rangeguard.getMin(), document);
+    this.format(rangeguard.getMax(), document);
   }
   
   protected void _format(final Command command, @Extension final IFormattableDocument document) {
-    Guard _guard = command.getGuard();
-    this.format(_guard, document);
+    this.format(command.getGuard(), document);
   }
   
   protected void _format(final Constant constant, @Extension final IFormattableDocument document) {
-    Value _value = constant.getValue();
-    this.format(_value, document);
+    this.format(constant.getValue(), document);
   }
   
   protected void _format(final State state, @Extension final IFormattableDocument document) {
@@ -83,8 +75,7 @@ public class StatemachineFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final Transition transition, @Extension final IFormattableDocument document) {
-    Guard _guard = transition.getGuard();
-    this.format(_guard, document);
+    this.format(transition.getGuard(), document);
   }
   
   public void format(final Object rangeguard, final IFormattableDocument document) {

@@ -85,21 +85,19 @@ public class XtextMultiLineModelDescriptionItemProvider extends ItemProviderAdap
 	 * @generated
 	 */
 	protected void addEditableFeaturesPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextModelDescription_editableFeatures_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IXtextModelDescription_editableFeatures_feature",
-								"_UI_IXtextModelDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null,
-						null));
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextModelDescription_editableFeatures_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_IXtextModelDescription_editableFeatures_feature",
+						"_UI_IXtextModelDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
@@ -130,8 +128,12 @@ public class XtextMultiLineModelDescriptionItemProvider extends ItemProviderAdap
 >>>>>>> preliminary fix for using guava v16
 =======
 	public String getText(final Object object) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 		final String label = ((XtextMultiLineModelDescription) object).getIdentifier();
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+		final String label = ((XtextMultiLineModelDescription) object).getInjectorId();
+>>>>>>> updated to Oxygen.2
 		return label == null || label.length() == 0 ? getString("_UI_XtextMultiLineModelDescription_type")
 				: getString("_UI_XtextMultiLineModelDescription_type") + " " + label;
 	}
@@ -176,6 +178,7 @@ public class XtextMultiLineModelDescriptionItemProvider extends ItemProviderAdap
 	 * @generated
 	 */
 	@Override
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
 	public ResourceLocator getResourceLocator() {
@@ -199,6 +202,10 @@ public class XtextMultiLineModelDescriptionItemProvider extends ItemProviderAdap
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 >>>>>>> preliminary fix for using guava v16
+=======
+	public ResourceLocator getResourceLocator() {
+		return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
+>>>>>>> updated to Oxygen.2
 	}
 
 }

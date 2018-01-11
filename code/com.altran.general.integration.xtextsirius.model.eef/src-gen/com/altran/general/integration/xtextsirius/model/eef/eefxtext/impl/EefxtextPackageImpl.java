@@ -138,6 +138,7 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 
 		// Initialize simple dependencies
 		EefPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEefxtextPackage.createPackageContents();

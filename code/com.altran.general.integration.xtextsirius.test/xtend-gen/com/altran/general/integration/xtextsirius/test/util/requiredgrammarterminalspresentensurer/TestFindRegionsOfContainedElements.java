@@ -5,12 +5,9 @@ import com.altran.general.integration.xtextsirius.test.util.requiredgrammartermi
 import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.AccessibleRequiredGrammarTerminalsPresentEnsurer;
 import com.google.common.base.Objects;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.AbstractElement;
-import org.eclipse.xtext.AbstractRule;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Group;
 import org.eclipse.xtext.RuleCall;
@@ -32,8 +29,7 @@ public class TestFindRegionsOfContainedElements extends ARequiredGrammarTerminal
   @Test
   public void emptyElements() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(4);
+    final Event event = model.getEvents().get(4);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
@@ -43,35 +39,28 @@ public class TestFindRegionsOfContainedElements extends ARequiredGrammarTerminal
     final Procedure1<AccessibleRequiredGrammarTerminalsPresentEnsurer> _function = (AccessibleRequiredGrammarTerminalsPresentEnsurer it) -> {
       it.setParentMap(map);
       it.setElementRegion(eventRegion);
-      List<AbstractElement> _emptyList = CollectionLiterals.<AbstractElement>emptyList();
-      it.setContainedElementPath(_emptyList);
+      it.setContainedElementPath(CollectionLiterals.<AbstractElement>emptyList());
     };
     final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = ObjectExtensions.<AccessibleRequiredGrammarTerminalsPresentEnsurer>operator_doubleArrow(_fakeEnsurer, _function);
     final Set<ISemanticRegion> regions = ensurer.findRegionsOfContainedElements();
-    boolean _isEmpty = regions.isEmpty();
-    Assert.assertTrue(_isEmpty);
+    Assert.assertTrue(regions.isEmpty());
   }
   
   @Test
   public void complexPath() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(4);
+    final Event event = model.getEvents().get(4);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EObject _grammarElement = eventRegion.getGrammarElement();
     final RuleCall eventRuleCall = ((RuleCall) _grammarElement);
-    AbstractRule _rule = eventRuleCall.getRule();
-    AbstractElement _alternatives = _rule.getAlternatives();
+    AbstractElement _alternatives = eventRuleCall.getRule().getAlternatives();
     final Group eventGroup = ((Group) _alternatives);
-    EList<AbstractElement> _elements = eventGroup.getElements();
-    AbstractElement _get = _elements.get(0);
+    AbstractElement _get = eventGroup.getElements().get(0);
     final Assignment eventName = ((Assignment) _get);
-    EList<AbstractElement> _elements_1 = eventGroup.getElements();
-    AbstractElement _get_1 = _elements_1.get(2);
+    AbstractElement _get_1 = eventGroup.getElements().get(2);
     final Group guardGroup = ((Group) _get_1);
-    EList<AbstractElement> _elements_2 = guardGroup.getElements();
-    AbstractElement _get_2 = _elements_2.get(1);
+    AbstractElement _get_2 = guardGroup.getElements().get(1);
     final Assignment guardAssignment = ((Assignment) _get_2);
     final AccessibleParentMap map = new AccessibleParentMap(eventRuleCall, eventRuleCall);
     AccessibleRequiredGrammarTerminalsPresentEnsurer _fakeEnsurer = this.getFakeEnsurer();
@@ -82,31 +71,26 @@ public class TestFindRegionsOfContainedElements extends ARequiredGrammarTerminal
     };
     final AccessibleRequiredGrammarTerminalsPresentEnsurer ensurer = ObjectExtensions.<AccessibleRequiredGrammarTerminalsPresentEnsurer>operator_doubleArrow(_fakeEnsurer, _function);
     final Set<ISemanticRegion> regions = ensurer.findRegionsOfContainedElements();
-    int _size = regions.size();
-    Assert.assertEquals(4, _size);
+    Assert.assertEquals(4, regions.size());
     final Function1<ISemanticRegion, Boolean> _function_1 = (ISemanticRegion it) -> {
       String _text = it.getText();
       return Boolean.valueOf(Objects.equal(_text, "event5"));
     };
-    ISemanticRegion _findFirst = IterableExtensions.<ISemanticRegion>findFirst(regions, _function_1);
-    Assert.assertNotNull(_findFirst);
+    Assert.assertNotNull(IterableExtensions.<ISemanticRegion>findFirst(regions, _function_1));
     final Function1<ISemanticRegion, Boolean> _function_2 = (ISemanticRegion it) -> {
       String _text = it.getText();
       return Boolean.valueOf(Objects.equal(_text, "constant3X"));
     };
-    ISemanticRegion _findFirst_1 = IterableExtensions.<ISemanticRegion>findFirst(regions, _function_2);
-    Assert.assertNotNull(_findFirst_1);
+    Assert.assertNotNull(IterableExtensions.<ISemanticRegion>findFirst(regions, _function_2));
     final Function1<ISemanticRegion, Boolean> _function_3 = (ISemanticRegion it) -> {
       String _text = it.getText();
       return Boolean.valueOf(Objects.equal(_text, ".."));
     };
-    ISemanticRegion _findFirst_2 = IterableExtensions.<ISemanticRegion>findFirst(regions, _function_3);
-    Assert.assertNotNull(_findFirst_2);
+    Assert.assertNotNull(IterableExtensions.<ISemanticRegion>findFirst(regions, _function_3));
     final Function1<ISemanticRegion, Boolean> _function_4 = (ISemanticRegion it) -> {
       String _text = it.getText();
       return Boolean.valueOf(Objects.equal(_text, "constant2"));
     };
-    ISemanticRegion _findFirst_3 = IterableExtensions.<ISemanticRegion>findFirst(regions, _function_4);
-    Assert.assertNotNull(_findFirst_3);
+    Assert.assertNotNull(IterableExtensions.<ISemanticRegion>findFirst(regions, _function_4));
   }
 }

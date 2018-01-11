@@ -6,7 +6,6 @@ import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
@@ -19,64 +18,47 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
   @Test
   public void emptyFeatures() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(0);
+    final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     List<String> _emptyList = CollectionLiterals.<String>emptyList();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
-    int _size = resolved.size();
-    Assert.assertEquals(0, _size);
+    Assert.assertEquals(0, resolved.size());
   }
   
   @Test
   public void someDefinedFeatures() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(0);
+    final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
-    String _string = resolved.toString();
-    int _size = resolved.size();
-    Assert.assertEquals(_string, 1, _size);
-    EStructuralFeature _findFirstByName = this.<EStructuralFeature>findFirstByName(resolved, "name");
-    Assert.assertNotNull(_findFirstByName);
+    Assert.assertEquals(resolved.toString(), 1, resolved.size());
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
   }
   
   @Test
   public void allDefinedFeatures() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(0);
+    final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code", "Event.guard")));
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
-    String _string = resolved.toString();
-    int _size = resolved.size();
-    Assert.assertEquals(_string, 2, _size);
-    EStructuralFeature _findFirstByName = this.<EStructuralFeature>findFirstByName(resolved, "name");
-    Assert.assertNotNull(_findFirstByName);
-    EStructuralFeature _findFirstByName_1 = this.<EStructuralFeature>findFirstByName(resolved, "code");
-    Assert.assertNotNull(_findFirstByName_1);
+    Assert.assertEquals(resolved.toString(), 2, resolved.size());
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "code"));
   }
   
   @Test
   public void allFeatures() {
     final Statemachine model = this.getDefaultModel();
-    EList<Event> _events = model.getEvents();
-    final Event event = _events.get(1);
+    final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code", "Event.guard")));
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
-    String _string = resolved.toString();
-    int _size = resolved.size();
-    Assert.assertEquals(_string, 3, _size);
-    EStructuralFeature _findFirstByName = this.<EStructuralFeature>findFirstByName(resolved, "name");
-    Assert.assertNotNull(_findFirstByName);
-    EStructuralFeature _findFirstByName_1 = this.<EStructuralFeature>findFirstByName(resolved, "code");
-    Assert.assertNotNull(_findFirstByName_1);
-    EStructuralFeature _findFirstByName_2 = this.<EStructuralFeature>findFirstByName(resolved, "guard");
-    Assert.assertNotNull(_findFirstByName_2);
+    Assert.assertEquals(resolved.toString(), 3, resolved.size());
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "code"));
+    Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "guard"));
   }
 }

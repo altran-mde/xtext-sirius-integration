@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
@@ -19,6 +20,10 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.sirius.properties.impl.TextAreaDescriptionImpl;
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+>>>>>>> updated to Oxygen.2
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
@@ -29,6 +34,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
  * Multi Line Model Description</b></em>'. <!-- end-user-doc -->
@@ -36,10 +42,15 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Xtext Multi Line Model Description</b></em>'. <!-- end-user-doc -->
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
+ * Multi Line Model Description</b></em>'. <!-- end-user-doc -->
+>>>>>>> updated to Oxygen.2
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
@@ -51,17 +62,26 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <li>
  * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getEditableFeatures
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getInjectorId
+ * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getEditableFeatures
+>>>>>>> updated to Oxygen.2
  * <em>Editable Features</em>}</li>
  * </ul>
  *
  * @generated
  */
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 public class XtextMultiLineModelDescriptionImpl extends EObjectImpl implements XtextMultiLineModelDescription {
 =======
 public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 		implements XtextMultiLineModelDescription {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+public class XtextMultiLineModelDescriptionImpl extends EObjectImpl implements XtextMultiLineModelDescription {
+>>>>>>> updated to Oxygen.2
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -83,6 +103,7 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
 	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -92,6 +113,11 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 	 * <em>Editable Features</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
+	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+>>>>>>> updated to Oxygen.2
 	 * 
 	 * @see #getEditableFeatures()
 	 * @generated
@@ -152,11 +178,15 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 	@Override
 	public EList<String> getEditableFeatures() {
 		if (this.editableFeatures == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 			this.editableFeatures = new EDataTypeEList<>(String.class, this,
 =======
 			this.editableFeatures = new EDataTypeEList<String>(String.class, this,
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+			this.editableFeatures = new EDataTypeEList<>(String.class, this,
+>>>>>>> updated to Oxygen.2
 					PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		}
 		return this.editableFeatures;

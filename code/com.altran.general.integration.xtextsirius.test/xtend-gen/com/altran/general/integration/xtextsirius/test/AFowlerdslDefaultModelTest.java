@@ -3,9 +3,7 @@ package com.altran.general.integration.xtextsirius.test;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslTest;
 import com.google.common.base.Objects;
 import java.util.Collection;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachineFactory;
@@ -168,9 +166,7 @@ public abstract class AFowlerdslDefaultModelTest extends AFowlerdslTest {
   
   protected <T extends EObject> T findFirstByName(final Collection<T> collection, final String name) {
     final Function1<T, Boolean> _function = (T it) -> {
-      EClass _eClass = it.eClass();
-      EStructuralFeature _eStructuralFeature = _eClass.getEStructuralFeature("name");
-      Object _eGet = it.eGet(_eStructuralFeature);
+      Object _eGet = it.eGet(it.eClass().getEStructuralFeature("name"));
       return Boolean.valueOf(Objects.equal(_eGet, name));
     };
     return IterableExtensions.<T>findFirst(collection, _function);

@@ -15,23 +15,19 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Xtext Direct Edit Value Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
+ * Direct Edit Value Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getInjectorId
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#isMultiLine
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#isMultiLine
  * <em>Multi Line</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getPrefixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getSuffixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getSuffixTextExpression
  * <em>Suffix Text Expression</em>}</li>
  * </ul>
  *
@@ -80,8 +76,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 	protected boolean multiLine = MULTI_LINE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPrefixTextExpression()
-	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -91,8 +87,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPrefixTextExpression()
-	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -102,8 +98,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSuffixTextExpression()
-	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()
@@ -113,8 +109,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSuffixTextExpression()
-	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()

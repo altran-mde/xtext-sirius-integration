@@ -47,8 +47,6 @@ public final class PropertiesxtextEditPlugin extends EMFPlugin {
 >>>>>>> preliminary fix for using guava v16
 =======
 		super(new ResourceLocator[] {
-				SiriusEditPlugin.INSTANCE,
-				PropertiesEditPlugin.INSTANCE,
 				XtextsiriusEditPlugin.INSTANCE,
 		});
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy

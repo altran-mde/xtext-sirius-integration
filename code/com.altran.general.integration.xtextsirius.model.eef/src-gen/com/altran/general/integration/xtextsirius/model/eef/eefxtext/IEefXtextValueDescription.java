@@ -4,18 +4,16 @@ package com.altran.general.integration.xtextsirius.model.eef.eefxtext;
 
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>IEef Xtext Value Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>IEef
+ * Xtext Value Description</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
  * <em>Suffix Text Expression</em>}</li>
  * </ul>
  *
@@ -42,8 +40,8 @@ public interface IEefXtextValueDescription extends IEefXtextDescription {
 	String getPrefixTextExpression();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
+	 * Sets the value of the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
 	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
@@ -73,8 +71,8 @@ public interface IEefXtextValueDescription extends IEefXtextDescription {
 	String getSuffixTextExpression();
 
 	/**
-	 * Sets the value of the '
-	 * {@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
+	 * Sets the value of the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
 	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 

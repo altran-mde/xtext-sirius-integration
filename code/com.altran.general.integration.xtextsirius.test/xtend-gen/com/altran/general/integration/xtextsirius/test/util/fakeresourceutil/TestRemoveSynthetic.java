@@ -1,7 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.util.fakeresourceutil;
 
 import com.altran.general.integration.xtextsirius.test.util.fakeresourceutil.ATestFakeResourceUtil;
-import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,8 +11,7 @@ public class TestRemoveSynthetic extends ATestFakeResourceUtil {
   public void nonSynth_simple() {
     final String uriString = "/proj/some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    final URI unsynth = _accessibleFakeResourceUtil.removeSynthetic(org);
+    final URI unsynth = this.getAccessibleFakeResourceUtil().removeSynthetic(org);
     Assert.assertEquals(org, unsynth);
   }
   
@@ -21,8 +19,7 @@ public class TestRemoveSynthetic extends ATestFakeResourceUtil {
   public void nonSynth_small() {
     final String uriString = "some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    final URI unsynth = _accessibleFakeResourceUtil.removeSynthetic(org);
+    final URI unsynth = this.getAccessibleFakeResourceUtil().removeSynthetic(org);
     Assert.assertEquals(org, unsynth);
   }
   
@@ -30,8 +27,7 @@ public class TestRemoveSynthetic extends ATestFakeResourceUtil {
   public void nonSynth_empty() {
     final String uriString = "";
     final URI org = URI.createURI(uriString, false);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    final URI unsynth = _accessibleFakeResourceUtil.removeSynthetic(org);
+    final URI unsynth = this.getAccessibleFakeResourceUtil().removeSynthetic(org);
     Assert.assertEquals(org, unsynth);
   }
   
@@ -39,65 +35,35 @@ public class TestRemoveSynthetic extends ATestFakeResourceUtil {
   public void synth_simple() {
     final String uriString = "/proj/some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    final URI synth = _accessibleFakeResourceUtil.insertSynthetic(org);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil_1 = this.getAccessibleFakeResourceUtil();
-    final URI unsynth = _accessibleFakeResourceUtil_1.removeSynthetic(org);
+    final URI synth = this.getAccessibleFakeResourceUtil().insertSynthetic(org);
+    final URI unsynth = this.getAccessibleFakeResourceUtil().removeSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertEquals(org, unsynth);
-    List<String> _segmentsList = org.segmentsList();
-    List<String> _front = this.<String>front(_segmentsList);
-    Object[] _array = _front.toArray();
-    List<String> _segmentsList_1 = synth.segmentsList();
-    List<String> _front_1 = this.<String>front(_segmentsList_1);
-    Object[] _array_1 = _front_1.toArray();
-    Assert.assertArrayEquals(_array, _array_1);
-    String _lastSegment = org.lastSegment();
-    String _lastSegment_1 = synth.lastSegment();
-    Assert.assertNotEquals(_lastSegment, _lastSegment_1);
+    Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());
+    Assert.assertNotEquals(org.lastSegment(), synth.lastSegment());
   }
   
   @Test
   public void synth_small() {
     final String uriString = "some.resource";
     final URI org = URI.createPlatformResourceURI(uriString, false);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    final URI synth = _accessibleFakeResourceUtil.insertSynthetic(org);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil_1 = this.getAccessibleFakeResourceUtil();
-    final URI unsynth = _accessibleFakeResourceUtil_1.removeSynthetic(org);
+    final URI synth = this.getAccessibleFakeResourceUtil().insertSynthetic(org);
+    final URI unsynth = this.getAccessibleFakeResourceUtil().removeSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertEquals(org, unsynth);
-    List<String> _segmentsList = org.segmentsList();
-    List<String> _front = this.<String>front(_segmentsList);
-    Object[] _array = _front.toArray();
-    List<String> _segmentsList_1 = synth.segmentsList();
-    List<String> _front_1 = this.<String>front(_segmentsList_1);
-    Object[] _array_1 = _front_1.toArray();
-    Assert.assertArrayEquals(_array, _array_1);
-    String _lastSegment = org.lastSegment();
-    String _lastSegment_1 = synth.lastSegment();
-    Assert.assertNotEquals(_lastSegment, _lastSegment_1);
+    Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());
+    Assert.assertNotEquals(org.lastSegment(), synth.lastSegment());
   }
   
   @Test
   public void synth_empty() {
     final String uriString = "";
     final URI org = URI.createURI(uriString, false);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil = this.getAccessibleFakeResourceUtil();
-    final URI synth = _accessibleFakeResourceUtil.insertSynthetic(org);
-    ATestFakeResourceUtil.AccessibleFakeResourceUtil _accessibleFakeResourceUtil_1 = this.getAccessibleFakeResourceUtil();
-    final URI unsynth = _accessibleFakeResourceUtil_1.removeSynthetic(org);
+    final URI synth = this.getAccessibleFakeResourceUtil().insertSynthetic(org);
+    final URI unsynth = this.getAccessibleFakeResourceUtil().removeSynthetic(org);
     Assert.assertNotEquals(org, synth);
     Assert.assertEquals(org, unsynth);
-    List<String> _segmentsList = org.segmentsList();
-    List<String> _front = this.<String>front(_segmentsList);
-    Object[] _array = _front.toArray();
-    List<String> _segmentsList_1 = synth.segmentsList();
-    List<String> _front_1 = this.<String>front(_segmentsList_1);
-    Object[] _array_1 = _front_1.toArray();
-    Assert.assertArrayEquals(_array, _array_1);
-    String _lastSegment = org.lastSegment();
-    String _lastSegment_1 = synth.lastSegment();
-    Assert.assertNotEquals(_lastSegment, _lastSegment_1);
+    Assert.assertArrayEquals(this.<String>front(org.segmentsList()).toArray(), this.<String>front(synth.segmentsList()).toArray());
+    Assert.assertNotEquals(org.lastSegment(), synth.lastSegment());
   }
 }

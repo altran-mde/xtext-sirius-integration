@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 import org.eclipse.sirius.properties.ControlDescription;
@@ -17,6 +18,8 @@ import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextDescription;
 import org.eclipse.sirius.properties.WidgetDescription;
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+>>>>>>> updated to Oxygen.2
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
@@ -107,6 +110,7 @@ public class PropertiesxtextSwitch<T> {
 				final XtextSingleLineModelDescription xtextSingleLineModelDescription = (XtextSingleLineModelDescription) theEObject;
 				T result = caseXtextSingleLineModelDescription(xtextSingleLineModelDescription);
 				if (result == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextPropertyModelDescription(xtextSingleLineModelDescription);
 				}
@@ -122,18 +126,26 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+					result = caseIXtextPropertyModelDescription(xtextSingleLineModelDescription);
+				}
+				if (result == null) {
+>>>>>>> updated to Oxygen.2
 					result = caseIXtextPropertyDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextModelDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 					result = caseControlDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+>>>>>>> updated to Oxygen.2
 					result = caseIXtextDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
@@ -145,6 +157,7 @@ public class PropertiesxtextSwitch<T> {
 				final XtextMultiLineModelDescription xtextMultiLineModelDescription = (XtextMultiLineModelDescription) theEObject;
 				T result = caseXtextMultiLineModelDescription(xtextMultiLineModelDescription);
 				if (result == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextPropertyModelDescription(xtextMultiLineModelDescription);
 				}
@@ -160,12 +173,18 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+					result = caseIXtextPropertyModelDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+>>>>>>> updated to Oxygen.2
 					result = caseIXtextPropertyDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextModelDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextDescription(xtextMultiLineModelDescription);
 				}
@@ -181,6 +200,11 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+					result = caseIXtextDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+>>>>>>> updated to Oxygen.2
 					result = defaultCase(theEObject);
 				}
 				return result;
@@ -189,6 +213,7 @@ public class PropertiesxtextSwitch<T> {
 				final XtextSingleLineValueDescription xtextSingleLineValueDescription = (XtextSingleLineValueDescription) theEObject;
 				T result = caseXtextSingleLineValueDescription(xtextSingleLineValueDescription);
 				if (result == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextPropertyValueDescription(xtextSingleLineValueDescription);
 				}
@@ -204,18 +229,26 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+					result = caseIXtextPropertyValueDescription(xtextSingleLineValueDescription);
+				}
+				if (result == null) {
+>>>>>>> updated to Oxygen.2
 					result = caseIXtextPropertyDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextValueDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 					result = caseControlDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+>>>>>>> updated to Oxygen.2
 					result = caseIXtextDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
@@ -227,6 +260,7 @@ public class PropertiesxtextSwitch<T> {
 				final XtextMultiLineValueDescription xtextMultiLineValueDescription = (XtextMultiLineValueDescription) theEObject;
 				T result = caseXtextMultiLineValueDescription(xtextMultiLineValueDescription);
 				if (result == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextPropertyValueDescription(xtextMultiLineValueDescription);
 				}
@@ -242,12 +276,18 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+					result = caseIXtextPropertyValueDescription(xtextMultiLineValueDescription);
+				}
+				if (result == null) {
+>>>>>>> updated to Oxygen.2
 					result = caseIXtextPropertyDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextValueDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextDescription(xtextMultiLineValueDescription);
 				}
@@ -263,6 +303,11 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+					result = caseIXtextDescription(xtextMultiLineValueDescription);
+				}
+				if (result == null) {
+>>>>>>> updated to Oxygen.2
 					result = defaultCase(theEObject);
 				}
 				return result;
@@ -273,6 +318,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Single Line Model Description</em>'. <!-- begin-user-doc -->
@@ -280,11 +326,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>Xtext Single Line Model Description</em>'. <!-- begin-user-doc -->
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Single Line Model Description</em>'. <!-- begin-user-doc -->
+>>>>>>> updated to Oxygen.2
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>Xtext Single Line Model Description</em>'.
@@ -292,6 +343,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>Xtext Single Line Model Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Single Line Model Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -300,6 +355,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Multi Line Model Description</em>'. <!-- begin-user-doc -->
@@ -307,11 +363,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>Xtext Multi Line Model Description</em>'. <!-- begin-user-doc -->
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Multi Line Model Description</em>'. <!-- begin-user-doc -->
+>>>>>>> updated to Oxygen.2
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>Xtext Multi Line Model Description</em>'.
@@ -319,6 +380,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>Xtext Multi Line Model Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Multi Line Model Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -327,6 +392,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Single Line Value Description</em>'. <!-- begin-user-doc -->
@@ -334,11 +400,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>Xtext Single Line Value Description</em>'. <!-- begin-user-doc -->
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Single Line Value Description</em>'. <!-- begin-user-doc -->
+>>>>>>> updated to Oxygen.2
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>Xtext Single Line Value Description</em>'.
@@ -346,6 +417,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>Xtext Single Line Value Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Single Line Value Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -354,6 +429,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Multi Line Value Description</em>'. <!-- begin-user-doc -->
@@ -361,11 +437,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>Xtext Multi Line Value Description</em>'. <!-- begin-user-doc -->
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Xtext Multi Line Value Description</em>'. <!-- begin-user-doc -->
+>>>>>>> updated to Oxygen.2
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>Xtext Multi Line Value Description</em>'.
@@ -373,6 +454,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>Xtext Multi Line Value Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Xtext Multi Line Value Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -381,6 +466,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
@@ -388,11 +474,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>Control Description</em>'. <!-- begin-user-doc --> This
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
+>>>>>>> updated to Oxygen.2
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>IXtext Description</em>'.
@@ -451,6 +542,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>IXtext Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -459,6 +554,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Description</em>'. <!-- begin-user-doc --> This
@@ -466,11 +562,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>IXtext Property Description</em>'. <!-- begin-user-doc --> This
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Property Description</em>'. <!-- begin-user-doc --> This
+>>>>>>> updated to Oxygen.2
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>IXtext Property Description</em>'.
@@ -478,6 +579,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>IXtext Property Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Property Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -486,6 +591,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
@@ -493,11 +599,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
+>>>>>>> updated to Oxygen.2
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>IXtext Model Description</em>'.
@@ -505,6 +616,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>IXtext Model Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Model Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -513,11 +628,15 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+>>>>>>> updated to Oxygen.2
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Model Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 	 * 
 	 * @param object
 	 *            the target of the switch.
@@ -534,6 +653,13 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>IXtext Property Model Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Property Model Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -542,6 +668,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
@@ -566,11 +693,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
+>>>>>>> updated to Oxygen.2
 	 * implementation returns null; returning a non-null result will terminate
 	 * the switch. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>IXtext Value Description</em>'.
@@ -578,6 +710,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>IXtext Value Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Value Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -586,11 +722,15 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+>>>>>>> updated to Oxygen.2
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Value Description</em>'. <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will
 	 * terminate the switch. <!-- end-user-doc -->
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 	 * 
 	 * @param object
 	 *            the target of the switch.
@@ -607,6 +747,13 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>IXtext Property Value Description</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>IXtext Property Value Description</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -615,6 +762,7 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
@@ -622,11 +770,16 @@ public class PropertiesxtextSwitch<T> {
 	 * Returns the result of interpreting the object as an instance of '
 	 * <em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
+>>>>>>> updated to Oxygen.2
 	 * null; returning a non-null result will terminate the switch, but this is
 	 * the last case anyway. <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
+<<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * @return the result of interpreting the object as an instance of
 	 *         '<em>EObject</em>'.
@@ -634,6 +787,10 @@ public class PropertiesxtextSwitch<T> {
 	 * @return the result of interpreting the object as an instance of '
 	 *         <em>EObject</em>'.
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>EObject</em>'.
+>>>>>>> updated to Oxygen.2
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
