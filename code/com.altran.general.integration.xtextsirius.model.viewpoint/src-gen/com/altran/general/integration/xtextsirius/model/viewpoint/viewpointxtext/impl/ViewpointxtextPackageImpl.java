@@ -5,8 +5,16 @@ package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtex
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.sirius.diagram.DiagramPackage;
+import org.eclipse.sirius.diagram.description.concern.ConcernPackage;
+import org.eclipse.sirius.diagram.description.filter.FilterPackage;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.eclipse.sirius.viewpoint.description.style.StylePackage;
+import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
+import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
@@ -98,7 +106,20 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 		isInited = true;
 
 		// Initialize simple dependencies
+		XtextsiriusPackage.eINSTANCE.eClass();
+		StylePackage.eINSTANCE.eClass();
 		DiagramxtextPackage.eINSTANCE.eClass();
+		DescriptionPackage.eINSTANCE.eClass();
+		ToolPackage.eINSTANCE.eClass();
+		org.eclipse.sirius.diagram.description.tool.ToolPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
+		ViewpointPackage.eINSTANCE.eClass();
+		org.eclipse.sirius.diagram.description.DescriptionPackage.eINSTANCE.eClass();
+		ValidationPackage.eINSTANCE.eClass();
+		DiagramPackage.eINSTANCE.eClass();
+		FilterPackage.eINSTANCE.eClass();
+		ConcernPackage.eINSTANCE.eClass();
+		org.eclipse.sirius.diagram.description.style.StylePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theViewpointxtextPackage.createPackageContents();

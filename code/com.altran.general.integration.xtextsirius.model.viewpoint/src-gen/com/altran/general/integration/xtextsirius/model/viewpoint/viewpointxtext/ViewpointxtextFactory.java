@@ -22,23 +22,21 @@ public interface ViewpointxtextFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '
-	 * <em>Xtext Edge Label Direct Edit Model Description</em>'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Xtext Edge Label Direct Edit Model
+	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '
-	 *         <em>Xtext Edge Label Direct Edit Model Description</em>'.
+	 * @return a new object of class '<em>Xtext Edge Label Direct Edit Model
+	 *         Description</em>'.
 	 * @generated
 	 */
 	XtextEdgeLabelDirectEditModelDescription createXtextEdgeLabelDirectEditModelDescription();
 
 	/**
-	 * Returns a new object of class '
-	 * <em>Xtext Edge Label Direct Edit Value Description</em>'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Xtext Edge Label Direct Edit Value
+	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '
-	 *         <em>Xtext Edge Label Direct Edit Value Description</em>'.
+	 * @return a new object of class '<em>Xtext Edge Label Direct Edit Value
+	 *         Description</em>'.
 	 * @generated
 	 */
 	XtextEdgeLabelDirectEditValueDescription createXtextEdgeLabelDirectEditValueDescription();

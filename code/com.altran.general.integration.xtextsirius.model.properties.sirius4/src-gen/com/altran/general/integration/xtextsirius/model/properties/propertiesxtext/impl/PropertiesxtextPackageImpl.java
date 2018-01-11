@@ -6,11 +6,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.sirius.properties.PropertiesPackage;
-import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
-import org.eclipse.sirius.viewpoint.description.style.StylePackage;
-import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
-import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextFactory;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
@@ -111,11 +106,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 
 		// Initialize simple dependencies
 		XtextsiriusPackage.eINSTANCE.eClass();
-		DescriptionPackage.eINSTANCE.eClass();
-		ToolPackage.eINSTANCE.eClass();
-		StylePackage.eINSTANCE.eClass();
-		ValidationPackage.eINSTANCE.eClass();
-		PropertiesPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thePropertiesxtextPackage.createPackageContents();
@@ -238,8 +229,6 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		final PropertiesPackage thePropertiesPackage = (PropertiesPackage) EPackage.Registry.INSTANCE
-				.getEPackage(PropertiesPackage.eNS_URI);
 		final XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(XtextsiriusPackage.eNS_URI);
 		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
@@ -250,16 +239,16 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
+		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
 		this.xtextSingleLineModelDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
-		this.xtextMultiLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
+		this.xtextMultiLineModelDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
 		this.xtextMultiLineModelDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
-		this.xtextSingleLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
+		this.xtextSingleLineValueDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
 		this.xtextSingleLineValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
-		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
+		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
 		this.xtextMultiLineValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
 

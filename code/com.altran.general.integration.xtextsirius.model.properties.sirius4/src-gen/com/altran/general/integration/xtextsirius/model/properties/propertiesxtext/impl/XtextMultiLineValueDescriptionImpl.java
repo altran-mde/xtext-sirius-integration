@@ -5,7 +5,7 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.sirius.properties.impl.TextAreaDescriptionImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription;
@@ -16,27 +16,23 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Xtext Multi Line Value Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
+ * Multi Line Value Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getInjectorId
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getPrefixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getSuffixTextExpression
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getSuffixTextExpression
  * <em>Suffix Text Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
-		implements XtextMultiLineValueDescription {
+public class XtextMultiLineValueDescriptionImpl extends EObjectImpl implements XtextMultiLineValueDescription {
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -58,8 +54,8 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPrefixTextExpression()
-	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -69,8 +65,8 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPrefixTextExpression()
-	 * <em>Prefix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getPrefixTextExpression()
@@ -80,8 +76,8 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSuffixTextExpression()
-	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()
@@ -91,8 +87,8 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSuffixTextExpression()
-	 * <em>Suffix Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @see #getSuffixTextExpression()

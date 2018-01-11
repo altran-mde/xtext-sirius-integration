@@ -6,14 +6,16 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 import java.util.Collection;
 import java.util.List;
 
+import javax.management.Notification;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.sirius.properties.PropertiesPackage;
-import org.eclipse.sirius.properties.provider.TextDescriptionItemProvider;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription;
@@ -26,7 +28,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * 
  * @generated
  */
-public class XtextSingleLineValueDescriptionItemProvider extends TextDescriptionItemProvider {
+public class XtextSingleLineValueDescriptionItemProvider extends ItemProviderAdapter {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -85,21 +87,19 @@ public class XtextSingleLineValueDescriptionItemProvider extends TextDescription
 	 * @generated
 	 */
 	protected void addPrefixTextExpressionPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextValueDescription_prefixTextExpression_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IXtextValueDescription_prefixTextExpression_feature",
-								"_UI_IXtextValueDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null,
-						null));
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextValueDescription_prefixTextExpression_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_IXtextValueDescription_prefixTextExpression_feature", "_UI_IXtextValueDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
@@ -109,21 +109,19 @@ public class XtextSingleLineValueDescriptionItemProvider extends TextDescription
 	 * @generated
 	 */
 	protected void addSuffixTextExpressionPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextValueDescription_suffixTextExpression_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IXtextValueDescription_suffixTextExpression_feature",
-								"_UI_IXtextValueDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null,
-						null));
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextValueDescription_suffixTextExpression_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_IXtextValueDescription_suffixTextExpression_feature", "_UI_IXtextValueDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
@@ -145,7 +143,7 @@ public class XtextSingleLineValueDescriptionItemProvider extends TextDescription
 	 */
 	@Override
 	public String getText(final Object object) {
-		final String label = ((XtextSingleLineValueDescription) object).getIdentifier();
+		final String label = ((XtextSingleLineValueDescription) object).getInjectorId();
 		return label == null || label.length() == 0 ? getString("_UI_XtextSingleLineValueDescription_type")
 				: getString("_UI_XtextSingleLineValueDescription_type") + " " + label;
 	}
@@ -186,25 +184,14 @@ public class XtextSingleLineValueDescriptionItemProvider extends TextDescription
 	}
 
 	/**
-	 * This returns the label text for
-	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
+	 * Return the resource locator for this item provider's resources. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(final Object owner, final Object feature, final Object child,
-			final Collection<?> selection) {
-		final Object childFeature = feature;
-		final Object childObject = child;
-
-		final boolean qualify = childFeature == PropertiesPackage.Literals.TEXT_DESCRIPTION__INITIAL_OPERATION;
-
-		if (qualify) {
-			return getString("_UI_CreateChild_text2",
-					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+	public ResourceLocator getResourceLocator() {
+		return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
 	}
 
 }

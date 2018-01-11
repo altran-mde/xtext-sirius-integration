@@ -15,15 +15,13 @@ import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Xtext Edge Label Direct Edit Value Description</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
+ * Edge Label Direct Edit Value Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl#getEdgeLabelMappings
+ * <li>{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.XtextEdgeLabelDirectEditValueDescriptionImpl#getEdgeLabelMappings
  * <em>Edge Label Mappings</em>}</li>
  * </ul>
  *
@@ -32,9 +30,9 @@ import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext
 public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEditValueDescriptionImpl
 		implements XtextEdgeLabelDirectEditValueDescription {
 	/**
-	 * The cached value of the '{@link #getEdgeLabelMappings()
-	 * <em>Edge Label Mappings</em>}' reference list. <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getEdgeLabelMappings() <em>Edge Label
+	 * Mappings</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @see #getEdgeLabelMappings()
 	 * @generated
@@ -69,7 +67,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 	@Override
 	public EList<BasicLabelStyleDescription> getEdgeLabelMappings() {
 		if (this.edgeLabelMappings == null) {
-			this.edgeLabelMappings = new EObjectResolvingEList<BasicLabelStyleDescription>(
+			this.edgeLabelMappings = new EObjectResolvingEList<>(
 					BasicLabelStyleDescription.class,
 					this, ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__EDGE_LABEL_MAPPINGS);
 		}

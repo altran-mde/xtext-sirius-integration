@@ -40,10 +40,10 @@ public final class ViewpointxtextEditPlugin extends EMFPlugin {
 	 */
 	public ViewpointxtextEditPlugin() {
 		super(new ResourceLocator[] {
-				DiagramUIPlugin.INSTANCE,
+				XtextsiriusEditPlugin.INSTANCE,
 				SiriusEditPlugin.INSTANCE,
 				DiagramxtextEditPlugin.INSTANCE,
-				XtextsiriusEditPlugin.INSTANCE,
+				DiagramUIPlugin.INSTANCE,
 		});
 	}
 
