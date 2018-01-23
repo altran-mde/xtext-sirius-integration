@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -24,6 +25,10 @@ import org.eclipse.sirius.properties.impl.TextAreaDescriptionImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 >>>>>>> updated to Oxygen.2
+=======
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.sirius.properties.impl.TextAreaDescriptionImpl;
+>>>>>>> fixed invalid import in generated files
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
@@ -72,6 +77,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  *
  * @generated
  */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 public class XtextMultiLineModelDescriptionImpl extends EObjectImpl implements XtextMultiLineModelDescription {
@@ -82,6 +88,10 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 =======
 public class XtextMultiLineModelDescriptionImpl extends EObjectImpl implements XtextMultiLineModelDescription {
 >>>>>>> updated to Oxygen.2
+=======
+public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
+		implements XtextMultiLineModelDescription {
+>>>>>>> fixed invalid import in generated files
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->

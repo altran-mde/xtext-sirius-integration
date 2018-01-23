@@ -10,17 +10,25 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
 import org.eclipse.sirius.properties.PropertiesPackage;
+=======
+import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
+>>>>>>> fixed invalid import in generated files
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.eclipse.sirius.viewpoint.description.style.StylePackage;
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextFactory;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
@@ -120,6 +128,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		isInited = true;
 
 		// Initialize simple dependencies
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 		XtextsiriusPackage.eINSTANCE.eClass();
@@ -136,6 +145,16 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		XtextsiriusPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
 >>>>>>> updated to Oxygen.2
+=======
+		PropertiesPackage.eINSTANCE.eClass();
+		XtextsiriusPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
+		DescriptionPackage.eINSTANCE.eClass();
+		ValidationPackage.eINSTANCE.eClass();
+		ToolPackage.eINSTANCE.eClass();
+		ViewpointPackage.eINSTANCE.eClass();
+		StylePackage.eINSTANCE.eClass();
+>>>>>>> fixed invalid import in generated files
 
 		// Create package meta-data objects
 		thePropertiesxtextPackage.createPackageContents();
@@ -258,6 +277,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
@@ -266,6 +286,10 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+		final PropertiesPackage thePropertiesPackage = (PropertiesPackage) EPackage.Registry.INSTANCE
+				.getEPackage(PropertiesPackage.eNS_URI);
+>>>>>>> fixed invalid import in generated files
 		final XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(XtextsiriusPackage.eNS_URI);
 		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
@@ -276,6 +300,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
@@ -293,20 +318,27 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 =======
 		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
 >>>>>>> updated to Oxygen.2
+=======
+		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
+>>>>>>> fixed invalid import in generated files
 		this.xtextSingleLineModelDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
-		this.xtextMultiLineModelDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
+		this.xtextMultiLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
 		this.xtextMultiLineModelDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
-		this.xtextSingleLineValueDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
+		this.xtextSingleLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
 		this.xtextSingleLineValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(this.ecorePackage.getEObject());
 >>>>>>> updated to Oxygen.2
+=======
+		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
+>>>>>>> fixed invalid import in generated files
 		this.xtextMultiLineValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
 

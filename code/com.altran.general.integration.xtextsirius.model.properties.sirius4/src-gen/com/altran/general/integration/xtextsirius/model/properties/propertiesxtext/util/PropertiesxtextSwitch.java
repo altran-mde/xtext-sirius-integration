@@ -10,16 +10,22 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 import org.eclipse.sirius.properties.ControlDescription;
 import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextDescription;
 import org.eclipse.sirius.properties.WidgetDescription;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
@@ -110,6 +116,7 @@ public class PropertiesxtextSwitch<T> {
 				final XtextSingleLineModelDescription xtextSingleLineModelDescription = (XtextSingleLineModelDescription) theEObject;
 				T result = caseXtextSingleLineModelDescription(xtextSingleLineModelDescription);
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextPropertyModelDescription(xtextSingleLineModelDescription);
@@ -131,12 +138,24 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> updated to Oxygen.2
+=======
+					result = caseTextDescription(xtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextPropertyModelDescription(xtextSingleLineModelDescription);
+				}
+				if (result == null) {
+					result = caseWidgetDescription(xtextSingleLineModelDescription);
+				}
+				if (result == null) {
+>>>>>>> fixed invalid import in generated files
 					result = caseIXtextPropertyDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextModelDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
@@ -146,6 +165,11 @@ public class PropertiesxtextSwitch<T> {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+					result = caseControlDescription(xtextSingleLineModelDescription);
+				}
+				if (result == null) {
+>>>>>>> fixed invalid import in generated files
 					result = caseIXtextDescription(xtextSingleLineModelDescription);
 				}
 				if (result == null) {
@@ -157,6 +181,7 @@ public class PropertiesxtextSwitch<T> {
 				final XtextMultiLineModelDescription xtextMultiLineModelDescription = (XtextMultiLineModelDescription) theEObject;
 				T result = caseXtextMultiLineModelDescription(xtextMultiLineModelDescription);
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextPropertyModelDescription(xtextMultiLineModelDescription);
@@ -178,12 +203,24 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> updated to Oxygen.2
+=======
+					result = caseTextAreaDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextPropertyModelDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseTextDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+>>>>>>> fixed invalid import in generated files
 					result = caseIXtextPropertyDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
 					result = caseIXtextModelDescription(xtextMultiLineModelDescription);
 				}
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextDescription(xtextMultiLineModelDescription);
@@ -205,6 +242,17 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> updated to Oxygen.2
+=======
+					result = caseWidgetDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseIXtextDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+					result = caseControlDescription(xtextMultiLineModelDescription);
+				}
+				if (result == null) {
+>>>>>>> fixed invalid import in generated files
 					result = defaultCase(theEObject);
 				}
 				return result;
@@ -213,6 +261,7 @@ public class PropertiesxtextSwitch<T> {
 				final XtextSingleLineValueDescription xtextSingleLineValueDescription = (XtextSingleLineValueDescription) theEObject;
 				T result = caseXtextSingleLineValueDescription(xtextSingleLineValueDescription);
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextPropertyValueDescription(xtextSingleLineValueDescription);
@@ -234,12 +283,24 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> updated to Oxygen.2
+=======
+					result = caseTextDescription(xtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextPropertyValueDescription(xtextSingleLineValueDescription);
+				}
+				if (result == null) {
+					result = caseWidgetDescription(xtextSingleLineValueDescription);
+				}
+				if (result == null) {
+>>>>>>> fixed invalid import in generated files
 					result = caseIXtextPropertyDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextValueDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
@@ -249,6 +310,11 @@ public class PropertiesxtextSwitch<T> {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+					result = caseControlDescription(xtextSingleLineValueDescription);
+				}
+				if (result == null) {
+>>>>>>> fixed invalid import in generated files
 					result = caseIXtextDescription(xtextSingleLineValueDescription);
 				}
 				if (result == null) {
@@ -260,6 +326,7 @@ public class PropertiesxtextSwitch<T> {
 				final XtextMultiLineValueDescription xtextMultiLineValueDescription = (XtextMultiLineValueDescription) theEObject;
 				T result = caseXtextMultiLineValueDescription(xtextMultiLineValueDescription);
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextPropertyValueDescription(xtextMultiLineValueDescription);
@@ -281,18 +348,32 @@ public class PropertiesxtextSwitch<T> {
 				}
 				if (result == null) {
 >>>>>>> updated to Oxygen.2
+=======
+					result = caseTextAreaDescription(xtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseIXtextPropertyValueDescription(xtextMultiLineValueDescription);
+				}
+				if (result == null) {
+					result = caseTextDescription(xtextMultiLineValueDescription);
+				}
+				if (result == null) {
+>>>>>>> fixed invalid import in generated files
 					result = caseIXtextPropertyDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
 					result = caseIXtextValueDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 					result = caseIXtextDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 					result = caseWidgetDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
@@ -302,12 +383,15 @@ public class PropertiesxtextSwitch<T> {
 					result = caseControlDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 					result = caseIXtextDescription(xtextMultiLineValueDescription);
 				}
 				if (result == null) {
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 					result = defaultCase(theEObject);
 				}
 				return result;
@@ -468,6 +552,57 @@ public class PropertiesxtextSwitch<T> {
 	/**
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Control Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Control Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControlDescription(final ControlDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Widget Description</em>'. <!-- begin-user-doc --> This
+	 * implementation returns null; returning a non-null result will terminate
+	 * the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Widget Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWidgetDescription(final WidgetDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text
+	 * Description</em>'. <!-- begin-user-doc --> This implementation returns
+	 * null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text
+	 *         Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextDescription(final TextDescription object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
 =======
@@ -668,8 +803,28 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+=======
+	 * Returns the result of interpreting the object as an instance of '<em>Text
+	 * Area Description</em>'. <!-- begin-user-doc --> This implementation
+	 * returns null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text
+	 *         Area Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextAreaDescription(final TextAreaDescription object) {
+		return null;
+	}
+
+	/**
+>>>>>>> fixed invalid import in generated files
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
 =======

@@ -4,6 +4,8 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.sirius.properties.provider.PropertiesEditPlugin;
+import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provider.XtextsiriusEditPlugin;
 
@@ -39,7 +41,9 @@ public final class PropertiesxtextEditPlugin extends EMFPlugin {
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
 		super(new ResourceLocator[] {
+				PropertiesEditPlugin.INSTANCE,
 				XtextsiriusEditPlugin.INSTANCE,
+				SiriusEditPlugin.INSTANCE,
 		});
 =======
 		super(new ResourceLocator[] { PropertiesEditPlugin.INSTANCE, XtextsiriusEditPlugin.INSTANCE,

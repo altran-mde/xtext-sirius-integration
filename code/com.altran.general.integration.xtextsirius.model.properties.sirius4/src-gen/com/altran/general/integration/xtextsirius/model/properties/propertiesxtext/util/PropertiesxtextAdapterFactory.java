@@ -10,16 +10,22 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 import org.eclipse.sirius.properties.ControlDescription;
 import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.TextDescription;
 import org.eclipse.sirius.properties.WidgetDescription;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
@@ -109,9 +115,12 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 		public Adapter caseControlDescription(final ControlDescription object) {
 			return createControlDescriptionAdapter();
 		}
@@ -127,9 +136,12 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 		public Adapter caseIXtextDescription(final IXtextDescription object) {
 			return createIXtextDescriptionAdapter();
 		}
@@ -150,17 +162,23 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 		public Adapter caseTextAreaDescription(final TextAreaDescription object) {
 			return createTextAreaDescriptionAdapter();
 		}
 
 		@Override
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
 		}
@@ -354,6 +372,54 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.properties.ControlDescription <em>Control
+	 * Description</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.ControlDescription
+	 * @generated
+	 */
+	public Adapter createControlDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.properties.WidgetDescription <em>Widget
+	 * Description</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.WidgetDescription
+	 * @generated
+	 */
+	public Adapter createWidgetDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.properties.TextDescription <em>Text
+	 * Description</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.TextDescription
+	 * @generated
+	 */
+	public Adapter createTextDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
 >>>>>>> updated to Oxygen.2
 	 * <em>IXtext Description</em>}'. <!-- begin-user-doc --> This default
@@ -450,6 +516,22 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	/**
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
+	 * Creates a new adapter for an object of class
+	 * '{@link org.eclipse.sirius.properties.TextAreaDescription <em>Text Area
+	 * Description</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a
+	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.TextAreaDescription
+	 * @generated
+	 */
+	public Adapter createTextAreaDescriptionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 =======

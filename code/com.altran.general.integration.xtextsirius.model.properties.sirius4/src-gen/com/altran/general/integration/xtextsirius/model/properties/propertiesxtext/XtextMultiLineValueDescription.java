@@ -6,6 +6,7 @@
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext;
 
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 import org.eclipse.emf.ecore.EObject;
@@ -15,6 +16,9 @@ import org.eclipse.sirius.properties.TextAreaDescription;
 =======
 import org.eclipse.emf.ecore.EObject;
 >>>>>>> updated to Oxygen.2
+=======
+import org.eclipse.sirius.properties.TextAreaDescription;
+>>>>>>> fixed invalid import in generated files
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription;
 
@@ -48,12 +52,10 @@ public interface XtextMultiLineValueDescription extends EObject, IXtextPropertyV
  *
  *
  * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage#getXtextMultiLineValueDescription()
- * @model superTypes="org.eclipse.emf.ecore.EJavaObject
- *        com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel image='true'"
+ * @model annotation="http://www.eclipse.org/emf/2002/GenModel image='true'"
  * @generated
  */
-public interface XtextMultiLineValueDescription extends EObject, IXtextPropertyValueDescription {
+public interface XtextMultiLineValueDescription extends TextAreaDescription, IXtextPropertyValueDescription {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

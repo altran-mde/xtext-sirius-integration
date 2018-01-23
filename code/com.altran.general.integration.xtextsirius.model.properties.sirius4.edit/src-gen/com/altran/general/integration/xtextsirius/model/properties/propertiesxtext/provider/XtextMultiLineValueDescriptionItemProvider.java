@@ -5,16 +5,14 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 import java.util.Collection;
 import java.util.List;
 
-import javax.management.Notification;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.properties.provider.TextAreaDescriptionItemProvider;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription;
@@ -27,7 +25,7 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * 
  * @generated
  */
-public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdapter {
+public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescriptionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -144,6 +142,7 @@ public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdap
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
 	public String getText(final Object object) {
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 		final String label = ((XtextMultiLineValueDescription) object).getInjectorId();
 =======
 	public String getText(Object object) {
@@ -157,6 +156,9 @@ public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdap
 =======
 		final String label = ((XtextMultiLineValueDescription) object).getInjectorId();
 >>>>>>> updated to Oxygen.2
+=======
+		final String label = ((XtextMultiLineValueDescription) object).getIdentifier();
+>>>>>>> fixed invalid import in generated files
 		return label == null || label.length() == 0 ? getString("_UI_XtextMultiLineValueDescription_type")
 				: getString("_UI_XtextMultiLineValueDescription_type") + " " + label;
 	}
@@ -196,12 +198,14 @@ public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdap
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!--
+	 * This returns the label text for
+	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	@Override
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 <<<<<<< 1a6e8bd3e6f71b6e27aa8db10a884de044d8cdeb
@@ -212,11 +216,16 @@ public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdap
 		Object childFeature = feature;
 		Object childObject = child;
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 	public String getCreateChildText(final Object owner, final Object feature, final Object child,
 			final Collection<?> selection) {
 		final Object childFeature = feature;
 		final Object childObject = child;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+>>>>>>> fixed invalid import in generated files
 
 		final boolean qualify = childFeature == PropertiesPackage.Literals.TEXT_DESCRIPTION__INITIAL_OPERATION;
 
@@ -225,11 +234,14 @@ public class XtextMultiLineValueDescriptionItemProvider extends ItemProviderAdap
 					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> preliminary fix for using guava v16
 =======
 	public ResourceLocator getResourceLocator() {
 		return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 	}
 
 }

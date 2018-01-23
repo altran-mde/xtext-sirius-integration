@@ -8,6 +8,7 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 import org.eclipse.emf.ecore.EcorePackage;
@@ -17,6 +18,9 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 =======
 import org.eclipse.emf.ecore.EcorePackage;
 >>>>>>> updated to Oxygen.2
+=======
+import org.eclipse.sirius.properties.PropertiesPackage;
+>>>>>>> fixed invalid import in generated files
 
 /**
  * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains
@@ -114,9 +118,12 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = 0;
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -189,15 +196,19 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES;
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
@@ -207,6 +218,9 @@ public interface PropertiesxtextPackage extends EPackage {
 =======
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
 >>>>>>> updated to Oxygen.2
+=======
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -215,6 +229,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
@@ -232,6 +247,9 @@ public interface PropertiesxtextPackage extends EPackage {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
+=======
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 1;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Model
@@ -241,9 +259,13 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+=======
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The meta object id for the
@@ -272,9 +294,12 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION = 1;
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -356,15 +381,19 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LINE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION__LINE_COUNT;
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
@@ -374,6 +403,9 @@ public interface PropertiesxtextPackage extends EPackage {
 =======
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
 >>>>>>> updated to Oxygen.2
+=======
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -382,9 +414,14 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
+=======
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Model
@@ -409,6 +446,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
@@ -425,6 +463,9 @@ public interface PropertiesxtextPackage extends EPackage {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+=======
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 2;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The meta object id for the
@@ -440,9 +481,12 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = 2;
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -515,15 +559,19 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES;
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
@@ -533,6 +581,9 @@ public interface PropertiesxtextPackage extends EPackage {
 =======
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
 >>>>>>> updated to Oxygen.2
+=======
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
@@ -541,6 +592,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
@@ -551,6 +603,10 @@ public interface PropertiesxtextPackage extends EPackage {
 =======
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
 >>>>>>> updated to Oxygen.2
+=======
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -559,6 +615,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
@@ -577,6 +634,10 @@ public interface PropertiesxtextPackage extends EPackage {
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+=======
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Value
@@ -586,9 +647,13 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 3;
+=======
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The meta object id for the
@@ -617,9 +682,12 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION = 3;
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
+=======
+>>>>>>> fixed invalid import in generated files
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -701,15 +769,19 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LINE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION__LINE_COUNT;
 
 	/**
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
 =======
 >>>>>>> updated to Oxygen.2
+=======
+>>>>>>> fixed invalid import in generated files
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
@@ -719,6 +791,9 @@ public interface PropertiesxtextPackage extends EPackage {
 =======
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
 >>>>>>> updated to Oxygen.2
+=======
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
@@ -727,6 +802,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
@@ -737,6 +813,10 @@ public interface PropertiesxtextPackage extends EPackage {
 =======
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
 >>>>>>> updated to Oxygen.2
+=======
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -745,9 +825,14 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+=======
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+>>>>>>> fixed invalid import in generated files
 
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Value
@@ -772,9 +857,13 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+<<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 3;
+=======
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 3;
+>>>>>>> fixed invalid import in generated files
 
 
 	/**
