@@ -14,6 +14,7 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.swt.custom.StyleRange;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
@@ -86,6 +87,11 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements
 	@Override
 	protected void updateLabelText() {
 		getFigure().setText(getLabelText());
+	}
+	
+	@Override
+	protected void setLabelStyles() {
+		getFigure().setRanges(new StyleRange[] {});
 	}
 	
 	@SuppressWarnings("restriction")
