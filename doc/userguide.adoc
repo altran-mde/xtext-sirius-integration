@@ -96,21 +96,21 @@ All of this can be summarized in one table:
 |	^.<| *<<property, property>>*	2+^.<| *<<directEdit, directEdit>>*	| *add. info footnoteref:[info]*
 
 .2+.^| *<<model, model>>*	
-| <<singleLine-multiLine, image:images/XtextSingleLineModelDescription.gif[] singleLine>>	
-| <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.gif[] singleLine>>	
+| <<singleLine-multiLine, image:images/XtextSingleLineModelDescription.png[] singleLine>>	
+| <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.png[] singleLine>>	
 .2+.^| _<<editableFeatures, editableFeatures>>, +
- <<edgeLabelPosition, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] image:images/XtextEdgeLabelDirectEditValueDescription.gif[] edgeLabelPosition>>_	
+ <<edgeLabelPosition, image:images/XtextEdgeLabelDirectEditModelDescription.png[] image:images/XtextEdgeLabelDirectEditValueDescription.png[] edgeLabelPosition>>_	
 |
-| <<singleLine-multiLine, image:images/XtextMultiLineModelDescription.gif[] multiLine>>	
-| <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.gif[] multiLine>> 
+| <<singleLine-multiLine, image:images/XtextMultiLineModelDescription.png[] multiLine>>	
+| <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.png[] multiLine>> 
 |
 
 .2+.^| *<<value, value>>*	
-| <<singleLine-multiLine, image:images/XtextSingleLineValueDescription.gif[] singleLine>>	
-2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.gif[] singleLine>>	
+| <<singleLine-multiLine, image:images/XtextSingleLineValueDescription.png[] singleLine>>	
+2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] singleLine>>	
 .2+.^| _<<prefixText-suffixText, prefixText>>, <<prefixText-suffixText, suffixText>>_
-| <<singleLine-multiLine, image:images/XtextMultiLineValueDescription.gif[] multiLine>>	
-2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.gif[] multiLine>>
+| <<singleLine-multiLine, image:images/XtextMultiLineValueDescription.png[] multiLine>>	
+2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] multiLine>>
 
 | *add. info footnoteref:[info]*	
 |  
@@ -339,10 +339,10 @@ image:images/newDirectEditor.png[]
 
 We provide the following variants:
 
-* image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content
-* image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content
-* image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content
-* image:images/XtextDirectEditValueDescription.gif[] Direct Editor for Value content
+* image:images/XtextEdgeLabelDirectEditModelDescription.png[] Edge Label Direct Editor for Model content
+* image:images/XtextEdgeLabelDirectEditValueDescription.png[] Edge Label Direct Editor for Value content
+* image:images/XtextDirectEditModelDescription.png[] Direct Editor for Model content
+* image:images/XtextDirectEditValueDescription.png[] Direct Editor for Value content
 
 They can be added to the tools section the same as a regular _Direct Edit Label_ tool.
 Accordingly, they need to be selected as _Label Direct Edit_ on the _Behavior_ page of the edited Sirius element.
@@ -384,10 +384,10 @@ image:images/newPropertyWidget.png[]
 
 We provide the following variants:
 
-* image:images/XtextSingleLineModelDescription.gif[] Text (aka single-line) Widget for Model content
-* image:images/XtextMultiLineModelDescription.gif[] Text Area (aka multi-line) Widget for Model content
-* image:images/XtextSingleLineValueDescription.gif[] Text (aka single-line) Widget for Value content
-* image:images/XtextMultiLineValueDescription.gif[] Text Area (aka multi-line) Widget for Value content
+* image:images/XtextSingleLineModelDescription.png[] Text (aka single-line) Widget for Model content
+* image:images/XtextMultiLineModelDescription.png[] Text Area (aka multi-line) Widget for Model content
+* image:images/XtextSingleLineValueDescription.png[] Text (aka single-line) Widget for Value content
+* image:images/XtextMultiLineValueDescription.png[] Text Area (aka multi-line) Widget for Value content
 
 They can be added as a widget to a Properties Sirius element the same as regular widgets.
 
@@ -442,10 +442,10 @@ This means if the end-user modified any part of the model not contained within t
 
 .Available implementations
 
-* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
-* <<directEdit, image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content>>
-* <<property, image:images/XtextSingleLineModelDescription.gif[] Text (aka single-line) Widget for Model content>>
-* <<property, image:images/XtextMultiLineModelDescription.gif[] Text Area (aka multi-line) Widget for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.png[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.png[] Direct Editor for Model content>>
+* <<property, image:images/XtextSingleLineModelDescription.png[] Text (aka single-line) Widget for Model content>>
+* <<property, image:images/XtextMultiLineModelDescription.png[] Text Area (aka multi-line) Widget for Model content>>
 
 
 
@@ -468,10 +468,10 @@ The changes are committed to the Sirius edit session, but only persisted if and 
 
 .Available implementations
 
-* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content>>
-* <<directEdit, image:images/XtextDirectEditValueDescription.gif[] Direct Editor for Value content>>
-* <<property, image:images/XtextSingleLineValueDescription.gif[] Text (aka single-line) Widget for Value content>>
-* <<property, image:images/XtextMultiLineValueDescription.gif[] Text Area (aka multi-line) Widget for Value content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.png[] Edge Label Direct Editor for Value content>>
+* <<directEdit, image:images/XtextDirectEditValueDescription.png[] Direct Editor for Value content>>
+* <<property, image:images/XtextSingleLineValueDescription.png[] Text (aka single-line) Widget for Value content>>
+* <<property, image:images/XtextMultiLineValueDescription.png[] Text Area (aka multi-line) Widget for Value content>>
 
 
 
@@ -637,21 +637,21 @@ For _Text Area_ widgets, we can define the number of lines to be shown via the `
 
 .Available *single-line* implementations
 
-* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
-* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content>>
-* <<directEdit, image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content>>
-* <<directEdit, image:images/XtextDirectEditValueDescription.gif[] Direct Editor for Value content>>
-* <<property, image:images/XtextSingleLineModelDescription.gif[] Text (aka single-line) Widget for Model content>>
-* <<property, image:images/XtextSingleLineValueDescription.gif[] Text (aka single-line) Widget for Value content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.png[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.png[] Edge Label Direct Editor for Value content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.png[] Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditValueDescription.png[] Direct Editor for Value content>>
+* <<property, image:images/XtextSingleLineModelDescription.png[] Text (aka single-line) Widget for Model content>>
+* <<property, image:images/XtextSingleLineValueDescription.png[] Text (aka single-line) Widget for Value content>>
 
 .Available *multi-line* implementations
 
-* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
-* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content>>
-* <<directEdit, image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content>>
-* <<directEdit, image:images/XtextDirectEditValueDescription.gif[] Direct Editor for Value content>>
-* <<property, image:images/XtextMultiLineValueDescription.gif[] Text Area (aka multi-line) Widget for Value content>>
-* <<property, image:images/XtextMultiLineModelDescription.gif[] Text Area (aka multi-line) Widget for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.png[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.png[] Edge Label Direct Editor for Value content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.png[] Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditValueDescription.png[] Direct Editor for Value content>>
+* <<property, image:images/XtextMultiLineValueDescription.png[] Text Area (aka multi-line) Widget for Value content>>
+* <<property, image:images/XtextMultiLineModelDescription.png[] Text Area (aka multi-line) Widget for Model content>>
 
 
 
@@ -722,8 +722,8 @@ This opens a pop-up window listing all available and currently selected features
 
 .Available implementations
 
-* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
-* <<directEdit, image:images/XtextDirectEditModelDescription.gif[] Direct Editor for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.png[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.png[] Direct Editor for Model content>>
 
 
 
@@ -740,8 +740,8 @@ This opens a pop-up window listing all available and currently selected edge lab
 
 .Available implementations
 
-* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.gif[] Edge Label Direct Editor for Model content>>
-* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.gif[] Edge Label Direct Editor for Value content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.png[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.png[] Edge Label Direct Editor for Value content>>
 
 
 
