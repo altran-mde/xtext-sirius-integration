@@ -98,8 +98,8 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.xtext.example.fowlerdsl.viewpoint.Services"/>
   </ownedViewpoints>
-  <extensions xsi:type="properties:ViewExtensionDescription" identifier="Properties">
-    <pages identifier="Default" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0 //@extensions.0/@groups.1"/>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="EventProperties">
+    <pages identifier="Default12369" labelExpression="semantic" domainClass="statemachine.Event" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
     <groups identifier="EventProperties" labelExpression="Event" domainClass="statemachine.Event" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
         <initialOperation>
@@ -112,6 +112,9 @@
         </initialOperation>
       </controls>
     </groups>
+  </extensions>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="StateProperties">
+    <pages identifier="Defaultxvsdas" labelExpression="Page" domainClass="statemachine.State" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
     <groups identifier="StateProperties" labelExpression="State" domainClass="statemachine.State" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
         <initialOperation>

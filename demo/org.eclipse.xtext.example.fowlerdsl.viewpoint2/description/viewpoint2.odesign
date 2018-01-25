@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-xtext="http://altran.com/general/integration/xtextsirius/model/properties/1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="viewpoint2" version="11.1.1.201610211630">
+  <ownedViewpoints name="MyViewpoint">
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.xtext.example.fowlerdsl.viewpoint2.Services"/>
+  </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="StateProperties2">
+    <pages identifier="Default5677" labelExpression="SecondPage" domainClass="statemachine.State" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0 //@extensions.0/@groups.1"/>
+    <groups identifier="Group4711" labelExpression="Group 4711" domainClass="statemachine.State" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties-xtext:XtextSingleLineValueDescription" labelExpression="New Xtext Property" valueExpression="feature:name" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"/>
+      <controls xsi:type="properties-xtext:XtextMultiLineValueDescription" identifier="StateDescriptionId2" labelExpression="Description" valueExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" prefixTextExpression="ocl:'&lt;html>&lt;head>&lt;title>t&lt;/title>'.concat('&lt;/head>&lt;body>')" suffixTextExpression="&lt;/body>&lt;/html>">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+    </groups>
+    <groups identifier="Group2" labelExpression="Group2" domainClass="statemachine.State" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties-xtext:XtextSingleLineValueDescription" labelExpression="New Xtext Property" valueExpression="feature:name" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"/>
+      <controls xsi:type="properties-xtext:XtextMultiLineValueDescription" identifier="StateDescriptionId2" labelExpression="Description" valueExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" prefixTextExpression="ocl:'&lt;html>&lt;head>&lt;title>t&lt;/title>'.concat('&lt;/head>&lt;body>')" suffixTextExpression="&lt;/body>&lt;/html>">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+    </groups>
+  </extensions>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="EventProperties2">
+    <pages identifier="EEEventsDefault" labelExpression="EvPage" domainClass="statemachine.Event" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
+    <groups identifier="Default" labelExpression="Group" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties-xtext:XtextSingleLineModelDescription" identifier="EventGuardId2" labelExpression="Guard" valueExpression="feature:guard" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool:SetValue" featureName="guard" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+    </groups>
+  </extensions>
+</description:Group>
