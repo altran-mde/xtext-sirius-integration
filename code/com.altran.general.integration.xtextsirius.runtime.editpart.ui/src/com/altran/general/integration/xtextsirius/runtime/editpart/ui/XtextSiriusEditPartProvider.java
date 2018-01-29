@@ -42,12 +42,18 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 			org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeBeginNameEditPart.VISUAL_ID,
 			org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeNameEditPart.VISUAL_ID,
 			org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEndNameEditPart.VISUAL_ID);
-
+	
 	@SuppressWarnings("restriction")
-	private static final Set<Integer> BORDERED_LABEL_EDIT_VISUAL_IDS = ImmutableSet.of(
+	private static final Set<Integer> BORDERED_NODE_EDIT_VISUAL_IDS = ImmutableSet.of(
 			org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode4EditPart.VISUAL_ID,
-			org.eclipse.sirius.diagram.ui.internal.edit.parts.NotationViewIDs.DNODE_NAME_4_EDIT_PART_VISUAL_ID);
-
+			org.eclipse.sirius.diagram.ui.internal.edit.parts.NotationViewIDs.DNODE_NAME_4_EDIT_PART_VISUAL_ID,
+			org.eclipse.sirius.diagram.ui.internal.edit.parts.NotationViewIDs.DNODE_NAME_EDIT_PART_VISUAL_ID);
+	
+	@SuppressWarnings("restriction")
+	private static final Set<Integer> BORDERED_NODE_LABEL_EDIT_VISUAL_IDS = ImmutableSet.of(
+			org.eclipse.sirius.diagram.ui.internal.edit.parts.NotationViewIDs.DNODE_NAME_4_EDIT_PART_VISUAL_ID,
+			org.eclipse.sirius.diagram.ui.internal.edit.parts.NotationViewIDs.DNODE_NAME_EDIT_PART_VISUAL_ID);
+	
 	@Override
 	public boolean provides(final IOperation operation) {
 		final RepresentationElementMapping mapping = extractMapping(operation);
@@ -55,8 +61,8 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 		
 		if (mapping instanceof AbstractNodeMapping) {
 			if (((AbstractNodeMapping) mapping).getLabelDirectEdit() instanceof AXtextDirectEditLabel) {
-				if (!isBorderNode(view)) {
-					return true;
+				if (isBorderNode(view)) {
+					return isBorderNodeLabel(view);
 				} else {
 					return !isBorderNodeLabel(view);
 				}
@@ -80,22 +86,20 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	
 	protected boolean isBorderNode(final View view) {
 		try {
-			return BORDERED_LABEL_EDIT_VISUAL_IDS.contains(Integer.parseInt(view.getType()));
+			return BORDERED_NODE_EDIT_VISUAL_IDS.contains(Integer.parseInt(view.getType()));
 		} catch (final NumberFormatException e) {
 			return false;
 		}
 	}
 	
-	@SuppressWarnings("restriction")
 	protected boolean isBorderNodeLabel(final View view) {
 		try {
-			return org.eclipse.sirius.diagram.ui.internal.edit.parts.NotationViewIDs.DNODE_NAME_4_EDIT_PART_VISUAL_ID == Integer
-					.parseInt(view.getType());
+			return BORDERED_NODE_LABEL_EDIT_VISUAL_IDS.contains(Integer.parseInt(view.getType()));
 		} catch (final NumberFormatException e) {
 			return false;
 		}
 	}
-
+	
 	@Override
 	public IGraphicalEditPart createGraphicEditPart(final View view) {
 		final RepresentationElementMapping mapping = extractMapping(view);
@@ -105,14 +109,16 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 			
 			if (labelDirectEdit instanceof IXtextDirectEditModelDescription) {
 				final IXtextDirectEditModelDescription modelNodeDescription = (IXtextDirectEditModelDescription) labelDirectEdit;
-				if (!isBorderNode(view)) {
-					return new XtextSiriusEditPartModel(modelNodeDescription,
-							resolveLanguageInjector(modelNodeDescription),
-							view);
-				} else {
-					if (!isBorderNodeLabel(view)) {
+				if (isBorderNode(view)) {
+					if (isBorderNodeLabel(view)) {
 						return new XtextSiriusBorderEditPartModel(modelNodeDescription,
 								resolveLanguageInjector(modelNodeDescription), view);
+					}
+				} else {
+					if (!isBorderNodeLabel(view)) {
+						return new XtextSiriusEditPartModel(modelNodeDescription,
+								resolveLanguageInjector(modelNodeDescription),
+								view);
 					}
 				}
 				
@@ -121,16 +127,16 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 				return new XtextSiriusEditPartValue(valueNodeDescription, resolveLanguageInjector(valueNodeDescription),
 						view);
 			}
-
+			
 		} else if (mapping instanceof EdgeMapping && isEdgeLabelEdit(view)) {
 			final IXtextEdgeLabelDirectEditDescription edgeLabelMapping = searchForEdgeLabelMapping(
 					(EdgeMapping) mapping);
-
+			
 			if (edgeLabelMapping instanceof XtextEdgeLabelDirectEditModelDescription) {
 				final IXtextDirectEditModelDescription modelEdgeDescription = (IXtextDirectEditModelDescription) edgeLabelMapping;
 				return new XtextSiriusEdgeNameEditPartModel(modelEdgeDescription,
 						resolveLanguageInjector(modelEdgeDescription), view);
-
+				
 			} else if (edgeLabelMapping instanceof XtextEdgeLabelDirectEditValueDescription) {
 				final XtextEdgeLabelDirectEditValueDescription valueEdgeDescription = (XtextEdgeLabelDirectEditValueDescription) edgeLabelMapping;
 				return new XtextSiriusEditPartValue(valueEdgeDescription,
@@ -150,7 +156,7 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 		
 		return null;
 	}
-
+	
 	protected RepresentationElementMapping extractMapping(final View view) {
 		if (view.getElement() instanceof DRepresentationElement) {
 			final DRepresentationElement representationElement = (DRepresentationElement) view.getElement();
@@ -188,11 +194,11 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	protected @NonNull Injector resolveLanguageInjector(final IXtextDirectEditDescription description) {
 		final Injector result = XtextLanguageInjectorManager.getInstance()
 				.resolveInjectorId(description.getInjectorId());
-
+		
 		if (result == null) {
 			throw new IllegalArgumentException("Cannot find Xtext Language Injector id=" + description.getInjectorId());
 		}
-
+		
 		return result;
 	}
 }

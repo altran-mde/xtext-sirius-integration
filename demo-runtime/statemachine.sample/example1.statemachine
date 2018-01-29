@@ -30,7 +30,8 @@ state State1456
 	event1456 => State2asdf
 	event1456 => State3
 	things
-		a cologne
+		a 
+		eA
 		b e..pi
 		c 1..e
 end
