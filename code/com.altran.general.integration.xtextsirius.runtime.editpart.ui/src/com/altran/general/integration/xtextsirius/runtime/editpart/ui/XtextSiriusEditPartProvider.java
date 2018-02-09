@@ -30,7 +30,9 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.runtime.XtextLanguageInjectorManager;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusBorderEditPartModel;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusCompartmentEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusEdgeNameEditPartModel;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusListEditPartModel;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusEditPartModel;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.value.XtextSiriusEditPartValue;
 import com.google.common.collect.ImmutableSet;
@@ -70,12 +72,25 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 		} else if (mapping instanceof EdgeMapping) {
 			if (isEdgeLabelEdit(view)) {
 				return searchForEdgeLabelMapping((EdgeMapping) mapping) != null;
+/*
+		final RepresentationElementMapping mapping = extractMapping(operation);
+
+		if (mapping instanceof DiagramElementMapping) {
+			final View view = ((IEditPartOperation) operation).getView();
+			switch (SiriusVisualIDRegistry.getVisualID(view)) {
+			case org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart.VISUAL_ID:
+				return false;
+
+			default:
+				return ((DiagramElementMapping) mapping).getLabelDirectEdit() instanceof AXtextDirectEditLabel;
+*/
 			}
+
 		}
-		
+
 		return super.provides(operation);
 	}
-	
+
 	protected boolean isEdgeLabelEdit(final View view) {
 		try {
 			return EDGE_LABEL_EDIT_VISUAL_IDS.contains(Integer.parseInt(view.getType()));
@@ -101,7 +116,9 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	}
 	
 	@Override
+	@SuppressWarnings("restriction")
 	public IGraphicalEditPart createGraphicEditPart(final View view) {
+
 		final RepresentationElementMapping mapping = extractMapping(view);
 		
 		if (mapping instanceof AbstractNodeMapping) {
@@ -143,17 +160,42 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 						resolveLanguageInjector(valueEdgeDescription),
 						view);
 			}
+
+/*
+		final IXtextDirectEditDescription description = (IXtextDirectEditDescription) ((DiagramElementMapping) mapping)
+				.getLabelDirectEdit();
+		final Injector injector = resolveLanguageInjector(description);
+
+		int visualID = SiriusVisualIDRegistry.getVisualID(view);
+		switch (visualID) {
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartmentEditPart.VISUAL_ID:
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart.VISUAL_ID:
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListViewNodeListCompartmentEditPart.VISUAL_ID:
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListViewNodeListCompartment2EditPart.VISUAL_ID:
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListElementEditPart.VISUAL_ID:
+			return new XtextSiriusCompartmentEditPart(view, injector, description);
+
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeNameEditPart.VISUAL_ID:
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeBeginNameEditPart.VISUAL_ID:
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEndNameEditPart.VISUAL_ID:
+			return new XtextSiriusEdgeNameEditPartModel(view, injector, description);
+
+		case org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart.VISUAL_ID:
+			return new XtextSiriusListEditPartModel(view, injector, description);
+
+		default:
+			throw new IllegalStateException("Unsupported EditPart! VisualID: " + visualID);
+*/
 		}
-		
-		return super.createGraphicEditPart(view);
+
 	}
-	
+
 	protected @Nullable RepresentationElementMapping extractMapping(final IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			final View view = ((IEditPartOperation) operation).getView();
 			return extractMapping(view);
 		}
-		
+
 		return null;
 	}
 	
@@ -163,34 +205,34 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 			final RepresentationElementMapping mapping = representationElement.getMapping();
 			return mapping;
 		}
-		
+
 		return null;
 	}
-	
+
 	protected @Nullable IXtextEdgeLabelDirectEditDescription searchForEdgeLabelMapping(final EdgeMapping mapping) {
 		final List<@NonNull BasicLabelStyleDescription> edgeLabelStyles = EcoreUtil2.getAllContentsOfType(mapping,
 				BasicLabelStyleDescription.class);
-		
+
 		if (!edgeLabelStyles.isEmpty()) {
 			final List<@NonNull IXtextEdgeLabelDirectEditDescription> xtextEdgeLabelDirectEdits = EcoreUtil2
 					.getAllContentsOfType(EcoreUtil.getRootContainer(mapping),
 							IXtextEdgeLabelDirectEditDescription.class);
-			
+
 			final Optional<@NonNull IXtextEdgeLabelDirectEditDescription> result = xtextEdgeLabelDirectEdits.stream()
 					.filter(elde -> elde.getEdgeLabelMappings().stream()
 							.anyMatch(labelMappings -> edgeLabelStyles.contains(labelMappings)))
 					.findAny();
-			
+
 			if (result.isPresent()) {
 				return result.get();
 			}
-			
+
 			return null;
 		}
-		
+
 		return null;
 	}
-	
+
 	protected @NonNull Injector resolveLanguageInjector(final IXtextDirectEditDescription description) {
 		final Injector result = XtextLanguageInjectorManager.getInstance()
 				.resolveInjectorId(description.getInjectorId());

@@ -112,7 +112,7 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.converter.sirius4"
+         id="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -20,10 +20,4 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
-   <extension point="org.eclipse.emf.edit.childCreationExtenders">
-      <!-- @generated properties-xtext -->
-      <extender
-            uri="http://www.eclipse.org/sirius/properties/1.0.0"
-            class="com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.provider.PropertiesxtextItemProviderAdapterFactory$PropertiesChildCreationExtender"/>
-   </extension>
 </plugin>

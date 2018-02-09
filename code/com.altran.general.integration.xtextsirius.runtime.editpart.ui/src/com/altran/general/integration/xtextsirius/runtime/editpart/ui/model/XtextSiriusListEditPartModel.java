@@ -7,7 +7,7 @@ import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeNameEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeListEditPart;
 import org.eclipse.swt.graphics.Color;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
@@ -15,17 +15,17 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.ExtractedX
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
-public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart {
+public class XtextSiriusListEditPartModel extends DNodeListEditPart {
 	private final @NonNull ExtractedXtextSiriusEditPart delegate;
-	
-	public XtextSiriusEdgeNameEditPartModel(
+
+	public XtextSiriusListEditPartModel(
 			final @NonNull View view,
 			final @NonNull Injector injector,
 			final @NonNull IXtextDirectEditDescription description) {
 		super(view);
 		this.delegate = new ExtractedXtextSiriusEditPart(this, injector, description);
 	}
-	
+
 	@Override
 	public EObject resolveSemanticElement() {
 		return delegate.resolveSemanticElement();
@@ -45,21 +45,15 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart {
 		delegate.createDefaultEditPolicies();
 	}
 	
-	@Override
-	protected IFigure createFigure() {
-		return delegate.createFigure();
-	}
+//	@Override
+//	protected IFigure createFigure() {
+//		return delegate.createFigure();
+//	}
 	
 //	@Override
 //	public IFigure getFigure() {
 //		return delegate.getFigure();
 //	}
-	
-	@Override
-	protected void setFigure(IFigure figure) {
-		// TODO Auto-generated method stub
-		super.setFigure(figure);
-	}
 	
 	@Override
 	protected void setFontColor(Color color) {

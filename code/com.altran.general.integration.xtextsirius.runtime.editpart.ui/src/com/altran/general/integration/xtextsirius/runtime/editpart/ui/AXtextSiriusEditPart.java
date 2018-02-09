@@ -61,6 +61,15 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements
 	}
 	
 	@Override
+	protected void refreshVisuals() {
+		refreshVisibility();
+		
+		if (getPrimaryView() != null) {
+			super.refreshVisuals();
+		}
+	}
+	
+	@Override
 	protected void handleNotificationEvent(final Notification notification) {
 		if (notification.getFeature().equals(ViewpointPackage.eINSTANCE.getDRepresentationElement_Name())) {
 			updateLabelText();
@@ -122,7 +131,7 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements
 				return getParser().getPrintString(new EObjectAdapter(element), ParserOptions.NONE.intValue());
 			}
 		}
-
+		
 		return null;
 	}
 }

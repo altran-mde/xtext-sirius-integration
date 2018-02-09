@@ -6,12 +6,25 @@
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl;
 
+import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
+import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription;
+
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+<<<<<<< b7f31d8da2d0f8863339344fb2e4db4be675bd51
 <<<<<<< 4d5096812efe0325615aba5a2ae92991741aa7c7
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
@@ -29,16 +42,15 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.sirius.properties.impl.TextDescriptionImpl;
 >>>>>>> fixed invalid import in generated files
+=======
 
-import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
-import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription;
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription;
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription;
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+>>>>>>> intermediate commit: non-working start of delegate implmenetation
+
+import org.eclipse.sirius.properties.impl.TextDescriptionImpl;
 
 /**
+<<<<<<< b7f31d8da2d0f8863339344fb2e4db4be675bd51
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
@@ -51,10 +63,16 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Xtext
  * Single Line Model Description</b></em>'. <!-- end-user-doc -->
 >>>>>>> updated to Oxygen.2
+=======
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Xtext Single Line Model Description</b></em>'.
+ * <!-- end-user-doc -->
+>>>>>>> intermediate commit: non-working start of delegate implmenetation
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
+<<<<<<< b7f31d8da2d0f8863339344fb2e4db4be675bd51
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getInjectorId
@@ -73,6 +91,10 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getEditableFeatures
 >>>>>>> updated to Oxygen.2
  * <em>Editable Features</em>}</li>
+=======
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getInjectorId <em>Injector Id</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getEditableFeatures <em>Editable Features</em>}</li>
+>>>>>>> intermediate commit: non-working start of delegate implmenetation
  * </ul>
  *
  * @generated
@@ -93,9 +115,9 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		implements XtextSingleLineModelDescription {
 >>>>>>> fixed invalid import in generated files
 	/**
-	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInjectorId()
 	 * @generated
 	 * @ordered
@@ -103,9 +125,9 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	protected static final String INJECTOR_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getInjectorId()
 	 * @generated
 	 * @ordered
@@ -113,6 +135,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
 
 	/**
+<<<<<<< b7f31d8da2d0f8863339344fb2e4db4be675bd51
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
@@ -129,6 +152,11 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * -->
 >>>>>>> updated to Oxygen.2
 	 * 
+=======
+	 * The cached value of the '{@link #getEditableFeatures() <em>Editable Features</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+>>>>>>> intermediate commit: non-working start of delegate implmenetation
 	 * @see #getEditableFeatures()
 	 * @generated
 	 * @ordered
@@ -136,8 +164,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	protected EList<String> editableFeatures;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected XtextSingleLineModelDescriptionImpl() {
@@ -145,8 +173,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -155,38 +183,38 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getInjectorId() {
-		return this.injectorId;
+		return injectorId;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setInjectorId(final String newInjectorId) {
-		final String oldInjectorId = this.injectorId;
-		this.injectorId = newInjectorId;
-		if (eNotificationRequired()) {
+	public void setInjectorId(String newInjectorId) {
+		String oldInjectorId = injectorId;
+		injectorId = newInjectorId;
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID, oldInjectorId,
-					this.injectorId));
-		}
+					injectorId));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EList<String> getEditableFeatures() {
+<<<<<<< b7f31d8da2d0f8863339344fb2e4db4be675bd51
 		if (this.editableFeatures == null) {
 <<<<<<< 1ddaf0147f100efe4802fdb6e688f21ab9b3b799
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
@@ -197,14 +225,18 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 =======
 			this.editableFeatures = new EDataTypeEList<>(String.class, this,
 >>>>>>> updated to Oxygen.2
+=======
+		if (editableFeatures == null) {
+			editableFeatures = new EDataTypeEList<String>(String.class, this,
+>>>>>>> intermediate commit: non-working start of delegate implmenetation
 					PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		}
-		return this.editableFeatures;
+		return editableFeatures;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -213,172 +245,171 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-				return getInjectorId();
-			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-				return getEditableFeatures();
+		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
+			return getInjectorId();
+		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+			return getEditableFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(final int featureID, final Object newValue) {
+	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-				setInjectorId((String) newValue);
-				return;
-			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-				getEditableFeatures().clear();
-				getEditableFeatures().addAll((Collection<? extends String>) newValue);
-				return;
+		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
+			setInjectorId((String) newValue);
+			return;
+		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+			getEditableFeatures().clear();
+			getEditableFeatures().addAll((Collection<? extends String>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void eUnset(final int featureID) {
+	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-				setInjectorId(INJECTOR_ID_EDEFAULT);
-				return;
-			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-				getEditableFeatures().clear();
-				return;
+		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
+			setInjectorId(INJECTOR_ID_EDEFAULT);
+			return;
+		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+			getEditableFeatures().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(final int featureID) {
+	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
-						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
-			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
+		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
+			return INJECTOR_ID_EDEFAULT == null ? injectorId != null : !INJECTOR_ID_EDEFAULT.equals(injectorId);
+		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+			return editableFeatures != null && !editableFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == IXtextDescription.class) {
 			switch (derivedFeatureID) {
-				case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
-				default:
-					return -1;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
+				return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
+			default:
+				return -1;
 			}
 		}
 		if (baseClass == IXtextPropertyDescription.class) {
 			switch (derivedFeatureID) {
-				default:
-					return -1;
+			default:
+				return -1;
 			}
 		}
 		if (baseClass == IXtextModelDescription.class) {
 			switch (derivedFeatureID) {
-				case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
-				default:
-					return -1;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+			default:
+				return -1;
 			}
 		}
 		if (baseClass == IXtextPropertyModelDescription.class) {
 			switch (derivedFeatureID) {
-				default:
-					return -1;
+			default:
+				return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == IXtextDescription.class) {
 			switch (baseFeatureID) {
-				case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
-					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID;
-				default:
-					return -1;
+			case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
+				return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID;
+			default:
+				return -1;
 			}
 		}
 		if (baseClass == IXtextPropertyDescription.class) {
 			switch (baseFeatureID) {
-				default:
-					return -1;
+			default:
+				return -1;
 			}
 		}
 		if (baseClass == IXtextModelDescription.class) {
 			switch (baseFeatureID) {
-				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES;
-				default:
-					return -1;
+			case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+			default:
+				return -1;
 			}
 		}
 		if (baseClass == IXtextPropertyModelDescription.class) {
 			switch (baseFeatureID) {
-				default:
-					return -1;
+			default:
+				return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) {
+		if (eIsProxy())
 			return super.toString();
-		}
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (injectorId: ");
-		result.append(this.injectorId);
+		result.append(injectorId);
 		result.append(", editableFeatures: ");
-		result.append(this.editableFeatures);
+		result.append(editableFeatures);
 		result.append(')');
 		return result.toString();
 	}
 
+<<<<<<< b7f31d8da2d0f8863339344fb2e4db4be675bd51
 } // XtextSingleLineModelDescriptionImpl
 <<<<<<< 8321d5157cd6ff75c654826d35f6a74ca50e0b2c
 =======
@@ -692,3 +723,6 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 >>>>>>> preliminary fix for using guava v16
 =======
 >>>>>>> improved adaptation to old guava version by using partial backport instead of code copy
+=======
+} //XtextSingleLineModelDescriptionImpl
+>>>>>>> intermediate commit: non-working start of delegate implmenetation
