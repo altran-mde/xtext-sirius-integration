@@ -508,7 +508,7 @@ public class ModelRegionEditorPreparer {
 				final Group group = GrammarUtil.containingGroup(nextSemanticRegion.getGrammarElement());
 				
 				if (group != null) {
-
+					
 					final ParentMap parentMap = new ParentMap(group, group);
 					
 					if (!parentMap.containsGrammarElementDeep(
@@ -561,7 +561,8 @@ public class ModelRegionEditorPreparer {
 	
 	/**
 	 * Inverted version of
-	 * {@link org.eclipse.xtext.formatting2.regionaccess.internal.AbstractSemanticRegionsFinder#assertNoContainment(EStructuralFeature)}.
+	 * {@link org.eclipse.xtext.formatting2.regionaccess.internal.AbstractSemanticRegionsFinder#assertNoContainment(EStructuralFeature)}
+	 * .
 	 */
 	protected boolean canBeHandledByGetRegionForFeature(final @NonNull EStructuralFeature feature) {
 		return feature instanceof EAttribute

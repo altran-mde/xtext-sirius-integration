@@ -9,6 +9,7 @@ Require-Bundle: org.eclipse.sirius.diagram.ui,
  org.eclipse.gmf.runtime.diagram.ui,
  com.altran.general.integration.xtextsirius.model.viewpoint,
  com.altran.general.integration.xtextsirius.model.diagram,
- com.google.guava;bundle-version=21
+ com.google.guava;bundle-version="21.0.0";resolution:=optional,
+ com.altran.general.integration.google.guava.patch;bundle-version="[15.0.0,21.0.0)";resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

@@ -26,13 +26,13 @@
       <import plugin="org.eclipse.xtext.xbase.lib"/>
       <import plugin="org.eclipse.emf.ecore.xcore.lib"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.eclipse.sirius"/>
+      <import plugin="org.eclipse.sirius" version="5" match="greaterOrEqual"/>
       <import plugin="org.eclipse.sirius.ui"/>
       <import plugin="org.eclipse.sirius.diagram"/>
       <import plugin="org.eclipse.sirius.diagram.ui"/>
       <import plugin="org.eclipse.emf.ecore.edit"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
-      <import plugin="com.google.guava" version="21.0.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava" version="15.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.lang"/>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.ui.views.properties.tabbed"/>
@@ -41,10 +41,6 @@
       <import plugin="org.eclipse.eef"/>
       <import plugin="org.eclipse.sirius.properties"/>
       <import plugin="org.eclipse.sirius.properties.edit"/>
-      <import plugin="org.eclipse.sirius"/>
-      <import plugin="org.eclipse.sirius.ui"/>
-      <import plugin="org.eclipse.sirius.properties"/>
-      <import plugin="org.eclipse.sirius"/>
    </requires>
 
    <plugin
@@ -125,7 +121,21 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.model.properties.sirius5"
+         id="com.altran.general.integration.xtextsirius.model.properties.sirius4"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.properties.sirius4.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.google.guava.patch"
          download-size="0"
          install-size="0"
          version="0.0.0"

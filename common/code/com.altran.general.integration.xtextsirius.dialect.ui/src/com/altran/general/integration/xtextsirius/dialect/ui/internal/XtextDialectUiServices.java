@@ -33,141 +33,141 @@ import com.google.common.collect.ImmutableList;
 public class XtextDialectUiServices implements DialectUIServices {
 	@Override
 	public void setSelection(final DialectEditor dialectEditor, final List<DRepresentationElement> selection) {
-		throw new UnsupportedOperationException();
+		return;
 	}
-	
+
 	@Override
 	public void selectAndReveal(final DialectEditor dialectEditor,
 			final List<DRepresentationElement> selection) {
-		throw new UnsupportedOperationException();
+		return;
 	}
-	
+
 	@Override
 	public Collection<CommandParameter> provideTools(final EObject object) {
 		return ImmutableList.of(
 				createTool(DiagramxtextFactory.eINSTANCE.createXtextDirectEditModelDescription()),
 				createTool(DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()),
-
+				
 				createTool(ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()),
 				createTool(ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
 	}
-	
+
 	protected CommandParameter createTool(final Object value) {
 		return new CommandParameter(null, ToolPackage.eINSTANCE.getToolSection_OwnedTools(), value);
 	}
-	
+
 	@Override
 	public Collection<CommandParameter> provideRepresentationNavigationToolDescriptors(final Object feature) {
 		return Collections.emptySet();
 	}
-	
+
 	@Override
 	public Collection<CommandParameter> provideRepresentationCreationToolDescriptors(final Object feature) {
 		return Collections.emptySet();
 	}
-	
+
 	@Override
 	public Collection<CommandParameter> provideNewChildDescriptors() {
 		return Collections.emptySet();
 	}
-	
+
 	@Override
 	public Collection<CommandParameter> provideAdditionalMappings(final EObject object) {
 		return Collections.emptySet();
 	}
-	
+
 	@Override
 	public IEditorPart openEditor(final Session session, final DRepresentation dRepresentation,
 			final IProgressMonitor monitor) {
-		throw new UnsupportedOperationException();
+		return null;
 	}
-	
+
 	@Override
 	public boolean isRepresentationManagedByEditor(final DRepresentation representation,
 			final IEditorPart editorPart) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isRepresentationDescriptionManagedByEditor(
 			final RepresentationDescription representationDescription,
 			final IEditorPart editorPart) {
 		return false;
 	}
-	
+
 	@Override
 	public Collection<DSemanticDecorator> getSelection(final DialectEditor editor) {
-		throw new UnsupportedOperationException();
+		return Collections.emptySet();
 	}
-	
+
 	@Override
 	public ILabelProvider getHierarchyLabelProvider(final ILabelProvider currentLabelProvider) {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public String getEditorName(final DRepresentation representation) {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public void export(final DRepresentation representation, final Session session, final IPath path,
 			final ExportFormat format,
 			final IProgressMonitor monitor) throws SizeTooLargeException {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public AdapterFactory createAdapterFactory() {
 		return new ComposedAdapterFactory();
 	}
-	
+
 	@Override
 	public String completeToolTipText(final String toolTipText, final EObject eObject,
 			final EStructuralFeature feature) {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public String completeToolTipText(final String toolTipText, final EObject eObject) {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public boolean closeEditor(final IEditorPart editor, final boolean save) {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public boolean canHandleEditor(final IEditorPart editorPart) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean canHandle(final RepresentationExtensionDescription description) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean canHandle(final RepresentationDescription description) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean canHandle(final DRepresentationDescriptor representationDescriptor) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean canHandle(final DRepresentation representation) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean canExport(final ExportFormat format) {
 		return false;
 	}
-	
+
 	// @Override
 	public void refreshEditor(final DialectEditor dialectEditor, final IProgressMonitor monitor) {
 		throw new UnsupportedOperationException();

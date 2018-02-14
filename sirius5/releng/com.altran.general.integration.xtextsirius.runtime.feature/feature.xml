@@ -37,7 +37,7 @@
       <import plugin="org.eclipse.eef.common.ui"/>
       <import plugin="org.eclipse.eef.ide.ui"/>
       <import plugin="org.eclipse.sirius.common.interpreter"/>
-      <import plugin="org.eclipse.sirius"/>
+      <import plugin="org.eclipse.sirius" version="5" match="greaterOrEqual"/>
       <import plugin="org.eclipse.sirius.properties"/>
    </requires>
 
@@ -105,27 +105,14 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui"
+         id="com.altran.general.integration.xtextsirius.model.properties.sirius5"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
          id="com.altran.general.integration.xtextsirius.runtime.converter.sirius5"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.model.properties.sirius4"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.model.properties.sirius5"
          download-size="0"
          install-size="0"
          version="0.0.0"

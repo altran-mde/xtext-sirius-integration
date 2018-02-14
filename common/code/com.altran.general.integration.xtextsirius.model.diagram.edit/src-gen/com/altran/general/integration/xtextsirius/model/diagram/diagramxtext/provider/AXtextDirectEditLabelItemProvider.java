@@ -2,29 +2,37 @@
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider;
 
+<<<<<<< HEAD:common/code/com.altran.general.integration.xtextsirius.model.diagram.edit/src-gen/com/altran/general/integration/xtextsirius/model/diagram/diagramxtext/provider/AXtextDirectEditLabelItemProvider.java
+=======
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
+
+>>>>>>> rebasedFixForOldMars:code/com.altran.general.integration.xtextsirius.model.diagram.edit/src-gen/com/altran/general/integration/xtextsirius/model/diagram/diagramxtext/provider/AXtextDirectEditLabelItemProvider.java
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
+
 import org.eclipse.sirius.diagram.description.tool.provider.DirectEditLabelItemProvider;
-import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
+
 import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 /**
  * This is the item provider adapter for a {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel} object.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
  * @generated
  */
 public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AXtextDirectEditLabelItemProvider(AdapterFactory adapterFactory) {
@@ -32,9 +40,9 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -47,14 +55,14 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 *
-	 * @generated NOT
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
-	public String getText(final Object object) {
-		final String label = new IdentifiedElementQuery((IdentifiedElement) object).getLabel();
+	public String getText(Object object) {
+		String label = ((AXtextDirectEditLabel) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_AXtextDirectEditLabel_type")
 				: getString("_UI_AXtextDirectEditLabel_type") + " " + label;
 	}
@@ -62,8 +70,8 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -73,10 +81,10 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-	 * describing the children that can be created under this object. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -85,10 +93,9 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	}
 
 	/**
-	 * This returns the label text for
-	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -108,9 +115,9 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
