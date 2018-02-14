@@ -1,0 +1,201 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.altran</groupId>
+	<artifactId>com.altran.root</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+ 		<module>code</module>
+		<module>features</module>
+        <module>releng</module>
+		<module>tests</module>
+	</modules>
+    
+    <properties>
+        <tycho.version>1.0.0</tycho.version>
+        <xtend.version>2.13.0</xtend.version>
+        <build.helper.maven.version>1.7</build.helper.maven.version>
+        <maven.clean.version>2.5</maven.clean.version>
+        <maven.acceleo.version>3.6.4</maven.acceleo.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- <target.platform>sirius4.mars</target.platform> -->
+    </properties>
+    
+    <build>
+        <plugins>
+          <!-- TYCHO PLUGINS -->
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-maven-plugin</artifactId>
+          </plugin>
+          <plugin>
+          	<groupId>org.eclipse.tycho</groupId>
+          	<artifactId>tycho-compiler-plugin</artifactId>
+          </plugin>
+          <plugin>
+          	<groupId>org.eclipse.tycho</groupId>
+          	<artifactId>tycho-packaging-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>target-platform-configuration</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-source-plugin</artifactId>
+          </plugin>
+          <plugin>  
+            <groupId>org.eclipse.tycho</groupId>  
+            <artifactId>tycho-versions-plugin</artifactId>  
+          </plugin>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-surefire-plugin</artifactId>
+          </plugin>
+          <plugin>
+          	<groupId>org.eclipse.tycho</groupId>
+          	<artifactId>tycho-p2-repository-plugin</artifactId>
+          </plugin>
+          
+          <!-- OTHER PLUGINS -->
+          <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+        
+        <pluginManagement>
+            <plugins>
+                <!-- PARENT PLUGINS -->
+                <plugin>
+                  <groupId>org.eclipse.tycho</groupId>
+                  <artifactId>tycho-maven-plugin</artifactId>
+                  <version>${tycho.version}</version>
+                  <extensions>true</extensions>
+                </plugin>
+		        <plugin>
+		          <groupId>org.eclipse.tycho</groupId>
+   		          <artifactId>tycho-packaging-plugin</artifactId>
+                  <version>${tycho.version}</version>
+		        </plugin>
+                <plugin>
+                  <groupId>org.eclipse.tycho</groupId>
+                  <artifactId>target-platform-configuration</artifactId>
+                  <version>${tycho.version}</version>
+                  <configuration>
+                      <target>
+                        <artifact>
+			    			<groupId>com.altran</groupId>
+			    			<artifactId>com.altran.target</artifactId>
+			    			<version>1.0.0-SNAPSHOT</version>
+			    	<!-- 		<classifier>${target.platform}</classifier> -->
+			  			</artifact>
+                        </target>
+                      <environments>
+                          <environment>
+                              <os>linux</os>
+                              <ws>gtk</ws>
+                              <arch>x86_64</arch>
+                          </environment>
+                          <environment>
+                              <os>win32</os>
+                              <ws>win32</ws>
+                              <arch>x86_64</arch>
+                          </environment>
+                      </environments>
+                  </configuration>
+                </plugin>
+                <plugin>
+                  <groupId>org.eclipse.tycho</groupId>
+                  <artifactId>tycho-source-plugin</artifactId>
+                  <version>${tycho.version}</version>
+                </plugin>
+                <plugin>
+                  <groupId>org.eclipse.tycho</groupId>  
+                  <artifactId>tycho-versions-plugin</artifactId>  
+                  <version>${tycho.version}</version>
+                </plugin>
+                <plugin>
+                  <groupId>org.eclipse.tycho</groupId>
+                  <artifactId>tycho-surefire-plugin</artifactId>
+                  <version>${tycho.version}</version>
+                </plugin>
+                <plugin>
+                  <groupId>org.eclipse.tycho</groupId>
+                  <artifactId>tycho-p2-repository-plugin</artifactId>
+                  <version>${tycho.version}</version>
+                </plugin>
+                <!-- END OF PARENT PLUGINS -->
+        
+                <!-- DEFAULT PLUGINS -->
+                <plugin>
+                  <groupId>org.eclipse.tycho</groupId>
+                  <artifactId>tycho-compiler-plugin</artifactId>
+                  <version>${tycho.version}</version>
+                  <configuration>
+                    <compilerArguments>
+                      <inlineJSR/>
+                      <enableJavadoc/>
+                      <encoding>ISO-8859-1</encoding>
+                    </compilerArguments>
+                    <configuration>
+                      <source>1.8</source>
+                      <target>1.8</target>
+                    </configuration>
+                  </configuration>
+                </plugin>
+                <!-- END OF DEFAULT PLUGINS -->
+        
+                <!-- OTHER PLUGINS -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build.helper.maven.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven.clean.version}</version>
+                    <configuration>
+                        <filesets>
+                            <fileset>
+                                <directory>xtend-gen</directory>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                                               <fileset>
+                                <directory>bin</directory>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                        </filesets>
+                    </configuration>
+                </plugin>
+                <!-- END OF OTHER PLUGINS -->
+            </plugins>
+        </pluginManagement>
+    </build>
+    
+    <repositories>
+      <repository>
+        <id>nexus-p2</id>
+        <name>Altran Nexus-P2</name>
+        <url>https://nexus-p2.manatree.io/nexus/content/groups/nexus-p2-group/</url>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>always</updatePolicy>
+          <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+
+</project>
+
