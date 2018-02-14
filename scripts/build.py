@@ -26,7 +26,7 @@ def main(config_file, build_number, branch_name, target_profile):
      os.makedirs('/root/.m2')
      copy2('./settings.xml', '/root/.m2/settings.xml')
     print('Copied settings.xml to .m2')
-    #mvn_target_platform='-Dtarget.platform='+target_platform
+
     mvn_target_profile='-P'+target_profile
     maven_command = ['mvn', '-e', '-DskipTests', '-DskipITs', '-Dskip.archive=true', mvn_target_profile,'clean', 'install']
 
