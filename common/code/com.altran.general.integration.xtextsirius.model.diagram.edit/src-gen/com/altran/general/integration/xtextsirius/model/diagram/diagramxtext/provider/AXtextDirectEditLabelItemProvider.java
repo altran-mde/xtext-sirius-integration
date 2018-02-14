@@ -2,11 +2,8 @@
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider;
 
-<<<<<<< HEAD:common/code/com.altran.general.integration.xtextsirius.model.diagram.edit/src-gen/com/altran/general/integration/xtextsirius/model/diagram/diagramxtext/provider/AXtextDirectEditLabelItemProvider.java
-=======
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 
->>>>>>> rebasedFixForOldMars:code/com.altran.general.integration.xtextsirius.model.diagram.edit/src-gen/com/altran/general/integration/xtextsirius/model/diagram/diagramxtext/provider/AXtextDirectEditLabelItemProvider.java
 import java.util.Collection;
 import java.util.List;
 
