@@ -45,7 +45,7 @@ if __name__ == "__main__":
     parser.add_argument('-c', '--config', default='project.config', help='The config file for the projects')
     parser.add_argument('-bn', '--buildnumber', default='0', help='The build number to create a unique version')
     parser.add_argument('-br', '--branchname', default='0', help='The branch for the build')
-    parser.add_argument('-tp', '--targetProfile', default='sirius4.mars', help='The target profile for the build')
+    parser.add_argument('-tp', '--targetProfile', default='sirius5.oxygen', help='The target profile for the build')
     args = vars(parser.parse_args())
 
     config_file = args['config']

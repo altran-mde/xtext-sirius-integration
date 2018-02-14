@@ -35,10 +35,6 @@
           </plugin>
           <plugin>
             <groupId>org.eclipse.tycho</groupId>
-            <artifactId>target-platform-configuration</artifactId>
-          </plugin>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
             <artifactId>tycho-source-plugin</artifactId>
           </plugin>
           <plugin>  
@@ -78,7 +74,7 @@
    		          <artifactId>tycho-packaging-plugin</artifactId>
                   <version>${tycho.version}</version>
 		        </plugin>
-                <plugin>
+      <!--           <plugin>
                   <groupId>org.eclipse.tycho</groupId>
                   <artifactId>target-platform-configuration</artifactId>
                   <version>${tycho.version}</version>
@@ -88,7 +84,6 @@
 			    			<groupId>com.altran</groupId>
 			    			<artifactId>com.altran.target</artifactId>
 			    			<version>1.0.0-SNAPSHOT</version>
-			    	<!-- 		<classifier>${target.platform}</classifier> -->
 			  			</artifact>
                         </target>
                       <environments>
@@ -104,7 +99,7 @@
                           </environment>
                       </environments>
                   </configuration>
-                </plugin>
+                </plugin> -->
                 <plugin>
                   <groupId>org.eclipse.tycho</groupId>
                   <artifactId>tycho-source-plugin</artifactId>
@@ -194,19 +189,95 @@
     </repositories>
 	 <profiles>
       <profile>
-         <id>sirius4</id>
+         <id>sirius4.mars</id>
          <modules>
             <module>sirius4</module>
          </modules>
+       	<build>
+       	<plugins>
+       	 <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>target-platform-configuration</artifactId>
+          </plugin>
+          </plugins>
+          <pluginManagement>
+          <plugins>
+			<plugin>
+                  <groupId>org.eclipse.tycho</groupId>
+                  <artifactId>target-platform-configuration</artifactId>
+                  <version>${tycho.version}</version>
+                  <configuration>
+                      <target>
+                        <artifact>
+			    			<groupId>com.altran</groupId>
+			    			<artifactId>com.altran.general.integration.xtextsirius.target.sirius4</artifactId>
+			    			<version>1.0.0-SNAPSHOT</version>
+			  			</artifact>
+                        </target>
+                      <environments>
+                          <environment>
+                              <os>linux</os>
+                              <ws>gtk</ws>
+                              <arch>x86_64</arch>
+                          </environment>
+                          <environment>
+                              <os>win32</os>
+                              <ws>win32</ws>
+                              <arch>x86_64</arch>
+                          </environment>
+                      </environments>
+                  </configuration>
+                </plugin>
+				</plugins>               
+               </pluginManagement>
+       		</build>
       </profile>
       <profile>
-        <id>sirius5</id>
-         <activation>
+        <id>sirius5.oxygen</id>
+        <activation>
             <activeByDefault>true</activeByDefault>
          </activation>
          <modules>
             <module>sirius5</module>
          </modules>
+         <build>
+       	<plugins>
+       	 <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>target-platform-configuration</artifactId>
+          </plugin>
+          </plugins>
+          <pluginManagement>
+          <plugins>
+			<plugin>
+                  <groupId>org.eclipse.tycho</groupId>
+                  <artifactId>target-platform-configuration</artifactId>
+                  <version>${tycho.version}</version>
+                  <configuration>
+                      <target>
+                        <artifact>
+			    			<groupId>com.altran</groupId>
+			    			<artifactId>com.altran.general.integration.xtextsirius.target.sirius5</artifactId>
+			    			<version>1.0.0-SNAPSHOT</version>
+			  			</artifact>
+                        </target>
+                      <environments>
+                          <environment>
+                              <os>linux</os>
+                              <ws>gtk</ws>
+                              <arch>x86_64</arch>
+                          </environment>
+                          <environment>
+                              <os>win32</os>
+                              <ws>win32</ws>
+                              <arch>x86_64</arch>
+                          </environment>
+                      </environments>
+                  </configuration>
+                </plugin>
+				</plugins>               
+               </pluginManagement>
+       	</build>
       </profile>
      </profiles>
 </project>

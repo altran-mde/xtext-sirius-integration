@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="oxygen.2" sequenceNumber="8">
+<?pde version="3.8"?><target name="com.altran.general.integration.xtextsirius.target.sirius5" sequenceNumber="8">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.sirius.properties.feature.feature.group" version="5.0.1.201706290936"/>
