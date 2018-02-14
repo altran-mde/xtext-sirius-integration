@@ -7,6 +7,8 @@
 <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="5.0.1.201706290936"/>
 <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="5.0.1.201706290936"/>
 <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="5.0.1.201706290936"/>
+<unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="5.0.1.201706290936"/>
+<unit id="org.eclipse.sirius.common.acceleo.aql" version="5.0.1.201706290936"/>
 <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="5.0.1.201706290936"/>
 <repository location="http://download.eclipse.org/sirius/updates/releases/5.0.1/oxygen"/>
 </location>
