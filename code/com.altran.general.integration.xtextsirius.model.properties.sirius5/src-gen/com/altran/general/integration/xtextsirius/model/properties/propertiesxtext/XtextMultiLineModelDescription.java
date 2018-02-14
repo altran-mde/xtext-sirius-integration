@@ -4,7 +4,7 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.properties.TextAreaDescription;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,11 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage#getXtextMultiLineModelDescription()
- * @model superTypes="org.eclipse.emf.ecore.EJavaObject com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel image='true'"
+ * @model annotation="http://www.eclipse.org/emf/2002/GenModel image='true'"
  * @generated
  */
-public interface XtextMultiLineModelDescription extends EObject, IXtextPropertyModelDescription {
+public interface XtextMultiLineModelDescription extends TextAreaDescription, IXtextPropertyModelDescription {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

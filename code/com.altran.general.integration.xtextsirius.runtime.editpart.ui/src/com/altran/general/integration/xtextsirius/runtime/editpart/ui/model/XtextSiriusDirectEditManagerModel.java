@@ -9,7 +9,6 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditManager;
 import com.google.inject.Injector;
@@ -20,9 +19,10 @@ public class XtextSiriusDirectEditManagerModel extends XtextSiriusDirectEditMana
 	public XtextSiriusDirectEditManagerModel(
 			final @NonNull IXtextAwareEditPart editPart,
 			final @NonNull Injector injector,
-			final @NonNull IXtextDirectEditModelDescription description) {
-		super(editPart, injector, description);
-		this.editableFeatures = description.getEditableFeatures();
+			final int editorStyles,
+			final boolean multiLine, final Collection<@NonNull String> editableFeatures) {
+		super(editPart, injector, editorStyles, multiLine);
+		this.editableFeatures = editableFeatures;
 	}
 
 	@Override

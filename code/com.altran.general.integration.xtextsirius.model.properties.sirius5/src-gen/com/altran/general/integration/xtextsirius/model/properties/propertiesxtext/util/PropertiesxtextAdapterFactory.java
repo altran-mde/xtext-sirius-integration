@@ -18,6 +18,18 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.sirius.properties.AbstractControlDescription;
+import org.eclipse.sirius.properties.AbstractTextAreaDescription;
+import org.eclipse.sirius.properties.AbstractTextDescription;
+import org.eclipse.sirius.properties.AbstractWidgetDescription;
+import org.eclipse.sirius.properties.ControlDescription;
+import org.eclipse.sirius.properties.TextAreaDescription;
+import org.eclipse.sirius.properties.TextDescription;
+import org.eclipse.sirius.properties.WidgetDescription;
+
+import org.eclipse.sirius.viewpoint.description.DocumentedElement;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
@@ -94,6 +106,46 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseIdentifiedElement(IdentifiedElement object) {
+			return createIdentifiedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseDocumentedElement(DocumentedElement object) {
+			return createDocumentedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractControlDescription(AbstractControlDescription object) {
+			return createAbstractControlDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractWidgetDescription(AbstractWidgetDescription object) {
+			return createAbstractWidgetDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractTextDescription(AbstractTextDescription object) {
+			return createAbstractTextDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseControlDescription(ControlDescription object) {
+			return createControlDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseWidgetDescription(WidgetDescription object) {
+			return createWidgetDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseTextDescription(TextDescription object) {
+			return createTextDescriptionAdapter();
+		}
+
+		@Override
 		public Adapter caseIXtextDescription(IXtextDescription object) {
 			return createIXtextDescriptionAdapter();
 		}
@@ -111,6 +163,16 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIXtextPropertyModelDescription(IXtextPropertyModelDescription object) {
 			return createIXtextPropertyModelDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractTextAreaDescription(AbstractTextAreaDescription object) {
+			return createAbstractTextAreaDescriptionAdapter();
+		}
+
+		@Override
+		public Adapter caseTextAreaDescription(TextAreaDescription object) {
+			return createTextAreaDescriptionAdapter();
 		}
 
 		@Override
@@ -199,6 +261,118 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.IdentifiedElement <em>Identified Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.viewpoint.description.IdentifiedElement
+	 * @generated
+	 */
+	public Adapter createIdentifiedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.DocumentedElement <em>Documented Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.viewpoint.description.DocumentedElement
+	 * @generated
+	 */
+	public Adapter createDocumentedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.AbstractControlDescription <em>Abstract Control Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.AbstractControlDescription
+	 * @generated
+	 */
+	public Adapter createAbstractControlDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.AbstractWidgetDescription <em>Abstract Widget Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.AbstractWidgetDescription
+	 * @generated
+	 */
+	public Adapter createAbstractWidgetDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.AbstractTextDescription <em>Abstract Text Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.AbstractTextDescription
+	 * @generated
+	 */
+	public Adapter createAbstractTextDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.ControlDescription <em>Control Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.ControlDescription
+	 * @generated
+	 */
+	public Adapter createControlDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.WidgetDescription <em>Widget Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.WidgetDescription
+	 * @generated
+	 */
+	public Adapter createWidgetDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.TextDescription <em>Text Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.TextDescription
+	 * @generated
+	 */
+	public Adapter createTextDescriptionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription <em>IXtext Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -251,6 +425,34 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIXtextPropertyModelDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.AbstractTextAreaDescription <em>Abstract Text Area Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.AbstractTextAreaDescription
+	 * @generated
+	 */
+	public Adapter createAbstractTextAreaDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.properties.TextAreaDescription <em>Text Area Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.sirius.properties.TextAreaDescription
+	 * @generated
+	 */
+	public Adapter createTextAreaDescriptionAdapter() {
 		return null;
 	}
 

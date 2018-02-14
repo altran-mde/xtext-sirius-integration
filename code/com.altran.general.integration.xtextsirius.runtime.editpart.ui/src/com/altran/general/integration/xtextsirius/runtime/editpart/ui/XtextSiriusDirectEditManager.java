@@ -6,7 +6,6 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
 import com.google.inject.Injector;
 
 public class XtextSiriusDirectEditManager extends XtextDirectEditManager {
@@ -17,15 +16,11 @@ public class XtextSiriusDirectEditManager extends XtextDirectEditManager {
 	public XtextSiriusDirectEditManager(
 			final @NonNull IXtextAwareEditPart editPart,
 			final @NonNull Injector injector,
-			final @NonNull IXtextDirectEditDescription description) {
-		super(editPart, injector, translateToStyle(description));
+			final int editorStyles, final boolean multiLine) {
+		super(editPart, injector, editorStyles);
 		this.injector = injector;
-		this.editorStyles = translateToStyle(description);
-		this.multiLine = description.isMultiLine();
-	}
-
-	protected static int translateToStyle(final @NonNull IXtextDirectEditDescription description) {
-		return EditPartHelper.getInstance().translateToStyle(description.isMultiLine());
+		this.editorStyles = editorStyles;
+		this.multiLine = multiLine;
 	}
 
 	@Override

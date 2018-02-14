@@ -16,7 +16,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.sirius.properties.impl.TextDescriptionImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +34,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class XtextSingleLineValueDescriptionImpl extends EObjectImpl implements XtextSingleLineValueDescription {
+public class XtextSingleLineValueDescriptionImpl extends TextDescriptionImpl
+		implements XtextSingleLineValueDescription {
 	/**
 	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

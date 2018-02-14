@@ -1,78 +1,148 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
 
-import org.eclipse.draw2d.IFigure;
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.DragTracker;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.tools.DirectEditManager;
+import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
+import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
+import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeNameEditPart;
-import org.eclipse.swt.graphics.Color;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.ExtractedXtextSiriusEditPart;
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditPolicy;
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
-public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart {
-	private final @NonNull ExtractedXtextSiriusEditPart delegate;
+public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implements IXtextSiriusEditPartModel {
+	
+	private final Injector injector;
+	private final boolean multiLine;
+	private final Collection<@NonNull String> editableFeatures;
 	
 	public XtextSiriusEdgeNameEditPartModel(
-			final @NonNull View view,
+			final @NonNull IXtextDirectEditModelDescription description,
 			final @NonNull Injector injector,
-			final @NonNull IXtextDirectEditDescription description) {
+			final @NonNull View view) {
 		super(view);
-		this.delegate = new ExtractedXtextSiriusEditPart(this, injector, description);
+		this.injector = injector;
+		this.multiLine = description.isMultiLine();
+		this.editableFeatures = description.getEditableFeatures();
+	}
+	
+	/**
+	 * This value should never be used. Instead, use
+	 * {@link #getSemanticElement()}.
+	 */
+	@Override
+	public String getEditText() {
+		return "";
+	}
+
+	/**
+	 * Copied from
+	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
+	 */
+	@Override
+	public DragTracker getDragTracker(final Request request) {
+		return new DragEditPartsTrackerEx(this) {
+			@Override
+			protected boolean isMove() {
+				return true;
+			}
+			
+			@Override
+			protected boolean handleDoubleClick(final int button) {
+				performDirectEditRequest(request);
+				return true;
+			}
+		};
+	}
+	
+	/**
+	 * Copied from
+	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
+	 */
+	@Override
+	public void performDirectEditRequest(final Request request) {
+		final DirectEditManager manager = createDirectEditManager();
+		final Request theRequest = request;
+		try {
+			getEditingDomain().runExclusive(new Runnable() {
+				
+				@Override
+				public void run() {
+					if (isActive()) {
+						if (theRequest.getExtendedData()
+								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+							final Character initialChar = (Character) theRequest.getExtendedData()
+									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+							if (manager instanceof XtextDirectEditManager) {
+								final XtextDirectEditManager xtextDirectEditManager = (XtextDirectEditManager) manager;
+								xtextDirectEditManager.show(initialChar);
+							} else if (manager instanceof TextDirectEditManager) {
+								((TextDirectEditManager) manager).show(initialChar);
+							}
+						} else {
+							manager.show();
+						}
+					}
+				}
+			});
+		} catch (final InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	protected @NonNull DirectEditManager createDirectEditManager() {
+		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
+				translateToStyle(), isMultiLine(), getEditableFeatures());
+	}
+	
+	protected int translateToStyle() {
+		return EditPartHelper.getInstance().translateToStyle(isMultiLine());
+	}
+	
+	protected Injector getInjector() {
+		return this.injector;
+	}
+
+	protected boolean isMultiLine() {
+		return this.multiLine;
+	}
+
+	@Override
+	public DSemanticDecorator resolveSemanticElement() {
+		return (DSemanticDecorator) super.resolveSemanticElement();
 	}
 	
 	@Override
-	public EObject resolveSemanticElement() {
-		return delegate.resolveSemanticElement();
+	public @Nullable EObject getSemanticElement() {
+		return resolveSemanticElement().getTarget();
 	}
-	
-	protected void refreshVisuals() {
-		delegate.refreshVisuals();
-	}
-	
+
 	@Override
-	protected void handleNotificationEvent(Notification event) {
-		delegate.handleNotificationEvent(event);
+	public @NonNull EObject getClosestExistingSemanticElement() {
+		return EditPartHelper.getInstance().findClosestExistingSemanticElementRecursive(resolveSemanticElement());
 	}
-	
+
 	@Override
 	protected void createDefaultEditPolicies() {
-		delegate.createDefaultEditPolicies();
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new XtextSiriusDirectEditPolicy());
 	}
 	
 	@Override
-	protected IFigure createFigure() {
-		return delegate.createFigure();
-	}
-	
-//	@Override
-//	public IFigure getFigure() {
-//		return delegate.getFigure();
-//	}
-	
-	@Override
-	protected void setFigure(IFigure figure) {
-		// TODO Auto-generated method stub
-		super.setFigure(figure);
-	}
-	
-	@Override
-	protected void setFontColor(Color color) {
-		delegate.setFontColor(color);
-	}
-	
-	@Override
-	public DragTracker getDragTracker(Request request) {
-		return delegate.getDragTracker(request);
-	}
-	
-	@Override
-	protected void performDirectEditRequest(Request request) {
-		delegate.performDirectEditRequest(request);
+	public @NonNull Collection<@NonNull String> getEditableFeatures() {
+		return this.editableFeatures;
 	}
 }

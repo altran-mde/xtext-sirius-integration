@@ -4,7 +4,8 @@ package com.altran.general.integration.xtextsirius.model.properties.propertiesxt
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcorePackage;
+
+import org.eclipse.sirius.properties.PropertiesPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,13 +69,121 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__NAME = PropertiesPackage.TEXT_DESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LABEL = PropertiesPackage.TEXT_DESCRIPTION__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__DOCUMENTATION = PropertiesPackage.TEXT_DESCRIPTION__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_DESCRIPTION__INITIAL_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__STYLE = PropertiesPackage.TEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_DESCRIPTION__EXTENDS;
+
+	/**
+	 * The feature id for the '<em><b>Filter Conditional Styles From Extended Text Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_EXPRESSION;
+
+	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute list.
@@ -83,7 +192,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Model Description</em>' class.
@@ -92,7 +201,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl <em>Xtext Multi Line Model Description</em>}' class.
@@ -105,13 +214,130 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__NAME = PropertiesPackage.TEXT_AREA_DESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LABEL = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__DOCUMENTATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LINE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__INITIAL_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__STYLE = PropertiesPackage.TEXT_AREA_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_AREA_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_AREA_DESCRIPTION__EXTENDS;
+
+	/**
+	 * The feature id for the '<em><b>Filter Conditional Styles From Extended Text Area Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_AREA_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_AREA_EXPRESSION;
+
+	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute list.
@@ -120,7 +346,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 1;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Model Description</em>' class.
@@ -129,7 +356,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl <em>Xtext Single Line Value Description</em>}' class.
@@ -142,13 +369,121 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__NAME = PropertiesPackage.TEXT_DESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LABEL = PropertiesPackage.TEXT_DESCRIPTION__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.TEXT_DESCRIPTION__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_DESCRIPTION__INITIAL_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__STYLE = PropertiesPackage.TEXT_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_DESCRIPTION__EXTENDS;
+
+	/**
+	 * The feature id for the '<em><b>Filter Conditional Styles From Extended Text Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_EXPRESSION;
+
+	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>' attribute.
@@ -157,7 +492,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 1;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>' attribute.
@@ -166,7 +502,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 2;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Value Description</em>' class.
@@ -175,7 +512,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 3;
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl <em>Xtext Multi Line Value Description</em>}' class.
@@ -188,13 +525,130 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__NAME = PropertiesPackage.TEXT_AREA_DESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LABEL = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Label Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Help Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__HELP_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__IS_ENABLED_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Line Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LINE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION__LINE_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__VALUE_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__INITIAL_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Style</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__STYLE = PropertiesPackage.TEXT_AREA_DESCRIPTION__STYLE;
+
+	/**
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_AREA_DESCRIPTION__CONDITIONAL_STYLES;
+
+	/**
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_AREA_DESCRIPTION__EXTENDS;
+
+	/**
+	 * The feature id for the '<em><b>Filter Conditional Styles From Extended Text Area Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_AREA_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_AREA_EXPRESSION;
+
+	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = EcorePackage.EOBJECT_FEATURE_COUNT + 0;
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>' attribute.
@@ -203,7 +657,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 1;
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 1;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>' attribute.
@@ -212,7 +667,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EcorePackage.EOBJECT_FEATURE_COUNT + 2;
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 2;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Value Description</em>' class.
@@ -221,7 +677,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = EcorePackage.EOBJECT_FEATURE_COUNT + 3;
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 3;
 
 	/**
 	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription <em>Xtext Single Line Model Description</em>}'.

@@ -16,6 +16,18 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.sirius.properties.AbstractControlDescription;
+import org.eclipse.sirius.properties.AbstractTextAreaDescription;
+import org.eclipse.sirius.properties.AbstractTextDescription;
+import org.eclipse.sirius.properties.AbstractWidgetDescription;
+import org.eclipse.sirius.properties.ControlDescription;
+import org.eclipse.sirius.properties.TextAreaDescription;
+import org.eclipse.sirius.properties.TextDescription;
+import org.eclipse.sirius.properties.WidgetDescription;
+
+import org.eclipse.sirius.viewpoint.description.DocumentedElement;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Switch</b> for the model's inheritance hierarchy.
@@ -90,13 +102,29 @@ public class PropertiesxtextSwitch<T> {
 			XtextSingleLineModelDescription xtextSingleLineModelDescription = (XtextSingleLineModelDescription) theEObject;
 			T result = caseXtextSingleLineModelDescription(xtextSingleLineModelDescription);
 			if (result == null)
+				result = caseTextDescription(xtextSingleLineModelDescription);
+			if (result == null)
 				result = caseIXtextPropertyModelDescription(xtextSingleLineModelDescription);
+			if (result == null)
+				result = caseAbstractTextDescription(xtextSingleLineModelDescription);
+			if (result == null)
+				result = caseWidgetDescription(xtextSingleLineModelDescription);
 			if (result == null)
 				result = caseIXtextPropertyDescription(xtextSingleLineModelDescription);
 			if (result == null)
 				result = caseIXtextModelDescription(xtextSingleLineModelDescription);
 			if (result == null)
+				result = caseAbstractWidgetDescription(xtextSingleLineModelDescription);
+			if (result == null)
+				result = caseControlDescription(xtextSingleLineModelDescription);
+			if (result == null)
 				result = caseIXtextDescription(xtextSingleLineModelDescription);
+			if (result == null)
+				result = caseAbstractControlDescription(xtextSingleLineModelDescription);
+			if (result == null)
+				result = caseIdentifiedElement(xtextSingleLineModelDescription);
+			if (result == null)
+				result = caseDocumentedElement(xtextSingleLineModelDescription);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -105,13 +133,29 @@ public class PropertiesxtextSwitch<T> {
 			XtextMultiLineModelDescription xtextMultiLineModelDescription = (XtextMultiLineModelDescription) theEObject;
 			T result = caseXtextMultiLineModelDescription(xtextMultiLineModelDescription);
 			if (result == null)
+				result = caseTextAreaDescription(xtextMultiLineModelDescription);
+			if (result == null)
 				result = caseIXtextPropertyModelDescription(xtextMultiLineModelDescription);
+			if (result == null)
+				result = caseAbstractTextAreaDescription(xtextMultiLineModelDescription);
+			if (result == null)
+				result = caseWidgetDescription(xtextMultiLineModelDescription);
 			if (result == null)
 				result = caseIXtextPropertyDescription(xtextMultiLineModelDescription);
 			if (result == null)
 				result = caseIXtextModelDescription(xtextMultiLineModelDescription);
 			if (result == null)
+				result = caseAbstractWidgetDescription(xtextMultiLineModelDescription);
+			if (result == null)
+				result = caseControlDescription(xtextMultiLineModelDescription);
+			if (result == null)
 				result = caseIXtextDescription(xtextMultiLineModelDescription);
+			if (result == null)
+				result = caseAbstractControlDescription(xtextMultiLineModelDescription);
+			if (result == null)
+				result = caseIdentifiedElement(xtextMultiLineModelDescription);
+			if (result == null)
+				result = caseDocumentedElement(xtextMultiLineModelDescription);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -120,13 +164,29 @@ public class PropertiesxtextSwitch<T> {
 			XtextSingleLineValueDescription xtextSingleLineValueDescription = (XtextSingleLineValueDescription) theEObject;
 			T result = caseXtextSingleLineValueDescription(xtextSingleLineValueDescription);
 			if (result == null)
+				result = caseTextDescription(xtextSingleLineValueDescription);
+			if (result == null)
 				result = caseIXtextPropertyValueDescription(xtextSingleLineValueDescription);
+			if (result == null)
+				result = caseAbstractTextDescription(xtextSingleLineValueDescription);
+			if (result == null)
+				result = caseWidgetDescription(xtextSingleLineValueDescription);
 			if (result == null)
 				result = caseIXtextPropertyDescription(xtextSingleLineValueDescription);
 			if (result == null)
 				result = caseIXtextValueDescription(xtextSingleLineValueDescription);
 			if (result == null)
+				result = caseAbstractWidgetDescription(xtextSingleLineValueDescription);
+			if (result == null)
+				result = caseControlDescription(xtextSingleLineValueDescription);
+			if (result == null)
 				result = caseIXtextDescription(xtextSingleLineValueDescription);
+			if (result == null)
+				result = caseAbstractControlDescription(xtextSingleLineValueDescription);
+			if (result == null)
+				result = caseIdentifiedElement(xtextSingleLineValueDescription);
+			if (result == null)
+				result = caseDocumentedElement(xtextSingleLineValueDescription);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -135,13 +195,29 @@ public class PropertiesxtextSwitch<T> {
 			XtextMultiLineValueDescription xtextMultiLineValueDescription = (XtextMultiLineValueDescription) theEObject;
 			T result = caseXtextMultiLineValueDescription(xtextMultiLineValueDescription);
 			if (result == null)
+				result = caseTextAreaDescription(xtextMultiLineValueDescription);
+			if (result == null)
 				result = caseIXtextPropertyValueDescription(xtextMultiLineValueDescription);
+			if (result == null)
+				result = caseAbstractTextAreaDescription(xtextMultiLineValueDescription);
+			if (result == null)
+				result = caseWidgetDescription(xtextMultiLineValueDescription);
 			if (result == null)
 				result = caseIXtextPropertyDescription(xtextMultiLineValueDescription);
 			if (result == null)
 				result = caseIXtextValueDescription(xtextMultiLineValueDescription);
 			if (result == null)
+				result = caseAbstractWidgetDescription(xtextMultiLineValueDescription);
+			if (result == null)
+				result = caseControlDescription(xtextMultiLineValueDescription);
+			if (result == null)
 				result = caseIXtextDescription(xtextMultiLineValueDescription);
+			if (result == null)
+				result = caseAbstractControlDescription(xtextMultiLineValueDescription);
+			if (result == null)
+				result = caseIdentifiedElement(xtextMultiLineValueDescription);
+			if (result == null)
+				result = caseDocumentedElement(xtextMultiLineValueDescription);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -212,6 +288,126 @@ public class PropertiesxtextSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identified Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identified Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiedElement(IdentifiedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Documented Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Documented Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDocumentedElement(DocumentedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Control Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Control Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractControlDescription(AbstractControlDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Widget Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Widget Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractWidgetDescription(AbstractWidgetDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Text Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Text Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractTextDescription(AbstractTextDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Control Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Control Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControlDescription(ControlDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Widget Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Widget Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWidgetDescription(WidgetDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextDescription(TextDescription object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IXtext Description</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -268,6 +464,36 @@ public class PropertiesxtextSwitch<T> {
 	 * @generated
 	 */
 	public T caseIXtextPropertyModelDescription(IXtextPropertyModelDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Text Area Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Text Area Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractTextAreaDescription(AbstractTextAreaDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Area Description</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Area Description</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextAreaDescription(TextAreaDescription object) {
 		return null;
 	}
 
