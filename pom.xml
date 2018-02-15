@@ -5,10 +5,6 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<modules>
- 		<module>common</module>
-	</modules>
-
     <properties>
         <tycho.version>1.0.0</tycho.version>
         <xtend.version>2.13.0</xtend.version>
@@ -166,6 +162,7 @@
          <id>sirius4.mars</id>
          <modules>
             <module>sirius4</module>
+            <module>common</module>
          </modules>
        	<build>
        	<plugins>
@@ -181,6 +178,9 @@
                   <artifactId>target-platform-configuration</artifactId>
                   <version>${tycho.version}</version>
                   <configuration>
+                  	  <dependency-resolution>
+              			<optionalDependencies>ignore</optionalDependencies>
+              		  </dependency-resolution>
                       <target>
                         <artifact>
 			    			<groupId>com.altran</groupId>
@@ -212,7 +212,8 @@
             <activeByDefault>true</activeByDefault>
          </activation>
          <modules>
-            <module>sirius5</module>
+			  <module>sirius5</module>
+			  <module>common</module>
          </modules>
          <build>
        	<plugins>
@@ -228,6 +229,9 @@
                   <artifactId>target-platform-configuration</artifactId>
                   <version>${tycho.version}</version>
                   <configuration>
+                      <dependency-resolution>
+              			<optionalDependencies>ignore</optionalDependencies>
+              		  </dependency-resolution>
                       <target>
                         <artifact>
 			    			<groupId>com.altran</groupId>
