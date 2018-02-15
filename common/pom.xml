@@ -10,6 +10,6 @@
 
     <modules>
         <module>code</module>
-        <module>test</module>
+        <!-- <module>test</module> -->
     </modules>
 </project>
