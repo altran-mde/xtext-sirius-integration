@@ -13,6 +13,8 @@
 	<packaging>pom</packaging>
 
     <modules>
+    	<module>com.altran.general.integration.xtextsirius.design.sirius4.feature</module>
+    	<module>com.altran.general.integration.xtextsirius.runtime.sirius4.feature</module>
 		<module>com.altran.general.integration.xtextsirius.target.sirius4</module>
     </modules>
 </project>
