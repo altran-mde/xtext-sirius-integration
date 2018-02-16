@@ -65,29 +65,12 @@ podTemplate( // Open Kubernetes podTemplate parameters
             }
 
             stage('build') {
-                parallel(
-                        sirius4_mars_build: {
-                         stage('Sirius 4 MARS build'){
-                            timeout(TimeOutMinutes) {
-                                    container('maven'){
-                                        sh './scripts/build.py -br ' + branchName + ' -bn ' + buildNumber + ' -tp sirius4.mars'
-                                    }
-                            }
-                         }
-                        },
-
-                        sirius4_oxygen_build: {
-                          stage('Sirius 5 Oxygen build'){
-                            timeout(TimeOutMinutes) {
-                                    container('maven'){
-                                        sh './scripts/build.py -br ' + branchName + ' -bn ' + buildNumber + ' -tp sirius5.oxygen'
-                                    }
-                            }
-                          }
-                        }
-                )
-                
+                timeout(TimeOutMinutes) {
+                    container('maven'){
+                        sh './scripts/build.py -br ' + branchName + ' -bn ' + buildNumber + ' -tp sirius5.oxygen'
+                    }
+                }
             }
-        }
+        } // Close Vault Wrapper
     } // Close node
 } // Close podTemplate body
