@@ -51,7 +51,7 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.mode.viewpoint.edit"
+         id="com.altran.general.integration.xtextsirius.model.viewpoint.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -72,7 +72,7 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.mode.diagram.edit"
+         id="com.altran.general.integration.xtextsirius.model.diagram.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
