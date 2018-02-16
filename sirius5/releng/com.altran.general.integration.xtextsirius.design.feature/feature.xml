@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.altran.general.integration.xtextsirius.feature"
+      id="com.altran.general.integration.xtextsirius.design.feature"
       label="Xtext/Sirius Integration Feature"
       version="0.7.0.qualifier">
 
