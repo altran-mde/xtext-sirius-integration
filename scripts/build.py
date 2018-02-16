@@ -54,6 +54,6 @@ if __name__ == "__main__":
     print('Build number: ' + build_number)
     branch_name = args['branchname']
     print('Branch Name: ' + branch_name)
-    target_plateform = args['targetProfile']
+    target_profile = args['targetProfile']
     print('Target Profile: ' + target_profile)
     main(config_file, build_number, branch_name, target_profile)
