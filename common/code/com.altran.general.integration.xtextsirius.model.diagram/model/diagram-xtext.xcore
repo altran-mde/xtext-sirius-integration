@@ -12,7 +12,7 @@
 	creationIcons="false",
 	modelDirectory="/com.altran.general.integration.xtextsirius.model.diagram/src-gen",
 	editDirectory="/com.altran.general.integration.xtextsirius.model.diagram.edit/src-gen",
-	editPluginID="com.altran.general.integration.xtextsirius.mode.diagram.edit",
+	editPluginID="com.altran.general.integration.xtextsirius.model.diagram.edit",
 	codeFormatting="true",
 	importOrganizing="true",
 	cleanup="true",

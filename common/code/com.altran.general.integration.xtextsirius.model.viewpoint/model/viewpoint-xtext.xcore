@@ -12,7 +12,7 @@
 	creationIcons="false",
 	modelDirectory="/com.altran.general.integration.xtextsirius.model.viewpoint/src-gen",
 	editDirectory="/com.altran.general.integration.xtextsirius.model.viewpoint.edit/src-gen",
-	editPluginID="com.altran.general.integration.xtextsirius.mode.viewpoint.edit",
+	editPluginID="com.altran.general.integration.xtextsirius.model.viewpoint.edit",
 	codeFormatting="true",
 	importOrganizing="true",
 	cleanup="true",
