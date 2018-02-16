@@ -8,7 +8,7 @@
 	<artifactId>com.altran.general.integration.google.guava.patch</artifactId>
 	
 	<!-- Override version if needed -->
-	<!-- <version>1.0.0-SNAPSHOT</version> -->
+	<version>15.0.0-SNAPSHOT</version>
 	
 	<packaging>eclipse-plugin</packaging>
 	

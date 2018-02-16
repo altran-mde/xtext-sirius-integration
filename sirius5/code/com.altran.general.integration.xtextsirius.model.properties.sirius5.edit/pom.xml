@@ -8,7 +8,7 @@
 	<artifactId>com.altran.general.integration.xtextsirius.model.properties.sirius5.edit</artifactId>
 	
 	<!-- Override version if needed -->
-	<!-- <version>1.0.0-SNAPSHOT</version> -->
+	<version>0.1.0-SNAPSHOT</version>
 	
 	<packaging>eclipse-plugin</packaging>
 	
