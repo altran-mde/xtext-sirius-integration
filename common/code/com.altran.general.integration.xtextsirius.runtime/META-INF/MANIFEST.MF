@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime;singleto
 Bundle-Version: 0.7.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.internal.XtextSiriusRuntimePlugin
 Bundle-Vendor: Altran
-Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional;visibility:=reexport,
+Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport,
  org.apache.commons.lang,
  org.eclipse.core.runtime,
  org.eclipse.eef,
