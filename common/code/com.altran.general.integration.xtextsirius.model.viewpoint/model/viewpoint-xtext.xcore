@@ -1,0 +1,47 @@
+@Ecore(
+	nsPrefix="viewpoint-xtext",
+	nsURI="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0"
+)
+@GenModel(
+	modelName="Viewpoint-xtext",
+	modelPluginID="com.altran.general.integration.xtextsirius.model.viewpoint",
+	complianceLevel="6.0",
+	runtimeVersion="2.3",
+	nonNLSMarkers="false",
+	copyrightFields="false",
+	creationIcons="false",
+	modelDirectory="/com.altran.general.integration.xtextsirius.model.viewpoint/src-gen",
+	editDirectory="/com.altran.general.integration.xtextsirius.model.viewpoint.edit/src-gen",
+	editPluginID="com.altran.general.integration.xtextsirius.model.viewpoint.edit",
+	codeFormatting="true",
+	importOrganizing="true",
+	cleanup="true",
+	styleProviders="false",
+	
+	disposableProviderFactory="true",
+	extensibleProviderFactory="true",
+	childCreationExtenders="true"
+)
+package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext
+
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
+import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
+import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription
+
+annotation "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+annotation "http://www.eclipse.org/emf/2002/GenModel" as GenModel 
+
+interface IXtextEdgeLabelDirectEditDescription extends IXtextDirectEditDescription {
+	refers BasicLabelStyleDescription[] edgeLabelMappings
+}
+
+@GenModel(image="true")
+class XtextEdgeLabelDirectEditModelDescription extends XtextDirectEditModelDescription, IXtextEdgeLabelDirectEditDescription {
+	
+}
+
+@GenModel(image="true")
+class XtextEdgeLabelDirectEditValueDescription extends XtextDirectEditValueDescription, IXtextEdgeLabelDirectEditDescription {
+	
+}

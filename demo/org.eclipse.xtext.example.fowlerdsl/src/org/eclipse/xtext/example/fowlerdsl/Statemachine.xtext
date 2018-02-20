@@ -62,9 +62,16 @@ State:
 		)?
 		('actions' '{' actions+=[Command]+ '}')?
 		transitions+=Transition*
+		('things'
+			things+=Thing*
+		)?
 	'end'
 ;
 
 Transition:
 	event=[Event] ('[' guard=Guard ']')? '=>' state=[State]
+;
+
+Thing:
+	name=ID guard=Guard
 ;

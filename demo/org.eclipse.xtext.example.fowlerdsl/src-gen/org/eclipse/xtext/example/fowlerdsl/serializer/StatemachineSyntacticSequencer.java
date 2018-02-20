@@ -11,6 +11,8 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.example.fowlerdsl.services.StatemachineGrammarAccess;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +20,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class StatemachineSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected StatemachineGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_State_ThingsKeyword_5_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (StatemachineGrammarAccess) access;
+		match_State_ThingsKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getStateAccess().getThingsKeyword_5_0());
 	}
 	
 	@Override
@@ -36,8 +40,24 @@ public class StatemachineSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_State_ThingsKeyword_5_0_q.equals(syntax))
+				emit_State_ThingsKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'things'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     actions+=[Command|ID] '}' (ambiguity) 'end' (rule end)
+	 *     description=STRING (ambiguity) 'end' (rule end)
+	 *     name=ID (ambiguity) 'end' (rule end)
+	 *     transitions+=Transition (ambiguity) 'end' (rule end)
+	 */
+	protected void emit_State_ThingsKeyword_5_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

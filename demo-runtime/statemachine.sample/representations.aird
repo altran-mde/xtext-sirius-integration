@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:statemachine="http://www.eclipse.org/xtext/example/fowlerdsl/Statemachine" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis xmi:id="_HgKLoIDHEeeO2MI7j83uzg" selectedViews="_Z_6rgIDHEeeO2MI7j83uzg" version="11.1.6.201706261600">
+  <viewpoint:DAnalysis xmi:id="_HgKLoIDHEeeO2MI7j83uzg" selectedViews="_Z_6rgIDHEeeO2MI7j83uzg" version="11.0.0.201706261600">
     <semanticResources>example1.statemachine</semanticResources>
     <semanticResources>example3.statemachine</semanticResources>
+    <semanticResources>example2.statemachine</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_Z_6rgIDHEeeO2MI7j83uzg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_IydSMIGREeeO_NXW2w55ag" name="example1" representation="_Iyd5QIGREeeO_NXW2w55ag">
@@ -56,6 +57,39 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IyxbQoGREeeO_NXW2w55ag" x="600" y="12"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_IyyCUIGREeeO_NXW2w55ag" type="2003" element="_3uaQcIGSEeec3pkza-Wqhg">
+          <children xmi:type="notation:Node" xmi:id="_BjNeoO-tEeezfP_5UKXenw" type="3012" element="_BjB4cO-tEeezfP_5UKXenw">
+            <children xmi:type="notation:Node" xmi:id="_BjRwEO-tEeezfP_5UKXenw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_BjRwEe-tEeezfP_5UKXenw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_BjWBgO-tEeezfP_5UKXenw" type="3003" element="_BjCfgO-tEeezfP_5UKXenw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_BjWBge-tEeezfP_5UKXenw" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BjWBgu-tEeezfP_5UKXenw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_BjNeoe-tEeezfP_5UKXenw" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BjNeou-tEeezfP_5UKXenw" x="-77" width="85" height="61"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_HtiS4O-tEeezfP_5UKXenw" type="3012" element="_HtZwAO-tEeezfP_5UKXenw">
+            <children xmi:type="notation:Node" xmi:id="_HtiS4--tEeezfP_5UKXenw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_HtiS5O-tEeezfP_5UKXenw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_HtkIEO-tEeezfP_5UKXenw" type="3003" element="_HtZwAe-tEeezfP_5UKXenw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_HtkIEe-tEeezfP_5UKXenw" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HtkIEu-tEeezfP_5UKXenw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_HtiS4e-tEeezfP_5UKXenw" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HtiS4u-tEeezfP_5UKXenw" x="103" y="149" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Hti58O-tEeezfP_5UKXenw" type="3012" element="_HtaXEO-tEeezfP_5UKXenw">
+            <children xmi:type="notation:Node" xmi:id="_HtjhAO-tEeezfP_5UKXenw" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_HtjhAe-tEeezfP_5UKXenw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_HtkIE--tEeezfP_5UKXenw" type="3003" element="_HtaXEe-tEeezfP_5UKXenw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_HtkIFO-tEeezfP_5UKXenw" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HtkIFe-tEeezfP_5UKXenw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_Hti58e-tEeezfP_5UKXenw" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hti58u-tEeezfP_5UKXenw" x="270" y="91" width="30" height="30"/>
+          </children>
           <children xmi:type="notation:Node" xmi:id="_IyypYIGREeeO_NXW2w55ag" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_IyypYYGREeeO_NXW2w55ag" type="7004">
             <children xmi:type="notation:Node" xmi:id="_3yQ1sIGSEeec3pkza-Wqhg" type="3010" element="_3ugXEIGSEeec3pkza-Wqhg">
@@ -185,7 +219,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@subNodeMappings[name='EventNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWIGREeeO_NXW2w55ag" name="event3 [finalAnswerA]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWIGREeeO_NXW2w55ag" name="event3 [org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ValueGuardImpl@207fce87]">
         <target xmi:type="statemachine:Event" href="example1.statemachine#//@events.2"/>
         <semanticElements xmi:type="statemachine:Event" href="example1.statemachine#//@events.2"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_IyegWYGREeeO_NXW2w55ag" labelPosition="node">
@@ -193,7 +227,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@subNodeMappings[name='EventNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWoGREeeO_NXW2w55ag" name="event4 [e..pi]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegWoGREeeO_NXW2w55ag" name="event4 [org.eclipse.xtext.example.fowlerdsl.statemachine.impl.RangeGuardImpl@1d7d2345]">
         <target xmi:type="statemachine:Event" href="example1.statemachine#//@events.3"/>
         <semanticElements xmi:type="statemachine:Event" href="example1.statemachine#//@events.3"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_IyegW4GREeeO_NXW2w55ag" labelPosition="node">
@@ -201,7 +235,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='EventsContainer']/@subNodeMappings[name='EventNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegXIGREeeO_NXW2w55ag" name="event5 [234]">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IyegXIGREeeO_NXW2w55ag" name="event5 [org.eclipse.xtext.example.fowlerdsl.statemachine.impl.ValueGuardImpl@1398e3aa]">
         <target xmi:type="statemachine:Event" href="example1.statemachine#//@events.4"/>
         <semanticElements xmi:type="statemachine:Event" href="example1.statemachine#//@events.4"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_IyegXYGREeeO_NXW2w55ag" labelPosition="node">
@@ -260,6 +294,36 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_3uaQcIGSEeec3pkza-Wqhg" name="State1456" outgoingEdges="_X3R8QIGREeeMcOzDEHw_7Q _X6oLMIGREeeMcOzDEHw_7Q" incomingEdges="_X6qncIGREeeMcOzDEHw_7Q">
       <target xmi:type="statemachine:State" href="example1.statemachine#//@states.0"/>
       <semanticElements xmi:type="statemachine:State" href="example1.statemachine#//@states.0"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_BjB4cO-tEeezfP_5UKXenw" name="a" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="statemachine:Thing" href="example1.statemachine#//@states.0/@things.0"/>
+        <semanticElements xmi:type="statemachine:Thing" href="example1.statemachine#//@states.0/@things.0"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_BjCfgO-tEeezfP_5UKXenw" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@borderedNodeMappings[name='thingNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@borderedNodeMappings[name='thingNode']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_HtZwAO-tEeezfP_5UKXenw" name="b" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="statemachine:Thing" href="example1.statemachine#//@states.0/@things.1"/>
+        <semanticElements xmi:type="statemachine:Thing" href="example1.statemachine#//@states.0/@things.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_HtZwAe-tEeezfP_5UKXenw" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@borderedNodeMappings[name='thingNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@borderedNodeMappings[name='thingNode']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_HtaXEO-tEeezfP_5UKXenw" name="c" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="statemachine:Thing" href="example1.statemachine#//@states.0/@things.2"/>
+        <semanticElements xmi:type="statemachine:Thing" href="example1.statemachine#//@states.0/@things.2"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_HtaXEe-tEeezfP_5UKXenw" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@borderedNodeMappings[name='thingNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@borderedNodeMappings[name='thingNode']"/>
+      </ownedBorderedNodes>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_3ucFoIGSEeec3pkza-Wqhg" borderSize="1" borderSizeComputationExpression="1">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign#//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@containerMappings[name='StateNode']/@style"/>
       </ownedStyle>

@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>com.altran</groupId>
+        <artifactId>com.altran.general.integration.xtextsirius.common</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+	<artifactId>com.altran.general.integration.xtextsirius.common.code</artifactId>
+	
+	<!-- Override version if needed -->
+	<!-- <version>1.0.0-SNAPSHOT</version> -->
+	
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>com.altran.general.integration.xtextsirius.dialect.ui</module>
+		<module>com.altran.general.integration.xtextsirius.editor.ui</module>
+		<module>com.altran.general.integration.xtextsirius.model.diagram</module>
+		<module>com.altran.general.integration.xtextsirius.model.diagram.edit</module>
+		<module>com.altran.general.integration.xtextsirius.model.eef</module>
+		<module>com.altran.general.integration.xtextsirius.model.properties</module>
+		<module>com.altran.general.integration.xtextsirius.model.properties.edit</module>
+		<module>com.altran.general.integration.xtextsirius.model.viewpoint</module>
+		<module>com.altran.general.integration.xtextsirius.model.viewpoint.edit</module>
+		<module>com.altran.general.integration.xtextsirius.model.xtext</module>
+		<module>com.altran.general.integration.xtextsirius.model.xtext.edit</module>
+		<module>com.altran.general.integration.xtextsirius.runtime</module>
+		<module>com.altran.general.integration.xtextsirius.runtime.converter</module>
+		<module>com.altran.general.integration.xtextsirius.runtime.editpart.ui</module>
+		<module>com.altran.general.integration.xtextsirius.runtime.eef.ui</module>
+	</modules>
+</project>

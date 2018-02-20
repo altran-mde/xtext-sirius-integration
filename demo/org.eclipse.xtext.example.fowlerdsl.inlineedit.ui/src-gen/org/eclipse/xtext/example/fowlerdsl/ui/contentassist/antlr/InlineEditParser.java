@@ -55,6 +55,8 @@ public class InlineEditParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getStateAccess().getGroup_2(), "rule__State__Group_2__0");
 					put(grammarAccess.getStateAccess().getGroup_3(), "rule__State__Group_3__0");
+					put(grammarAccess.getStateAccess().getGroup_5(), "rule__State__Group_5__0");
+					put(grammarAccess.getThingAccess().getGroup(), "rule__Thing__Group__0");
 					put(grammarAccess.getTransitionAccess().getGuardAssignment_0_1(), "rule__Transition__GuardAssignment_0_1");
 					put(grammarAccess.getTransitionAccess().getEventAssignment_1(), "rule__Transition__EventAssignment_1");
 					put(grammarAccess.getTransitionAccess().getStateAssignment_3(), "rule__Transition__StateAssignment_3");
@@ -80,6 +82,9 @@ public class InlineEditParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getStateAccess().getDescriptionAssignment_2_1(), "rule__State__DescriptionAssignment_2_1");
 					put(grammarAccess.getStateAccess().getActionsAssignment_3_2(), "rule__State__ActionsAssignment_3_2");
 					put(grammarAccess.getStateAccess().getTransitionsAssignment_4(), "rule__State__TransitionsAssignment_4");
+					put(grammarAccess.getStateAccess().getThingsAssignment_5_1(), "rule__State__ThingsAssignment_5_1");
+					put(grammarAccess.getThingAccess().getNameAssignment_0(), "rule__Thing__NameAssignment_0");
+					put(grammarAccess.getThingAccess().getGuardAssignment_1(), "rule__Thing__GuardAssignment_1");
 				}
 			};
 		}

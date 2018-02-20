@@ -43,6 +43,13 @@
           </style>
         </containerMappings>
         <containerMappings name="StateNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SimpleTextEdit']" semanticCandidatesExpression="feature:states" domainClass="statemachine.State" childrenPresentation="List">
+          <borderedNodeMappings name="thingNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ThingEdit']" semanticCandidatesExpression="feature:things" domainClass="statemachine.Thing">
+            <style xsi:type="style:DotDescription">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
           <subNodeMappings name="description" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DescriptionEdit']" semanticCandidatesExpression="var:self" domainClass="statemachine.State">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="ocl:'Desc: '.concat(self.description)" labelAlignment="LEFT" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" width="8" height="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -79,6 +86,11 @@
           <ownedTools xsi:type="diagram-xtext:XtextDirectEditValueDescription" name="DescriptionEdit" inputLabelExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" multiLine="true" prefixTextExpression="ocl:'&lt;html>&lt;head>&lt;title>t&lt;/title>&lt;/head>&lt;body>'" suffixTextExpression="ocl:'&lt;/body>'.concat('&lt;/html>')">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="ThingEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

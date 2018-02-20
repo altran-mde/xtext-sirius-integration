@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.State#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.State#getActions <em>Actions</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.State#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.State#getThings <em>Things</em>}</li>
  * </ul>
  *
  * @see org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage#getState()
@@ -110,5 +111,21 @@ public interface State extends EObject
    * @generated
    */
   EList<Transition> getTransitions();
+
+  /**
+   * Returns the value of the '<em><b>Things</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.xtext.example.fowlerdsl.statemachine.Thing}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Things</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Things</em>' containment reference list.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage#getState_Things()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Thing> getThings();
 
 } // State

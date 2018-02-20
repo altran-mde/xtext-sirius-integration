@@ -53,8 +53,10 @@ public class StatemachineParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getStateAccess().getGroup_2(), "rule__State__Group_2__0");
 					put(grammarAccess.getStateAccess().getGroup_3(), "rule__State__Group_3__0");
+					put(grammarAccess.getStateAccess().getGroup_5(), "rule__State__Group_5__0");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 					put(grammarAccess.getTransitionAccess().getGroup_1(), "rule__Transition__Group_1__0");
+					put(grammarAccess.getThingAccess().getGroup(), "rule__Thing__Group__0");
 					put(grammarAccess.getStatemachineAccess().getEventsAssignment_1_1(), "rule__Statemachine__EventsAssignment_1_1");
 					put(grammarAccess.getStatemachineAccess().getResetEventsAssignment_2_1(), "rule__Statemachine__ResetEventsAssignment_2_1");
 					put(grammarAccess.getStatemachineAccess().getCommandsAssignment_3_1(), "rule__Statemachine__CommandsAssignment_3_1");
@@ -77,9 +79,12 @@ public class StatemachineParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getStateAccess().getDescriptionAssignment_2_1(), "rule__State__DescriptionAssignment_2_1");
 					put(grammarAccess.getStateAccess().getActionsAssignment_3_2(), "rule__State__ActionsAssignment_3_2");
 					put(grammarAccess.getStateAccess().getTransitionsAssignment_4(), "rule__State__TransitionsAssignment_4");
+					put(grammarAccess.getStateAccess().getThingsAssignment_5_1(), "rule__State__ThingsAssignment_5_1");
 					put(grammarAccess.getTransitionAccess().getEventAssignment_0(), "rule__Transition__EventAssignment_0");
 					put(grammarAccess.getTransitionAccess().getGuardAssignment_1_1(), "rule__Transition__GuardAssignment_1_1");
 					put(grammarAccess.getTransitionAccess().getStateAssignment_3(), "rule__Transition__StateAssignment_3");
+					put(grammarAccess.getThingAccess().getNameAssignment_0(), "rule__Thing__NameAssignment_0");
+					put(grammarAccess.getThingAccess().getGuardAssignment_1(), "rule__Thing__GuardAssignment_1");
 				}
 			};
 		}

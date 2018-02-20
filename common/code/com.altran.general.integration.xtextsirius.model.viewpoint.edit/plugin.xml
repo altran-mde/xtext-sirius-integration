@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated viewpoint-xtext -->
+      <factory
+            uri="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0"
+            class="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.provider.ViewpointxtextItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated viewpoint-xtext -->
+      <extender
+            uri="http://www.eclipse.org/sirius/description/1.1.0"
+            class="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.provider.ViewpointxtextItemProviderAdapterFactory$DescriptionChildCreationExtender"/>
+      <extender
+            uri="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0"
+            class="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.provider.ViewpointxtextItemProviderAdapterFactory$ToolChildCreationExtender"/>
+   </extension>
+
+</plugin>
