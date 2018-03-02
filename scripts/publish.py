@@ -9,6 +9,7 @@
 import os
 import sys
 import glob
+from shutil import copy2
 from utility import install_and_import
 from utility import execute
 from utility import read_version
