@@ -63,6 +63,11 @@
 			<groupId>org.eclipse.xtext</groupId>
 			<artifactId>xtext-maven-plugin</artifactId>
 		   </plugin> -->
+        <plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-p2-plugin</artifactId>
+			<version>${tycho.version}</version>
+        </plugin>
         </plugins>
         
         <pluginManagement>
@@ -208,11 +213,36 @@
 						</sourceRoots>
 					</configuration>
 				</plugin> -->
+                <plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>attach-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
                 <!-- END OF OTHER PLUGINS -->
             </plugins>
         </pluginManagement>
     </build>
-    
+    <distributionManagement>
+        <repository>
+           <id>nexus-p2</id>
+           <name>Internal Releases</name>
+           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-releases/</url>
+        </repository>
+	    <snapshotRepository>
+           <id>nexus-p2</id>
+           <name>Internal Snapshots</name>
+           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-snapshots/</url>
+        </snapshotRepository>
+	</distributionManagement>
     <repositories>
       <repository>
         <id>nexus-p2</id>
