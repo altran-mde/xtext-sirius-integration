@@ -73,7 +73,7 @@ podTemplate( // Open Kubernetes podTemplate parameters
             }
             stage('publish') {
                 timeout(TimeOutMinutes) {
-                    container('acid-base'){
+                    container('maven'){
                         sh './scripts/publish.py -tp sirius5.oxygen'
                     }
                 }
