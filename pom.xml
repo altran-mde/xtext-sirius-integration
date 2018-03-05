@@ -213,7 +213,7 @@
 						</sourceRoots>
 					</configuration>
 				</plugin> -->
-                <plugin>
+<!--                 <plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-plugin</artifactId>
 				<version>${tycho.version}</version>
@@ -226,23 +226,11 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
                 <!-- END OF OTHER PLUGINS -->
             </plugins>
         </pluginManagement>
     </build>
-    <distributionManagement>
-        <repository>
-           <id>nexus-p2</id>
-           <name>Internal Releases</name>
-           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-releases/</url>
-        </repository>
-	    <snapshotRepository>
-           <id>nexus-p2</id>
-           <name>Internal Snapshots</name>
-           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-snapshots/</url>
-        </snapshotRepository>
-	</distributionManagement>
     <repositories>
       <repository>
         <id>nexus-p2</id>
@@ -306,6 +294,18 @@
 				</plugins>               
                </pluginManagement>
        		</build>
+       		  <distributionManagement>
+		        <repository>
+		           <id>nexus-p2</id>
+		           <name>Internal Releases</name>
+		           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-releases/sirius4-mars/</url>
+		        </repository>
+			    <snapshotRepository>
+		           <id>nexus-p2</id>
+		           <name>Internal Snapshots</name>
+		           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-snapshots/sirius4-mars/</url>
+		        </snapshotRepository>
+			</distributionManagement>
       </profile>
       <profile>
         <id>sirius5.oxygen</id>
@@ -357,6 +357,18 @@
 				</plugins>               
                </pluginManagement>
        	</build>
+        <distributionManagement>
+         <repository>
+           <id>nexus-p2</id>
+           <name>Internal Releases</name>
+           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-releases/sirius5-oxygen/</url>
+         </repository>
+	     <snapshotRepository>
+           <id>nexus-p2</id>
+           <name>Internal Snapshots</name>
+           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-snapshots/sirius5-oxygen/</url>
+         </snapshotRepository>
+	    </distributionManagement>
       </profile>
      </profiles>
 </project>
