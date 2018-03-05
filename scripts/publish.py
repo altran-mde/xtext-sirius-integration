@@ -65,7 +65,7 @@ def main(config_file,artifact_store_user,artifact_store_password, target_profile
      copy2('./settings.xml', '/root/.m2/settings.xml')
     print('Copied settings.xml to .m2')
     mvn_target_profile='-P'+target_profile
-    maven_command = ['mvn', '-e', '-DskipTests', '-DskipITs', mvn_target_profile, 'deploy']
+    maven_command = ['mvn', '-e', '-DskipTests', '-DskipITs', '-DskipInstall', mvn_target_profile, 'deploy']
 
     exitcode = execute(maven_command, maven_command)
     print("Exit Code: " + str(exitcode))
