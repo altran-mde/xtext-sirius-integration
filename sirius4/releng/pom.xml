@@ -16,5 +16,6 @@
     	<module>com.altran.general.integration.xtextsirius.design.sirius4.feature</module>
     	<module>com.altran.general.integration.xtextsirius.runtime.sirius4.feature</module>
 		<module>com.altran.general.integration.xtextsirius.target.sirius4</module>
+		<module>com.altran.general.integration.xtextsirius.sirius4.repository</module>
     </modules>
 </project>
