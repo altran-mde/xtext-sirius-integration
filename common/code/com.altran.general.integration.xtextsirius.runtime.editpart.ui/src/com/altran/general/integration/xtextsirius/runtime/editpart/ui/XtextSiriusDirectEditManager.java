@@ -6,21 +6,20 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.google.inject.Injector;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 
-public class XtextSiriusDirectEditManager extends XtextDirectEditManager {
+public class XtextSiriusDirectEditManager extends XtextDirectEditManager implements IXtextSiriusDescribable {
 	private final int editorStyles;
-	private final Injector injector;
-	private final boolean multiLine;
+	private @NonNull AXtextSiriusDescriptor descriptor;
 
 	public XtextSiriusDirectEditManager(
 			final @NonNull IXtextAwareEditPart editPart,
-			final @NonNull Injector injector,
-			final int editorStyles, final boolean multiLine) {
-		super(editPart, injector, editorStyles);
-		this.injector = injector;
+			final @NonNull AXtextSiriusDescriptor descriptor,
+			final int editorStyles) {
+		super(editPart, descriptor.getInjector(), editorStyles);
+		this.descriptor = descriptor;
 		this.editorStyles = editorStyles;
-		this.multiLine = multiLine;
 	}
 
 	@Override
@@ -55,12 +54,8 @@ public class XtextSiriusDirectEditManager extends XtextDirectEditManager {
 		return this.editorStyles;
 	}
 
-	public boolean isMultiLine() {
-		return this.multiLine;
+	@Override
+	public @NonNull AXtextSiriusDescriptor getDescriptor() {
+		return this.descriptor;
 	}
-
-	public Injector getInjector() {
-		return this.injector;
-	}
-
 }

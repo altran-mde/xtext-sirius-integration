@@ -9,24 +9,18 @@ import org.eclipse.swt.widgets.Composite;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditManager;
-import com.google.inject.Injector;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusValueDescribable;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueDescriptor;
 
-public class XtextSiriusDirectEditManagerValue extends XtextSiriusDirectEditManager {
-	private final @NonNull String prefixText;
-	private final @NonNull String suffixText;
+public class XtextSiriusDirectEditManagerValue extends XtextSiriusDirectEditManager implements IXtextSiriusValueDescribable {
 	private final @NonNull EStructuralFeature valueFeature;
 	
 	public XtextSiriusDirectEditManagerValue(
 			final @NonNull IXtextAwareEditPart editPart,
-			final @NonNull Injector injector,
+			final @NonNull XtextSiriusValueDescriptor descriptor,
 			final int editorStyles,
-			final boolean multiLine,
-			final @NonNull String prefixText,
-			final @NonNull String suffixText,
 			final @NonNull EStructuralFeature valueFeature) {
-		super(editPart, injector, editorStyles, multiLine);
-		this.prefixText = prefixText;
-		this.suffixText = suffixText;
+		super(editPart, descriptor, editorStyles);
 		this.valueFeature = valueFeature;
 	}
 	
@@ -38,9 +32,14 @@ public class XtextSiriusDirectEditManagerValue extends XtextSiriusDirectEditMana
 		parent.setLayout(fillLayout);
 
 		final XtextSiriusStyledTextCellEditorValue editor = new XtextSiriusStyledTextCellEditorValue(getEditorStyles(),
-				getInjector(), isMultiLine(), this.prefixText, this.suffixText, this.valueFeature);
+				getDescriptor(), this.valueFeature);
 		editor.create(composite);
 
 		return editor;
+	}
+
+	@Override
+	public @NonNull XtextSiriusValueDescriptor getDescriptor() {
+		return (@NonNull XtextSiriusValueDescriptor) super.getDescriptor();
 	}
 }

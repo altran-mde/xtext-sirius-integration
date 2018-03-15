@@ -1,7 +1,5 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
 
-import java.util.Collection;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPolicy;
@@ -17,26 +15,20 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeNameEditPart;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditPolicy;
-import com.google.inject.Injector;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 
 @SuppressWarnings("restriction")
 public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implements IXtextSiriusEditPartModel {
 	
-	private final Injector injector;
-	private final boolean multiLine;
-	private final Collection<@NonNull String> editableFeatures;
+	private final @NonNull XtextSiriusModelDescriptor descriptor;
 	
 	public XtextSiriusEdgeNameEditPartModel(
-			final @NonNull IXtextDirectEditModelDescription description,
-			final @NonNull Injector injector,
+			final @NonNull XtextSiriusModelDescriptor descriptor,
 			final @NonNull View view) {
 		super(view);
-		this.injector = injector;
-		this.multiLine = description.isMultiLine();
-		this.editableFeatures = description.getEditableFeatures();
+		this.descriptor = descriptor;
 	}
 	
 	/**
@@ -104,22 +96,14 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 	}
 	
 	protected @NonNull DirectEditManager createDirectEditManager() {
-		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
-				translateToStyle(), isMultiLine(), getEditableFeatures());
+		return new XtextSiriusDirectEditManagerModel(this, getDescriptor(),
+				translateToStyle());
 	}
 	
 	protected int translateToStyle() {
-		return EditPartHelper.getInstance().translateToStyle(isMultiLine());
+		return EditPartHelper.getInstance().translateToStyle(getDescriptor().isMultiLine());
 	}
 	
-	protected Injector getInjector() {
-		return this.injector;
-	}
-
-	protected boolean isMultiLine() {
-		return this.multiLine;
-	}
-
 	@Override
 	public DSemanticDecorator resolveSemanticElement() {
 		return (DSemanticDecorator) super.resolveSemanticElement();
@@ -142,7 +126,7 @@ public class XtextSiriusEdgeNameEditPartModel extends DEdgeNameEditPart implemen
 	}
 	
 	@Override
-	public @NonNull Collection<@NonNull String> getEditableFeatures() {
-		return this.editableFeatures;
+	public @NonNull XtextSiriusModelDescriptor getDescriptor() {
+		return this.descriptor;
 	}
 }

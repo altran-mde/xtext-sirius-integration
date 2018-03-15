@@ -1,7 +1,5 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
 
-import java.util.Collection;
-
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -11,23 +9,18 @@ import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
-import com.google.inject.Injector;
 
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {
 	private SemanticElementLocation semanticElementLocation;
 	
-	private final Collection<@NonNull String> editableFeatures;
-	
 	public XtextSiriusStyledTextCellEditorModel(
 			final int style,
-			final @NonNull Injector injector,
-			final boolean multiLine,
-			final @NonNull Collection<@NonNull String> editableFeatures) {
-		super(style, injector, multiLine);
-		this.editableFeatures = editableFeatures;
+			final @NonNull XtextSiriusModelDescriptor descriptor) {
+		super(style, descriptor);
 	}
 	
 	@Override
@@ -39,7 +32,7 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		}
 
 		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(),
-				isMultiLine(), getEditableFeatures());
+				isMultiLine(), getDescriptor().getEditableFeatures());
 
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();
@@ -79,7 +72,8 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		return null;
 	}
 
-	public Collection<@NonNull String> getEditableFeatures() {
-		return this.editableFeatures;
+	@Override
+	public @NonNull XtextSiriusModelDescriptor getDescriptor() {
+		return (@NonNull XtextSiriusModelDescriptor) super.getDescriptor();
 	}
 }

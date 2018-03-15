@@ -17,32 +17,20 @@ import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.swt.custom.StyleRange;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart;
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
-import com.google.inject.Injector;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 
-public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements IXtextSiriusAwareLabelEditPart {
-	private final boolean multiLine;
-	private final Injector injector;
+public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements IXtextSiriusAwareLabelEditPart, IXtextSiriusDescribable {
 	private IParser parser;
+	private @NonNull AXtextSiriusDescriptor descriptor;
 	
-	public AXtextSiriusEditPart(final @NonNull IXtextDirectEditDescription description,
-			final @NonNull Injector injector,
-			final @NonNull View view) {
+	public AXtextSiriusEditPart(final @NonNull AXtextSiriusDescriptor descriptor, final @NonNull View view) {
 		super(view);
-		this.injector = injector;
-		this.multiLine = description.isMultiLine();
+		this.descriptor = descriptor;
 	}
 	
 	protected int translateToStyle() {
-		return EditPartHelper.getInstance().translateToStyle(isMultiLine());
-	}
-	
-	protected Injector getInjector() {
-		return this.injector;
-	}
-	
-	protected boolean isMultiLine() {
-		return this.multiLine;
+		return EditPartHelper.getInstance().translateToStyle(getDescriptor().isMultiLine());
 	}
 	
 	@Override
@@ -124,5 +112,10 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements
 		}
 
 		return null;
+	}
+	
+	@Override
+	public @NonNull AXtextSiriusDescriptor getDescriptor() {
+		return this.descriptor;
 	}
 }

@@ -7,25 +7,19 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusValueDescribable;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueDescriptor;
 import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
 import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
-import com.google.inject.Injector;
 
-public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor {
-	private final @NonNull String prefixTextExpression;
-	private final @NonNull String suffixTextExpression;
+public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor implements IXtextSiriusValueDescribable {
 	private final EStructuralFeature valueFeature;
 	
 	public XtextSiriusStyledTextCellEditorValue(
 			final int style,
-			final @NonNull Injector injector,
-			final boolean multiLine,
-			final @NonNull String prefixTextExpression,
-			final @NonNull String suffixTextExpression,
+			final @NonNull XtextSiriusValueDescriptor descriptor,
 			final @NonNull EStructuralFeature valueFeature) {
-		super(style, injector, multiLine);
-		this.prefixTextExpression = prefixTextExpression;
-		this.suffixTextExpression = suffixTextExpression;
+		super(style, descriptor);
 		this.valueFeature = valueFeature;
 	}
 	
@@ -41,8 +35,8 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 			StyledTextUtil.getInstance().removeNewlinesIfSingleLine(text, 0, text.length(), isMultiLine());
 			
 			getXtextAdapter().resetVisibleRegion();
-			final String prefixText = interpret(this.prefixTextExpression);
-			final String suffixText = interpret(this.suffixTextExpression);
+			final String prefixText = interpret(getDescriptor().getPrefixTextExpression());
+			final String suffixText = interpret(getDescriptor().getSuffixTextExpression());
 			super.doSetValue(prefixText + StyledTextUtil.getInstance().guessNewline(text.toString()) + text
 					+ suffixText);
 
@@ -77,5 +71,10 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 	@Override
 	public @Nullable Object getValueToCommit() {
 		return getValue();
+	}
+
+	@Override
+	public @NonNull XtextSiriusValueDescriptor getDescriptor() {
+		return (@NonNull XtextSiriusValueDescriptor) super.getDescriptor();
 	}
 }

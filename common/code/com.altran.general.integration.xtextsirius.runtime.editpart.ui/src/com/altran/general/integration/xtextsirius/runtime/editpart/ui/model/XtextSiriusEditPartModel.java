@@ -1,30 +1,24 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
 
-import java.util.Collection;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
 
-import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusEditPart;
-import com.google.inject.Injector;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 
 public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IXtextSiriusEditPartModel {
-	private final Collection<@NonNull String> editableFeatures;
 
-	public XtextSiriusEditPartModel(final @NonNull IXtextDirectEditModelDescription description,
-			final @NonNull Injector injector,
+	public XtextSiriusEditPartModel(final @NonNull XtextSiriusModelDescriptor descriptor,
 			final @NonNull View view) {
-		super(description, injector, view);
-		this.editableFeatures = description.getEditableFeatures();
+		super(descriptor, view);
 	}
 	
 	@Override
 	protected @NonNull DirectEditManager createDirectEditManager() {
-		return new XtextSiriusDirectEditManagerModel(this, getInjector(),
-				translateToStyle(), isMultiLine(), getEditableFeatures());
+		return new XtextSiriusDirectEditManagerModel(this, getDescriptor(),
+				translateToStyle());
 	}
 	
 	@Override
@@ -33,7 +27,7 @@ public class XtextSiriusEditPartModel extends AXtextSiriusEditPart implements IX
 	}
 
 	@Override
-	public @NonNull Collection<@NonNull String> getEditableFeatures() {
-		return this.editableFeatures;
+	public @NonNull XtextSiriusModelDescriptor getDescriptor() {
+		return (@NonNull XtextSiriusModelDescriptor) super.getDescriptor();
 	}
 }

@@ -8,12 +8,12 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
 import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
-import com.google.inject.Injector;
 
-public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx {
-
-	private final boolean multiLine;
+public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx implements IXtextSiriusDescribable {
+	private final @NonNull AXtextSiriusDescriptor descriptor;
 
 	private EObject semanticElement;
 	private EObject fallbackContainer;
@@ -22,14 +22,13 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 
 	public AXtextSiriusStyledTextCellEditor(
 			final int style,
-			final @NonNull Injector injector,
-			final boolean multiLine) {
-		super(style, injector);
-		this.multiLine = multiLine;
+			final @NonNull AXtextSiriusDescriptor descriptor) {
+		super(style, descriptor.getInjector());
+		this.descriptor = descriptor;
 	}
 
 	public boolean isMultiLine() {
-		return this.multiLine;
+		return getDescriptor().isMultiLine();
 	}
 
 	public abstract @Nullable Object getValueToCommit();
@@ -90,4 +89,8 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 		return this.fallbackContainer;
 	}
 
+	@Override
+	public @NonNull AXtextSiriusDescriptor getDescriptor() {
+		return this.descriptor;
+	}
 }
