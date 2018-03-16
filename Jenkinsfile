@@ -71,6 +71,13 @@ podTemplate( // Open Kubernetes podTemplate parameters
                     }
                 }
             }
+            stage('publish') {
+                timeout(TimeOutMinutes) {
+                    container('maven'){
+                        sh './scripts/publish.py -tp sirius5.oxygen'
+                    }
+                }
+            }
         } // Close Vault Wrapper
     } // Close node
 } // Close podTemplate body

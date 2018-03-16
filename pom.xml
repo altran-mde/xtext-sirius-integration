@@ -13,6 +13,8 @@
         <maven.clean.version>2.5</maven.clean.version>
         <maven.acceleo.version>3.6.4</maven.acceleo.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-deploy-plugin.version>2.8.1</maven-deploy-plugin.version>
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
     
     <build>
@@ -63,6 +65,14 @@
 			<groupId>org.eclipse.xtext</groupId>
 			<artifactId>xtext-maven-plugin</artifactId>
 		   </plugin> -->
+		   	<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+			</plugin>
+			 <plugin>
+		         <groupId>org.eclipse.tycho</groupId>
+		         <artifactId>tycho-p2-repository-plugin</artifactId>
+		      </plugin>
         </plugins>
         
         <pluginManagement>
@@ -88,6 +98,15 @@
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-source-feature-plugin</artifactId>
 				<version>${tycho.version}</version>
+				<!-- <executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+					</execution>
+				</executions> -->
 			</plugin>
                 <plugin>
                   <groupId>org.eclipse.tycho</groupId>  
@@ -117,7 +136,16 @@
                       <target>1.8</target>
                     </configuration>
                   </configuration>
-                </plugin>
+                </plugin>           
+				<plugin>
+				   <groupId>org.apache.maven.plugins</groupId>
+				   <artifactId>maven-deploy-plugin</artifactId>
+				   <version>${maven-deploy-plugin.version}</version>
+				   <configuration>
+				      <skip>${maven.deploy.skip}</skip>
+				   </configuration>
+				</plugin>
+				                
                 <!-- END OF DEFAULT PLUGINS -->
         
                 <!-- OTHER PLUGINS -->
@@ -150,18 +178,6 @@
                     <version>${maven.clean.version}</version>
                     <configuration>
                         <filesets>
-                           <!--  <fileset>
-                                <directory>xtend-gen</directory>
-                                <includes>
-                                    <include>**/*</include>
-                                </includes>
-                            </fileset>
-                            <fileset>
-                                <directory>src-gen</directory>
-                                <includes>
-                                    <include>**/*</include>
-                                </includes>
-                            </fileset> -->
                             <fileset>
                                 <directory>bin</directory>
                                 <includes>
@@ -177,42 +193,32 @@
                         </filesets>
                     </configuration>
                 </plugin>
-              <!--   <plugin>
-					<groupId>org.eclipse.xtext</groupId>
-					<artifactId>xtext-maven-plugin</artifactId>
-					<version>${xtext.version}</version>
-					<executions>
-						<execution>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>generate</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<languages>
-							<language>
-								<setup>org.eclipse.xtext.ecore.EcoreSupport</setup>
-							</language>
-							<language>
-								<setup>org.eclipse.emf.ecore.xcore.XcoreStandaloneSetup</setup>
-								<outputConfigurations>
-									<outputConfiguration>
-										<outputDirectory>${project.basedir}/src-gen</outputDirectory>
-									</outputConfiguration>
-								</outputConfigurations>
-							</language>
-						</languages>
-						<sourceRoots>
-							<root>${project.basedir}/model</root>
-						</sourceRoots>
-					</configuration>
-				</plugin> -->
+				<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>attach-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			 <plugin>
+		         <groupId>org.eclipse.tycho</groupId>
+		         <artifactId>tycho-p2-repository-plugin</artifactId>
+		         <version>${tycho.version}</version>
+		         <configuration>
+		            <includeAllDependencies>true</includeAllDependencies>
+		         </configuration>
+		      </plugin>
                 <!-- END OF OTHER PLUGINS -->
             </plugins>
         </pluginManagement>
     </build>
-    
     <repositories>
       <repository>
         <id>nexus-p2</id>
