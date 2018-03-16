@@ -5,6 +5,9 @@ import java.util.Collection;
 import org.eclipse.jdt.annotation.NonNull;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditManager;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusDirectEditManagerModel;
 import com.google.common.collect.Lists;
 import com.google.inject.Injector;
 
@@ -26,4 +29,8 @@ public class XtextSiriusModelDescriptor extends AXtextSiriusDescriptor {
 		return editableFeatures;
 	}
 
+	@Override
+	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(final @NonNull IXtextSiriusAwareLabelEditPart editPart) {
+		return new XtextSiriusDirectEditManagerModel(editPart, this);
+	}
 }

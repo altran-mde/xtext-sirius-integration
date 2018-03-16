@@ -17,10 +17,8 @@ import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {
 	private SemanticElementLocation semanticElementLocation;
 	
-	public XtextSiriusStyledTextCellEditorModel(
-			final int style,
-			final @NonNull XtextSiriusModelDescriptor descriptor) {
-		super(style, descriptor);
+	public XtextSiriusStyledTextCellEditorModel(final @NonNull XtextSiriusModelDescriptor descriptor) {
+		super(descriptor);
 	}
 	
 	@Override

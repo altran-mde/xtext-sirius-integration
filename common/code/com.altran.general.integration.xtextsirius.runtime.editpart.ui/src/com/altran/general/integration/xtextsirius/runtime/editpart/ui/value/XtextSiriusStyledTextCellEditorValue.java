@@ -13,13 +13,12 @@ import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
 import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 
 public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor implements IXtextSiriusValueDescribable {
-	private final EStructuralFeature valueFeature;
 	
+	private final @NonNull EStructuralFeature valueFeature;
+
 	public XtextSiriusStyledTextCellEditorValue(
-			final int style,
-			final @NonNull XtextSiriusValueDescriptor descriptor,
-			final @NonNull EStructuralFeature valueFeature) {
-		super(style, descriptor);
+			final @NonNull XtextSiriusValueDescriptor descriptor, final @NonNull EStructuralFeature valueFeature) {
+		super(descriptor);
 		this.valueFeature = valueFeature;
 	}
 	
@@ -64,10 +63,6 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 		return result;
 	}
 	
-	protected @NonNull EStructuralFeature getValueFeature() {
-		return this.valueFeature;
-	}
-	
 	@Override
 	public @Nullable Object getValueToCommit() {
 		return getValue();
@@ -76,5 +71,9 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 	@Override
 	public @NonNull XtextSiriusValueDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusValueDescriptor) super.getDescriptor();
+	}
+
+	protected EStructuralFeature getValueFeature() {
+		return valueFeature;
 	}
 }

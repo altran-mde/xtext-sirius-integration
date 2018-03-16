@@ -3,15 +3,11 @@ package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
-import org.eclipse.gef.tools.DirectEditManager;
-import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
-import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeNameEditPart;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditPolicy;
@@ -29,68 +25,9 @@ public class XtextSiriusBorderEditPartModel extends DNodeNameEditPart implements
 		this.descriptor = descriptor;
 	}
 
-	// /**
-	// * Copied from
-	// * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
-	// */
-	// @Override
-	// public DragTracker getDragTracker(final Request request) {
-	// return new DragEditPartsTrackerEx(this) {
-	// @Override
-	// protected boolean isMove() {
-	// return true;
-	// }
-	//
-	// @Override
-	// protected boolean handleDoubleClick(final int button) {
-	// performDirectEditRequest(request);
-	// return true;
-	// }
-	// };
-	// }
-
-	/**
-	 * Copied from
-	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
-	 */
 	@Override
 	public void performDirectEditRequest(final Request request) {
-		final DirectEditManager manager = createDirectEditManager();
-		final Request theRequest = request;
-		try {
-			getEditingDomain().runExclusive(new Runnable() {
-
-				@Override
-				public void run() {
-					if (isActive()) {
-						if (theRequest.getExtendedData()
-								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
-							final Character initialChar = (Character) theRequest.getExtendedData()
-									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
-							if (manager instanceof XtextDirectEditManager) {
-								final XtextDirectEditManager xtextDirectEditManager = (XtextDirectEditManager) manager;
-								xtextDirectEditManager.show(initialChar);
-							} else if (manager instanceof TextDirectEditManager) {
-								((TextDirectEditManager) manager).show(initialChar);
-							}
-						} else {
-							manager.show();
-						}
-					}
-				}
-			});
-		} catch (final InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	protected @NonNull DirectEditManager createDirectEditManager() {
-		return new XtextSiriusDirectEditManagerModel(this, getDescriptor(),
-				translateToStyle());
-	}
-	
-	protected int translateToStyle() {
-		return EditPartHelper.getInstance().translateToStyle(getDescriptor().isMultiLine());
+		EditPartHelper.getInstance().performDirectEditRequest(this, request, getDescriptor());
 	}
 	
 	/**

@@ -29,10 +29,6 @@ public abstract class AXtextSiriusEditPart extends XtextLabelEditPart implements
 		this.descriptor = descriptor;
 	}
 	
-	protected int translateToStyle() {
-		return EditPartHelper.getInstance().translateToStyle(getDescriptor().isMultiLine());
-	}
-	
 	@Override
 	public DSemanticDecorator resolveSemanticElement() {
 		return (DSemanticDecorator) super.resolveSemanticElement();

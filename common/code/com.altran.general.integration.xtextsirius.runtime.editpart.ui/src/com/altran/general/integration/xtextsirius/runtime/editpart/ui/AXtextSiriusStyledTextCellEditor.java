@@ -21,9 +21,8 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 	private long modificationStamp = IDocumentExtension4.UNKNOWN_MODIFICATION_STAMP;
 
 	public AXtextSiriusStyledTextCellEditor(
-			final int style,
 			final @NonNull AXtextSiriusDescriptor descriptor) {
-		super(style, descriptor.getInjector());
+		super(descriptor.translateToStyle(), descriptor.getInjector());
 		this.descriptor = descriptor;
 	}
 
