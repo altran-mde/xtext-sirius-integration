@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional
  org.yakindu.base.xtext.utils.gmf,
  org.eclipse.xtext.ui,
  org.eclipse.sirius.diagram.ui,
+ org.eclipse.sirius.ext.base,
  com.altran.general.integration.xtextsirius.runtime,
  com.altran.general.integration.xtextsirius.model.diagram,
  com.altran.general.integration.xtextsirius.model.viewpoint

@@ -1,22 +1,20 @@
-package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
+package com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate;
 
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeNameEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeNameEditPart;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
 
 @SuppressWarnings("restriction")
-public class XtextSiriusEdgeNameEditPart extends DEdgeNameEditPart implements IXtextSiriusAwareLabelEditPart {
-
+public class XtextSiriusNodeNameEditPart extends DNodeNameEditPart implements IXtextSiriusAwareLabelEditPart {
 	private final @NonNull AXtextSiriusDescriptor descriptor;
 
-	public XtextSiriusEdgeNameEditPart(final @NonNull AXtextSiriusDescriptor descriptor,
-			final @NonNull View view) {
+	public XtextSiriusNodeNameEditPart(final @NonNull View view, final @NonNull AXtextSiriusDescriptor descriptor) {
 		super(view);
 		this.descriptor = descriptor;
 	}
@@ -26,6 +24,11 @@ public class XtextSiriusEdgeNameEditPart extends DEdgeNameEditPart implements IX
 		return EditPartHelper.getInstance().getEditText(this);
 	}
 
+	@Override
+	public void setLabelText(String newText) {
+		EditPartHelper.getInstance().setLabelText(this, newText);
+	}
+	
 	@Override
 	public DragTracker getDragTracker(final Request request) {
 		return EditPartHelper.getInstance().getDragTracker(this, request);
@@ -46,15 +49,4 @@ public class XtextSiriusEdgeNameEditPart extends DEdgeNameEditPart implements IX
 	public @NonNull AXtextSiriusDescriptor getDescriptor() {
 		return this.descriptor;
 	}
-	
-//	@Override
-//	public @Nullable EObject getSemanticElement() {
-//		return EditPartHelper.getInstance().getSemanticElement(this);
-//	}
-//
-//	@Override
-//	public @NonNull EObject getClosestExistingSemanticElement() {
-//		return EditPartHelper.getInstance().findClosestExistingSemanticElementRecursive(resolveSemanticElement());
-//	}
-	
 }

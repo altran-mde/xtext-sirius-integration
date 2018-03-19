@@ -11,8 +11,6 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
-
 /**
  * We had to move some code here because we need to adhere to several lines of
  * inheritance
@@ -55,8 +53,8 @@ public class EditPartHelper {
 	 * Copied from
 	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
 	 */
-	public void performDirectEditRequest(final IXtextSiriusAwareLabelEditPart editPart, final Request request, AXtextSiriusDescriptor descriptor) {
-		final XtextDirectEditManager manager = descriptor.createDirectEditManager(editPart);
+	public void performDirectEditRequest(final IXtextSiriusAwareLabelEditPart editPart, final Request request) {
+		final XtextDirectEditManager manager = editPart.getDescriptor().createDirectEditManager(editPart);
 		final Request theRequest = request;
 		try {
 			editPart.getEditingDomain().runExclusive(new Runnable() {
@@ -84,7 +82,7 @@ public class EditPartHelper {
 	 * Copied from
 	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
 	 */
-	public DragTracker getDragTracker(final IXtextSiriusAwareLabelEditPart editPart, final Request request, AXtextSiriusDescriptor descriptor) {
+	public DragTracker getDragTracker(final IXtextSiriusAwareLabelEditPart editPart, final Request request) {
 		return new DragEditPartsTrackerEx(editPart) {
 			@Override
 			protected boolean isMove() {
@@ -93,7 +91,7 @@ public class EditPartHelper {
 			
 			@Override
 			protected boolean handleDoubleClick(final int button) {
-				performDirectEditRequest(editPart, request, descriptor);
+				performDirectEditRequest(editPart, request);
 				return true;
 			}
 		};
@@ -120,6 +118,10 @@ public class EditPartHelper {
 
 	public @NonNull EObject getClosestExistingSemanticElement(IXtextSiriusAwareLabelEditPart editPart) {
 		return findClosestExistingSemanticElementRecursive(resolveSemanticElement(editPart));
+	}
+
+	public void setLabelText(IXtextSiriusAwareLabelEditPart editPart, String newText) {
+		
 	}
 	
 	

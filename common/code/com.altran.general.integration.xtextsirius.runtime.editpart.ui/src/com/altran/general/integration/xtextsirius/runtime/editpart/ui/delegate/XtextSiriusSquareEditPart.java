@@ -1,23 +1,20 @@
-package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
+package com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate;
 
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.Request;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeNameEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.SquareEditPart;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
 
 @SuppressWarnings("restriction")
-public class XtextSiriusBorderEditPart extends DNodeNameEditPart implements IXtextSiriusAwareLabelEditPart {
+public class XtextSiriusSquareEditPart extends SquareEditPart implements IXtextSiriusAwareLabelEditPart {
+	private final @NonNull AXtextSiriusDescriptor descriptor;
 
-	private @NonNull AXtextSiriusDescriptor descriptor;
-	
-	public XtextSiriusBorderEditPart(
-			final @NonNull AXtextSiriusDescriptor descriptor,
-			final @NonNull View view) {
+	public XtextSiriusSquareEditPart(final @NonNull View view, final @NonNull AXtextSiriusDescriptor descriptor) {
 		super(view);
 		this.descriptor = descriptor;
 	}
@@ -28,13 +25,18 @@ public class XtextSiriusBorderEditPart extends DNodeNameEditPart implements IXte
 	}
 
 	@Override
+	public void setLabelText(String newText) {
+		EditPartHelper.getInstance().setLabelText(this, newText);
+	}
+	
+	@Override
 	public DragTracker getDragTracker(final Request request) {
-		return EditPartHelper.getInstance().getDragTracker(this, request, getDescriptor());
+		return EditPartHelper.getInstance().getDragTracker(this, request);
 	}
 
 	@Override
 	public void performDirectEditRequest(final Request request) {
-		EditPartHelper.getInstance().performDirectEditRequest(this, request, getDescriptor());
+		EditPartHelper.getInstance().performDirectEditRequest(this, request);
 	}
 
 	@Override
@@ -46,20 +48,5 @@ public class XtextSiriusBorderEditPart extends DNodeNameEditPart implements IXte
 	@Override
 	public @NonNull AXtextSiriusDescriptor getDescriptor() {
 		return this.descriptor;
-	}
-	
-//	@Override
-//	public @Nullable EObject getSemanticElement() {
-//		return EditPartHelper.getInstance().getSemanticElement(this);
-//	}
-//
-//	@Override
-//	public @NonNull EObject getClosestExistingSemanticElement() {
-//		return EditPartHelper.getInstance().findClosestExistingSemanticElementRecursive(resolveSemanticElement());
-//	}
-
-	@Override
-	public void setLabelText(final String text) {
-		// getFigure().setText(text);
 	}
 }
