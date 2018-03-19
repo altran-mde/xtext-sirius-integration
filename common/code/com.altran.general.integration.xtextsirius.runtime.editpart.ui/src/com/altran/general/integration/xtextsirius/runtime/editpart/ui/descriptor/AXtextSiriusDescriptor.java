@@ -2,7 +2,6 @@ package com.altran.general.integration.xtextsirius.runtime.editpart.ui.descripto
 
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.swt.SWT;
-import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;

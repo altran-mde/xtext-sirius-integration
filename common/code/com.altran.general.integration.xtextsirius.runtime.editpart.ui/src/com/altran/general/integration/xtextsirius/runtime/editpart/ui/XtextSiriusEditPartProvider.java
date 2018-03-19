@@ -31,10 +31,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.runtime.XtextLanguageInjectorManager;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusBorderEditPartModel;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusEdgeNameEditPartModel;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusEditPartModel;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.value.XtextSiriusEditPartValue;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusBorderEditPart;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusEdgeNameEditPart;
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.Injector;
 
@@ -114,18 +112,18 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 				XtextSiriusModelDescriptor descriptor = new XtextSiriusModelDescriptor(resolveLanguageInjector(modelNodeDescription), modelNodeDescription);
 				if (isBorderNode(view)) {
 					if (isBorderNodeLabel(view)) {
-						return new XtextSiriusBorderEditPartModel(descriptor, view);
+						return new XtextSiriusBorderEditPart(descriptor, view);
 					}
 				} else {
 					if (!isBorderNodeLabel(view)) {
-						return new XtextSiriusEditPartModel(descriptor, view);
+						return new XtextSiriusEditPart(descriptor, view);
 					}
 				}
 				
 			} else if (labelDirectEdit instanceof IXtextDirectEditValueDescription) {
 				final IXtextDirectEditValueDescription valueNodeDescription = (IXtextDirectEditValueDescription) labelDirectEdit;
 				XtextSiriusValueDescriptor descriptor = new XtextSiriusValueDescriptor(resolveLanguageInjector(valueNodeDescription), valueNodeDescription);
-				return new XtextSiriusEditPartValue(descriptor, view);
+				return new XtextSiriusEditPart(descriptor, view);
 			}
 			
 		} else if (mapping instanceof EdgeMapping && isEdgeLabelEdit(view)) {
@@ -135,12 +133,12 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 			if (edgeLabelMapping instanceof XtextEdgeLabelDirectEditModelDescription) {
 				final IXtextDirectEditModelDescription modelEdgeDescription = (IXtextDirectEditModelDescription) edgeLabelMapping;
 				XtextSiriusModelDescriptor descriptor = new XtextSiriusModelDescriptor(resolveLanguageInjector(modelEdgeDescription), modelEdgeDescription);
-				return new XtextSiriusEdgeNameEditPartModel(descriptor, view);
+				return new XtextSiriusEdgeNameEditPart(descriptor, view);
 				
 			} else if (edgeLabelMapping instanceof XtextEdgeLabelDirectEditValueDescription) {
 				final XtextEdgeLabelDirectEditValueDescription valueEdgeDescription = (XtextEdgeLabelDirectEditValueDescription) edgeLabelMapping;
 				XtextSiriusValueDescriptor descriptor = new XtextSiriusValueDescriptor(resolveLanguageInjector(valueEdgeDescription), valueEdgeDescription);
-				return new XtextSiriusEditPartValue(descriptor, view);
+				return new XtextSiriusEditPart(descriptor, view);
 			}
 		}
 		

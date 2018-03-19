@@ -12,6 +12,7 @@ import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditManager;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.value.XtextSiriusDirectEditManagerValue;
@@ -48,7 +49,7 @@ public class XtextSiriusValueDescriptor extends AXtextSiriusDescriptor {
 	}
 	
 	public @NonNull EStructuralFeature getValueFeature(IXtextSiriusAwareLabelEditPart editPart) {
-		EObject semanticElement = editPart.getSemanticElement();
+		EObject semanticElement = EditPartHelper.getInstance().getSemanticElement(editPart);
 		if (semanticElement != null) {
 			return semanticElement.eClass().getEStructuralFeature(getValueFeatureName(editPart));
 		}
