@@ -1,12 +1,8 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
 
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
 import java.util.function.BiFunction;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.AbstractEditPartProvider;
@@ -15,8 +11,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
-import org.eclipse.sirius.diagram.description.AbstractNodeMapping;
-import org.eclipse.sirius.diagram.description.EdgeMapping;
+import org.eclipse.sirius.diagram.description.DiagramElementMapping;
 import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
 import org.eclipse.sirius.diagram.ui.graphical.edit.part.specific.BracketEdgeEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.BundledImageEditPart;
@@ -53,13 +48,8 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.SquareEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.WorkspaceImageEditPart;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
-import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription;
-import org.eclipse.xtext.EcoreUtil2;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription;
-import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
@@ -72,6 +62,7 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.X
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.XtextSiriusEdgeBeginNameEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.XtextSiriusEdgeEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.XtextSiriusEdgeEndNameEditPart;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.XtextSiriusEdgeNameEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.XtextSiriusEllipseEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.XtextSiriusGaugeCompositeEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.XtextSiriusLozengeEditPart;
@@ -99,9 +90,7 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.X
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusEdgeNameEditPart;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
@@ -109,175 +98,126 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	// @formatter:off
 	private static final Map<Integer, BiFunction<@NonNull View, @NonNull AXtextSiriusDescriptor, @NonNull IGraphicalEditPart>> EDIT_PARTS = 
 		ImmutableMap.<Integer, BiFunction<@NonNull View, @NonNull AXtextSiriusDescriptor, @NonNull IGraphicalEditPart>>builder()
-			.put(DEdgeEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusEdgeEditPart(view, descriptor))
-			.put(BracketEdgeEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusBracketEdgeEditPart(view, descriptor))
-			.put(DNodeListEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeListEditPart(view, descriptor))
-			.put(DNodeList2EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeList2EditPart(view, descriptor))
-			.put(DNodeContainerEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeContainerEditPart(view, descriptor))
-			.put(DNodeContainer2EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeContainer2EditPart(view, descriptor))
-			.put(DNodeEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeEditPart(view, descriptor))
-			.put(DNode3EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNode3EditPart(view, descriptor))
-			.put(DNode2EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNode2EditPart(view, descriptor))
-			.put(DNode4EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNode4EditPart(view, descriptor))
-			.put(DotEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusDotEditPart(view, descriptor))
-			.put(SquareEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusSquareEditPart(view, descriptor))
-			.put(BundledImageEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusBundledImageEditPart(view, descriptor))
-			.put(WorkspaceImageEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusWorkspaceImageEditPart(view, descriptor))
-			.put(GaugeCompositeEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusGaugeCompositeEditPart(view, descriptor))
-			.put(NoteEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNoteEditPart(view, descriptor))
-			.put(CustomStyleEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusCustomStyleEditPart(view, descriptor))
-			.put(EllipseEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusEllipseEditPart(view, descriptor))
-			.put(LozengeEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusLozengeEditPart(view, descriptor))
-			.put(NotationViewIDs.DNODE_NAME_EDIT_PART_VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeNameEditPart(view, descriptor))
-			.put(NotationViewIDs.DNODE_NAME_2_EDIT_PART_VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeNameEditPart(view, descriptor))
-			.put(NotationViewIDs.DNODE_NAME_3_EDIT_PART_VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeNameEditPart(view, descriptor))
-			.put(NotationViewIDs.DNODE_NAME_4_EDIT_PART_VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeNameEditPart(view, descriptor))
-			.put(DNodeListElementEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeListElementEditPart(view, descriptor))
-			.put(DNodeListNameEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeListNameEditPart(view, descriptor))
-			.put(DNodeListName2EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeListName2EditPart(view, descriptor))
-			.put(DNodeContainerNameEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeContainerNameEditPart(view, descriptor))
-			.put(DNodeContainerName2EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeContainerName2EditPart(view, descriptor))
-			.put(DEdgeNameEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new com.altran.general.integration.xtextsirius.runtime.editpart.ui.delegate.XtextSiriusEdgeNameEditPart(view, descriptor))
-			.put(DEdgeBeginNameEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusEdgeBeginNameEditPart(view, descriptor))
-			.put(DEdgeEndNameEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusEdgeEndNameEditPart(view, descriptor))
-			.put(DDiagramEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusDiagramEditPart(view, descriptor))
-			.put(DNodeContainerViewNodeContainerCompartmentEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeContainerViewNodeContainerCompartmentEditPart(view, descriptor))
-			.put(DNodeContainerViewNodeContainerCompartment2EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeContainerViewNodeContainerCompartment2EditPart(view, descriptor))
-			.put(DNodeListViewNodeListCompartmentEditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeListViewNodeListCompartmentEditPart(view, descriptor))
-			.put(DNodeListViewNodeListCompartment2EditPart.VISUAL_ID, (@NonNull View view, @NonNull AXtextSiriusDescriptor descriptor) -> new XtextSiriusNodeListViewNodeListCompartment2EditPart(view, descriptor))
+			.put(DEdgeEditPart.VISUAL_ID,                                        (v, d) -> new XtextSiriusEdgeEditPart(v, d))
+			.put(BracketEdgeEditPart.VISUAL_ID,                                  (v, d) -> new XtextSiriusBracketEdgeEditPart(v, d))
+			.put(DNodeListEditPart.VISUAL_ID,                                    (v, d) -> new XtextSiriusNodeListEditPart(v, d))
+			.put(DNodeList2EditPart.VISUAL_ID,                                   (v, d) -> new XtextSiriusNodeList2EditPart(v, d))
+			.put(DNodeContainerEditPart.VISUAL_ID,                               (v, d) -> new XtextSiriusNodeContainerEditPart(v, d))
+			.put(DNodeContainer2EditPart.VISUAL_ID,                              (v, d) -> new XtextSiriusNodeContainer2EditPart(v, d))
+			.put(DNodeEditPart.VISUAL_ID,                                        (v, d) -> new XtextSiriusNodeEditPart(v, d))
+			.put(DNode3EditPart.VISUAL_ID,                                       (v, d) -> new XtextSiriusNode3EditPart(v, d))
+			.put(DNode2EditPart.VISUAL_ID,                                       (v, d) -> new XtextSiriusNode2EditPart(v, d))
+			.put(DNode4EditPart.VISUAL_ID,                                       (v, d) -> new XtextSiriusNode4EditPart(v, d))
+			.put(DotEditPart.VISUAL_ID,                                          (v, d) -> new XtextSiriusDotEditPart(v, d))
+			.put(SquareEditPart.VISUAL_ID,                                       (v, d) -> new XtextSiriusSquareEditPart(v, d))
+			.put(BundledImageEditPart.VISUAL_ID,                                 (v, d) -> new XtextSiriusBundledImageEditPart(v, d))
+			.put(WorkspaceImageEditPart.VISUAL_ID,                               (v, d) -> new XtextSiriusWorkspaceImageEditPart(v, d))
+			.put(GaugeCompositeEditPart.VISUAL_ID,                               (v, d) -> new XtextSiriusGaugeCompositeEditPart(v, d))
+			.put(NoteEditPart.VISUAL_ID,                                         (v, d) -> new XtextSiriusNoteEditPart(v, d))
+			.put(CustomStyleEditPart.VISUAL_ID,                                  (v, d) -> new XtextSiriusCustomStyleEditPart(v, d))
+			.put(EllipseEditPart.VISUAL_ID,                                      (v, d) -> new XtextSiriusEllipseEditPart(v, d))
+			.put(LozengeEditPart.VISUAL_ID,                                      (v, d) -> new XtextSiriusLozengeEditPart(v, d))
+			.put(NotationViewIDs.DNODE_NAME_EDIT_PART_VISUAL_ID,                 (v, d) -> new XtextSiriusNodeNameEditPart(v, d))
+			.put(NotationViewIDs.DNODE_NAME_2_EDIT_PART_VISUAL_ID,               (v, d) -> new XtextSiriusNodeNameEditPart(v, d))
+			.put(NotationViewIDs.DNODE_NAME_3_EDIT_PART_VISUAL_ID,               (v, d) -> new XtextSiriusNodeNameEditPart(v, d))
+			.put(NotationViewIDs.DNODE_NAME_4_EDIT_PART_VISUAL_ID,               (v, d) -> new XtextSiriusNodeNameEditPart(v, d))
+			.put(DNodeListElementEditPart.VISUAL_ID,                             (v, d) -> new XtextSiriusNodeListElementEditPart(v, d))
+			.put(DNodeListNameEditPart.VISUAL_ID,                                (v, d) -> new XtextSiriusNodeListNameEditPart(v, d))
+			.put(DNodeListName2EditPart.VISUAL_ID,                               (v, d) -> new XtextSiriusNodeListName2EditPart(v, d))
+			.put(DNodeContainerNameEditPart.VISUAL_ID,                           (v, d) -> new XtextSiriusNodeContainerNameEditPart(v, d))
+			.put(DNodeContainerName2EditPart.VISUAL_ID,                          (v, d) -> new XtextSiriusNodeContainerName2EditPart(v, d))
+			.put(DEdgeNameEditPart.VISUAL_ID,                                    (v, d) -> new XtextSiriusEdgeNameEditPart(v, d))
+			.put(DEdgeBeginNameEditPart.VISUAL_ID,                               (v, d) -> new XtextSiriusEdgeBeginNameEditPart(v, d))
+			.put(DEdgeEndNameEditPart.VISUAL_ID,                                 (v, d) -> new XtextSiriusEdgeEndNameEditPart(v, d))
+			.put(DDiagramEditPart.VISUAL_ID,                                     (v, d) -> new XtextSiriusDiagramEditPart(v, d))
+			.put(DNodeContainerViewNodeContainerCompartmentEditPart.VISUAL_ID,   (v, d) -> new XtextSiriusNodeContainerViewNodeContainerCompartmentEditPart(v, d))
+			.put(DNodeContainerViewNodeContainerCompartment2EditPart.VISUAL_ID,  (v, d) -> new XtextSiriusNodeContainerViewNodeContainerCompartment2EditPart(v, d))
+			.put(DNodeListViewNodeListCompartmentEditPart.VISUAL_ID,             (v, d) -> new XtextSiriusNodeListViewNodeListCompartmentEditPart(v, d))
+			.put(DNodeListViewNodeListCompartment2EditPart.VISUAL_ID,            (v, d) -> new XtextSiriusNodeListViewNodeListCompartment2EditPart(v, d))
 			.build();
 	// @formatter:on
-
-	private static final Set<Integer> EDGE_LABEL_EDIT_VISUAL_IDS = ImmutableSet.of(
-			DEdgeBeginNameEditPart.VISUAL_ID,
-			DEdgeNameEditPart.VISUAL_ID,
-			DEdgeEndNameEditPart.VISUAL_ID);
 
 	@Override
 	public boolean provides(final IOperation operation) {
 		final RepresentationElementMapping mapping = extractMapping(operation);
 		final View view = ((IEditPartOperation) operation).getView();
-		Integer viewType = Integer.parseInt(view.getType());
-		
-		if (mapping instanceof AbstractNodeMapping) {
-			if (((AbstractNodeMapping) mapping).getLabelDirectEdit() instanceof AXtextDirectEditLabel) {
+		Integer viewType = extractViewType(view);
+
+		if (mapping instanceof DiagramElementMapping) {
+			if (((DiagramElementMapping) mapping).getLabelDirectEdit() instanceof AXtextDirectEditLabel) {
 				return EDIT_PARTS.containsKey(viewType);
 			}
-		} else if (mapping instanceof EdgeMapping) {
-			if (isEdgeLabelEdit(view)) {
-				return searchForEdgeLabelMapping((EdgeMapping) mapping) != null;
-			}
 		}
-		
+
 		return super.provides(operation);
 	}
-	
-	protected boolean isEdgeLabelEdit(final View view) {
-		try {
-			return EDGE_LABEL_EDIT_VISUAL_IDS.contains(Integer.parseInt(view.getType()));
-		} catch (final NumberFormatException e) {
-			return false;
-		}
-	}
-	
+
 	@Override
 	public IGraphicalEditPart createGraphicEditPart(final View view) {
 		final RepresentationElementMapping mapping = extractMapping(view);
-		Integer viewType = Integer.parseInt(view.getType());
-		
-		if (mapping instanceof AbstractNodeMapping) {
-			final DirectEditLabel labelDirectEdit = ((AbstractNodeMapping) mapping).getLabelDirectEdit();
-			
+		Integer viewType = extractViewType(view);
+
+		if (mapping instanceof DiagramElementMapping) {
+			final DirectEditLabel labelDirectEdit = ((DiagramElementMapping) mapping).getLabelDirectEdit();
+
 			if (labelDirectEdit instanceof IXtextDirectEditModelDescription) {
 				final IXtextDirectEditModelDescription modelNodeDescription = (IXtextDirectEditModelDescription) labelDirectEdit;
-				XtextSiriusModelDescriptor descriptor = new XtextSiriusModelDescriptor(resolveLanguageInjector(modelNodeDescription), modelNodeDescription);
-				
-				if (EDIT_PARTS.containsKey(viewType)) {
-					return EDIT_PARTS.get(viewType).apply(view, descriptor);
-				}
-				
-			} else if (labelDirectEdit instanceof IXtextDirectEditValueDescription) {
-				final IXtextDirectEditValueDescription valueNodeDescription = (IXtextDirectEditValueDescription) labelDirectEdit;
-				XtextSiriusValueDescriptor descriptor = new XtextSiriusValueDescriptor(resolveLanguageInjector(valueNodeDescription), valueNodeDescription);
+				XtextSiriusModelDescriptor descriptor = new XtextSiriusModelDescriptor(
+						resolveLanguageInjector(modelNodeDescription), modelNodeDescription);
 
 				if (EDIT_PARTS.containsKey(viewType)) {
 					return EDIT_PARTS.get(viewType).apply(view, descriptor);
 				}
-			}
-			
-		} else if (mapping instanceof EdgeMapping && isEdgeLabelEdit(view)) {
-			final IXtextEdgeLabelDirectEditDescription edgeLabelMapping = searchForEdgeLabelMapping(
-					(EdgeMapping) mapping);
-			
-			if (edgeLabelMapping instanceof XtextEdgeLabelDirectEditModelDescription) {
-				final IXtextDirectEditModelDescription modelEdgeDescription = (IXtextDirectEditModelDescription) edgeLabelMapping;
-				XtextSiriusModelDescriptor descriptor = new XtextSiriusModelDescriptor(resolveLanguageInjector(modelEdgeDescription), modelEdgeDescription);
-				return new XtextSiriusEdgeNameEditPart(descriptor, view);
-				
-			} else if (edgeLabelMapping instanceof XtextEdgeLabelDirectEditValueDescription) {
-				final XtextEdgeLabelDirectEditValueDescription valueEdgeDescription = (XtextEdgeLabelDirectEditValueDescription) edgeLabelMapping;
-				XtextSiriusValueDescriptor descriptor = new XtextSiriusValueDescriptor(resolveLanguageInjector(valueEdgeDescription), valueEdgeDescription);
+
+			} else if (labelDirectEdit instanceof IXtextDirectEditValueDescription) {
+				final IXtextDirectEditValueDescription valueNodeDescription = (IXtextDirectEditValueDescription) labelDirectEdit;
+				XtextSiriusValueDescriptor descriptor = new XtextSiriusValueDescriptor(
+						resolveLanguageInjector(valueNodeDescription), valueNodeDescription);
 
 				if (EDIT_PARTS.containsKey(viewType)) {
 					return EDIT_PARTS.get(viewType).apply(view, descriptor);
 				}
 			}
 		}
-		
+
 		return super.createGraphicEditPart(view);
 	}
-	
+
 	protected @Nullable RepresentationElementMapping extractMapping(final IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			final View view = ((IEditPartOperation) operation).getView();
 			return extractMapping(view);
 		}
-		
+
 		return null;
 	}
-	
+
 	protected RepresentationElementMapping extractMapping(final View view) {
 		if (view.getElement() instanceof DRepresentationElement) {
 			final DRepresentationElement representationElement = (DRepresentationElement) view.getElement();
 			final RepresentationElementMapping mapping = representationElement.getMapping();
 			return mapping;
 		}
-		
+
 		return null;
 	}
-	
-	protected @Nullable IXtextEdgeLabelDirectEditDescription searchForEdgeLabelMapping(final EdgeMapping mapping) {
-		final List<@NonNull BasicLabelStyleDescription> edgeLabelStyles = EcoreUtil2.getAllContentsOfType(mapping,
-				BasicLabelStyleDescription.class);
-		
-		if (!edgeLabelStyles.isEmpty()) {
-			final List<@NonNull IXtextEdgeLabelDirectEditDescription> xtextEdgeLabelDirectEdits = EcoreUtil2
-					.getAllContentsOfType(EcoreUtil.getRootContainer(mapping),
-							IXtextEdgeLabelDirectEditDescription.class);
-			
-			final Optional<@NonNull IXtextEdgeLabelDirectEditDescription> result = xtextEdgeLabelDirectEdits.stream()
-					.filter(elde -> elde.getEdgeLabelMappings().stream()
-							.anyMatch(labelMappings -> edgeLabelStyles.contains(labelMappings)))
-					.findAny();
-			
-			if (result.isPresent()) {
-				return result.get();
-			}
-			
-			return null;
+
+	protected Integer extractViewType(final View view) {
+		try {
+			return Integer.valueOf(view.getType());
+		} catch (NumberFormatException e) {
+			return 0;
 		}
-		
-		return null;
 	}
-	
+
 	protected @NonNull Injector resolveLanguageInjector(final IXtextDirectEditDescription description) {
 		final Injector result = XtextLanguageInjectorManager.getInstance()
 				.resolveInjectorId(description.getInjectorId());
-		
+
 		if (result == null) {
 			throw new IllegalArgumentException("Cannot find Xtext Language Injector id=" + description.getInjectorId());
 		}
-		
+
 		return result;
 	}
 }
