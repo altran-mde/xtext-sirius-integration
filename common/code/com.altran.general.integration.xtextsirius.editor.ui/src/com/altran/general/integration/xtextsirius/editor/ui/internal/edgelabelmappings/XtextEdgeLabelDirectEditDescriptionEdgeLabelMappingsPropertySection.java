@@ -18,7 +18,7 @@ import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
-import com.google.common.collect.Streams;
+import com.google.common.collect.patch.Streams;
 
 public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 		extends AbstractEditorDialogWithListPropertySection {

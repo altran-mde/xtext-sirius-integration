@@ -1,4 +1,4 @@
-package com.google.common.collect;
+package com.google.common.collect.patch;
 
 import java.util.Collection;
 import java.util.Iterator;

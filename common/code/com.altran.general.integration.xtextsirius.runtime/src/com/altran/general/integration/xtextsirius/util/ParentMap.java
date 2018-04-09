@@ -12,7 +12,7 @@ import org.eclipse.xtext.RuleCall;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Streams;
+import com.google.common.collect.patch.Streams;
 
 public class ParentMap {
 	protected final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> map = LinkedHashMultimap.create();

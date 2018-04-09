@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 
-import com.google.common.collect.Streams;
+import com.google.common.collect.patch.Streams;
 
 /**
  * Utilities to work with fake resources (i.e. temporary copies of existing

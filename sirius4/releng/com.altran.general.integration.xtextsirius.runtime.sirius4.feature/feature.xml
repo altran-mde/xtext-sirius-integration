@@ -2,7 +2,7 @@
 <feature
       id="com.altran.general.integration.xtextsirius.runtime.sirius4.feature"
       label="Xtext / Sirius Integration Runtime Feature for Sirius 4.x / Eclipse Mars"
-      version="0.7.0.qualifier">
+      version="0.7.1.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
