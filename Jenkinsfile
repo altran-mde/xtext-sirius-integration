@@ -9,9 +9,10 @@ properties([disableConcurrentBuilds(), buildDiscarder(logRotator(artifactDaysToK
 * #######################################################################
 */
 
-def buildNodeLabel = env.BUILD_TAG
 def buildNumber = env.BUILD_ID
 def branchName = env.BRANCH_NAME
+def buildNodeLabel = "BS-" + env.BUILD_TAG // Ensure that the build label starts with an alphanumeric character (by prepending such a character), as this is required by the Jenkins K8s plugin.
+buildNodeLabel = buildNodeLabel.reverse().take(62).reverse() // Limit the build label to 63 characters, as the Jenkins K8s plugin cannot handle longer build labels.
 
 //Kubernetes podTemplate
 podTemplate( // Open Kubernetes podTemplate parameters
@@ -24,7 +25,7 @@ podTemplate( // Open Kubernetes podTemplate parameters
          */
         containerTemplate(
             name: 'maven',
-            image: 'registry.manatree.io/maven:0.0.1',
+            image: 'registry.manatree.io/maven:0.0.1-xtextsirius-m2-deps',
             workingDir: '/home/jenkins',
             alwaysPullImage: false,
             privileged: false,
