@@ -68,14 +68,14 @@ podTemplate( // Open Kubernetes podTemplate parameters
             stage('build') {
                 timeout(TimeOutMinutes) {
                     container('maven'){
-                        sh './scripts/build.py -br ' + branchName + ' -bn ' + buildNumber + ' -tp sirius5.oxygen'
+                        sh './scripts/build.py -br ' + branchName + ' -bn ' + buildNumber + ' -tp sirius4.mars'
                     }
                 }
             }
             stage('publish') {
                 timeout(TimeOutMinutes) {
                     container('maven'){
-                        sh './scripts/publish.py -tp sirius5.oxygen'
+                        sh './scripts/publish.py -tp sirius4.mars'
                     }
                 }
             }
