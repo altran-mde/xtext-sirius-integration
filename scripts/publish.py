@@ -68,13 +68,13 @@ def main(config_file,artifact_store_user,artifact_store_password, target_profile
     maven_command = ['mvn', '-e', '-DskipTests', '-DskipITs', '-DskipInstall', mvn_target_profile, 'deploy']
 
     exitcode = execute(maven_command, maven_command)
+    print('Published artifacts to P2 - URL: https://nexus-p2.manatree.io/nexus/content/repositories for '+ str(target_profile))
     print("Exit Code: " + str(exitcode))
     if exitcode is not None:
         sys.exit(exitcode)
     else:
         sys.exit(1)
-    print('Published artifacts to P2.')
-
+   
 
     
 if __name__ == "__main__":
