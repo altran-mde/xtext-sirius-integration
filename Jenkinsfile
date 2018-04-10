@@ -18,8 +18,8 @@ def parallelTargetBuildStages = [:]
 for(String targetBuildsStage: buildStages) {
 
 
-    def buildNodeLabel = "BS-" + env.BUILD_TAG +'-'+targetBuildsStage // Ensure that the build label starts with an alphanumeric character (by prepending such a character), as this is required by the Jenkins K8s plugin.
-    buildNodeLabel = buildNodeLabel.reverse().take(60).reverse() // Limit the build label to 63 characters, as the Jenkins K8s plugin cannot handle longer build labels.
+    def buildNodeLabel = env.BUILD_TAG +'-'+targetBuildsStage.tokenize('.')[1] // Ensure that the build label starts with an alphanumeric character (by prepending such a character), as this is required by the Jenkins K8s plugin.
+    buildNodeLabel = "BS-"+buildNodeLabel.reverse().take(60).reverse() // Limit the build label to 63 characters, as the Jenkins K8s plugin cannot handle longer build labels.
     
     parallelTargetBuildStages[targetBuildsStage] = {
             //Kubernetes podTemplate
@@ -95,5 +95,3 @@ for(String targetBuildsStage: buildStages) {
 
 //Execute the steps in parallel
 parallel parallelTargetBuildStages
-
-
