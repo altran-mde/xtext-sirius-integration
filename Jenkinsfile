@@ -1,4 +1,4 @@
-properties([disableConcurrentBuilds(), buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([pollSCM('H/2 * * * *')])])
+properties([disableConcurrentBuilds(), buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([pollSCM('H/2 * * * *')]),parameters([choice(choices: ['Both-Mars-Oxygen','Sirius5-Oxygen', 'Sirius4-Mars'], description: 'Choose Build Version - Mars or Oxygen or Both (default)', name: 'BuildStageVersion')])])
 /*
 * #######################################################################
 * # Copyright (c) 2017 ACID - Altran B.V.                               #
@@ -12,9 +12,9 @@ properties([disableConcurrentBuilds(), buildDiscarder(logRotator(artifactDaysToK
 def buildNumber = env.BUILD_ID
 def branchName = env.BRANCH_NAME
 
-def buildStages=['sirius5.oxygen','sirius4.mars'] //Allowed Values: 'sirius5.oxygen','sirius4.mars'
+def buildStages=["Sirius5-Oxygen":['sirius5.oxygen'],"Sirius4-Mars":['sirius4.mars'],"Both-Mars-Oxygen":['sirius4.mars','sirius5.oxygen']] //Allowed Values: 'sirius5.oxygen','sirius4.mars'
     
-for(String targetBuildsStage: buildStages) {
+for(String targetBuildsStage: buildStages.get(env.BuildStageVersion)) {
 
     def buildNodeLabel = env.BUILD_TAG +'-'+targetBuildsStage.tokenize('.')[1] // Ensure that the build label starts with an alphanumeric character (by prepending such a character), as this is required by the Jenkins K8s plugin.
     buildNodeLabel = "BS-"+buildNodeLabel.reverse().take(60).reverse() // Limit the build label to 63 characters, as the Jenkins K8s plugin cannot handle longer build labels.
