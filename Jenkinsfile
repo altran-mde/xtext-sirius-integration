@@ -1,4 +1,4 @@
-properties([disableConcurrentBuilds(), buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([pollSCM('H/2 * * * *')]),parameters([choice(choices: ['Both-Mars-Oxygen','Sirius5-Oxygen', 'Sirius4-Mars'], description: 'Choose Build Version - Mars or Oxygen or Both (default)', name: 'BuildStageVersion')])])
+properties([disableConcurrentBuilds(), buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([pollSCM('H/2 * * * *')]),parameters([choice(choices: 'Both-Mars-Oxygen\nSirius5-Oxygen\nSirius4-Mars', description: 'Choose Build Version - Mars or Oxygen or Both (default)', name: 'BuildStageVersion')])])
 /*
 * #######################################################################
 * # Copyright (c) 2017 ACID - Altran B.V.                               #
