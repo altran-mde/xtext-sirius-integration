@@ -13,7 +13,6 @@
 	<packaging>pom</packaging>
 
 	 <modules>
-	 	<module>com.altran.general.integration.google.guava.patch</module>
        	<module>com.altran.general.integration.xtextsirius.model.properties.sirius4</module>
 		<module>com.altran.general.integration.xtextsirius.model.properties.sirius4.edit</module>
 		<module>com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui</module>
