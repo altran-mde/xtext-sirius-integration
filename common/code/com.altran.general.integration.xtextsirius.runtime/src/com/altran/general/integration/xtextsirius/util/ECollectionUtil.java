@@ -3,6 +3,7 @@ package com.altran.general.integration.xtextsirius.util;
 import java.util.Collection;
 import java.util.function.BiFunction;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -42,12 +43,12 @@ public class ECollectionUtil {
 	 * otherwise.
 	 *
 	 * <p>
-	 * <i>Replace</i> means we compare the URI of {@code element} with each
-	 * entry of {@code collection}. If we find an entry with the same URI, we
-	 * remove the old entry and add {@code element} instead, i.e. changing the
-	 * Java object identity of the EObject referred to by this URI. If there is
-	 * more than one entry, we change only one of them (arbitrarily selected).
-	 * If there is no such entry, we add {@code element} to {@code collection}.
+	 * <i>Replace</i> means we compare the URI of {@code element} with each entry of
+	 * {@code collection}. If we find an entry with the same URI, we remove the old
+	 * entry and add {@code element} instead, i.e. changing the Java object identity
+	 * of the EObject referred to by this URI. If there is more than one entry, we
+	 * change only one of them (arbitrarily selected). If there is no such entry, we
+	 * add {@code element} to {@code collection}.
 	 * </p>
 	 *
 	 * <p>
@@ -64,8 +65,9 @@ public class ECollectionUtil {
 	 */
 	public <@Nullable T extends EObject> T replaceOrAddLocal(
 			final @NonNull Collection<T> collection,
-			final T element) {
-		return processOrAddLocal(collection, element, (existing, newElement) -> {
+			final T element,
+			final @Nullable URI originalUri) {
+		return processOrAddLocal(collection, element, originalUri, (existing, newElement) -> {
 			EcoreUtil.replace(existing, newElement);
 			return newElement;
 		});
@@ -76,13 +78,12 @@ public class ECollectionUtil {
 	 * otherwise.
 	 *
 	 * <p>
-	 * <i>Update</i> means we compare the URI of {@code element} with each entry
-	 * of {@code collection}. If we find an entry with the same URI, we update
-	 * the existing entry with all EFeatures of {@code element}, i.e. retaining
-	 * the Java object identity of the EObject referred to by this URI. If there
-	 * is more than one entry, we update only one of them (arbitrarily
-	 * selected). If there is no such entry, we add {@code element} to
-	 * {@code collection}.
+	 * <i>Update</i> means we compare the URI of {@code element} with each entry of
+	 * {@code collection}. If we find an entry with the same URI, we update the
+	 * existing entry with all EFeatures of {@code element}, i.e. retaining the Java
+	 * object identity of the EObject referred to by this URI. If there is more than
+	 * one entry, we update only one of them (arbitrarily selected). If there is no
+	 * such entry, we add {@code element} to {@code collection}.
 	 * </p>
 	 *
 	 * <p>
@@ -99,15 +100,18 @@ public class ECollectionUtil {
 	 */
 	public <@Nullable T extends EObject> T updateOrAddLocal(
 			final @NonNull Collection<T> collection,
-			final T element) {
-		return processOrAddLocal(collection, element, (existing, newElement) -> {
+			final T element,
+			final @Nullable URI originalUri) {
+		return processOrAddLocal(collection, element, originalUri, (existing, newElement) -> {
 			if (existing != null && newElement != null) {
 				for (final EStructuralFeature feature : newElement.eClass().getEAllStructuralFeatures()) {
-					if (newElement.eIsSet(feature)) {
-						final Object newValue = newElement.eGet(feature, false);
-						existing.eSet(feature, newValue);
-					} else {
-						existing.eUnset(feature);
+					if (feature.isChangeable()) {
+						if (newElement.eIsSet(feature)) {
+							final Object newValue = newElement.eGet(feature, false);
+							existing.eSet(feature, newValue);
+						} else {
+							existing.eUnset(feature);
+						}
 					}
 				}
 				return existing;
@@ -121,11 +125,16 @@ public class ECollectionUtil {
 	protected <@Nullable T extends EObject> T processOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element,
+			final @Nullable URI originalUri,
 			final @NonNull BiFunction<T, T, T> processor) {
-		final String fragment = EcoreUtil.getURI(element).fragment();
+		final String elementFragment = EcoreUtil.getURI(element).fragment();
+		final String originalFragment = originalUri != null ? originalUri.fragment() : "";
 
 		final T existing = collection.stream()
-				.filter(e -> fragment.equals(EcoreUtil.getURI(e).fragment()))
+				.filter(e -> {
+					final String fragment = EcoreUtil.getURI(e).fragment();
+					return elementFragment.equals(fragment) || originalFragment.equals(fragment);
+				})
 				.findAny()
 				.orElse(null);
 

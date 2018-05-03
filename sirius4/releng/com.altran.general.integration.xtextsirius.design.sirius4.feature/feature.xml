@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.altran.general.integration.xtextsirius.design.sirius4.feature"
-      label="Xtext/Sirius Integration Feature for Sirius 4.x / Eclipse Mars"
-      version="0.7.1.qualifier">
+      label="Xtext / Sirius Integration Feature for Sirius 4.x / Eclipse Mars"
+      version="0.7.3.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -42,14 +42,35 @@
    </requires>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.runtime"
+         id="com.altran.general.integration.google.guava.patch"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.model.xtext"
+         id="com.altran.general.integration.xtextsirius.dialect.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.editor.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.diagram"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.diagram.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -63,21 +84,28 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.editpart.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.eef.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="com.altran.general.integration.xtextsirius.model.properties"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.properties.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.properties.sirius4"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.properties.sirius4.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -91,7 +119,29 @@
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.model.diagram"
+         id="com.altran.general.integration.xtextsirius.model.viewpoint.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+   
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.xtext"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.xtext.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <!--
+   <plugin
+         id="com.altran.general.integration.xtextsirius.runtime"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -111,17 +161,18 @@
          version="0.0.0"/>
 
    <plugin
-         id="com.altran.general.integration.xtextsirius.model.properties.sirius4"
+         id="com.altran.general.integration.xtextsirius.runtime.editpart.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.altran.general.integration.google.guava.patch"
+         id="com.altran.general.integration.xtextsirius.runtime.eef.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+   -->
 
 </feature>

@@ -1,8 +1,10 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
 
 import org.apache.commons.lang.StringUtils;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
@@ -81,8 +83,11 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 			
 			final Object newValue = cellEditor.getValueToCommit();
 			
+			EObject semanticElement = cellEditor.getSemanticElement();
+			URI originalUri = semanticElement != null ? EcoreUtil.getURI(semanticElement) : null;
+			
 			final ReplaceValueParameter result = new ReplaceValueParameter(target, feature, newValue,
-					representationElement);
+					representationElement, originalUri);
 
 			return result;
 		}

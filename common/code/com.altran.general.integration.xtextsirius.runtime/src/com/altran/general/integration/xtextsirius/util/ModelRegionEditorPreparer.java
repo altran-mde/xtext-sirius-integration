@@ -1,6 +1,8 @@
 package com.altran.general.integration.xtextsirius.util;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -28,11 +30,16 @@ import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.formatting2.regionaccess.ITextReplacement;
+import org.eclipse.xtext.formatting2.regionaccess.TextRegionAccessBuilder;
+import org.eclipse.xtext.parser.IParser;
 import org.eclipse.xtext.preferences.IPreferenceValuesProvider;
 import org.eclipse.xtext.preferences.TypedPreferenceValues;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.resource.XtextResourceFactory;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.serializer.impl.Serializer;
 import org.eclipse.xtext.util.ExceptionAcceptor;
+import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.google.common.collect.ImmutableList;
@@ -89,7 +96,7 @@ import com.google.inject.Provider;
  */
 @SuppressWarnings("restriction")
 public class ModelRegionEditorPreparer {
-	
+
 	/*
 	 * @formatter:off
 	Examples for technical understanding
@@ -252,37 +259,46 @@ public class ModelRegionEditorPreparer {
 
 	 * @formatter:on
 	 */
-	
+
 	@Inject
 	private ISerializer serializer;
 	
-	@Inject(optional = true)
-	private Provider<IFormatter2> formatterProvider;
+	@Inject
+	private IParser parser;
 
 	@Inject(optional = true)
-	private Provider<FormatterRequest> requestProvider;
+	private Provider<IFormatter2> formatterProvider;
 	
+	@Inject(optional = true)
+	private Provider<FormatterRequest> requestProvider;
+
 	@Inject(optional = true)
 	@FormatterPreferences
 	private IPreferenceValuesProvider preferencesProvider;
+
+	@Inject(optional = true)
+	private XtextResourceFactory xtextResourceFactory;
+
+	@Inject(optional = true)
+	private Provider<TextRegionAccessBuilder> textRegionBuilderProvider;
 	
 	private final @Nullable EObject semanticElement;
 	private final @NonNull EObject parentSemanticElement;
 	private final boolean multiLine;
 	private final @NonNull Set<@NonNull String> editableFeatures;
 	private final EStructuralFeature semanticElementFeature;
-	
+
 	protected boolean prepared;
-	
+
 	protected ITextRegionAccess rootRegion;
 	protected IEObjectRegion semanticRegion;
 	protected Set<@NonNull EStructuralFeature> definedFeatures;
-	
+
 	protected StringBuffer allText;
 	protected TextRegion textRegion;
 	protected SemanticElementLocation semanticElementLocation;
-	
-	
+
+
 	/**
 	 * Creates a ModelRegionEditorPreparer based on a non-null target.
 	 *
@@ -305,7 +321,7 @@ public class ModelRegionEditorPreparer {
 		this(semanticElement, semanticElement.eContainer(), injector, multiLine, editableFeatures,
 				semanticElement.eContainingFeature());
 	}
-	
+
 	/**
 	 * Creates a ModelRegionEditorPreparer based on a nullable target.
 	 *
@@ -337,10 +353,10 @@ public class ModelRegionEditorPreparer {
 		this.multiLine = multiLine;
 		this.editableFeatures = Sets.newLinkedHashSet(editableFeatures);
 		this.semanticElementFeature = semanticElementFeature;
-		
+
 		injector.injectMembers(this);
 	}
-	
+
 	/**
 	 * Returns the subpart of the text that should be edited.
 	 *
@@ -350,19 +366,19 @@ public class ModelRegionEditorPreparer {
 		prepare();
 		return this.textRegion;
 	}
-	
+
 	/**
-	 * Returns the complete text that should be contained in the editor,
-	 * including hidden parts.
+	 * Returns the complete text that should be contained in the editor, including
+	 * hidden parts.
 	 *
-	 * @return The complete text that should be contained in the editor,
-	 *         including hidden parts.
+	 * @return The complete text that should be contained in the editor, including
+	 *         hidden parts.
 	 */
 	public @NonNull String getText() {
 		prepare();
 		return this.allText.toString();
 	}
-	
+
 	/**
 	 * Returns the location of the target.
 	 *
@@ -372,8 +388,8 @@ public class ModelRegionEditorPreparer {
 		prepare();
 		return this.semanticElementLocation;
 	}
-	
-	
+
+
 	/**
 	 * Returns the substring of the text that should be edited.
 	 *
@@ -384,30 +400,32 @@ public class ModelRegionEditorPreparer {
 		return this.allText.substring(this.textRegion.getOffset(),
 				this.textRegion.getOffset() + this.textRegion.getLength());
 	}
-	
+
 	protected void prepare() {
 		if (this.prepared) {
 			return;
 		}
-		
+
 		final EObject rootContainer = EcoreUtil.getRootContainer(getParent());
 		this.rootRegion = getSerializer().serializeToRegions(rootContainer);
-
-		formatIfPossible(rootContainer);
-
-		this.allText = new StringBuffer(this.rootRegion.regionForDocument().getText());
 		
+		// formatIfPossible(rootContainer);
+		
+		if (this.allText == null) {
+			this.allText = new StringBuffer(this.rootRegion.regionForDocument().getText());
+		}
+
 		final EObject element = getSemanticElement();
-		
+
 		if (element != null) {
 			this.semanticElementLocation = new SemanticElementLocation(element);
 			this.semanticRegion = this.rootRegion.regionForEObject(element);
-			
+
 			if (getEditableFeatures().isEmpty()) {
 				this.textRegion = new TextRegion(this.semanticRegion.getOffset(), this.semanticRegion.getLength());
 			} else {
 				this.definedFeatures = resolveDefinedFeatures(element);
-				
+
 				if (!this.definedFeatures.isEmpty()) {
 					this.textRegion = calculateRegionForFeatures(element);
 				} else {
@@ -421,16 +439,18 @@ public class ModelRegionEditorPreparer {
 			this.textRegion = new RequiredGrammarTerminalsPresentEnsurer(getParent(), getSemanticElementFeature(),
 					this.rootRegion, this.allText).ensure();
 		}
-		
+
 		this.textRegion = StyledTextUtil.getInstance().insertNewline(this.allText, this.textRegion);
-		
+
 		StyledTextUtil.getInstance().removeNewlinesIfSingleLine(this.allText, this.textRegion, isMultiLine());
-		
+
 		this.prepared = true;
 	}
-	
+
 	protected void formatIfPossible(final EObject rootContainer) {
-		if (this.requestProvider != null && this.formatterProvider != null) {
+		if (this.requestProvider != null && this.formatterProvider != null && this.xtextResourceFactory != null
+				&& this.textRegionBuilderProvider != null && this.parentSemanticElement.eResource() != null) {
+			this.allText = new StringBuffer();
 			final FormatterRequest request = this.requestProvider.get();
 			request.setAllowIdentityEdits(false);
 			request.setFormatUndefinedHiddenRegionsOnly(false);
@@ -442,10 +462,18 @@ public class ModelRegionEditorPreparer {
 			request.setExceptionHandler(ExceptionAcceptor.IGNORING);
 			final IFormatter2 formatter = this.formatterProvider.get();
 			final List<ITextReplacement> replacements = formatter.format(request);
-			this.rootRegion.getRewriter().renderToString(replacements);
+			try {
+				this.rootRegion.getRewriter().renderToAppendable(replacements, this.allText);
+				final XtextResource resource = (XtextResource) this.xtextResourceFactory
+						.createResource(this.parentSemanticElement.eResource().getURI());
+				resource.load(new StringInputStream(this.allText.toString()), Collections.emptyMap());
+				this.rootRegion = this.textRegionBuilderProvider.get().forNodeModel(resource).create();
+			} catch (final IOException e) {
+				this.allText = null;
+			}
 		}
 	}
-	
+
 	/**
 	 * Mimics the URI fragment scheme used by Xtext.
 	 */
@@ -455,8 +483,8 @@ public class ModelRegionEditorPreparer {
 		final String fragment = parentFragment + "/@" + feature.getName() + (feature.isMany() ? ".0" : "");
 		return new SemanticElementLocation(fragment, parentFragment, feature, 0);
 	}
-	
-	
+
+
 	/**
 	 * Calculates the TextRegion spanning all <i>definedFeatures</i> of
 	 * {@code semanticElement}, including attached terminals.
@@ -465,18 +493,18 @@ public class ModelRegionEditorPreparer {
 		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(this.definedFeatures,
 				this.semanticRegion,
 				semanticElement, this.rootRegion);
-		
+
 		ISemanticRegion firstRegion = SemanticRegionNavigator.getInstance().selectFirstmostRegion(featureRegions);
 		firstRegion = extendByAttachedTerminals(semanticElement, firstRegion, (r -> r.getPreviousSemanticRegion()));
 		final int startOffset = firstRegion.getOffset();
-		
+
 		ISemanticRegion endRegion = SemanticRegionNavigator.getInstance().selectLastmostRegion(featureRegions);
 		endRegion = extendByAttachedTerminals(semanticElement, endRegion, (r -> r.getNextSemanticRegion()));
 		final int endOffset = endRegion.getEndOffset();
-		
+
 		return new TextRegion(startOffset, endOffset - startOffset);
 	}
-
+	
 	/**
 	 * Returns the SemanticRegion of existing terminals that are attached to the
 	 * semantic contents of {@code endRegion}, if any; otherwise, returns
@@ -486,31 +514,31 @@ public class ModelRegionEditorPreparer {
 			final Function<ISemanticRegion, ISemanticRegion> extender) {
 		// this logic is really only trial&error, don't try to find a deeper
 		// meaning
-		
+
 		final ISemanticRegion nextSemanticRegion = extender.apply(endRegion);
 		if (nextSemanticRegion != null && nextSemanticRegion.getGrammarElement() instanceof Keyword) {
-			
+
 			ISemanticRegion ongoingSemanticRegion = nextSemanticRegion;
 			for (;;) {
 				final ISemanticRegion next = extender.apply(ongoingSemanticRegion);
 				if (next == null) {
 					break;
 				}
-
-				ongoingSemanticRegion = next;
 				
+				ongoingSemanticRegion = next;
+
 				if (!(next.getGrammarElement() instanceof Keyword)) {
 					break;
 				}
 			}
-			
+
 			if (ongoingSemanticRegion != null) {
 				final Group group = GrammarUtil.containingGroup(nextSemanticRegion.getGrammarElement());
-				
+
 				if (group != null) {
-					
+
 					final ParentMap parentMap = new ParentMap(group, group);
-					
+
 					if (!parentMap.containsGrammarElementDeep(
 							(AbstractElement) ongoingSemanticRegion.getGrammarElement(),
 							ImmutableList.of(group))) {
@@ -521,7 +549,7 @@ public class ModelRegionEditorPreparer {
 		}
 		return endRegion;
 	}
-	
+
 	/**
 	 * Collects all <i>editableFeatures</i> that are set for
 	 * {@code semanticElement}.
@@ -533,7 +561,7 @@ public class ModelRegionEditorPreparer {
 				.collect(Collectors.toSet());
 		return definedFeatures;
 	}
-	
+
 	/**
 	 * Collects all SemanticRegions covering {@code features} within
 	 * {@code semanticElement} / {@code semanticRegion}.
@@ -558,7 +586,7 @@ public class ModelRegionEditorPreparer {
 				})
 				.collect(Collectors.toSet());
 	}
-	
+
 	/**
 	 * Inverted version of
 	 * {@link org.eclipse.xtext.formatting2.regionaccess.internal.AbstractSemanticRegionsFinder#assertNoContainment(EStructuralFeature)}
@@ -568,7 +596,7 @@ public class ModelRegionEditorPreparer {
 		return feature instanceof EAttribute
 				|| (feature instanceof EReference && !((EReference) feature).isContainment());
 	}
-	
+
 	/**
 	 * Converts all <i>editableFeatures</i> (defined as string) into
 	 * {@link EStructuralFeature}s, iff defined for
@@ -577,34 +605,34 @@ public class ModelRegionEditorPreparer {
 	protected @NonNull Set<@NonNull EStructuralFeature> resolveEditableFeatures(
 			final @NonNull EObject semanticElement) {
 		final EClass eClass = semanticElement.eClass();
-		
+
 		return getEditableFeatures().stream()
 				.map(ef -> StringUtils.substringAfterLast(ef, "."))
 				.map(ef -> eClass.getEStructuralFeature(ef))
 				.filter(Objects::nonNull)
 				.collect(Collectors.toSet());
 	}
-	
+
 	protected EObject getSemanticElement() {
 		return this.semanticElement;
 	}
-	
+
 	protected boolean isMultiLine() {
 		return this.multiLine;
 	}
-	
+
 	protected EObject getParent() {
 		return this.parentSemanticElement;
 	}
-	
+
 	protected @NonNull Set<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}
-	
+
 	protected EStructuralFeature getSemanticElementFeature() {
 		return this.semanticElementFeature;
 	}
-	
+
 	protected Serializer getSerializer() {
 		return (Serializer) this.serializer;
 	}

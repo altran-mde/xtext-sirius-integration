@@ -63,7 +63,7 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 		this.semanticElement = element;
 	}
 
-	protected @Nullable EObject getSemanticElement() {
+	public @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
 
