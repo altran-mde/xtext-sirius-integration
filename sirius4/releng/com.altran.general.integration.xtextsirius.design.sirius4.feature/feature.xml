@@ -2,7 +2,7 @@
 <feature
       id="com.altran.general.integration.xtextsirius.design.sirius4.feature"
       label="Xtext / Sirius Integration Feature for Sirius 4.x / Eclipse Mars"
-      version="0.7.3.qualifier">
+      version="0.7.4.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -124,7 +124,7 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-   
+
    <plugin
          id="com.altran.general.integration.xtextsirius.model.xtext"
          download-size="0"
@@ -138,41 +138,5 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
-   <!--
-   <plugin
-         id="com.altran.general.integration.xtextsirius.runtime"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.converter"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.editpart.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.runtime.eef.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-   -->
 
 </feature>
