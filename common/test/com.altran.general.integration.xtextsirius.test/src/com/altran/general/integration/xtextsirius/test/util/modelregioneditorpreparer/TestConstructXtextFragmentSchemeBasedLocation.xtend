@@ -16,7 +16,7 @@ class TestConstructXtextFragmentSchemeBasedLocation extends AModelRegionEditorPr
 		
 		val orgUri = EcoreUtil.getURI(guard)
 		
-		val preparer = new AccessibleModelRegionEditorPreparer(null, event, injector, true, emptyList, statemachinePackage.event_Guard)
+		val preparer = new AccessibleModelRegionEditorPreparer(null, event, injector, true, emptySet, statemachinePackage.event_Guard)
 		
 		val location = preparer.constructXtextFragmentSchemeBasedLocation()
 		
@@ -31,7 +31,7 @@ class TestConstructXtextFragmentSchemeBasedLocation extends AModelRegionEditorPr
 		
 		val orgUri = EcoreUtil.getURI(event)
 		
-		val preparer = new AccessibleModelRegionEditorPreparer(null, model, injector, true, emptyList, statemachinePackage.statemachine_Events)
+		val preparer = new AccessibleModelRegionEditorPreparer(null, model, injector, true, emptySet, statemachinePackage.statemachine_Events)
 		
 		val location = preparer.constructXtextFragmentSchemeBasedLocation()
 		

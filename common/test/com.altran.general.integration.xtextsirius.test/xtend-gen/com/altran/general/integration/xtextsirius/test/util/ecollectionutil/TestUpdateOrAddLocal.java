@@ -9,6 +9,7 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.ConstantRef;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -25,7 +26,7 @@ public class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
     final Event fakeEvent = fakeModel.getEvents().get(3);
     final Constant fakeConst = AXtextTest.<Constant>findFirstTargetOfType(fakeEvent, Constant.class);
     final int eventCount = model.getEvents().size();
-    final Event replacement = ECollectionUtil.getInstance().<Event>updateOrAddLocal(model.getEvents(), fakeEvent, null);
+    final Event replacement = ECollectionUtil.getInstance().<Event>updateOrAddLocal(model.getEvents(), fakeEvent, CollectionLiterals.<String>emptySet(), null);
     Assert.assertSame(orgEvent, replacement);
     Assert.assertEquals(eventCount, model.getEvents().size());
     final Event replacedEvent = model.getEvents().get(3);
@@ -61,7 +62,7 @@ public class TestUpdateOrAddLocal extends AFowlerdslDefaultModelTest {
     EList<Event> _events = fakeModel.getEvents();
     _events.add(fakeEvent);
     final int eventCount = model.getEvents().size();
-    final Event replacement = ECollectionUtil.getInstance().<Event>updateOrAddLocal(model.getEvents(), fakeEvent, null);
+    final Event replacement = ECollectionUtil.getInstance().<Event>updateOrAddLocal(model.getEvents(), fakeEvent, CollectionLiterals.<String>emptySet(), null);
     Assert.assertNull(replacement);
     Assert.assertNotEquals(eventCount, model.getEvents().size());
     final Event replacedEvent = IterableExtensions.<Event>last(model.getEvents());

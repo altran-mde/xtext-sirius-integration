@@ -5,7 +5,7 @@ import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpre
 import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
 import com.google.inject.Injector;
 import java.util.Collections;
-import java.util.List;
+import java.util.Set;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
@@ -39,8 +39,8 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptyList);
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptySet);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -88,8 +88,8 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptyList);
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptySet);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -145,8 +145,8 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptyList);
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptySet);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -203,7 +203,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -251,7 +251,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -299,7 +299,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -347,7 +347,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -395,7 +395,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -443,7 +443,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -492,7 +492,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -540,7 +540,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code", "Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -588,7 +588,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -638,7 +638,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
     EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(null, event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.guard")), _event_Guard);
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(null, event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")), _event_Guard);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -708,8 +708,8 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, false, _emptySet);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -780,7 +780,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -849,8 +849,8 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptyList);
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, _emptySet);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -928,7 +928,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(event, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -1010,7 +1010,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final State state = model.getStates().get(0);
     final Transition transition = state.getTransitions().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(transition, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.event", "Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(transition, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -1115,7 +1115,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final State state = model.getStates().get(0);
     final Transition transition = state.getTransitions().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(transition, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.event", "Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(transition, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -1206,7 +1206,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.code", "Event.name")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -1276,7 +1276,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.code", "Event.name")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -1347,7 +1347,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(2);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.guard", "Event.name")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard", "name")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -1417,7 +1417,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(1);
     Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.guard")));
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(cmd, _injector, true, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")));
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();

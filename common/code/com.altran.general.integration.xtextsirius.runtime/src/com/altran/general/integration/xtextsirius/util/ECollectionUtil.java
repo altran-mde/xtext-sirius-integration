@@ -101,16 +101,19 @@ public class ECollectionUtil {
 	public <@Nullable T extends EObject> T updateOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element,
+			final @NonNull Collection<String> featuresToReplace,
 			final @Nullable URI originalUri) {
 		return processOrAddLocal(collection, element, originalUri, (existing, newElement) -> {
 			if (existing != null && newElement != null) {
 				for (final EStructuralFeature feature : newElement.eClass().getEAllStructuralFeatures()) {
 					if (feature.isChangeable()) {
-						if (newElement.eIsSet(feature)) {
-							final Object newValue = newElement.eGet(feature, false);
-							existing.eSet(feature, newValue);
-						} else {
-							existing.eUnset(feature);
+						if (featuresToReplace.isEmpty() || featuresToReplace.contains(feature.getName())) {
+							if (newElement.eIsSet(feature)) {
+								final Object newValue = newElement.eGet(feature, false);
+								existing.eSet(feature, newValue);
+							} else {
+								existing.eUnset(feature);
+							}
 						}
 					}
 				}

@@ -1,5 +1,8 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
 
+import java.util.Collections;
+import java.util.Set;
+
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -26,6 +29,8 @@ import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.task.ReplaceValueParameter;
 import com.altran.general.integration.xtextsirius.runtime.task.ReplaceValueTask;
 
@@ -83,11 +88,17 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 			
 			final Object newValue = cellEditor.getValueToCommit();
 			
+			AXtextSiriusDescriptor descriptor = cellEditor.getDescriptor();
+			Set<String> editableFeatures = Collections.emptySet();
+			if (descriptor instanceof XtextSiriusModelDescriptor) {
+				editableFeatures = ((XtextSiriusModelDescriptor) descriptor).getEditableFeatures();
+			}
+			
 			EObject semanticElement = cellEditor.getSemanticElement();
 			URI originalUri = semanticElement != null ? EcoreUtil.getURI(semanticElement) : null;
 			
 			final ReplaceValueParameter result = new ReplaceValueParameter(target, feature, newValue,
-					representationElement, originalUri);
+					representationElement, editableFeatures, originalUri);
 
 			return result;
 		}

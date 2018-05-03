@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.runtime.eef.ui.model;
 
-import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.eef.common.ui.api.IEEFFormContainer;
@@ -22,7 +23,7 @@ import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycleManager {
-	private final Collection<@NonNull String> editableFeatures;
+	private final Set<@NonNull String> editableFeatures;
 	
 	public XtextSiriusEefLifecycleManagerModel(
 			final @NonNull Injector injector,
@@ -31,7 +32,10 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			final @NonNull IInterpreter interpreter,
 			final @NonNull EditingContextAdapter contextAdapter) {
 		super(injector, controlDescription, variableManager, interpreter, contextAdapter);
-		this.editableFeatures = controlDescription.getEditableFeatures();
+		this.editableFeatures = controlDescription.getEditableFeatures().stream()
+				.filter(StringUtils::isNotBlank)
+				.map(e -> StringUtils.substringAfterLast(e, "."))
+				.collect(Collectors.toSet());
 	}
 	
 	@Override
@@ -87,7 +91,7 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 		
 	}
 	
-	private @NonNull Collection<@NonNull String> getEditableFeatures() {
+	private @NonNull Set<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}
 	

@@ -19,7 +19,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, emptyList)
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, emptySet)
 
 		assertEquals('''
 			events
@@ -50,7 +50,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, emptyList)
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, emptySet)
 
 		assertEquals('''
 			events
@@ -85,7 +85,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, emptyList)
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, emptySet)
 
 		assertEquals('''
 			events
@@ -121,7 +121,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name"})
 
 		assertEquals('''
 			events
@@ -152,7 +152,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name"})
 
 		assertEquals('''
 			events
@@ -183,7 +183,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name", "Event.code"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name", "code"})
 
 		assertEquals('''
 			events
@@ -214,7 +214,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name", "Event.code"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name", "code"})
 
 		assertEquals('''
 			events
@@ -245,7 +245,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name", "Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name", "guard"})
 
 		assertEquals('''
 			events
@@ -276,7 +276,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name", "Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name", "guard"})
 
 		assertEquals('''
 			events
@@ -308,7 +308,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name", "Event.code"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name", "code"})
 
 		assertEquals('''
 			events
@@ -339,7 +339,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name", "Event.code", "Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name", "code", "guard"})
 
 		assertEquals('''
 			events
@@ -370,7 +370,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"guard"})
 
 		assertEquals('''
 			events
@@ -401,7 +401,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(null, event, injector, true, #["Event.guard"], statemachinePackage.event_Guard)
+		val preparer = new ModelRegionEditorPreparer(null, event, injector, true, #{"guard"}, statemachinePackage.event_Guard)
 
 		assertEquals('''
 			events
@@ -441,7 +441,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, false, emptyList)
+		val preparer = new ModelRegionEditorPreparer(event, injector, false, emptySet)
 
 		assertEquals('''
 			events
@@ -482,7 +482,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, false, #["Event.name", "Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, false, #{"name", "guard"})
 
 		assertEquals('''
 			events
@@ -523,7 +523,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, emptyList)
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, emptySet)
 
 		assertEquals('''
 			events
@@ -567,7 +567,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(event, injector, true, #["Event.name", "Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(event, injector, true, #{"name", "guard"})
 
 		assertEquals('''
 			events
@@ -615,7 +615,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 		val state = model.states.get(0)
 		val transition = state.transitions.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(transition, injector, true, #["Event.event", "Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(transition, injector, true, #{"event", "guard"})
 
 		assertEquals('''
 			events
@@ -675,7 +675,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 		val state = model.states.get(0)
 		val transition = state.transitions.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(transition, injector, true, #["Event.event", "Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(transition, injector, true, #{"event", "guard"})
 
 		assertEquals('''
 			events
@@ -727,7 +727,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #["Event.code", "Event.name"])
+		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #{"code", "name"})
 
 		assertEquals('''
 			commands
@@ -768,7 +768,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #["Event.code", "Event.name"])
+		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #{"code", "name"})
 
 		assertEquals('''
 			commands
@@ -809,7 +809,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(2)
 
-		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #["Event.guard", "Event.name"])
+		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #{"guard", "name"})
 
 		assertEquals('''
 			commands
@@ -850,7 +850,7 @@ class TestApiMultiEntries extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(1)
 
-		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #["Event.guard"])
+		val preparer = new ModelRegionEditorPreparer(cmd, injector, true, #{"guard"})
 
 		assertEquals('''
 			commands

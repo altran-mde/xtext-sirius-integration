@@ -1,7 +1,6 @@
 package com.altran.general.integration.xtextsirius.util;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -10,7 +9,6 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -43,7 +41,6 @@ import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Sets;
 import com.google.common.collect.patch.Streams;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -317,7 +314,7 @@ public class ModelRegionEditorPreparer {
 			final @NonNull EObject semanticElement,
 			final @NonNull Injector injector,
 			final boolean multiLine,
-			final @NonNull Collection<@NonNull String> editableFeatures) {
+			final @NonNull Set<@NonNull String> editableFeatures) {
 		this(semanticElement, semanticElement.eContainer(), injector, multiLine, editableFeatures,
 				semanticElement.eContainingFeature());
 	}
@@ -346,12 +343,12 @@ public class ModelRegionEditorPreparer {
 			final @NonNull EObject parentSemanticElement,
 			final @NonNull Injector injector,
 			final boolean multiLine,
-			final @NonNull Collection<@NonNull String> editableFeatures,
+			final @NonNull Set<@NonNull String> editableFeatures,
 			final @NonNull EStructuralFeature semanticElementFeature) {
 		this.semanticElement = semanticElement;
 		this.parentSemanticElement = parentSemanticElement;
 		this.multiLine = multiLine;
-		this.editableFeatures = Sets.newLinkedHashSet(editableFeatures);
+		this.editableFeatures = editableFeatures;
 		this.semanticElementFeature = semanticElementFeature;
 
 		injector.injectMembers(this);
@@ -607,7 +604,6 @@ public class ModelRegionEditorPreparer {
 		final EClass eClass = semanticElement.eClass();
 
 		return getEditableFeatures().stream()
-				.map(ef -> StringUtils.substringAfterLast(ef, "."))
 				.map(ef -> eClass.getEStructuralFeature(ef))
 				.filter(Objects::nonNull)
 				.collect(Collectors.toSet());

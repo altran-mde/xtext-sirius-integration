@@ -4,7 +4,7 @@ import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTes
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import com.google.inject.Injector;
-import java.util.List;
+import java.util.Set;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
@@ -19,9 +19,9 @@ public class TestPrepare extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
     EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, event, _injector, true, _emptyList, _event_Guard);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, event, _injector, true, _emptySet, _event_Guard);
     Assert.assertFalse(preparer.isPrepared());
     preparer.prepare();
     Assert.assertTrue(preparer.isPrepared());

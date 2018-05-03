@@ -6,7 +6,7 @@ import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpre
 import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
 import com.google.inject.Injector;
 import java.lang.reflect.Field;
-import java.util.List;
+import java.util.Set;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -27,9 +27,9 @@ public class TestConstructXtextFragmentSchemeBasedLocation extends AModelRegionE
     final Guard guard = event.getGuard();
     final URI orgUri = EcoreUtil.getURI(guard);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
     EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, event, _injector, true, _emptyList, _event_Guard);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, event, _injector, true, _emptySet, _event_Guard);
     final SemanticElementLocation location = preparer.constructXtextFragmentSchemeBasedLocation();
     Assert.assertEquals(orgUri.fragment(), this.extractUriFragment(location));
   }
@@ -40,9 +40,9 @@ public class TestConstructXtextFragmentSchemeBasedLocation extends AModelRegionE
     final Event event = model.getEvents().get(0);
     final URI orgUri = EcoreUtil.getURI(event);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
     EReference _statemachine_Events = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getStatemachine_Events();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, model, _injector, true, _emptyList, _statemachine_Events);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, model, _injector, true, _emptySet, _statemachine_Events);
     final SemanticElementLocation location = preparer.constructXtextFragmentSchemeBasedLocation();
     Assert.assertEquals(orgUri.fragment(), this.extractUriFragment(location));
   }

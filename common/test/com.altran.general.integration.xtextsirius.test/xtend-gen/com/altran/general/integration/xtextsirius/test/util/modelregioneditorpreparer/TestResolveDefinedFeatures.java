@@ -4,7 +4,6 @@ import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpre
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import com.google.inject.Injector;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
@@ -20,8 +19,8 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    List<String> _emptyList = CollectionLiterals.<String>emptyList();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptyList);
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet);
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
     Assert.assertEquals(0, resolved.size());
   }
@@ -31,7 +30,7 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.guard")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
     Assert.assertEquals(resolved.toString(), 1, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
@@ -42,7 +41,7 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code", "Event.guard")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")));
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
     Assert.assertEquals(resolved.toString(), 2, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
@@ -54,7 +53,7 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("Event.name", "Event.code", "Event.guard")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")));
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
     Assert.assertEquals(resolved.toString(), 3, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
