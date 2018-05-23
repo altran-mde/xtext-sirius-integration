@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Xtext / Sirius Integration Abstract VSP Extension Edit
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.model.xtext.edit;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.8.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provider.XtextsiriusEditPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: Altran
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provider

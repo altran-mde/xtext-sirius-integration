@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Edit
+Bundle-Name: Xtext / Sirius Integration VSP Properties Extension Edit
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.model.properties.edit
-Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: ALTRAN
+Bundle-Version: 0.8.0.qualifier
+Bundle-Vendor: Altran
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: com.altran.general.integration.xtextsirius.model.properties.sirius4.edit;resolution:=optional;visibility:=reexport,
  com.altran.general.integration.xtextsirius.model.properties.sirius5.edit;resolution:=optional;visibility:=reexport

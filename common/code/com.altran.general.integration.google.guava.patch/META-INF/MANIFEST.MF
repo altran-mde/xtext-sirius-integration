@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Patch
+Bundle-Name: Partial Backport of com.google.common.collect.Streams from v21
 Bundle-SymbolicName: com.altran.general.integration.google.guava.patch
 Bundle-Version: 16.0.0.qualifier
 Bundle-Vendor: Altran / Google

@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Ui
+Bundle-Name: Xtext / Sirius Integration VSP Converter Extension for Sirius 4.x / Eclipse Mars
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.8.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.converter.sirius4.ui.internal.XtextSiriusRuntimeConverterSirius4UiPlugin
 Bundle-Vendor: Altran
 Require-Bundle: org.eclipse.ui,
