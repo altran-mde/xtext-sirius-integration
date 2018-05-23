@@ -17,6 +17,7 @@ import org.eclipse.sirius.diagram.description.tool.ToolPackage;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIServices;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
+import org.eclipse.sirius.ui.business.api.dialect.ExportResult;
 import org.eclipse.sirius.ui.tools.api.actions.export.SizeTooLargeException;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
@@ -117,6 +118,12 @@ public class XtextDialectUiServices implements DialectUIServices {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public ExportResult exportWithResult(DRepresentation representation, Session session, IPath path,
+			ExportFormat format, IProgressMonitor monitor) throws SizeTooLargeException {
+		throw new UnsupportedOperationException();
+	}
+	
 	@Override
 	public AdapterFactory createAdapterFactory() {
 		return new ComposedAdapterFactory();

@@ -2,7 +2,7 @@
 <feature
       id="com.altran.general.integration.xtextsirius.design.feature"
       label="Xtext / Sirius Integration Feature"
-      version="0.8.0.qualifier"
+      version="0.8.2.qualifier"
       provider-name="Altran">
 
    <description url="http://www.example.com/description">
