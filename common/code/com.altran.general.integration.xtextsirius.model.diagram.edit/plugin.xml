@@ -7,7 +7,7 @@
 <plugin>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated diagram-xtext -->
+      <!-- @generated diagramxtext -->
       <factory
             uri="http://altran.com/general/integration/xtextsirius/model/diagram/1.0"
             class="com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider.DiagramxtextItemProviderAdapterFactory"
@@ -20,7 +20,7 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
-      <!-- @generated diagram-xtext -->
+      <!-- @generated diagramxtext -->
       <extender
             uri="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0"
             class="com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider.DiagramxtextItemProviderAdapterFactory$ToolChildCreationExtender"/>

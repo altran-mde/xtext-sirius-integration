@@ -6,9 +6,8 @@
 
 <plugin>
 
-
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated properties-xtext -->
+      <!-- @generated propertiesxtext -->
       <factory
             uri="http://altran.com/general/integration/xtextsirius/model/properties/1.0"
             class="com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.provider.PropertiesxtextItemProviderAdapterFactory"
@@ -21,7 +20,7 @@
    </extension>
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
-      <!-- @generated properties-xtext -->
+      <!-- @generated propertiesxtext -->
       <extender
             uri="http://www.eclipse.org/sirius/properties/1.0.0"
             class="com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.provider.PropertiesxtextItemProviderAdapterFactory$PropertiesChildCreationExtender"/>

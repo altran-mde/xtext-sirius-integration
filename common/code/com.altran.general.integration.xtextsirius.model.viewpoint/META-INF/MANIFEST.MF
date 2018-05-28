@@ -1,18 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Xtext / Sirius Integration Viewpoint Extension
+Bundle-Name: %pluginName
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.model.viewpoint;singleton:=true
 Bundle-Version: 0.8.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: Altran
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext,
  com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl,
  com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.emf.ecore.xcore.lib,
  org.eclipse.sirius;visibility:=reexport,
  com.altran.general.integration.xtextsirius.model.xtext;visibility:=reexport,
  com.altran.general.integration.xtextsirius.model.diagram;visibility:=reexport,

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="viewpointxtext" nsURI="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0"
+    nsPrefix="viewpoint-xtext">
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextEdgeLabelDirectEditDescription"
+      abstract="true" interface="true" eSuperTypes="../../com.altran.general.integration.xtextsirius.model.xtext/model/xtextsirius.ecore#//IXtextDirectEditDescription">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edgeLabelMappings" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.sirius/model/viewpoint.ecore#//description/style/BasicLabelStyleDescription"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XtextEdgeLabelDirectEditModelDescription"
+      eSuperTypes="../../com.altran.general.integration.xtextsirius.model.diagram/model/diagramxtext.ecore#//XtextDirectEditModelDescription #//IXtextEdgeLabelDirectEditDescription"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XtextEdgeLabelDirectEditValueDescription"
+      eSuperTypes="../../com.altran.general.integration.xtextsirius.model.diagram/model/diagramxtext.ecore#//XtextDirectEditValueDescription #//IXtextEdgeLabelDirectEditDescription"/>
+</ecore:EPackage>

@@ -7,11 +7,11 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated properties-xtext -->
+      <!-- @generated propertiesxtext -->
       <package
             uri="http://altran.com/general/integration/xtextsirius/model/properties/1.0"
             class="com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage"
-            genModel="model/properties-xtext.xcore"/>
+            genModel="model/propertiesxtext.genmodel"/>
    </extension>
 
 </plugin>

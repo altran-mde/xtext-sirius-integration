@@ -2,7 +2,7 @@
 <feature
       id="com.altran.general.integration.xtextsirius.design.feature"
       label="Xtext / Sirius Integration Feature"
-      version="0.8.2.qualifier"
+      version="0.8.3.qualifier"
       provider-name="Altran">
 
    <description url="http://www.example.com/description">
@@ -123,6 +123,20 @@
 
    <plugin
          id="com.altran.general.integration.google.guava.patch"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.properties.sirius5"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.properties.sirius5.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
