@@ -18,9 +18,9 @@ public class AccessibleParentMap extends ParentMap {
 		this.map.clear();
 		this.map.putAll(initialMap);
 	}
-
+	
 	public @NonNull Multimap<@NonNull AbstractElement, @NonNull AbstractElement> getMap() {
 		return this.map;
 	}
-
+	
 }

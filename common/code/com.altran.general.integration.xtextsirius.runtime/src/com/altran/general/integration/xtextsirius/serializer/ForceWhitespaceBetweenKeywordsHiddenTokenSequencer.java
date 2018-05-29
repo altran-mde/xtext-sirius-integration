@@ -8,7 +8,7 @@ import org.eclipse.xtext.serializer.sequencer.HiddenTokenSequencer;
 /**
  * Workaround for
  * <a href="https://github.com/eclipse/xtext-core/issues/464">Xtext bug 464</a>.
- * 
+ *
  * @author nstotz
  *
  */
@@ -22,5 +22,5 @@ public class ForceWhitespaceBetweenKeywordsHiddenTokenSequencer extends HiddenTo
 			this.delegate.acceptWhitespace(this.hiddenTokenHelper.getWhitespaceRuleFor(null, ""), "", null);
 		}
 	}
-
+	
 }

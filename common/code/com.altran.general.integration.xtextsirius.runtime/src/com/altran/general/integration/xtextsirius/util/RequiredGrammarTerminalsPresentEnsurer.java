@@ -39,10 +39,10 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	
 	private final EObject element;
 	private final EStructuralFeature feature;
-
+	
 	protected ITextRegionAccess rootRegion;
 	protected StringBuffer allText;
-
+	
 	protected IEObjectRegion elementRegion;
 	protected AbstractElement grammarElement;
 	protected List<@NonNull AbstractElement> containedElementPath;
@@ -62,7 +62,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		this.rootRegion = rootRegion;
 		this.allText = allText;
 	}
-
+	
 	public @NonNull TextRegion ensure() {
 		validate();
 		
@@ -78,7 +78,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	protected TextRegion prepareTextRegion(final int offset) {
 		final String beforeText = collectToTerminalText(this.elementsBefore);
 		final String afterText = collectToTerminalText(this.elementsAfter);
-
+		
 		this.allText.insert(offset, afterText);
 		this.allText.insert(offset, beforeText);
 		
@@ -114,14 +114,14 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 			final @NonNull Set<@NonNull ISemanticRegion> regionsOfContainedElements,
 			final @NonNull List<@NonNull AbstractElement> ruleLeafs,
 			final int indexOfContainedElementLeaf) {
-
+		
 		int offset;
 		final Set<Pair<AbstractElement, ISemanticRegion>> regionsBefore = regionsOfContainedElements.stream()
 				.filter(r -> !this.parentMap.containsGrammarElementDeep((AbstractElement) r.getGrammarElement(),
 						this.elementsAfter))
 				.map(r -> Tuples.pair(findFirstLeaf((AbstractElement) r.getGrammarElement(), ruleLeafs), r))
 				.collect(Collectors.toSet());
-
+		
 		final Set<@NonNull ISemanticRegion> regions = regionsBefore.stream()
 				.map(p -> p.getSecond())
 				.collect(Collectors.toSet());
@@ -143,7 +143,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 			final @NonNull Set<@NonNull ISemanticRegion> regionsOfContainedElements,
 			final @NonNull List<@NonNull AbstractElement> ruleLeafs,
 			final int indexOfContainedElementLeaf) {
-
+		
 		int offset;
 		final ISemanticRegion nearestRegion = regionsOfContainedElements.iterator().next();
 		final AbstractElement firstLeaf = findFirstLeaf((AbstractElement) nearestRegion.getGrammarElement(), ruleLeafs);
@@ -167,9 +167,9 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	protected void collectBeforeAndAfter() {
 		this.elementsBefore = Lists.newArrayList();
 		this.elementsAfter = Lists.newArrayList();
-
+		
 		List<AbstractElement> currentList = this.elementsBefore;
-
+		
 		for (final AbstractElement ae : this.containingGroup.getElements()) {
 			if (ae == this.containedElement
 					|| EcoreUtil2.eAllContentsAsList(ae).contains(this.containedElement)) {
@@ -210,7 +210,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 					+ this.feature + " in " + this.element);
 		}
 	}
-
+	
 	/**
 	 * Finds the path through grammar from {@code abstractElement} to an
 	 * Assignment to {@code feature}.
@@ -218,7 +218,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	protected @NonNull List<@NonNull AbstractElement> findContainedElementPath(
 			final @NonNull AbstractElement abstractElement,
 			final @NonNull EStructuralFeature feature) {
-
+		
 		if (abstractElement instanceof Assignment) {
 			if (feature.getName().equals(((Assignment) abstractElement).getFeature())) {
 				return Collections.singletonList(abstractElement);
@@ -295,12 +295,12 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	 */
 	protected @NonNull List<@NonNull AbstractElement> orderRuleLeafs(final @NonNull AbstractRule rule) {
 		final ArrayList<@NonNull AbstractElement> result = Lists.newArrayList();
-
+		
 		orderGrammar(rule.getAlternatives(), result);
-
+		
 		return result;
 	}
-
+	
 	protected void orderGrammar(final @NonNull AbstractElement el, final @NonNull List<@NonNull AbstractElement> list) {
 		final EList<EObject> contents = el.eContents();
 		if (contents.isEmpty()) {
@@ -327,7 +327,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		
 		return firstLeaf;
 	}
-
+	
 	/**
 	 * Extracts a valid whitespace character from the grammar.
 	 */

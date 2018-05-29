@@ -12,19 +12,19 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor
 
 public class XtextSiriusBracketEdgeEditPart extends BracketEdgeEditPart implements IXtextSiriusAwareLabelEditPart {
 	private final @NonNull AXtextSiriusDescriptor descriptor;
-
+	
 	public XtextSiriusBracketEdgeEditPart(final @NonNull View view, final @NonNull AXtextSiriusDescriptor descriptor) {
 		super(view);
 		this.descriptor = descriptor;
 	}
-
+	
 	@Override
 	public String getEditText() {
 		return EditPartHelper.getInstance().getEditText(this);
 	}
-
+	
 	@Override
-	public void setLabelText(String newText) {
+	public void setLabelText(final String newText) {
 		EditPartHelper.getInstance().setLabelText(this, newText);
 	}
 	
@@ -32,18 +32,18 @@ public class XtextSiriusBracketEdgeEditPart extends BracketEdgeEditPart implemen
 	public DragTracker getDragTracker(final Request request) {
 		return EditPartHelper.getInstance().getDragTracker(this, request);
 	}
-
+	
 	@Override
 	public void performDirectEditRequest(final Request request) {
 		EditPartHelper.getInstance().performDirectEditRequest(this, request);
 	}
-
+	
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		EditPartHelper.getInstance().createDefaultEditPolicies(this);
 	}
-
+	
 	@Override
 	public @NonNull AXtextSiriusDescriptor getDescriptor() {
 		return this.descriptor;

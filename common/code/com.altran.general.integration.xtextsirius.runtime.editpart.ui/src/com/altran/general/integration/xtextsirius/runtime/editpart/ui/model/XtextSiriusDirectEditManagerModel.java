@@ -8,17 +8,17 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriu
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 
 public class XtextSiriusDirectEditManagerModel extends XtextSiriusDirectEditManager {
-
+	
 	public XtextSiriusDirectEditManagerModel(final @NonNull IXtextAwareEditPart editPart,
 			final @NonNull XtextSiriusModelDescriptor descriptor) {
 		super(editPart, descriptor);
 	}
-
+	
 	@Override
 	protected AXtextSiriusStyledTextCellEditor createCellEditor() {
 		return new XtextSiriusStyledTextCellEditorModel(getDescriptor());
 	}
-
+	
 	@Override
 	public @NonNull XtextSiriusModelDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusModelDescriptor) super.getDescriptor();

@@ -19,5 +19,5 @@ public class XtextDialectUi implements DialectUI {
 		}
 		return this.services;
 	}
-
+	
 }

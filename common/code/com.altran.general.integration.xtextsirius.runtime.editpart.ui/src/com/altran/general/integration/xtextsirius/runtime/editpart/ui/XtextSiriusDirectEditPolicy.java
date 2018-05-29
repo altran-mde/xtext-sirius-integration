@@ -40,7 +40,7 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 		final String value = (String) request.getCellEditor().getValue();
 		((IXtextAwareEditPart) getHost()).setLabelText(value);
 	}
-
+	
 	@Override
 	protected Command getDirectEditCommand(final DirectEditRequest edit) {
 		final CellEditor cellEditor = edit.getCellEditor();
@@ -48,7 +48,7 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 		if (cellEditor.isDirty()) {
 			if (cellEditor instanceof AXtextSiriusStyledTextCellEditor) {
 				final DRepresentationElement representationElement = extractRepresentationElement();
-
+				
 				final ReplaceValueParameter replaceValueParameter = extractReplaceValueParameter(
 						(AXtextSiriusStyledTextCellEditor) cellEditor, representationElement);
 				
@@ -65,7 +65,7 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 				}
 			}
 		}
-
+		
 		return null;
 	}
 	
@@ -76,9 +76,9 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 		if (representationElement != null && setValue != null) {
 			EObject target = representationElement.getTarget();
 			final String featureName = setValue.getFeatureName();
-
+			
 			final EStructuralFeature feature;
-
+			
 			if (StringUtils.isNotBlank(featureName)) {
 				feature = target.eClass().getEStructuralFeature(featureName);
 			} else {
@@ -88,24 +88,24 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 			
 			final Object newValue = cellEditor.getValueToCommit();
 			
-			AXtextSiriusDescriptor descriptor = cellEditor.getDescriptor();
+			final AXtextSiriusDescriptor descriptor = cellEditor.getDescriptor();
 			Set<String> editableFeatures = Collections.emptySet();
 			if (descriptor instanceof XtextSiriusModelDescriptor) {
 				editableFeatures = ((XtextSiriusModelDescriptor) descriptor).getEditableFeatures();
 			}
 			
-			EObject semanticElement = cellEditor.getSemanticElement();
-			URI originalUri = semanticElement != null ? EcoreUtil.getURI(semanticElement) : null;
+			final EObject semanticElement = cellEditor.getSemanticElement();
+			final URI originalUri = semanticElement != null ? EcoreUtil.getURI(semanticElement) : null;
 			
 			final ReplaceValueParameter result = new ReplaceValueParameter(target, feature, newValue,
 					representationElement, editableFeatures, originalUri);
-
+			
 			return result;
 		}
 		
 		return null;
 	}
-
+	
 	private @Nullable DRepresentationElement extractRepresentationElement() {
 		final EditPart host = getHost();
 		if (host instanceof IXtextSiriusAwareLabelEditPart) {
@@ -117,10 +117,10 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 				}
 			}
 		}
-
+		
 		return null;
 	}
-
+	
 	private @Nullable SetValue extractSetValue(final @Nullable DRepresentationElement representationElement) {
 		if (representationElement != null) {
 			final RepresentationElementMapping mapping = representationElement.getMapping();
@@ -137,7 +137,7 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 				}
 			}
 		}
-
+		
 		return null;
 	}
 	

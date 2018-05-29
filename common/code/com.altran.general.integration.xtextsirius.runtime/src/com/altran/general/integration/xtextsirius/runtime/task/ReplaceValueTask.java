@@ -32,7 +32,7 @@ public class ReplaceValueTask extends AbstractCommandTask {
 		final EObject elementToEdit = this.parameter.getElementToEdit();
 		final EStructuralFeature feature = this.parameter.getFeature();
 		final Object newValue = this.parameter.getValue();
-
+		
 		final EObject representationTarget = this.parameter.getRepresentationElement().getTarget();
 		
 		final @Nullable Object oldValue = elementToEdit.eGet(feature);

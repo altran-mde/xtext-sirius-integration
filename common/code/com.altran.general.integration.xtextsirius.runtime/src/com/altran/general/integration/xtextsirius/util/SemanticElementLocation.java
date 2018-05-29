@@ -26,7 +26,7 @@ import org.eclipse.jdt.annotation.NonNull;
  *
  */
 public class SemanticElementLocation {
-
+	
 	private String uriFragment;
 	private String parentUriFragment;
 	private EStructuralFeature containingFeature;

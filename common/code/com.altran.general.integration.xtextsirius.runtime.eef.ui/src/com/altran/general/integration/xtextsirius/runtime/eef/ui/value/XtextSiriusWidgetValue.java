@@ -33,7 +33,7 @@ public class XtextSiriusWidgetValue extends AXtextSiriusWidget {
 				this.suffixTextExpression);
 		resetDirty();
 	}
-
+	
 	public @Nullable String getText() {
 		final StyledText textWidget = getTextWidget();
 		if (textWidget != null) {

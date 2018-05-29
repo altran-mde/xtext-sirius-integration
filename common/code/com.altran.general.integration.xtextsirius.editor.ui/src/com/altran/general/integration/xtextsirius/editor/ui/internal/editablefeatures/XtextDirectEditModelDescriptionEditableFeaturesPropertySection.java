@@ -37,7 +37,7 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 	protected EStructuralFeature getFeature() {
 		return XtextsiriusPackage.eINSTANCE.getIXtextModelDescription_EditableFeatures();
 	}
-
+	
 	protected List<?> getValue() {
 		return (List<?>) this.eObject.eGet(getFeature());
 	}
@@ -48,10 +48,10 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 				.filter(EClass.class::isInstance)
 				.map(EClass.class::cast);
 	}
-
+	
 	protected List<EClass> collectApplicableEClasses() {
 		final DirectEditLabel label = ((DirectEditLabel) this.eObject);
-
+		
 		return findEClassesByName(label.getMapping().stream()
 				.map(m -> {
 					if (m instanceof AbstractNodeMapping) {
@@ -63,7 +63,7 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 					return null;
 				}));
 	}
-
+	
 	protected List<EClass> findEClassesByName(final Stream<String> classNames) {
 		return classNames
 				.filter(Objects::nonNull)
@@ -82,7 +82,7 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 							secondFilter = eClass -> ePackageName.equals(eClass.getEPackage().getName());
 						}
 					}
-
+					
 					if (StringUtils.isNotBlank(eClassName)) {
 						final String eClassName2 = eClassName;
 						
@@ -95,10 +95,10 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 						final EClass result = stream
 								.findAny()
 								.orElse(null);
-
+						
 						return result;
 					}
-
+					
 					return null;
 				})
 				.filter(Objects::nonNull)
@@ -114,15 +114,15 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 				.filter(s -> !currentValues.contains(s))
 				.collect(Collectors.toList());
 	}
-
+	
 	@Override
 	protected void handleFeatureModified(final @SuppressWarnings("rawtypes") List result) {
 		final boolean equals = isEqual(result);
-
+		
 		if (!equals) {
 			final EditingDomain editingDomain = ((IEditingDomainProvider) getPart()).getEditingDomain();
 			final Object value = result;
-
+			
 			if (this.eObjectList.size() == 1) {
 				// apply the property change to single selected object
 				editingDomain.getCommandStack()
@@ -138,8 +138,8 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 			}
 		}
 	}
-
-
+	
+	
 	@Override
 	protected String getLabelText() {
 		return super.getLabelText() + ":";

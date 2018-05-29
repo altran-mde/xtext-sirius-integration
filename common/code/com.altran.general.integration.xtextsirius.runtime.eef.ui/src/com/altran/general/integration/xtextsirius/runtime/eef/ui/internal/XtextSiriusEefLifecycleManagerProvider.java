@@ -17,12 +17,12 @@ import com.altran.general.integration.xtextsirius.runtime.eef.ui.value.XtextSiri
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleManagerProvider {
-
+	
 	@Override
 	public boolean canHandle(final EEFControlDescription controlDescription) {
 		return controlDescription instanceof IEefXtextDescription;
 	}
-
+	
 	@Override
 	public IEEFLifecycleManager getLifecycleManager(final EEFControlDescription controlDescription,
 			final IVariableManager variableManager, final IInterpreter interpreter,
@@ -38,19 +38,19 @@ public class XtextSiriusEefLifecycleManagerProvider implements IEEFLifecycleMana
 					(IEefXtextValueDescription) controlDescription, variableManager, interpreter,
 					contextAdapter);
 		}
-
+		
 		return null;
 	}
-
+	
 	protected @NonNull Injector resolveLanguageInjector(final IEefXtextDescription description) {
 		final Injector result = XtextLanguageInjectorManager.getInstance()
 				.resolveInjectorId(description.getInjectorId());
-
+		
 		if (result == null) {
 			throw new IllegalArgumentException("Cannot find Xtext Language Injector id=" + description.getInjectorId());
 		}
-
+		
 		return result;
 	}
-
+	
 }

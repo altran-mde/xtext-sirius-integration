@@ -36,12 +36,12 @@ public class XtextSingleLineModelCompatibleDescriptionConverter implements IComp
 			eefDescription.setLabelExpression(propertyDescription.getLabelExpression());
 			
 			eefDescription.setValueExpression(propertyDescription.getValueExpression());
-
+			
 			final InitialOperation initialOperation = propertyDescription.getInitialOperation();
 			eefDescription.setEditExpression(expressionForOperationGetter.apply(initialOperation));
-
+			
 			eefDescription.setLineCount(1);
-
+			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
 			
@@ -55,5 +55,5 @@ public class XtextSingleLineModelCompatibleDescriptionConverter implements IComp
 		}
 		return null;
 	}
-
+	
 }

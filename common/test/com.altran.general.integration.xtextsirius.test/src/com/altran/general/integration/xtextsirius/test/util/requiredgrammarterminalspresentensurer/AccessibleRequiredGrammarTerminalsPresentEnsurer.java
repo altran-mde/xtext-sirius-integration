@@ -26,7 +26,7 @@ public class AccessibleRequiredGrammarTerminalsPresentEnsurer extends RequiredGr
 	protected void collectBeforeAndAfter() {
 		super.collectBeforeAndAfter();
 	}
-
+	
 	@Override
 	protected @NonNull String collectToTerminalText(@NonNull final List<@NonNull AbstractElement> grammarElements) {
 		return super.collectToTerminalText(grammarElements);
@@ -38,7 +38,7 @@ public class AccessibleRequiredGrammarTerminalsPresentEnsurer extends RequiredGr
 			@NonNull final EStructuralFeature feature) {
 		return super.findContainedElementPath(abstractElement, feature);
 	}
-
+	
 	@Override
 	protected @NonNull Set<@NonNull ISemanticRegion> findRegionsOfContainedElements() {
 		return super.findRegionsOfContainedElements();
@@ -48,7 +48,7 @@ public class AccessibleRequiredGrammarTerminalsPresentEnsurer extends RequiredGr
 	protected String getWhitespace(final EObject grammarElement) {
 		return super.getWhitespace(grammarElement);
 	}
-
+	
 	public List<AbstractElement> getElementsBefore() {
 		return this.elementsBefore;
 	}
@@ -60,7 +60,7 @@ public class AccessibleRequiredGrammarTerminalsPresentEnsurer extends RequiredGr
 	public void setContainingGroup(final Group group) {
 		this.containingGroup = group;
 	}
-
+	
 	public void setContainedElement(final AbstractElement element) {
 		this.containedElement = element;
 	}
@@ -68,15 +68,15 @@ public class AccessibleRequiredGrammarTerminalsPresentEnsurer extends RequiredGr
 	public void setParentMap(final ParentMap map) {
 		this.parentMap = map;
 	}
-
+	
 	public void setElementRegion(final IEObjectRegion region) {
 		this.elementRegion = region;
 	}
-
+	
 	public void setContainedElementPath(final List<@NonNull AbstractElement> path) {
 		this.containedElementPath = path;
 	}
-
+	
 	public void setRootRegion(final ITextRegionAccess region) {
 		this.rootRegion = region;
 	}
@@ -84,7 +84,7 @@ public class AccessibleRequiredGrammarTerminalsPresentEnsurer extends RequiredGr
 	public void setAllText(final StringBuffer text) {
 		this.allText = text;
 	}
-
+	
 	public void setGrammarElement(final AbstractElement element) {
 		this.grammarElement = element;
 	}

@@ -37,9 +37,9 @@ public class ParentMap {
 		if (this.map.containsEntry(base, parent)) {
 			return;
 		}
-
+		
 		this.map.put(base, parent);
-
+		
 		if (base instanceof RuleCall) {
 			collectContainedGrammarElementsDeep(base, ((RuleCall) base).getRule().getAlternatives());
 		} else if (base instanceof Assignment) {
@@ -52,7 +52,7 @@ public class ParentMap {
 			}
 		}
 	}
-
+	
 	/**
 	 * Checks if {@code grammarElement} or any of its (direct and indirect)
 	 * parents in the grammar tree (aka {@code parentMap}) is contained in
@@ -64,16 +64,16 @@ public class ParentMap {
 		if (grammarElements.contains(grammarElement)) {
 			return true;
 		}
-
+		
 		for (final AbstractElement parent : this.map.get(grammarElement)) {
 			if (parent != null && parent != grammarElement) {
 				return containsGrammarElementDeep(parent, grammarElements);
 			}
 		}
-
+		
 		return false;
 	}
-
+	
 	/**
 	 * Finds all parents of {@code el} recursively, and maps these parents to
 	 * their leaf object in the grammar model.

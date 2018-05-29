@@ -13,28 +13,31 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.Xtex
 import com.google.inject.Injector;
 
 public class XtextSiriusModelDescriptor extends AXtextSiriusDescriptor {
-
+	
 	private final @NonNull Set<@NonNull String> editableFeatures;
-
-	public XtextSiriusModelDescriptor(final @NonNull Injector injector, final boolean multiLine, final @NonNull Set<@NonNull String> editableFeatures) {
+	
+	public XtextSiriusModelDescriptor(final @NonNull Injector injector, final boolean multiLine,
+			final @NonNull Set<@NonNull String> editableFeatures) {
 		super(injector, multiLine);
 		this.editableFeatures = editableFeatures;
 	}
 	
-	public XtextSiriusModelDescriptor(final @NonNull Injector injector, final @NonNull IXtextDirectEditModelDescription description) {
+	public XtextSiriusModelDescriptor(final @NonNull Injector injector,
+			final @NonNull IXtextDirectEditModelDescription description) {
 		super(injector, description);
 		this.editableFeatures = description.getEditableFeatures().stream()
 				.filter(StringUtils::isNotBlank)
 				.map(f -> StringUtils.substringAfterLast(f, "."))
 				.collect(Collectors.toSet());
 	}
-
+	
 	public @NonNull Set<@NonNull String> getEditableFeatures() {
-		return editableFeatures;
+		return this.editableFeatures;
 	}
-
+	
 	@Override
-	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(final @NonNull IXtextSiriusAwareLabelEditPart editPart) {
+	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(
+			final @NonNull IXtextSiriusAwareLabelEditPart editPart) {
 		return new XtextSiriusDirectEditManagerModel(editPart, this);
 	}
 }

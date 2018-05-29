@@ -31,15 +31,15 @@ public class ReplaceValueParameter {
 		this.featuresToReplace = featuresToReplace;
 		this.originalUri = originalUri;
 	}
-
+	
 	public @NonNull EObject getElementToEdit() {
 		return this.elementToEdit;
 	}
-
+	
 	public @NonNull EStructuralFeature getFeature() {
 		return this.feature;
 	}
-
+	
 	public @Nullable Object getValue() {
 		return this.value;
 	}
@@ -47,11 +47,11 @@ public class ReplaceValueParameter {
 	public @NonNull DRepresentationElement getRepresentationElement() {
 		return this.representationElement;
 	}
-
+	
 	public @NonNull Set<String> getFeaturesToReplace() {
 		return this.featuresToReplace;
 	}
-
+	
 	public @Nullable URI getOriginalUri() {
 		return this.originalUri;
 	}

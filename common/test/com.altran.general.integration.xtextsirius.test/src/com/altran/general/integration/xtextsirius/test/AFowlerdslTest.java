@@ -10,7 +10,7 @@ public abstract class AFowlerdslTest extends AXtextTest {
 	public static void loadFowlerds() {
 		FowlerdslEnvironment.getInstance();
 	}
-
+	
 	@Override
 	protected @NonNull Injector getInjector() {
 		return FowlerdslEnvironment.getInstance().getInjector();

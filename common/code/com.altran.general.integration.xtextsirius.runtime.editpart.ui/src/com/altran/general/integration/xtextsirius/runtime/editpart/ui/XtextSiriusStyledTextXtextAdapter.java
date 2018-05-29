@@ -16,7 +16,7 @@ public class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 			final IXtextFakeContextResourcesProvider contextFakeResourceProvider) {
 		super(injector, contextFakeResourceProvider);
 	}
-
+	
 	@Override
 	protected XtextSourceViewer createXtextSourceViewer() {
 		final XtextSourceViewer result = new XtextSourceViewerEx(getStyledText(),

@@ -31,21 +31,21 @@ import com.google.inject.Injector;
 public abstract class AXtextTest {
 	
 	private final Map<Injector, XtextResourceSet> xtextResourceSets = Maps.newLinkedHashMap();
-
+	
 	@Before
 	@After
 	public void deleteXtextResourceSet() {
 		this.xtextResourceSets.clear();
 	}
-
+	
 	protected abstract @NonNull Injector getInjector();
-
+	
 	@SuppressWarnings("unchecked")
 	protected static <T> @Nullable T findFirstTargetOfType(final @NonNull EObject base, final @NonNull Class<T> type) {
 		if (type.isInstance(base)) {
 			return (T) base;
 		}
-
+		
 		if (base.eIsProxy()) {
 			return null;
 		}
@@ -62,25 +62,25 @@ public abstract class AXtextTest {
 		
 		return null;
 	}
-
+	
 	protected @NonNull Statemachine parse(final @NonNull String modelText) {
 		return parse(modelText, getInjector());
 	}
-
+	
 	protected @NonNull Statemachine parse(final @NonNull String modelText, final @NonNull Injector injector) {
 		final IParser parser = injector.getInstance(IParser.class);
 		final IParseResult parseResult = parser.parse(new StringReader(modelText));
-
+		
 		assertFalse(parseResult.getSyntaxErrors().toString(), parseResult.hasSyntaxErrors());
 		
 		final EObject model = parseResult.getRootASTElement();
 		
 		assertTrue("Root object in model is no statemachine", model instanceof Statemachine);
-
+		
 		return (Statemachine) model;
 	}
-
-
+	
+	
 	protected @NonNull Statemachine parseAndLink(final @NonNull String modelText, final @NonNull Resource resource) {
 		return parseAndLink(modelText, resource, getInjector());
 	}
@@ -88,25 +88,25 @@ public abstract class AXtextTest {
 	protected @NonNull Statemachine parseAndLink(final @NonNull String modelText, final @NonNull Resource resource,
 			final @NonNull Injector injector) {
 		final Statemachine result = parse(modelText, injector);
-
+		
 		resource.getContents().add(result);
-
+		
 		final ILinker linker = getInjector().getInstance(ILinker.class);
 		final ListBasedDiagnosticConsumer diagnosticConsumer = new ListBasedDiagnosticConsumer();
 		linker.linkModel(result, diagnosticConsumer);
-
+		
 		assertFalse(diagnosticConsumer.getResult(Severity.ERROR).toString(),
 				diagnosticConsumer.hasConsumedDiagnostics(Severity.ERROR));
-
+		
 		EcoreUtil.resolveAll(result);
-
+		
 		return result;
 	}
-
+	
 	protected @NonNull XtextResourceSet createResourceSet() {
 		return createResourceSet(getInjector());
 	}
-
+	
 	protected @NonNull XtextResourceSet createResourceSet(final @NonNull Injector injector) {
 		return getInjector().getInstance(XtextResourceSet.class);
 	}
@@ -118,11 +118,11 @@ public abstract class AXtextTest {
 		
 		return parseAndLink(NodeModelUtils.getNode(original).getText(), resource);
 	}
-
+	
 	protected @NonNull Statemachine parseIntoResource(final @NonNull String modelText, final @NonNull String uri) {
 		return parseIntoResource(modelText, uri, getInjector());
 	}
-
+	
 	protected @NonNull Statemachine parseIntoResource(final @NonNull String modelText, final @NonNull String uri,
 			final @NonNull Injector injector) {
 		return parseAndLink(modelText, getOrCreateResource(URI.createPlatformResourceURI(uri, false)), injector);
@@ -131,7 +131,7 @@ public abstract class AXtextTest {
 	protected @NonNull Statemachine parseIntoResource(final @NonNull String modelText) {
 		return parseIntoResource(modelText, "proj/model.statemachine");
 	}
-
+	
 	protected @NonNull XtextResource getOrCreateResource(final @NonNull URI uri) {
 		return getOrCreateResource(uri, getInjector());
 	}
@@ -139,14 +139,14 @@ public abstract class AXtextTest {
 	protected @NonNull XtextResource getOrCreateResource(final @NonNull URI uri, final @NonNull Injector injector) {
 		final XtextResourceSet resourceSet = getOrCreateResourceSet(injector);
 		XtextResource resource = (XtextResource) resourceSet.getURIResourceMap().get(uri);
-
+		
 		if (resource == null) {
 			resource = (XtextResource) resourceSet.createResource(uri);
 		}
-
+		
 		return resource;
 	}
-
+	
 	protected @NonNull XtextResourceSet getOrCreateResourceSet() {
 		return getOrCreateResourceSet(getInjector());
 	}
@@ -155,8 +155,8 @@ public abstract class AXtextTest {
 		if (!this.xtextResourceSets.containsKey(injector)) {
 			this.xtextResourceSets.put(injector, createResourceSet(injector));
 		}
-
+		
 		return this.xtextResourceSets.get(injector);
 	}
-
+	
 }

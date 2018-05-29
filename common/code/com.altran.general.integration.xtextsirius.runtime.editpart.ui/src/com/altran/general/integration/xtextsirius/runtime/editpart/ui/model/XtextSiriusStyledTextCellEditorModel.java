@@ -24,14 +24,14 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 	@Override
 	protected void doSetValue(final Object value) {
 		final EObject semanticElement = getSemanticElement();
-
+		
 		if (semanticElement == null) {
 			return;
 		}
-
+		
 		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(),
 				isMultiLine(), getDescriptor().getEditableFeatures());
-
+		
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();
 		
@@ -55,7 +55,7 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}
-
+	
 	@Override
 	public @Nullable Object getValueToCommit() {
 		final SemanticElementLocation location = getSemanticElementLocation();
@@ -69,7 +69,7 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		
 		return null;
 	}
-
+	
 	@Override
 	public @NonNull XtextSiriusModelDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusModelDescriptor) super.getDescriptor();

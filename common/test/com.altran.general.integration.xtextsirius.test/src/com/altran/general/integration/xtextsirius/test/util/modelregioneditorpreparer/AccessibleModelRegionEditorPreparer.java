@@ -21,42 +21,42 @@ class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 		super(semanticElement, parentSemanticElement, injector, multiLine, editableFeatures,
 				semanticElementFeature);
 	}
-
+	
 	public AccessibleModelRegionEditorPreparer(final EObject semanticElement, final Injector injector,
 			final boolean multiLine, final Set<String> editableFeatures) {
 		super(semanticElement, injector, multiLine, editableFeatures);
 	}
-
+	
 	@Override
 	public TextRegion calculateRegionForFeatures(final EObject semanticElement) {
 		return super.calculateRegionForFeatures(semanticElement);
 	}
-
+	
 	@Override
 	public SemanticElementLocation constructXtextFragmentSchemeBasedLocation() {
 		return super.constructXtextFragmentSchemeBasedLocation();
 	}
-
+	
 	@Override
 	public void prepare() {
 		super.prepare();
 	}
-
+	
 	@Override
 	public Set<EStructuralFeature> resolveDefinedFeatures(final EObject semanticElement) {
 		return super.resolveDefinedFeatures(semanticElement);
 	}
-
+	
 	@Override
 	public Set<@NonNull EStructuralFeature> resolveEditableFeatures(final EObject semanticElement) {
 		return super.resolveEditableFeatures(semanticElement);
 	}
-
+	
 	@Override
 	public boolean canBeHandledByGetRegionForFeature(@NonNull final EStructuralFeature feature) {
 		return super.canBeHandledByGetRegionForFeature(feature);
 	}
-
+	
 	@Override
 	public @NonNull Set<@NonNull ISemanticRegion> translateToRegions(
 			@NonNull final Set<@NonNull EStructuralFeature> features, @NonNull final IEObjectRegion semanticRegion,
@@ -75,7 +75,7 @@ class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 	public void setRootRegion(final @NonNull ITextRegionAccess rootRegion) {
 		this.rootRegion = rootRegion;
 	}
-
+	
 	public void setAllText(final @NonNull StringBuffer text) {
 		this.allText = text;
 	}

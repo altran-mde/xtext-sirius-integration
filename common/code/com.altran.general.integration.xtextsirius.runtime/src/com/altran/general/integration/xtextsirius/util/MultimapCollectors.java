@@ -27,7 +27,7 @@ public class MultimapCollectors {
 	protected MultimapCollectors() {
 		
 	}
-
+	
 	public <Tt, Kk> Collector<Tt, ?, Multimap<Kk, Tt>> byKey(
 			final Function<? super Tt, ? extends Iterable<? extends Kk>> keysMapper) {
 		return new KeyMapperCollector<>(keysMapper);
@@ -39,7 +39,7 @@ public class MultimapCollectors {
 	
 	private static class EntryCollector<T, K>
 			implements Collector<Entry<K, T>, ImmutableMultimap.Builder<K, T>, Multimap<K, T>> {
-
+		
 		@Override
 		public Supplier<Builder<K, T>> supplier() {
 			return ImmutableMultimap::builder;

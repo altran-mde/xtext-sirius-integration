@@ -8,7 +8,8 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriu
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusValueDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueDescriptor;
 
-public class XtextSiriusDirectEditManagerValue extends XtextSiriusDirectEditManager implements IXtextSiriusValueDescribable {
+public class XtextSiriusDirectEditManagerValue extends XtextSiriusDirectEditManager
+		implements IXtextSiriusValueDescribable {
 	public XtextSiriusDirectEditManagerValue(
 			final @NonNull IXtextAwareEditPart editPart,
 			final @NonNull XtextSiriusValueDescriptor descriptor) {
@@ -17,7 +18,8 @@ public class XtextSiriusDirectEditManagerValue extends XtextSiriusDirectEditMana
 	
 	@Override
 	protected AXtextSiriusStyledTextCellEditor createCellEditor() {
-		return new XtextSiriusStyledTextCellEditorValue(getDescriptor(), getDescriptor().getValueFeature(getEditPart()));
+		return new XtextSiriusStyledTextCellEditorValue(getDescriptor(),
+				getDescriptor().getValueFeature(getEditPart()));
 	}
 	
 	@Override

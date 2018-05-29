@@ -12,10 +12,11 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor
 import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
 import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 
-public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor implements IXtextSiriusValueDescribable {
+public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor
+		implements IXtextSiriusValueDescribable {
 	
 	private final @NonNull EStructuralFeature valueFeature;
-
+	
 	public XtextSiriusStyledTextCellEditorValue(
 			final @NonNull XtextSiriusValueDescriptor descriptor, final @NonNull EStructuralFeature valueFeature) {
 		super(descriptor);
@@ -29,7 +30,7 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 			if (StringUtils.isBlank(newText)) {
 				newText = retrieveValueFromModel(newText);
 			}
-
+			
 			final StringBuffer text = new StringBuffer(newText);
 			StyledTextUtil.getInstance().removeNewlinesIfSingleLine(text, 0, text.length(), isMultiLine());
 			
@@ -38,11 +39,11 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 			final String suffixText = interpret(getDescriptor().getSuffixTextExpression());
 			super.doSetValue(prefixText + StyledTextUtil.getInstance().guessNewline(text.toString()) + text
 					+ suffixText);
-
+			
 			getXtextAdapter().setVisibleRegion(prefixText.length() + 1, text.length());
 		}
 	}
-
+	
 	protected @NonNull String interpret(final @NonNull String expression) {
 		final EObject self = getSemanticElement();
 		if (self != null) {
@@ -67,13 +68,13 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 	public @Nullable Object getValueToCommit() {
 		return getValue();
 	}
-
+	
 	@Override
 	public @NonNull XtextSiriusValueDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusValueDescriptor) super.getDescriptor();
 	}
-
+	
 	protected EStructuralFeature getValueFeature() {
-		return valueFeature;
+		return this.valueFeature;
 	}
 }

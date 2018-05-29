@@ -17,7 +17,7 @@ public interface ICompatibleDescriptionConverter {
 	 *         <code>false</code> otherwise
 	 */
 	boolean canHandle(final EObject description);
-
+	
 	/**
 	 * Converts the description EObject used in the Sirius model to an EObject
 	 * for the EEF model. The objects created for the given description should

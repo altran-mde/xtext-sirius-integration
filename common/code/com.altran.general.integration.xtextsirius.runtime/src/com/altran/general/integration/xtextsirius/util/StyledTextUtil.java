@@ -19,7 +19,7 @@ public class StyledTextUtil {
 	private static final String CARRIAGE_RETURN = "\r";
 	private static final String LINE_FEED = "\n";
 	private static final String CARRIAGE_RETURN_LINE_FEED = "\r\n";
-
+	
 	private static StyledTextUtil INSTANCE;
 	
 	public static StyledTextUtil getInstance() {
@@ -33,7 +33,7 @@ public class StyledTextUtil {
 	protected StyledTextUtil() {
 		
 	}
-
+	
 	/**
 	 * Replaces all newline characters within {@code textRegion} by spaces if
 	 * {@code multiLine} is set.
@@ -93,7 +93,7 @@ public class StyledTextUtil {
 		
 		return text;
 	}
-
+	
 	/**
 	 * Inserts a newline at the given position.
 	 *
@@ -142,7 +142,7 @@ public class StyledTextUtil {
 		text.insert(offset, newline);
 		return new TextRegion(offset + newline.length(), length);
 	}
-
+	
 	/**
 	 * Guesses the newline separator by counting existing separators.
 	 *
@@ -180,7 +180,7 @@ public class StyledTextUtil {
 			if (lfCount == crlfCount) {
 				return CARRIAGE_RETURN_LINE_FEED;
 			}
-
+			
 			final int lfOnly = lfCount - crlfCount;
 			if (lfOnly == crlfCount) {
 				return LINE_FEED;
@@ -196,9 +196,9 @@ public class StyledTextUtil {
 			if (crCount == crlfCount) {
 				return CARRIAGE_RETURN_LINE_FEED;
 			}
-
+			
 			final int crOnly = crCount - crlfCount;
-
+			
 			if (crOnly == crlfCount) {
 				return CARRIAGE_RETURN_LINE_FEED;
 			}
@@ -206,7 +206,7 @@ public class StyledTextUtil {
 			if (crRatio > 1) {
 				return CARRIAGE_RETURN;
 			}
-
+			
 			return CARRIAGE_RETURN_LINE_FEED;
 		}
 	}

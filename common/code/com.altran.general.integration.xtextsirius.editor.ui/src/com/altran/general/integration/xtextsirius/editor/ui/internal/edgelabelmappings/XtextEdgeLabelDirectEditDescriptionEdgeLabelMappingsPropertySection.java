@@ -27,7 +27,7 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 	protected List<BasicLabelStyleDescription> getCurrentValue() {
 		return getDescription().getEdgeLabelMappings();
 	}
-
+	
 	protected IXtextEdgeLabelDirectEditDescription getDescription() {
 		return (IXtextEdgeLabelDirectEditDescription) this.eObject;
 	}
@@ -55,7 +55,7 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 				.map(BasicLabelStyleDescription.class::cast)
 				.collect(Collectors.toList());
 	}
-
+	
 	/*
 	 * stolen and adapted from
 	 * org.eclipse.sirius.editor.properties.sections.tool.
@@ -66,7 +66,7 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 	@Override
 	protected void handleFeatureModified(final @SuppressWarnings("rawtypes") List result) {
 		final boolean equals = isEqual(result);
-
+		
 		if (!equals) {
 			final EditingDomain editingDomain = ((IEditingDomainProvider) getPart()).getEditingDomain();
 			if (this.eObjectList.size() == 1) {
@@ -78,7 +78,7 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 					}
 				}
 				editingDomain.getCommandStack().execute(compoundCommand);
-
+				
 				compoundCommand = new CompoundCommand();
 				if (result instanceof EList) {
 					for (final Object object : result) {
@@ -96,10 +96,10 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 			}
 		}
 	}
-
+	
 	@Override
 	protected EReference getFeature() {
 		return ViewpointxtextPackage.eINSTANCE.getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings();
 	}
-
+	
 }

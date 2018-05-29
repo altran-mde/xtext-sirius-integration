@@ -28,7 +28,7 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 		this.prefixTextExpression = controlDescription.getPrefixTextExpression();
 		this.suffixTextExpression = controlDescription.getSuffixTextExpression();
 	}
-
+	
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		this.widget = new XtextSiriusWidgetValue(parent, getInjector(), isMultiLine(),
@@ -45,15 +45,15 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 		if (self != null) {
 			return EvaluateHelper.getInstance().evaluateString(expression, self);
 		}
-
+		
 		return "";
 	}
-
+	
 	@Override
 	public XtextSiriusWidgetValue getWidget() {
 		return (XtextSiriusWidgetValue) super.getWidget();
 	}
-
+	
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();

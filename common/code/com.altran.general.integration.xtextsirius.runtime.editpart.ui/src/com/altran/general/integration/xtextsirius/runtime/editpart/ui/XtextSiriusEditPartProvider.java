@@ -96,7 +96,7 @@ import com.google.inject.Injector;
 @SuppressWarnings("restriction")
 public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 	// @formatter:off
-	private static final Map<Integer, BiFunction<@NonNull View, @NonNull AXtextSiriusDescriptor, @NonNull IGraphicalEditPart>> EDIT_PARTS = 
+	private static final Map<Integer, BiFunction<@NonNull View, @NonNull AXtextSiriusDescriptor, @NonNull IGraphicalEditPart>> EDIT_PARTS =
 		ImmutableMap.<Integer, BiFunction<@NonNull View, @NonNull AXtextSiriusDescriptor, @NonNull IGraphicalEditPart>>builder()
 			.put(DEdgeEditPart.VISUAL_ID,                                        (v, d) -> new XtextSiriusEdgeEditPart(v, d))
 			.put(BracketEdgeEditPart.VISUAL_ID,                                  (v, d) -> new XtextSiriusBracketEdgeEditPart(v, d))
@@ -136,88 +136,88 @@ public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
 			.put(DNodeListViewNodeListCompartment2EditPart.VISUAL_ID,            (v, d) -> new XtextSiriusNodeListViewNodeListCompartment2EditPart(v, d))
 			.build();
 	// @formatter:on
-
+	
 	@Override
 	public boolean provides(final IOperation operation) {
 		final RepresentationElementMapping mapping = extractMapping(operation);
 		final View view = ((IEditPartOperation) operation).getView();
-		Integer viewType = extractViewType(view);
-
+		final Integer viewType = extractViewType(view);
+		
 		if (mapping instanceof DiagramElementMapping) {
 			if (((DiagramElementMapping) mapping).getLabelDirectEdit() instanceof AXtextDirectEditLabel) {
 				return EDIT_PARTS.containsKey(viewType);
 			}
 		}
-
+		
 		return super.provides(operation);
 	}
-
+	
 	@Override
 	public IGraphicalEditPart createGraphicEditPart(final View view) {
 		final RepresentationElementMapping mapping = extractMapping(view);
-		Integer viewType = extractViewType(view);
-
+		final Integer viewType = extractViewType(view);
+		
 		if (mapping instanceof DiagramElementMapping) {
 			final DirectEditLabel labelDirectEdit = ((DiagramElementMapping) mapping).getLabelDirectEdit();
-
+			
 			if (labelDirectEdit instanceof IXtextDirectEditModelDescription) {
 				final IXtextDirectEditModelDescription modelNodeDescription = (IXtextDirectEditModelDescription) labelDirectEdit;
-				XtextSiriusModelDescriptor descriptor = new XtextSiriusModelDescriptor(
+				final XtextSiriusModelDescriptor descriptor = new XtextSiriusModelDescriptor(
 						resolveLanguageInjector(modelNodeDescription), modelNodeDescription);
-
+				
 				if (EDIT_PARTS.containsKey(viewType)) {
 					return EDIT_PARTS.get(viewType).apply(view, descriptor);
 				}
-
+				
 			} else if (labelDirectEdit instanceof IXtextDirectEditValueDescription) {
 				final IXtextDirectEditValueDescription valueNodeDescription = (IXtextDirectEditValueDescription) labelDirectEdit;
-				XtextSiriusValueDescriptor descriptor = new XtextSiriusValueDescriptor(
+				final XtextSiriusValueDescriptor descriptor = new XtextSiriusValueDescriptor(
 						resolveLanguageInjector(valueNodeDescription), valueNodeDescription);
-
+				
 				if (EDIT_PARTS.containsKey(viewType)) {
 					return EDIT_PARTS.get(viewType).apply(view, descriptor);
 				}
 			}
 		}
-
+		
 		return super.createGraphicEditPart(view);
 	}
-
+	
 	protected @Nullable RepresentationElementMapping extractMapping(final IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			final View view = ((IEditPartOperation) operation).getView();
 			return extractMapping(view);
 		}
-
+		
 		return null;
 	}
-
+	
 	protected RepresentationElementMapping extractMapping(final View view) {
 		if (view.getElement() instanceof DRepresentationElement) {
 			final DRepresentationElement representationElement = (DRepresentationElement) view.getElement();
 			final RepresentationElementMapping mapping = representationElement.getMapping();
 			return mapping;
 		}
-
+		
 		return null;
 	}
-
+	
 	protected Integer extractViewType(final View view) {
 		try {
 			return Integer.valueOf(view.getType());
-		} catch (NumberFormatException e) {
+		} catch (final NumberFormatException e) {
 			return 0;
 		}
 	}
-
+	
 	protected @NonNull Injector resolveLanguageInjector(final IXtextDirectEditDescription description) {
 		final Injector result = XtextLanguageInjectorManager.getInstance()
 				.resolveInjectorId(description.getInjectorId());
-
+		
 		if (result == null) {
 			throw new IllegalArgumentException("Cannot find Xtext Language Injector id=" + description.getInjectorId());
 		}
-
+		
 		return result;
 	}
 }

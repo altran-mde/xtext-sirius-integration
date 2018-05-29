@@ -36,18 +36,18 @@ public class XtextSingleLineValueCompatibleDescriptionConverter implements IComp
 			eefDescription.setLabelExpression(propertyDescription.getLabelExpression());
 			
 			eefDescription.setValueExpression(propertyDescription.getValueExpression());
-
+			
 			final InitialOperation initialOperation = propertyDescription.getInitialOperation();
 			eefDescription.setEditExpression(expressionForOperationGetter.apply(initialOperation));
-
+			
 			eefDescription.setLineCount(1);
-
+			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
 			
 			eefDescription.setPrefixTextExpression(propertyDescription.getPrefixTextExpression());
 			eefDescription.setSuffixTextExpression(propertyDescription.getSuffixTextExpression());
-
+			
 			// Let's not forget to populate the cache for the other converters
 			// or link resolvers
 			cache.put(propertyDescription, eefDescription);
@@ -56,5 +56,5 @@ public class XtextSingleLineValueCompatibleDescriptionConverter implements IComp
 		}
 		return null;
 	}
-
+	
 }

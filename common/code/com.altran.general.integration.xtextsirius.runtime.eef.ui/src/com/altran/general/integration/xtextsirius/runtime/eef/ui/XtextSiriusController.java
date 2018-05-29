@@ -26,17 +26,17 @@ public class XtextSiriusController extends AbstractEEFWidgetController {
 	protected @NonNull EEFTextDescription getDescription() {
 		return this.controlDescription;
 	}
-
+	
 	@Override
 	public void refresh() {
 		super.refresh();
 		newEval().call(getDescription().getValueExpression(), t -> this.newValueConsumer.accept(t));
 	}
-
+	
 	public void onNewValue(final @NonNull Consumer<Object> newValueConsumer) {
 		this.newValueConsumer = newValueConsumer;
 	}
-
+	
 	public void removeValueConsumer() {
 		this.newValueConsumer = null;
 	}

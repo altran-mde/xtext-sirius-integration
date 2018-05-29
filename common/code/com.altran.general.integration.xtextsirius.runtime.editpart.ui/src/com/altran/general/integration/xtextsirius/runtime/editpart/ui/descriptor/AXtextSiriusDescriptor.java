@@ -11,7 +11,7 @@ import com.google.inject.Injector;
 public abstract class AXtextSiriusDescriptor {
 	private final @NonNull Injector injector;
 	private final boolean multiLine;
-
+	
 	public AXtextSiriusDescriptor(final @NonNull Injector injector, final boolean multiLine) {
 		this.injector = injector;
 		this.multiLine = multiLine;
@@ -21,16 +21,17 @@ public abstract class AXtextSiriusDescriptor {
 		this.injector = injector;
 		this.multiLine = description.isMultiLine();
 	}
-
+	
 	public @NonNull Injector getInjector() {
-		return injector;
-	}
-
-	public boolean isMultiLine() {
-		return multiLine;
+		return this.injector;
 	}
 	
-	public abstract @NonNull XtextSiriusDirectEditManager createDirectEditManager(final @NonNull IXtextSiriusAwareLabelEditPart editPart);
+	public boolean isMultiLine() {
+		return this.multiLine;
+	}
+	
+	public abstract @NonNull XtextSiriusDirectEditManager createDirectEditManager(
+			final @NonNull IXtextSiriusAwareLabelEditPart editPart);
 	
 	public int translateToStyle() {
 		if (isMultiLine()) {
@@ -39,5 +40,5 @@ public abstract class AXtextSiriusDescriptor {
 			return SWT.SINGLE;
 		}
 	}
-
+	
 }

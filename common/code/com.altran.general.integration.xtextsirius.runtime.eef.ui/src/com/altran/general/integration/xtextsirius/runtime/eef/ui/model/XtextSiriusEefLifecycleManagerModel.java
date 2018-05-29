@@ -59,14 +59,14 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 		this.newValueConsumer = (newValue) -> {
 			ModelRegionEditorPreparer preparer = null;
 			URI resourceUri = null;
-
+			
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
 				preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(), isMultiLine(),
 						getEditableFeatures());
-
+				
 				resourceUri = semanticElement.eResource().getURI();
-
+				
 			} else if (newValue == null) {
 				final EObject self = getSelf();
 				if (self != null) {
@@ -75,17 +75,17 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 						preparer = new ModelRegionEditorPreparer(null, self, getInjector(), isMultiLine(),
 								getEditableFeatures(),
 								feature);
-
+						
 						resourceUri = self.eResource().getURI();
 					}
 				}
 			}
-
+			
 			if (preparer != null && resourceUri != null) {
 				getWidget().updateUri(resourceUri);
 				getWidget().update(preparer.getText(), preparer.getSemanticElementLocation(), preparer.getTextRegion());
 			}
-
+			
 		};
 		this.controller.onNewValue(this.newValueConsumer);
 		
@@ -98,7 +98,7 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 	@SuppressWarnings("restriction")
 	protected EStructuralFeature getEditFeature(final @NonNull EObject self) {
 		final String PREFIX = org.eclipse.sirius.common.tools.internal.interpreter.FeatureInterpreter.PREFIX;
-
+		
 		// we're using valueExpression (instead of EditExpression) as there is
 		// no field to explicitly set the editExpression in odesign model.
 		final String valueExpression = getWidgetDescription().getValueExpression();
@@ -107,7 +107,7 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			final EStructuralFeature feature = self.eClass().getEStructuralFeature(featureName);
 			return feature;
 		}
-
+		
 		return null;
 	}
 	
@@ -119,7 +119,7 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			if (semanticElement != null) {
 				semanticElement = FakeResourceUtil.getInstance().proxify(semanticElement, EcoreUtil.getURI(getSelf()));
 			}
-
+			
 			commit(semanticElement);
 		}
 		super.aboutToBeHidden();

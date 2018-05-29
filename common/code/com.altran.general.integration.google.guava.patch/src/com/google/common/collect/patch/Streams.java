@@ -27,7 +27,7 @@ public class Streams {
 	public static <T> Stream<T> stream(final Iterator<T> iterator) {
 		return StreamSupport.stream(Spliterators.spliteratorUnknownSize(iterator, 0), false);
 	}
-
+	
 	/**
 	 * Returns a sequential {@link Stream} of the contents of {@code iterable},
 	 * delegating to {@link Collection#stream} if possible.

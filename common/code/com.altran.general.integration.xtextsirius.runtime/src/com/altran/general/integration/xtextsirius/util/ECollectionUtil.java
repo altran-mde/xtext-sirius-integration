@@ -25,30 +25,30 @@ import org.eclipse.jdt.annotation.Nullable;
  */
 public class ECollectionUtil {
 	private static ECollectionUtil INSTANCE;
-
+	
 	public static ECollectionUtil getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new ECollectionUtil();
 		}
-
+		
 		return INSTANCE;
 	}
-
+	
 	protected ECollectionUtil() {
-
+		
 	}
-
+	
 	/**
 	 * Replaces {@code element} within {@code collection}, if contained; adds
 	 * otherwise.
 	 *
 	 * <p>
-	 * <i>Replace</i> means we compare the URI of {@code element} with each entry of
-	 * {@code collection}. If we find an entry with the same URI, we remove the old
-	 * entry and add {@code element} instead, i.e. changing the Java object identity
-	 * of the EObject referred to by this URI. If there is more than one entry, we
-	 * change only one of them (arbitrarily selected). If there is no such entry, we
-	 * add {@code element} to {@code collection}.
+	 * <i>Replace</i> means we compare the URI of {@code element} with each
+	 * entry of {@code collection}. If we find an entry with the same URI, we
+	 * remove the old entry and add {@code element} instead, i.e. changing the
+	 * Java object identity of the EObject referred to by this URI. If there is
+	 * more than one entry, we change only one of them (arbitrarily selected).
+	 * If there is no such entry, we add {@code element} to {@code collection}.
 	 * </p>
 	 *
 	 * <p>
@@ -72,18 +72,19 @@ public class ECollectionUtil {
 			return newElement;
 		});
 	}
-
+	
 	/**
 	 * Updates {@code element} within {@code collection}, if contained; adds
 	 * otherwise.
 	 *
 	 * <p>
-	 * <i>Update</i> means we compare the URI of {@code element} with each entry of
-	 * {@code collection}. If we find an entry with the same URI, we update the
-	 * existing entry with all EFeatures of {@code element}, i.e. retaining the Java
-	 * object identity of the EObject referred to by this URI. If there is more than
-	 * one entry, we update only one of them (arbitrarily selected). If there is no
-	 * such entry, we add {@code element} to {@code collection}.
+	 * <i>Update</i> means we compare the URI of {@code element} with each entry
+	 * of {@code collection}. If we find an entry with the same URI, we update
+	 * the existing entry with all EFeatures of {@code element}, i.e. retaining
+	 * the Java object identity of the EObject referred to by this URI. If there
+	 * is more than one entry, we update only one of them (arbitrarily
+	 * selected). If there is no such entry, we add {@code element} to
+	 * {@code collection}.
 	 * </p>
 	 *
 	 * <p>
@@ -124,7 +125,7 @@ public class ECollectionUtil {
 			}
 		});
 	}
-
+	
 	protected <@Nullable T extends EObject> T processOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element,
@@ -132,7 +133,7 @@ public class ECollectionUtil {
 			final @NonNull BiFunction<T, T, T> processor) {
 		final String elementFragment = EcoreUtil.getURI(element).fragment();
 		final String originalFragment = originalUri != null ? originalUri.fragment() : "";
-
+		
 		final T existing = collection.stream()
 				.filter(e -> {
 					final String fragment = EcoreUtil.getURI(e).fragment();
@@ -140,7 +141,7 @@ public class ECollectionUtil {
 				})
 				.findAny()
 				.orElse(null);
-
+		
 		if (existing == null) {
 			collection.add(element);
 			return null;
@@ -148,5 +149,5 @@ public class ECollectionUtil {
 			return processor.apply(existing, element);
 		}
 	}
-
+	
 }

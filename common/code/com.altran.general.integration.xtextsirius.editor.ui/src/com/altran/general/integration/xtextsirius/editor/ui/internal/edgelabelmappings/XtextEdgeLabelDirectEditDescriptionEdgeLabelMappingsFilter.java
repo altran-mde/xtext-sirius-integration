@@ -17,5 +17,5 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsFilter extends 
 	protected boolean isRightInputType(final Object arg0) {
 		return arg0 instanceof IXtextEdgeLabelDirectEditDescription;
 	}
-
+	
 }

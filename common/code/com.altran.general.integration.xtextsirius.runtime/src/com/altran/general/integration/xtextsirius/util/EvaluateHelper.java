@@ -6,7 +6,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 
 public class EvaluateHelper {
-
+	
 	private static EvaluateHelper instance;
 	
 	protected EvaluateHelper() {

@@ -8,19 +8,19 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 @SuppressWarnings("restriction")
 public class SemanticRegionNavigator {
 	private static SemanticRegionNavigator INSTANCE;
-
+	
 	protected SemanticRegionNavigator() {
-
+		
 	}
-
+	
 	public static @NonNull SemanticRegionNavigator getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new SemanticRegionNavigator();
 		}
-
+		
 		return INSTANCE;
 	}
-
+	
 	/**
 	 * Finds the region starting closest to the begin of file.
 	 */
@@ -42,6 +42,6 @@ public class SemanticRegionNavigator {
 				.get();
 		return max;
 	}
-
-
+	
+	
 }

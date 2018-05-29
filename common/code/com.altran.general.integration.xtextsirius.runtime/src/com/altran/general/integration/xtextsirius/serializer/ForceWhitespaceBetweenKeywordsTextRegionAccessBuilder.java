@@ -17,13 +17,13 @@ import org.eclipse.xtext.serializer.acceptor.ISequenceAcceptor;
 @SuppressWarnings("restriction")
 public class ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder extends TextRegionAccessBuilder {
 	private TextRegionAccessBuildingSequencer fromSequencer;
-
+	
 	@Override
 	public ISequenceAcceptor forSequence(final ISerializationContext ctx, final EObject root) {
 		return this.fromSequencer = new ForceWhitespaceBetweenKeywordsTextRegionAccessBuildingSequencer().withRoot(ctx,
 				root);
 	}
-
+	
 	@Override
 	public ITextRegionAccess create() {
 		if (this.fromSequencer != null) {

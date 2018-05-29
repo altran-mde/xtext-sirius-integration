@@ -30,7 +30,7 @@ public class XtextLanguageInjectorManager {
 	protected XtextLanguageInjectorManager() {
 		
 	}
-
+	
 	public @Nullable Injector resolveInjectorId(final @NonNull String injectorId) {
 		final Map<@NonNull String, Collection<@NonNull IXtextLanguageInjector>> injectors = collectInjectors();
 		return injectors.keySet().stream()

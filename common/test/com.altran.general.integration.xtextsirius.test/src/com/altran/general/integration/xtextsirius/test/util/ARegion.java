@@ -13,9 +13,9 @@ public abstract class ARegion extends AFowlerdslDefaultModelTest {
 		return ((Serializer) getInjector().getInstance(ISerializer.class))
 				.serializeToRegions(EcoreUtil.getRootContainer(obj));
 	}
-
+	
 	protected StringBuffer getAllText(final ITextRegionAccess rootRegion) {
 		return new StringBuffer(rootRegion.regionForDocument().getText());
 	}
-
+	
 }

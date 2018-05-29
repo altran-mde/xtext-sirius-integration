@@ -17,12 +17,12 @@ public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 			final boolean multiLine) {
 		super(parent, injector, multiLine);
 	}
-
+	
 	@SuppressWarnings("restriction")
 	public void update(final @NonNull String completeText, final @NonNull SemanticElementLocation newValueLocation,
 			final @NonNull TextRegion textRegion) {
 		this.semanticElementLocation = newValueLocation;
-
+		
 		this.editorAccess.updateModel(completeText, state -> textRegion);
 		resetDirty();
 	}
@@ -35,10 +35,10 @@ public class XtextSiriusWidgetModel extends AXtextSiriusWidget {
 				return location.resolve(state);
 			});
 		}
-
+		
 		return null;
 	}
-
+	
 	public @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}

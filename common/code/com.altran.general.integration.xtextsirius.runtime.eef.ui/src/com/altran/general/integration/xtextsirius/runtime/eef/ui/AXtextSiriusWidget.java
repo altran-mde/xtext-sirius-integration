@@ -73,11 +73,11 @@ public abstract class AXtextSiriusWidget {
 	protected boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	protected void resetDirty() {
 		this.modificationStamp = retrieveModificationStamp();
 	}
-
+	
 	protected long retrieveModificationStamp() {
 		return this.editor.getDocument().getModificationStamp();
 	}

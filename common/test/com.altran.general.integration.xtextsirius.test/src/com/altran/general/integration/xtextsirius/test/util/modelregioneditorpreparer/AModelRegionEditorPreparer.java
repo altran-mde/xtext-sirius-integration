@@ -14,7 +14,7 @@ public abstract class AModelRegionEditorPreparer extends ARegion {
 		return new AccessibleModelRegionEditorPreparer(AFowlerdslDefaultModelTest.statemachineFactory.createEvent(),
 				getInjector(), false, Collections.emptySet());
 	}
-
+	
 	protected String resolveRegion(final ITextRegionAccess rootRegion, final TextRegion region) {
 		return rootRegion.regionForDocument().getText().substring(region.getOffset(),
 				region.getOffset() + region.getLength());

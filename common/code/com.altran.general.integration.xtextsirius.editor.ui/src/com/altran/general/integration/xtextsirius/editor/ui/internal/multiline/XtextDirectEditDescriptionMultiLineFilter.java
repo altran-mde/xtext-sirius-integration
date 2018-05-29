@@ -17,5 +17,5 @@ public class XtextDirectEditDescriptionMultiLineFilter extends ViewpointProperty
 	protected boolean isRightInputType(final Object arg0) {
 		return arg0 instanceof IXtextDirectEditDescription;
 	}
-
+	
 }
