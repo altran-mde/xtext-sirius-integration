@@ -3,14 +3,18 @@
       id="com.altran.general.integration.xtextsirius.runtime.feature"
       label="Xtext / Sirius Integration Runtime Feature"
       version="0.9.0.qualifier"
-      provider-name="Altran">
+      provider-name="Altran"
+      license-feature="com.altran.general.integration.xtextsirius.license"
+      license-feature-version="0.9.0.qualifier">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description>
+      Xtext / Sirius Integration run-time Feature for Sirius 5.x / Eclipse Oxygen and newer
+
+Run-time support for Xtext-enabled direct edit actions for Sirius diagrams and Xtext-enabled fields for Sirius property editors.
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
+   <copyright>
+      Copyright 2018 Altran Netherlands B.V.
    </copyright>
 
    <license url="http://www.example.com/license">
