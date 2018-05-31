@@ -39,8 +39,8 @@ public final class PropertiesxtextEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public PropertiesxtextEditPlugin() {
-		super(new ResourceLocator[] { PropertiesEditPlugin.INSTANCE, XtextsiriusEditPlugin.INSTANCE,
-				SiriusEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, PropertiesEditPlugin.INSTANCE,
+				SiriusEditPlugin.INSTANCE, XtextsiriusEditPlugin.INSTANCE, });
 	}
 
 	/**

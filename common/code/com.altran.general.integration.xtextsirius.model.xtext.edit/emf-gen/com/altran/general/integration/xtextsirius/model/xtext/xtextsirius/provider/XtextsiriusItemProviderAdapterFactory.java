@@ -70,7 +70,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Object> supportedTypes = new ArrayList<>();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc
@@ -79,11 +79,11 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	public XtextsiriusItemProviderAdapterFactory() {
-		this.supportedTypes.add(IEditingDomainItemProvider.class);
-		this.supportedTypes.add(IStructuredItemContentProvider.class);
-		this.supportedTypes.add(ITreeItemContentProvider.class);
-		this.supportedTypes.add(IItemLabelProvider.class);
-		this.supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 */
 	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -113,8 +113,8 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(final Object type) {
-		return this.supportedTypes.contains(type) || super.isFactoryForType(type);
+	public boolean isFactoryForType(Object type) {
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
 
 	/**
@@ -123,7 +123,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Adapter adapt(final Notifier notifier, final Object type) {
+	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
 
@@ -132,9 +132,9 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Object adapt(final Object object, final Object type) {
+	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
-			final Object adapter = super.adapt(object, type);
+			Object adapter = super.adapt(object, type);
 			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
@@ -148,7 +148,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	public List<IChildCreationExtender> getChildCreationExtenders() {
-		return this.childCreationExtenderManager.getChildCreationExtenders();
+		return childCreationExtenderManager.getChildCreationExtenders();
 	}
 
 	/**
@@ -156,8 +156,8 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	@Override
-	public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
-		return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+		return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
 	}
 
 	/**
@@ -166,7 +166,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return this.childCreationExtenderManager;
+		return childCreationExtenderManager;
 	}
 
 	/**
@@ -175,8 +175,8 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void addListener(final INotifyChangedListener notifyChangedListener) {
-		this.changeNotifier.addListener(notifyChangedListener);
+	public void addListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.addListener(notifyChangedListener);
 	}
 
 	/**
@@ -185,8 +185,8 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void removeListener(final INotifyChangedListener notifyChangedListener) {
-		this.changeNotifier.removeListener(notifyChangedListener);
+	public void removeListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.removeListener(notifyChangedListener);
 	}
 
 	/**
@@ -197,11 +197,11 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	@Override
-	public void fireNotifyChanged(final Notification notification) {
-		this.changeNotifier.fireNotifyChanged(notification);
+	public void fireNotifyChanged(Notification notification) {
+		changeNotifier.fireNotifyChanged(notification);
 
-		if (this.parentAdapterFactory != null) {
-			this.parentAdapterFactory.fireNotifyChanged(notification);
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
 

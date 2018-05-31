@@ -20,14 +20,6 @@ import org.eclipse.sirius.properties.PropertiesPackage;
 
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
-import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
-
-import org.eclipse.sirius.viewpoint.description.style.StylePackage;
-
-import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
-
-import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
-
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
  * end-user-doc -->
@@ -107,14 +99,10 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		isInited = true;
 
 		// Initialize simple dependencies
-		PropertiesPackage.eINSTANCE.eClass();
-		XtextsiriusPackage.eINSTANCE.eClass();
-		DescriptionPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
-		ValidationPackage.eINSTANCE.eClass();
-		ToolPackage.eINSTANCE.eClass();
+		PropertiesPackage.eINSTANCE.eClass();
 		ViewpointPackage.eINSTANCE.eClass();
-		StylePackage.eINSTANCE.eClass();
+		XtextsiriusPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thePropertiesxtextPackage.createPackageContents();

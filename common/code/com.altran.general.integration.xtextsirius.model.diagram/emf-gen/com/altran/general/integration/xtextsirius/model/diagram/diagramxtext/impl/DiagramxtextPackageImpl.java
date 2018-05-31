@@ -14,19 +14,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.sirius.diagram.DiagramPackage;
-
-import org.eclipse.sirius.diagram.description.concern.ConcernPackage;
-
-import org.eclipse.sirius.diagram.description.filter.FilterPackage;
-
 import org.eclipse.sirius.diagram.description.tool.ToolPackage;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
-
-import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
-
-import org.eclipse.sirius.viewpoint.description.style.StylePackage;
-
-import org.eclipse.sirius.viewpoint.description.validation.ValidationPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
@@ -104,19 +93,11 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		isInited = true;
 
 		// Initialize simple dependencies
-		ToolPackage.eINSTANCE.eClass();
-		DescriptionPackage.eINSTANCE.eClass();
-		org.eclipse.sirius.viewpoint.description.tool.ToolPackage.eINSTANCE.eClass();
-		org.eclipse.sirius.diagram.description.DescriptionPackage.eINSTANCE.eClass();
-		XtextsiriusPackage.eINSTANCE.eClass();
+		ViewpointPackage.eINSTANCE.eClass();
 		DiagramPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
-		ValidationPackage.eINSTANCE.eClass();
-		StylePackage.eINSTANCE.eClass();
-		FilterPackage.eINSTANCE.eClass();
-		ConcernPackage.eINSTANCE.eClass();
 		ViewpointPackage.eINSTANCE.eClass();
-		org.eclipse.sirius.diagram.description.style.StylePackage.eINSTANCE.eClass();
+		XtextsiriusPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDiagramxtextPackage.createPackageContents();
@@ -219,7 +200,7 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 
 		// Obtain other dependent packages
 		ToolPackage theToolPackage = (ToolPackage) EPackage.Registry.INSTANCE.getEPackage(ToolPackage.eNS_URI);
-		org.eclipse.sirius.diagram.description.DescriptionPackage theDescriptionPackage_1 = (org.eclipse.sirius.diagram.description.DescriptionPackage) EPackage.Registry.INSTANCE
+		org.eclipse.sirius.diagram.description.DescriptionPackage theDescriptionPackage = (org.eclipse.sirius.diagram.description.DescriptionPackage) EPackage.Registry.INSTANCE
 				.getEPackage(org.eclipse.sirius.diagram.description.DescriptionPackage.eNS_URI);
 		XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(XtextsiriusPackage.eNS_URI);
@@ -241,7 +222,7 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		initEClass(aXtextDirectEditLabelEClass, AXtextDirectEditLabel.class, "AXtextDirectEditLabel", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(aXtextDirectEditLabelEClass, theDescriptionPackage_1.getDiagramElementMapping(), "getMapping", 0,
+		addEOperation(aXtextDirectEditLabelEClass, theDescriptionPackage.getDiagramElementMapping(), "getMapping", 0,
 				-1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xtextDirectEditModelDescriptionEClass, XtextDirectEditModelDescription.class,

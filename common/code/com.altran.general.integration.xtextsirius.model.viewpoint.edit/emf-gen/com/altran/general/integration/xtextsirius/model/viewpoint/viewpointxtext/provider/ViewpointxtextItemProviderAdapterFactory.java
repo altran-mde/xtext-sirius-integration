@@ -81,7 +81,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Object> supportedTypes = new ArrayList<>();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc
@@ -90,11 +90,11 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	public ViewpointxtextItemProviderAdapterFactory() {
-		this.supportedTypes.add(IEditingDomainItemProvider.class);
-		this.supportedTypes.add(IStructuredItemContentProvider.class);
-		this.supportedTypes.add(ITreeItemContentProvider.class);
-		this.supportedTypes.add(IItemLabelProvider.class);
-		this.supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -111,12 +111,12 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 */
 	@Override
 	public Adapter createXtextEdgeLabelDirectEditModelDescriptionAdapter() {
-		if (this.xtextEdgeLabelDirectEditModelDescriptionItemProvider == null) {
-			this.xtextEdgeLabelDirectEditModelDescriptionItemProvider = new XtextEdgeLabelDirectEditModelDescriptionItemProvider(
+		if (xtextEdgeLabelDirectEditModelDescriptionItemProvider == null) {
+			xtextEdgeLabelDirectEditModelDescriptionItemProvider = new XtextEdgeLabelDirectEditModelDescriptionItemProvider(
 					this);
 		}
 
-		return this.xtextEdgeLabelDirectEditModelDescriptionItemProvider;
+		return xtextEdgeLabelDirectEditModelDescriptionItemProvider;
 	}
 
 	/**
@@ -133,12 +133,12 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 */
 	@Override
 	public Adapter createXtextEdgeLabelDirectEditValueDescriptionAdapter() {
-		if (this.xtextEdgeLabelDirectEditValueDescriptionItemProvider == null) {
-			this.xtextEdgeLabelDirectEditValueDescriptionItemProvider = new XtextEdgeLabelDirectEditValueDescriptionItemProvider(
+		if (xtextEdgeLabelDirectEditValueDescriptionItemProvider == null) {
+			xtextEdgeLabelDirectEditValueDescriptionItemProvider = new XtextEdgeLabelDirectEditValueDescriptionItemProvider(
 					this);
 		}
 
-		return this.xtextEdgeLabelDirectEditValueDescriptionItemProvider;
+		return xtextEdgeLabelDirectEditValueDescriptionItemProvider;
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 */
 	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	@Override
-	public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -168,8 +168,8 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(final Object type) {
-		return this.supportedTypes.contains(type) || super.isFactoryForType(type);
+	public boolean isFactoryForType(Object type) {
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	@Override
-	public Adapter adapt(final Notifier notifier, final Object type) {
+	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
 
@@ -187,9 +187,9 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	@Override
-	public Object adapt(final Object object, final Object type) {
+	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
-			final Object adapter = super.adapt(object, type);
+			Object adapter = super.adapt(object, type);
 			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
@@ -203,7 +203,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	public List<IChildCreationExtender> getChildCreationExtenders() {
-		return this.childCreationExtenderManager.getChildCreationExtenders();
+		return childCreationExtenderManager.getChildCreationExtenders();
 	}
 
 	/**
@@ -211,8 +211,8 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	@Override
-	public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
-		return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+		return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
 	}
 
 	/**
@@ -221,7 +221,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return this.childCreationExtenderManager;
+		return childCreationExtenderManager;
 	}
 
 	/**
@@ -230,8 +230,8 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	@Override
-	public void addListener(final INotifyChangedListener notifyChangedListener) {
-		this.changeNotifier.addListener(notifyChangedListener);
+	public void addListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.addListener(notifyChangedListener);
 	}
 
 	/**
@@ -240,8 +240,8 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	@Override
-	public void removeListener(final INotifyChangedListener notifyChangedListener) {
-		this.changeNotifier.removeListener(notifyChangedListener);
+	public void removeListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.removeListener(notifyChangedListener);
 	}
 
 	/**
@@ -252,11 +252,11 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	@Override
-	public void fireNotifyChanged(final Notification notification) {
-		this.changeNotifier.fireNotifyChanged(notification);
+	public void fireNotifyChanged(Notification notification) {
+		changeNotifier.fireNotifyChanged(notification);
 
-		if (this.parentAdapterFactory != null) {
-			this.parentAdapterFactory.fireNotifyChanged(notification);
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
 
@@ -268,12 +268,10 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 */
 	@Override
 	public void dispose() {
-		if (this.xtextEdgeLabelDirectEditModelDescriptionItemProvider != null) {
-			this.xtextEdgeLabelDirectEditModelDescriptionItemProvider.dispose();
-		}
-		if (this.xtextEdgeLabelDirectEditValueDescriptionItemProvider != null) {
-			this.xtextEdgeLabelDirectEditValueDescriptionItemProvider.dispose();
-		}
+		if (xtextEdgeLabelDirectEditModelDescriptionItemProvider != null)
+			xtextEdgeLabelDirectEditModelDescriptionItemProvider.dispose();
+		if (xtextEdgeLabelDirectEditValueDescriptionItemProvider != null)
+			xtextEdgeLabelDirectEditValueDescriptionItemProvider.dispose();
 	}
 
 	/**
@@ -310,7 +308,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * @generated
 			 */
-			CreationSwitch(final List<Object> newChildDescriptors, final EditingDomain editingDomain) {
+			CreationSwitch(List<Object> newChildDescriptors, EditingDomain editingDomain) {
 				this.newChildDescriptors = newChildDescriptors;
 				this.editingDomain = editingDomain;
 			}
@@ -320,13 +318,11 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * @generated
 			 */
 			@Override
-			public Object caseEnvironment(final Environment object) {
-				this.newChildDescriptors
-						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
+			public Object caseEnvironment(Environment object) {
+				newChildDescriptors.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
 
-				this.newChildDescriptors
-						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
+				newChildDescriptors.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
 
 				return null;
@@ -336,7 +332,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * @generated
 			 */
-			protected CommandParameter createChildParameter(final Object feature, final Object child) {
+			protected CommandParameter createChildParameter(Object feature, Object child) {
 				return new CommandParameter(null, feature, child);
 			}
 
@@ -347,8 +343,8 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 		 * @generated
 		 */
 		@Override
-		public Collection<Object> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
-			final ArrayList<Object> result = new ArrayList<>();
+		public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+			ArrayList<Object> result = new ArrayList<Object>();
 			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
 			return result;
 		}
@@ -397,7 +393,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * @generated
 			 */
-			CreationSwitch(final List<Object> newChildDescriptors, final EditingDomain editingDomain) {
+			CreationSwitch(List<Object> newChildDescriptors, EditingDomain editingDomain) {
 				this.newChildDescriptors = newChildDescriptors;
 				this.editingDomain = editingDomain;
 			}
@@ -407,27 +403,11 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * @generated
 			 */
 			@Override
-			public Object caseToolSection(final ToolSection object) {
-				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_SECTION__OWNED_TOOLS,
+			public Object caseToolSection(ToolSection object) {
+				newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_SECTION__OWNED_TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
 
-				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_SECTION__OWNED_TOOLS,
-						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
-
-				return null;
-			}
-
-			/**
-			 * <!-- begin-user-doc --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			@Override
-			public Object caseToolGroup(final ToolGroup object) {
-				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP__TOOLS,
-						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
-
-				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP__TOOLS,
+				newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_SECTION__OWNED_TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
 
 				return null;
@@ -438,11 +418,11 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * @generated
 			 */
 			@Override
-			public Object caseToolGroupExtension(final ToolGroupExtension object) {
-				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
+			public Object caseToolGroup(ToolGroup object) {
+				newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP__TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
 
-				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
+				newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP__TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
 
 				return null;
@@ -450,10 +430,24 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
-			 * 
 			 * @generated
 			 */
-			protected CommandParameter createChildParameter(final Object feature, final Object child) {
+			@Override
+			public Object caseToolGroupExtension(ToolGroupExtension object) {
+				newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
+						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
+
+				newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
+						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
+
+				return null;
+			}
+
+			/**
+			 * <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * @generated
+			 */
+			protected CommandParameter createChildParameter(Object feature, Object child) {
 				return new CommandParameter(null, feature, child);
 			}
 
@@ -464,8 +458,8 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 		 * @generated
 		 */
 		@Override
-		public Collection<Object> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
-			final ArrayList<Object> result = new ArrayList<>();
+		public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+			ArrayList<Object> result = new ArrayList<Object>();
 			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
 			return result;
 		}

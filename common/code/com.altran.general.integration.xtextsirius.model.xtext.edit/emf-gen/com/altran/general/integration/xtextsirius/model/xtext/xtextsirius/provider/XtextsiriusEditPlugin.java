@@ -36,7 +36,7 @@ public final class XtextsiriusEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public XtextsiriusEditPlugin() {
-		super(new ResourceLocator[] {});
+		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, });
 	}
 
 	/**
@@ -80,18 +80,19 @@ public final class XtextsiriusEditPlugin extends EMFPlugin {
 			// Remember the static instance.
 			//
 			plugin = this;
-//		}
-//
-//		/**
-//		 * The actual implementation of the purely OSGi-compatible <b>Bundle Activator</b>.
-//		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//		 * @generated
-//		 */
-//		public static final class Activator extends EMFPlugin.OSGiDelegatingBundleActivator {
-//			@Override
-//			protected BundleActivator createBundle() {
-//				return new Implementation();
-//			}
+		}
+
+		/**
+		 * The actual implementation of the purely OSGi-compatible <b>Bundle Activator</b>.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final class Activator extends EMFPlugin.OSGiDelegatingBundleActivator {
+			@Override
+			protected BundleActivator createBundle() {
+				return new Implementation();
+			}
 		}
 	}
 
