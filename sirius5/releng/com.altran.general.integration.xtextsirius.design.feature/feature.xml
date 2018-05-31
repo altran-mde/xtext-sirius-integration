@@ -17,35 +17,29 @@ Provides odesign extensions to create Xtext-enabled direct edit actions for Siri
       Copyright 2018 Altran Netherlands B.V.
    </copyright>
 
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
-
    <includes
          id="com.altran.general.integration.xtextsirius.runtime.feature"
          version="0.0.0"/>
 
    <requires>
+      <import plugin="org.apache.commons.lang"/>
+      <import plugin="com.google.guava" version="15.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.xtext.xbase.lib"/>
-      <import plugin="org.eclipse.emf.ecore.xcore.lib"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.eclipse.sirius" version="5" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.ui"/>
-      <import plugin="org.eclipse.sirius.diagram"/>
-      <import plugin="org.eclipse.sirius.diagram.ui"/>
       <import plugin="org.eclipse.emf.ecore.edit"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
-      <import plugin="com.google.guava" version="15.0.0" match="greaterOrEqual"/>
-      <import plugin="org.apache.commons.lang"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.ui.views.properties.tabbed"/>
-      <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="org.eclipse.sirius.editor"/>
       <import plugin="org.eclipse.eef"/>
-      <import plugin="org.eclipse.sirius.properties"/>
-      <import plugin="org.eclipse.sirius.properties.edit"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
+      <import plugin="org.eclipse.sirius" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ui" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram"/>
+      <import plugin="org.eclipse.sirius.diagram.ui"/>
+      <import plugin="org.eclipse.sirius.editor"/>
+      <import plugin="org.eclipse.sirius.properties" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties.edit" version="5.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin

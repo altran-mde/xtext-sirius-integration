@@ -17,33 +17,30 @@ Run-time support for Xtext-enabled direct edit actions for Sirius diagrams and X
       Copyright 2018 Altran Netherlands B.V.
    </copyright>
 
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
-
    <requires>
       <import plugin="org.apache.commons.lang"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.eef"/>
-      <import plugin="org.eclipse.sirius.common"/>
-      <import plugin="org.eclipse.sirius.diagram"/>
-      <import plugin="org.eclipse.sirius.ecore.extender"/>
       <import plugin="com.google.guava" version="21.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.xtext.xbase.lib"/>
-      <import plugin="org.eclipse.emf.ecore.xcore.lib"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
-      <import plugin="org.yakindu.base.xtext.utils.jface"/>
-      <import plugin="org.yakindu.base.xtext.utils.gmf"/>
+      <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.xtext.ui"/>
-      <import plugin="org.eclipse.sirius.diagram.ui"/>
+      <import plugin="org.eclipse.eef"/>
       <import plugin="org.eclipse.eef.core"/>
       <import plugin="org.eclipse.eef.common.ui"/>
       <import plugin="org.eclipse.eef.ide.ui"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
+      <import plugin="org.eclipse.sirius" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common"/>
       <import plugin="org.eclipse.sirius.common.interpreter"/>
-      <import plugin="org.eclipse.sirius" version="5" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.properties"/>
+      <import plugin="org.eclipse.sirius.ext.base"/>
+      <import plugin="org.eclipse.sirius.ecore.extender"/>
+      <import plugin="org.eclipse.sirius.diagram"/>
+      <import plugin="org.eclipse.sirius.diagram.ui"/>
+      <import plugin="org.eclipse.sirius.properties" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties.core" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.yakindu.base.xtext.utils.jface"/>
+      <import plugin="org.yakindu.base.xtext.utils.gmf"/>
+      <import plugin="org.eclipse.jdt.annotation" version="2.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
