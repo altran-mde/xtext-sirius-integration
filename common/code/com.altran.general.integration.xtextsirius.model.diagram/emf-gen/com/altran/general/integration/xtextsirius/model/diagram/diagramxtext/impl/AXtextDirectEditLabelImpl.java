@@ -16,11 +16,9 @@ import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.sirius.diagram.description.DescriptionPackage;
 import org.eclipse.sirius.diagram.description.DiagramElementMapping;
 import org.eclipse.sirius.diagram.description.tool.impl.DirectEditLabelImpl;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
-import com.google.common.base.Objects;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>AXtext
@@ -63,15 +61,14 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 		if ((crossReferencer == null)) {
 			throw new UnsupportedOperationException();
 		}
-		final ArrayList<DiagramElementMapping> diagramElementMappings = CollectionLiterals
-				.<DiagramElementMapping> newArrayList();
+		final ArrayList<DiagramElementMapping> diagramElementMappings = new ArrayList<>();
 		final Collection<Setting> settings = crossReferencer.getInverseReferences(this, true);
 		for (final Setting setting : settings) {
 			{
 				final EObject eReferencer = setting.getEObject();
 				final EStructuralFeature eFeature = setting.getEStructuralFeature();
-				if (((eReferencer instanceof DiagramElementMapping) && Objects.equal(eFeature,
-						DescriptionPackage.eINSTANCE.getDiagramElementMapping_LabelDirectEdit()))) {
+				if ((eReferencer instanceof DiagramElementMapping)
+						&& DescriptionPackage.eINSTANCE.getDiagramElementMapping_LabelDirectEdit().equals(eFeature)) {
 					diagramElementMappings.add(((DiagramElementMapping) eReferencer));
 				}
 			}

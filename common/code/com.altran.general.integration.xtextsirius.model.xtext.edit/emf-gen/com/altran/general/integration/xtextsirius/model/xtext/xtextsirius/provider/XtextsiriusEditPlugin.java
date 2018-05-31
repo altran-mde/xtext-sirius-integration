@@ -5,7 +5,6 @@ package com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provi
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.osgi.framework.BundleActivator;
 
 /**
  * This is the central singleton for the Xtext-sirius edit plugin. <!--
@@ -82,19 +81,6 @@ public final class XtextsiriusEditPlugin extends EMFPlugin {
 			// Remember the static instance.
 			//
 			plugin = this;
-		}
-
-		/**
-		 * The actual implementation of the purely OSGi-compatible <b>Bundle
-		 * Activator</b>. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		public static final class Activator extends EMFPlugin.OSGiDelegatingBundleActivator {
-			@Override
-			protected BundleActivator createBundle() {
-				return new Implementation();
-			}
 		}
 	}
 

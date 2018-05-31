@@ -22,29 +22,30 @@ public interface AXtextDirectEditLabel extends DirectEditLabel {
 	 * @model kind="operation" unique="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final
 	 *        &lt;%org.eclipse.emf.ecore.resource.Resource%&gt; r =
-	 *        this.eResource();\nif ((r == null))\n{\n\tthrow new
-	 *        &lt;%java.lang.UnsupportedOperationException%&gt;();\n}\nfinal
+	 *        this.eResource();\r\nif ((r == null))\r\n{\r\n\tthrow new
+	 *        &lt;%java.lang.UnsupportedOperationException%&gt;();\r\n}\r\nfinal
 	 *        &lt;%org.eclipse.emf.ecore.util.ECrossReferenceAdapter%&gt;
 	 *        crossReferencer =
-	 *        &lt;%org.eclipse.emf.ecore.util.ECrossReferenceAdapter%&gt;.getCrossReferenceAdapter(r);\nif
-	 *        ((crossReferencer == null))\n{\n\tthrow new
-	 *        &lt;%java.lang.UnsupportedOperationException%&gt;();\n}\nfinal
+	 *        &lt;%org.eclipse.emf.ecore.util.ECrossReferenceAdapter%&gt;.getCrossReferenceAdapter(r);\r\nif
+	 *        ((crossReferencer == null))\r\n{\r\n\tthrow new
+	 *        &lt;%java.lang.UnsupportedOperationException%&gt;();\r\n}\r\nfinal
 	 *        &lt;%java.util.ArrayList%&gt;&lt;&lt;%org.eclipse.sirius.diagram.description.DiagramElementMapping%&gt;&gt;
-	 *        diagramElementMappings =
-	 *        &lt;%org.eclipse.xtext.xbase.lib.CollectionLiterals%&gt;.&lt;&lt;%org.eclipse.sirius.diagram.description.DiagramElementMapping%&gt;&gt;newArrayList();\nfinal
+	 *        diagramElementMappings = new
+	 *        &lt;%java.util.ArrayList%&gt;&lt;&gt;();\r\nfinal
 	 *        &lt;%java.util.Collection%&gt;&lt;&lt;%org.eclipse.emf.ecore.EStructuralFeature.Setting%&gt;&gt;
-	 *        settings = crossReferencer.getInverseReferences(this, true);\nfor
-	 *        (final &lt;%org.eclipse.emf.ecore.EStructuralFeature.Setting%&gt;
-	 *        setting : settings)\n{\n\t{\n\t\tfinal
+	 *        settings = crossReferencer.getInverseReferences(this,
+	 *        true);\r\nfor (final
+	 *        &lt;%org.eclipse.emf.ecore.EStructuralFeature.Setting%&gt; setting
+	 *        : settings)\r\n{\r\n\t{\r\n\t\tfinal
 	 *        &lt;%org.eclipse.emf.ecore.EObject%&gt; eReferencer =
-	 *        setting.getEObject();\n\t\tfinal
+	 *        setting.getEObject();\r\n\t\tfinal
 	 *        &lt;%org.eclipse.emf.ecore.EStructuralFeature%&gt; eFeature =
-	 *        setting.getEStructuralFeature();\n\t\tif (((eReferencer instanceof
+	 *        setting.getEStructuralFeature();\r\n\t\tif ((eReferencer
+	 *        instanceof
 	 *        &lt;%org.eclipse.sirius.diagram.description.DiagramElementMapping%&gt;)
 	 *        &amp;&amp;
-	 *        &lt;%com.google.common.base.Objects%&gt;.equal(eFeature,
-	 *        &lt;%org.eclipse.sirius.diagram.description.DescriptionPackage%&gt;.eINSTANCE.getDiagramElementMapping_LabelDirectEdit())))\n\t\t{\n\t\t\tdiagramElementMappings.add(((&lt;%org.eclipse.sirius.diagram.description.DiagramElementMapping%&gt;)
-	 *        eReferencer));\n\t\t}\n\t}\n}\nreturn new
+	 *        &lt;%org.eclipse.sirius.diagram.description.DescriptionPackage%&gt;.eINSTANCE.getDiagramElementMapping_LabelDirectEdit().equals(eFeature))\r\n\t\t{\r\n\t\t\tdiagramElementMappings.add(((&lt;%org.eclipse.sirius.diagram.description.DiagramElementMapping%&gt;)
+	 *        eReferencer));\r\n\t\t}\r\n\t}\r\n}\r\nreturn new
 	 *        &lt;%org.eclipse.emf.common.util.BasicEList%&gt;&lt;&lt;%org.eclipse.sirius.diagram.description.DiagramElementMapping%&gt;&gt;(diagramElementMappings);'"
 	 * @generated
 	 */

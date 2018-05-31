@@ -9,7 +9,7 @@
     suppressGenModelAnnotations="false" copyrightFields="false" providerRootExtendsClass=""
     editPluginID="com.altran.general.integration.xtextsirius.model.xtext.edit" runtimeVersion="2.3"
     language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
-    importOrganizing="true" cleanup="true" oSGiCompatible="true">
+    importOrganizing="true" cleanup="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
     <genAnnotations source="selectedPackages">
       <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
