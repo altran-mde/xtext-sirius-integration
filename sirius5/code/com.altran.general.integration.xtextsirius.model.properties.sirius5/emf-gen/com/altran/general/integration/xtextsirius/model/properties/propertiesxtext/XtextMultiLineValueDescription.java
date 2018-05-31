@@ -18,8 +18,10 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 public interface XtextMultiLineValueDescription extends TextAreaDescription, IXtextPropertyValueDescription {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return true;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return
+	 *        true;'"
 	 * @generated
 	 */
 	@Override

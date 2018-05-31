@@ -19,36 +19,37 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextFactory
  * @model kind="package"
  * @generated
  */
 public interface ViewpointxtextPackage extends EPackage {
 	/**
-	 * The package name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNAME = "viewpointxtext";
 
 	/**
-	 * The package namespace URI.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_URI = "http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0";
 
 	/**
-	 * The package namespace name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_PREFIX = "viewpoint-xtext";
 
 	/**
-	 * The singleton instance of the package.
-	 * <!-- begin-user-doc --> <!--
+	 * The singleton instance of the package. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	ViewpointxtextPackage eINSTANCE = com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextPackageImpl
@@ -85,8 +86,9 @@ public interface ViewpointxtextPackage extends EPackage {
 	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__MULTI_LINE = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE;
 
 	/**
-	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -162,8 +164,9 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__FORCE_REFRESH = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__FORCE_REFRESH;
 
 	/**
-	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -172,14 +175,16 @@ public interface ViewpointxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Elements To Select</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__ELEMENTS_TO_SELECT = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__ELEMENTS_TO_SELECT;
 
 	/**
-	 * The feature id for the '<em><b>Inverse Selection Order</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Inverse Selection Order</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -195,16 +200,18 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__MASK = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MASK;
 
 	/**
-	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__INITIAL_OPERATION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INITIAL_OPERATION;
 
 	/**
-	 * The feature id for the '<em><b>Input Label Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Input Label Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -229,16 +236,18 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE;
 
 	/**
-	 * The feature id for the '<em><b>Editable Features</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 
 	/**
-	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -246,9 +255,10 @@ public interface ViewpointxtextPackage extends EPackage {
 			+ 0;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Edge Label Direct Edit Model Description</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Xtext Edge Label Direct
+	 * Edit Model Description</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -313,8 +323,9 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__FORCE_REFRESH = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__FORCE_REFRESH;
 
 	/**
-	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -323,14 +334,16 @@ public interface ViewpointxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Elements To Select</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__ELEMENTS_TO_SELECT = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ELEMENTS_TO_SELECT;
 
 	/**
-	 * The feature id for the '<em><b>Inverse Selection Order</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Inverse Selection Order</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -346,16 +359,18 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__MASK = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MASK;
 
 	/**
-	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__INITIAL_OPERATION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INITIAL_OPERATION;
 
 	/**
-	 * The feature id for the '<em><b>Input Label Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Input Label Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -380,24 +395,27 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
 
 	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
-	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -405,9 +423,10 @@ public interface ViewpointxtextPackage extends EPackage {
 			+ 0;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Edge Label Direct Edit Value Description</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Xtext Edge Label Direct
+	 * Edit Value Description</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -415,10 +434,13 @@ public interface ViewpointxtextPackage extends EPackage {
 			+ 1;
 
 	/**
-	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription <em>IXtext Edge Label Direct Edit Description</em>}'.
-	 * <!-- begin-user-doc
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
+	 * <em>IXtext Edge Label Direct Edit Description</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IXtext Edge Label Direct Edit Description</em>'.
+	 * 
+	 * @return the meta object for class '<em>IXtext Edge Label Direct Edit
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
 	 * @generated
 	 */
@@ -483,6 +505,7 @@ public interface ViewpointxtextPackage extends EPackage {
 	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	interface Literals {
@@ -499,8 +522,9 @@ public interface ViewpointxtextPackage extends EPackage {
 		EClass IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION = eINSTANCE.getIXtextEdgeLabelDirectEditDescription();
 
 		/**
-		 * The meta object literal for the '<em><b>Edge Label Mappings</b></em>' reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Edge Label Mappings</b></em>'
+		 * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__EDGE_LABEL_MAPPINGS = eINSTANCE

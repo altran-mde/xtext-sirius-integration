@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
+ * <em>Injector Id</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage#getIXtextDescription()
@@ -38,10 +39,13 @@ public interface IXtextDescription extends EObject {
 	String getInjectorId();
 
 	/**
-	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId <em>Injector Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * Sets the value of the
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
+	 * <em>Injector Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * @param value the new value of the '<em>Injector Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Injector Id</em>' attribute.
 	 * @see #getInjectorId()
 	 * @generated
 	 */
@@ -49,6 +53,7 @@ public interface IXtextDescription extends EObject {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation" unique="false"
 	 * @generated
 	 */

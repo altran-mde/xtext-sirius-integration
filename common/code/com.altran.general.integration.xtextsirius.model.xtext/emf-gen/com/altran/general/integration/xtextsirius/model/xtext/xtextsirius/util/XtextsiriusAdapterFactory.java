@@ -22,21 +22,22 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides
  * an adapter <code>createXXX</code> method for each class of the model. <!--
  * end-user-doc -->
+ * 
  * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage
  * @generated
  */
 public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * The cached model package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static XtextsiriusPackage modelPackage;
 
 	/**
-	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc --> <!--
+	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public XtextsiriusAdapterFactory() {
@@ -50,11 +51,12 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This implementation returns <code>true</code> if
 	 * the object is either the model's package or is an instance object of the
 	 * model. <!-- end-user-doc -->
+	 * 
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object object) {
+	public boolean isFactoryForType(final Object object) {
 		if (object == modelPackage) {
 			return true;
 		}
@@ -72,75 +74,78 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected XtextsiriusSwitch<Adapter> modelSwitch = new XtextsiriusSwitch<Adapter>() {
 		@Override
-		public Adapter caseIXtextDescription(IXtextDescription object) {
+		public Adapter caseIXtextDescription(final IXtextDescription object) {
 			return createIXtextDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter caseIXtextModelDescription(IXtextModelDescription object) {
+		public Adapter caseIXtextModelDescription(final IXtextModelDescription object) {
 			return createIXtextModelDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter caseIXtextValueDescription(IXtextValueDescription object) {
+		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter caseIXtextPropertyDescription(IXtextPropertyDescription object) {
+		public Adapter caseIXtextPropertyDescription(final IXtextPropertyDescription object) {
 			return createIXtextPropertyDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter caseIXtextDirectEditDescription(IXtextDirectEditDescription object) {
+		public Adapter caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
 			return createIXtextDirectEditDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter caseIXtextDirectEditModelDescription(IXtextDirectEditModelDescription object) {
+		public Adapter caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
 			return createIXtextDirectEditModelDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter caseIXtextDirectEditValueDescription(IXtextDirectEditValueDescription object) {
+		public Adapter caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
 			return createIXtextDirectEditValueDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter caseIXtextPropertyModelDescription(IXtextPropertyModelDescription object) {
+		public Adapter caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
 			return createIXtextPropertyModelDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter caseIXtextPropertyValueDescription(IXtextPropertyValueDescription object) {
+		public Adapter caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
 			return createIXtextPropertyValueDescriptionAdapter();
 		}
 
 		@Override
-		public Adapter defaultCase(EObject object) {
+		public Adapter defaultCase(final EObject object) {
 			return createEObjectAdapter();
 		}
 	};
 
 	/**
-	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc -->
+	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param target the object to adapt.
+	 * 
+	 * @param target
+	 *            the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
 	@Override
-	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+	public Adapter createAdapter(final Notifier target) {
+		return this.modelSwitch.doSwitch((EObject) target);
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription <em>IXtext Description</em>}'.
-	 * <!-- begin-user-doc --> This default
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
+	 * <em>IXtext Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
 	 * @generated
@@ -150,11 +155,13 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription <em>IXtext Model Description</em>}'.
-	 * <!-- begin-user-doc --> This default
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
+	 * <em>IXtext Model Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
 	 * @generated
@@ -164,11 +171,13 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription <em>IXtext Value Description</em>}'.
-	 * <!-- begin-user-doc --> This default
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
+	 * <em>IXtext Value Description</em>}'. <!-- begin-user-doc --> This default
 	 * implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 	 * @generated
@@ -178,11 +187,13 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription <em>IXtext Property Description</em>}'.
-	 * <!-- begin-user-doc --> This
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
+	 * <em>IXtext Property Description</em>}'. <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
 	 * anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
 	 * @generated
@@ -192,11 +203,13 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription <em>IXtext Direct Edit Description</em>}'.
-	 * <!-- begin-user-doc --> This
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
+	 * <em>IXtext Direct Edit Description</em>}'. <!-- begin-user-doc --> This
 	 * default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases
 	 * anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
 	 * @generated
@@ -206,11 +219,13 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription <em>IXtext Direct Edit Model Description</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
+	 * <em>IXtext Direct Edit Model Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
 	 * cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
 	 * @generated
@@ -220,11 +235,13 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription <em>IXtext Direct Edit Value Description</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
+	 * <em>IXtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
 	 * cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 	 * @generated
@@ -234,11 +251,13 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription <em>IXtext Property Model Description</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
+	 * <em>IXtext Property Model Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
 	 * cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
 	 * @generated
@@ -248,11 +267,13 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription <em>IXtext Property Value Description</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
+	 * <em>IXtext Property Value Description</em>}'. <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the
 	 * cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
 	 * @generated
@@ -262,9 +283,9 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc --> This
+	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This
 	 * default implementation returns null. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @generated
 	 */

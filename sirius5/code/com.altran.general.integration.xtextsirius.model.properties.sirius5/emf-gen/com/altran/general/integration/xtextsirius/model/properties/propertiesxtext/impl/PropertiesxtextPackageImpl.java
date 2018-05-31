@@ -2,6 +2,13 @@
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.sirius.properties.PropertiesPackage;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
+
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextFactory;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
@@ -10,42 +17,37 @@ import com.altran.general.integration.xtextsirius.model.properties.propertiesxte
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcorePackage;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.eclipse.sirius.properties.PropertiesPackage;
-
-import org.eclipse.sirius.viewpoint.ViewpointPackage;
-
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class PropertiesxtextPackageImpl extends EPackageImpl implements PropertiesxtextPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass xtextSingleLineModelDescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass xtextMultiLineModelDescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass xtextSingleLineValueDescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass xtextMultiLineValueDescriptionEClass = null;
@@ -71,28 +73,34 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
-	 * <p>This method is used to initialize {@link PropertiesxtextPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc --> <!--
+	 * Creates, registers, and initializes the <b>Package</b> for this model,
+	 * and for any others upon which it depends.
+	 *
+	 * <p>
+	 * This method is used to initialize
+	 * {@link PropertiesxtextPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access
+	 * that field to obtain the package. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static PropertiesxtextPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (PropertiesxtextPackage) EPackage.Registry.INSTANCE.getEPackage(PropertiesxtextPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
-		PropertiesxtextPackageImpl thePropertiesxtextPackage = (PropertiesxtextPackageImpl) (EPackage.Registry.INSTANCE
+		final PropertiesxtextPackageImpl thePropertiesxtextPackage = (PropertiesxtextPackageImpl) (EPackage.Registry.INSTANCE
 				.get(eNS_URI) instanceof PropertiesxtextPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
 						: new PropertiesxtextPackageImpl());
 
@@ -113,6 +121,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		// Mark meta-data to indicate it can't be changed
 		thePropertiesxtextPackage.freeze();
 
+
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(PropertiesxtextPackage.eNS_URI, thePropertiesxtextPackage);
 		return thePropertiesxtextPackage;
@@ -120,42 +129,47 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EClass getXtextSingleLineModelDescription() {
-		return xtextSingleLineModelDescriptionEClass;
+		return this.xtextSingleLineModelDescriptionEClass;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EClass getXtextMultiLineModelDescription() {
-		return xtextMultiLineModelDescriptionEClass;
+		return this.xtextMultiLineModelDescriptionEClass;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EClass getXtextSingleLineValueDescription() {
-		return xtextSingleLineValueDescriptionEClass;
+		return this.xtextSingleLineValueDescriptionEClass;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EClass getXtextMultiLineValueDescription() {
-		return xtextMultiLineValueDescriptionEClass;
+		return this.xtextMultiLineValueDescriptionEClass;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -165,34 +179,37 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to
+	 * have no affect on any invocation but its first. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (this.isCreated) {
 			return;
-		isCreated = true;
+		}
+		this.isCreated = true;
 
 		// Create classes and their features
-		xtextSingleLineModelDescriptionEClass = createEClass(XTEXT_SINGLE_LINE_MODEL_DESCRIPTION);
+		this.xtextSingleLineModelDescriptionEClass = createEClass(XTEXT_SINGLE_LINE_MODEL_DESCRIPTION);
 
-		xtextMultiLineModelDescriptionEClass = createEClass(XTEXT_MULTI_LINE_MODEL_DESCRIPTION);
+		this.xtextMultiLineModelDescriptionEClass = createEClass(XTEXT_MULTI_LINE_MODEL_DESCRIPTION);
 
-		xtextSingleLineValueDescriptionEClass = createEClass(XTEXT_SINGLE_LINE_VALUE_DESCRIPTION);
+		this.xtextSingleLineValueDescriptionEClass = createEClass(XTEXT_SINGLE_LINE_VALUE_DESCRIPTION);
 
-		xtextMultiLineValueDescriptionEClass = createEClass(XTEXT_MULTI_LINE_VALUE_DESCRIPTION);
+		this.xtextMultiLineValueDescriptionEClass = createEClass(XTEXT_MULTI_LINE_VALUE_DESCRIPTION);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
@@ -205,9 +222,10 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (this.isInitialized) {
 			return;
-		isInitialized = true;
+		}
+		this.isInitialized = true;
 
 		// Initialize package
 		setName(eNAME);
@@ -215,53 +233,54 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		PropertiesPackage thePropertiesPackage = (PropertiesPackage) EPackage.Registry.INSTANCE
+		final PropertiesPackage thePropertiesPackage = (PropertiesPackage) EPackage.Registry.INSTANCE
 				.getEPackage(PropertiesPackage.eNS_URI);
-		XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
+		final XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(XtextsiriusPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
+				.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		xtextSingleLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
-		xtextSingleLineModelDescriptionEClass.getESuperTypes()
+		this.xtextSingleLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
+		this.xtextSingleLineModelDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
-		xtextMultiLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
-		xtextMultiLineModelDescriptionEClass.getESuperTypes()
+		this.xtextMultiLineModelDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
+		this.xtextMultiLineModelDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyModelDescription());
-		xtextSingleLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
-		xtextSingleLineValueDescriptionEClass.getESuperTypes()
+		this.xtextSingleLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextDescription());
+		this.xtextSingleLineValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
-		xtextMultiLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
-		xtextMultiLineValueDescriptionEClass.getESuperTypes()
+		this.xtextMultiLineValueDescriptionEClass.getESuperTypes().add(thePropertiesPackage.getTextAreaDescription());
+		this.xtextMultiLineValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextPropertyValueDescription());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(xtextSingleLineModelDescriptionEClass, XtextSingleLineModelDescription.class,
+		initEClass(this.xtextSingleLineModelDescriptionEClass, XtextSingleLineModelDescription.class,
 				"XtextSingleLineModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(xtextSingleLineModelDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1,
+		addEOperation(this.xtextSingleLineModelDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1,
 				!IS_UNIQUE, IS_ORDERED);
 
-		initEClass(xtextMultiLineModelDescriptionEClass, XtextMultiLineModelDescription.class,
+		initEClass(this.xtextMultiLineModelDescriptionEClass, XtextMultiLineModelDescription.class,
 				"XtextMultiLineModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(xtextMultiLineModelDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1,
+		addEOperation(this.xtextMultiLineModelDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1,
 				!IS_UNIQUE, IS_ORDERED);
 
-		initEClass(xtextSingleLineValueDescriptionEClass, XtextSingleLineValueDescription.class,
+		initEClass(this.xtextSingleLineValueDescriptionEClass, XtextSingleLineValueDescription.class,
 				"XtextSingleLineValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(xtextSingleLineValueDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1,
+		addEOperation(this.xtextSingleLineValueDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1,
 				!IS_UNIQUE, IS_ORDERED);
 
-		initEClass(xtextMultiLineValueDescriptionEClass, XtextMultiLineValueDescription.class,
+		initEClass(this.xtextMultiLineValueDescriptionEClass, XtextMultiLineValueDescription.class,
 				"XtextMultiLineValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(xtextMultiLineValueDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1,
+		addEOperation(this.xtextMultiLineValueDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1,
 				!IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
@@ -273,21 +292,34 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 	}
 
 	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
-	 * <!-- begin-user-doc -->
+	 * Initializes the annotations for
+	 * <b>http://www.eclipse.org/emf/2002/GenModel</b>. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createGenModelAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/GenModel";
-		addAnnotation(xtextSingleLineModelDescriptionEClass.getEOperations().get(0), source,
-				new String[] { "body", "return false;" });
-		addAnnotation(xtextMultiLineModelDescriptionEClass.getEOperations().get(0), source,
-				new String[] { "body", "return true;" });
-		addAnnotation(xtextSingleLineValueDescriptionEClass.getEOperations().get(0), source,
-				new String[] { "body", "return false;" });
-		addAnnotation(xtextMultiLineValueDescriptionEClass.getEOperations().get(0), source,
-				new String[] { "body", "return true;" });
+		final String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation(this.xtextSingleLineModelDescriptionEClass.getEOperations().get(0),
+				source,
+				new String[] {
+						"body", "return false;"
+				});
+		addAnnotation(this.xtextMultiLineModelDescriptionEClass.getEOperations().get(0),
+				source,
+				new String[] {
+						"body", "return true;"
+				});
+		addAnnotation(this.xtextSingleLineValueDescriptionEClass.getEOperations().get(0),
+				source,
+				new String[] {
+						"body", "return false;"
+				});
+		addAnnotation(this.xtextMultiLineValueDescriptionEClass.getEOperations().get(0),
+				source,
+				new String[] {
+						"body", "return true;"
+				});
 	}
 
 } // PropertiesxtextPackageImpl

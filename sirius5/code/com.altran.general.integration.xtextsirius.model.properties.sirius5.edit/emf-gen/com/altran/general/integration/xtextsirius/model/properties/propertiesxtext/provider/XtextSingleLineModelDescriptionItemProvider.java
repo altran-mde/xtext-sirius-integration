@@ -19,8 +19,10 @@ import com.altran.general.integration.xtextsirius.model.properties.propertiesxte
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 /**
- * This is the item provider adapter for a {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription} object.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription}
+ * object. <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class XtextSingleLineModelDescriptionItemProvider extends TextDescriptionItemProvider {
@@ -30,7 +32,7 @@ public class XtextSingleLineModelDescriptionItemProvider extends TextDescription
 	 *
 	 * @generated
 	 */
-	public XtextSingleLineModelDescriptionItemProvider(AdapterFactory adapterFactory) {
+	public XtextSingleLineModelDescriptionItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -41,14 +43,14 @@ public class XtextSingleLineModelDescriptionItemProvider extends TextDescription
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInjectorIdPropertyDescriptor(object);
 			addEditableFeaturesPropertyDescriptor(object);
 		}
-		return itemPropertyDescriptors;
+		return this.itemPropertyDescriptors;
 	}
 
 	/**
@@ -57,14 +59,21 @@ public class XtextSingleLineModelDescriptionItemProvider extends TextDescription
 	 *
 	 * @generated
 	 */
-	protected void addInjectorIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IXtextDescription_injectorId_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_IXtextDescription_injectorId_feature",
-						"_UI_IXtextDescription_type"),
-				XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__INJECTOR_ID, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	protected void addInjectorIdPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextDescription_injectorId_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IXtextDescription_injectorId_feature",
+								"_UI_IXtextDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__INJECTOR_ID,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null,
+						null));
 	}
 
 	/**
@@ -73,24 +82,30 @@ public class XtextSingleLineModelDescriptionItemProvider extends TextDescription
 	 *
 	 * @generated
 	 */
-	protected void addEditableFeaturesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+	protected void addEditableFeaturesPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
 				getString("_UI_IXtextModelDescription_editableFeatures_feature"),
 				getString("_UI_PropertyDescriptor_description", "_UI_IXtextModelDescription_editableFeatures_feature",
 						"_UI_IXtextModelDescription_type"),
-				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
-	 * This returns XtextSingleLineModelDescription.gif.
-	 * <!-- begin-user-doc -->
+	 * This returns XtextSingleLineModelDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object) {
+	public Object getImage(final Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/XtextSingleLineModelDescription"));
 	}
 
@@ -108,21 +123,22 @@ public class XtextSingleLineModelDescriptionItemProvider extends TextDescription
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to
+	 * update any cached children and by creating a viewer notification, which
+	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
+	public void notifyChanged(final Notification notification) {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XtextSingleLineModelDescription.class)) {
-		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
-		case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -135,7 +151,7 @@ public class XtextSingleLineModelDescriptionItemProvider extends TextDescription
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

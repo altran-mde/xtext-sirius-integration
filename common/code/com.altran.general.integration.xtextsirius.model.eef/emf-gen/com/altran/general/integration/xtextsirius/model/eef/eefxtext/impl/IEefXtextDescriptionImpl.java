@@ -17,16 +17,19 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDe
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#getInjectorId <em>Injector Id</em>}</li>
- *   <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isMultiLine <em>Multi Line</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#getInjectorId
+ * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isMultiLine
+ * <em>Multi Line</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl implements IEefXtextDescription {
 	/**
-	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #getInjectorId() <em>Injector Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getInjectorId()
 	 * @generated
 	 * @ordered
@@ -34,8 +37,9 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	protected static final String INJECTOR_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getInjectorId()
 	 * @generated
 	 * @ordered
@@ -43,8 +47,9 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isMultiLine()
 	 * @generated
 	 * @ordered
@@ -52,8 +57,9 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	protected static final boolean MULTI_LINE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isMultiLine() <em>Multi Line</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #isMultiLine() <em>Multi Line</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isMultiLine()
 	 * @generated
 	 * @ordered
@@ -62,6 +68,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IEefXtextDescriptionImpl() {
@@ -70,6 +77,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -79,126 +87,139 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getInjectorId() {
-		return injectorId;
+		return this.injectorId;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void setInjectorId(String newInjectorId) {
-		String oldInjectorId = injectorId;
-		injectorId = newInjectorId;
-		if (eNotificationRequired())
+	public void setInjectorId(final String newInjectorId) {
+		final String oldInjectorId = this.injectorId;
+		this.injectorId = newInjectorId;
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID,
-					oldInjectorId, injectorId));
+					oldInjectorId, this.injectorId));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean isMultiLine() {
-		return multiLine;
+		return this.multiLine;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void setMultiLine(boolean newMultiLine) {
-		boolean oldMultiLine = multiLine;
-		multiLine = newMultiLine;
-		if (eNotificationRequired())
+	public void setMultiLine(final boolean newMultiLine) {
+		final boolean oldMultiLine = this.multiLine;
+		this.multiLine = newMultiLine;
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE,
-					oldMultiLine, multiLine));
+					oldMultiLine, this.multiLine));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
-		case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
-			return getInjectorId();
-		case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
-			return isMultiLine();
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
+				return getInjectorId();
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
+				return isMultiLine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
+	public void eSet(final int featureID, final Object newValue) {
 		switch (featureID) {
-		case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
-			setInjectorId((String) newValue);
-			return;
-		case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
-			setMultiLine((Boolean) newValue);
-			return;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
+				setInjectorId((String) newValue);
+				return;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
+				setMultiLine((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
+	public void eUnset(final int featureID) {
 		switch (featureID) {
-		case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
-			setInjectorId(INJECTOR_ID_EDEFAULT);
-			return;
-		case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
-			setMultiLine(MULTI_LINE_EDEFAULT);
-			return;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
+				setInjectorId(INJECTOR_ID_EDEFAULT);
+				return;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
+				setMultiLine(MULTI_LINE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
+	public boolean eIsSet(final int featureID) {
 		switch (featureID) {
-		case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
-			return INJECTOR_ID_EDEFAULT == null ? injectorId != null : !INJECTOR_ID_EDEFAULT.equals(injectorId);
-		case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
-			return multiLine != MULTI_LINE_EDEFAULT;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
+				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
+						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
+				return this.multiLine != MULTI_LINE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
+		if (eIsProxy()) {
 			return super.toString();
+		}
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (injectorId: ");
-		result.append(injectorId);
+		result.append(this.injectorId);
 		result.append(", multiLine: ");
-		result.append(multiLine);
+		result.append(this.multiLine);
 		result.append(')');
 		return result.toString();
 	}

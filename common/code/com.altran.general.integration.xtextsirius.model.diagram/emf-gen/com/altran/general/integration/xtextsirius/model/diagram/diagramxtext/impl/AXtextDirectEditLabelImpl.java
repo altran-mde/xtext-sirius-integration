@@ -31,6 +31,7 @@ import com.google.common.base.Objects;
 public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl implements AXtextDirectEditLabel {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AXtextDirectEditLabelImpl() {
@@ -39,6 +40,7 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -48,11 +50,12 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<DiagramElementMapping> getMapping() {
-		final Resource r = this.eResource();
+		final Resource r = eResource();
 		if ((r == null)) {
 			throw new UnsupportedOperationException();
 		}
@@ -61,7 +64,7 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 			throw new UnsupportedOperationException();
 		}
 		final ArrayList<DiagramElementMapping> diagramElementMappings = CollectionLiterals
-				.<DiagramElementMapping>newArrayList();
+				.<DiagramElementMapping> newArrayList();
 		final Collection<Setting> settings = crossReferencer.getInverseReferences(this, true);
 		for (final Setting setting : settings) {
 			{
@@ -73,7 +76,7 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 				}
 			}
 		}
-		return new BasicEList<DiagramElementMapping>(diagramElementMappings);
+		return new BasicEList<>(diagramElementMappings);
 	}
 
 } // AXtextDirectEditLabelImpl

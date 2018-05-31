@@ -16,32 +16,33 @@ import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class ViewpointxtextFactoryImpl extends EFactoryImpl implements ViewpointxtextFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!--
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static ViewpointxtextFactory init() {
 		try {
-			ViewpointxtextFactory theViewpointxtextFactory = (ViewpointxtextFactory) EPackage.Registry.INSTANCE
+			final ViewpointxtextFactory theViewpointxtextFactory = (ViewpointxtextFactory) EPackage.Registry.INSTANCE
 					.getEFactory(ViewpointxtextPackage.eNS_URI);
 			if (theViewpointxtextFactory != null) {
 				return theViewpointxtextFactory;
 			}
-		} catch (Exception exception) {
+		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ViewpointxtextFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!--
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ViewpointxtextFactoryImpl() {
@@ -50,42 +51,46 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public EObject create(EClass eClass) {
+	public EObject create(final EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION:
-			return createXtextEdgeLabelDirectEditModelDescription();
-		case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION:
-			return createXtextEdgeLabelDirectEditValueDescription();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION:
+				return createXtextEdgeLabelDirectEditModelDescription();
+			case ViewpointxtextPackage.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION:
+				return createXtextEdgeLabelDirectEditValueDescription();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public XtextEdgeLabelDirectEditModelDescription createXtextEdgeLabelDirectEditModelDescription() {
-		XtextEdgeLabelDirectEditModelDescriptionImpl xtextEdgeLabelDirectEditModelDescription = new XtextEdgeLabelDirectEditModelDescriptionImpl();
+		final XtextEdgeLabelDirectEditModelDescriptionImpl xtextEdgeLabelDirectEditModelDescription = new XtextEdgeLabelDirectEditModelDescriptionImpl();
 		return xtextEdgeLabelDirectEditModelDescription;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public XtextEdgeLabelDirectEditValueDescription createXtextEdgeLabelDirectEditValueDescription() {
-		XtextEdgeLabelDirectEditValueDescriptionImpl xtextEdgeLabelDirectEditValueDescription = new XtextEdgeLabelDirectEditValueDescriptionImpl();
+		final XtextEdgeLabelDirectEditValueDescriptionImpl xtextEdgeLabelDirectEditValueDescription = new XtextEdgeLabelDirectEditValueDescriptionImpl();
 		return xtextEdgeLabelDirectEditValueDescription;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -95,6 +100,7 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */

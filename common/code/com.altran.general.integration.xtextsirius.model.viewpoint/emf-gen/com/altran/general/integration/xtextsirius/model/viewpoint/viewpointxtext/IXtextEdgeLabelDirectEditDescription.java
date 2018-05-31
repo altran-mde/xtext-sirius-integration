@@ -15,7 +15,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription#getEdgeLabelMappings <em>Edge Label Mappings</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription#getEdgeLabelMappings
+ * <em>Edge Label Mappings</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage#getIXtextEdgeLabelDirectEditDescription()
@@ -24,14 +25,16 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
  */
 public interface IXtextEdgeLabelDirectEditDescription extends IXtextDirectEditDescription {
 	/**
-	 * Returns the value of the '<em><b>Edge Label Mappings</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription}.
+	 * Returns the value of the '<em><b>Edge Label Mappings</b></em>' reference
+	 * list. The list contents are of type
+	 * {@link org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Edge Label Mappings</em>' reference list isn't
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Edge Label Mappings</em>' reference list.
 	 * @see com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage#getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings()
 	 * @model

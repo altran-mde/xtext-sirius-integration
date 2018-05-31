@@ -16,45 +16,48 @@ import org.eclipse.sirius.properties.PropertiesPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextFactory
  * @model kind="package"
  * @generated
  */
 public interface PropertiesxtextPackage extends EPackage {
 	/**
-	 * The package name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNAME = "propertiesxtext";
 
 	/**
-	 * The package namespace URI.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_URI = "http://altran.com/general/integration/xtextsirius/model/properties/1.0";
 
 	/**
-	 * The package namespace name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_PREFIX = "properties-xtext";
 
 	/**
-	 * The singleton instance of the package.
-	 * <!-- begin-user-doc --> <!--
+	 * The singleton instance of the package. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	PropertiesxtextPackage eINSTANCE = com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl
 			.init();
 
 	/**
-	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl <em>Xtext Single Line Model Description</em>}' class.
-	 * <!-- begin-user-doc
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
+	 * <em>Xtext Single Line Model Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl#getXtextSingleLineModelDescription()
 	 * @generated
@@ -109,6 +112,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -124,8 +128,9 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
-	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -134,14 +139,16 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__STYLE = PropertiesPackage.TEXT_DESCRIPTION__STYLE;
 
 	/**
-	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -157,9 +164,10 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_DESCRIPTION__EXTENDS;
 
 	/**
-	 * The feature id for the '<em><b>Filter Conditional Styles From Extended Text Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Filter Conditional Styles From Extended
+	 * Text Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -175,25 +183,29 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Editable Features</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Single Line Model Description</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Xtext Single Line Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl <em>Xtext Multi Line Model Description</em>}' class.
-	 * <!-- begin-user-doc
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
+	 * <em>Xtext Multi Line Model Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl#getXtextMultiLineModelDescription()
 	 * @generated
@@ -248,6 +260,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -272,8 +285,9 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
-	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -282,14 +296,16 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__STYLE = PropertiesPackage.TEXT_AREA_DESCRIPTION__STYLE;
 
 	/**
-	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -305,9 +321,10 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_AREA_DESCRIPTION__EXTENDS;
 
 	/**
-	 * The feature id for the '<em><b>Filter Conditional Styles From Extended Text Area Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Filter Conditional Styles From Extended
+	 * Text Area Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -323,8 +340,9 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Editable Features</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -332,17 +350,20 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 1;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Multi Line Model Description</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Xtext Multi Line Model
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl <em>Xtext Single Line Value Description</em>}' class.
-	 * <!-- begin-user-doc
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
+	 * <em>Xtext Single Line Value Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl#getXtextSingleLineValueDescription()
 	 * @generated
@@ -397,6 +418,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -412,8 +434,9 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
-	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -422,14 +445,16 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__STYLE = PropertiesPackage.TEXT_DESCRIPTION__STYLE;
 
 	/**
-	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -445,9 +470,10 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_DESCRIPTION__EXTENDS;
 
 	/**
-	 * The feature id for the '<em><b>Filter Conditional Styles From Extended Text Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Filter Conditional Styles From Extended
+	 * Text Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -463,8 +489,9 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -472,8 +499,9 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 1;
 
 	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -481,17 +509,20 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 2;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Single Line Value Description</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Xtext Single Line Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl <em>Xtext Multi Line Value Description</em>}' class.
-	 * <!-- begin-user-doc
+	 * The meta object id for the
+	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
+	 * <em>Xtext Multi Line Value Description</em>}' class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl#getXtextMultiLineValueDescription()
 	 * @generated
@@ -546,6 +577,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -570,8 +602,9 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__VALUE_EXPRESSION;
 
 	/**
-	 * The feature id for the '<em><b>Initial Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -580,14 +613,16 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__STYLE = PropertiesPackage.TEXT_AREA_DESCRIPTION__STYLE;
 
 	/**
-	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -603,9 +638,10 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_AREA_DESCRIPTION__EXTENDS;
 
 	/**
-	 * The feature id for the '<em><b>Filter Conditional Styles From Extended Text Area Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Filter Conditional Styles From Extended
+	 * Text Area Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -621,8 +657,9 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -630,8 +667,9 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 1;
 
 	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -639,48 +677,61 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 2;
 
 	/**
-	 * The number of structural features of the '<em>Xtext Multi Line Value Description</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Xtext Multi Line Value
+	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 3;
 
 	/**
-	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription <em>Xtext Single Line Model Description</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription
+	 * <em>Xtext Single Line Model Description</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Xtext Single Line Model Description</em>'.
+	 * 
+	 * @return the meta object for class '<em>Xtext Single Line Model
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription
 	 * @generated
 	 */
 	EClass getXtextSingleLineModelDescription();
 
 	/**
-	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription <em>Xtext Multi Line Model Description</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
+	 * <em>Xtext Multi Line Model Description</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Xtext Multi Line Model Description</em>'.
+	 * 
+	 * @return the meta object for class '<em>Xtext Multi Line Model
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
 	 * @generated
 	 */
 	EClass getXtextMultiLineModelDescription();
 
 	/**
-	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription <em>Xtext Single Line Value Description</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
+	 * <em>Xtext Single Line Value Description</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Xtext Single Line Value Description</em>'.
+	 * 
+	 * @return the meta object for class '<em>Xtext Single Line Value
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
 	 * @generated
 	 */
 	EClass getXtextSingleLineValueDescription();
 
 	/**
-	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription <em>Xtext Multi Line Value Description</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
+	 * <em>Xtext Multi Line Value Description</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Xtext Multi Line Value Description</em>'.
+	 * 
+	 * @return the meta object for class '<em>Xtext Multi Line Value
+	 *         Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
 	 * @generated
 	 */
@@ -705,6 +756,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	interface Literals {

@@ -19,7 +19,8 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextMo
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl#getEditableFeatures <em>Editable Features</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl#getEditableFeatures
+ * <em>Editable Features</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +40,7 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EefXtextMultiLineModelDescriptionImpl() {
@@ -47,6 +49,7 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -56,85 +59,91 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<String> getEditableFeatures() {
-		if (editableFeatures == null) {
-			editableFeatures = new EDataTypeEList<String>(String.class, this,
+		if (this.editableFeatures == null) {
+			this.editableFeatures = new EDataTypeEList<>(String.class, this,
 					EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		}
-		return editableFeatures;
+		return this.editableFeatures;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
-		case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-			return getEditableFeatures();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				return getEditableFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue) {
+	public void eSet(final int featureID, final Object newValue) {
 		switch (featureID) {
-		case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-			getEditableFeatures().clear();
-			getEditableFeatures().addAll((Collection<? extends String>) newValue);
-			return;
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				getEditableFeatures().clear();
+				getEditableFeatures().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
+	public void eUnset(final int featureID) {
 		switch (featureID) {
-		case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-			getEditableFeatures().clear();
-			return;
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				getEditableFeatures().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
+	public boolean eIsSet(final int featureID) {
 		switch (featureID) {
-		case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-			return editableFeatures != null && !editableFeatures.isEmpty();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+	public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
 		if (baseClass == IEefXtextModelDescription.class) {
 			switch (derivedFeatureID) {
-			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-				return EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
-			default:
-				return -1;
+				case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -142,16 +151,17 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+	public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
 		if (baseClass == IEefXtextModelDescription.class) {
 			switch (baseFeatureID) {
-			case EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
-				return EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES;
-			default:
-				return -1;
+				case EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+					return EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -159,16 +169,18 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
+		if (eIsProxy()) {
 			return super.toString();
+		}
 
-		StringBuffer result = new StringBuffer(super.toString());
+		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (editableFeatures: ");
-		result.append(editableFeatures);
+		result.append(this.editableFeatures);
 		result.append(')');
 		return result.toString();
 	}

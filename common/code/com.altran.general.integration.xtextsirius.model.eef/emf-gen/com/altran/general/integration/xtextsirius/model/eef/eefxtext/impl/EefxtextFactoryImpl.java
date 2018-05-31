@@ -18,32 +18,33 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPac
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!--
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static EefxtextFactory init() {
 		try {
-			EefxtextFactory theEefxtextFactory = (EefxtextFactory) EPackage.Registry.INSTANCE
+			final EefxtextFactory theEefxtextFactory = (EefxtextFactory) EPackage.Registry.INSTANCE
 					.getEFactory(EefxtextPackage.eNS_URI);
 			if (theEefxtextFactory != null) {
 				return theEefxtextFactory;
 			}
-		} catch (Exception exception) {
+		} catch (final Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new EefxtextFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!--
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EefxtextFactoryImpl() {
@@ -52,66 +53,72 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public EObject create(EClass eClass) {
+	public EObject create(final EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case EefxtextPackage.EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION:
-			return createEefXtextSingleLineModelDescription();
-		case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION:
-			return createEefXtextMultiLineModelDescription();
-		case EefxtextPackage.EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION:
-			return createEefXtextSingleLineValueDescription();
-		case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION:
-			return createEefXtextMultiLineValueDescription();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case EefxtextPackage.EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION:
+				return createEefXtextSingleLineModelDescription();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION:
+				return createEefXtextMultiLineModelDescription();
+			case EefxtextPackage.EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION:
+				return createEefXtextSingleLineValueDescription();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION:
+				return createEefXtextMultiLineValueDescription();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EefXtextSingleLineModelDescription createEefXtextSingleLineModelDescription() {
-		EefXtextSingleLineModelDescriptionImpl eefXtextSingleLineModelDescription = new EefXtextSingleLineModelDescriptionImpl();
+		final EefXtextSingleLineModelDescriptionImpl eefXtextSingleLineModelDescription = new EefXtextSingleLineModelDescriptionImpl();
 		return eefXtextSingleLineModelDescription;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EefXtextMultiLineModelDescription createEefXtextMultiLineModelDescription() {
-		EefXtextMultiLineModelDescriptionImpl eefXtextMultiLineModelDescription = new EefXtextMultiLineModelDescriptionImpl();
+		final EefXtextMultiLineModelDescriptionImpl eefXtextMultiLineModelDescription = new EefXtextMultiLineModelDescriptionImpl();
 		return eefXtextMultiLineModelDescription;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EefXtextSingleLineValueDescription createEefXtextSingleLineValueDescription() {
-		EefXtextSingleLineValueDescriptionImpl eefXtextSingleLineValueDescription = new EefXtextSingleLineValueDescriptionImpl();
+		final EefXtextSingleLineValueDescriptionImpl eefXtextSingleLineValueDescription = new EefXtextSingleLineValueDescriptionImpl();
 		return eefXtextSingleLineValueDescription;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EefXtextMultiLineValueDescription createEefXtextMultiLineValueDescription() {
-		EefXtextMultiLineValueDescriptionImpl eefXtextMultiLineValueDescription = new EefXtextMultiLineValueDescriptionImpl();
+		final EefXtextMultiLineValueDescriptionImpl eefXtextMultiLineValueDescription = new EefXtextMultiLineValueDescriptionImpl();
 		return eefXtextMultiLineValueDescription;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -121,6 +128,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
