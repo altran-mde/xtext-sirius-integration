@@ -12,8 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getEditableFeatures
- * <em>Editable Features</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getEditableFeatures <em>Editable Features</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage#getIXtextModelDescription()
@@ -37,5 +36,5 @@ public interface IXtextModelDescription extends IXtextDescription {
 	 * @generated
 	 */
 	EList<String> getEditableFeatures();
-	
+
 } // IXtextModelDescription

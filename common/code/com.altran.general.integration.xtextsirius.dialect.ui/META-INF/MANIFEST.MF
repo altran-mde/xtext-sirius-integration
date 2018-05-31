@@ -10,6 +10,7 @@ Require-Bundle: org.eclipse.sirius.diagram.ui,
  com.altran.general.integration.xtextsirius.model.viewpoint,
  com.altran.general.integration.xtextsirius.model.diagram,
  com.google.guava,
- com.altran.general.integration.google.guava.patch
+ com.altran.general.integration.google.guava.patch,
+ org.eclipse.sirius.editor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

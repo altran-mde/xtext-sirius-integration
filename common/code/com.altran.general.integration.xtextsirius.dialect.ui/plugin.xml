@@ -4,4 +4,9 @@
 	<extension point="org.eclipse.sirius.ui.dialectui">
 		<dialectUI class="com.altran.general.integration.xtextsirius.dialect.ui.internal.XtextDialectUi"/>
 	</extension>
+	
+	<extension point="org.eclipse.sirius.editor.menuBuilder">
+		<builder class="com.altran.general.integration.xtextsirius.dialect.ui.internal.XtextSiriusEditToolsMenuBuilder"/>
+	</extension>
+	
 </plugin>

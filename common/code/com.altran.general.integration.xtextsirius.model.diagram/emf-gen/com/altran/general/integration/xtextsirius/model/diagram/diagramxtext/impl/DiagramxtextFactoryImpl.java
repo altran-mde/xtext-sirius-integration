@@ -16,91 +16,85 @@ import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.Xte
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
  * end-user-doc -->
- *
  * @generated
  */
 public class DiagramxtextFactoryImpl extends EFactoryImpl implements DiagramxtextFactory {
 	/**
-	 * Creates the default factory implementation. <!-- begin-user-doc --> <!--
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static DiagramxtextFactory init() {
 		try {
-			final DiagramxtextFactory theDiagramxtextFactory = (DiagramxtextFactory) EPackage.Registry.INSTANCE
+			DiagramxtextFactory theDiagramxtextFactory = (DiagramxtextFactory) EPackage.Registry.INSTANCE
 					.getEFactory(DiagramxtextPackage.eNS_URI);
 			if (theDiagramxtextFactory != null) {
 				return theDiagramxtextFactory;
 			}
-		} catch (final Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new DiagramxtextFactoryImpl();
 	}
-	
+
 	/**
-	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public DiagramxtextFactoryImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
-	public EObject create(final EClass eClass) {
+	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION:
-				return createXtextDirectEditModelDescription();
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION:
-				return createXtextDirectEditValueDescription();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION:
+			return createXtextDirectEditModelDescription();
+		case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION:
+			return createXtextDirectEditValueDescription();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public XtextDirectEditModelDescription createXtextDirectEditModelDescription() {
-		final XtextDirectEditModelDescriptionImpl xtextDirectEditModelDescription = new XtextDirectEditModelDescriptionImpl();
+		XtextDirectEditModelDescriptionImpl xtextDirectEditModelDescription = new XtextDirectEditModelDescriptionImpl();
 		return xtextDirectEditModelDescription;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public XtextDirectEditValueDescription createXtextDirectEditValueDescription() {
-		final XtextDirectEditValueDescriptionImpl xtextDirectEditValueDescription = new XtextDirectEditValueDescriptionImpl();
+		XtextDirectEditValueDescriptionImpl xtextDirectEditValueDescription = new XtextDirectEditValueDescriptionImpl();
 		return xtextDirectEditValueDescription;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public DiagramxtextPackage getDiagramxtextPackage() {
 		return (DiagramxtextPackage) getEPackage();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @deprecated
 	 * @generated
 	 */
@@ -108,5 +102,5 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 	public static DiagramxtextPackage getPackage() {
 		return DiagramxtextPackage.eINSTANCE;
 	}
-	
+
 } // DiagramxtextFactoryImpl

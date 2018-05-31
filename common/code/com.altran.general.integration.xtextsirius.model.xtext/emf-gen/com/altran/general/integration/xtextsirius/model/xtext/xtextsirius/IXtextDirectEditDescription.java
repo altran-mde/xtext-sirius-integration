@@ -10,8 +10,7 @@ package com.altran.general.integration.xtextsirius.model.xtext.xtextsirius;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription#isMultiLine
- * <em>Multi Line</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription#isMultiLine <em>Multi Line</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage#getIXtextDirectEditDescription()
@@ -36,18 +35,15 @@ public interface IXtextDirectEditDescription extends IXtextDescription {
 	 */
 	@Override
 	boolean isMultiLine();
-	
+
 	/**
-	 * Sets the value of the
-	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription#isMultiLine
-	 * <em>Multi Line</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription#isMultiLine <em>Multi Line</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Multi Line</em>' attribute.
+	 * @param value the new value of the '<em>Multi Line</em>' attribute.
 	 * @see #isMultiLine()
 	 * @generated
 	 */
 	void setMultiLine(boolean value);
-	
+
 } // IXtextDirectEditDescription

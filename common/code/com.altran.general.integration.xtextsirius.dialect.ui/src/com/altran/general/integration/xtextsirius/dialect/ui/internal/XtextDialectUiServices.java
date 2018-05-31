@@ -50,7 +50,8 @@ public class XtextDialectUiServices implements DialectUIServices {
 				createTool(DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()),
 				
 				createTool(ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()),
-				createTool(ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
+				createTool(ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription())
+				);
 	}
 	
 	protected CommandParameter createTool(final Object value) {

@@ -12,10 +12,8 @@ import org.eclipse.eef.EEFTextDescription;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
- * <em>Injector Id</em>}</li>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
- * <em>Multi Line</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId <em>Injector Id</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine <em>Multi Line</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage#getIEefXtextDescription()
@@ -39,20 +37,17 @@ public interface IEefXtextDescription extends EEFTextDescription {
 	 * @generated
 	 */
 	String getInjectorId();
-	
+
 	/**
-	 * Sets the value of the
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
-	 * <em>Injector Id</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId <em>Injector Id</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Injector Id</em>' attribute.
+	 * @param value the new value of the '<em>Injector Id</em>' attribute.
 	 * @see #getInjectorId()
 	 * @generated
 	 */
 	void setInjectorId(String value);
-	
+
 	/**
 	 * Returns the value of the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc -->
@@ -69,18 +64,15 @@ public interface IEefXtextDescription extends EEFTextDescription {
 	 * @generated
 	 */
 	boolean isMultiLine();
-	
+
 	/**
-	 * Sets the value of the
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
-	 * <em>Multi Line</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine <em>Multi Line</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Multi Line</em>' attribute.
+	 * @param value the new value of the '<em>Multi Line</em>' attribute.
 	 * @see #isMultiLine()
 	 * @generated
 	 */
 	void setMultiLine(boolean value);
-	
+
 } // IEefXtextDescription

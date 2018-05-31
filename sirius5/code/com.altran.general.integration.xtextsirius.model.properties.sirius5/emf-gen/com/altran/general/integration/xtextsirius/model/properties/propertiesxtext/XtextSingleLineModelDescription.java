@@ -18,13 +18,11 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 public interface XtextSingleLineModelDescription extends TextDescription, IXtextPropertyModelDescription {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation" unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return
-	 *        false;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return false;'"
 	 * @generated
 	 */
 	@Override
 	boolean isMultiLine();
-	
+
 } // XtextSingleLineModelDescription

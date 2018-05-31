@@ -25,7 +25,7 @@ public final class ViewpointxtextEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public static final ViewpointxtextEditPlugin INSTANCE = new ViewpointxtextEditPlugin();
-	
+
 	/**
 	 * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -33,26 +33,21 @@ public final class ViewpointxtextEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	private static Implementation plugin;
-	
+
 	/**
-	 * Create the instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * Create the instance.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ViewpointxtextEditPlugin() {
-		super(new ResourceLocator[] {
-				DiagramUIPlugin.INSTANCE,
-				DiagramxtextEditPlugin.INSTANCE,
-				EcoreEditPlugin.INSTANCE,
-				SiriusEditPlugin.INSTANCE,
-				XtextsiriusEditPlugin.INSTANCE,
-		});
+		super(new ResourceLocator[] { XtextsiriusEditPlugin.INSTANCE, SiriusEditPlugin.INSTANCE,
+				DiagramxtextEditPlugin.INSTANCE, DiagramUIPlugin.INSTANCE, });
 	}
-	
+
 	/**
-	 * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @return the singleton instance.
 	 * @generated
 	 */
@@ -60,18 +55,18 @@ public final class ViewpointxtextEditPlugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
-	
+
 	/**
-	 * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @return the singleton instance.
 	 * @generated
 	 */
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-	
+
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -80,17 +75,17 @@ public final class ViewpointxtextEditPlugin extends EMFPlugin {
 	 */
 	public static class Implementation extends EclipsePlugin {
 		/**
-		 * Creates an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * Creates an instance.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		public Implementation() {
 			super();
-			
+
 			// Remember the static instance.
 			//
 			plugin = this;
 		}
 	}
-	
+
 }
