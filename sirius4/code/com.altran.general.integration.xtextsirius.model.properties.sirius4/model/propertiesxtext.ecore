@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="propertiesxtext" nsURI="http://altran.com/general/integration/xtextsirius/model/properties/1.0"
+    nsPrefix="properties-xtext">
+  <eClassifiers xsi:type="ecore:EClass" name="XtextSingleLineModelDescription" eSuperTypes="../../org.eclipse.sirius.properties/model/properties.ecore#//TextDescription ../../com.altran.general.integration.xtextsirius.model.xtext/model/xtextsirius.ecore#//IXtextPropertyModelDescription">
+    <eOperations name="isMultiLine" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return false;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XtextMultiLineModelDescription" eSuperTypes="../../org.eclipse.sirius.properties/model/properties.ecore#//TextAreaDescription ../../com.altran.general.integration.xtextsirius.model.xtext/model/xtextsirius.ecore#//IXtextPropertyModelDescription">
+    <eOperations name="isMultiLine" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return true;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XtextSingleLineValueDescription" eSuperTypes="../../org.eclipse.sirius.properties/model/properties.ecore#//TextDescription ../../com.altran.general.integration.xtextsirius.model.xtext/model/xtextsirius.ecore#//IXtextPropertyValueDescription">
+    <eOperations name="isMultiLine" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return false;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XtextMultiLineValueDescription" eSuperTypes="../../org.eclipse.sirius.properties/model/properties.ecore#//TextAreaDescription ../../com.altran.general.integration.xtextsirius.model.xtext/model/xtextsirius.ecore#//IXtextPropertyValueDescription">
+    <eOperations name="isMultiLine" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return true;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>
