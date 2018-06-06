@@ -17,47 +17,48 @@ import com.google.inject.Injector;
 public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycleManager {
 	private final @NonNull String prefixTextExpression;
 	private final @NonNull String suffixTextExpression;
-	
+
 	public XtextSiriusEefLifecycleManagerValue(
 			final @NonNull Injector injector,
+			final boolean shouldUseSpecializedInjector,
 			final @NonNull IEefXtextValueDescription controlDescription,
 			final @NonNull IVariableManager variableManager,
 			final @NonNull IInterpreter interpreter,
 			final @NonNull EditingContextAdapter contextAdapter) {
-		super(injector, controlDescription, variableManager, interpreter, contextAdapter);
+		super(injector, shouldUseSpecializedInjector, controlDescription, variableManager, interpreter, contextAdapter);
 		this.prefixTextExpression = controlDescription.getPrefixTextExpression();
 		this.suffixTextExpression = controlDescription.getSuffixTextExpression();
 	}
-	
+
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		this.widget = new XtextSiriusWidgetValue(parent, getInjector(), isMultiLine(),
 				interpret(getPrefixTextExpression()),
 				interpret(getSuffixTextExpression()));
 		applyGridData(getWidget().getControl());
-		
+
 		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
 				this.contextAdapter);
 	}
-	
+
 	protected @NonNull String interpret(final @NonNull String expression) {
 		final EObject self = getSelf();
 		if (self != null) {
 			return EvaluateHelper.getInstance().evaluateString(expression, self);
 		}
-		
+
 		return "";
 	}
-	
+
 	@Override
 	public XtextSiriusWidgetValue getWidget() {
 		return (XtextSiriusWidgetValue) super.getWidget();
 	}
-	
+
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
-		
+
 		this.newValueConsumer = (newValue) -> {
 			if (newValue instanceof String) {
 				getWidget().update((String) newValue);
@@ -66,7 +67,7 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 		};
 		this.controller.onNewValue(this.newValueConsumer);
 	}
-	
+
 	@Override
 	public void aboutToBeHidden() {
 		if (getWidget().isDirty()) {
@@ -74,11 +75,11 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 		}
 		super.aboutToBeHidden();
 	}
-	
+
 	protected @NonNull String getPrefixTextExpression() {
 		return this.prefixTextExpression;
 	}
-	
+
 	protected @NonNull String getSuffixTextExpression() {
 		return this.suffixTextExpression;
 	}
