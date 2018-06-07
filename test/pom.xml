@@ -2,19 +2,18 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
         <groupId>com.altran</groupId>
-        <artifactId>com.altran.general.integration.xtextsirius.sirius5</artifactId>
+        <artifactId>com.altran.general.integration.xtextsirius</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-	<artifactId>com.altran.general.integration.xtextsirius.sirius5.code</artifactId>
+	<artifactId>com.altran.general.integration.xtextsirius.tests</artifactId>
 	
 	<!-- Override version if needed -->
 	<!-- <version>1.0.0-SNAPSHOT</version> -->
 	
 	<packaging>pom</packaging>
-
-	 <modules>
-       	<module>com.altran.general.integration.xtextsirius.model.properties.sirius5</module>
-		<module>com.altran.general.integration.xtextsirius.model.properties.sirius5.edit</module>
-		<module>com.altran.general.integration.xtextsirius.runtime.converter.sirius5</module>
+	
+	<modules>
+        <module>com.altran.general.integration.xtextsirius.test</module>
     </modules>
+    
 </project>

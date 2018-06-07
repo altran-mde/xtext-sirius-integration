@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
         <groupId>com.altran</groupId>
-        <artifactId>com.altran.general.integration.xtextsirius.sirius5.releng</artifactId>
+        <artifactId>com.altran.general.integration.xtextsirius.releng</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-	<artifactId>com.altran.general.integration.xtextsirius.sirius5.repository</artifactId>
+	<artifactId>com.altran.general.integration.xtextsirius.repository</artifactId>
 	<packaging>eclipse-repository</packaging>
 
 	<properties>
