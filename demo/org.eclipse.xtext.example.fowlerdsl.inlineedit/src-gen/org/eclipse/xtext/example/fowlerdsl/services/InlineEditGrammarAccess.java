@@ -25,7 +25,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// We have to have a root element, because Xtext uses the first rule as entry rule.
 		//InlineStatemachine Statemachine:
-		//	Statemachine
+		//	Statemachine;
 		@Override public ParserRule getRule() { return rule; }
 
 		//Statemachine
@@ -147,7 +147,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// We have to have a root element, because Xtext uses the first rule as entry rule.
 	//InlineStatemachine Statemachine:
-	//	Statemachine
+	//	Statemachine;
 	public InlineStatemachineElements getInlineStatemachineAccess() {
 		return pInlineStatemachine;
 	}
@@ -308,7 +308,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal ML_COMMENT:
-	//	'/ *'->'* /';
+	//	'/*'->'*/';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 

@@ -94,8 +94,8 @@ public abstract class AbstractInlineEditRuntimeModule extends org.eclipse.xtext.
 	}
 
 	// contributed by org.eclipse.xtext.generator.validation.ValidatorFragment
-	@org.eclipse.xtext.service.SingletonBinding(eager=true)	public Class<? extends org.eclipse.xtext.example.fowlerdsl.validation.InlineEditValidator> bindInlineEditValidator() {
-		return org.eclipse.xtext.example.fowlerdsl.validation.InlineEditValidator.class;
+	@org.eclipse.xtext.service.SingletonBinding(eager=true)	public Class<? extends org.eclipse.xtext.example.fowlerdsl.validation.AbstractInlineEditValidator> bindAbstractInlineEditValidator() {
+		return org.eclipse.xtext.example.fowlerdsl.validation.AbstractInlineEditValidator.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.scoping.AbstractScopingFragment
@@ -138,19 +138,9 @@ public abstract class AbstractInlineEditRuntimeModule extends org.eclipse.xtext.
 		binder.bind(org.eclipse.xtext.resource.IResourceDescriptions.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider.PERSISTED_DESCRIPTIONS)).to(org.eclipse.xtext.resource.impl.ResourceSetBasedResourceDescriptions.class);
 	}
 
-	// contributed by org.eclipse.xtext.generator.generator.GeneratorFragment
-	public Class<? extends org.eclipse.xtext.generator.IGenerator> bindIGenerator() {
-		return org.eclipse.xtext.example.fowlerdsl.generator.InlineEditGenerator.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.formatting2.Formatter2Fragment
-	public Class<? extends org.eclipse.xtext.formatting2.IFormatter2> bindIFormatter2() {
-		return org.eclipse.xtext.example.fowlerdsl.formatting2.InlineEditFormatter.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.formatting2.Formatter2Fragment
-	public void configureFormatterPreferences(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.preferences.IPreferenceValuesProvider.class).annotatedWith(org.eclipse.xtext.formatting2.FormatterPreferences.class).to(org.eclipse.xtext.formatting2.FormatterPreferenceValuesProvider.class);
+	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
+	public Class<? extends org.eclipse.xtext.formatting.IFormatter> bindIFormatter() {
+		return org.eclipse.xtext.example.fowlerdsl.formatting.InlineEditFormatter.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
