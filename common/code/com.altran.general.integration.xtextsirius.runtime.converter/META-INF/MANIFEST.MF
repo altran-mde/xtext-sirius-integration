@@ -1,14 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Xtext / Sirius Integration VSP Converter Extension
-Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime.converter
+Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime.converter;singleton:=true
 Bundle-Version: 0.8.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.converter.internal.RuntimeConverterActivator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  com.altran.general.integration.xtextsirius.model.properties,
  com.altran.general.integration.xtextsirius.model.eef,
- org.eclipse.sirius.properties
+ org.eclipse.sirius.properties,
+ org.eclipse.sirius.properties.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.runtime.converter

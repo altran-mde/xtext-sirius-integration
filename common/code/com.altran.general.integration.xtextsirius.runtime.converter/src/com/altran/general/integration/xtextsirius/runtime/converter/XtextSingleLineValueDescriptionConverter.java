@@ -1,36 +1,31 @@
 package com.altran.general.integration.xtextsirius.runtime.converter;
 
 import java.util.Map;
-import java.util.function.Function;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.properties.ControlDescription;
+import org.eclipse.sirius.properties.core.api.TransformationCache;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFactory;
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription;
 
-public class XtextSingleLineValueCompatibleDescriptionConverter implements ICompatibleDescriptionConverter {
-	
+public class XtextSingleLineValueDescriptionConverter extends AXtextDescriptionConverter {
+
 	@Override
 	public boolean canHandle(final EObject description) {
 		return description instanceof XtextSingleLineValueDescription;
 	}
-	
+
 	@Override
-	public EObject convert(
-			final EObject description,
-			final Map<String, Object> parameters,
-			final ICompatibleCache cache,
-			final Function<ControlDescription, String> identifierGetter,
-			final Function<InitialOperation, String> expressionForOperationGetter) {
+	public EObject convert(final EObject description, final Map<String, Object> parameters,
+			final TransformationCache cache) {
 		if (description instanceof XtextSingleLineValueDescription) {
 			final XtextSingleLineValueDescription propertyDescription = (XtextSingleLineValueDescription) description;
 			
 			final EefXtextSingleLineValueDescription eefDescription = EefxtextFactory.eINSTANCE
 					.createEefXtextSingleLineValueDescription();
-			eefDescription.setIdentifier(identifierGetter.apply(propertyDescription));
+			eefDescription.setIdentifier(propertyDescription.getName());
 			eefDescription.setHelpExpression(propertyDescription.getHelpExpression());
 			eefDescription.setIsEnabledExpression(propertyDescription.getIsEnabledExpression());
 			eefDescription.setLabelExpression(propertyDescription.getLabelExpression());
@@ -38,7 +33,7 @@ public class XtextSingleLineValueCompatibleDescriptionConverter implements IComp
 			eefDescription.setValueExpression(propertyDescription.getValueExpression());
 			
 			final InitialOperation initialOperation = propertyDescription.getInitialOperation();
-			eefDescription.setEditExpression(expressionForOperationGetter.apply(initialOperation));
+			eefDescription.setEditExpression(getExpressionForOperation(initialOperation));
 			
 			eefDescription.setLineCount(1);
 			
@@ -56,5 +51,4 @@ public class XtextSingleLineValueCompatibleDescriptionConverter implements IComp
 		}
 		return null;
 	}
-	
 }
