@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    copyrightText="" modelDirectory="/com.altran.general.integration.xtextsirius.model.properties.sirius5/emf-gen"
-    creationIcons="false" editDirectory="/com.altran.general.integration.xtextsirius.model.properties.sirius5.edit/emf-gen"
-    editorDirectory="" modelPluginID="com.altran.general.integration.xtextsirius.model.properties.sirius5"
+    copyrightText="" modelDirectory="/com.altran.general.integration.xtextsirius.model.properties/emf-gen"
+    creationIcons="false" editDirectory="/com.altran.general.integration.xtextsirius.model.properties.edit/emf-gen"
+    editorDirectory="" modelPluginID="com.altran.general.integration.xtextsirius.model.properties"
     templateDirectory="" redirection="" modelName="Properties-xtext" editPluginClass="com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.provider.PropertiesxtextEditPlugin"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
     testsDirectory="" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
     complianceLevel="8.0" suppressGenModelAnnotations="false" copyrightFields="false"
-    editPluginID="com.altran.general.integration.xtextsirius.model.properties.sirius5.edit"
+    editPluginID="com.altran.general.integration.xtextsirius.model.properties.edit"
     editorPluginID="org.eclipse.sirius.properties.editor" testsPluginID="org.eclipse.sirius.properties.editor"
     runtimeVersion="2.3" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.sirius.properties/model/properties.genmodel#//properties ../../org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint ../../com.altran.general.integration.xtextsirius.model.xtext/model/xtextsirius.genmodel#//xtextsirius"
     importOrganizing="true" cleanup="true">
