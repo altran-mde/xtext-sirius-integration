@@ -126,11 +126,14 @@
                   <artifactId>tycho-compiler-plugin</artifactId>
                   <version>${tycho.version}</version>
                   <configuration>
-                    <compilerArguments>
-                      <inlineJSR/>
-                      <enableJavadoc/>
-                      <encoding>ISO-8859-1</encoding>
-                    </compilerArguments>
+                    <compilerArgs>
+					  <arg>-err:-nullAnnot,includeAssertNull,inheritNullAnnot,nonnullNotRepeated,null,nullAnnotConflict,nullAnnotRedundant,nullDereference,nullUncheckedConversion,syntacticAnalysis</arg>
+                      <arg>-inlineJSR</arg>
+                      <arg>-enableJavadoc</arg>
+                      <arg>-nowarn</arg>
+                      <arg>-proceedOnError</arg>
+                      <!--arg>-encoding UTF-8</arg-->
+                    </compilerArgs>
                     <configuration>
                       <source>1.8</source>
                       <target>1.8</target>
@@ -164,7 +167,7 @@
 						</execution>
 					</executions>
 					<configuration>
-						<outputDirectory>${basedir}/src-gen</outputDirectory>
+						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
 						<testOutputDirectory>${basedir}/xtend-gen</testOutputDirectory>
 					</configuration>
 				</plugin>
@@ -243,7 +246,7 @@
          <modules>
          	  <module>code</module>
 			  <module>releng</module>
-			  <module>test</module>
+			  <!--module>test</module-->
 		 </modules>
          <build>
        	<plugins>
