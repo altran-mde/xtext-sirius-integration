@@ -8,7 +8,7 @@
       license-feature-version="0.9.0.qualifier">
 
    <description>
-      Xtext / Sirius Integration design-time Feature for Sirius 5.x / Eclipse Oxygen and newer
+      Xtext / Sirius Integration design-time Feature
 
 Provides odesign extensions to create Xtext-enabled direct edit actions for Sirius diagrams and Xtext-enabled fields for Sirius property editors.
    </description>
@@ -121,20 +121,6 @@ Provides odesign extensions to create Xtext-enabled direct edit actions for Siri
 
    <plugin
          id="com.altran.general.integration.google.guava.patch"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.model.properties.sirius5"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.xtextsirius.model.properties.sirius5.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
