@@ -68,12 +68,16 @@
           <ownedTools xsi:type="tool:DirectEditLabel" name="SimpleTextEdit" precondition="ocl:true" inputLabelExpression="feature:name">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="zsdf" id="exampleAction"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="EventEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="vcxxcv" id="exampleAction"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="TransitionEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId" edgeLabelMappings="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style/@centerLabelStyleDescription">
