@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
@@ -20,6 +21,17 @@ import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
  */
 @SuppressWarnings("restriction")
 public class EditPartHelper {
+	private final class ICellEditorValidatorImplementation implements ICellEditorValidator {
+		public ICellEditorValidatorImplementation() {
+			System.out.println("tach");
+		}
+
+		@Override
+		public String isValid(final Object value) {
+			return null;
+		}
+	}
+	
 	private static EditPartHelper INSTANCE;
 	
 	public static EditPartHelper getInstance() {
@@ -123,6 +135,10 @@ public class EditPartHelper {
 	
 	public void setLabelText(final IXtextSiriusAwareLabelEditPart editPart, final String newText) {
 		
+	}
+
+	public ICellEditorValidator getEditTextValidator(final IXtextSiriusAwareLabelEditPart editPart) {
+		return new ICellEditorValidatorImplementation();
 	}
 	
 	

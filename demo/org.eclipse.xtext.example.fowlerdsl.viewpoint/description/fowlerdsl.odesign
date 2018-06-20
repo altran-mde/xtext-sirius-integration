@@ -92,7 +92,7 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="ThingEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="ThingEdit" multiLine="true" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
             </initialOperation>

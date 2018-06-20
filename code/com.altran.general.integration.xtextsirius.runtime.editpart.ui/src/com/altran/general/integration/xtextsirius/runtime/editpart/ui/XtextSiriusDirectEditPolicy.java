@@ -39,10 +39,12 @@ import org.eclipse.sirius.viewpoint.description.tool.ContainerModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.SetValue;
+import org.eclipse.ui.statushandlers.StatusManager;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.task.ReplaceValueParameter;
 import com.altran.general.integration.xtextsirius.runtime.task.ReplaceValueTask;
 
@@ -62,22 +64,26 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 			if (cellEditor instanceof AXtextSiriusStyledTextCellEditor) {
 				final DRepresentationElement representationElement = extractRepresentationElement();
 
-				final ReplaceValueParameter replaceValueParameter = extractReplaceValueParameter(
-						(AXtextSiriusStyledTextCellEditor) cellEditor, representationElement);
+				try {
+					final ReplaceValueParameter replaceValueParameter = extractReplaceValueParameter(
+							(AXtextSiriusStyledTextCellEditor) cellEditor, representationElement);
 
-				if (replaceValueParameter != null) {
-					final TransactionalEditingDomain editingDomain = TransactionUtil
-							.getEditingDomain(replaceValueParameter.getElementToEdit());
+					if (replaceValueParameter != null) {
+						final TransactionalEditingDomain editingDomain = TransactionUtil
+								.getEditingDomain(replaceValueParameter.getElementToEdit());
 
-					final SiriusCommand siriusCommand = new SiriusCommand(editingDomain);
-					final ReplaceValueTask task = new ReplaceValueTask(replaceValueParameter);
-					addChildTasks(representationElement, replaceValueParameter, editingDomain, task);
-					
-					siriusCommand.getTasks().add(task);
-					// siriusCommand.getTasks().add(new
-					// RefreshDiagramTask(representationElement));
+						final SiriusCommand siriusCommand = new SiriusCommand(editingDomain);
+						final ReplaceValueTask task = new ReplaceValueTask(replaceValueParameter);
+						addChildTasks(representationElement, replaceValueParameter, editingDomain, task);
+						
+						siriusCommand.getTasks().add(task);
+						// siriusCommand.getTasks().add(new
+						// RefreshDiagramTask(representationElement));
 
-					return new ICommandProxy(new GMFCommandWrapper(editingDomain, siriusCommand));
+						return new ICommandProxy(new GMFCommandWrapper(editingDomain, siriusCommand));
+					}
+				} catch (final AXtextSiriusIssueException ex) {
+					StatusManager.getManager().handle(ex.toStatus(), StatusManager.SHOW);
 				}
 			}
 		}
@@ -119,8 +125,9 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 		}
 	}
 
-	protected ReplaceValueParameter extractReplaceValueParameter(final AXtextSiriusStyledTextCellEditor cellEditor,
-			final @Nullable DRepresentationElement representationElement) {
+	protected ReplaceValueParameter extractReplaceValueParameter(
+			final AXtextSiriusStyledTextCellEditor cellEditor,
+			final @Nullable DRepresentationElement representationElement) throws AXtextSiriusIssueException {
 		final SetValue setValue = extractSetValue(representationElement);
 
 		if (representationElement != null && setValue != null) {
