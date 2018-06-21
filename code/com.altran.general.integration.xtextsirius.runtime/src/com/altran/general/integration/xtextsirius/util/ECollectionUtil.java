@@ -131,6 +131,20 @@ public class ECollectionUtil {
 			final T element,
 			final @Nullable URI originalUri,
 			final @NonNull BiFunction<T, T, T> processor) {
+		final T existing = findMember(collection, element, originalUri);
+		
+		if (existing == null) {
+			collection.add(element);
+			return null;
+		} else {
+			return processor.apply(existing, element);
+		}
+	}
+	
+	protected <@Nullable T extends EObject> T findMember(
+			final @NonNull Collection<T> collection,
+			final T element,
+			final @Nullable URI originalUri) {
 		final String elementFragment = EcoreUtil.getURI(element).fragment();
 		final String originalFragment = originalUri != null ? originalUri.fragment() : "";
 		
@@ -142,12 +156,6 @@ public class ECollectionUtil {
 				.findAny()
 				.orElse(null);
 		
-		if (existing == null) {
-			collection.add(element);
-			return null;
-		} else {
-			return processor.apply(existing, element);
-		}
+		return existing;
 	}
-	
 }
