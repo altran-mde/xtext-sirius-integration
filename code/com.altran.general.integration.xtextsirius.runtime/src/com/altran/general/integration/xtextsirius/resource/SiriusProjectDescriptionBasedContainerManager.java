@@ -15,16 +15,26 @@ import org.eclipse.xtext.resource.impl.ResourceDescriptionsBasedContainer;
 
 public class SiriusProjectDescriptionBasedContainerManager extends ProjectDescriptionBasedContainerManager {
 	@Override
+	public boolean shouldUseProjectDescriptionBasedContainers(final IResourceDescriptions resourceDescriptions) {
+		return true;
+	}
+
+	@Override
+	public IContainer getContainer(final IResourceDescription desc, final IResourceDescriptions resourceDescriptions) {
+		return super.getContainer(desc, resourceDescriptions);
+	}
+
+	@Override
 	public List<IContainer> getVisibleContainers(final IResourceDescription desc,
 			final IResourceDescriptions resourceDescriptions) {
 		final Session session = SessionManager.INSTANCE.getExistingSession(desc.getURI());
-
+		
 		if (session == null || !(resourceDescriptions instanceof ChunkedResourceDescriptions)) {
 			return super.getVisibleContainers(desc, resourceDescriptions);
 		}
-
+		
 		final ChunkedResourceDescriptions chunked = (ChunkedResourceDescriptions) resourceDescriptions;
-
+		
 		return session.getAllSessionResources().stream()
 				.map(r -> chunked.getContainer(r.getURI()))
 				.map(d -> new ResourceDescriptionsBasedContainer(d))
