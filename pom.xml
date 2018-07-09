@@ -170,6 +170,16 @@
 						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
 						<testOutputDirectory>${basedir}/xtend-gen</testOutputDirectory>
 					</configuration>
+					<!-- Workaround for https://github.com/eclipse/xtext/issues/1231 (remove this when that bug has been fixed) -->
+				   <dependencies>
+					  <dependency>
+						 <groupId>org.eclipse.platform</groupId>
+						 <artifactId>org.eclipse.equinox.common</artifactId>
+						 <version>3.10.0</version>
+					  </dependency>
+				   </dependencies>
+				   <!-- End workaround for https://github.com/eclipse/xtext/issues/1231 (remove this when that bug has been  fixed -->
+
 				</plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
