@@ -14,7 +14,7 @@ import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSirius
 import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx
-implements IXtextSiriusDescribable {
+		implements IXtextSiriusDescribable {
 	private final @NonNull AXtextSiriusDescriptor descriptor;
 
 	private EObject semanticElement;
@@ -36,9 +36,14 @@ implements IXtextSiriusDescribable {
 
 	@Override
 	protected XtextSiriusStyledTextXtextAdapter createXtextAdapter() {
+
 		return new XtextSiriusStyledTextXtextAdapter(getInjector(),
 				getContextFakeResourceProvider() == null ? IXtextFakeContextResourcesProvider.NULL_CONTEXT_PROVIDER
 						: getContextFakeResourceProvider());
+	}
+
+	protected IXtextFakeContextResourcesProvider createXtextFakeContextResourcesProvider() {
+		return new ResourceSetFakeContextResourcesProvider(this);
 	}
 
 	@Override
@@ -57,6 +62,8 @@ implements IXtextSiriusDescribable {
 			final EObject fallback = getFallbackContainer();
 			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
 		}
+
+		getXtextAdapter().getFakeResourceContext().updateFakeResourceContext(createXtextFakeContextResourcesProvider());
 
 		resetDirty();
 	}

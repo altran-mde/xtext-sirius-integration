@@ -2,7 +2,7 @@
 <feature
       id="com.altran.general.integration.xtextsirius.runtime.feature"
       label="Xtext / Sirius Integration Runtime Feature"
-      version="0.17.0.qualifier"
+      version="0.18.0.qualifier"
       provider-name="Altran"
       license-feature="com.altran.general.integration.xtextsirius.license"
       license-feature-version="0.9.0.qualifier">
