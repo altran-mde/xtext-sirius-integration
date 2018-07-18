@@ -8,7 +8,7 @@ var grammarURI = "classpath:/org/eclipse/xtext/example/fowlerdsl/Statemachine.xt
 var fileExtensions = "statemachine"
 var projectName = "org.eclipse.xtext.example.fowlerdsl"
 var runtimeProject = "../${projectName}"
-var generateXtendStub = true
+var generateXtendStub = false
 var encoding = "utf-8"
 var lineDelimiter = '\r\n'
 
@@ -44,7 +44,9 @@ Workflow {
     	projectNameRt = projectName
     	projectNameUi = "${projectName}.ui"
     	encoding = encoding
+    	
     	language = auto-inject {
+    		
     		uri = grammarURI
     
     		// Java API to access grammar elements (required by several other fragments)
@@ -59,6 +61,7 @@ Workflow {
     		// serializer 2.0
     		fragment = serializer.SerializerFragment auto-inject {
     			generateStub = false
+//    			generateXtendStub = false
     		}
     
     		// a custom ResourceFactory for use with EMF
@@ -75,6 +78,7 @@ Workflow {
     		fragment = validation.ValidatorFragment auto-inject {
     		//    composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
     		//    composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+    			generateStub = false
     		}
     
     		// old scoping and exporting API
@@ -82,28 +86,43 @@ Workflow {
     		// fragment = exporting.SimpleNamesFragment auto-inject {}
     
     		// scoping and exporting API
-    		fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
+    		fragment = scoping.ImportNamespacesScopingFragment auto-inject {
+//    			generateXtendStub = false
+    		}
     		fragment = exporting.QualifiedNamesFragment auto-inject {}
     		fragment = builder.BuilderIntegrationFragment auto-inject {}
     
     		// generator API
-    		fragment = generator.GeneratorFragment auto-inject {}
+    		fragment = generator.GeneratorFragment auto-inject {
+    			generateXtendMain = false
+    			generateStub = false
+    		}
     
     		// formatter API
-    		fragment = formatting2.Formatter2Fragment auto-inject {}
+    		fragment = formatting.FormatterFragment auto-inject {
+//    			generateXtendStub = false
+    		}
     
     		// labeling API
-    		fragment = labeling.LabelProviderFragment auto-inject {}
+    		fragment = labeling.LabelProviderFragment auto-inject {
+//    			generateXtendStub = false
+    		}
     
     		// outline API
-    		fragment = outline.OutlineTreeProviderFragment auto-inject {}
+    		fragment = outline.OutlineTreeProviderFragment auto-inject {
+//    			generateXtendStub = false
+    		}
     		fragment = outline.QuickOutlineFragment auto-inject {}
     
     		// quickfix API
-    		fragment = quickfix.QuickfixProviderFragment auto-inject {}
+    		fragment = quickfix.QuickfixProviderFragment auto-inject {
+//    			generateXtendStub = false
+    		}
     
     		// content assist API
-    		fragment = contentAssist.ContentAssistFragment auto-inject {}
+    		fragment = contentAssist.ContentAssistFragment auto-inject {
+    			generateStub = false
+    		}
     
     		// generates a more lightweight Antlr parser and lexer tailored for content assist
     		fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {

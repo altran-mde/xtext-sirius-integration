@@ -14,6 +14,8 @@
 	
 	<modules>
         <module>com.altran.general.integration.xtextsirius.test</module>
+		<module>../demo/org.eclipse.xtext.example.fowlerdsl</module>
+		<module>../demo/org.eclipse.xtext.example.fowlerdsl.inlineedit</module>
     </modules>
     
 </project>

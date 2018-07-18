@@ -23,4 +23,12 @@
 			class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.HtmlLanguageInjector"
 		/>
 	</extension>
+	
+ <extension
+       point="org.eclipse.sirius.externalJavaAction">
+    <javaActions
+          actionClass="org.eclipse.xtext.example.fowlerdsl.viewpoint.ExampleService"
+          id="exampleAction">
+    </javaActions>
+ </extension>
 </plugin>

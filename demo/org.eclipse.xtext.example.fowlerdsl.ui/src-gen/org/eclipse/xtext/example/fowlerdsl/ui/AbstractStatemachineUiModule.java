@@ -82,11 +82,6 @@ public abstract class AbstractStatemachineUiModule extends org.eclipse.xtext.com
 		binder.bind(org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreInitializer.class).annotatedWith(com.google.inject.name.Names.named("builderPreferenceInitializer")).to(org.eclipse.xtext.builder.preferences.BuilderPreferenceAccess.Initializer.class);
 	}
 
-	// contributed by org.eclipse.xtext.generator.formatting2.Formatter2Fragment
-	public Class<? extends org.eclipse.xtext.ui.editor.formatting.IContentFormatterFactory> bindIContentFormatterFactory() {
-		return org.eclipse.xtext.ui.editor.formatting2.ContentFormatterFactory.class;
-	}
-
 	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
 	public Class<? extends org.eclipse.jface.viewers.ILabelProvider> bindILabelProvider() {
 		return org.eclipse.xtext.example.fowlerdsl.ui.labeling.StatemachineLabelProvider.class;
@@ -114,7 +109,7 @@ public abstract class AbstractStatemachineUiModule extends org.eclipse.xtext.com
 
 	// contributed by org.eclipse.xtext.ui.generator.contentAssist.ContentAssistFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.IContentProposalProvider> bindIContentProposalProvider() {
-		return org.eclipse.xtext.example.fowlerdsl.ui.contentassist.StatemachineProposalProvider.class;
+		return org.eclipse.xtext.example.fowlerdsl.ui.contentassist.AbstractStatemachineProposalProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrUiGeneratorFragment
@@ -200,6 +195,11 @@ public abstract class AbstractStatemachineUiModule extends org.eclipse.xtext.com
 	// contributed by org.eclipse.xtext.ui.generator.compare.CompareFragment
 	public Class<? extends org.eclipse.compare.IViewerCreator> bindIViewerCreator() {
 		return org.eclipse.xtext.ui.compare.DefaultViewerCreator.class;
+	}
+
+	// contributed by org.eclipse.xtext.ui.generator.compare.CompareFragment
+	public void configureCompareViewerTitle(com.google.inject.Binder binder) {
+		binder.bind(String.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.UIBindings.COMPARE_VIEWER_TITLE)).toInstance("Statemachine Compare");
 	}
 
 

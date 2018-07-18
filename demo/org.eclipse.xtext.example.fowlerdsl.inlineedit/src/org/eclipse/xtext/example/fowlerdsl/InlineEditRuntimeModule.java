@@ -4,6 +4,7 @@
 package org.eclipse.xtext.example.fowlerdsl;
 
 import org.eclipse.xtext.formatting2.regionaccess.TextRegionAccessBuilder;
+import org.eclipse.xtext.resource.containers.ProjectDescriptionBasedContainerManager;
 import org.eclipse.xtext.serializer.sequencer.IHiddenTokenSequencer;
 
 import com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer;
@@ -15,13 +16,16 @@ import com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetw
  */
 @SuppressWarnings("restriction")
 public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl.AbstractInlineEditRuntimeModule {
-
+	
 	public Class<? extends IHiddenTokenSequencer> bindIHiddenTokenSequencer() {
 		return ForceWhitespaceBetweenKeywordsHiddenTokenSequencer.class;
 	}
-
+	
 	public Class<? extends TextRegionAccessBuilder> bindTextRegionAccessBuilder() {
 		return ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder.class;
 	}
-	
+
+	public Class<? extends ProjectDescriptionBasedContainerManager> bindProjectDescriptionBasedContainerManager() {
+		return com.altran.general.integration.xtextsirius.resource.SiriusProjectDescriptionBasedContainerManager.class;
+	}
 }
