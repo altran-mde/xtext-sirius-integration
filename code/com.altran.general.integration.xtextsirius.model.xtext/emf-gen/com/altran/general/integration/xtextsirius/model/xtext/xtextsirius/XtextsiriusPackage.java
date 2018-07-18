@@ -278,13 +278,22 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Selected Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>IXtext Direct Edit Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 1;
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
@@ -571,6 +580,20 @@ public interface XtextsiriusPackage extends EPackage {
 	EClass getIXtextDirectEditModelDescription();
 
 	/**
+	 * Returns the meta object for the attribute list
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getSelectedFeatures
+	 * <em>Selected Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Selected
+	 *         Features</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getSelectedFeatures()
+	 * @see #getIXtextDirectEditModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextDirectEditModelDescription_SelectedFeatures();
+
+	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 	 * <em>IXtext Direct Edit Value Description</em>}'. <!-- begin-user-doc -->
@@ -747,6 +770,15 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION = eINSTANCE.getIXtextDirectEditModelDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Selected Features</b></em>'
+		 * attribute list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = eINSTANCE
+				.getIXtextDirectEditModelDescription_SelectedFeatures();
 
 		/**
 		 * The meta object literal for the

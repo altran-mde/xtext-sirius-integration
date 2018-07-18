@@ -40,6 +40,7 @@ import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Sets;
 import com.google.common.collect.patch.Streams;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -279,19 +280,23 @@ public class ModelRegionEditorPreparer {
 	private final @NonNull EObject parentSemanticElement;
 	private final boolean multiLine;
 	private final @NonNull Set<@NonNull String> editableFeatures;
+	private final @NonNull Set<@NonNull String> selectedFeatures;
 	private final EStructuralFeature semanticElementFeature;
+	protected final Set<@NonNull EStructuralFeature> definedEditableFeatures = Sets.newLinkedHashSet();
+	protected final Set<@NonNull EStructuralFeature> definedSelectedFeatures = Sets.newLinkedHashSet();
 
 	protected boolean prepared;
 
 	protected ITextRegionAccess rootRegion;
 	protected IEObjectRegion semanticRegion;
-	protected Set<@NonNull EStructuralFeature> definedFeatures;
 
 	protected StringBuffer allText;
 	protected TextRegion textRegion;
+	protected TextRegion selectedRegion;
 	protected SemanticElementLocation semanticElementLocation;
-
-
+	
+	
+	
 	/**
 	 * Creates a ModelRegionEditorPreparer based on a non-null target.
 	 *
@@ -310,8 +315,9 @@ public class ModelRegionEditorPreparer {
 			final @NonNull EObject semanticElement,
 			final @NonNull Injector injector,
 			final boolean multiLine,
-			final @NonNull Set<@NonNull String> editableFeatures) {
-		this(semanticElement, semanticElement.eContainer(), injector, multiLine, editableFeatures,
+			final @NonNull Set<@NonNull String> editableFeatures,
+			final @NonNull Set<@NonNull String> selectedFeatures) {
+		this(semanticElement, semanticElement.eContainer(), injector, multiLine, editableFeatures, selectedFeatures,
 				semanticElement.eContainingFeature());
 	}
 
@@ -340,11 +346,13 @@ public class ModelRegionEditorPreparer {
 			final @NonNull Injector injector,
 			final boolean multiLine,
 			final @NonNull Set<@NonNull String> editableFeatures,
+			final @NonNull Set<@NonNull String> selectedFeatures,
 			final @NonNull EStructuralFeature semanticElementFeature) {
 		this.semanticElement = semanticElement;
 		this.parentSemanticElement = parentSemanticElement;
 		this.multiLine = multiLine;
 		this.editableFeatures = editableFeatures;
+		this.selectedFeatures = selectedFeatures;
 		this.semanticElementFeature = semanticElementFeature;
 
 		injector.injectMembers(this);
@@ -358,6 +366,11 @@ public class ModelRegionEditorPreparer {
 	public @NonNull TextRegion getTextRegion() {
 		prepare();
 		return this.textRegion;
+	}
+
+	public @NonNull TextRegion getSelectedRegion() {
+		prepare();
+		return this.selectedRegion;
 	}
 
 	/**
@@ -414,30 +427,52 @@ public class ModelRegionEditorPreparer {
 			this.semanticElementLocation = new SemanticElementLocation(element);
 			this.semanticRegion = this.rootRegion.regionForEObject(element);
 
-			if (getEditableFeatures().isEmpty()) {
-				this.textRegion = new TextRegion(this.semanticRegion.getOffset(), this.semanticRegion.getLength());
-			} else {
-				this.definedFeatures = resolveDefinedFeatures(element);
-
-				if (!this.definedFeatures.isEmpty()) {
-					this.textRegion = calculateRegionForFeatures(element);
-				} else {
-					this.textRegion = new RequiredGrammarTerminalsPresentEnsurer(element,
-							resolveEditableFeatures(element).iterator().next(), this.rootRegion, this.allText).ensure();
-				}
-			}
+			this.textRegion = calculateFeatureRegion(element, getEditableFeatures(), this.definedEditableFeatures,
+					true);
+			this.selectedRegion = calculateFeatureRegion(element, getSelectedFeatures(), this.definedSelectedFeatures,
+					false);
 		} else {
 			this.semanticElementLocation = constructXtextFragmentSchemeBasedLocation();
 			this.semanticRegion = this.rootRegion.regionForEObject(getParent());
 			this.textRegion = new RequiredGrammarTerminalsPresentEnsurer(getParent(), getSemanticElementFeature(),
 					this.rootRegion, this.allText).ensure();
+			this.selectedRegion = new TextRegion(this.semanticRegion.getOffset(), 0);
 		}
 
 		this.textRegion = StyledTextUtil.getInstance().insertNewline(this.allText, this.textRegion);
+		this.selectedRegion = StyledTextUtil.getInstance().moveByInsertedNewline(this.allText, this.selectedRegion);
 
 		StyledTextUtil.getInstance().removeNewlinesIfSingleLine(this.allText, this.textRegion, isMultiLine());
 
 		this.prepared = true;
+	}
+
+	protected TextRegion calculateFeatureRegion(
+			final @NonNull EObject element,
+			final @NonNull Set<@NonNull String> featureNames,
+			final @NonNull Set<@NonNull EStructuralFeature> features,
+			final boolean addRequiredTerminals) {
+		TextRegion result;
+
+		if (featureNames.isEmpty()) {
+			result = new TextRegion(this.semanticRegion.getOffset(), this.semanticRegion.getLength());
+		} else {
+			final @NonNull Set<@NonNull EStructuralFeature> resolvedFeatures = resolveFeatures(element, featureNames);
+			final @NonNull Set<@NonNull EStructuralFeature> definedFeatures = resolveDefinedFeatures(element,
+					resolvedFeatures);
+			features.addAll(definedFeatures);
+
+			if (!definedFeatures.isEmpty()) {
+				result = calculateRegionForFeatures(element, definedFeatures);
+			} else if (addRequiredTerminals) {
+				result = new RequiredGrammarTerminalsPresentEnsurer(element,
+						resolvedFeatures.iterator().next(), this.rootRegion, this.allText).ensure();
+			} else {
+				result = new TextRegion(this.semanticRegion.getOffset(), 0);
+			}
+		}
+
+		return result;
 	}
 
 	protected void formatIfPossible(final EObject rootContainer) {
@@ -483,7 +518,13 @@ public class ModelRegionEditorPreparer {
 	 * {@code semanticElement}, including attached terminals.
 	 */
 	protected @NonNull TextRegion calculateRegionForFeatures(final @NonNull EObject semanticElement) {
-		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(this.definedFeatures,
+		return calculateRegionForFeatures(semanticElement, this.definedEditableFeatures);
+	}
+
+	protected @NonNull TextRegion calculateRegionForFeatures(
+			final @NonNull EObject semanticElement,
+			final @NonNull Set<@NonNull EStructuralFeature> definedFeatures) {
+		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(definedFeatures,
 				this.semanticRegion,
 				semanticElement, this.rootRegion);
 
@@ -549,6 +590,12 @@ public class ModelRegionEditorPreparer {
 	 */
 	protected @NonNull Set<@NonNull EStructuralFeature> resolveDefinedFeatures(final @NonNull EObject semanticElement) {
 		final @NonNull Set<@NonNull EStructuralFeature> features = resolveEditableFeatures(semanticElement);
+		return resolveDefinedFeatures(semanticElement, features);
+	}
+	
+	protected @NonNull Set<@NonNull EStructuralFeature> resolveDefinedFeatures(
+			final @NonNull EObject semanticElement,
+			final @NonNull Set<@NonNull EStructuralFeature> features) {
 		final @NonNull Set<@NonNull EStructuralFeature> definedFeatures = features.stream()
 				.filter(feature -> semanticElement.eIsSet(feature))
 				.collect(Collectors.toSet());
@@ -597,9 +644,15 @@ public class ModelRegionEditorPreparer {
 	 */
 	protected @NonNull Set<@NonNull EStructuralFeature> resolveEditableFeatures(
 			final @NonNull EObject semanticElement) {
-		final EClass eClass = semanticElement.eClass();
 
-		return getEditableFeatures().stream()
+		return resolveFeatures(semanticElement, getEditableFeatures());
+	}
+	
+	protected @NonNull Set<@NonNull EStructuralFeature> resolveFeatures(final @NonNull EObject semanticElement,
+			@NonNull final Set<@NonNull String> featureNames) {
+		final EClass eClass = semanticElement.eClass();
+		
+		return featureNames.stream()
 				.map(ef -> eClass.getEStructuralFeature(ef))
 				.filter(Objects::nonNull)
 				.collect(Collectors.toSet());
@@ -621,6 +674,10 @@ public class ModelRegionEditorPreparer {
 		return this.editableFeatures;
 	}
 
+	protected @NonNull Set<@NonNull String> getSelectedFeatures() {
+		return this.selectedFeatures;
+	}
+	
 	protected EStructuralFeature getSemanticElementFeature() {
 		return this.semanticElementFeature;
 	}

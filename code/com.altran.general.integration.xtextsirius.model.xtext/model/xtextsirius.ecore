@@ -27,7 +27,10 @@
         eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IXtextDirectEditModelDescription" abstract="true"
-      interface="true" eSuperTypes="#//IXtextDirectEditDescription #//IXtextModelDescription"/>
+      interface="true" eSuperTypes="#//IXtextDirectEditDescription #//IXtextModelDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectedFeatures" unique="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IXtextDirectEditValueDescription" abstract="true"
       interface="true" eSuperTypes="#//IXtextDirectEditDescription #//IXtextValueDescription"/>
   <eClassifiers xsi:type="ecore:EClass" name="IXtextPropertyModelDescription" abstract="true"

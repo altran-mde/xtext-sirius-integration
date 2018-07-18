@@ -8,7 +8,7 @@
 	<artifactId>com.altran.general.integration.xtextsirius.runtime</artifactId>
 	
 	<!-- Override version if needed -->
-	<version>0.15.0-SNAPSHOT</version>
+	<version>0.16.0-SNAPSHOT</version>
 	
 	<packaging>eclipse-plugin</packaging>
 </project>

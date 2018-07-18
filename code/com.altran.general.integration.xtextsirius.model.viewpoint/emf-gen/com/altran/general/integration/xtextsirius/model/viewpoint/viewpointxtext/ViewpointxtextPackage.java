@@ -245,6 +245,15 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 
 	/**
+	 * The feature id for the '<em><b>Selected Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES;
+
+	/**
 	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

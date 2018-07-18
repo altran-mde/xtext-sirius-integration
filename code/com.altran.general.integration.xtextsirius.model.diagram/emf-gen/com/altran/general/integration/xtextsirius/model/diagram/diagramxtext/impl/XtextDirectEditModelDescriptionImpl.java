@@ -31,6 +31,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <em>Multi Line</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getSelectedFeatures
+ * <em>Selected Features</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +89,17 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected EList<String> editableFeatures;
+
+	/**
+	 * The cached value of the '{@link #getSelectedFeatures() <em>Selected
+	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 *
+	 * @see #getSelectedFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> selectedFeatures;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -178,6 +191,20 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @generated
 	 */
 	@Override
+	public EList<String> getSelectedFeatures() {
+		if (this.selectedFeatures == null) {
+			this.selectedFeatures = new EDataTypeEList<>(String.class, this,
+					DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES);
+		}
+		return this.selectedFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
@@ -186,6 +213,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 				return isMultiLine();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return getEditableFeatures();
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
+				return getSelectedFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -209,6 +238,10 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 				getEditableFeatures().clear();
 				getEditableFeatures().addAll((Collection<? extends String>) newValue);
 				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
+				getSelectedFeatures().clear();
+				getSelectedFeatures().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -230,6 +263,9 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
 				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
+				getSelectedFeatures().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -249,6 +285,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 				return this.multiLine != MULTI_LINE_EDEFAULT;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
+				return this.selectedFeatures != null && !this.selectedFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -286,6 +324,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		if (baseClass == IXtextDirectEditModelDescription.class) {
 			switch (derivedFeatureID) {
+				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
+					return XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES;
 				default:
 					return -1;
 			}
@@ -326,6 +366,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		if (baseClass == IXtextDirectEditModelDescription.class) {
 			switch (baseFeatureID) {
+				case XtextsiriusPackage.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
+					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES;
 				default:
 					return -1;
 			}
@@ -351,6 +393,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		result.append(this.multiLine);
 		result.append(", editableFeatures: ");
 		result.append(this.editableFeatures);
+		result.append(", selectedFeatures: ");
+		result.append(this.selectedFeatures);
 		result.append(')');
 		return result.toString();
 	}

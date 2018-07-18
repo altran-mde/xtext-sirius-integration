@@ -65,7 +65,7 @@ class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 	}
 	
 	public void setDefinedFeatures(final @NonNull Set<@NonNull EStructuralFeature> definedFeatures) {
-		this.definedFeatures = definedFeatures;
+		this.definedEditableFeatures = definedFeatures;
 	}
 	
 	public void setSemanticRegion(final @NonNull IEObjectRegion semanticRegion) {

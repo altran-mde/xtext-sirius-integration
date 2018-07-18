@@ -103,7 +103,6 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		ViewpointPackage.eINSTANCE.eClass();
 		DiagramPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
-		ViewpointPackage.eINSTANCE.eClass();
 		XtextsiriusPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects

@@ -19,21 +19,21 @@ public class StyledTextUtil {
 	private static final String CARRIAGE_RETURN = "\r";
 	private static final String LINE_FEED = "\n";
 	private static final String CARRIAGE_RETURN_LINE_FEED = "\r\n";
-	
+
 	private static StyledTextUtil INSTANCE;
-	
+
 	public static StyledTextUtil getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new StyledTextUtil();
 		}
-		
+
 		return INSTANCE;
 	}
-	
+
 	protected StyledTextUtil() {
-		
+
 	}
-	
+
 	/**
 	 * Replaces all newline characters within {@code textRegion} by spaces if
 	 * {@code multiLine} is set.
@@ -57,7 +57,7 @@ public class StyledTextUtil {
 			final boolean multiLine) {
 		return removeNewlinesIfSingleLine(text, textRegion.getOffset(), textRegion.getLength(), multiLine);
 	}
-	
+
 	/**
 	 * Replaces all newline characters within positions
 	 * {@code [offset..offset+length]} by spaces if {@code multiLine} is set.
@@ -90,10 +90,10 @@ public class StyledTextUtil {
 				}
 			}
 		}
-		
+
 		return text;
 	}
-	
+
 	/**
 	 * Inserts a newline at the given position.
 	 *
@@ -115,7 +115,7 @@ public class StyledTextUtil {
 			final @NonNull TextRegion textRegion) {
 		return insertNewline(text, textRegion.getOffset(), textRegion.getLength());
 	}
-	
+
 	/**
 	 * Inserts a newline at the given position.
 	 *
@@ -142,7 +142,13 @@ public class StyledTextUtil {
 		text.insert(offset, newline);
 		return new TextRegion(offset + newline.length(), length);
 	}
-	
+
+	public TextRegion moveByInsertedNewline(
+			final @NonNull StringBuffer text,
+			final @NonNull TextRegion region) {
+		return new TextRegion(region.getOffset() + guessNewline(text.toString()).length(), region.getLength());
+	}
+
 	/**
 	 * Guesses the newline separator by counting existing separators.
 	 *
@@ -168,37 +174,37 @@ public class StyledTextUtil {
 		final int lfCount = StringUtils.countMatches(text, LINE_FEED);
 		final int crlfCount = StringUtils.countMatches(text, CARRIAGE_RETURN_LINE_FEED);
 		final int crCount = StringUtils.countMatches(text, CARRIAGE_RETURN);
-		
+
 		if (crlfCount == 0) {
 			if (crCount > lfCount) {
 				return CARRIAGE_RETURN;
 			}
 			return LINE_FEED;
 		}
-		
+
 		if (lfCount >= crCount) {
 			if (lfCount == crlfCount) {
 				return CARRIAGE_RETURN_LINE_FEED;
 			}
-			
+
 			final int lfOnly = lfCount - crlfCount;
 			if (lfOnly == crlfCount) {
 				return LINE_FEED;
 			}
-			
+
 			final double lfRatio = ((double) lfOnly) / crlfCount;
 			if (lfRatio >= 1) {
 				return LINE_FEED;
 			}
-			
+
 			return CARRIAGE_RETURN_LINE_FEED;
 		} else {
 			if (crCount == crlfCount) {
 				return CARRIAGE_RETURN_LINE_FEED;
 			}
-			
+
 			final int crOnly = crCount - crlfCount;
-			
+
 			if (crOnly == crlfCount) {
 				return CARRIAGE_RETURN_LINE_FEED;
 			}
@@ -206,7 +212,7 @@ public class StyledTextUtil {
 			if (crRatio > 1) {
 				return CARRIAGE_RETURN;
 			}
-			
+
 			return CARRIAGE_RETURN_LINE_FEED;
 		}
 	}

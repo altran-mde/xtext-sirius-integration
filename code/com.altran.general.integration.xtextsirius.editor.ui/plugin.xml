@@ -57,6 +57,15 @@
 					<input type="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription"/>
 			</propertySection>
 			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.selectedfeatures.XtextDirectEditModelDescriptionSelectedFeaturesPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.selectedfeatures.XtextDirectEditModelDescriptionSelectedFeaturesFilter"
+				id="properties.section.xtextDirectEditModelDescription.selectedFeatures"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription"/>
+			</propertySection>
+			
 		</propertySections>
 	</extension>
 </plugin>

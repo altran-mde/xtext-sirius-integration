@@ -19,6 +19,7 @@ import com.google.common.collect.Lists;
 
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {
 	private SemanticElementLocation semanticElementLocation;
+	private @Nullable TextRegion selectedRegion;
 
 	public XtextSiriusStyledTextCellEditorModel(final @NonNull XtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
@@ -33,7 +34,7 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		}
 
 		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(),
-				isMultiLine(), getDescriptor().getEditableFeatures());
+				isMultiLine(), getDescriptor().getEditableFeatures(), getDescriptor().getSelectedFeatures());
 
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();
@@ -53,10 +54,18 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		this.semanticElementLocation = preparer.getSemanticElementLocation();
 
 		getXtextAdapter().setVisibleRegion(textRegion.getOffset(), textRegion.getLength());
+		this.selectedRegion = preparer.getSelectedRegion();
 	}
 
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
+	}
+
+	public void updateSelectedRegion() {
+		if (this.selectedRegion != null) {
+			getXtextAdapter().getXtextSourceViewer().setSelectedRange(this.selectedRegion.getOffset(),
+					this.selectedRegion.getLength());
+		}
 	}
 
 	@Override
