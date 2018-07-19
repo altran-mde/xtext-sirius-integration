@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.util;
 
 import java.util.Collection;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
 import org.eclipse.emf.common.util.URI;
@@ -24,20 +25,20 @@ import org.eclipse.jdt.annotation.Nullable;
  *
  */
 public class ECollectionUtil {
-	private static ECollectionUtil INSTANCE;
-	
+	private static ECollectionUtil instance;
+
 	public static ECollectionUtil getInstance() {
-		if (INSTANCE == null) {
-			INSTANCE = new ECollectionUtil();
+		if (instance == null) {
+			instance = new ECollectionUtil();
 		}
-		
-		return INSTANCE;
+
+		return instance;
 	}
-	
+
 	protected ECollectionUtil() {
-		
+
 	}
-	
+
 	/**
 	 * Replaces {@code element} within {@code collection}, if contained; adds
 	 * otherwise.
@@ -72,7 +73,7 @@ public class ECollectionUtil {
 			return newElement;
 		});
 	}
-	
+
 	/**
 	 * Updates {@code element} within {@code collection}, if contained; adds
 	 * otherwise.
@@ -125,14 +126,58 @@ public class ECollectionUtil {
 			}
 		});
 	}
-	
-	protected <@Nullable T extends EObject> T processOrAddLocal(
+
+	public <T extends EObject> void processOrAddAllLocal(
+			final @NonNull Collection<T> existingValues,
+			final @NonNull Collection<T> newValues,
+			final @Nullable URI originalParentUri,
+			final @NonNull BiConsumer<Collection<T>, T> adder,
+			final @NonNull BiConsumer<T, T> merger) {
+		for (final T newValue : newValues) {
+			final URI originalUri = mergeUri(originalParentUri, newValue);
+
+			final T existing = findMember(existingValues, newValue, originalUri);
+
+			if (existing == null) {
+				adder.accept(existingValues, newValue);
+			} else {
+				merger.accept(existing, newValue);
+			}
+		}
+	}
+
+	public @Nullable URI mergeUri(final @Nullable URI originalParentUri, final @NonNull EObject element) {
+		final URI uri = EcoreUtil.getURI(element);
+		
+		if (uri == null) {
+			return null;
+		}
+
+		final EObject container = element.eContainer();
+		URI parentUri = null;
+		if (container != null) {
+			parentUri = EcoreUtil.getURI(container);
+		} else {
+			parentUri = uri.trimFragment().appendFragment("");
+		}
+		
+		final String relativeFragment = uri.fragment().substring(parentUri.fragment().length());
+
+		final String newFragment = originalParentUri.fragment() + relativeFragment;
+		final String newTidyFragment = newFragment.replaceFirst("^//+([^/])", "/$1").replaceFirst("^//+", "//");
+		
+		final URI originalUri = originalParentUri.trimFragment().appendFragment(newTidyFragment);
+
+		return originalUri;
+	}
+
+	public <@Nullable T extends EObject> T processOrAddLocal(
 			final @NonNull Collection<T> collection,
 			final T element,
 			final @Nullable URI originalUri,
 			final @NonNull BiFunction<T, T, T> processor) {
 		final T existing = findMember(collection, element, originalUri);
-		
+
 		if (existing == null) {
 			collection.add(element);
 			return null;
@@ -140,22 +185,32 @@ public class ECollectionUtil {
 			return processor.apply(existing, element);
 		}
 	}
-	
+
 	protected <@Nullable T extends EObject> T findMember(
 			final @NonNull Collection<T> collection,
 			final T element,
 			final @Nullable URI originalUri) {
-		final String elementFragment = EcoreUtil.getURI(element).fragment();
-		final String originalFragment = originalUri != null ? originalUri.fragment() : "";
-		
-		final T existing = collection.stream()
-				.filter(e -> {
-					final String fragment = EcoreUtil.getURI(e).fragment();
-					return elementFragment.equals(fragment) || originalFragment.equals(fragment);
-				})
-				.findAny()
-				.orElse(null);
-		
-		return existing;
+		final String elementId = EcoreUtil.getID(element);
+		if (elementId != null) {
+			final T existing = collection.stream()
+					.filter(e -> elementId.equals(EcoreUtil.getID(e)))
+					.findAny()
+					.orElse(null);
+			
+			return existing;
+		} else {
+			final String elementFragment = EcoreUtil.getURI(element).fragment();
+			final String originalFragment = originalUri != null ? originalUri.fragment() : "";
+
+			final T existing = collection.stream()
+					.filter(e -> {
+						final String fragment = EcoreUtil.getURI(e).fragment();
+						return elementFragment.equals(fragment) || originalFragment.equals(fragment);
+					})
+					.findAny()
+					.orElse(null);
+
+			return existing;
+		}
 	}
 }

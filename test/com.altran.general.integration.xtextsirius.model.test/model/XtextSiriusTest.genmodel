@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.altran.general.integration.xtextsirius.model.test/emf-gen"
+    creationIcons="false" editDirectory="" editorDirectory="" modelPluginID="com.altran.general.integration.xtextsirius.model.test"
+    modelName="XtextSiriusTest" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>XtextSiriusTest.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="XtextSiriusTest" basePackage="com.altran.general.integration.xtextsirius.model.test"
+      disposableProviderFactory="true" ecorePackage="XtextSiriusTest.ecore#/">
+    <genClasses ecoreClass="XtextSiriusTest.ecore#//IdElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//IdElement/id"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextSiriusTest.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/changeableAttr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/unchangeableAttr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/changeableListAttr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/unchangeableListAttr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/changeableSetAttr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/unchangeableSetAttr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/changeableBagAttr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/unchangeableBagAttr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/changeableRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/unchangeableRef"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/changeableListRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/unchangeableListRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/changeableSetRef"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/unchangeableSetRef"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/changeableBagRef"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/unchangeableBagRef"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/changeableUniqueListCont"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/unchangeableUniqueListCont"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/changeableSetCont"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/changeableCont"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/unchangeableCont"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/unchangeableSetCont"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="XtextSiriusTest" nsURI="http://www.example.org/XtextSiriusTest"
+    nsPrefix="XtextSiriusTest">
+  <eClassifiers xsi:type="ecore:EClass" name="IdElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeableAttr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unchangeableAttr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeableListAttr" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unchangeableListAttr" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeableSetAttr" ordered="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unchangeableSetAttr" ordered="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeableBagAttr" ordered="false"
+        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unchangeableBagAttr" ordered="false"
+        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableRef" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableRef" eType="#//Element"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableListRef" unique="false"
+        upperBound="-1" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableListRef" unique="false"
+        upperBound="-1" eType="#//Element" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableSetRef" ordered="false"
+        upperBound="-1" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableSetRef" ordered="false"
+        upperBound="-1" eType="#//Element" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableBagRef" ordered="false"
+        unique="false" upperBound="-1" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableBagRef" ordered="false"
+        unique="false" upperBound="-1" eType="#//Element" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableUniqueListCont"
+        upperBound="-1" eType="#//Element" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableUniqueListCont"
+        upperBound="-1" eType="#//Element" changeable="false" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableSetCont" ordered="false"
+        upperBound="-1" eType="#//Element" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableCont" eType="#//Element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableCont" eType="#//Element"
+        changeable="false" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableSetCont" ordered="false"
+        upperBound="-1" eType="#//Element" changeable="false" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
