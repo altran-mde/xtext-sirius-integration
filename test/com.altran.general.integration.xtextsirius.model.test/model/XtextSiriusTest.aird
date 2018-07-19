@@ -800,9 +800,11 @@
     <semanticResources>java:/Objects/com.google.common.collect.AbstractMapEntry</semanticResources>
     <semanticResources>java:/Objects/com.google.common.collect.ImmutableSortedMapFauxverideShim</semanticResources>
     <semanticResources>java:/Objects/java.util.AbstractQueue</semanticResources>
-    <semanticResources>../src/com/altran/general/integration/xtextsirius/model/test/emerger/TestAEMerger.xtend</semanticResources>
     <semanticResources>../src/com/altran/general/integration/xtextsirius/model/test/emerger/TestEMergerEAttribute.xtend</semanticResources>
     <semanticResources>../src/com/altran/general/integration/xtextsirius/model/test/emerger/TestEMergerReference.xtend</semanticResources>
+    <semanticResources>../src/com/altran/general/integration/xtextsirius/model/test/emerger/TestEMergerContainment.xtend</semanticResources>
+    <semanticResources>../src/com/altran/general/integration/xtextsirius/model/test/emerger/ATestEMerger.xtend</semanticResources>
+    <semanticResources>../src/com/altran/general/integration/xtextsirius/model/test/emerger/ATestEMergerEReference.xtend</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_bUtOMIsmEeiODdY2BNx-_Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_bci7kIsmEeiODdY2BNx-_Q" name="XtextSiriusTest" repPath="#_bYs9YIsmEeiODdY2BNx-_Q">

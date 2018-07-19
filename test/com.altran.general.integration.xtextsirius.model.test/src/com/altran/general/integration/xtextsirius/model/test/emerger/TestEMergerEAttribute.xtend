@@ -1,11 +1,10 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger
 
-import com.altran.general.integration.xtextsirius.util.EMerger
 import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestEMergerEAttribute extends TestAEMerger {
+class TestEMergerEAttribute extends ATestEMerger {
 	@Test
 	def void singleNull_singleNew() {
 		val edited = createElement => [
@@ -16,7 +15,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableAttr = null
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertNull(result.changeableAttr)
 	}
 	
@@ -30,7 +29,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableAttr = "Hello"
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertNull(result.changeableAttr)
 	}
 	
@@ -44,7 +43,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableAttr = null
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertEquals("Hi", result.changeableAttr)
 	}
 	
@@ -58,7 +57,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableAttr = "Hello"
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertEquals("Greetings", result.changeableAttr)
 	}
 	
@@ -72,7 +71,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableBagAttr += #[1.337, 31.337, 1.337]
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertEquals(5, result.changeableBagAttr.size)
 		assertTrue(result.changeableBagAttr.contains(3.14))
 		assertTrue(result.changeableBagAttr.contains(2.71))
@@ -90,7 +89,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertEquals(6, result.changeableBagAttr.size)
 		assertTrue(result.changeableBagAttr.contains(3.14))
 		assertTrue(result.changeableBagAttr.contains(2.71))
@@ -108,7 +107,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableSetAttr += #[1, 31, 1]
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertEquals(4, result.changeableSetAttr.size)
 		assertTrue(result.changeableSetAttr.contains(3))
 		assertTrue(result.changeableSetAttr.contains(2))
@@ -126,7 +125,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableSetAttr += #[1, 2, 31, 1, 2]
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertEquals(4, result.changeableSetAttr.size)
 		assertTrue(result.changeableSetAttr.contains(3))
 		assertTrue(result.changeableSetAttr.contains(2))
@@ -144,7 +143,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableListAttr += #["1", "31", "1"]
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertEquals(5, result.changeableListAttr.size)
 		assertEquals("1", result.changeableListAttr.get(0))
 		assertEquals("31", result.changeableListAttr.get(1))
@@ -163,7 +162,7 @@ class TestEMergerEAttribute extends TestAEMerger {
 			changeableListAttr += #["1", "2", "31", "1", "2"]
 		]
 		
-		val result = new EMerger(existing, edited, emptySet, emptySet).merge()
+		val result = createEMerger(existing, edited).merge()
 		assertEquals(6, result.changeableListAttr.size)
 		assertEquals("1", result.changeableListAttr.get(0))
 		assertEquals("2", result.changeableListAttr.get(1))
