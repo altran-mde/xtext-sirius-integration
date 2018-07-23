@@ -21,6 +21,8 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextMo
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl#getIgnoredNestedFeatures
+ * <em>Ignored Nested Features</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +39,17 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 	 * @ordered
 	 */
 	protected EList<String> editableFeatures;
+
+	/**
+	 * The cached value of the '{@link #getIgnoredNestedFeatures() <em>Ignored
+	 * Nested Features</em>}' attribute list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getIgnoredNestedFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> ignoredNestedFeatures;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -77,10 +90,26 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 	 * @generated
 	 */
 	@Override
+	public EList<String> getIgnoredNestedFeatures() {
+		if (this.ignoredNestedFeatures == null) {
+			this.ignoredNestedFeatures = new EDataTypeEList<>(String.class, this,
+					EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES);
+		}
+		return this.ignoredNestedFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
 			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return getEditableFeatures();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+				return getIgnoredNestedFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -98,6 +127,10 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 				getEditableFeatures().clear();
 				getEditableFeatures().addAll((Collection<? extends String>) newValue);
 				return;
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+				getIgnoredNestedFeatures().clear();
+				getIgnoredNestedFeatures().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -113,6 +146,9 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
 				return;
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+				getIgnoredNestedFeatures().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -127,6 +163,8 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 		switch (featureID) {
 			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
+			case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+				return this.ignoredNestedFeatures != null && !this.ignoredNestedFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -142,6 +180,8 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 			switch (derivedFeatureID) {
 				case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 					return EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+				case EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+					return EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES;
 				default:
 					return -1;
 			}
@@ -160,6 +200,8 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 			switch (baseFeatureID) {
 				case EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 					return EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+				case EefxtextPackage.IEEF_XTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+					return EefxtextPackage.EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES;
 				default:
 					return -1;
 			}
@@ -181,6 +223,8 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (editableFeatures: ");
 		result.append(this.editableFeatures);
+		result.append(", ignoredNestedFeatures: ");
+		result.append(this.ignoredNestedFeatures);
 		result.append(')');
 		return result.toString();
 	}

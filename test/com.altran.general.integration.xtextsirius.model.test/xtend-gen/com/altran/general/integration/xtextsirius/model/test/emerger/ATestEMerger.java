@@ -8,6 +8,8 @@ import java.util.Set;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public abstract class ATestEMerger {
@@ -22,5 +24,13 @@ public abstract class ATestEMerger {
     Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
     URI _createURI = URI.createURI("resourceName.xmi#/42");
     return new EMerger<Element>(existing, edited, _emptySet, _emptySet_1, _createURI);
+  }
+  
+  protected Element newElement(final int id, final String attrValue) {
+    Element _createElement = this.xtextSiriusTestFactory.createElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      it.setChangeableAttr(attrValue);
+    };
+    return ObjectExtensions.<Element>operator_doubleArrow(_createElement, _function);
   }
 }

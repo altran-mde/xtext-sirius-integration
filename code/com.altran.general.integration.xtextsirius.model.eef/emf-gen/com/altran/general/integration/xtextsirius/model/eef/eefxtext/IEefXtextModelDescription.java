@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures
  * <em>Editable Features</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getIgnoredNestedFeatures
+ * <em>Ignored Nested Features</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage#getIEefXtextModelDescription()
@@ -37,5 +39,23 @@ public interface IEefXtextModelDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	EList<String> getEditableFeatures();
+
+	/**
+	 * Returns the value of the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ignored Nested Features</em>' attribute list
+	 * isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Ignored Nested Features</em>' attribute
+	 *         list.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage#getIEefXtextModelDescription_IgnoredNestedFeatures()
+	 * @model unique="false"
+	 * @generated
+	 */
+	EList<String> getIgnoredNestedFeatures();
 
 } // IEefXtextModelDescription

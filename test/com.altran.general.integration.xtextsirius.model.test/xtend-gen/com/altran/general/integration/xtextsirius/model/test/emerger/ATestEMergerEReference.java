@@ -19,8 +19,6 @@ import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.ObjectExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
@@ -65,14 +63,6 @@ public class ATestEMergerEReference extends ATestEMerger {
     EList<EObject> _contents = this.existingResource.getContents();
     _contents.add(result);
     return result;
-  }
-  
-  protected Element newElement(final int id, final String attrValue) {
-    Element _createElement = this.xtextSiriusTestFactory.createElement();
-    final Procedure1<Element> _function = (Element it) -> {
-      it.setChangeableAttr(attrValue);
-    };
-    return ObjectExtensions.<Element>operator_doubleArrow(_createElement, _function);
   }
   
   protected boolean exists(final Collection<Element> elements, final String attrValue) {

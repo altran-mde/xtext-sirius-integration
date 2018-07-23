@@ -49,6 +49,7 @@ public class XtextMultiLineModelDescriptionItemProvider extends TextAreaDescript
 
 			addInjectorIdPropertyDescriptor(object);
 			addEditableFeaturesPropertyDescriptor(object);
+			addIgnoredNestedFeaturesPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
 	}
@@ -99,6 +100,28 @@ public class XtextMultiLineModelDescriptionItemProvider extends TextAreaDescript
 	}
 
 	/**
+	 * This adds a property descriptor for the Ignored Nested Features feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addIgnoredNestedFeaturesPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextModelDescription_ignoredNestedFeatures_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_IXtextModelDescription_ignoredNestedFeatures_feature", "_UI_IXtextModelDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
+	}
+
+	/**
 	 * This returns XtextMultiLineModelDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -137,6 +160,7 @@ public class XtextMultiLineModelDescriptionItemProvider extends TextAreaDescript
 		switch (notification.getFeatureID(XtextMultiLineModelDescription.class)) {
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

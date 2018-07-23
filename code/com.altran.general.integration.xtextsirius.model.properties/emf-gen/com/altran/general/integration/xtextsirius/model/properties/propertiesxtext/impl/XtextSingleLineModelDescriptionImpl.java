@@ -30,6 +30,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getIgnoredNestedFeatures
+ * <em>Ignored Nested Features</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +68,17 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected EList<String> editableFeatures;
+
+	/**
+	 * The cached value of the '{@link #getIgnoredNestedFeatures() <em>Ignored
+	 * Nested Features</em>}' attribute list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getIgnoredNestedFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> ignoredNestedFeatures;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -132,6 +145,20 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @generated
 	 */
 	@Override
+	public EList<String> getIgnoredNestedFeatures() {
+		if (this.ignoredNestedFeatures == null) {
+			this.ignoredNestedFeatures = new EDataTypeEList<>(String.class, this,
+					PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES);
+		}
+		return this.ignoredNestedFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public boolean isMultiLine() {
 		return false;
 	}
@@ -148,6 +175,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 				return getInjectorId();
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return getEditableFeatures();
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+				return getIgnoredNestedFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,6 +197,10 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 				getEditableFeatures().clear();
 				getEditableFeatures().addAll((Collection<? extends String>) newValue);
 				return;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+				getIgnoredNestedFeatures().clear();
+				getIgnoredNestedFeatures().addAll((Collection<? extends String>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -186,6 +219,9 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
 				return;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+				getIgnoredNestedFeatures().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -203,6 +239,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+				return this.ignoredNestedFeatures != null && !this.ignoredNestedFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -232,6 +270,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 			switch (derivedFeatureID) {
 				case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+				case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES;
 				default:
 					return -1;
 			}
@@ -270,6 +310,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 			switch (baseFeatureID) {
 				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES;
+				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES;
 				default:
 					return -1;
 			}
@@ -299,6 +341,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		result.append(this.injectorId);
 		result.append(", editableFeatures: ");
 		result.append(this.editableFeatures);
+		result.append(", ignoredNestedFeatures: ");
+		result.append(this.ignoredNestedFeatures);
 		result.append(')');
 		return result.toString();
 	}

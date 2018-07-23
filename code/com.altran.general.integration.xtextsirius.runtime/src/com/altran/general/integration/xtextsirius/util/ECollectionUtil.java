@@ -26,19 +26,19 @@ import org.eclipse.jdt.annotation.Nullable;
  */
 public class ECollectionUtil {
 	private static ECollectionUtil instance;
-
+	
 	public static ECollectionUtil getInstance() {
 		if (instance == null) {
 			instance = new ECollectionUtil();
 		}
-
+		
 		return instance;
 	}
-
+	
 	protected ECollectionUtil() {
-
+		
 	}
-
+	
 	/**
 	 * Replaces {@code element} within {@code collection}, if contained; adds
 	 * otherwise.
@@ -64,16 +64,16 @@ public class ECollectionUtil {
 	 *            Element to replace or add.
 	 * @return Element with the same URI contained in the list afterwards.
 	 */
-	public <@Nullable T extends EObject> T replaceOrAddLocal(
-			final @NonNull Collection<T> collection,
-			final T element,
+	public <T extends EObject> @Nullable T replaceOrAddLocal(
+			final @NonNull Collection<@NonNull T> collection,
+			final @NonNull T element,
 			final @Nullable URI originalUri) {
 		return processOrAddLocal(collection, element, originalUri, (existing, newElement) -> {
 			EcoreUtil.replace(existing, newElement);
 			return newElement;
 		});
 	}
-
+	
 	/**
 	 * Updates {@code element} within {@code collection}, if contained; adds
 	 * otherwise.
@@ -100,10 +100,10 @@ public class ECollectionUtil {
 	 *            Element to update or add.
 	 * @return Element with the same URI contained in the list afterwards.
 	 */
-	public <@Nullable T extends EObject> T updateOrAddLocal(
-			final @NonNull Collection<T> collection,
-			final T element,
-			final @NonNull Collection<String> featuresToReplace,
+	public <T extends EObject> @Nullable T updateOrAddLocal(
+			final @NonNull Collection<@NonNull T> collection,
+			final @NonNull T element,
+			final @NonNull Collection<@NonNull String> featuresToReplace,
 			final @Nullable URI originalUri) {
 		return processOrAddLocal(collection, element, originalUri, (existing, newElement) -> {
 			if (existing != null && newElement != null) {
@@ -126,18 +126,18 @@ public class ECollectionUtil {
 			}
 		});
 	}
-
+	
 	public <T extends EObject> void processOrAddAllLocal(
-			final @NonNull Collection<T> existingValues,
-			final @NonNull Collection<T> newValues,
+			final @NonNull Collection<@NonNull T> existingValues,
+			final @NonNull Collection<@NonNull T> newValues,
 			final @Nullable URI originalParentUri,
-			final @NonNull BiConsumer<Collection<T>, T> adder,
-			final @NonNull BiConsumer<T, T> merger) {
+			final @NonNull BiConsumer<@NonNull Collection<@NonNull T>, @NonNull T> adder,
+			final @NonNull BiConsumer<@NonNull T, @NonNull T> merger) {
 		for (final T newValue : newValues) {
 			final URI originalUri = mergeUri(originalParentUri, newValue);
-
+			
 			final T existing = findMember(existingValues, newValue, originalUri);
-
+			
 			if (existing == null) {
 				adder.accept(existingValues, newValue);
 			} else {
@@ -145,39 +145,45 @@ public class ECollectionUtil {
 			}
 		}
 	}
-
+	
 	public @Nullable URI mergeUri(final @Nullable URI originalParentUri, final @NonNull EObject element) {
 		final URI uri = EcoreUtil.getURI(element);
-		
-		if (uri == null) {
+
+		if (originalParentUri == null || uri == null) {
 			return null;
 		}
 
-		final EObject container = element.eContainer();
-		URI parentUri = null;
-		if (container != null) {
-			parentUri = EcoreUtil.getURI(container);
+		String newTidyFragment;
+		if (EcoreUtil.getID(element) == null) {
+			
+			final EObject container = element.eContainer();
+			URI parentUri = null;
+			if (container != null) {
+				parentUri = EcoreUtil.getURI(container);
+			} else {
+				parentUri = uri.trimFragment().appendFragment("");
+			}
+			
+			final String relativeFragment = uri.fragment().substring(parentUri.fragment().length());
+			
+			final String newFragment = originalParentUri.fragment() + relativeFragment;
+			newTidyFragment = newFragment.replaceFirst("^//+([^/])", "/$1").replaceFirst("^//+", "//");
 		} else {
-			parentUri = uri.trimFragment().appendFragment("");
+			newTidyFragment = uri.fragment();
 		}
-		
-		final String relativeFragment = uri.fragment().substring(parentUri.fragment().length());
 
-		final String newFragment = originalParentUri.fragment() + relativeFragment;
-		final String newTidyFragment = newFragment.replaceFirst("^//+([^/])", "/$1").replaceFirst("^//+", "//");
-		
 		final URI originalUri = originalParentUri.trimFragment().appendFragment(newTidyFragment);
-
+		
 		return originalUri;
 	}
-
-	public <@Nullable T extends EObject> T processOrAddLocal(
-			final @NonNull Collection<T> collection,
-			final T element,
+	
+	public <T extends EObject> @Nullable T processOrAddLocal(
+			final @NonNull Collection<@NonNull T> collection,
+			final @NonNull T element,
 			final @Nullable URI originalUri,
-			final @NonNull BiFunction<T, T, T> processor) {
+			final @NonNull BiFunction<@NonNull T, @NonNull T, @Nullable T> processor) {
 		final T existing = findMember(collection, element, originalUri);
-
+		
 		if (existing == null) {
 			collection.add(element);
 			return null;
@@ -185,23 +191,25 @@ public class ECollectionUtil {
 			return processor.apply(existing, element);
 		}
 	}
-
-	protected <@Nullable T extends EObject> T findMember(
-			final @NonNull Collection<T> collection,
-			final T element,
+	
+	protected <T extends EObject> @Nullable T findMember(
+			final @NonNull Collection<@NonNull T> collection,
+			final @NonNull T element,
 			final @Nullable URI originalUri) {
 		final String elementId = EcoreUtil.getID(element);
 		if (elementId != null) {
+			@SuppressWarnings("null")
 			final T existing = collection.stream()
 					.filter(e -> elementId.equals(EcoreUtil.getID(e)))
 					.findAny()
 					.orElse(null);
-			
+
 			return existing;
 		} else {
 			final String elementFragment = EcoreUtil.getURI(element).fragment();
 			final String originalFragment = originalUri != null ? originalUri.fragment() : "";
-
+			
+			@SuppressWarnings("null")
 			final T existing = collection.stream()
 					.filter(e -> {
 						final String fragment = EcoreUtil.getURI(e).fragment();
@@ -209,7 +217,7 @@ public class ECollectionUtil {
 					})
 					.findAny()
 					.orElse(null);
-
+			
 			return existing;
 		}
 	}

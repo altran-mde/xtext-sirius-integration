@@ -41,6 +41,15 @@
 			
 			<propertySection
 				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.ignorednestedfeatures.XtextDirectEditModelDescriptionIgnoredNestedFeaturesPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.ignorednestedfeatures.XtextDirectEditModelDescriptionIgnoredNestedFeaturesFilter"
+				id="properties.section.xtextDirectEditModelDescription.editableFeatures"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
 				class="com.altran.general.integration.xtextsirius.editor.ui.internal.multiline.XtextDirectEditDescriptionMultiLinePropertySection"
 				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.multiline.XtextDirectEditDescriptionMultiLineFilter"
 				id="properties.section.xtextDirectEditDescription.multiLine"

@@ -207,6 +207,16 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIXtextModelDescription_IgnoredNestedFeatures() {
+		return (EAttribute) this.iXtextModelDescriptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getIXtextValueDescription() {
 		return this.iXtextValueDescriptionEClass;
 	}
@@ -347,6 +357,7 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 
 		this.iXtextModelDescriptionEClass = createEClass(IXTEXT_MODEL_DESCRIPTION);
 		createEAttribute(this.iXtextModelDescriptionEClass, IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
+		createEAttribute(this.iXtextModelDescriptionEClass, IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES);
 
 		this.iXtextValueDescriptionEClass = createEClass(IXTEXT_VALUE_DESCRIPTION);
 		createEAttribute(this.iXtextValueDescriptionEClass, IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION);
@@ -432,6 +443,9 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		initEAttribute(getIXtextModelDescription_EditableFeatures(), theEcorePackage.getEString(), "editableFeatures",
 				null, 0, -1, IXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIXtextModelDescription_IgnoredNestedFeatures(), theEcorePackage.getEString(),
+				"ignoredNestedFeatures", null, 0, -1, IXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(this.iXtextValueDescriptionEClass, IXtextValueDescription.class, "IXtextValueDescription",
 				IS_ABSTRACT,

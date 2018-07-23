@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
-import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerEReference;
+import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerEReferenceId;
 import com.google.common.collect.Iterables;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +12,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestEMergerContainment extends ATestEMergerEReference {
+public class TestEMergerContainmentId extends ATestEMergerEReferenceId {
   @Test
   public void singleNull_singleNew() {
     Element _createElement = this.xtextSiriusTestFactory.createElement();
@@ -98,10 +98,11 @@ public class TestEMergerContainment extends ATestEMergerEReference {
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createElement_1, _function_1);
     final Element result = this.createEMerger(existing, edited).merge();
-    Assert.assertEquals(3, result.getChangeableSetCont().size());
+    Assert.assertEquals(5, result.getChangeableSetCont().size());
+    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q1"));
+    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q31"));
     Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a3"));
     Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a2"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q1"));
   }
   
   @Test
@@ -126,12 +127,11 @@ public class TestEMergerContainment extends ATestEMergerEReference {
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createElement_1, _function_1);
     final Element result = this.createEMerger(existing, edited).merge();
-    Assert.assertEquals(5, result.getChangeableSetCont().size());
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a3"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a2"));
+    Assert.assertEquals(6, result.getChangeableSetCont().size());
     Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q1"));
+    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a2"));
     Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q31"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q2"));
+    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a3"));
   }
   
   @Test
@@ -154,10 +154,12 @@ public class TestEMergerContainment extends ATestEMergerEReference {
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createElement_1, _function_1);
     final Element result = this.createEMerger(existing, edited).merge();
-    Assert.assertEquals(3, result.getChangeableUniqueListCont().size());
-    Assert.assertEquals("a3", result.getChangeableUniqueListCont().get(0).getChangeableAttr());
-    Assert.assertEquals("a2", result.getChangeableUniqueListCont().get(1).getChangeableAttr());
+    Assert.assertEquals(5, result.getChangeableUniqueListCont().size());
+    Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(0).getChangeableAttr());
+    Assert.assertEquals("q31", result.getChangeableUniqueListCont().get(1).getChangeableAttr());
     Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(2).getChangeableAttr());
+    Assert.assertEquals("a3", result.getChangeableUniqueListCont().get(3).getChangeableAttr());
+    Assert.assertEquals("a2", result.getChangeableUniqueListCont().get(4).getChangeableAttr());
   }
   
   @Test
@@ -182,11 +184,12 @@ public class TestEMergerContainment extends ATestEMergerEReference {
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createElement_1, _function_1);
     final Element result = this.createEMerger(existing, edited).merge();
-    Assert.assertEquals(5, result.getChangeableUniqueListCont().size());
-    Assert.assertEquals("a3", result.getChangeableUniqueListCont().get(0).getChangeableAttr());
+    Assert.assertEquals(6, result.getChangeableUniqueListCont().size());
+    Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(0).getChangeableAttr());
     Assert.assertEquals("a2", result.getChangeableUniqueListCont().get(1).getChangeableAttr());
     Assert.assertEquals("q31", result.getChangeableUniqueListCont().get(2).getChangeableAttr());
     Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(3).getChangeableAttr());
     Assert.assertEquals("q2", result.getChangeableUniqueListCont().get(4).getChangeableAttr());
+    Assert.assertEquals("a3", result.getChangeableUniqueListCont().get(5).getChangeableAttr());
   }
 }

@@ -31,7 +31,7 @@ public interface IXtextDirectEditModelDescription extends IXtextDirectEditDescri
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Selected Features</em>' attribute list.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage#getIXtextDirectEditModelDescription_SelectedFeatures()
 	 * @model unique="false"

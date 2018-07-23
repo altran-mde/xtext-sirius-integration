@@ -13,4 +13,10 @@ abstract class ATestEMerger {
 	protected def createEMerger(Element existing, Element edited) {
 		new EMerger(existing, edited, emptySet, emptySet, URI.createURI("resourceName.xmi#/42"))
 	}
+
+	protected def newElement(int id, String attrValue) {
+		createElement => [
+			changeableAttr = attrValue
+		]
+	}
 }

@@ -311,13 +311,22 @@ public interface DiagramxtextPackage extends EPackage {
 	int XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Selected Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 3;
+	int XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Xtext Direct Edit Model
@@ -326,7 +335,7 @@ public interface DiagramxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 4;
+	int XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = AXTEXT_DIRECT_EDIT_LABEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the

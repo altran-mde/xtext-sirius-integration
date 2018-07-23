@@ -50,6 +50,7 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 			addInjectorIdPropertyDescriptor(object);
 			addMultiLinePropertyDescriptor(object);
 			addEditableFeaturesPropertyDescriptor(object);
+			addIgnoredNestedFeaturesPropertyDescriptor(object);
 			addSelectedFeaturesPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
@@ -123,6 +124,28 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 	}
 
 	/**
+	 * This adds a property descriptor for the Ignored Nested Features feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addIgnoredNestedFeaturesPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextModelDescription_ignoredNestedFeatures_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_IXtextModelDescription_ignoredNestedFeatures_feature", "_UI_IXtextModelDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Selected Features feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -186,6 +209,7 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

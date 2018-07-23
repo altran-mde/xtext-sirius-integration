@@ -21,7 +21,7 @@ class ATestEMergerEReference extends ATestEMerger {
 	
 	@BeforeClass
 	def static void registerEmf() {
-		val packageRegistry = EPackage::Registry.INSTANCE;
+		val packageRegistry = EPackage::Registry::INSTANCE;
 		packageRegistry.put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 		packageRegistry.put(GenModelPackage.eNS_URI, GenModelPackage.eINSTANCE);
 
@@ -55,12 +55,6 @@ class ATestEMergerEReference extends ATestEMerger {
 		return result
 	}
 
-	protected def newElement(int id, String attrValue) {
-		createElement => [
-			changeableAttr = attrValue
-		]
-	}
-	
 	protected def exists(Collection<Element> elements, String attrValue) {
 		elements.exists[changeableAttr == attrValue]
 	}
