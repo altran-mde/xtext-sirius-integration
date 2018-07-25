@@ -71,6 +71,29 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
     return _xblockexpression;
   }
   
+  public EMerger<T> createEMerger(final T existing, final EStructuralFeature feature) {
+    EMerger<T> _xblockexpression = null;
+    {
+      this.existing = existing;
+      final Function1<EStructuralFeature, Boolean> _function = (EStructuralFeature it) -> {
+        return Boolean.valueOf(it.isChangeable());
+      };
+      final Function1<EStructuralFeature, Boolean> _function_1 = (EStructuralFeature it) -> {
+        return Boolean.valueOf(Objects.equal(it, feature));
+      };
+      this.untouchedFeatures = IterableExtensions.<EStructuralFeature>toSet(IterableExtensions.<EStructuralFeature>reject(IterableExtensions.<EStructuralFeature>filter(existing.eClass().getEAllStructuralFeatures(), _function), _function_1));
+      final Consumer<EStructuralFeature> _function_2 = (EStructuralFeature it) -> {
+        this.fillFeature(it);
+      };
+      this.untouchedFeatures.forEach(_function_2);
+      String _name = feature.getName();
+      Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+      URI _createURI = URI.createURI("resourceName.xmi#/42");
+      _xblockexpression = new EMerger<T>(existing, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet(_name)), _emptySet, _createURI);
+    }
+    return _xblockexpression;
+  }
+  
   public void checkUntouchedFeatures() {
     Assert.assertNotNull(this.existing);
     final Consumer<EStructuralFeature> _function = (EStructuralFeature feature) -> {

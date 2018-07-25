@@ -7,6 +7,7 @@ import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Xte
 import com.altran.general.integration.xtextsirius.util.EMerger;
 import java.util.Set;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
@@ -32,6 +33,13 @@ public abstract class ATestEMerger<T extends IElement<?>> {
       _xblockexpression = new EMerger<T>(existing, _emptySet, _emptySet_1, _createURI);
     }
     return _xblockexpression;
+  }
+  
+  protected EMerger<T> createEMerger(final T existing, final EStructuralFeature feature) {
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    URI _createURI = URI.createURI("resourceName.xmi#/42");
+    return new EMerger<T>(existing, _emptySet, _emptySet_1, _createURI);
   }
   
   public T newElement(final int id, final String attrValue) {

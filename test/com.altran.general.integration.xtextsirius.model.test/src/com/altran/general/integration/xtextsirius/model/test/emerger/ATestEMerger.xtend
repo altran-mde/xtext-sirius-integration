@@ -5,6 +5,7 @@ import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Xte
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage
 import com.altran.general.integration.xtextsirius.util.EMerger
 import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.EStructuralFeature
 
 abstract class ATestEMerger<T extends IElement<?>> {
 	protected extension XtextSiriusTestPackage xtextSiriusTestPackage = XtextSiriusTestPackage.eINSTANCE
@@ -14,6 +15,10 @@ abstract class ATestEMerger<T extends IElement<?>> {
 	
 	protected def createEMerger(T existing, T edited) {
 		this.edited = edited
+		new EMerger(existing, emptySet, emptySet, URI.createURI("resourceName.xmi#/42"))
+	}
+	
+	protected def createEMerger(T existing, EStructuralFeature feature) {
 		new EMerger(existing, emptySet, emptySet, URI.createURI("resourceName.xmi#/42"))
 	}
 

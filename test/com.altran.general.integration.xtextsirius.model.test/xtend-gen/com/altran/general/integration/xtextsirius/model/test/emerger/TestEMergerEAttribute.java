@@ -211,4 +211,298 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
     Assert.assertEquals("2", result.getChangeableListAttr().get(4));
     Assert.assertEquals("3", result.getChangeableListAttr().get(5));
   }
+  
+  @Test
+  public void singleNull_bagNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(null, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertTrue(result.getChangeableBagAttr().isEmpty());
+  }
+  
+  @Test
+  public void singleNull_bagExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(1.337), Double.valueOf(2.71), Double.valueOf(31.337), Double.valueOf(1.337), Double.valueOf(2.71))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(null, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertEquals(5, result.getChangeableBagAttr().size());
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(1.337)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(31.337)));
+  }
+  
+  @Test
+  public void singleNull_setNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
+      Iterables.<Integer>addAll(_changeableSetAttr, Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr()).merge(null, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr());
+    Assert.assertTrue(result.getChangeableSetAttr().isEmpty());
+  }
+  
+  @Test
+  public void singleNull_setExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
+      Iterables.<Integer>addAll(_changeableSetAttr, Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(31), Integer.valueOf(1), Integer.valueOf(2))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr()).merge(null, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr());
+    Assert.assertEquals(3, result.getChangeableSetAttr().size());
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(1)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(2)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(31)));
+  }
+  
+  @Test
+  public void singleNull_listNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge(null, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    Assert.assertTrue(result.getChangeableListAttr().isEmpty());
+  }
+  
+  @Test
+  public void singleNull_listExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("1", "2", "31", "1", "2")));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge(null, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    Assert.assertEquals(5, result.getChangeableListAttr().size());
+    Assert.assertEquals("1", result.getChangeableListAttr().get(0));
+    Assert.assertEquals("2", result.getChangeableListAttr().get(1));
+    Assert.assertEquals("31", result.getChangeableListAttr().get(2));
+    Assert.assertEquals("1", result.getChangeableListAttr().get(3));
+    Assert.assertEquals("2", result.getChangeableListAttr().get(4));
+  }
+  
+  @Test
+  public void singleNonNull_bagNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Double.valueOf(3.14), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertEquals(1, result.getChangeableBagAttr().size());
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(3.14)));
+  }
+  
+  @Test
+  public void singleNonNull_bagExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(1.337), Double.valueOf(2.71), Double.valueOf(31.337), Double.valueOf(1.337), Double.valueOf(2.71))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Double.valueOf(3.14), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertEquals(6, result.getChangeableBagAttr().size());
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(1.337)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(31.337)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(3.14)));
+  }
+  
+  @Test
+  public void singleNonNull_setNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
+      Iterables.<Integer>addAll(_changeableSetAttr, Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr()).merge(Integer.valueOf(3), this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr());
+    Assert.assertEquals(1, result.getChangeableSetAttr().size());
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(3)));
+  }
+  
+  @Test
+  public void singleNonNull_setExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
+      Iterables.<Integer>addAll(_changeableSetAttr, Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(31), Integer.valueOf(1), Integer.valueOf(2))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr()).merge(Integer.valueOf(3), this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr());
+    Assert.assertEquals(4, result.getChangeableSetAttr().size());
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(1)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(2)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(31)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(3)));
+  }
+  
+  @Test
+  public void singleNonNull_listNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge("3", this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    Assert.assertEquals(1, result.getChangeableListAttr().size());
+    Assert.assertEquals("3", result.getChangeableListAttr().get(0));
+  }
+  
+  @Test
+  public void singleNonNull_listExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("1", "2", "31", "1", "2")));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge("3", this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    Assert.assertEquals(6, result.getChangeableListAttr().size());
+    Assert.assertEquals("1", result.getChangeableListAttr().get(0));
+    Assert.assertEquals("2", result.getChangeableListAttr().get(1));
+    Assert.assertEquals("31", result.getChangeableListAttr().get(2));
+    Assert.assertEquals("1", result.getChangeableListAttr().get(3));
+    Assert.assertEquals("2", result.getChangeableListAttr().get(4));
+    Assert.assertEquals("3", result.getChangeableListAttr().get(5));
+  }
+  
+  @Test
+  public void set_bagNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Collections.<Double>unmodifiableSet(CollectionLiterals.<Double>newHashSet(Double.valueOf(3.14), Double.valueOf(2.71))), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertEquals(2, result.getChangeableBagAttr().size());
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(3.14)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
+  }
+  
+  @Test
+  public void set_bagExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(1.337), Double.valueOf(2.71), Double.valueOf(31.337), Double.valueOf(1.337), Double.valueOf(2.71))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Collections.<Double>unmodifiableSet(CollectionLiterals.<Double>newHashSet(Double.valueOf(3.14), Double.valueOf(2.71))), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertEquals(6, result.getChangeableBagAttr().size());
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(1.337)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(31.337)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(3.14)));
+  }
+  
+  @Test
+  public void set_listNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("3", "2")), this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    Assert.assertEquals(2, result.getChangeableListAttr().size());
+    Assert.assertTrue(result.getChangeableListAttr().contains("3"));
+    Assert.assertTrue(result.getChangeableListAttr().contains("2"));
+  }
+  
+  @Test
+  public void set_listExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("1", "2", "31", "1", "2")));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("3", "2")), this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    Assert.assertEquals(6, result.getChangeableListAttr().size());
+    Assert.assertEquals("1", result.getChangeableListAttr().get(0));
+    Assert.assertEquals("2", result.getChangeableListAttr().get(1));
+    Assert.assertEquals("31", result.getChangeableListAttr().get(2));
+    Assert.assertEquals("1", result.getChangeableListAttr().get(3));
+    Assert.assertEquals("2", result.getChangeableListAttr().get(4));
+    Assert.assertEquals("3", result.getChangeableListAttr().get(5));
+  }
+  
+  @Test
+  public void list_bagNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(3.14), Double.valueOf(2.71))), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertEquals(2, result.getChangeableBagAttr().size());
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(3.14)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
+  }
+  
+  @Test
+  public void list_bagExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(1.337), Double.valueOf(2.71), Double.valueOf(31.337), Double.valueOf(1.337), Double.valueOf(2.71))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(3.14), Double.valueOf(2.71))), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertEquals(6, result.getChangeableBagAttr().size());
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(1.337)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(31.337)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(3.14)));
+  }
+  
+  @Test
+  public void list_setNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
+      Iterables.<Integer>addAll(_changeableSetAttr, Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr()).merge(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(2))), this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr());
+    Assert.assertEquals(2, result.getChangeableSetAttr().size());
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(3)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(2)));
+  }
+  
+  @Test
+  public void list_setExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
+      Iterables.<Integer>addAll(_changeableSetAttr, Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(31), Integer.valueOf(1), Integer.valueOf(2))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr()).merge(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(2))), this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr());
+    Assert.assertEquals(4, result.getChangeableSetAttr().size());
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(1)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(2)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(31)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(3)));
+  }
 }

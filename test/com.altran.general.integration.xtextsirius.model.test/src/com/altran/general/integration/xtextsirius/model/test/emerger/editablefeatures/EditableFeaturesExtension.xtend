@@ -40,6 +40,15 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 		new EMerger(existing, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
 	}
 	
+	def createEMerger(T existing, EStructuralFeature feature) {
+		this.existing = existing
+		
+		this.untouchedFeatures = existing.eClass.EAllStructuralFeatures.filter[isChangeable].reject[it == feature].toSet
+		this.untouchedFeatures.forEach[fillFeature(it)]
+		
+		new EMerger(existing, #{feature.name}, emptySet, URI.createURI("resourceName.xmi#/42"))
+	}
+	
 	def void checkUntouchedFeatures() {
 		assertNotNull(this.existing)
 		

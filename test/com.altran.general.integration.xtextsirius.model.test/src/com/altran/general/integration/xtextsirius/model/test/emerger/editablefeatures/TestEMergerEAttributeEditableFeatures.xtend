@@ -2,6 +2,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.editablefe
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerEAttribute
+import org.eclipse.emf.ecore.EStructuralFeature
 import org.junit.After
 import org.junit.Test
 
@@ -17,6 +18,10 @@ class TestEMergerEAttributeEditableFeatures extends TestEMergerEAttribute {
 	
 	override protected createEMerger(Element existing, Element edited) {
 		editableFeaturesExtension.createEMerger(existing, edited)
+	}
+	
+	override protected createEMerger(Element existing, EStructuralFeature feature) {
+		editableFeaturesExtension.createEMerger(existing, feature)
 	}
 	
 	@Test

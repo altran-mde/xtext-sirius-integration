@@ -172,4 +172,258 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 		assertEquals("2", result.changeableListAttr.get(4))
 		assertEquals("3", result.changeableListAttr.get(5))
 	}
+	
+	@Test
+	def void singleNull_bagNew() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(null, IElement_ChangeableBagAttr)
+		assertTrue(result.changeableBagAttr.isEmpty)
+	}
+	
+	@Test
+	def void singleNull_bagExisting() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(null, IElement_ChangeableBagAttr)
+		assertEquals(5, result.changeableBagAttr.size)
+		assertTrue(result.changeableBagAttr.contains(1.337))
+		assertTrue(result.changeableBagAttr.contains(2.71))
+		assertTrue(result.changeableBagAttr.contains(31.337))
+	}
+	
+	@Test
+	def void singleNull_setNew() {
+		val existing = createRootElement => [
+			changeableSetAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableSetAttr).merge(null, IElement_ChangeableSetAttr)
+		assertTrue(result.changeableSetAttr.isEmpty)
+	}
+	
+	@Test
+	def void singleNull_setExisting() {
+		val existing = createRootElement => [
+			changeableSetAttr += #[1, 2, 31, 1, 2]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableSetAttr).merge(null, IElement_ChangeableSetAttr)
+		assertEquals(3, result.changeableSetAttr.size)
+		assertTrue(result.changeableSetAttr.contains(1))
+		assertTrue(result.changeableSetAttr.contains(2))
+		assertTrue(result.changeableSetAttr.contains(31))
+	}
+	
+	@Test
+	def void singleNull_listNew() {
+		val existing = createRootElement => [
+			changeableListAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge(null, IElement_ChangeableListAttr)
+		assertTrue(result.changeableListAttr.isEmpty)
+	}
+	
+	@Test
+	def void singleNull_listExisting() {
+		val existing = createRootElement => [
+			changeableListAttr += #["1", "2", "31", "1", "2"]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge(null, IElement_ChangeableListAttr)
+		assertEquals(5, result.changeableListAttr.size)
+		assertEquals("1", result.changeableListAttr.get(0))
+		assertEquals("2", result.changeableListAttr.get(1))
+		assertEquals("31", result.changeableListAttr.get(2))
+		assertEquals("1", result.changeableListAttr.get(3))
+		assertEquals("2", result.changeableListAttr.get(4))
+	}
+
+	@Test
+	def void singleNonNull_bagNew() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(3.14, IElement_ChangeableBagAttr)
+		assertEquals(1, result.changeableBagAttr.size)
+		assertTrue(result.changeableBagAttr.contains(3.14))
+	}
+	
+	@Test
+	def void singleNonNull_bagExisting() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(3.14, IElement_ChangeableBagAttr)
+		assertEquals(6, result.changeableBagAttr.size)
+		assertTrue(result.changeableBagAttr.contains(1.337))
+		assertTrue(result.changeableBagAttr.contains(2.71))
+		assertTrue(result.changeableBagAttr.contains(31.337))
+		assertTrue(result.changeableBagAttr.contains(3.14))
+	}
+	
+	@Test
+	def void singleNonNull_setNew() {
+		val existing = createRootElement => [
+			changeableSetAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableSetAttr).merge(3, IElement_ChangeableSetAttr)
+		assertEquals(1, result.changeableSetAttr.size)
+		assertTrue(result.changeableSetAttr.contains(3))
+	}
+	
+	@Test
+	def void singleNonNull_setExisting() {
+		val existing = createRootElement => [
+			changeableSetAttr += #[1, 2, 31, 1, 2]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableSetAttr).merge(3, IElement_ChangeableSetAttr)
+		assertEquals(4, result.changeableSetAttr.size)
+		assertTrue(result.changeableSetAttr.contains(1))
+		assertTrue(result.changeableSetAttr.contains(2))
+		assertTrue(result.changeableSetAttr.contains(31))
+		assertTrue(result.changeableSetAttr.contains(3))
+	}
+	
+	@Test
+	def void singleNonNull_listNew() {
+		val existing = createRootElement => [
+			changeableListAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge("3", IElement_ChangeableListAttr)
+		assertEquals(1, result.changeableListAttr.size)
+		assertEquals("3", result.changeableListAttr.get(0))
+	}
+	
+	@Test
+	def void singleNonNull_listExisting() {
+		val existing = createRootElement => [
+			changeableListAttr += #["1", "2", "31", "1", "2"]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge("3", IElement_ChangeableListAttr)
+		assertEquals(6, result.changeableListAttr.size)
+		assertEquals("1", result.changeableListAttr.get(0))
+		assertEquals("2", result.changeableListAttr.get(1))
+		assertEquals("31", result.changeableListAttr.get(2))
+		assertEquals("1", result.changeableListAttr.get(3))
+		assertEquals("2", result.changeableListAttr.get(4))
+		assertEquals("3", result.changeableListAttr.get(5))
+	}
+
+	@Test
+	def void set_bagNew() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(#{3.14, 2.71}, IElement_ChangeableBagAttr)
+		assertEquals(2, result.changeableBagAttr.size)
+		assertTrue(result.changeableBagAttr.contains(3.14))
+		assertTrue(result.changeableBagAttr.contains(2.71))
+	}
+	
+	@Test
+	def void set_bagExisting() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(#{3.14, 2.71}, IElement_ChangeableBagAttr)
+		assertEquals(6, result.changeableBagAttr.size)
+		assertTrue(result.changeableBagAttr.contains(1.337))
+		assertTrue(result.changeableBagAttr.contains(2.71))
+		assertTrue(result.changeableBagAttr.contains(31.337))
+		assertTrue(result.changeableBagAttr.contains(3.14))
+	}
+	
+	@Test
+	def void set_listNew() {
+		val existing = createRootElement => [
+			changeableListAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge(#{"3", "2"}, IElement_ChangeableListAttr)
+		assertEquals(2, result.changeableListAttr.size)
+		assertTrue(result.changeableListAttr.contains("3"))
+		assertTrue(result.changeableListAttr.contains("2"))
+	}
+	
+	@Test
+	def void set_listExisting() {
+		val existing = createRootElement => [
+			changeableListAttr += #["1", "2", "31", "1", "2"]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge(#{"3", "2"}, IElement_ChangeableListAttr)
+		assertEquals(6, result.changeableListAttr.size)
+		assertEquals("1", result.changeableListAttr.get(0))
+		assertEquals("2", result.changeableListAttr.get(1))
+		assertEquals("31", result.changeableListAttr.get(2))
+		assertEquals("1", result.changeableListAttr.get(3))
+		assertEquals("2", result.changeableListAttr.get(4))
+		assertEquals("3", result.changeableListAttr.get(5))
+	}
+
+	@Test
+	def void list_bagNew() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(#[3.14, 2.71], IElement_ChangeableBagAttr)
+		assertEquals(2, result.changeableBagAttr.size)
+		assertTrue(result.changeableBagAttr.contains(3.14))
+		assertTrue(result.changeableBagAttr.contains(2.71))
+	}
+	
+	@Test
+	def void list_bagExisting() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(#[3.14, 2.71], IElement_ChangeableBagAttr)
+		assertEquals(6, result.changeableBagAttr.size)
+		assertTrue(result.changeableBagAttr.contains(1.337))
+		assertTrue(result.changeableBagAttr.contains(2.71))
+		assertTrue(result.changeableBagAttr.contains(31.337))
+		assertTrue(result.changeableBagAttr.contains(3.14))
+	}
+	
+	@Test
+	def void list_setNew() {
+		val existing = createRootElement => [
+			changeableSetAttr += #[]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableSetAttr).merge(#[3, 2], IElement_ChangeableSetAttr)
+		assertEquals(2, result.changeableSetAttr.size)
+		assertTrue(result.changeableSetAttr.contains(3))
+		assertTrue(result.changeableSetAttr.contains(2))
+	}
+	
+	@Test
+	def void list_setExisting() {
+		val existing = createRootElement => [
+			changeableSetAttr += #[1, 2, 31, 1, 2]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableSetAttr).merge(#[3, 2], IElement_ChangeableSetAttr)
+		assertEquals(4, result.changeableSetAttr.size)
+		assertTrue(result.changeableSetAttr.contains(1))
+		assertTrue(result.changeableSetAttr.contains(2))
+		assertTrue(result.changeableSetAttr.contains(31))
+		assertTrue(result.changeableSetAttr.contains(3))
+	}
 }
