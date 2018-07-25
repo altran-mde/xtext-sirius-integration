@@ -1,10 +1,11 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger.key
+package com.altran.general.integration.xtextsirius.model.test.emerger
 
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement
 import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestEMergerReferenceKey extends ATestEMergerEReferenceKey {
+abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEMergerEReference<T> {
 	@Test
 	def void singleNull_singleNew() {
 		val edited = createRootElement => [
@@ -74,8 +75,8 @@ class TestEMergerReferenceKey extends ATestEMergerEReferenceKey {
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals(2, result.changeableBagRef.size)
-		assertTrue(result.changeableBagRef.exists("a3.14"))
-		assertTrue(result.changeableBagRef.exists("a2.71"))
+		assertTrue(result.changeableBagRef.valueExists("a3.14"))
+		assertTrue(result.changeableBagRef.valueExists("a2.71"))
 	}
 	
 	@Test
@@ -90,8 +91,8 @@ class TestEMergerReferenceKey extends ATestEMergerEReferenceKey {
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals(2, result.changeableBagRef.size)
-		assertTrue(result.changeableBagRef.exists("a3.14"))
-		assertTrue(result.changeableBagRef.exists("a2.71"))
+		assertTrue(result.changeableBagRef.valueExists("a3.14"))
+		assertTrue(result.changeableBagRef.valueExists("a2.71"))
 	}
 	
 	@Test
@@ -106,8 +107,8 @@ class TestEMergerReferenceKey extends ATestEMergerEReferenceKey {
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals(2, result.changeableSetRef.size)
-		assertTrue(result.changeableSetRef.exists("a3"))
-		assertTrue(result.changeableSetRef.exists("a2"))
+		assertTrue(result.changeableSetRef.valueExists("a3"))
+		assertTrue(result.changeableSetRef.valueExists("a2"))
 	}
 	
 	@Test
@@ -122,8 +123,8 @@ class TestEMergerReferenceKey extends ATestEMergerEReferenceKey {
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals(2, result.changeableSetRef.size)
-		assertTrue(result.changeableSetRef.exists("a3"))
-		assertTrue(result.changeableSetRef.exists("a2"))
+		assertTrue(result.changeableSetRef.valueExists("a3"))
+		assertTrue(result.changeableSetRef.valueExists("a2"))
 	}
 	
 	@Test

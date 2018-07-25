@@ -81,9 +81,9 @@ class TestEMergerContainment extends ATestEMergerEReference<Element> {
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals(3, result.changeableSetCont.size)
-		assertTrue(result.changeableSetCont.exists("a3"))
-		assertTrue(result.changeableSetCont.exists("a2"))
-		assertTrue(result.changeableSetCont.exists("q1"))
+		assertTrue(result.changeableSetCont.valueExists("a3"))
+		assertTrue(result.changeableSetCont.valueExists("a2"))
+		assertTrue(result.changeableSetCont.valueExists("q1"))
 	}
 	
 	@Test
@@ -98,11 +98,11 @@ class TestEMergerContainment extends ATestEMergerEReference<Element> {
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals(5, result.changeableSetCont.size)
-		assertTrue(result.changeableSetCont.exists("a3"))
-		assertTrue(result.changeableSetCont.exists("a2"))
-		assertTrue(result.changeableSetCont.exists("q1"))
-		assertTrue(result.changeableSetCont.exists("q31"))
-		assertTrue(result.changeableSetCont.exists("q2"))
+		assertTrue(result.changeableSetCont.valueExists("a3"))
+		assertTrue(result.changeableSetCont.valueExists("a2"))
+		assertTrue(result.changeableSetCont.valueExists("q1"))
+		assertTrue(result.changeableSetCont.valueExists("q31"))
+		assertTrue(result.changeableSetCont.valueExists("q2"))
 	}
 	
 	@Test

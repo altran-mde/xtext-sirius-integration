@@ -55,7 +55,7 @@ class ATestEMergerEReference<T extends IElement<?>> extends ATestEMerger<T> {
 		return result
 	}
 
-	protected def exists(Collection<T> elements, String attrValue) {
+	protected def valueExists(Collection<T> elements, String attrValue) {
 		elements.exists[changeableAttr == attrValue]
 	}
 }

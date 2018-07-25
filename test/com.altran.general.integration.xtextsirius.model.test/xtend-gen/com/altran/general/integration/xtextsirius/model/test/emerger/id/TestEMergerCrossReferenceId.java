@@ -6,7 +6,7 @@ import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
-public class ATestEMergerEReferenceId extends ATestEMergerEReference<IdElement> {
+public class TestEMergerCrossReferenceId extends ATestEMergerEReference<IdElement> {
   @Override
   public IdElement newElement(final int requestedId, final String attrValue) {
     IdElement _createIdElement = this.xtextSiriusTestFactory.createIdElement();

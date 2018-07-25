@@ -1,10 +1,12 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger.key
 
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement
+import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerEReference
 import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
+class TestEMergerContainmentKey extends ATestEMergerEReference<KeyElement> {
 	@Test
 	def void singleNull_singleNew() {
 		val edited = createRootElement => [
@@ -80,10 +82,10 @@ class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals(5, result.changeableSetCont.size)
-		assertTrue(result.changeableSetCont.exists("q1"))
-		assertTrue(result.changeableSetCont.exists("q31"))
-		assertTrue(result.changeableSetCont.exists("a3"))
-		assertTrue(result.changeableSetCont.exists("a2"))
+		assertTrue(result.changeableSetCont.valueExists("q1"))
+		assertTrue(result.changeableSetCont.valueExists("q31"))
+		assertTrue(result.changeableSetCont.valueExists("a3"))
+		assertTrue(result.changeableSetCont.valueExists("a2"))
 	}
 	
 	@Test
@@ -98,10 +100,10 @@ class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals(6, result.changeableSetCont.size)
-		assertTrue(result.changeableSetCont.exists("q1"))
-		assertTrue(result.changeableSetCont.exists("a2"))
-		assertTrue(result.changeableSetCont.exists("q31"))
-		assertTrue(result.changeableSetCont.exists("a3"))
+		assertTrue(result.changeableSetCont.valueExists("q1"))
+		assertTrue(result.changeableSetCont.valueExists("a2"))
+		assertTrue(result.changeableSetCont.valueExists("q31"))
+		assertTrue(result.changeableSetCont.valueExists("a3"))
 	}
 	
 	@Test
@@ -141,5 +143,16 @@ class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
 		assertEquals("q1", result.changeableUniqueListCont.get(3).changeableAttr)
 		assertEquals("q2", result.changeableUniqueListCont.get(4).changeableAttr)
 		assertEquals("a3", result.changeableUniqueListCont.get(5).changeableAttr)
+	}
+
+	override newElement(int requestedId, String attrValue) {
+		createKeyElement  => [
+			keyId = "keyId" + requestedId
+			changeableAttr = attrValue
+		]
+	}
+	
+	override protected createRootElement() {
+		createKeyElement
 	}
 }

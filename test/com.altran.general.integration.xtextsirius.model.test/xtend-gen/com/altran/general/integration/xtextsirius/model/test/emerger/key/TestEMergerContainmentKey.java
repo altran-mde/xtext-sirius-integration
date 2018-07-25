@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger.key;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement;
-import com.altran.general.integration.xtextsirius.model.test.emerger.key.ATestEMergerEReferenceKey;
+import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerEReference;
 import com.google.common.collect.Iterables;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +12,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
+public class TestEMergerContainmentKey extends ATestEMergerEReference<KeyElement> {
   @Test
   public void singleNull_singleNew() {
     KeyElement _createRootElement = this.createRootElement();
@@ -113,10 +113,10 @@ public class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
     final KeyElement existing = ObjectExtensions.<KeyElement>operator_doubleArrow(_createRootElement_1, _function_1);
     final KeyElement result = this.createEMerger(existing, edited).merge(edited);
     Assert.assertEquals(5, result.getChangeableSetCont().size());
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q1"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q31"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a3"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a2"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q1"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q31"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a3"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a2"));
   }
   
   @Test
@@ -142,10 +142,10 @@ public class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
     final KeyElement existing = ObjectExtensions.<KeyElement>operator_doubleArrow(_createRootElement_1, _function_1);
     final KeyElement result = this.createEMerger(existing, edited).merge(edited);
     Assert.assertEquals(6, result.getChangeableSetCont().size());
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q1"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a2"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q31"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a3"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q1"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a2"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q31"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a3"));
   }
   
   @Test
@@ -205,5 +205,20 @@ public class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
     Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(3).getChangeableAttr());
     Assert.assertEquals("q2", result.getChangeableUniqueListCont().get(4).getChangeableAttr());
     Assert.assertEquals("a3", result.getChangeableUniqueListCont().get(5).getChangeableAttr());
+  }
+  
+  @Override
+  public KeyElement newElement(final int requestedId, final String attrValue) {
+    KeyElement _createKeyElement = this.xtextSiriusTestFactory.createKeyElement();
+    final Procedure1<KeyElement> _function = (KeyElement it) -> {
+      it.setKeyId(("keyId" + Integer.valueOf(requestedId)));
+      it.setChangeableAttr(attrValue);
+    };
+    return ObjectExtensions.<KeyElement>operator_doubleArrow(_createKeyElement, _function);
+  }
+  
+  @Override
+  protected KeyElement createRootElement() {
+    return this.xtextSiriusTestFactory.createKeyElement();
   }
 }

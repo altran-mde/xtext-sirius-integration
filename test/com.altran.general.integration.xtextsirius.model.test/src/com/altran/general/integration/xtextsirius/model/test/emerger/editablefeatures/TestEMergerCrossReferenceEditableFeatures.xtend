@@ -1,13 +1,13 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
-import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerReference
+import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerCrossReference
 import org.junit.After
 import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestEMergerReferenceEditableFeatures extends TestEMergerReference {
+class TestEMergerCrossReferenceEditableFeatures extends TestEMergerCrossReference {
 	val EditableFeaturesExtension<Element> editableFeaturesExtension = new EditableFeaturesExtension(this)
 
 	@After

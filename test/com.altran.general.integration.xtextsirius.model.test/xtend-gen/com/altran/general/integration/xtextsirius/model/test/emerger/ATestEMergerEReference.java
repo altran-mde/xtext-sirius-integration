@@ -65,7 +65,7 @@ public class ATestEMergerEReference<T extends IElement<?>> extends ATestEMerger<
     return result;
   }
   
-  protected boolean exists(final Collection<T> elements, final String attrValue) {
+  protected boolean valueExists(final Collection<T> elements, final String attrValue) {
     final Function1<T, Boolean> _function = (T it) -> {
       String _changeableAttr = it.getChangeableAttr();
       return Boolean.valueOf(Objects.equal(_changeableAttr, attrValue));

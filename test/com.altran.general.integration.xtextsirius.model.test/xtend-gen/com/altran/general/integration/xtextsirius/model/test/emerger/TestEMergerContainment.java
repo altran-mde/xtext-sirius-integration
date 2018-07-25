@@ -113,9 +113,9 @@ public class TestEMergerContainment extends ATestEMergerEReference<Element> {
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
     final Element result = this.createEMerger(existing, edited).merge(edited);
     Assert.assertEquals(3, result.getChangeableSetCont().size());
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a3"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a2"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q1"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a3"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a2"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q1"));
   }
   
   @Test
@@ -141,11 +141,11 @@ public class TestEMergerContainment extends ATestEMergerEReference<Element> {
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
     final Element result = this.createEMerger(existing, edited).merge(edited);
     Assert.assertEquals(5, result.getChangeableSetCont().size());
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a3"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "a2"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q1"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q31"));
-    Assert.assertTrue(this.exists(result.getChangeableSetCont(), "q2"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a3"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a2"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q1"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q31"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q2"));
   }
   
   @Test

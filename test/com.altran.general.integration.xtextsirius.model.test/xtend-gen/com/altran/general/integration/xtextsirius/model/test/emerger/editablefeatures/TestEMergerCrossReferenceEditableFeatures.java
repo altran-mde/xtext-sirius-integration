@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
-import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerReference;
+import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerCrossReference;
 import com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures.EditableFeaturesExtension;
 import com.altran.general.integration.xtextsirius.util.EMerger;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestEMergerReferenceEditableFeatures extends TestEMergerReference {
+public class TestEMergerCrossReferenceEditableFeatures extends TestEMergerCrossReference {
   private final EditableFeaturesExtension<Element> editableFeaturesExtension = new EditableFeaturesExtension<Element>(this);
   
   @After
