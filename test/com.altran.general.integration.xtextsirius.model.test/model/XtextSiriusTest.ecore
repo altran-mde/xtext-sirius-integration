@@ -2,11 +2,55 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="XtextSiriusTest" nsURI="http://www.example.org/XtextSiriusTest"
     nsPrefix="XtextSiriusTest">
-  <eClassifiers xsi:type="ecore:EClass" name="IdElement" eSuperTypes="#//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="IdElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eGenericSuperTypes eClassifier="#//AElement">
+      <eTypeArguments eClassifier="#//IdElement"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eGenericSuperTypes eClassifier="#//AElement">
+      <eTypeArguments eClassifier="#//Element"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IElement" abstract="true" interface="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//IElement">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eOperations name="getChangeableRef">
+      <eGenericType eTypeParameter="#//IElement/T"/>
+    </eOperations>
+    <eOperations name="setChangeableRef">
+      <eParameters name="ref">
+        <eGenericType eTypeParameter="#//IElement/T"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getChangeableListRef" unique="false" upperBound="-1">
+      <eGenericType eTypeParameter="#//IElement/T"/>
+    </eOperations>
+    <eOperations name="getChangeableSetRef" ordered="false" upperBound="-1">
+      <eGenericType eTypeParameter="#//IElement/T"/>
+    </eOperations>
+    <eOperations name="getChangeableBagRef" ordered="false" unique="false" upperBound="-1">
+      <eGenericType eTypeParameter="#//IElement/T"/>
+    </eOperations>
+    <eOperations name="getChangeableCont">
+      <eGenericType eTypeParameter="#//IElement/T"/>
+    </eOperations>
+    <eOperations name="setChangeableCont">
+      <eParameters name="ref">
+        <eGenericType eTypeParameter="#//IElement/T"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getChangeableUniqueListCont" unique="false" upperBound="-1">
+      <eGenericType eTypeParameter="#//IElement/T"/>
+    </eOperations>
+    <eOperations name="getChangeableSetCont" ordered="false" upperBound="-1">
+      <eGenericType eTypeParameter="#//IElement/T"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeableAttr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unchangeableAttr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false"/>
@@ -25,32 +69,104 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unchangeableBagAttr" ordered="false"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         changeable="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableRef" eType="#//Element"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableRef" eType="#//Element"
-        changeable="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AElement" abstract="true">
+    <eTypeParameters name="A">
+      <eBounds eClassifier="#//AElement">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableRef">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableRef" changeable="false">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changeableListRef" unique="false"
-        upperBound="-1" eType="#//Element"/>
+        upperBound="-1">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableListRef" unique="false"
-        upperBound="-1" eType="#//Element" changeable="false"/>
+        upperBound="-1" changeable="false">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changeableSetRef" ordered="false"
-        upperBound="-1" eType="#//Element"/>
+        upperBound="-1">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableSetRef" ordered="false"
-        upperBound="-1" eType="#//Element" changeable="false"/>
+        upperBound="-1" changeable="false">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changeableBagRef" ordered="false"
-        unique="false" upperBound="-1" eType="#//Element"/>
+        unique="false" upperBound="-1">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableBagRef" ordered="false"
-        unique="false" upperBound="-1" eType="#//Element" changeable="false"/>
+        unique="false" upperBound="-1" changeable="false">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changeableUniqueListCont"
-        upperBound="-1" eType="#//Element" containment="true"/>
+        upperBound="-1" containment="true">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableUniqueListCont"
-        upperBound="-1" eType="#//Element" changeable="false" containment="true"/>
+        upperBound="-1" changeable="false" containment="true">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changeableSetCont" ordered="false"
-        upperBound="-1" eType="#//Element" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableCont" eType="#//Element"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableCont" eType="#//Element"
-        changeable="false" containment="true"/>
+        upperBound="-1" containment="true">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableCont" containment="true">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableCont" changeable="false"
+        containment="true">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableSetCont" ordered="false"
-        upperBound="-1" eType="#//Element" changeable="false" containment="true"/>
+        upperBound="-1" changeable="false" containment="true">
+      <eGenericType eTypeParameter="#//AElement/A"/>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//IElement">
+      <eTypeArguments eTypeParameter="#//AElement/A"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableRef" eType="#//KeyElement"
+        eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableRef" eType="#//KeyElement"
+        changeable="false" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableListRef" unique="false"
+        upperBound="-1" eType="#//KeyElement" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableListRef" unique="false"
+        upperBound="-1" eType="#//KeyElement" changeable="false" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableSetRef" ordered="false"
+        upperBound="-1" eType="#//KeyElement" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableSetRef" ordered="false"
+        upperBound="-1" eType="#//KeyElement" changeable="false" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableBagRef" ordered="false"
+        unique="false" upperBound="-1" eType="#//KeyElement" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableBagRef" ordered="false"
+        unique="false" upperBound="-1" eType="#//KeyElement" changeable="false" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableUniqueListCont"
+        upperBound="-1" eType="#//KeyElement" containment="true" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableUniqueListCont"
+        upperBound="-1" eType="#//KeyElement" changeable="false" containment="true"
+        eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableSetCont" ordered="false"
+        upperBound="-1" eType="#//KeyElement" containment="true" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeableCont" eType="#//KeyElement"
+        containment="true" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableCont" eType="#//KeyElement"
+        changeable="false" containment="true" eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unchangeableSetCont" ordered="false"
+        upperBound="-1" eType="#//KeyElement" changeable="false" containment="true"
+        eKeys="#//KeyElement/keyId"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="#//IElement">
+      <eTypeArguments eClassifier="#//KeyElement"/>
+    </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

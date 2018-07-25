@@ -1,22 +1,29 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger
 
-import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestFactory
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage
 import com.altran.general.integration.xtextsirius.util.EMerger
 import org.eclipse.emf.common.util.URI
 
-abstract class ATestEMerger {
+abstract class ATestEMerger<T extends IElement<?>> {
 	protected extension XtextSiriusTestPackage xtextSiriusTestPackage = XtextSiriusTestPackage.eINSTANCE
 	protected extension XtextSiriusTestFactory xtextSiriusTestFactory = XtextSiriusTestFactory.eINSTANCE
 	
-	protected def createEMerger(Element existing, Element edited) {
-		new EMerger(existing, edited, emptySet, emptySet, URI.createURI("resourceName.xmi#/42"))
+	protected T edited
+	
+	protected def createEMerger(T existing, T edited) {
+		this.edited = edited
+		new EMerger(existing, emptySet, emptySet, URI.createURI("resourceName.xmi#/42"))
 	}
 
-	protected def newElement(int id, String attrValue) {
-		createElement => [
+	public def T newElement(int id, String attrValue) {
+		createRootElement => [
 			changeableAttr = attrValue
 		]
+	}
+	
+	protected def T createRootElement() {
+		createElement as T
 	}
 }

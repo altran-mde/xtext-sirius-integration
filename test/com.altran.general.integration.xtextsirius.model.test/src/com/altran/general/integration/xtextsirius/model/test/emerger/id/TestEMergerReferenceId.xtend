@@ -1,11 +1,10 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger
+package com.altran.general.integration.xtextsirius.model.test.emerger.id
 
-import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestEMergerReference extends ATestEMergerEReference<Element> {
+class TestEMergerReferenceId extends ATestEMergerEReferenceId {
 	@Test
 	def void singleNull_singleNew() {
 		val edited = createRootElement => [

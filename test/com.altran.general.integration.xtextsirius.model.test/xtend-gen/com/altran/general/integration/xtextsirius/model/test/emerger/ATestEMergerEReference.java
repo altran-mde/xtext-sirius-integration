@@ -1,6 +1,6 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger;
 
-import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerger;
 import com.google.common.base.Objects;
 import java.util.Collection;
@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 
 @SuppressWarnings("all")
-public class ATestEMergerEReference extends ATestEMerger {
+public class ATestEMergerEReference<T extends IElement<?>> extends ATestEMerger<T> {
   protected Resource editedResource;
   
   protected Resource existingResource;
@@ -51,25 +51,25 @@ public class ATestEMergerEReference extends ATestEMerger {
     this.existingResource = new ResourceSetImpl().createResource(URI.createURI("resourceName.xmi"));
   }
   
-  protected Element newEdited(final int id, final String attrValue) {
-    final Element result = this.newElement(id, ("a" + attrValue));
+  protected T newEdited(final int id, final String attrValue) {
+    final T result = this.newElement(id, ("a" + attrValue));
     EList<EObject> _contents = this.editedResource.getContents();
     _contents.add(result);
     return result;
   }
   
-  protected Element newExisting(final int id, final String attrValue) {
-    final Element result = this.newElement(id, ("q" + attrValue));
+  protected T newExisting(final int id, final String attrValue) {
+    final T result = this.newElement(id, ("q" + attrValue));
     EList<EObject> _contents = this.existingResource.getContents();
     _contents.add(result);
     return result;
   }
   
-  protected boolean exists(final Collection<Element> elements, final String attrValue) {
-    final Function1<Element, Boolean> _function = (Element it) -> {
+  protected boolean exists(final Collection<T> elements, final String attrValue) {
+    final Function1<T, Boolean> _function = (T it) -> {
       String _changeableAttr = it.getChangeableAttr();
       return Boolean.valueOf(Objects.equal(_changeableAttr, attrValue));
     };
-    return IterableExtensions.<Element>exists(elements, _function);
+    return IterableExtensions.<T>exists(elements, _function);
   }
 }

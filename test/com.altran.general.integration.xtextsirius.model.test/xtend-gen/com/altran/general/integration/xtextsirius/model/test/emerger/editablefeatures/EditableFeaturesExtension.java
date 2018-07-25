@@ -1,6 +1,6 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger;
+package com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures;
 
-import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerger;
 import com.altran.general.integration.xtextsirius.util.EMerger;
 import com.google.common.base.Objects;
@@ -24,18 +24,20 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.junit.Assert;
 
 @SuppressWarnings("all")
-public class EditableFeaturesExtension {
-  protected Element existing;
+public class EditableFeaturesExtension<T extends IElement<?>> {
+  protected T existing;
+  
+  protected T edited;
   
   protected Set<EStructuralFeature> untouchedFeatures;
   
-  private ATestEMerger test;
+  private ATestEMerger<T> test;
   
-  public EditableFeaturesExtension(final ATestEMerger test) {
+  public EditableFeaturesExtension(final ATestEMerger<T> test) {
     this.test = test;
   }
   
-  public EMerger<Element> createEMerger(final Element existing, final Element edited) {
+  public EMerger<T> createEMerger(final T existing, final T edited) {
     final Function1<EStructuralFeature, Boolean> _function = (EStructuralFeature it) -> {
       return Boolean.valueOf(edited.eIsSet(it));
     };
@@ -45,10 +47,11 @@ public class EditableFeaturesExtension {
     return this.createEMerger(existing, edited, IterableExtensions.<String>toSet(IterableExtensions.<EStructuralFeature, String>map(IterableExtensions.<EStructuralFeature>filter(edited.eClass().getEAllStructuralFeatures(), _function), _function_1)));
   }
   
-  public EMerger<Element> createEMerger(final Element existing, final Element edited, final Set<String> editableFeatures) {
-    EMerger<Element> _xblockexpression = null;
+  public EMerger<T> createEMerger(final T existing, final T edited, final Set<String> editableFeatures) {
+    EMerger<T> _xblockexpression = null;
     {
       this.existing = existing;
+      this.edited = edited;
       final Function1<EStructuralFeature, Boolean> _function = (EStructuralFeature it) -> {
         return Boolean.valueOf(it.isChangeable());
       };
@@ -63,7 +66,7 @@ public class EditableFeaturesExtension {
       this.untouchedFeatures.forEach(_function_2);
       Set<String> _emptySet = CollectionLiterals.<String>emptySet();
       URI _createURI = URI.createURI("resourceName.xmi#/42");
-      _xblockexpression = new EMerger<Element>(existing, edited, editableFeatures, _emptySet, _createURI);
+      _xblockexpression = new EMerger<T>(existing, editableFeatures, _emptySet, _createURI);
     }
     return _xblockexpression;
   }
@@ -131,7 +134,7 @@ public class EditableFeaturesExtension {
   }
   
   protected String extractAttr(final Object el) {
-    return ((Element) el).getChangeableAttr();
+    return ((T) el).getChangeableAttr();
   }
   
   protected Integer fillFeature(final EStructuralFeature feature) {
@@ -218,11 +221,11 @@ public class EditableFeaturesExtension {
     if (_isMany) {
       int _plusPlus = i++;
       String _plus = ("untouched" + Integer.valueOf(_plusPlus));
-      Element _newElement = this.test.newElement(i, _plus);
+      T _newElement = this.test.newElement(i, _plus);
       int _plusPlus_1 = i++;
       String _plus_1 = ("untouched" + Integer.valueOf(_plusPlus_1));
-      Element _newElement_1 = this.test.newElement(i, _plus_1);
-      _xifexpression = Collections.<Element>unmodifiableList(CollectionLiterals.<Element>newArrayList(_newElement, _newElement_1));
+      T _newElement_1 = this.test.newElement(i, _plus_1);
+      _xifexpression = Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newElement, _newElement_1));
     } else {
       int _plusPlus_2 = i++;
       String _plus_2 = ("untouched" + Integer.valueOf(_plusPlus_2));

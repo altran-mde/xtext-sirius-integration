@@ -1,6 +1,7 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger
+package com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures
 
-import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement
+import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerger
 import com.altran.general.integration.xtextsirius.util.EMerger
 import java.util.List
 import java.util.Set
@@ -15,26 +16,28 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 
 import static org.junit.Assert.*
 
-class EditableFeaturesExtension {
-	protected Element existing
+class EditableFeaturesExtension<T extends IElement<?>> {
+	protected T existing
+	protected T edited
 	protected Set<EStructuralFeature> untouchedFeatures
-	private ATestEMerger test
+	private ATestEMerger<T> test
 	
-	new(ATestEMerger test) {
+	new(ATestEMerger<T> test) {
 		this.test = test
 	}
 
-	def createEMerger(Element existing, Element edited) {
+	def createEMerger(T existing, T edited) {
 		createEMerger(existing, edited, edited.eClass.EAllStructuralFeatures.filter[edited.eIsSet(it)].map[name].toSet)
 	}
 	
-	def createEMerger(Element existing, Element edited, Set<String> editableFeatures) {
+	def createEMerger(T existing, T edited, Set<String> editableFeatures) {
 		this.existing = existing
+		this.edited = edited
 
 		this.untouchedFeatures = edited.eClass.EAllStructuralFeatures.filter[isChangeable].filter[!editableFeatures.contains(name)].toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 
-		new EMerger(existing, edited, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(existing, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	def void checkUntouchedFeatures() {
@@ -69,7 +72,7 @@ class EditableFeaturesExtension {
 	}
 	
 	protected def extractAttr(Object el) {
-		(el as Element).changeableAttr
+		(el as T).changeableAttr
 	}
 
 	protected def fillFeature(EStructuralFeature feature) {

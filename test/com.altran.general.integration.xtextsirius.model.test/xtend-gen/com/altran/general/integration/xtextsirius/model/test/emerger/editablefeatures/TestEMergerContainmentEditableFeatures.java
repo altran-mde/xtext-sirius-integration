@@ -1,8 +1,8 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger;
+package com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
-import com.altran.general.integration.xtextsirius.model.test.emerger.EditableFeaturesExtension;
 import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerContainment;
+import com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures.EditableFeaturesExtension;
 import com.altran.general.integration.xtextsirius.util.EMerger;
 import java.util.Collections;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -14,7 +14,7 @@ import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
-  private final EditableFeaturesExtension editableFeaturesExtension = new EditableFeaturesExtension(this);
+  private final EditableFeaturesExtension<Element> editableFeaturesExtension = new EditableFeaturesExtension<Element>(this);
   
   @After
   public void checkUntouchedFeatures() {
@@ -29,34 +29,34 @@ public class TestEMergerContainmentEditableFeatures extends TestEMergerContainme
   @Test
   @Override
   public void singleNull_singleNew() {
-    Element _createElement = this.xtextSiriusTestFactory.createElement();
+    Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       it.setChangeableCont(null);
     };
-    final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createElement, _function);
-    Element _createElement_1 = this.xtextSiriusTestFactory.createElement();
+    final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    Element _createRootElement_1 = this.createRootElement();
     final Procedure1<Element> _function_1 = (Element it) -> {
       it.setChangeableCont(null);
     };
-    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createElement_1, _function_1);
-    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("changeableCont"))).merge();
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
+    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("changeableCont"))).merge(edited);
     Assert.assertNull(result.getChangeableCont());
   }
   
   @Test
   @Override
   public void singleNull_singleExisting() {
-    Element _createElement = this.xtextSiriusTestFactory.createElement();
+    Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       it.setChangeableCont(null);
     };
-    final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createElement, _function);
-    Element _createElement_1 = this.xtextSiriusTestFactory.createElement();
+    final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    Element _createRootElement_1 = this.createRootElement();
     final Procedure1<Element> _function_1 = (Element it) -> {
       it.setChangeableCont(this.newExisting(1, ""));
     };
-    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createElement_1, _function_1);
-    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("changeableCont"))).merge();
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
+    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("changeableCont"))).merge(edited);
     Assert.assertNull(result.getChangeableCont());
   }
 }

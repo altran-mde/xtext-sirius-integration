@@ -1,13 +1,14 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger
+package com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
+import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerContainment
 import org.junit.After
 import org.junit.Test
 
 import static org.junit.Assert.*
 
 class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
-	val EditableFeaturesExtension editableFeaturesExtension = new EditableFeaturesExtension(this)
+	val EditableFeaturesExtension<Element> editableFeaturesExtension = new EditableFeaturesExtension(this)
 
 	@After
 	def checkUntouchedFeatures() {
@@ -20,29 +21,29 @@ class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
 	
 	@Test
 	override singleNull_singleNew() {
-		val edited = createElement => [
+		val edited = createRootElement => [
 			changeableCont = null
 		]
 		
-		val existing = createElement => [
+		val existing = createRootElement => [
 			changeableCont = null
 		]
 		
-		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableCont"}).merge()
+		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableCont"}).merge(edited)
 		assertNull(result.changeableCont)
 	}
 	
 	@Test
 	override singleNull_singleExisting() {
-		val edited = createElement => [
+		val edited = createRootElement => [
 			changeableCont = null
 		]
 		
-		val existing = createElement => [
+		val existing = createRootElement => [
 			changeableCont = newExisting(1, "")
 		]
 		
-		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableCont"}).merge()
+		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableCont"}).merge(edited)
 		assertNull(result.changeableCont)
 	}
 }

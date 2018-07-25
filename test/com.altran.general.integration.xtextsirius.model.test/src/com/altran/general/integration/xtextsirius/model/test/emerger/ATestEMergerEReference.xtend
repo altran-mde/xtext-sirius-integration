@@ -1,6 +1,6 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger
 
-import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement
 import java.util.Collection
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage
 import org.eclipse.emf.common.util.URI
@@ -15,13 +15,13 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.junit.Before
 import org.junit.BeforeClass
 
-class ATestEMergerEReference extends ATestEMerger {
+class ATestEMergerEReference<T extends IElement<?>> extends ATestEMerger<T> {
 	protected var Resource editedResource
 	protected var Resource existingResource
 	
 	@BeforeClass
 	def static void registerEmf() {
-		val packageRegistry = EPackage::Registry::INSTANCE;
+		val packageRegistry = EPackage.Registry::INSTANCE;
 		packageRegistry.put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 		packageRegistry.put(GenModelPackage.eNS_URI, GenModelPackage.eINSTANCE);
 
@@ -43,19 +43,19 @@ class ATestEMergerEReference extends ATestEMerger {
 		this.existingResource = new ResourceSetImpl().createResource(URI.createURI("resourceName.xmi"))
 	}
 
-	protected def newEdited(int id, String attrValue) {
+	protected def T newEdited(int id, String attrValue) {
 		val result = newElement(id, "a" + attrValue)
 		this.editedResource.contents += result
 		return result
 	}
 
-	protected def newExisting(int id, String attrValue) {
+	protected def T newExisting(int id, String attrValue) {
 		val result = newElement(id, "q" + attrValue)
 		this.existingResource.contents += result
 		return result
 	}
 
-	protected def exists(Collection<Element> elements, String attrValue) {
+	protected def exists(Collection<T> elements, String attrValue) {
 		elements.exists[changeableAttr == attrValue]
 	}
 }

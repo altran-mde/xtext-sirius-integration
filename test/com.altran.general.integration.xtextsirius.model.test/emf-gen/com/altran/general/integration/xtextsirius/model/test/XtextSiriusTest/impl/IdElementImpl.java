@@ -7,9 +7,13 @@ import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Xte
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class IdElementImpl extends ElementImpl implements IdElement {
+public class IdElementImpl extends AElementImpl<IdElement> implements IdElement {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,6 +66,189 @@ public class IdElementImpl extends ElementImpl implements IdElement {
 	@Override
 	protected EClass eStaticClass() {
 		return XtextSiriusTestPackage.Literals.ID_ELEMENT;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public void setChangeableRef(IdElement newChangeableRef) {
+		super.setChangeableRef(newChangeableRef);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getChangeableListRef() {
+		if (changeableListRef == null) {
+			changeableListRef = new EObjectResolvingEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__CHANGEABLE_LIST_REF);
+		}
+		return changeableListRef;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getUnchangeableListRef() {
+		if (unchangeableListRef == null) {
+			unchangeableListRef = new EObjectResolvingEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__UNCHANGEABLE_LIST_REF);
+		}
+		return unchangeableListRef;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getChangeableSetRef() {
+		if (changeableSetRef == null) {
+			changeableSetRef = new EObjectResolvingEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__CHANGEABLE_SET_REF);
+		}
+		return changeableSetRef;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getUnchangeableSetRef() {
+		if (unchangeableSetRef == null) {
+			unchangeableSetRef = new EObjectResolvingEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__UNCHANGEABLE_SET_REF);
+		}
+		return unchangeableSetRef;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getChangeableBagRef() {
+		if (changeableBagRef == null) {
+			changeableBagRef = new EObjectResolvingEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__CHANGEABLE_BAG_REF);
+		}
+		return changeableBagRef;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getUnchangeableBagRef() {
+		if (unchangeableBagRef == null) {
+			unchangeableBagRef = new EObjectResolvingEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__UNCHANGEABLE_BAG_REF);
+		}
+		return unchangeableBagRef;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getChangeableUniqueListCont() {
+		if (changeableUniqueListCont == null) {
+			changeableUniqueListCont = new EObjectContainmentEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT);
+		}
+		return changeableUniqueListCont;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getUnchangeableUniqueListCont() {
+		if (unchangeableUniqueListCont == null) {
+			unchangeableUniqueListCont = new EObjectContainmentEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT);
+		}
+		return unchangeableUniqueListCont;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getChangeableSetCont() {
+		if (changeableSetCont == null) {
+			changeableSetCont = new EObjectContainmentEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__CHANGEABLE_SET_CONT);
+		}
+		return changeableSetCont;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public NotificationChain basicSetChangeableCont(IdElement newChangeableCont, NotificationChain msgs) {
+		return super.basicSetChangeableCont(newChangeableCont, msgs);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific type known in this context.
+	 * @generated
+	 */
+	@Override
+	public NotificationChain basicSetUnchangeableCont(IdElement newUnchangeableCont, NotificationChain msgs) {
+		return super.basicSetUnchangeableCont(newUnchangeableCont, msgs);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public EList<IdElement> getUnchangeableSetCont() {
+		if (unchangeableSetCont == null) {
+			unchangeableSetCont = new EObjectContainmentEList<IdElement>(IdElement.class, this,
+					XtextSiriusTestPackage.ID_ELEMENT__UNCHANGEABLE_SET_CONT);
+		}
+		return unchangeableSetCont;
 	}
 	
 	/**

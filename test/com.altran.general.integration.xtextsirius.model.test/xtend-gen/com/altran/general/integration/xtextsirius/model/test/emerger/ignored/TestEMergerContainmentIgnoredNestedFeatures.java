@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger;
+package com.altran.general.integration.xtextsirius.model.test.emerger.ignored;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
@@ -37,6 +37,7 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
     EMerger<Element> _xblockexpression = null;
     {
       this.existing = existing;
+      this.edited = edited;
       final Function1<EStructuralFeature, Iterable<String>> _function = (EStructuralFeature feature) -> {
         final Function1<EStructuralFeature, Boolean> _function_1 = (EStructuralFeature it) -> {
           String _name = it.getName();
@@ -53,7 +54,7 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
       this.nestedFeaturesToIgnore = IterableExtensions.<String>toSet(Iterables.<String>concat(ListExtensions.<EStructuralFeature, Iterable<String>>map(edited.eClass().getEAllStructuralFeatures(), _function)));
       Set<String> _emptySet = CollectionLiterals.<String>emptySet();
       URI _createURI = URI.createURI("resourceName.xmi#/42");
-      _xblockexpression = new EMerger<Element>(existing, edited, _emptySet, this.nestedFeaturesToIgnore, _createURI);
+      _xblockexpression = new EMerger<Element>(existing, _emptySet, this.nestedFeaturesToIgnore, _createURI);
     }
     return _xblockexpression;
   }
@@ -78,7 +79,7 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
   
   @Override
   protected Element newEdited(final int id, final String attrValue) {
-    Element _createElement = this.xtextSiriusTestFactory.createElement();
+    Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       it.setChangeableAttr(("a" + attrValue));
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -110,7 +111,7 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
       Element _newDummyElement_9 = this.newDummyElement();
       Iterables.<Element>addAll(_changeableUniqueListCont, Collections.<Element>unmodifiableList(CollectionLiterals.<Element>newArrayList(_newDummyElement_8, _newDummyElement_9)));
     };
-    final Element result = ObjectExtensions.<Element>operator_doubleArrow(_createElement, _function);
+    final Element result = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
     EList<EObject> _contents = this.editedResource.getContents();
     _contents.add(result);
     return result;

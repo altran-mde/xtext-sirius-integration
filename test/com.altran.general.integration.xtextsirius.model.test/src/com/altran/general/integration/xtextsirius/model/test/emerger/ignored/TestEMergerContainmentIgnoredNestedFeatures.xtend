@@ -1,7 +1,8 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger
+package com.altran.general.integration.xtextsirius.model.test.emerger.ignored
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage
+import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerContainment
 import com.altran.general.integration.xtextsirius.util.EMerger
 import java.util.Set
 import org.eclipse.emf.common.util.URI
@@ -17,6 +18,7 @@ class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment
 
 	override protected createEMerger(Element existing, Element edited) {
 		this.existing = existing
+		this.edited = edited
 		
 		nestedFeaturesToIgnore = edited.eClass.EAllStructuralFeatures
 			.map[feature | 
@@ -27,7 +29,7 @@ class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment
 			.flatten
 			.toSet
 		
-		new EMerger(existing, edited, emptySet, nestedFeaturesToIgnore, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(existing, emptySet, nestedFeaturesToIgnore, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	@After
@@ -51,7 +53,7 @@ class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment
 	}
 	
 	override protected newEdited(int id, String attrValue) {
-		val result = createElement => [
+		val result = createRootElement => [
 			changeableAttr = "a" + attrValue
 			changeableBagAttr += #[2.71, 3.14]
 			changeableBagRef += #[newDummyElement, newDummyElement]

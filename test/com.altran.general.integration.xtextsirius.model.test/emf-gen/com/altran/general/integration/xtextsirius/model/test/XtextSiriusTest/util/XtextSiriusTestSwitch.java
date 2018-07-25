@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage
  * @generated
  */
-public class XtextSiriusTestSwitch<T> extends Switch<T> {
+public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -64,20 +64,51 @@ public class XtextSiriusTestSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case XtextSiriusTestPackage.ID_ELEMENT: {
 				IdElement idElement = (IdElement) theEObject;
-				T result = caseIdElement(idElement);
+				T1 result = caseIdElement(idElement);
 				if (result == null)
-					result = caseElement(idElement);
+					result = caseAElement(idElement);
+				if (result == null)
+					result = caseIElement(idElement);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
 			case XtextSiriusTestPackage.ELEMENT: {
 				Element element = (Element) theEObject;
-				T result = caseElement(element);
+				T1 result = caseElement(element);
+				if (result == null)
+					result = caseAElement(element);
+				if (result == null)
+					result = caseIElement(element);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case XtextSiriusTestPackage.IELEMENT: {
+				IElement<?> iElement = (IElement<?>) theEObject;
+				T1 result = caseIElement(iElement);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case XtextSiriusTestPackage.AELEMENT: {
+				AElement<?> aElement = (AElement<?>) theEObject;
+				T1 result = caseAElement(aElement);
+				if (result == null)
+					result = caseIElement(aElement);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case XtextSiriusTestPackage.KEY_ELEMENT: {
+				KeyElement keyElement = (KeyElement) theEObject;
+				T1 result = caseKeyElement(keyElement);
+				if (result == null)
+					result = caseIElement(keyElement);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -98,7 +129,7 @@ public class XtextSiriusTestSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIdElement(IdElement object) {
+	public T1 caseIdElement(IdElement object) {
 		return null;
 	}
 	
@@ -113,7 +144,52 @@ public class XtextSiriusTestSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseElement(Element object) {
+	public T1 caseElement(Element object) {
+		return null;
+	}
+	
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IElement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IElement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends IElement<?>> T1 caseIElement(IElement<T> object) {
+		return null;
+	}
+	
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>AElement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>AElement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <A extends AElement<?>> T1 caseAElement(AElement<A> object) {
+		return null;
+	}
+	
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Key Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Key Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseKeyElement(KeyElement object) {
 		return null;
 	}
 	
@@ -129,7 +205,7 @@ public class XtextSiriusTestSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 	

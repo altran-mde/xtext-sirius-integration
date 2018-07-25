@@ -77,6 +77,21 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 		}
 		
 		@Override
+		public <T extends IElement<?>> Adapter caseIElement(IElement<T> object) {
+			return createIElementAdapter();
+		}
+		
+		@Override
+		public <A extends AElement<?>> Adapter caseAElement(AElement<A> object) {
+			return createAElementAdapter();
+		}
+		
+		@Override
+		public Adapter caseKeyElement(KeyElement object) {
+			return createKeyElementAdapter();
+		}
+		
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -121,6 +136,48 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createElementAdapter() {
+		return null;
+	}
+	
+	/**
+	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement <em>IElement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement
+	 * @generated
+	 */
+	public Adapter createIElementAdapter() {
+		return null;
+	}
+	
+	/**
+	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.AElement <em>AElement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.AElement
+	 * @generated
+	 */
+	public Adapter createAElementAdapter() {
+		return null;
+	}
+	
+	/**
+	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement <em>Key Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement
+	 * @generated
+	 */
+	public Adapter createKeyElementAdapter() {
 		return null;
 	}
 	

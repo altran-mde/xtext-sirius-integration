@@ -19,7 +19,7 @@ package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest;
  * @model
  * @generated
  */
-public interface IdElement extends Element {
+public interface IdElement extends AElement<IdElement> {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->

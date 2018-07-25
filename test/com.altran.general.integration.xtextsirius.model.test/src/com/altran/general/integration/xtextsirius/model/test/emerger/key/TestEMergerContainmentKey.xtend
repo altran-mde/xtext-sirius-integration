@@ -1,11 +1,10 @@
-package com.altran.general.integration.xtextsirius.model.test.emerger
+package com.altran.general.integration.xtextsirius.model.test.emerger.key
 
-import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestEMergerContainment extends ATestEMergerEReference<Element> {
+class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
 	@Test
 	def void singleNull_singleNew() {
 		val edited = createRootElement => [
@@ -74,10 +73,11 @@ class TestEMergerContainment extends ATestEMergerEReference<Element> {
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(3, result.changeableSetCont.size)
+		assertEquals(5, result.changeableSetCont.size)
+		assertTrue(result.changeableSetCont.exists("q1"))
+		assertTrue(result.changeableSetCont.exists("q31"))
 		assertTrue(result.changeableSetCont.exists("a3"))
 		assertTrue(result.changeableSetCont.exists("a2"))
-		assertTrue(result.changeableSetCont.exists("q1"))
 	}
 	
 	@Test
@@ -91,12 +91,11 @@ class TestEMergerContainment extends ATestEMergerEReference<Element> {
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(5, result.changeableSetCont.size)
-		assertTrue(result.changeableSetCont.exists("a3"))
-		assertTrue(result.changeableSetCont.exists("a2"))
+		assertEquals(6, result.changeableSetCont.size)
 		assertTrue(result.changeableSetCont.exists("q1"))
+		assertTrue(result.changeableSetCont.exists("a2"))
 		assertTrue(result.changeableSetCont.exists("q31"))
-		assertTrue(result.changeableSetCont.exists("q2"))
+		assertTrue(result.changeableSetCont.exists("a3"))
 	}
 	
 	@Test
@@ -110,10 +109,12 @@ class TestEMergerContainment extends ATestEMergerEReference<Element> {
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(3, result.changeableUniqueListCont.size)
-		assertEquals("a3", result.changeableUniqueListCont.get(0).changeableAttr)
-		assertEquals("a2", result.changeableUniqueListCont.get(1).changeableAttr)
+		assertEquals(5, result.changeableUniqueListCont.size)
+		assertEquals("q1", result.changeableUniqueListCont.get(0).changeableAttr)
+		assertEquals("q31", result.changeableUniqueListCont.get(1).changeableAttr)
 		assertEquals("q1", result.changeableUniqueListCont.get(2).changeableAttr)
+		assertEquals("a3", result.changeableUniqueListCont.get(3).changeableAttr)
+		assertEquals("a2", result.changeableUniqueListCont.get(4).changeableAttr)
 	}
 	
 	@Test
@@ -127,16 +128,12 @@ class TestEMergerContainment extends ATestEMergerEReference<Element> {
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(5, result.changeableUniqueListCont.size)
-		assertEquals("a3", result.changeableUniqueListCont.get(0).changeableAttr)
+		assertEquals(6, result.changeableUniqueListCont.size)
+		assertEquals("q1", result.changeableUniqueListCont.get(0).changeableAttr)
 		assertEquals("a2", result.changeableUniqueListCont.get(1).changeableAttr)
 		assertEquals("q31", result.changeableUniqueListCont.get(2).changeableAttr)
 		assertEquals("q1", result.changeableUniqueListCont.get(3).changeableAttr)
 		assertEquals("q2", result.changeableUniqueListCont.get(4).changeableAttr)
-	}
-
-	
-	override Element newElement(int id, String attrValue) {
-		super.newElement(id, attrValue) as Element
+		assertEquals("a3", result.changeableUniqueListCont.get(5).changeableAttr)
 	}
 }
