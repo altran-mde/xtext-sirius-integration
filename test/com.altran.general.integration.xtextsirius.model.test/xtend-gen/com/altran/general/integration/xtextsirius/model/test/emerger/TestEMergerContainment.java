@@ -49,7 +49,13 @@ public class TestEMergerContainment extends ATestEMergerEReference<Element> {
   public void singleNonNull_singleNew() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
-      it.setChangeableCont(this.newEdited(1, "answer"));
+      Element _newEdited = this.newEdited(1, "answer");
+      final Procedure1<Element> _function_1 = (Element it_1) -> {
+        EList<String> _changeableListAttr = it_1.getChangeableListAttr();
+        _changeableListAttr.add("ccc");
+      };
+      Element _doubleArrow = ObjectExtensions.<Element>operator_doubleArrow(_newEdited, _function_1);
+      it.setChangeableCont(_doubleArrow);
     };
     final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
     Element _createRootElement_1 = this.createRootElement();
@@ -60,6 +66,7 @@ public class TestEMergerContainment extends ATestEMergerEReference<Element> {
     final Element result = this.createEMerger(existing, edited).merge(edited);
     Assert.assertNotNull(result.getChangeableCont());
     Assert.assertEquals("aanswer", result.getChangeableCont().getChangeableAttr());
+    Assert.assertTrue(result.getChangeableCont().getChangeableListAttr().contains("ccc"));
   }
   
   @Test
@@ -71,11 +78,18 @@ public class TestEMergerContainment extends ATestEMergerEReference<Element> {
     final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
     Element _createRootElement_1 = this.createRootElement();
     final Procedure1<Element> _function_1 = (Element it) -> {
-      it.setChangeableCont(this.newExisting(1, "question"));
+      Element _newExisting = this.newExisting(1, "question");
+      final Procedure1<Element> _function_2 = (Element it_1) -> {
+        EList<String> _changeableListAttr = it_1.getChangeableListAttr();
+        Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("aaa", "bbb")));
+      };
+      Element _doubleArrow = ObjectExtensions.<Element>operator_doubleArrow(_newExisting, _function_2);
+      it.setChangeableCont(_doubleArrow);
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
     final Element result = this.createEMerger(existing, edited).merge(edited);
     Assert.assertEquals("aanswer", result.getChangeableCont().getChangeableAttr());
+    Assert.assertTrue(result.getChangeableListAttr().isEmpty());
   }
   
   @Test

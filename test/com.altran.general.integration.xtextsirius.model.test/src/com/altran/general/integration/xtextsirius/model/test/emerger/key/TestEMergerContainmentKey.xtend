@@ -36,7 +36,9 @@ class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
 	@Test
 	def void singleNonNull_singleNew() {
 		val edited = createRootElement => [
-			changeableCont = newEdited(1, "answer")
+			changeableCont = newEdited(1, "answer") => [
+				changeableListAttr += "ccc"
+			]
 		]
 		
 		val existing = createRootElement => [
@@ -46,6 +48,7 @@ class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
 		val result = createEMerger(existing, edited).merge(edited)
 		assertNotNull(result.changeableCont)
 		assertEquals("aanswer", result.changeableCont.changeableAttr)
+		assertTrue(result.changeableCont.changeableListAttr.contains("ccc"))
 	}
 	
 	@Test
@@ -55,11 +58,14 @@ class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
 		]
 		
 		val existing = createRootElement => [
-			changeableCont = newExisting(1, "question")
+			changeableCont = newExisting(1, "question") => [
+				changeableListAttr += #["aaa", "bbb"]
+			]
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
 		assertEquals("aanswer", result.changeableCont.changeableAttr)
+		assertTrue(result.changeableListAttr.isEmpty)
 	}
 	
 	@Test

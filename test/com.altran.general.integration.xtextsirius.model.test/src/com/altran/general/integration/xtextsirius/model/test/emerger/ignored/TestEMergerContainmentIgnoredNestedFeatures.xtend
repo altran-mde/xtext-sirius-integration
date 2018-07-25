@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.junit.After
 
 import static org.junit.Assert.*
+import org.junit.Test
 
 class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment {
 	private int i = 100
@@ -42,7 +43,10 @@ class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment
 			assertTrue(changeableBagAttr.isEmpty)
 			assertTrue(changeableBagRef.isEmpty)
 			assertNull(changeableCont)
-			assertTrue(changeableListAttr.isEmpty)
+			// purposely excluded (see singleNonNull_singleExisting())
+			// assertTrue(changeableListAttr.isEmpty)
+			assertTrue(changeableListAttr.contains("aaa"))
+			assertTrue(changeableListAttr.contains("bbb"))
 			assertTrue(changeableListRef.isEmpty)
 			assertNull(changeableRef)
 			assertTrue(changeableSetAttr.isEmpty)
@@ -50,6 +54,45 @@ class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment
 			assertTrue(changeableSetRef.isEmpty)
 			assertTrue(changeableUniqueListCont.isEmpty)
 		]
+	}
+	
+	@Test
+	override singleNonNull_singleExisting() {
+		val edited = createRootElement => [
+			changeableCont = newEdited(1, "answer")
+		]
+		
+		val existing = createRootElement => [
+			changeableCont = newExisting(1, "question") => [
+				changeableListAttr += #["aaa", "bbb"]
+			]
+		]
+		
+		val result = createEMerger(existing, edited).merge(edited)
+		assertEquals("aanswer", result.changeableCont.changeableAttr)
+		assertTrue(result.changeableCont.changeableListAttr.contains("aaa"))
+		assertTrue(result.changeableCont.changeableListAttr.contains("bbb"))
+	}
+
+	@Test
+	override singleNonNull_singleNew() {
+		val edited = createRootElement => [
+			changeableCont = newEdited(1, "answer") => [
+				changeableListAttr += "ccc"
+			]
+		]
+		
+		val existing = createRootElement => [
+			changeableCont = null
+		]
+		
+		val result = createEMerger(existing, edited).merge(edited)
+		assertNotNull(result.changeableCont)
+		assertEquals("aanswer", result.changeableCont.changeableAttr)
+		assertFalse(result.changeableCont.changeableListAttr.contains("bbb"))
+		
+		// to satisfy @After test
+		result.changeableCont.changeableListAttr += #["aaa", "bbb"]
 	}
 	
 	override protected newEdited(int id, String attrValue) {
@@ -69,6 +112,12 @@ class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment
 
 		this.editedResource.contents += result
 		return result
+	}
+	
+	override protected newExisting(int id, String attrValue) {
+		super.newExisting(id, attrValue) => [
+			changeableListAttr += #["aaa", "bbb"]
+		]
 	}
 	
 	private def newDummyElement() {

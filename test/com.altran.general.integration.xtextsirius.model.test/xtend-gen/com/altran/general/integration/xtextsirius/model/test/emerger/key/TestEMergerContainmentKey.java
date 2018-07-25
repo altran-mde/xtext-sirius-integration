@@ -49,7 +49,13 @@ public class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
   public void singleNonNull_singleNew() {
     KeyElement _createRootElement = this.createRootElement();
     final Procedure1<KeyElement> _function = (KeyElement it) -> {
-      it.setChangeableCont(this.newEdited(1, "answer"));
+      KeyElement _newEdited = this.newEdited(1, "answer");
+      final Procedure1<KeyElement> _function_1 = (KeyElement it_1) -> {
+        EList<String> _changeableListAttr = it_1.getChangeableListAttr();
+        _changeableListAttr.add("ccc");
+      };
+      KeyElement _doubleArrow = ObjectExtensions.<KeyElement>operator_doubleArrow(_newEdited, _function_1);
+      it.setChangeableCont(_doubleArrow);
     };
     final KeyElement edited = ObjectExtensions.<KeyElement>operator_doubleArrow(_createRootElement, _function);
     KeyElement _createRootElement_1 = this.createRootElement();
@@ -60,6 +66,7 @@ public class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
     final KeyElement result = this.createEMerger(existing, edited).merge(edited);
     Assert.assertNotNull(result.getChangeableCont());
     Assert.assertEquals("aanswer", result.getChangeableCont().getChangeableAttr());
+    Assert.assertTrue(result.getChangeableCont().getChangeableListAttr().contains("ccc"));
   }
   
   @Test
@@ -71,11 +78,18 @@ public class TestEMergerContainmentKey extends ATestEMergerEReferenceKey {
     final KeyElement edited = ObjectExtensions.<KeyElement>operator_doubleArrow(_createRootElement, _function);
     KeyElement _createRootElement_1 = this.createRootElement();
     final Procedure1<KeyElement> _function_1 = (KeyElement it) -> {
-      it.setChangeableCont(this.newExisting(1, "question"));
+      KeyElement _newExisting = this.newExisting(1, "question");
+      final Procedure1<KeyElement> _function_2 = (KeyElement it_1) -> {
+        EList<String> _changeableListAttr = it_1.getChangeableListAttr();
+        Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("aaa", "bbb")));
+      };
+      KeyElement _doubleArrow = ObjectExtensions.<KeyElement>operator_doubleArrow(_newExisting, _function_2);
+      it.setChangeableCont(_doubleArrow);
     };
     final KeyElement existing = ObjectExtensions.<KeyElement>operator_doubleArrow(_createRootElement_1, _function_1);
     final KeyElement result = this.createEMerger(existing, edited).merge(edited);
     Assert.assertEquals("aanswer", result.getChangeableCont().getChangeableAttr());
+    Assert.assertTrue(result.getChangeableListAttr().isEmpty());
   }
   
   @Test

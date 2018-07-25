@@ -46,4 +46,23 @@ class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
 		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableCont"}).merge(edited)
 		assertNull(result.changeableCont)
 	}
+	
+	@Test
+	override singleNonNull_singleExisting() {
+		val edited = createRootElement => [
+			changeableCont = newEdited(1, "answer")
+		]
+		
+		val existing = createRootElement => [
+			changeableCont = newExisting(1, "question") => [
+				changeableListAttr += #["aaa", "bbb"]
+			]
+		]
+		
+		val result = createEMerger(existing, edited).merge(edited)
+		assertEquals("aanswer", result.changeableCont.changeableAttr)
+		assertTrue(result.changeableCont.changeableListAttr.contains("aaa"))
+		assertTrue(result.changeableCont.changeableListAttr.contains("bbb"))
+	}
+	
 }

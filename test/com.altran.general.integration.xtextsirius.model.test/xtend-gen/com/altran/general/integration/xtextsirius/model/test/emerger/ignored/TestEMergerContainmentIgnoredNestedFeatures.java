@@ -23,6 +23,7 @@ import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment {
@@ -66,7 +67,8 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
       Assert.assertTrue(it.getChangeableBagAttr().isEmpty());
       Assert.assertTrue(it.getChangeableBagRef().isEmpty());
       Assert.assertNull(it.getChangeableCont());
-      Assert.assertTrue(it.getChangeableListAttr().isEmpty());
+      Assert.assertTrue(it.getChangeableListAttr().contains("aaa"));
+      Assert.assertTrue(it.getChangeableListAttr().contains("bbb"));
       Assert.assertTrue(it.getChangeableListRef().isEmpty());
       Assert.assertNull(it.getChangeableRef());
       Assert.assertTrue(it.getChangeableSetAttr().isEmpty());
@@ -75,6 +77,58 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
       Assert.assertTrue(it.getChangeableUniqueListCont().isEmpty());
     };
     IteratorExtensions.<Element>forEach(Iterators.<Element>filter(EcoreUtil.<Object>getAllContents(this.existing, false), Element.class), _function);
+  }
+  
+  @Test
+  @Override
+  public void singleNonNull_singleExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      it.setChangeableCont(this.newEdited(1, "answer"));
+    };
+    final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    Element _createRootElement_1 = this.createRootElement();
+    final Procedure1<Element> _function_1 = (Element it) -> {
+      Element _newExisting = this.newExisting(1, "question");
+      final Procedure1<Element> _function_2 = (Element it_1) -> {
+        EList<String> _changeableListAttr = it_1.getChangeableListAttr();
+        Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("aaa", "bbb")));
+      };
+      Element _doubleArrow = ObjectExtensions.<Element>operator_doubleArrow(_newExisting, _function_2);
+      it.setChangeableCont(_doubleArrow);
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
+    final Element result = this.createEMerger(existing, edited).merge(edited);
+    Assert.assertEquals("aanswer", result.getChangeableCont().getChangeableAttr());
+    Assert.assertTrue(result.getChangeableCont().getChangeableListAttr().contains("aaa"));
+    Assert.assertTrue(result.getChangeableCont().getChangeableListAttr().contains("bbb"));
+  }
+  
+  @Test
+  @Override
+  public void singleNonNull_singleNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      Element _newEdited = this.newEdited(1, "answer");
+      final Procedure1<Element> _function_1 = (Element it_1) -> {
+        EList<String> _changeableListAttr = it_1.getChangeableListAttr();
+        _changeableListAttr.add("ccc");
+      };
+      Element _doubleArrow = ObjectExtensions.<Element>operator_doubleArrow(_newEdited, _function_1);
+      it.setChangeableCont(_doubleArrow);
+    };
+    final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    Element _createRootElement_1 = this.createRootElement();
+    final Procedure1<Element> _function_1 = (Element it) -> {
+      it.setChangeableCont(null);
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
+    final Element result = this.createEMerger(existing, edited).merge(edited);
+    Assert.assertNotNull(result.getChangeableCont());
+    Assert.assertEquals("aanswer", result.getChangeableCont().getChangeableAttr());
+    Assert.assertFalse(result.getChangeableCont().getChangeableListAttr().contains("bbb"));
+    EList<String> _changeableListAttr = result.getChangeableCont().getChangeableListAttr();
+    Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("aaa", "bbb")));
   }
   
   @Override
@@ -115,6 +169,16 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
     EList<EObject> _contents = this.editedResource.getContents();
     _contents.add(result);
     return result;
+  }
+  
+  @Override
+  protected Element newExisting(final int id, final String attrValue) {
+    Element _newExisting = super.newExisting(id, attrValue);
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("aaa", "bbb")));
+    };
+    return ObjectExtensions.<Element>operator_doubleArrow(_newExisting, _function);
   }
   
   private Element newDummyElement() {
