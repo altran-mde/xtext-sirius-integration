@@ -231,14 +231,6 @@ public class EMerger<T extends EObject> {
 			} else if (nEl != null) {
 				oldValues.add(nEl);
 			}
-		} else if (oldValue instanceof Collection) {
-			final Collection<E> oldValues = ((Collection<E>) oldValue);
-
-			oldValues.remove(exst);
-
-			if (nEl != null) {
-				oldValues.add(nEl);
-			}
 		} else if (exist != null) {
 			if (nEl != null) {
 				exist.eSet(feature, nEl);
