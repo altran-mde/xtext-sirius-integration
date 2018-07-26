@@ -160,7 +160,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 
 	@Test
-	def void singleNull_bagNew() {
+	def void singleNull_bagEmpty() {
 		val existing = createRootElement => [
 			changeableBagRef += #[]
 		]
@@ -170,7 +170,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNull_bagExisting() {
+	def void singleNull_bagNew() {
 		val existing = createRootElement => [
 			changeableBagRef += #[newExisting(1, "1.337"), newExisting(2, "2.71"), newExisting(31, "31.337"), newExisting(1, "1.337"), newExisting(2, "2.71")]
 		]
@@ -183,7 +183,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNull_setNew() {
+	def void singleNull_setEmpty() {
 		val existing = createRootElement => [
 			changeableSetRef += #[]
 		]
@@ -193,7 +193,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNull_setExisting() {
+	def void singleNull_setNew() {
 		val existing = createRootElement => [
 			changeableSetRef += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
@@ -206,7 +206,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNull_listNew() {
+	def void singleNull_listEmpty() {
 		val existing = createRootElement => [
 			changeableListRef += #[]
 		]
@@ -216,7 +216,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNull_listExisting() {
+	def void singleNull_listNew() {
 		val existing = createRootElement => [
 			changeableListRef += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
@@ -231,7 +231,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 
 	@Test
-	def void singleNonNull_bagNew() {
+	def void singleNonNull_bagEmpty() {
 		val existing = createRootElement => [
 			changeableBagRef += #[]
 		]
@@ -242,7 +242,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNonNull_bagExisting() {
+	def void singleNonNull_bagNew() {
 		val existing = createRootElement => [
 			changeableBagRef += #[newExisting(1, "1.337"), newExisting(2, "2.71"), newExisting(31, "31.337"), newExisting(1, "1.337"), newExisting(2, "2.71")]
 		]
@@ -256,7 +256,28 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNonNull_setNew() {
+	def void singleNonNull_bagExisting() {
+		val edited = createRootElement => [
+			changeableBagRef += newEdited(2, "2.71")
+		]
+		
+		//dummy to create appropriate edited URIs
+		newEdited(99, "99")
+		
+		val existing = createRootElement => [
+			changeableBagRef += #[newExisting(4, "44"), newExisting(2, "2.71"), newExisting(31, "31.337"), newExisting(1, "1.337"), newExisting(2, "2.71")]
+		]
+		
+		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(edited.changeableBagRef.head, AElement_ChangeableBagRef)
+		assertEquals(5, result.changeableBagRef.size)
+		assertTrue(result.changeableBagRef.valueExists("a2.71"))
+		assertTrue(result.changeableBagRef.valueExists("q2.71"))
+		assertTrue(result.changeableBagRef.valueExists("q1.337"))
+		assertTrue(result.changeableBagRef.valueExists("q31.337"))
+	}
+	
+	@Test
+	def void singleNonNull_setEmpty() {
 		val existing = createRootElement => [
 			changeableSetRef += #[]
 		]
@@ -267,7 +288,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNonNull_setExisting() {
+	def void singleNonNull_setNew() {
 		val existing = createRootElement => [
 			changeableSetRef += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
@@ -281,7 +302,28 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNonNull_listNew() {
+	def void singleNonNull_setExisting() {
+		val edited = createRootElement => [
+			changeableSetRef += newEdited(3, "3")
+		]
+		
+		//dummy to create appropriate edited URIs
+		newEdited(99, "99")
+		
+		val existing = createRootElement => [
+			changeableSetRef += #[newExisting(4, "44"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
+		]
+		
+		val result = createEMerger(existing, AElement_ChangeableSetRef).merge(edited.changeableSetRef.head, AElement_ChangeableSetRef)
+		assertEquals(5, result.changeableSetRef.size)
+		assertTrue(result.changeableSetRef.valueExists("a3"))
+		assertTrue(result.changeableSetRef.valueExists("q1"))
+		assertTrue(result.changeableSetRef.valueExists("q2"))
+		assertTrue(result.changeableSetRef.valueExists("q31"))
+	}
+	
+	@Test
+	def void singleNonNull_listEmpty() {
 		val existing = createRootElement => [
 			changeableListRef += #[]
 		]
@@ -292,7 +334,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void singleNonNull_listExisting() {
+	def void singleNonNull_listNew() {
 		val existing = createRootElement => [
 			changeableListRef += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
@@ -308,7 +350,29 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 
 	@Test
-	def void set_bagNew() {
+	def void singleNonNull_listExisting() {
+		val edited = createRootElement => [
+			changeableListRef += newEdited(3, "3")
+		]
+		
+		//dummy to create appropriate edited URIs
+		newEdited(99, "99")
+		
+		val existing = createRootElement => [
+			changeableListRef += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
+		]
+		
+		val result = createEMerger(existing, AElement_ChangeableListRef).merge(edited.changeableListRef.head, AElement_ChangeableListRef)
+		assertEquals(5, result.changeableListRef.size)
+		assertTrue("a3" == result.changeableListRef.get(0).changeableAttr)
+		assertTrue("q2" == result.changeableListRef.get(1).changeableAttr)
+		assertTrue("q31" == result.changeableListRef.get(2).changeableAttr)
+		assertTrue("q1" == result.changeableListRef.get(3).changeableAttr)
+		assertTrue("q2" == result.changeableListRef.get(4).changeableAttr)
+	}
+
+	@Test
+	def void set_bagEmpty() {
 		val existing = createRootElement => [
 			changeableBagRef += #[]
 		]
@@ -320,19 +384,26 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void set_bagExisting() {
+	def void set_bagPartiallyExisting() {
+		val edited = createRootElement => [
+			changeableBagRef += newEdited(3, "3.14")
+		]
+		
+		//dummy to create appropriate edited URIs
+		newEdited(99, "99")
+		
 		val existing = createRootElement => [
 			changeableBagRef += #[newExisting(1, "1.337"), newExisting(2, "2.71"), newExisting(31, "31.337"), newExisting(1, "1.337"), newExisting(2, "2.71")]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(#{newEdited(3, "3.14"), newEdited(2, "2.71")}, AElement_ChangeableBagRef)
+		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(#{edited.changeableBagRef.head, newEdited(2, "2.71")}, AElement_ChangeableBagRef)
 		assertEquals(2, result.changeableBagRef.size)
 		assertTrue(result.changeableBagRef.valueExists("a2.71"))
 		assertTrue(result.changeableBagRef.valueExists("a3.14"))
 	}
 	
 	@Test
-	def void set_listNew() {
+	def void set_listEmpty() {
 		val existing = createRootElement => [
 			changeableListRef += #[]
 		]
@@ -344,19 +415,26 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void set_listExisting() {
+	def void set_listPartiallyExisting() {
+		val edited = createRootElement => [
+			changeableListRef += newEdited(3, "3")
+		]
+		
+		//dummy to create appropriate edited URIs
+		newEdited(99, "99")
+		
 		val existing = createRootElement => [
 			changeableListRef += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableListRef).merge(#{newEdited(3, "3"), newEdited(2, "2")}, AElement_ChangeableListRef)
+		val result = createEMerger(existing, AElement_ChangeableListRef).merge(#{edited.changeableListRef.head, newEdited(2, "2")}, AElement_ChangeableListRef)
 		assertEquals(2, result.changeableListRef.size)
 		assertTrue(result.changeableListRef.valueExists("a3"))
 		assertTrue(result.changeableListRef.valueExists("a2"))
 	}
 
 	@Test
-	def void list_bagNew() {
+	def void list_bagEmpty() {
 		val existing = createRootElement => [
 			changeableBagRef += #[]
 		]
@@ -368,19 +446,26 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void list_bagExisting() {
+	def void list_bagPartiallyExisting() {
+		val edited = createRootElement => [
+			changeableBagRef += newEdited(3, "3.14")
+		]
+		
+		//dummy to create appropriate edited URIs
+		newEdited(99, "99")
+		
 		val existing = createRootElement => [
 			changeableBagRef += #[newExisting(1, "1.337"), newExisting(2, "2.71"), newExisting(31, "31.337"), newExisting(1, "1.337"), newExisting(2, "2.71")]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(#[newEdited(3, "3.14"), newEdited(2, "2.71")], AElement_ChangeableBagRef)
+		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(#[edited.changeableBagRef.head, newEdited(2, "2.71")], AElement_ChangeableBagRef)
 		assertEquals(2, result.changeableBagRef.size)
 		assertTrue(result.changeableBagRef.valueExists("a2.71"))
 		assertTrue(result.changeableBagRef.valueExists("a3.14"))
 	}
 	
 	@Test
-	def void list_setNew() {
+	def void list_setEmpty() {
 		val existing = createRootElement => [
 			changeableSetRef += #[]
 		]
@@ -392,12 +477,19 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 	}
 	
 	@Test
-	def void list_setExisting() {
+	def void list_setPartiallyExisting() {
+		val edited = createRootElement => [
+			changeableSetRef += newEdited(3, "3")
+		]
+		
+		//dummy to create appropriate edited URIs
+		newEdited(99, "99")
+		
 		val existing = createRootElement => [
 			changeableSetRef += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableSetRef).merge(#[newEdited(3, "3"), newEdited(2, "2")], AElement_ChangeableSetRef)
+		val result = createEMerger(existing, AElement_ChangeableSetRef).merge(#[edited.changeableSetRef.head, newEdited(2, "2")], AElement_ChangeableSetRef)
 		assertEquals(2, result.changeableSetRef.size)
 		assertTrue(result.changeableSetRef.valueExists("a2"))
 		assertTrue(result.changeableSetRef.valueExists("a3"))

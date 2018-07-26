@@ -27,14 +27,21 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 	}
 
 	def createEMerger(T existing, T edited) {
-		createEMerger(existing, edited, edited.eClass.EAllStructuralFeatures.filter[edited.eIsSet(it)].map[name].toSet)
+		createEMerger(existing, edited, edited.eClass.EAllStructuralFeatures
+			.filter[edited.eIsSet(it)]
+			.map[name]
+			.toSet
+		)
 	}
 	
 	def createEMerger(T existing, T edited, Set<String> editableFeatures) {
 		this.existing = existing
 		this.edited = edited
 
-		this.untouchedFeatures = edited.eClass.EAllStructuralFeatures.filter[isChangeable].filter[!editableFeatures.contains(name)].toSet
+		this.untouchedFeatures = edited.eClass.EAllStructuralFeatures
+			.filter[isChangeable]
+			.filter[!editableFeatures.contains(name)]
+			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 
 		new EMerger(existing, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
@@ -43,10 +50,25 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 	def createEMerger(T existing, EStructuralFeature feature) {
 		this.existing = existing
 		
-		this.untouchedFeatures = existing.eClass.EAllStructuralFeatures.filter[isChangeable].reject[it == feature].toSet
+		this.untouchedFeatures = existing.eClass.EAllStructuralFeatures
+			.filter[isChangeable]
+			.reject[it == feature]
+			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 		
 		new EMerger(existing, #{feature.name}, emptySet, URI.createURI("resourceName.xmi#/42"))
+	}
+	
+	def createEMerger(T existing, EStructuralFeature feature, Set<String> editableFeatures) {
+		this.existing = existing
+		
+		this.untouchedFeatures = existing.eClass.EAllStructuralFeatures
+			.filter[isChangeable]
+			.filter[!editableFeatures.contains(name)]
+			.toSet
+		this.untouchedFeatures.forEach[fillFeature(it)]
+		
+		new EMerger(existing, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	def void checkUntouchedFeatures() {

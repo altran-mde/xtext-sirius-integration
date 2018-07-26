@@ -2,7 +2,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.ignored;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
-import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerContainment;
+import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerContainment;
 import com.altran.general.integration.xtextsirius.util.EMerger;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
@@ -26,7 +26,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment {
+public class TestEMergerContainmentIgnoredNestedFeatures extends ATestEMergerContainment<Element> {
   private int i = 100;
   
   protected Element existing;
@@ -138,6 +138,12 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
     Assert.assertFalse(result.getChangeableCont().getChangeableListAttr().contains("bbb"));
     EList<String> _changeableListAttr = result.getChangeableCont().getChangeableListAttr();
     Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("aaa", "bbb")));
+  }
+  
+  @Test
+  @Override
+  public void singleNonNull_singleNew_deep() {
+    this.existing = this.newExisting(99, "99");
   }
   
   @Override

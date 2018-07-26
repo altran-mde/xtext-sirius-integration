@@ -174,7 +174,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNull_bagNew() {
+	def void singleNull_bagEmpty() {
 		val existing = createRootElement => [
 			changeableBagAttr += #[]
 		]
@@ -184,7 +184,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNull_bagExisting() {
+	def void singleNull_bagNew() {
 		val existing = createRootElement => [
 			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
 		]
@@ -197,7 +197,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNull_setNew() {
+	def void singleNull_setEmpty() {
 		val existing = createRootElement => [
 			changeableSetAttr += #[]
 		]
@@ -207,7 +207,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNull_setExisting() {
+	def void singleNull_setNew() {
 		val existing = createRootElement => [
 			changeableSetAttr += #[1, 2, 31, 1, 2]
 		]
@@ -220,7 +220,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNull_listNew() {
+	def void singleNull_listEmpty() {
 		val existing = createRootElement => [
 			changeableListAttr += #[]
 		]
@@ -230,7 +230,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNull_listExisting() {
+	def void singleNull_listNew() {
 		val existing = createRootElement => [
 			changeableListAttr += #["1", "2", "31", "1", "2"]
 		]
@@ -245,7 +245,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 
 	@Test
-	def void singleNonNull_bagNew() {
+	def void singleNonNull_bagEmpty() {
 		val existing = createRootElement => [
 			changeableBagAttr += #[]
 		]
@@ -256,7 +256,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNonNull_bagExisting() {
+	def void singleNonNull_bagNew() {
 		val existing = createRootElement => [
 			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
 		]
@@ -270,7 +270,20 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNonNull_setNew() {
+	def void singleNonNull_bagExisting() {
+		val existing = createRootElement => [
+			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(2.71, IElement_ChangeableBagAttr)
+		assertEquals(5, result.changeableBagAttr.size)
+		assertTrue(result.changeableBagAttr.contains(1.337))
+		assertTrue(result.changeableBagAttr.contains(2.71))
+		assertTrue(result.changeableBagAttr.contains(31.337))
+	}
+	
+	@Test
+	def void singleNonNull_setEmpty() {
 		val existing = createRootElement => [
 			changeableSetAttr += #[]
 		]
@@ -281,7 +294,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNonNull_setExisting() {
+	def void singleNonNull_setNew() {
 		val existing = createRootElement => [
 			changeableSetAttr += #[1, 2, 31, 1, 2]
 		]
@@ -295,7 +308,20 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNonNull_listNew() {
+	def void singleNonNull_setExisting() {
+		val existing = createRootElement => [
+			changeableSetAttr += #[1, 2, 31, 1, 2]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableSetAttr).merge(2, IElement_ChangeableSetAttr)
+		assertEquals(3, result.changeableSetAttr.size)
+		assertTrue(result.changeableSetAttr.contains(1))
+		assertTrue(result.changeableSetAttr.contains(2))
+		assertTrue(result.changeableSetAttr.contains(31))
+	}
+	
+	@Test
+	def void singleNonNull_listEmpty() {
 		val existing = createRootElement => [
 			changeableListAttr += #[]
 		]
@@ -306,7 +332,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void singleNonNull_listExisting() {
+	def void singleNonNull_listNew() {
 		val existing = createRootElement => [
 			changeableListAttr += #["1", "2", "31", "1", "2"]
 		]
@@ -322,7 +348,22 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 
 	@Test
-	def void set_bagNew() {
+	def void singleNonNull_listExisting() {
+		val existing = createRootElement => [
+			changeableListAttr += #["1", "2", "31", "1", "2"]
+		]
+		
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge("2", IElement_ChangeableListAttr)
+		assertEquals(5, result.changeableListAttr.size)
+		assertEquals("1", result.changeableListAttr.get(0))
+		assertEquals("2", result.changeableListAttr.get(1))
+		assertEquals("31", result.changeableListAttr.get(2))
+		assertEquals("1", result.changeableListAttr.get(3))
+		assertEquals("2", result.changeableListAttr.get(4))
+	}
+
+	@Test
+	def void set_bagEmpty() {
 		val existing = createRootElement => [
 			changeableBagAttr += #[]
 		]
@@ -334,7 +375,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void set_bagExisting() {
+	def void set_bagPartiallyExisting() {
 		val existing = createRootElement => [
 			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
 		]
@@ -348,7 +389,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void set_listNew() {
+	def void set_listEmpty() {
 		val existing = createRootElement => [
 			changeableListAttr += #[]
 		]
@@ -360,7 +401,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void set_listExisting() {
+	def void set_listPartiallyExisting() {
 		val existing = createRootElement => [
 			changeableListAttr += #["1", "2", "31", "1", "2"]
 		]
@@ -376,7 +417,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 
 	@Test
-	def void list_bagNew() {
+	def void list_bagEmpty() {
 		val existing = createRootElement => [
 			changeableBagAttr += #[]
 		]
@@ -388,7 +429,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void list_bagExisting() {
+	def void list_bagPartiallyExisting() {
 		val existing = createRootElement => [
 			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
 		]
@@ -402,7 +443,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void list_setNew() {
+	def void list_setEmpty() {
 		val existing = createRootElement => [
 			changeableSetAttr += #[]
 		]
@@ -414,7 +455,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 	}
 	
 	@Test
-	def void list_setExisting() {
+	def void list_setPartiallyExisting() {
 		val existing = createRootElement => [
 			changeableSetAttr += #[1, 2, 31, 1, 2]
 		]

@@ -213,7 +213,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNull_bagNew() {
+  public void singleNull_bagEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -225,7 +225,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNull_bagExisting() {
+  public void singleNull_bagNew() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -240,7 +240,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNull_setNew() {
+  public void singleNull_setEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
@@ -252,7 +252,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNull_setExisting() {
+  public void singleNull_setNew() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
@@ -267,7 +267,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNull_listNew() {
+  public void singleNull_listEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<String> _changeableListAttr = it.getChangeableListAttr();
@@ -279,7 +279,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNull_listExisting() {
+  public void singleNull_listNew() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<String> _changeableListAttr = it.getChangeableListAttr();
@@ -296,7 +296,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNonNull_bagNew() {
+  public void singleNonNull_bagEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -309,7 +309,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNonNull_bagExisting() {
+  public void singleNonNull_bagNew() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -325,7 +325,22 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNonNull_setNew() {
+  public void singleNonNull_bagExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
+      Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(1.337), Double.valueOf(2.71), Double.valueOf(31.337), Double.valueOf(1.337), Double.valueOf(2.71))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Double.valueOf(2.71), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    Assert.assertEquals(5, result.getChangeableBagAttr().size());
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(1.337)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
+    Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(31.337)));
+  }
+  
+  @Test
+  public void singleNonNull_setEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
@@ -338,7 +353,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNonNull_setExisting() {
+  public void singleNonNull_setNew() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
@@ -354,7 +369,22 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNonNull_listNew() {
+  public void singleNonNull_setExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
+      Iterables.<Integer>addAll(_changeableSetAttr, Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(31), Integer.valueOf(1), Integer.valueOf(2))));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr()).merge(Integer.valueOf(2), this.xtextSiriusTestPackage.getIElement_ChangeableSetAttr());
+    Assert.assertEquals(3, result.getChangeableSetAttr().size());
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(1)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(2)));
+    Assert.assertTrue(result.getChangeableSetAttr().contains(Integer.valueOf(31)));
+  }
+  
+  @Test
+  public void singleNonNull_listEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<String> _changeableListAttr = it.getChangeableListAttr();
@@ -367,7 +397,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void singleNonNull_listExisting() {
+  public void singleNonNull_listNew() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<String> _changeableListAttr = it.getChangeableListAttr();
@@ -385,7 +415,24 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void set_bagNew() {
+  public void singleNonNull_listExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("1", "2", "31", "1", "2")));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge("2", this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    Assert.assertEquals(5, result.getChangeableListAttr().size());
+    Assert.assertEquals("1", result.getChangeableListAttr().get(0));
+    Assert.assertEquals("2", result.getChangeableListAttr().get(1));
+    Assert.assertEquals("31", result.getChangeableListAttr().get(2));
+    Assert.assertEquals("1", result.getChangeableListAttr().get(3));
+    Assert.assertEquals("2", result.getChangeableListAttr().get(4));
+  }
+  
+  @Test
+  public void set_bagEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -399,7 +446,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void set_bagExisting() {
+  public void set_bagPartiallyExisting() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -415,7 +462,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void set_listNew() {
+  public void set_listEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<String> _changeableListAttr = it.getChangeableListAttr();
@@ -429,7 +476,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void set_listExisting() {
+  public void set_listPartiallyExisting() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<String> _changeableListAttr = it.getChangeableListAttr();
@@ -447,7 +494,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void list_bagNew() {
+  public void list_bagEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -461,7 +508,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void list_bagExisting() {
+  public void list_bagPartiallyExisting() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Double> _changeableBagAttr = it.getChangeableBagAttr();
@@ -477,7 +524,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void list_setNew() {
+  public void list_setEmpty() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();
@@ -491,7 +538,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
   }
   
   @Test
-  public void list_setExisting() {
+  public void list_setPartiallyExisting() {
     Element _createRootElement = this.createRootElement();
     final Procedure1<Element> _function = (Element it) -> {
       EList<Integer> _changeableSetAttr = it.getChangeableSetAttr();

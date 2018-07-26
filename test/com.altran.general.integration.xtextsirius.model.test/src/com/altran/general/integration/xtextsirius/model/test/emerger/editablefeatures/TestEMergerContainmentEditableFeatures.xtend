@@ -69,5 +69,4 @@ class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
 		assertTrue(result.changeableCont.changeableListAttr.contains("aaa"))
 		assertTrue(result.changeableCont.changeableListAttr.contains("bbb"))
 	}
-	
 }

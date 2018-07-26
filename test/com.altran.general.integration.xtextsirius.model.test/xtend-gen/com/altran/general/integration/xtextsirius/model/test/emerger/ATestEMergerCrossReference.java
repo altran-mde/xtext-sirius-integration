@@ -7,6 +7,7 @@ import com.google.common.collect.Iterables;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Assert;
@@ -244,7 +245,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNull_bagNew() {
+  public void singleNull_bagEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableBagRef = it.getChangeableBagRef();
@@ -256,7 +257,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNull_bagExisting() {
+  public void singleNull_bagNew() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableBagRef = it.getChangeableBagRef();
@@ -276,7 +277,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNull_setNew() {
+  public void singleNull_setEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableSetRef = it.getChangeableSetRef();
@@ -288,7 +289,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNull_setExisting() {
+  public void singleNull_setNew() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableSetRef = it.getChangeableSetRef();
@@ -308,7 +309,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNull_listNew() {
+  public void singleNull_listEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableListRef = it.getChangeableListRef();
@@ -320,7 +321,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNull_listExisting() {
+  public void singleNull_listNew() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableListRef = it.getChangeableListRef();
@@ -352,7 +353,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNonNull_bagNew() {
+  public void singleNonNull_bagEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableBagRef = it.getChangeableBagRef();
@@ -365,7 +366,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNonNull_bagExisting() {
+  public void singleNonNull_bagNew() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableBagRef = it.getChangeableBagRef();
@@ -386,7 +387,36 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNonNull_setNew() {
+  public void singleNonNull_bagExisting() {
+    T _createRootElement = this.createRootElement();
+    final Procedure1<T> _function = (T it) -> {
+      EList<T> _changeableBagRef = it.getChangeableBagRef();
+      T _newEdited = this.newEdited(2, "2.71");
+      _changeableBagRef.add(_newEdited);
+    };
+    final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
+    this.newEdited(99, "99");
+    T _createRootElement_1 = this.createRootElement();
+    final Procedure1<T> _function_1 = (T it) -> {
+      EList<T> _changeableBagRef = it.getChangeableBagRef();
+      T _newExisting = this.newExisting(4, "44");
+      T _newExisting_1 = this.newExisting(2, "2.71");
+      T _newExisting_2 = this.newExisting(31, "31.337");
+      T _newExisting_3 = this.newExisting(1, "1.337");
+      T _newExisting_4 = this.newExisting(2, "2.71");
+      Iterables.<T>addAll(_changeableBagRef, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
+    };
+    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
+    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(IterableExtensions.<T>head(edited.getChangeableBagRef()), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
+    Assert.assertEquals(5, result.getChangeableBagRef().size());
+    Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a2.71"));
+    Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "q2.71"));
+    Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "q1.337"));
+    Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "q31.337"));
+  }
+  
+  @Test
+  public void singleNonNull_setEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableSetRef = it.getChangeableSetRef();
@@ -399,7 +429,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNonNull_setExisting() {
+  public void singleNonNull_setNew() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableSetRef = it.getChangeableSetRef();
@@ -420,7 +450,36 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNonNull_listNew() {
+  public void singleNonNull_setExisting() {
+    T _createRootElement = this.createRootElement();
+    final Procedure1<T> _function = (T it) -> {
+      EList<T> _changeableSetRef = it.getChangeableSetRef();
+      T _newEdited = this.newEdited(3, "3");
+      _changeableSetRef.add(_newEdited);
+    };
+    final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
+    this.newEdited(99, "99");
+    T _createRootElement_1 = this.createRootElement();
+    final Procedure1<T> _function_1 = (T it) -> {
+      EList<T> _changeableSetRef = it.getChangeableSetRef();
+      T _newExisting = this.newExisting(4, "44");
+      T _newExisting_1 = this.newExisting(2, "2");
+      T _newExisting_2 = this.newExisting(31, "31");
+      T _newExisting_3 = this.newExisting(1, "1");
+      T _newExisting_4 = this.newExisting(2, "2");
+      Iterables.<T>addAll(_changeableSetRef, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
+    };
+    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
+    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableSetRef()).merge(IterableExtensions.<T>head(edited.getChangeableSetRef()), this.xtextSiriusTestPackage.getAElement_ChangeableSetRef());
+    Assert.assertEquals(5, result.getChangeableSetRef().size());
+    Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "a3"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q1"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q2"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q31"));
+  }
+  
+  @Test
+  public void singleNonNull_listEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableListRef = it.getChangeableListRef();
@@ -435,7 +494,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void singleNonNull_listExisting() {
+  public void singleNonNull_listNew() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableListRef = it.getChangeableListRef();
@@ -470,7 +529,47 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void set_bagNew() {
+  public void singleNonNull_listExisting() {
+    T _createRootElement = this.createRootElement();
+    final Procedure1<T> _function = (T it) -> {
+      EList<T> _changeableListRef = it.getChangeableListRef();
+      T _newEdited = this.newEdited(3, "3");
+      _changeableListRef.add(_newEdited);
+    };
+    final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
+    this.newEdited(99, "99");
+    T _createRootElement_1 = this.createRootElement();
+    final Procedure1<T> _function_1 = (T it) -> {
+      EList<T> _changeableListRef = it.getChangeableListRef();
+      T _newExisting = this.newExisting(1, "1");
+      T _newExisting_1 = this.newExisting(2, "2");
+      T _newExisting_2 = this.newExisting(31, "31");
+      T _newExisting_3 = this.newExisting(1, "1");
+      T _newExisting_4 = this.newExisting(2, "2");
+      Iterables.<T>addAll(_changeableListRef, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
+    };
+    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
+    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableListRef()).merge(IterableExtensions.<T>head(edited.getChangeableListRef()), this.xtextSiriusTestPackage.getAElement_ChangeableListRef());
+    Assert.assertEquals(5, result.getChangeableListRef().size());
+    String _changeableAttr = result.getChangeableListRef().get(0).getChangeableAttr();
+    boolean _equals = Objects.equal("a3", _changeableAttr);
+    Assert.assertTrue(_equals);
+    String _changeableAttr_1 = result.getChangeableListRef().get(1).getChangeableAttr();
+    boolean _equals_1 = Objects.equal("q2", _changeableAttr_1);
+    Assert.assertTrue(_equals_1);
+    String _changeableAttr_2 = result.getChangeableListRef().get(2).getChangeableAttr();
+    boolean _equals_2 = Objects.equal("q31", _changeableAttr_2);
+    Assert.assertTrue(_equals_2);
+    String _changeableAttr_3 = result.getChangeableListRef().get(3).getChangeableAttr();
+    boolean _equals_3 = Objects.equal("q1", _changeableAttr_3);
+    Assert.assertTrue(_equals_3);
+    String _changeableAttr_4 = result.getChangeableListRef().get(4).getChangeableAttr();
+    boolean _equals_4 = Objects.equal("q2", _changeableAttr_4);
+    Assert.assertTrue(_equals_4);
+  }
+  
+  @Test
+  public void set_bagEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableBagRef = it.getChangeableBagRef();
@@ -486,9 +585,17 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void set_bagExisting() {
+  public void set_bagPartiallyExisting() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
+      EList<T> _changeableBagRef = it.getChangeableBagRef();
+      T _newEdited = this.newEdited(3, "3.14");
+      _changeableBagRef.add(_newEdited);
+    };
+    final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
+    this.newEdited(99, "99");
+    T _createRootElement_1 = this.createRootElement();
+    final Procedure1<T> _function_1 = (T it) -> {
       EList<T> _changeableBagRef = it.getChangeableBagRef();
       T _newExisting = this.newExisting(1, "1.337");
       T _newExisting_1 = this.newExisting(2, "2.71");
@@ -497,17 +604,17 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
       T _newExisting_4 = this.newExisting(2, "2.71");
       Iterables.<T>addAll(_changeableBagRef, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
     };
-    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
-    T _newEdited = this.newEdited(3, "3.14");
-    T _newEdited_1 = this.newEdited(2, "2.71");
-    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(Collections.<T>unmodifiableSet(CollectionLiterals.<T>newHashSet(_newEdited, _newEdited_1)), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
+    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
+    T _head = IterableExtensions.<T>head(edited.getChangeableBagRef());
+    T _newEdited = this.newEdited(2, "2.71");
+    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(Collections.<T>unmodifiableSet(CollectionLiterals.<T>newHashSet(_head, _newEdited)), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
     Assert.assertEquals(2, result.getChangeableBagRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a2.71"));
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a3.14"));
   }
   
   @Test
-  public void set_listNew() {
+  public void set_listEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableListRef = it.getChangeableListRef();
@@ -523,9 +630,17 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void set_listExisting() {
+  public void set_listPartiallyExisting() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
+      EList<T> _changeableListRef = it.getChangeableListRef();
+      T _newEdited = this.newEdited(3, "3");
+      _changeableListRef.add(_newEdited);
+    };
+    final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
+    this.newEdited(99, "99");
+    T _createRootElement_1 = this.createRootElement();
+    final Procedure1<T> _function_1 = (T it) -> {
       EList<T> _changeableListRef = it.getChangeableListRef();
       T _newExisting = this.newExisting(1, "1");
       T _newExisting_1 = this.newExisting(2, "2");
@@ -534,17 +649,17 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
       T _newExisting_4 = this.newExisting(2, "2");
       Iterables.<T>addAll(_changeableListRef, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
     };
-    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
-    T _newEdited = this.newEdited(3, "3");
-    T _newEdited_1 = this.newEdited(2, "2");
-    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableListRef()).merge(Collections.<T>unmodifiableSet(CollectionLiterals.<T>newHashSet(_newEdited, _newEdited_1)), this.xtextSiriusTestPackage.getAElement_ChangeableListRef());
+    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
+    T _head = IterableExtensions.<T>head(edited.getChangeableListRef());
+    T _newEdited = this.newEdited(2, "2");
+    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableListRef()).merge(Collections.<T>unmodifiableSet(CollectionLiterals.<T>newHashSet(_head, _newEdited)), this.xtextSiriusTestPackage.getAElement_ChangeableListRef());
     Assert.assertEquals(2, result.getChangeableListRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableListRef(), "a3"));
     Assert.assertTrue(this.valueExists(result.getChangeableListRef(), "a2"));
   }
   
   @Test
-  public void list_bagNew() {
+  public void list_bagEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableBagRef = it.getChangeableBagRef();
@@ -560,9 +675,17 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void list_bagExisting() {
+  public void list_bagPartiallyExisting() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
+      EList<T> _changeableBagRef = it.getChangeableBagRef();
+      T _newEdited = this.newEdited(3, "3.14");
+      _changeableBagRef.add(_newEdited);
+    };
+    final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
+    this.newEdited(99, "99");
+    T _createRootElement_1 = this.createRootElement();
+    final Procedure1<T> _function_1 = (T it) -> {
       EList<T> _changeableBagRef = it.getChangeableBagRef();
       T _newExisting = this.newExisting(1, "1.337");
       T _newExisting_1 = this.newExisting(2, "2.71");
@@ -571,17 +694,17 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
       T _newExisting_4 = this.newExisting(2, "2.71");
       Iterables.<T>addAll(_changeableBagRef, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
     };
-    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
-    T _newEdited = this.newEdited(3, "3.14");
-    T _newEdited_1 = this.newEdited(2, "2.71");
-    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newEdited, _newEdited_1)), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
+    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
+    T _head = IterableExtensions.<T>head(edited.getChangeableBagRef());
+    T _newEdited = this.newEdited(2, "2.71");
+    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_head, _newEdited)), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
     Assert.assertEquals(2, result.getChangeableBagRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a2.71"));
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a3.14"));
   }
   
   @Test
-  public void list_setNew() {
+  public void list_setEmpty() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
       EList<T> _changeableSetRef = it.getChangeableSetRef();
@@ -597,9 +720,17 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
   }
   
   @Test
-  public void list_setExisting() {
+  public void list_setPartiallyExisting() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
+      EList<T> _changeableSetRef = it.getChangeableSetRef();
+      T _newEdited = this.newEdited(3, "3");
+      _changeableSetRef.add(_newEdited);
+    };
+    final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
+    this.newEdited(99, "99");
+    T _createRootElement_1 = this.createRootElement();
+    final Procedure1<T> _function_1 = (T it) -> {
       EList<T> _changeableSetRef = it.getChangeableSetRef();
       T _newExisting = this.newExisting(1, "1");
       T _newExisting_1 = this.newExisting(2, "2");
@@ -608,10 +739,10 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
       T _newExisting_4 = this.newExisting(2, "2");
       Iterables.<T>addAll(_changeableSetRef, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
     };
-    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
-    T _newEdited = this.newEdited(3, "3");
-    T _newEdited_1 = this.newEdited(2, "2");
-    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableSetRef()).merge(Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newEdited, _newEdited_1)), this.xtextSiriusTestPackage.getAElement_ChangeableSetRef());
+    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
+    T _head = IterableExtensions.<T>head(edited.getChangeableSetRef());
+    T _newEdited = this.newEdited(2, "2");
+    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableSetRef()).merge(Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_head, _newEdited)), this.xtextSiriusTestPackage.getAElement_ChangeableSetRef());
     Assert.assertEquals(2, result.getChangeableSetRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "a2"));
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "a3"));

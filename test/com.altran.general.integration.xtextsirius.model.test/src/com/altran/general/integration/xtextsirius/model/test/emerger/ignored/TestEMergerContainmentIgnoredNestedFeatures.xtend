@@ -2,7 +2,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.ignored
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage
-import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerContainment
+import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerContainment
 import com.altran.general.integration.xtextsirius.util.EMerger
 import java.util.Set
 import org.eclipse.emf.common.util.URI
@@ -12,8 +12,9 @@ import org.junit.After
 import org.junit.Test
 
 import static org.junit.Assert.*
+import org.junit.Ignore
 
-class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment {
+class TestEMergerContainmentIgnoredNestedFeatures extends ATestEMergerContainment<Element> {
 	private int i = 100
 	protected Element existing
 	protected Set<String> nestedFeaturesToIgnore = XtextSiriusTestPackage.Literals::ELEMENT.EAllStructuralFeatures
@@ -98,6 +99,12 @@ class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment
 		
 		// to satisfy @After test
 		result.changeableCont.changeableListAttr += #["aaa", "bbb"]
+	}
+	
+	@Test
+	override void singleNonNull_singleNew_deep() {
+		// setting this up is too complicated
+		this.existing = newExisting(99, "99")
 	}
 	
 	override protected newEdited(int id, String attrValue) {

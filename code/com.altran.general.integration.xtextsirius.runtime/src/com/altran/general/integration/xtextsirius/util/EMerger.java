@@ -16,14 +16,7 @@ public class EMerger<T extends EObject> {
 	private final @NonNull T existing;
 	private final Set<@NonNull String> featuresToReplace;
 	private final Set<@NonNull String> nestedFeaturesToIgnore;
-	private @Nullable URI originalUri;
-
-	public EMerger(
-			final @NonNull T existing,
-			final @NonNull Set<@NonNull String> featuresToReplace,
-			final @NonNull Set<@NonNull String> nestedFeaturesToIgnore) {
-		this(existing, featuresToReplace, nestedFeaturesToIgnore, null);
-	}
+	private @Nullable final URI originalUri;
 
 	public EMerger(
 			final @NonNull T existing,
@@ -45,37 +38,47 @@ public class EMerger<T extends EObject> {
 	public @NonNull T merge(final @Nullable Object newValue, final @NonNull EStructuralFeature feature) {
 		final Object oldValue = this.existing.eGet(feature);
 
-		mergeFeatureValueRecursive(feature, "", this.existing, null, oldValue, newValue);
+		if (feature.isMany()
+				&& feature instanceof EReference
+				&& ((EReference) feature).isContainment()
+				&& newValue instanceof Collection) {
+			validateNewValue(feature, newValue);
+			this.existing.eSet(feature, newValue);
+		} else {
+			mergeFeatureValueRecursive(feature, "", this.existing, null, oldValue, newValue);
+		}
 		
 		return this.existing;
 	}
 	
 	protected void merge(final @NonNull EObject exist, final @NonNull EObject newEl) {
 		for (final EStructuralFeature feature : exist.eClass().getEAllStructuralFeatures()) {
-			if (feature.isChangeable()) {
-				if (this.featuresToReplace.isEmpty() || this.featuresToReplace.contains(feature.getName())) {
-					mergeFeatureRecursive(feature, "", exist, newEl);
-				}
+			if (validateFirstLevelFeature(feature)) {
+				mergeFeatureRecursive(feature, "", exist, newEl);
 			}
-
 		}
+	}
+	
+	protected boolean validateFirstLevelFeature(final EStructuralFeature feature) {
+		return feature.isChangeable() && this.featuresToReplace.isEmpty()
+				|| this.featuresToReplace.contains(feature.getName());
 	}
 
 	protected void mergeFeatureRecursive(
 			final @NonNull EStructuralFeature feature,
 			final @NonNull String prefix,
-			final @Nullable EObject exist,
+			final @NonNull EObject exist,
 			final @NonNull EObject newEl) {
 		
 		final Object newValue = newEl.eGet(feature, false);
-		final Object oldValue = exist != null ? exist.eGet(feature, false) : null;
+		final Object oldValue = exist.eGet(feature, false);
 		mergeFeatureValueRecursive(feature, prefix, exist, newEl, oldValue, newValue);
 	}
 
 	protected void mergeFeatureValueRecursive(
 			final @NonNull EStructuralFeature feature,
 			final @NonNull String prefix,
-			final @Nullable EObject exist,
+			final @NonNull EObject exist,
 			final @Nullable EObject newEl,
 			final @Nullable Object oldValue,
 			final @Nullable Object newValue) {
@@ -91,25 +94,12 @@ public class EMerger<T extends EObject> {
 		if (feature.isChangeable()) {
 			if (feature instanceof EReference) {
 				if (((EReference) feature).isContainment()) {
-					Object oldValueOrCreated = oldValue;
-					if (exist != null && oldValueOrCreated == null && newValue instanceof EObject) {
-						oldValueOrCreated = EcoreUtil.create(((EObject) newValue).eClass());
-						exist.eSet(feature, oldValueOrCreated);
-					}
-					mergeContainmentRecursive(feature, featurePath, exist, newEl, oldValueOrCreated, newValue);
+					mergeContainmentRecursive(feature, featurePath, exist, newEl, oldValue, newValue);
 				} else {
-					if (exist != null) {
-						mergeCrossReference(feature, exist, oldValue, newValue);
-					}
+					mergeCrossReference(feature, exist, oldValue, newValue);
 				}
 			} else {
-				if (newValue instanceof Collection) {
-					for (final Object newVal : (Collection<?>) newValue) {
-						mergeAttribute(feature, exist, oldValue, newVal, newVal);
-					}
-				} else {
-					mergeAttribute(feature, exist, oldValue, null, newValue);
-				}
+				mergeAttribute(feature, exist, oldValue, newValue);
 			}
 		}
 	}
@@ -136,13 +126,22 @@ public class EMerger<T extends EObject> {
 	protected void mergeContainmentRecursive(
 			final @NonNull EStructuralFeature feature,
 			final @NonNull String prefix,
-			final @Nullable EObject exist,
+			final @NonNull EObject exist,
 			final @Nullable EObject newEl,
 			final @Nullable Object oldValue,
 			final @Nullable Object newValue) {
 		final URI uri = ECollectionUtil.getInstance().mergeUri(this.originalUri, newEl);
-		if (feature.isMany() && oldValue instanceof Collection) {
-			final Collection<@NonNull EObject> oldValues = ((Collection<@NonNull EObject>) oldValue);
+
+		Object oldValueOrCreated = oldValue;
+		if (oldValueOrCreated == null) {
+			if (newValue instanceof EObject) {
+				oldValueOrCreated = EcoreUtil.create(((EObject) newValue).eClass());
+				exist.eSet(feature, oldValueOrCreated);
+			}
+		}
+		
+		if (feature.isMany()) {
+			final @NonNull Collection<@NonNull EObject> oldValues = ((@NonNull Collection<@NonNull EObject>) oldValueOrCreated);
 			if (newValue instanceof Collection) {
 				final Collection<@NonNull EObject> values = (Collection<@NonNull EObject>) newValue;
 				ECollectionUtil.getInstance().processOrAddAllLocal(oldValues, values, uri,
@@ -162,21 +161,16 @@ public class EMerger<T extends EObject> {
 				// don't do anything
 			}
 		} else if (newValue instanceof EObject) {
-			if (oldValue instanceof EObject) {
-				mergeAllContainmentFeaturesRecursive(prefix, (EObject) oldValue, (EObject) newValue);
-			} else {
-				mergeAllContainmentFeaturesRecursive(prefix, null, (EObject) newValue);
-			}
-		} else if (newValue == null) {
-			if (exist != null) {
-				exist.eUnset(feature);
-			}
+			final EObject nonNullOldValue = (@NonNull EObject) oldValueOrCreated;
+			mergeAllContainmentFeaturesRecursive(prefix, nonNullOldValue, (EObject) newValue);
+		} else {
+			exist.eUnset(feature);
 		}
 	}
 	
 	protected void mergeAllContainmentFeaturesRecursive(
 			final @NonNull String prefix,
-			final @Nullable EObject exist,
+			final @NonNull EObject exist,
 			final @NonNull EObject newEl) {
 		for (final EStructuralFeature feature : newEl.eClass().getEAllStructuralFeatures()) {
 			mergeFeatureRecursive(feature, prefix, exist, newEl);
@@ -213,31 +207,41 @@ public class EMerger<T extends EObject> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected <E> void mergeAttribute(
+	protected void mergeAttribute(
 			final @NonNull EStructuralFeature feature,
-			final @Nullable EObject exist,
+			final @NonNull EObject exist,
 			final @Nullable Object oldValue,
-			final @Nullable E exst,
-			final @Nullable E nEl) {
-		if (oldValue instanceof List) {
-			final List<E> oldValues = ((List<E>) oldValue);
-
-			final int index = oldValues.indexOf(exst);
-			if (index >= 0) {
-				oldValues.remove(index);
-				if (nEl != null) {
-					oldValues.add(index, nEl);
-				}
-			} else if (nEl != null) {
-				oldValues.add(nEl);
+			final @Nullable Object newValue) {
+		if (newValue instanceof Collection) {
+			final @NonNull List<@NonNull Object> oldValues = (@NonNull List<@NonNull Object>) oldValue;
+			
+			for (final Object newVal : (Collection<@NonNull Object>) newValue) {
+				mergeSingleEAttribute(oldValues, newVal);
 			}
-		} else if (exist != null) {
-			if (nEl != null) {
-				exist.eSet(feature, nEl);
+		} else if (newValue != null) {
+			if (oldValue instanceof List) {
+				mergeSingleEAttribute(((List<@NonNull Object>) oldValue), newValue);
+			} else {
+				exist.eSet(feature, newValue);
+			}
+		} else {
+			if (feature.isMany()) {
+				// don't do anything
 			} else {
 				exist.eUnset(feature);
 			}
 		}
 	}
 
+	protected <E> void mergeSingleEAttribute(
+			final @NonNull List<@NonNull E> oldValues,
+			final @NonNull E newVal) {
+		final int index = oldValues.indexOf(newVal);
+		if (index >= 0) {
+			oldValues.remove(index);
+			oldValues.add(index, newVal);
+		} else {
+			oldValues.add(newVal);
+		}
+	}
 }
