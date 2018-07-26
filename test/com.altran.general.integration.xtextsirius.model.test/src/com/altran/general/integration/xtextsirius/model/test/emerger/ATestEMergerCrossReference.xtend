@@ -199,7 +199,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 		]
 		
 		val result = createEMerger(existing, AElement_ChangeableSetRef).merge(null, AElement_ChangeableSetRef)
-		assertEquals(3, result.changeableSetRef.size)
+		assertEquals(5, result.changeableSetRef.size)
 		assertTrue(result.changeableSetRef.valueExists("q1"))
 		assertTrue(result.changeableSetRef.valueExists("q2"))
 		assertTrue(result.changeableSetRef.valueExists("q31"))
@@ -236,7 +236,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 			changeableBagRef += #[]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(3.14, AElement_ChangeableBagRef)
+		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(newEdited(3, "3.14"), AElement_ChangeableBagRef)
 		assertEquals(1, result.changeableBagRef.size)
 		assertTrue(result.changeableBagRef.valueExists("a3.14"))
 	}
@@ -273,7 +273,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 		]
 		
 		val result = createEMerger(existing, AElement_ChangeableSetRef).merge(newEdited(3, "3"), AElement_ChangeableSetRef)
-		assertEquals(4, result.changeableSetRef.size)
+		assertEquals(6, result.changeableSetRef.size)
 		assertTrue(result.changeableSetRef.valueExists("q1"))
 		assertTrue(result.changeableSetRef.valueExists("q2"))
 		assertTrue(result.changeableSetRef.valueExists("q31"))
@@ -326,10 +326,8 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 		]
 		
 		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(#{newEdited(3, "3.14"), newEdited(2, "2.71")}, AElement_ChangeableBagRef)
-		assertEquals(6, result.changeableBagRef.size)
-		assertTrue(result.changeableBagRef.valueExists("q1.337"))
+		assertEquals(2, result.changeableBagRef.size)
 		assertTrue(result.changeableBagRef.valueExists("a2.71"))
-		assertTrue(result.changeableBagRef.valueExists("q31.337"))
 		assertTrue(result.changeableBagRef.valueExists("a3.14"))
 	}
 	
@@ -352,13 +350,9 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 		]
 		
 		val result = createEMerger(existing, AElement_ChangeableListRef).merge(#{newEdited(3, "3"), newEdited(2, "2")}, AElement_ChangeableListRef)
-		assertEquals(6, result.changeableListRef.size)
-		assertTrue("q1" == result.changeableListRef.get(0).changeableAttr)
-		assertTrue("q2" == result.changeableListRef.get(1).changeableAttr)
-		assertTrue("q31" == result.changeableListRef.get(2).changeableAttr)
-		assertTrue("q1" == result.changeableListRef.get(3).changeableAttr)
-		assertTrue("a2" == result.changeableListRef.get(4).changeableAttr)
-		assertTrue("a3" == result.changeableListRef.get(5).changeableAttr)
+		assertEquals(2, result.changeableListRef.size)
+		assertTrue(result.changeableListRef.valueExists("a3"))
+		assertTrue(result.changeableListRef.valueExists("a2"))
 	}
 
 	@Test
@@ -380,10 +374,8 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 		]
 		
 		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(#[newEdited(3, "3.14"), newEdited(2, "2.71")], AElement_ChangeableBagRef)
-		assertEquals(6, result.changeableBagRef.size)
-		assertTrue(result.changeableBagRef.valueExists("q1.337"))
+		assertEquals(2, result.changeableBagRef.size)
 		assertTrue(result.changeableBagRef.valueExists("a2.71"))
-		assertTrue(result.changeableBagRef.valueExists("q31.337"))
 		assertTrue(result.changeableBagRef.valueExists("a3.14"))
 	}
 	
@@ -406,10 +398,8 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 		]
 		
 		val result = createEMerger(existing, AElement_ChangeableSetRef).merge(#[newEdited(3, "3"), newEdited(2, "2")], AElement_ChangeableSetRef)
-		assertEquals(4, result.changeableSetRef.size)
-		assertTrue(result.changeableSetRef.valueExists("q1"))
+		assertEquals(2, result.changeableSetRef.size)
 		assertTrue(result.changeableSetRef.valueExists("a2"))
-		assertTrue(result.changeableSetRef.valueExists("q31"))
 		assertTrue(result.changeableSetRef.valueExists("a3"))
 	}
 }

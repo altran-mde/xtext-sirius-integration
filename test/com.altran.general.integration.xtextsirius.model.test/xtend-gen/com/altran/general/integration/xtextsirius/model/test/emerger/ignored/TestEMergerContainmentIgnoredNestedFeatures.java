@@ -31,28 +31,37 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerCont
   
   protected Element existing;
   
-  protected Set<String> nestedFeaturesToIgnore;
+  protected Set<String> nestedFeaturesToIgnore = IterableExtensions.<String>toSet(Iterables.<String>concat(ListExtensions.<EStructuralFeature, Iterable<String>>map(XtextSiriusTestPackage.Literals.ELEMENT.getEAllStructuralFeatures(), ((Function1<EStructuralFeature, Iterable<String>>) (EStructuralFeature feature) -> {
+    final Function1<EStructuralFeature, Boolean> _function = (EStructuralFeature it) -> {
+      String _name = it.getName();
+      return Boolean.valueOf((!Objects.equal(_name, "changeableAttr")));
+    };
+    final Function1<EStructuralFeature, String> _function_1 = (EStructuralFeature it) -> {
+      String _name = feature.getName();
+      String _plus = (_name + ".");
+      String _name_1 = it.getName();
+      return (_plus + _name_1);
+    };
+    return IterableExtensions.<EStructuralFeature, String>map(IterableExtensions.<EStructuralFeature>filter(XtextSiriusTestPackage.Literals.ELEMENT.getEAllStructuralFeatures(), _function), _function_1);
+  }))));
   
   @Override
   protected EMerger<Element> createEMerger(final Element existing, final Element edited) {
     EMerger<Element> _xblockexpression = null;
     {
       this.existing = existing;
-      this.edited = edited;
-      final Function1<EStructuralFeature, Iterable<String>> _function = (EStructuralFeature feature) -> {
-        final Function1<EStructuralFeature, Boolean> _function_1 = (EStructuralFeature it) -> {
-          String _name = it.getName();
-          return Boolean.valueOf((!Objects.equal(_name, "changeableAttr")));
-        };
-        final Function1<EStructuralFeature, String> _function_2 = (EStructuralFeature it) -> {
-          String _name = feature.getName();
-          String _plus = (_name + ".");
-          String _name_1 = it.getName();
-          return (_plus + _name_1);
-        };
-        return IterableExtensions.<EStructuralFeature, String>map(IterableExtensions.<EStructuralFeature>filter(XtextSiriusTestPackage.Literals.ELEMENT.getEAllStructuralFeatures(), _function_1), _function_2);
-      };
-      this.nestedFeaturesToIgnore = IterableExtensions.<String>toSet(Iterables.<String>concat(ListExtensions.<EStructuralFeature, Iterable<String>>map(edited.eClass().getEAllStructuralFeatures(), _function)));
+      Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+      URI _createURI = URI.createURI("resourceName.xmi#/42");
+      _xblockexpression = new EMerger<Element>(existing, _emptySet, this.nestedFeaturesToIgnore, _createURI);
+    }
+    return _xblockexpression;
+  }
+  
+  @Override
+  protected EMerger<Element> createEMerger(final Element existing, final EStructuralFeature feature) {
+    EMerger<Element> _xblockexpression = null;
+    {
+      this.existing = existing;
       Set<String> _emptySet = CollectionLiterals.<String>emptySet();
       URI _createURI = URI.createURI("resourceName.xmi#/42");
       _xblockexpression = new EMerger<Element>(existing, _emptySet, this.nestedFeaturesToIgnore, _createURI);

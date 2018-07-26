@@ -21,18 +21,11 @@ public abstract class ATestEMerger<T extends IElement<?>> {
   @Extension
   protected XtextSiriusTestFactory xtextSiriusTestFactory = XtextSiriusTestFactory.eINSTANCE;
   
-  protected T edited;
-  
   protected EMerger<T> createEMerger(final T existing, final T edited) {
-    EMerger<T> _xblockexpression = null;
-    {
-      this.edited = edited;
-      Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-      Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
-      URI _createURI = URI.createURI("resourceName.xmi#/42");
-      _xblockexpression = new EMerger<T>(existing, _emptySet, _emptySet_1, _createURI);
-    }
-    return _xblockexpression;
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    URI _createURI = URI.createURI("resourceName.xmi#/42");
+    return new EMerger<T>(existing, _emptySet, _emptySet_1, _createURI);
   }
   
   protected EMerger<T> createEMerger(final T existing, final EStructuralFeature feature) {

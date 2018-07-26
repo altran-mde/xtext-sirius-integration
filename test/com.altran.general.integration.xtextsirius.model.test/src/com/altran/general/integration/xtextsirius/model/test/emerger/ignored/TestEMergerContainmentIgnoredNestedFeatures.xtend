@@ -6,22 +6,17 @@ import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMerger
 import com.altran.general.integration.xtextsirius.util.EMerger
 import java.util.Set
 import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.junit.After
+import org.junit.Test
 
 import static org.junit.Assert.*
-import org.junit.Test
 
 class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment {
 	private int i = 100
 	protected Element existing
-	protected Set<String> nestedFeaturesToIgnore
-
-	override protected createEMerger(Element existing, Element edited) {
-		this.existing = existing
-		this.edited = edited
-		
-		nestedFeaturesToIgnore = edited.eClass.EAllStructuralFeatures
+	protected Set<String> nestedFeaturesToIgnore = XtextSiriusTestPackage.Literals::ELEMENT.EAllStructuralFeatures
 			.map[feature | 
 				XtextSiriusTestPackage.Literals::ELEMENT.EAllStructuralFeatures
 				.filter[name != "changeableAttr"]
@@ -29,6 +24,16 @@ class TestEMergerContainmentIgnoredNestedFeatures extends TestEMergerContainment
 			]
 			.flatten
 			.toSet
+
+	override protected createEMerger(Element existing, Element edited) {
+		this.existing = existing
+		
+		new EMerger(existing, emptySet, nestedFeaturesToIgnore, URI.createURI("resourceName.xmi#/42"))
+	}
+	
+	
+	override protected createEMerger(Element existing, EStructuralFeature feature) {
+		this.existing = existing
 		
 		new EMerger(existing, emptySet, nestedFeaturesToIgnore, URI.createURI("resourceName.xmi#/42"))
 	}

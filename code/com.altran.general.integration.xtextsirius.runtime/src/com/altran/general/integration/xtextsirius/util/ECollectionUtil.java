@@ -134,22 +134,34 @@ public class ECollectionUtil {
 			final @NonNull BiConsumer<@NonNull Collection<@NonNull T>, @NonNull T> adder,
 			final @NonNull BiConsumer<@NonNull T, @NonNull T> merger) {
 		for (final T newValue : newValues) {
-			final URI originalUri = mergeUri(originalParentUri, newValue);
-			
-			final T existing = findMember(existingValues, newValue, originalUri);
-			
-			if (existing == null) {
-				adder.accept(existingValues, newValue);
-			} else {
-				merger.accept(existing, newValue);
-			}
+			processOrAddLocal(existingValues, newValue, originalParentUri, adder, merger);
 		}
 	}
 	
-	public @Nullable URI mergeUri(final @Nullable URI originalParentUri, final @NonNull EObject element) {
+	protected <T extends EObject> void processOrAddLocal(
+			final Collection<@NonNull T> existingValues,
+			final T newValue, final URI originalParentUri,
+			final BiConsumer<@NonNull Collection<@NonNull T>, @NonNull T> adder,
+			final BiConsumer<@NonNull T, @NonNull T> merger) {
+		final URI originalUri = mergeUri(originalParentUri, newValue);
+		
+		final T existing = findMember(existingValues, newValue, originalUri);
+		
+		if (existing == null) {
+			adder.accept(existingValues, newValue);
+		} else {
+			merger.accept(existing, newValue);
+		}
+	}
+	
+	public @Nullable URI mergeUri(final @Nullable URI originalParentUri, final @Nullable EObject element) {
+		if (originalParentUri == null || element == null) {
+			return null;
+		}
+		
 		final URI uri = EcoreUtil.getURI(element);
 
-		if (originalParentUri == null || uri == null) {
+		if (uri == null) {
 			return null;
 		}
 

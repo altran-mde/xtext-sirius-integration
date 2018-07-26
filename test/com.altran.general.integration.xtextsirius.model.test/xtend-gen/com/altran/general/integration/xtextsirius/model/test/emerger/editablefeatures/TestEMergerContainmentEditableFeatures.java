@@ -7,6 +7,7 @@ import com.altran.general.integration.xtextsirius.util.EMerger;
 import com.google.common.collect.Iterables;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -26,6 +27,11 @@ public class TestEMergerContainmentEditableFeatures extends TestEMergerContainme
   @Override
   protected EMerger<Element> createEMerger(final Element existing, final Element edited) {
     return this.editableFeaturesExtension.createEMerger(existing, edited);
+  }
+  
+  @Override
+  protected EMerger<Element> createEMerger(final Element existing, final EStructuralFeature feature) {
+    return this.editableFeaturesExtension.createEMerger(existing, feature);
   }
   
   @Test

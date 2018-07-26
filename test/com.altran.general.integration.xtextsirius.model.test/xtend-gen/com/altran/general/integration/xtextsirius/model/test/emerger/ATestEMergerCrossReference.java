@@ -301,7 +301,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
     };
     final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
     final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableSetRef()).merge(null, this.xtextSiriusTestPackage.getAElement_ChangeableSetRef());
-    Assert.assertEquals(3, result.getChangeableSetRef().size());
+    Assert.assertEquals(5, result.getChangeableSetRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q1"));
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q2"));
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q31"));
@@ -359,7 +359,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
       Iterables.<T>addAll(_changeableBagRef, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList()));
     };
     final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
-    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(Double.valueOf(3.14), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
+    final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(this.newEdited(3, "3.14"), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
     Assert.assertEquals(1, result.getChangeableBagRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a3.14"));
   }
@@ -412,7 +412,7 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
     };
     final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
     final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableSetRef()).merge(this.newEdited(3, "3"), this.xtextSiriusTestPackage.getAElement_ChangeableSetRef());
-    Assert.assertEquals(4, result.getChangeableSetRef().size());
+    Assert.assertEquals(6, result.getChangeableSetRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q1"));
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q2"));
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q31"));
@@ -501,10 +501,8 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
     T _newEdited = this.newEdited(3, "3.14");
     T _newEdited_1 = this.newEdited(2, "2.71");
     final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(Collections.<T>unmodifiableSet(CollectionLiterals.<T>newHashSet(_newEdited, _newEdited_1)), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
-    Assert.assertEquals(6, result.getChangeableBagRef().size());
-    Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "q1.337"));
+    Assert.assertEquals(2, result.getChangeableBagRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a2.71"));
-    Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "q31.337"));
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a3.14"));
   }
   
@@ -540,25 +538,9 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
     T _newEdited = this.newEdited(3, "3");
     T _newEdited_1 = this.newEdited(2, "2");
     final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableListRef()).merge(Collections.<T>unmodifiableSet(CollectionLiterals.<T>newHashSet(_newEdited, _newEdited_1)), this.xtextSiriusTestPackage.getAElement_ChangeableListRef());
-    Assert.assertEquals(6, result.getChangeableListRef().size());
-    String _changeableAttr = result.getChangeableListRef().get(0).getChangeableAttr();
-    boolean _equals = Objects.equal("q1", _changeableAttr);
-    Assert.assertTrue(_equals);
-    String _changeableAttr_1 = result.getChangeableListRef().get(1).getChangeableAttr();
-    boolean _equals_1 = Objects.equal("q2", _changeableAttr_1);
-    Assert.assertTrue(_equals_1);
-    String _changeableAttr_2 = result.getChangeableListRef().get(2).getChangeableAttr();
-    boolean _equals_2 = Objects.equal("q31", _changeableAttr_2);
-    Assert.assertTrue(_equals_2);
-    String _changeableAttr_3 = result.getChangeableListRef().get(3).getChangeableAttr();
-    boolean _equals_3 = Objects.equal("q1", _changeableAttr_3);
-    Assert.assertTrue(_equals_3);
-    String _changeableAttr_4 = result.getChangeableListRef().get(4).getChangeableAttr();
-    boolean _equals_4 = Objects.equal("a2", _changeableAttr_4);
-    Assert.assertTrue(_equals_4);
-    String _changeableAttr_5 = result.getChangeableListRef().get(5).getChangeableAttr();
-    boolean _equals_5 = Objects.equal("a3", _changeableAttr_5);
-    Assert.assertTrue(_equals_5);
+    Assert.assertEquals(2, result.getChangeableListRef().size());
+    Assert.assertTrue(this.valueExists(result.getChangeableListRef(), "a3"));
+    Assert.assertTrue(this.valueExists(result.getChangeableListRef(), "a2"));
   }
   
   @Test
@@ -593,10 +575,8 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
     T _newEdited = this.newEdited(3, "3.14");
     T _newEdited_1 = this.newEdited(2, "2.71");
     final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableBagRef()).merge(Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newEdited, _newEdited_1)), this.xtextSiriusTestPackage.getAElement_ChangeableBagRef());
-    Assert.assertEquals(6, result.getChangeableBagRef().size());
-    Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "q1.337"));
+    Assert.assertEquals(2, result.getChangeableBagRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a2.71"));
-    Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "q31.337"));
     Assert.assertTrue(this.valueExists(result.getChangeableBagRef(), "a3.14"));
   }
   
@@ -632,10 +612,8 @@ public abstract class ATestEMergerCrossReference<T extends IElement<T>> extends 
     T _newEdited = this.newEdited(3, "3");
     T _newEdited_1 = this.newEdited(2, "2");
     final T result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableSetRef()).merge(Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newEdited, _newEdited_1)), this.xtextSiriusTestPackage.getAElement_ChangeableSetRef());
-    Assert.assertEquals(4, result.getChangeableSetRef().size());
-    Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q1"));
+    Assert.assertEquals(2, result.getChangeableSetRef().size());
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "a2"));
-    Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "q31"));
     Assert.assertTrue(this.valueExists(result.getChangeableSetRef(), "a3"));
   }
 }

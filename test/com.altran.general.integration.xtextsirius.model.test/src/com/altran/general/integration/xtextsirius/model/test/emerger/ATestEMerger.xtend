@@ -11,10 +11,7 @@ abstract class ATestEMerger<T extends IElement<?>> {
 	protected extension XtextSiriusTestPackage xtextSiriusTestPackage = XtextSiriusTestPackage.eINSTANCE
 	protected extension XtextSiriusTestFactory xtextSiriusTestFactory = XtextSiriusTestFactory.eINSTANCE
 	
-	protected T edited
-	
 	protected def createEMerger(T existing, T edited) {
-		this.edited = edited
 		new EMerger(existing, emptySet, emptySet, URI.createURI("resourceName.xmi#/42"))
 	}
 	
