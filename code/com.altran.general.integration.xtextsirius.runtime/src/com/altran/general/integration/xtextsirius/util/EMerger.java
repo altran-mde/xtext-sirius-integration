@@ -6,6 +6,8 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -13,6 +15,351 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
+/**
+ * Merges a <i>newElement</i> into an <i>existing</i> EObject recursively.
+ * optionally limiting changed features.
+ *
+ * <h2>Limiting changed features</h2>
+ * <p>
+ * {@link #featuresToReplace} is a list of {@link EStructuralFeature} names
+ * present in {@link #existing}. If the list is empty, we possibly change all
+ * features of <i>existing</i>. If the list is not empty, we only change the
+ * mentioned features of <i>existing</i>.
+ * </p>
+ *
+ * <p>
+ * {@link #nestedFeaturesToIgnore} is a list of concatenated
+ * {@link EStructuralFeature} names, separated by <tt>.</tt> (dot). We do not
+ * merge any feature in this list.
+ * </p>
+ *
+ * <p>
+ * Both <b>featuresToReplace</b> and <b>nestedFeaturesToIgnore</b> can be
+ * combined.
+ * </p>
+ *
+ * <p>
+ * Example: Assume the following EClass structure:
+ * </p>
+ *
+ * <pre>
+ * class Family {
+ *   String name
+ *   contains Person[] members
+ *   contains Address home
+ *   refers Person[] friends
+ * }
+ *
+ * class Person {
+ *   String firstName
+ *   String lastName
+ *   refers Person[] friends
+ * }
+ *
+ * class Address {
+ *   String street
+ *   contains Coordinate position
+ * }
+ *
+ * class Coordinate {
+ *   int lat
+ *   int long
+ * }
+ * </pre>
+ *
+ * <p>
+ * We set <b>featuresToReplace</b> to <tt>{ "name", "home" }</tt>. This ignores
+ * all changes in <i>newElement</i> on any family members or family friends.
+ * </p>
+ *
+ * <p>
+ * In a different case, we set <b>nestedFeaturesToIgnore</b> to
+ * <tt>{ "members.lastName", "home.position.lat" }</tt>. This ignores all
+ * changes nested in <i>newElement</i> regarding last names or home latitude.
+ * </p>
+ *
+ * <h2>Identity</h2>
+ *
+ * <p>
+ * Object identity is used to find an object in a collection. We establish
+ * object identity by the following rules:
+ * </p>
+ *
+ * <ul>
+ * <li>{@link EAttribute}s are compared by {@link Object#equals(Object)}.</li>
+ * <li>{@link EReference}s are compared depending on their target:
+ * <ul>
+ * <li>{@link EClass#getEIDAttribute() ID}, if available.</li>
+ * <li>{@link EReference#getEKeys() eKeys}, if available.</li>
+ * <li>
+ * <p>
+ * {@link org.eclipse.emf.ecore.resource.Resource#getURI() URI}, if available.
+ * In this case, we also assume {@link #originalUri} as the URI of the merged
+ * <i>newElement</i>.
+ * </p>
+ * <p>
+ * Might lead to positional replacement in collections, if the URI is derived
+ * from the position.
+ * </p>
+ * </li>
+ * </ul>
+ * </li>
+ * </ul>
+ *
+ * <h2>Merge Operations</h2>
+ * <dl>
+ * <dt>NOP
+ * <dt>
+ * <dd>No-op, don't do anything.</dd>
+ * <dt>set
+ * <dt>
+ * <dd>set feature in <i>existing</i> to <i>newValue</i>.</dd>
+ * <dt>unset</dt>
+ * <dd>unset (i.e. delete) feature in <i>existing</i>.</dd>
+ * <dt>replace
+ * <dt>
+ * <dd>replace <i>oldValue</i> in <i>existing</i> with <i>newValue</i>, possibly
+ * maintaining the position in a collection.</dd>
+ * <dt>replace all</dt>
+ * <dd>replace the complete collection in <i>existing</i> with the
+ * <i>newCollection</i>.</dd>
+ * <dt>merge</dt>
+ * <dd>recursively merge <i>newValue</i> into <i>oldValue</i>.</dd>
+ * </dl>
+ *
+ * <h2>Merging EAttributes</h2>
+ *
+ * <table>
+ * <thead>
+ * <tr>
+ * <th colspan="2">newElement</th>
+ * <th colspan="2">Existing</th>
+ * <th rowspan="2">Merge result</th>
+ * </tr>
+ * <tr>
+ * <th>multiplicity</th>
+ * <th>value</th>
+ * <th>multiplicity</th>
+ * <th>value</th>
+ * </tr>
+ * </thead>
+ *
+ * <tbody>
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>NOP</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>unset</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>set</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>replace</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>NOP</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td><i>newElement</i> exists: replace, other: add</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>foreach <i>newElement</i>:: exists: replace, other:add</td>
+ * </tr>
+ * </tbody>
+ * </table>
+ *
+ *
+ * <h2>Merging cross-references</h2>
+ *
+ * <table>
+ * <thead>
+ * <tr>
+ * <th colspan="2">newElement</th>
+ * <th colspan="2">Existing</th>
+ * <th rowspan="2">Merge result</th>
+ * </tr>
+ * <tr>
+ * <th>multiplicity</th>
+ * <th>value</th>
+ * <th>multiplicity</th>
+ * <th>value</th>
+ * </tr>
+ * </thead>
+ *
+ * <tbody>
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>NOP</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>unset</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>set</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>replace</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>NOP</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td><i>newElement</i> exists: replace, other: add</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>replace all</td>
+ * </tr>
+ * </tbody>
+ * </table>
+ *
+ * <h2>Merging containments</h2>
+ *
+ * <table>
+ * <thead>
+ * <tr>
+ * <th colspan="2">newElement</th>
+ * <th colspan="2">Existing</th>
+ * <th rowspan="2">Merge result</th>
+ * </tr>
+ * <tr>
+ * <th>multiplicity</th>
+ * <th>value</th>
+ * <th>multiplicity</th>
+ * <th>value</th>
+ * </tr>
+ * </thead>
+ *
+ * <tbody>
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>NOP</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>unset</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>merge</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>merge</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>null</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>NOP</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>single</td>
+ * <td>non-null</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td><i>newElement</i> exists: merge, other: add</td>
+ * </tr>
+ *
+ * <tr>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>multi</td>
+ * <td>*</td>
+ * <td>toplevel: replace all<br/>
+ * other: foreach <i>newElement</i>:: exists: merge, other: add</td>
+ * </tr>
+ * </tbody>
+ * </table>
+ *
+ * @param <T>
+ *            Type of EObject to merge.
+ */
 public class EMerger<T extends EObject> {
 	private final @NonNull T existing;
 	private final Set<@NonNull String> featuresToReplace;
@@ -30,6 +377,18 @@ public class EMerger<T extends EObject> {
 		this.originalUri = originalUri;
 	}
 
+	/**
+	 * Merges {@code newElement} into {@link #existing}.
+	 *
+	 * <p>
+	 * Considers both {@link #featuresToReplace} and
+	 * {@link #nestedFeaturesToIgnore}.
+	 * </p>
+	 *
+	 * @param newElement
+	 *            {@link EObject} to merge into {@link #existing};
+	 * @return The merged {@link #existing}.
+	 */
 	public @NonNull T merge(final @NonNull T newElement) {
 		for (final EStructuralFeature feature : this.existing.eClass().getEAllStructuralFeatures()) {
 			if (validateFirstLevelFeature(feature)) {
@@ -40,6 +399,20 @@ public class EMerger<T extends EObject> {
 		return this.existing;
 	}
 	
+	/**
+	 * Merges {@code newValue} into {@code feature} of {@link #existing}.
+	 *
+	 * <p>
+	 * Considers {@link #nestedFeaturesToIgnore}, but ignores
+	 * {@link #featuresToReplace}.
+	 * </p>
+	 *
+	 * @param newValue
+	 *            Value to merge into {@code feature} of {@link existing}.
+	 * @param feature
+	 *            Feature of {@link existing} to merge {@code newValue} into.
+	 * @return The merged {@link #existing}.
+	 */
 	public @NonNull T merge(final @Nullable Object newValue, final @NonNull EStructuralFeature feature) {
 		final Object oldValue = this.existing.eGet(feature);
 
