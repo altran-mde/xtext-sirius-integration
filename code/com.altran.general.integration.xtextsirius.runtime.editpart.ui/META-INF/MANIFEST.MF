@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Xtext / Sirius Integration Diagram Runtime
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime.editpart.ui;singleton:=true
-Bundle-Version: 0.16.0.qualifier
+Bundle-Version: 0.17.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.editpart.ui.internal.XtextSiriusRuntimeEditPartUiPlugin
 Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional;visibility:=reexport,
  org.apache.commons.lang,
