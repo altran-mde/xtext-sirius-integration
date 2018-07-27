@@ -141,13 +141,31 @@ public interface XtextSiriusTestPackage extends EPackage {
 	int IELEMENT__UNCHANGEABLE_BAG_ATTR = 7;
 	
 	/**
+	 * The feature id for the '<em><b>Contained Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IELEMENT__CONTAINED_SINGLE = 8;
+	
+	/**
+	 * The feature id for the '<em><b>Contained Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IELEMENT__CONTAINED_MULTI = 9;
+	
+	/**
 	 * The number of structural features of the '<em>IElement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IELEMENT_FEATURE_COUNT = 8;
+	int IELEMENT_FEATURE_COUNT = 10;
 	
 	/**
 	 * The operation id for the '<em>Get Changeable Ref</em>' operation.
@@ -320,6 +338,24 @@ public interface XtextSiriusTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int AELEMENT__UNCHANGEABLE_BAG_ATTR = IELEMENT__UNCHANGEABLE_BAG_ATTR;
+	
+	/**
+	 * The feature id for the '<em><b>Contained Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AELEMENT__CONTAINED_SINGLE = IELEMENT__CONTAINED_SINGLE;
+	
+	/**
+	 * The feature id for the '<em><b>Contained Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AELEMENT__CONTAINED_MULTI = IELEMENT__CONTAINED_MULTI;
 	
 	/**
 	 * The feature id for the '<em><b>Changeable Ref</b></em>' reference.
@@ -639,6 +675,24 @@ public interface XtextSiriusTestPackage extends EPackage {
 	int ID_ELEMENT__UNCHANGEABLE_BAG_ATTR = AELEMENT__UNCHANGEABLE_BAG_ATTR;
 	
 	/**
+	 * The feature id for the '<em><b>Contained Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ID_ELEMENT__CONTAINED_SINGLE = AELEMENT__CONTAINED_SINGLE;
+	
+	/**
+	 * The feature id for the '<em><b>Contained Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ID_ELEMENT__CONTAINED_MULTI = AELEMENT__CONTAINED_MULTI;
+	
+	/**
 	 * The feature id for the '<em><b>Changeable Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -943,6 +997,24 @@ public interface XtextSiriusTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT__UNCHANGEABLE_BAG_ATTR = AELEMENT__UNCHANGEABLE_BAG_ATTR;
+	
+	/**
+	 * The feature id for the '<em><b>Contained Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__CONTAINED_SINGLE = AELEMENT__CONTAINED_SINGLE;
+	
+	/**
+	 * The feature id for the '<em><b>Contained Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__CONTAINED_MULTI = AELEMENT__CONTAINED_MULTI;
 	
 	/**
 	 * The feature id for the '<em><b>Changeable Ref</b></em>' reference.
@@ -1253,6 +1325,24 @@ public interface XtextSiriusTestPackage extends EPackage {
 	int KEY_ELEMENT__UNCHANGEABLE_BAG_ATTR = IELEMENT__UNCHANGEABLE_BAG_ATTR;
 	
 	/**
+	 * The feature id for the '<em><b>Contained Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_ELEMENT__CONTAINED_SINGLE = IELEMENT__CONTAINED_SINGLE;
+	
+	/**
+	 * The feature id for the '<em><b>Contained Multi</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_ELEMENT__CONTAINED_MULTI = IELEMENT__CONTAINED_MULTI;
+	
+	/**
 	 * The feature id for the '<em><b>Changeable Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1488,6 +1578,154 @@ public interface XtextSiriusTestPackage extends EPackage {
 	
 	
 	/**
+	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement <em>IContained Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestPackageImpl#getIContainedElement()
+	 * @generated
+	 */
+	int ICONTAINED_ELEMENT = 5;
+	
+	/**
+	 * The feature id for the '<em><b>Attr A</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICONTAINED_ELEMENT__ATTR_A = 0;
+	
+	/**
+	 * The number of structural features of the '<em>IContained Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICONTAINED_ELEMENT_FEATURE_COUNT = 1;
+	
+	/**
+	 * The number of operations of the '<em>IContained Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICONTAINED_ELEMENT_OPERATION_COUNT = 0;
+	
+	/**
+	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ContainedAImpl <em>Contained A</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ContainedAImpl
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestPackageImpl#getContainedA()
+	 * @generated
+	 */
+	int CONTAINED_A = 6;
+	
+	/**
+	 * The feature id for the '<em><b>Attr A</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_A__ATTR_A = ICONTAINED_ELEMENT__ATTR_A;
+	
+	/**
+	 * The feature id for the '<em><b>Attr B</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_A__ATTR_B = ICONTAINED_ELEMENT_FEATURE_COUNT + 0;
+	
+	/**
+	 * The feature id for the '<em><b>Attr X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_A__ATTR_X = ICONTAINED_ELEMENT_FEATURE_COUNT + 1;
+	
+	/**
+	 * The number of structural features of the '<em>Contained A</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_A_FEATURE_COUNT = ICONTAINED_ELEMENT_FEATURE_COUNT + 2;
+	
+	/**
+	 * The number of operations of the '<em>Contained A</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_A_OPERATION_COUNT = ICONTAINED_ELEMENT_OPERATION_COUNT + 0;
+	
+	/**
+	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ContainedBImpl <em>Contained B</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ContainedBImpl
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestPackageImpl#getContainedB()
+	 * @generated
+	 */
+	int CONTAINED_B = 7;
+	
+	/**
+	 * The feature id for the '<em><b>Attr A</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_B__ATTR_A = ICONTAINED_ELEMENT__ATTR_A;
+	
+	/**
+	 * The feature id for the '<em><b>Attr B</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_B__ATTR_B = ICONTAINED_ELEMENT_FEATURE_COUNT + 0;
+	
+	/**
+	 * The feature id for the '<em><b>Attr Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_B__ATTR_Y = ICONTAINED_ELEMENT_FEATURE_COUNT + 1;
+	
+	/**
+	 * The number of structural features of the '<em>Contained B</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_B_FEATURE_COUNT = ICONTAINED_ELEMENT_FEATURE_COUNT + 2;
+	
+	/**
+	 * The number of operations of the '<em>Contained B</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINED_B_OPERATION_COUNT = ICONTAINED_ELEMENT_OPERATION_COUNT + 0;
+	
+	
+	/**
 	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IdElement <em>Id Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1615,6 +1853,28 @@ public interface XtextSiriusTestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIElement_UnchangeableBagAttr();
+	
+	/**
+	 * Returns the meta object for the containment reference '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getContainedSingle <em>Contained Single</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Contained Single</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getContainedSingle()
+	 * @see #getIElement()
+	 * @generated
+	 */
+	EReference getIElement_ContainedSingle();
+	
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getContainedMulti <em>Contained Multi</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contained Multi</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getContainedMulti()
+	 * @see #getIElement()
+	 * @generated
+	 */
+	EReference getIElement_ContainedMulti();
 	
 	/**
 	 * Returns the meta object for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getChangeableRef() <em>Get Changeable Ref</em>}' operation.
@@ -2046,6 +2306,91 @@ public interface XtextSiriusTestPackage extends EPackage {
 	EAttribute getKeyElement_KeyId();
 	
 	/**
+	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement <em>IContained Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IContained Element</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement
+	 * @generated
+	 */
+	EClass getIContainedElement();
+	
+	/**
+	 * Returns the meta object for the attribute '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement#getAttrA <em>Attr A</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attr A</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement#getAttrA()
+	 * @see #getIContainedElement()
+	 * @generated
+	 */
+	EAttribute getIContainedElement_AttrA();
+	
+	/**
+	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA <em>Contained A</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Contained A</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA
+	 * @generated
+	 */
+	EClass getContainedA();
+	
+	/**
+	 * Returns the meta object for the attribute '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA#getAttrB <em>Attr B</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attr B</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA#getAttrB()
+	 * @see #getContainedA()
+	 * @generated
+	 */
+	EAttribute getContainedA_AttrB();
+	
+	/**
+	 * Returns the meta object for the attribute '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA#getAttrX <em>Attr X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attr X</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA#getAttrX()
+	 * @see #getContainedA()
+	 * @generated
+	 */
+	EAttribute getContainedA_AttrX();
+	
+	/**
+	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB <em>Contained B</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Contained B</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB
+	 * @generated
+	 */
+	EClass getContainedB();
+	
+	/**
+	 * Returns the meta object for the attribute '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB#getAttrB <em>Attr B</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attr B</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB#getAttrB()
+	 * @see #getContainedB()
+	 * @generated
+	 */
+	EAttribute getContainedB_AttrB();
+	
+	/**
+	 * Returns the meta object for the attribute '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB#getAttrY <em>Attr Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attr Y</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB#getAttrY()
+	 * @see #getContainedB()
+	 * @generated
+	 */
+	EAttribute getContainedB_AttrY();
+	
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2169,6 +2514,22 @@ public interface XtextSiriusTestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IELEMENT__UNCHANGEABLE_BAG_ATTR = eINSTANCE.getIElement_UnchangeableBagAttr();
+		
+		/**
+		 * The meta object literal for the '<em><b>Contained Single</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IELEMENT__CONTAINED_SINGLE = eINSTANCE.getIElement_ContainedSingle();
+		
+		/**
+		 * The meta object literal for the '<em><b>Contained Multi</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IELEMENT__CONTAINED_MULTI = eINSTANCE.getIElement_ContainedMulti();
 		
 		/**
 		 * The meta object literal for the '<em><b>Get Changeable Ref</b></em>' operation.
@@ -2493,6 +2854,76 @@ public interface XtextSiriusTestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute KEY_ELEMENT__KEY_ID = eINSTANCE.getKeyElement_KeyId();
+		
+		/**
+		 * The meta object literal for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement <em>IContained Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement
+		 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestPackageImpl#getIContainedElement()
+		 * @generated
+		 */
+		EClass ICONTAINED_ELEMENT = eINSTANCE.getIContainedElement();
+		
+		/**
+		 * The meta object literal for the '<em><b>Attr A</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ICONTAINED_ELEMENT__ATTR_A = eINSTANCE.getIContainedElement_AttrA();
+		
+		/**
+		 * The meta object literal for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ContainedAImpl <em>Contained A</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ContainedAImpl
+		 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestPackageImpl#getContainedA()
+		 * @generated
+		 */
+		EClass CONTAINED_A = eINSTANCE.getContainedA();
+		
+		/**
+		 * The meta object literal for the '<em><b>Attr B</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTAINED_A__ATTR_B = eINSTANCE.getContainedA_AttrB();
+		
+		/**
+		 * The meta object literal for the '<em><b>Attr X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTAINED_A__ATTR_X = eINSTANCE.getContainedA_AttrX();
+		
+		/**
+		 * The meta object literal for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ContainedBImpl <em>Contained B</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ContainedBImpl
+		 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestPackageImpl#getContainedB()
+		 * @generated
+		 */
+		EClass CONTAINED_B = eINSTANCE.getContainedB();
+		
+		/**
+		 * The meta object literal for the '<em><b>Attr B</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTAINED_B__ATTR_B = eINSTANCE.getContainedB_AttrB();
+		
+		/**
+		 * The meta object literal for the '<em><b>Attr Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTAINED_B__ATTR_Y = eINSTANCE.getContainedB_AttrY();
 		
 	}
 	

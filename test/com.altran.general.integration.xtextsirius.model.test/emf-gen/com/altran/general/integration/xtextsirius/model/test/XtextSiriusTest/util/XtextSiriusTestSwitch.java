@@ -113,6 +113,31 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case XtextSiriusTestPackage.ICONTAINED_ELEMENT: {
+				IContainedElement iContainedElement = (IContainedElement) theEObject;
+				T1 result = caseIContainedElement(iContainedElement);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case XtextSiriusTestPackage.CONTAINED_A: {
+				ContainedA containedA = (ContainedA) theEObject;
+				T1 result = caseContainedA(containedA);
+				if (result == null)
+					result = caseIContainedElement(containedA);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case XtextSiriusTestPackage.CONTAINED_B: {
+				ContainedB containedB = (ContainedB) theEObject;
+				T1 result = caseContainedB(containedB);
+				if (result == null)
+					result = caseIContainedElement(containedB);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			default:
 				return defaultCase(theEObject);
 		}
@@ -190,6 +215,51 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseKeyElement(KeyElement object) {
+		return null;
+	}
+	
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IContained Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IContained Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIContainedElement(IContainedElement object) {
+		return null;
+	}
+	
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contained A</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contained A</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseContainedA(ContainedA object) {
+		return null;
+	}
+	
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contained B</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contained B</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseContainedB(ContainedB object) {
 		return null;
 	}
 	

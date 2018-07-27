@@ -24,6 +24,8 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//IElement/unchangeableSetAttr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//IElement/changeableBagAttr"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//IElement/unchangeableBagAttr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//IElement/containedSingle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//IElement/containedMulti"/>
       <genOperations ecoreOperation="XtextSiriusTest.ecore#//IElement/getChangeableRef"/>
       <genOperations ecoreOperation="XtextSiriusTest.ecore#//IElement/setChangeableRef">
         <genParameters ecoreParameter="XtextSiriusTest.ecore#//IElement/setChangeableRef/ref"/>
@@ -71,6 +73,17 @@
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//KeyElement/unchangeableCont"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//KeyElement/unchangeableSetCont"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//KeyElement/keyId"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="XtextSiriusTest.ecore#//IContainedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//IContainedElement/attrA"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextSiriusTest.ecore#//ContainedA">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//ContainedA/attrB"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//ContainedA/attrX"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextSiriusTest.ecore#//ContainedB">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//ContainedB/attrB"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//ContainedB/attrY"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

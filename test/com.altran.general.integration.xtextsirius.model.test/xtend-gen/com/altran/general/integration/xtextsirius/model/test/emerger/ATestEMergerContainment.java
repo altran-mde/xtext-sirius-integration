@@ -91,7 +91,7 @@ public abstract class ATestEMergerContainment<T extends IElement<T>> extends ATe
     final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
     T _createRootElement_1 = this.createRootElement();
     final Procedure1<T> _function_1 = (T it) -> {
-      it.setChangeableCont(this.newEdited(1, "question"));
+      it.setChangeableCont(this.newExisting(1, "question"));
     };
     final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
     final T result = this.createEMerger(existing, edited).merge(edited);

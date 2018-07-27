@@ -69,6 +69,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unchangeableBagAttr" ordered="false"
         unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedSingle" eType="#//IContainedElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedMulti" upperBound="-1"
+        eType="#//IContainedElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AElement" abstract="true">
     <eTypeParameters name="A">
@@ -168,5 +172,16 @@
     <eGenericSuperTypes eClassifier="#//IElement">
       <eTypeArguments eClassifier="#//KeyElement"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IContainedElement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attrA" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainedA" eSuperTypes="#//IContainedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attrB" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attrX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainedB" eSuperTypes="#//IContainedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attrB" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attrY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

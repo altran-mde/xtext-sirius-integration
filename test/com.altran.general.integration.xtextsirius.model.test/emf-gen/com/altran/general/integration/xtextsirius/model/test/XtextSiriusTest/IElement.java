@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getUnchangeableSetAttr <em>Unchangeable Set Attr</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getChangeableBagAttr <em>Changeable Bag Attr</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getUnchangeableBagAttr <em>Unchangeable Bag Attr</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getContainedSingle <em>Contained Single</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getContainedMulti <em>Contained Multi</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage#getIElement()
@@ -150,6 +152,48 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<Double> getUnchangeableBagAttr();
+	
+	/**
+	 * Returns the value of the '<em><b>Contained Single</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contained Single</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contained Single</em>' containment reference.
+	 * @see #setContainedSingle(IContainedElement)
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage#getIElement_ContainedSingle()
+	 * @model containment="true"
+	 * @generated
+	 */
+	IContainedElement getContainedSingle();
+	
+	/**
+	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getContainedSingle <em>Contained Single</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contained Single</em>' containment reference.
+	 * @see #getContainedSingle()
+	 * @generated
+	 */
+	void setContainedSingle(IContainedElement value);
+	
+	/**
+	 * Returns the value of the '<em><b>Contained Multi</b></em>' containment reference list.
+	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contained Multi</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contained Multi</em>' containment reference list.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage#getIElement_ContainedMulti()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<IContainedElement> getContainedMulti();
 	
 	/**
 	 * <!-- begin-user-doc -->

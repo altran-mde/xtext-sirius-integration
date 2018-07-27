@@ -3,6 +3,7 @@
 package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.AElement;
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
 import java.util.Collection;
 
@@ -39,6 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.AElementImpl#getUnchangeableSetAttr <em>Unchangeable Set Attr</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.AElementImpl#getChangeableBagAttr <em>Changeable Bag Attr</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.AElementImpl#getUnchangeableBagAttr <em>Unchangeable Bag Attr</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.AElementImpl#getContainedSingle <em>Contained Single</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.AElementImpl#getContainedMulti <em>Contained Multi</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.AElementImpl#getChangeableRef <em>Changeable Ref</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.AElementImpl#getUnchangeableRef <em>Unchangeable Ref</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.AElementImpl#getChangeableListRef <em>Changeable List Ref</em>}</li>
@@ -157,6 +160,26 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<Double> unchangeableBagAttr;
+	
+	/**
+	 * The cached value of the '{@link #getContainedSingle() <em>Contained Single</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainedSingle()
+	 * @generated
+	 * @ordered
+	 */
+	protected IContainedElement containedSingle;
+	
+	/**
+	 * The cached value of the '{@link #getContainedMulti() <em>Contained Multi</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainedMulti()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IContainedElement> containedMulti;
 	
 	/**
 	 * The cached value of the '{@link #getChangeableRef() <em>Changeable Ref</em>}' reference.
@@ -431,6 +454,69 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IContainedElement getContainedSingle() {
+		return containedSingle;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainedSingle(IContainedElement newContainedSingle, NotificationChain msgs) {
+		IContainedElement oldContainedSingle = containedSingle;
+		containedSingle = newContainedSingle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE, oldContainedSingle, newContainedSingle);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainedSingle(IContainedElement newContainedSingle) {
+		if (newContainedSingle != containedSingle) {
+			NotificationChain msgs = null;
+			if (containedSingle != null)
+				msgs = ((InternalEObject) containedSingle).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE, null, msgs);
+			if (newContainedSingle != null)
+				msgs = ((InternalEObject) newContainedSingle).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE, null, msgs);
+			msgs = basicSetContainedSingle(newContainedSingle, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE,
+					newContainedSingle, newContainedSingle));
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<IContainedElement> getContainedMulti() {
+		if (containedMulti == null) {
+			containedMulti = new EObjectContainmentEList<IContainedElement>(IContainedElement.class, this,
+					XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI);
+		}
+		return containedMulti;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	public A getChangeableRef() {
 		if (changeableRef != null && changeableRef.eIsProxy()) {
@@ -672,6 +758,10 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+				return basicSetContainedSingle(null, msgs);
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+				return ((InternalEList<?>) getContainedMulti()).basicRemove(otherEnd, msgs);
 			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
 				return ((InternalEList<?>) getChangeableUniqueListCont()).basicRemove(otherEnd, msgs);
 			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
@@ -751,6 +841,10 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 				return getChangeableBagAttr();
 			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_ATTR:
 				return getUnchangeableBagAttr();
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+				return getContainedSingle();
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+				return getContainedMulti();
 			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
 				if (resolve)
 					return getChangeableRef();
@@ -811,6 +905,13 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 				getChangeableBagAttr().clear();
 				getChangeableBagAttr().addAll((Collection<? extends Double>) newValue);
 				return;
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+				setContainedSingle((IContainedElement) newValue);
+				return;
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+				getContainedMulti().clear();
+				getContainedMulti().addAll((Collection<? extends IContainedElement>) newValue);
+				return;
 			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
 				setChangeableRef((A) newValue);
 				return;
@@ -860,6 +961,12 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 				return;
 			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
 				getChangeableBagAttr().clear();
+				return;
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+				setContainedSingle((IContainedElement) null);
+				return;
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+				getContainedMulti().clear();
 				return;
 			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
 				setChangeableRef((A) null);
@@ -911,6 +1018,10 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 				return changeableBagAttr != null && !changeableBagAttr.isEmpty();
 			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_ATTR:
 				return unchangeableBagAttr != null && !unchangeableBagAttr.isEmpty();
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+				return containedSingle != null;
+			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+				return containedMulti != null && !containedMulti.isEmpty();
 			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
 				return changeableRef != null;
 			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_REF:

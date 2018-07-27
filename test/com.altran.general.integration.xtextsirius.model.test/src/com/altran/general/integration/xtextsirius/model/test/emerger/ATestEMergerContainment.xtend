@@ -64,7 +64,7 @@ abstract class ATestEMergerContainment<T extends IElement<T>> extends ATestEMerg
 		]
 		
 		val existing = createRootElement => [
-			changeableCont = newEdited(1, "question")
+			changeableCont = newExisting(1, "question")
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)

@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement;
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerger;
 import com.altran.general.integration.xtextsirius.util.EMerger;
 import com.google.common.base.Objects;
@@ -129,15 +130,18 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
       }
       if (!_matched) {
         if (feature instanceof EReference) {
-          _matched=true;
-          Object _xblockexpression = null;
-          {
-            final AtomicInteger integer = new AtomicInteger(i);
-            final Object r = this.createReferenceValue(((EReference)feature), integer);
-            i = integer.get();
-            _xblockexpression = r;
+          boolean _isSuperTypeOf = XtextSiriusTestPackage.Literals.IELEMENT.isSuperTypeOf(((EReference)feature).getEReferenceType());
+          if (_isSuperTypeOf) {
+            _matched=true;
+            Object _xblockexpression = null;
+            {
+              final AtomicInteger integer = new AtomicInteger(i);
+              final Object r = this.createReferenceValue(((EReference)feature), integer);
+              i = integer.get();
+              _xblockexpression = r;
+            }
+            _switchResult = _xblockexpression;
           }
-          _switchResult = _xblockexpression;
         }
       }
       final Object expected = _switchResult;
@@ -151,15 +155,18 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
         }
         if (!_matched_1) {
           if (feature instanceof EReference) {
-            _matched_1=true;
-            final Function1<Object, String> _function_1 = (Object it) -> {
-              return this.extractAttr(it);
-            };
-            Object _eGet = this.existing.eGet(feature);
-            final Function1<Object, String> _function_2 = (Object it) -> {
-              return this.extractAttr(it);
-            };
-            Assert.assertArrayEquals(((EReference)feature).getName(), ListExtensions.map(((List<?>) expected), _function_1).toArray(), ListExtensions.map(((List<?>) _eGet), _function_2).toArray());
+            boolean _isSuperTypeOf = XtextSiriusTestPackage.Literals.IELEMENT.isSuperTypeOf(((EReference)feature).getEReferenceType());
+            if (_isSuperTypeOf) {
+              _matched_1=true;
+              final Function1<Object, String> _function_1 = (Object it) -> {
+                return this.extractAttr(it);
+              };
+              Object _eGet = this.existing.eGet(feature);
+              final Function1<Object, String> _function_2 = (Object it) -> {
+                return this.extractAttr(it);
+              };
+              Assert.assertArrayEquals(((EReference)feature).getName(), ListExtensions.map(((List<?>) expected), _function_1).toArray(), ListExtensions.map(((List<?>) _eGet), _function_2).toArray());
+            }
           }
         }
       } else {
@@ -170,8 +177,11 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
         }
         if (!_matched_2) {
           if (feature instanceof EReference) {
-            _matched_2=true;
-            Assert.assertEquals(((EReference)feature).getName(), this.extractAttr(expected), this.extractAttr(this.existing.eGet(feature)));
+            boolean _isSuperTypeOf = XtextSiriusTestPackage.Literals.IELEMENT.isSuperTypeOf(((EReference)feature).getEReferenceType());
+            if (_isSuperTypeOf) {
+              _matched_2=true;
+              Assert.assertEquals(((EReference)feature).getName(), this.extractAttr(expected), this.extractAttr(this.existing.eGet(feature)));
+            }
           }
         }
       }
@@ -195,14 +205,17 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
       }
       if (!_matched) {
         if (feature instanceof EReference) {
-          _matched=true;
-          int _xblockexpression_1 = (int) 0;
-          {
-            final AtomicInteger integer = new AtomicInteger(i);
-            this.existing.eSet(feature, this.createReferenceValue(((EReference)feature), integer));
-            _xblockexpression_1 = i = integer.get();
+          boolean _isSuperTypeOf = XtextSiriusTestPackage.Literals.IELEMENT.isSuperTypeOf(((EReference)feature).getEReferenceType());
+          if (_isSuperTypeOf) {
+            _matched=true;
+            int _xblockexpression_1 = (int) 0;
+            {
+              final AtomicInteger integer = new AtomicInteger(i);
+              this.existing.eSet(feature, this.createReferenceValue(((EReference)feature), integer));
+              _xblockexpression_1 = i = integer.get();
+            }
+            _switchResult = _xblockexpression_1;
           }
-          _switchResult = _xblockexpression_1;
         }
       }
       _xblockexpression = _switchResult;

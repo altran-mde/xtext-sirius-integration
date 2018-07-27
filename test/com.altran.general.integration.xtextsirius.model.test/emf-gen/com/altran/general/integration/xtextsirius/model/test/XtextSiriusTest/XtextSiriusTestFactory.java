@@ -50,6 +50,24 @@ public interface XtextSiriusTestFactory extends EFactory {
 	KeyElement createKeyElement();
 	
 	/**
+	 * Returns a new object of class '<em>Contained A</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Contained A</em>'.
+	 * @generated
+	 */
+	ContainedA createContainedA();
+	
+	/**
+	 * Returns a new object of class '<em>Contained B</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Contained B</em>'.
+	 * @generated
+	 */
+	ContainedB createContainedB();
+	
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

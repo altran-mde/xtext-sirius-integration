@@ -92,6 +92,21 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 		}
 		
 		@Override
+		public Adapter caseIContainedElement(IContainedElement object) {
+			return createIContainedElementAdapter();
+		}
+		
+		@Override
+		public Adapter caseContainedA(ContainedA object) {
+			return createContainedAAdapter();
+		}
+		
+		@Override
+		public Adapter caseContainedB(ContainedB object) {
+			return createContainedBAdapter();
+		}
+		
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -178,6 +193,48 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createKeyElementAdapter() {
+		return null;
+	}
+	
+	/**
+	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement <em>IContained Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement
+	 * @generated
+	 */
+	public Adapter createIContainedElementAdapter() {
+		return null;
+	}
+	
+	/**
+	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA <em>Contained A</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA
+	 * @generated
+	 */
+	public Adapter createContainedAAdapter() {
+		return null;
+	}
+	
+	/**
+	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB <em>Contained B</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB
+	 * @generated
+	 */
+	public Adapter createContainedBAdapter() {
 		return null;
 	}
 	

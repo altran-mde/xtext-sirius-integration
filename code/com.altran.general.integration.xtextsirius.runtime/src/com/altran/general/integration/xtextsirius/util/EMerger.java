@@ -124,7 +124,9 @@ import org.eclipse.jdt.annotation.Nullable;
  * <dd>replace the complete collection in <i>existing</i> with the
  * <i>newCollection</i>.</dd>
  * <dt>merge</dt>
- * <dd>recursively merge <i>newValue</i> into <i>oldValue</i>.</dd>
+ * <dd>if <i>newValue</i> and <i>oldValue</i> are of the same EClass:
+ * recursively merge <i>newValue</i> into <i>oldValue</i>.<br/>
+ * otherwise: &rarr; replace.</dd>
  * </dl>
  *
  * <h2>Merging EAttributes</h2>
@@ -458,9 +460,12 @@ public class EMerger<T extends EObject> {
 			final @NonNull EObject exist,
 			final @NonNull EObject newEl) {
 		
+		final String featurePath = (prefix + "." + feature.getName()).replaceFirst("^\\.", "");
+		
 		final Object newValue = newEl.eGet(feature, false);
 		final Object oldValue = exist.eGet(feature, false);
-		mergeFeatureValueRecursive(feature, prefix, exist, newEl, oldValue, newValue);
+		
+		mergeFeatureValueRecursive(feature, featurePath, exist, newEl, oldValue, newValue);
 	}
 
 	protected void mergeFeatureValueRecursive(
@@ -470,10 +475,9 @@ public class EMerger<T extends EObject> {
 			final @Nullable EObject newEl,
 			final @Nullable Object oldValue,
 			final @Nullable Object newValue) {
-		
-		final String featurePath = (prefix + "." + feature.getName()).replaceFirst("^\\.", "");
 
-		if (this.nestedFeaturesToIgnore.contains(featurePath)) {
+
+		if (this.nestedFeaturesToIgnore.contains(prefix)) {
 			return;
 		}
 
@@ -482,7 +486,7 @@ public class EMerger<T extends EObject> {
 		if (feature.isChangeable()) {
 			if (feature instanceof EReference) {
 				if (((EReference) feature).isContainment()) {
-					mergeContainmentRecursive(feature, featurePath, exist, newEl, oldValue, newValue);
+					mergeContainmentRecursive(feature, prefix, exist, newEl, oldValue, newValue);
 				} else {
 					mergeCrossReference(feature, exist, oldValue, newValue);
 				}
@@ -526,7 +530,9 @@ public class EMerger<T extends EObject> {
 				final EObject existing = findMember(oldValues, newElement, uri);
 
 				if (existing == null) {
-					oldValues.add(newElement);
+					final EObject newEObject = EcoreUtil.create(newElement.eClass());
+					oldValues.add(newEObject);
+					mergeAllContainmentFeaturesRecursive(prefix, newEObject, newElement);
 				} else {
 					mergeAllContainmentFeaturesRecursive(prefix, existing, newElement);
 				}
@@ -545,8 +551,17 @@ public class EMerger<T extends EObject> {
 			final @NonNull String prefix,
 			final @NonNull EObject exist,
 			final @NonNull EObject newEl) {
+
+		final EObject compatibleExist;
+		if (exist.eClass().equals(newEl.eClass())) {
+			compatibleExist = exist;
+		} else {
+			compatibleExist = EcoreUtil.create(newEl.eClass());
+			EcoreUtil.replace(exist, compatibleExist);
+		}
+
 		for (final EStructuralFeature feature : newEl.eClass().getEAllStructuralFeatures()) {
-			mergeFeatureRecursive(feature, prefix, exist, newEl);
+			mergeFeatureRecursive(feature, prefix, compatibleExist, newEl);
 		}
 	}
 

@@ -62,6 +62,10 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 				return createElement();
 			case XtextSiriusTestPackage.KEY_ELEMENT:
 				return createKeyElement();
+			case XtextSiriusTestPackage.CONTAINED_A:
+				return createContainedA();
+			case XtextSiriusTestPackage.CONTAINED_B:
+				return createContainedB();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -95,6 +99,26 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 	public KeyElement createKeyElement() {
 		KeyElementImpl keyElement = new KeyElementImpl();
 		return keyElement;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContainedA createContainedA() {
+		ContainedAImpl containedA = new ContainedAImpl();
+		return containedA;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContainedB createContainedB() {
+		ContainedBImpl containedB = new ContainedBImpl();
+		return containedB;
 	}
 	
 	/**

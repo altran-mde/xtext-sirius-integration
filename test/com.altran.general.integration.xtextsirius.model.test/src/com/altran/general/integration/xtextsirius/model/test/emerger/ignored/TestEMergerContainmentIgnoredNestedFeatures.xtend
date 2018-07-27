@@ -102,8 +102,55 @@ class TestEMergerContainmentIgnoredNestedFeatures extends ATestEMergerContainmen
 	
 	@Test
 	override void singleNonNull_singleNew_deep() {
-		// setting this up is too complicated
-		this.existing = newExisting(99, "99")
+		val edited = createRootElement => [
+			changeableCont = createRootElement => [
+				changeableAttr = "aanswer"
+				changeableCont = createRootElement => [
+					changeableAttr = "amegaAnswer"
+					changeableListAttr += "ddd"
+				]
+				changeableListAttr += "ccc"
+			]
+		]
+		
+		val existing = createRootElement => [
+			changeableCont = newExisting(1, "question")
+		]
+		
+		val result = createEMerger(existing, edited).merge(edited)
+		assertNotNull(result.changeableCont)
+		assertEquals("aanswer", result.changeableCont.changeableAttr)
+		assertFalse(result.changeableCont.changeableListAttr.contains("ccc"))
+		assertNull("amegaAnswer", result.changeableCont.changeableCont)
+
+		// to satisfy @After test
+		result.changeableCont.changeableListAttr += #["aaa", "bbb"]
+	}
+
+	@Test
+	def void singleNonNull_listNew() {
+		val newValue = createRootElement => [
+			changeableAttr = "a3"
+			changeableListAttr += #["aaa", "bbb"]
+			changeableCont = newEdited(33, "33")
+		]
+		
+		val existing = createRootElement => [
+			changeableUniqueListCont += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
+		]
+		
+		val result = createEMerger(existing, AElement_ChangeableUniqueListCont).merge(newValue, AElement_ChangeableUniqueListCont)
+		assertEquals(6, result.changeableUniqueListCont.size)
+		assertTrue("q1" == result.changeableUniqueListCont.get(0).changeableAttr)
+		assertTrue("q2" == result.changeableUniqueListCont.get(1).changeableAttr)
+		assertTrue("q31" == result.changeableUniqueListCont.get(2).changeableAttr)
+		assertTrue("q1" == result.changeableUniqueListCont.get(3).changeableAttr)
+		assertTrue("q2" == result.changeableUniqueListCont.get(4).changeableAttr)
+		assertTrue("a3" == result.changeableUniqueListCont.get(5).changeableAttr)
+		assertTrue(result.changeableUniqueListCont.get(5).changeableCont.changeableUniqueListCont.isEmpty)
+		
+		//satisfy @After asserts
+		result.changeableUniqueListCont.get(5).changeableCont = null
 	}
 	
 	override protected newEdited(int id, String attrValue) {

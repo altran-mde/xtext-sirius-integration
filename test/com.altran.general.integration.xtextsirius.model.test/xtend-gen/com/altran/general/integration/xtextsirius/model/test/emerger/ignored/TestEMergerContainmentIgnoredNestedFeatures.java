@@ -143,7 +143,84 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends ATestEMergerCon
   @Test
   @Override
   public void singleNonNull_singleNew_deep() {
-    this.existing = this.newExisting(99, "99");
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      Element _createRootElement_1 = this.createRootElement();
+      final Procedure1<Element> _function_1 = (Element it_1) -> {
+        it_1.setChangeableAttr("aanswer");
+        Element _createRootElement_2 = this.createRootElement();
+        final Procedure1<Element> _function_2 = (Element it_2) -> {
+          it_2.setChangeableAttr("amegaAnswer");
+          EList<String> _changeableListAttr = it_2.getChangeableListAttr();
+          _changeableListAttr.add("ddd");
+        };
+        Element _doubleArrow = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_2, _function_2);
+        it_1.setChangeableCont(_doubleArrow);
+        EList<String> _changeableListAttr = it_1.getChangeableListAttr();
+        _changeableListAttr.add("ccc");
+      };
+      Element _doubleArrow = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
+      it.setChangeableCont(_doubleArrow);
+    };
+    final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    Element _createRootElement_1 = this.createRootElement();
+    final Procedure1<Element> _function_1 = (Element it) -> {
+      it.setChangeableCont(this.newExisting(1, "question"));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
+    final Element result = this.createEMerger(existing, edited).merge(edited);
+    Assert.assertNotNull(result.getChangeableCont());
+    Assert.assertEquals("aanswer", result.getChangeableCont().getChangeableAttr());
+    Assert.assertFalse(result.getChangeableCont().getChangeableListAttr().contains("ccc"));
+    Assert.assertNull("amegaAnswer", result.getChangeableCont().getChangeableCont());
+    EList<String> _changeableListAttr = result.getChangeableCont().getChangeableListAttr();
+    Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("aaa", "bbb")));
+  }
+  
+  @Test
+  public void singleNonNull_listNew() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      it.setChangeableAttr("a3");
+      EList<String> _changeableListAttr = it.getChangeableListAttr();
+      Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("aaa", "bbb")));
+      it.setChangeableCont(this.newEdited(33, "33"));
+    };
+    final Element newValue = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    Element _createRootElement_1 = this.createRootElement();
+    final Procedure1<Element> _function_1 = (Element it) -> {
+      EList<Element> _changeableUniqueListCont = it.getChangeableUniqueListCont();
+      Element _newExisting = this.newExisting(1, "1");
+      Element _newExisting_1 = this.newExisting(2, "2");
+      Element _newExisting_2 = this.newExisting(31, "31");
+      Element _newExisting_3 = this.newExisting(1, "1");
+      Element _newExisting_4 = this.newExisting(2, "2");
+      Iterables.<Element>addAll(_changeableUniqueListCont, Collections.<Element>unmodifiableList(CollectionLiterals.<Element>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getAElement_ChangeableUniqueListCont()).merge(newValue, this.xtextSiriusTestPackage.getAElement_ChangeableUniqueListCont());
+    Assert.assertEquals(6, result.getChangeableUniqueListCont().size());
+    String _changeableAttr = result.getChangeableUniqueListCont().get(0).getChangeableAttr();
+    boolean _equals = Objects.equal("q1", _changeableAttr);
+    Assert.assertTrue(_equals);
+    String _changeableAttr_1 = result.getChangeableUniqueListCont().get(1).getChangeableAttr();
+    boolean _equals_1 = Objects.equal("q2", _changeableAttr_1);
+    Assert.assertTrue(_equals_1);
+    String _changeableAttr_2 = result.getChangeableUniqueListCont().get(2).getChangeableAttr();
+    boolean _equals_2 = Objects.equal("q31", _changeableAttr_2);
+    Assert.assertTrue(_equals_2);
+    String _changeableAttr_3 = result.getChangeableUniqueListCont().get(3).getChangeableAttr();
+    boolean _equals_3 = Objects.equal("q1", _changeableAttr_3);
+    Assert.assertTrue(_equals_3);
+    String _changeableAttr_4 = result.getChangeableUniqueListCont().get(4).getChangeableAttr();
+    boolean _equals_4 = Objects.equal("q2", _changeableAttr_4);
+    Assert.assertTrue(_equals_4);
+    String _changeableAttr_5 = result.getChangeableUniqueListCont().get(5).getChangeableAttr();
+    boolean _equals_5 = Objects.equal("a3", _changeableAttr_5);
+    Assert.assertTrue(_equals_5);
+    Assert.assertTrue(result.getChangeableUniqueListCont().get(5).getChangeableCont().getChangeableUniqueListCont().isEmpty());
+    Element _get = result.getChangeableUniqueListCont().get(5);
+    _get.setChangeableCont(null);
   }
   
   @Override

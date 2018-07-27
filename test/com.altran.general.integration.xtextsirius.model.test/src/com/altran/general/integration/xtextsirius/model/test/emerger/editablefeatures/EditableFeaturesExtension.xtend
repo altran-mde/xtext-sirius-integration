@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EcorePackage
 import org.eclipse.emf.ecore.util.EcoreUtil
 
 import static org.junit.Assert.*
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage
 
 class EditableFeaturesExtension<T extends IElement<?>> {
 	protected T existing
@@ -80,7 +81,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			val expected  = switch (feature) {
 			EAttribute:
 				feature.createAttributeValue
-			EReference: {
+			EReference case XtextSiriusTestPackage::Literals::IELEMENT.isSuperTypeOf(feature.EReferenceType): {
 					val integer = new AtomicInteger(i)
 					val r = feature.createReferenceValue(integer)
 					i = integer.get
@@ -91,12 +92,12 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			if (feature.isMany) {
 				switch (feature) {
 					EAttribute: assertArrayEquals(feature.name, (expected as List<?>).toArray, (this.existing.eGet(feature) as List<?>).toArray)
-					EReference: assertArrayEquals(feature.name, (expected as List<?>).map[extractAttr].toArray, (this.existing.eGet(feature) as List<?>).map[extractAttr].toArray)
+					EReference case XtextSiriusTestPackage::Literals::IELEMENT.isSuperTypeOf(feature.EReferenceType): assertArrayEquals(feature.name, (expected as List<?>).map[extractAttr].toArray, (this.existing.eGet(feature) as List<?>).map[extractAttr].toArray)
 				}
 			} else {
 				switch (feature) {
 					EAttribute: assertEquals(feature.name, expected, this.existing.eGet(feature)) 
-					EReference: assertEquals(feature.name, expected.extractAttr, this.existing.eGet(feature).extractAttr) 
+					EReference case XtextSiriusTestPackage::Literals::IELEMENT.isSuperTypeOf(feature.EReferenceType): assertEquals(feature.name, expected.extractAttr, this.existing.eGet(feature).extractAttr) 
 				}
 			}
 		]
@@ -111,7 +112,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 		switch (feature) {
 			EAttribute:
 				this.existing.eSet(feature, feature.createAttributeValue)
-			EReference: {
+			EReference case XtextSiriusTestPackage::Literals::IELEMENT.isSuperTypeOf(feature.EReferenceType): {
 				val integer = new AtomicInteger(i)
 				this.existing.eSet(feature, feature.createReferenceValue(integer))
 				i = integer.get

@@ -2,6 +2,7 @@
  */
 package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl;
 
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
 
@@ -40,6 +41,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl#getUnchangeableSetAttr <em>Unchangeable Set Attr</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl#getChangeableBagAttr <em>Changeable Bag Attr</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl#getUnchangeableBagAttr <em>Unchangeable Bag Attr</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl#getContainedSingle <em>Contained Single</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl#getContainedMulti <em>Contained Multi</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl#getChangeableRef <em>Changeable Ref</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl#getUnchangeableRef <em>Unchangeable Ref</em>}</li>
  *   <li>{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl#getChangeableListRef <em>Changeable List Ref</em>}</li>
@@ -159,6 +162,26 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<Double> unchangeableBagAttr;
+	
+	/**
+	 * The cached value of the '{@link #getContainedSingle() <em>Contained Single</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainedSingle()
+	 * @generated
+	 * @ordered
+	 */
+	protected IContainedElement containedSingle;
+	
+	/**
+	 * The cached value of the '{@link #getContainedMulti() <em>Contained Multi</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainedMulti()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IContainedElement> containedMulti;
 	
 	/**
 	 * The cached value of the '{@link #getChangeableRef() <em>Changeable Ref</em>}' reference.
@@ -446,6 +469,69 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 					XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_ATTR);
 		}
 		return unchangeableBagAttr;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IContainedElement getContainedSingle() {
+		return containedSingle;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainedSingle(IContainedElement newContainedSingle, NotificationChain msgs) {
+		IContainedElement oldContainedSingle = containedSingle;
+		containedSingle = newContainedSingle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE, oldContainedSingle, newContainedSingle);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainedSingle(IContainedElement newContainedSingle) {
+		if (newContainedSingle != containedSingle) {
+			NotificationChain msgs = null;
+			if (containedSingle != null)
+				msgs = ((InternalEObject) containedSingle).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE, null, msgs);
+			if (newContainedSingle != null)
+				msgs = ((InternalEObject) newContainedSingle).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE, null, msgs);
+			msgs = basicSetContainedSingle(newContainedSingle, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE,
+					newContainedSingle, newContainedSingle));
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<IContainedElement> getContainedMulti() {
+		if (containedMulti == null) {
+			containedMulti = new EObjectContainmentEList<IContainedElement>(IContainedElement.class, this,
+					XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI);
+		}
+		return containedMulti;
 	}
 	
 	/**
@@ -753,6 +839,10 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+				return basicSetContainedSingle(null, msgs);
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+				return ((InternalEList<?>) getContainedMulti()).basicRemove(otherEnd, msgs);
 			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
 				return ((InternalEList<?>) getChangeableUniqueListCont()).basicRemove(otherEnd, msgs);
 			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
@@ -793,6 +883,10 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 				return getChangeableBagAttr();
 			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_ATTR:
 				return getUnchangeableBagAttr();
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+				return getContainedSingle();
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+				return getContainedMulti();
 			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
 				if (resolve)
 					return getChangeableRef();
@@ -855,6 +949,13 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 				getChangeableBagAttr().clear();
 				getChangeableBagAttr().addAll((Collection<? extends Double>) newValue);
 				return;
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+				setContainedSingle((IContainedElement) newValue);
+				return;
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+				getContainedMulti().clear();
+				getContainedMulti().addAll((Collection<? extends IContainedElement>) newValue);
+				return;
 			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
 				setChangeableRef((KeyElement) newValue);
 				return;
@@ -907,6 +1008,12 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 				return;
 			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
 				getChangeableBagAttr().clear();
+				return;
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+				setContainedSingle((IContainedElement) null);
+				return;
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+				getContainedMulti().clear();
 				return;
 			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
 				setChangeableRef((KeyElement) null);
@@ -961,6 +1068,10 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 				return changeableBagAttr != null && !changeableBagAttr.isEmpty();
 			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_ATTR:
 				return unchangeableBagAttr != null && !unchangeableBagAttr.isEmpty();
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+				return containedSingle != null;
+			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+				return containedMulti != null && !containedMulti.isEmpty();
 			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
 				return changeableRef != null;
 			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_REF:

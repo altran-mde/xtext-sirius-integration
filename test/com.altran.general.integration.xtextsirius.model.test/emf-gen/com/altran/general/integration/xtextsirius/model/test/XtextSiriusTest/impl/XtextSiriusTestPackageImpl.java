@@ -3,7 +3,10 @@
 package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.AElement;
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA;
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IdElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement;
@@ -61,6 +64,27 @@ public class XtextSiriusTestPackageImpl extends EPackageImpl implements XtextSir
 	 * @generated
 	 */
 	private EClass keyElementEClass = null;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iContainedElementEClass = null;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass containedAEClass = null;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass containedBEClass = null;
 	
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -232,6 +256,24 @@ public class XtextSiriusTestPackageImpl extends EPackageImpl implements XtextSir
 	 */
 	public EAttribute getIElement_UnchangeableBagAttr() {
 		return (EAttribute) iElementEClass.getEStructuralFeatures().get(7);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIElement_ContainedSingle() {
+		return (EReference) iElementEClass.getEStructuralFeatures().get(8);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIElement_ContainedMulti() {
+		return (EReference) iElementEClass.getEStructuralFeatures().get(9);
 	}
 	
 	/**
@@ -599,6 +641,78 @@ public class XtextSiriusTestPackageImpl extends EPackageImpl implements XtextSir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIContainedElement() {
+		return iContainedElementEClass;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIContainedElement_AttrA() {
+		return (EAttribute) iContainedElementEClass.getEStructuralFeatures().get(0);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContainedA() {
+		return containedAEClass;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContainedA_AttrB() {
+		return (EAttribute) containedAEClass.getEStructuralFeatures().get(0);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContainedA_AttrX() {
+		return (EAttribute) containedAEClass.getEStructuralFeatures().get(1);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContainedB() {
+		return containedBEClass;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContainedB_AttrB() {
+		return (EAttribute) containedBEClass.getEStructuralFeatures().get(0);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContainedB_AttrY() {
+		return (EAttribute) containedBEClass.getEStructuralFeatures().get(1);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public XtextSiriusTestFactory getXtextSiriusTestFactory() {
 		return (XtextSiriusTestFactory) getEFactoryInstance();
 	}
@@ -637,6 +751,8 @@ public class XtextSiriusTestPackageImpl extends EPackageImpl implements XtextSir
 		createEAttribute(iElementEClass, IELEMENT__UNCHANGEABLE_SET_ATTR);
 		createEAttribute(iElementEClass, IELEMENT__CHANGEABLE_BAG_ATTR);
 		createEAttribute(iElementEClass, IELEMENT__UNCHANGEABLE_BAG_ATTR);
+		createEReference(iElementEClass, IELEMENT__CONTAINED_SINGLE);
+		createEReference(iElementEClass, IELEMENT__CONTAINED_MULTI);
 		createEOperation(iElementEClass, IELEMENT___GET_CHANGEABLE_REF);
 		createEOperation(iElementEClass, IELEMENT___SET_CHANGEABLE_REF__IELEMENT);
 		createEOperation(iElementEClass, IELEMENT___GET_CHANGEABLE_LIST_REF);
@@ -679,6 +795,17 @@ public class XtextSiriusTestPackageImpl extends EPackageImpl implements XtextSir
 		createEReference(keyElementEClass, KEY_ELEMENT__UNCHANGEABLE_CONT);
 		createEReference(keyElementEClass, KEY_ELEMENT__UNCHANGEABLE_SET_CONT);
 		createEAttribute(keyElementEClass, KEY_ELEMENT__KEY_ID);
+		
+		iContainedElementEClass = createEClass(ICONTAINED_ELEMENT);
+		createEAttribute(iContainedElementEClass, ICONTAINED_ELEMENT__ATTR_A);
+		
+		containedAEClass = createEClass(CONTAINED_A);
+		createEAttribute(containedAEClass, CONTAINED_A__ATTR_B);
+		createEAttribute(containedAEClass, CONTAINED_A__ATTR_X);
+		
+		containedBEClass = createEClass(CONTAINED_B);
+		createEAttribute(containedBEClass, CONTAINED_B__ATTR_B);
+		createEAttribute(containedBEClass, CONTAINED_B__ATTR_Y);
 	}
 	
 	/**
@@ -736,6 +863,8 @@ public class XtextSiriusTestPackageImpl extends EPackageImpl implements XtextSir
 		g2 = createEGenericType(this.getKeyElement());
 		g1.getETypeArguments().add(g2);
 		keyElementEClass.getEGenericSuperTypes().add(g1);
+		containedAEClass.getESuperTypes().add(this.getIContainedElement());
+		containedBEClass.getESuperTypes().add(this.getIContainedElement());
 		
 		// Initialize classes, features, and operations; add parameters
 		initEClass(idElementEClass, IdElement.class, "IdElement", !IS_ABSTRACT, !IS_INTERFACE,
@@ -770,6 +899,12 @@ public class XtextSiriusTestPackageImpl extends EPackageImpl implements XtextSir
 		initEAttribute(getIElement_UnchangeableBagAttr(), ecorePackage.getEDouble(), "unchangeableBagAttr", null, 0, -1,
 				IElement.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, !IS_ORDERED);
+		initEReference(getIElement_ContainedSingle(), this.getIContainedElement(), null, "containedSingle", null, 0, 1,
+				IElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIElement_ContainedMulti(), this.getIContainedElement(), null, "containedMulti", null, 0, -1,
+				IElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		
 		EOperation op = initEOperation(getIElement__GetChangeableRef(), null, "getChangeableRef", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
@@ -932,6 +1067,26 @@ public class XtextSiriusTestPackageImpl extends EPackageImpl implements XtextSir
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		getKeyElement_UnchangeableSetCont().getEKeys().add(this.getKeyElement_KeyId());
 		initEAttribute(getKeyElement_KeyId(), ecorePackage.getEString(), "keyId", null, 1, 1, KeyElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		
+		initEClass(iContainedElementEClass, IContainedElement.class, "IContainedElement", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIContainedElement_AttrA(), ecorePackage.getEString(), "attrA", null, 0, 1,
+				IContainedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		
+		initEClass(containedAEClass, ContainedA.class, "ContainedA", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContainedA_AttrB(), ecorePackage.getEString(), "attrB", null, 0, 1, ContainedA.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContainedA_AttrX(), ecorePackage.getEString(), "attrX", null, 0, 1, ContainedA.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		
+		initEClass(containedBEClass, ContainedB.class, "ContainedB", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContainedB_AttrB(), ecorePackage.getEString(), "attrB", null, 0, 1, ContainedB.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContainedB_AttrY(), ecorePackage.getEString(), "attrY", null, 0, 1, ContainedB.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		
 		// Create resource
