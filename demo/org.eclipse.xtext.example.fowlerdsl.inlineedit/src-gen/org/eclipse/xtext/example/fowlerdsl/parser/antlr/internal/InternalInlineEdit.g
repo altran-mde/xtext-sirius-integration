@@ -224,7 +224,7 @@ ruleRangeGuard returns [EObject current=null]
 	    }
 
 )
-))
+)?)
 ;
 
 

@@ -794,7 +794,7 @@ rule__RangeGuard__Group__2__Impl
 :
 (
 { before(grammarAccess.getRangeGuardAccess().getMaxAssignment_2()); }
-(rule__RangeGuard__MaxAssignment_2)
+(rule__RangeGuard__MaxAssignment_2)?
 { after(grammarAccess.getRangeGuardAccess().getMaxAssignment_2()); }
 )
 

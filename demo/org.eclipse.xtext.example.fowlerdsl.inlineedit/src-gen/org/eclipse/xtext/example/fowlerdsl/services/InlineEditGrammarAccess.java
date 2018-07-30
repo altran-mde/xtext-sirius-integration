@@ -103,10 +103,10 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMaxValueParserRuleCall_2_0 = (RuleCall)cMaxAssignment_2.eContents().get(0);
 		
 		//RangeGuard:
-		//	min=Value? '..' max=Value;
+		//	min=Value? '..' max=Value?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//min=Value? '..' max=Value
+		//min=Value? '..' max=Value?
 		public Group getGroup() { return cGroup; }
 
 		//min=Value?
@@ -118,7 +118,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 		//'..'
 		public Keyword getFullStopFullStopKeyword_1() { return cFullStopFullStopKeyword_1; }
 
-		//max=Value
+		//max=Value?
 		public Assignment getMaxAssignment_2() { return cMaxAssignment_2; }
 
 		//Value
@@ -202,7 +202,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RangeGuard:
-	//	min=Value? '..' max=Value;
+	//	min=Value? '..' max=Value?;
 	public RangeGuardElements getRangeGuardAccess() {
 		return pRangeGuard;
 	}

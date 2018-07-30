@@ -15,5 +15,5 @@ Transition returns Transition:
 ;
 
 RangeGuard returns RangeGuard:
-	min=Value? '..' max=Value
+	min=Value? '..' max=Value?
 ;

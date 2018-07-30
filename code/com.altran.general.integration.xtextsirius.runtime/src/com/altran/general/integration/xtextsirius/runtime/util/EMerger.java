@@ -503,7 +503,7 @@ public class EMerger<T extends EObject> {
 			final @NonNull String prefix,
 			final @NonNull EObject exist) {
 		if (this.nestedFeaturesToIgnore.contains(prefix)) {
-			exist.eAdapters().add(new IgnoredFeatureAdapter(feature.getName()));
+			exist.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance);
 			return true;
 		}
 		

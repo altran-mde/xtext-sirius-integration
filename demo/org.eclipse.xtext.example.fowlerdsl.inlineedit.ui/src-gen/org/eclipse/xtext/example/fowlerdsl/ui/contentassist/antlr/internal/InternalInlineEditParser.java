@@ -1189,11 +1189,11 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
                 {
                 int LA1_2 = input.LA(2);
 
-                if ( (LA1_2==14) ) {
-                    alt1=2;
-                }
-                else if ( (LA1_2==EOF||LA1_2==RULE_ID||LA1_2==13||LA1_2==16) ) {
+                if ( (LA1_2==EOF||LA1_2==RULE_ID||LA1_2==13||LA1_2==16) ) {
                     alt1=1;
+                }
+                else if ( (LA1_2==14) ) {
+                    alt1=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -2121,27 +2121,45 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RangeGuard__Group__2__Impl"
-    // InternalInlineEdit.g:790:1: rule__RangeGuard__Group__2__Impl : ( ( rule__RangeGuard__MaxAssignment_2 ) ) ;
+    // InternalInlineEdit.g:790:1: rule__RangeGuard__Group__2__Impl : ( ( rule__RangeGuard__MaxAssignment_2 )? ) ;
     public final void rule__RangeGuard__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalInlineEdit.g:794:1: ( ( ( rule__RangeGuard__MaxAssignment_2 ) ) )
-            // InternalInlineEdit.g:795:1: ( ( rule__RangeGuard__MaxAssignment_2 ) )
+            // InternalInlineEdit.g:794:1: ( ( ( rule__RangeGuard__MaxAssignment_2 )? ) )
+            // InternalInlineEdit.g:795:1: ( ( rule__RangeGuard__MaxAssignment_2 )? )
             {
-            // InternalInlineEdit.g:795:1: ( ( rule__RangeGuard__MaxAssignment_2 ) )
-            // InternalInlineEdit.g:796:1: ( rule__RangeGuard__MaxAssignment_2 )
+            // InternalInlineEdit.g:795:1: ( ( rule__RangeGuard__MaxAssignment_2 )? )
+            // InternalInlineEdit.g:796:1: ( rule__RangeGuard__MaxAssignment_2 )?
             {
              before(grammarAccess.getRangeGuardAccess().getMaxAssignment_2()); 
-            // InternalInlineEdit.g:797:1: ( rule__RangeGuard__MaxAssignment_2 )
-            // InternalInlineEdit.g:797:2: rule__RangeGuard__MaxAssignment_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__RangeGuard__MaxAssignment_2();
+            // InternalInlineEdit.g:797:1: ( rule__RangeGuard__MaxAssignment_2 )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA5_0==RULE_ID) ) {
+                int LA5_1 = input.LA(2);
 
+                if ( (LA5_1==EOF||LA5_1==RULE_ID||LA5_1==13||LA5_1==16) ) {
+                    alt5=1;
+                }
+            }
+            else if ( (LA5_0==RULE_INT) ) {
+                alt5=1;
+            }
+            switch (alt5) {
+                case 1 :
+                    // InternalInlineEdit.g:797:2: rule__RangeGuard__MaxAssignment_2
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__RangeGuard__MaxAssignment_2();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
@@ -2295,13 +2313,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getGroup_1()); 
             // InternalInlineEdit.g:863:1: ( rule__Statemachine__Group_1__0 )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==15) ) {
-                alt5=1;
+            if ( (LA6_0==15) ) {
+                alt6=1;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
                     // InternalInlineEdit.g:863:2: rule__Statemachine__Group_1__0
                     {
@@ -2391,13 +2409,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getGroup_2()); 
             // InternalInlineEdit.g:892:1: ( rule__Statemachine__Group_2__0 )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==17) ) {
-                alt6=1;
+            if ( (LA7_0==17) ) {
+                alt7=1;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
                     // InternalInlineEdit.g:892:2: rule__Statemachine__Group_2__0
                     {
@@ -2487,13 +2505,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getGroup_3()); 
             // InternalInlineEdit.g:921:1: ( rule__Statemachine__Group_3__0 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==18) ) {
-                alt7=1;
+            if ( (LA8_0==18) ) {
+                alt8=1;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
                     // InternalInlineEdit.g:921:2: rule__Statemachine__Group_3__0
                     {
@@ -2583,13 +2601,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getGroup_4()); 
             // InternalInlineEdit.g:950:1: ( rule__Statemachine__Group_4__0 )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==19) ) {
-                alt8=1;
+            if ( (LA9_0==19) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
                     // InternalInlineEdit.g:950:2: rule__Statemachine__Group_4__0
                     {
@@ -2674,17 +2692,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getStatesAssignment_5()); 
             // InternalInlineEdit.g:978:1: ( rule__Statemachine__StatesAssignment_5 )*
-            loop9:
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA9_0==20) ) {
-                    alt9=1;
+                if ( (LA10_0==20) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
             	    // InternalInlineEdit.g:978:2: rule__Statemachine__StatesAssignment_5
             	    {
@@ -2698,7 +2716,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -2874,17 +2892,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getEventsAssignment_1_1()); 
             // InternalInlineEdit.g:1056:1: ( rule__Statemachine__EventsAssignment_1_1 )*
-            loop10:
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_ID) ) {
-                    alt10=1;
+                if ( (LA11_0==RULE_ID) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
             	    // InternalInlineEdit.g:1056:2: rule__Statemachine__EventsAssignment_1_1
             	    {
@@ -2898,7 +2916,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
@@ -3147,17 +3165,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getResetEventsAssignment_2_1()); 
             // InternalInlineEdit.g:1159:1: ( rule__Statemachine__ResetEventsAssignment_2_1 )*
-            loop11:
+            loop12:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA11_0==RULE_ID) ) {
-                    alt11=1;
+                if ( (LA12_0==RULE_ID) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt12) {
             	case 1 :
             	    // InternalInlineEdit.g:1159:2: rule__Statemachine__ResetEventsAssignment_2_1
             	    {
@@ -3171,7 +3189,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop11;
+            	    break loop12;
                 }
             } while (true);
 
@@ -3420,17 +3438,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getCommandsAssignment_3_1()); 
             // InternalInlineEdit.g:1262:1: ( rule__Statemachine__CommandsAssignment_3_1 )*
-            loop12:
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA12_0==RULE_ID||LA12_0==12) ) {
-                    alt12=1;
+                if ( (LA13_0==RULE_ID||LA13_0==12) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
             	    // InternalInlineEdit.g:1262:2: rule__Statemachine__CommandsAssignment_3_1
             	    {
@@ -3444,7 +3462,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop13;
                 }
             } while (true);
 
@@ -3693,17 +3711,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStatemachineAccess().getConstantsAssignment_4_1()); 
             // InternalInlineEdit.g:1365:1: ( rule__Statemachine__ConstantsAssignment_4_1 )*
-            loop13:
+            loop14:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA13_0==RULE_ID) ) {
-                    alt13=1;
+                if ( (LA14_0==RULE_ID) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt14) {
             	case 1 :
             	    // InternalInlineEdit.g:1365:2: rule__Statemachine__ConstantsAssignment_4_1
             	    {
@@ -3717,7 +3735,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop14;
                 }
             } while (true);
 
@@ -3954,13 +3972,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getEventAccess().getCodeAssignment_1()); 
             // InternalInlineEdit.g:1460:1: ( rule__Event__CodeAssignment_1 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_INT) ) {
-                alt14=1;
+            if ( (LA15_0==RULE_INT) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
                     // InternalInlineEdit.g:1460:2: rule__Event__CodeAssignment_1
                     {
@@ -4045,13 +4063,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getEventAccess().getGroup_2()); 
             // InternalInlineEdit.g:1488:1: ( rule__Event__Group_2__0 )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA15_0==12) ) {
-                alt15=1;
+            if ( (LA16_0==12) ) {
+                alt16=1;
             }
-            switch (alt15) {
+            switch (alt16) {
                 case 1 :
                     // InternalInlineEdit.g:1488:2: rule__Event__Group_2__0
                     {
@@ -4371,13 +4389,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getCommandAccess().getGroup_0()); 
             // InternalInlineEdit.g:1619:1: ( rule__Command__Group_0__0 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==12) ) {
-                alt16=1;
+            if ( (LA17_0==12) ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
                     // InternalInlineEdit.g:1619:2: rule__Command__Group_0__0
                     {
@@ -5187,13 +5205,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStateAccess().getGroup_2()); 
             // InternalInlineEdit.g:1928:1: ( rule__State__Group_2__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==21) ) {
-                alt17=1;
+            if ( (LA18_0==21) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
                     // InternalInlineEdit.g:1928:2: rule__State__Group_2__0
                     {
@@ -5283,13 +5301,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStateAccess().getGroup_3()); 
             // InternalInlineEdit.g:1957:1: ( rule__State__Group_3__0 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==22) ) {
-                alt18=1;
+            if ( (LA19_0==22) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
                     // InternalInlineEdit.g:1957:2: rule__State__Group_3__0
                     {
@@ -5379,17 +5397,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStateAccess().getTransitionsAssignment_4()); 
             // InternalInlineEdit.g:1986:1: ( rule__State__TransitionsAssignment_4 )*
-            loop19:
+            loop20:
             do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                if ( (LA19_0==RULE_ID||LA19_0==12) ) {
-                    alt19=1;
+                if ( (LA20_0==RULE_ID||LA20_0==12) ) {
+                    alt20=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt20) {
             	case 1 :
             	    // InternalInlineEdit.g:1986:2: rule__State__TransitionsAssignment_4
             	    {
@@ -5403,7 +5421,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop19;
+            	    break loop20;
                 }
             } while (true);
 
@@ -5482,13 +5500,13 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStateAccess().getGroup_5()); 
             // InternalInlineEdit.g:2015:1: ( rule__State__Group_5__0 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA20_0==25) ) {
-                alt20=1;
+            if ( (LA21_0==25) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
                     // InternalInlineEdit.g:2015:2: rule__State__Group_5__0
                     {
@@ -5975,17 +5993,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStateAccess().getActionsAssignment_3_2()); 
             // InternalInlineEdit.g:2219:1: ( rule__State__ActionsAssignment_3_2 )*
-            loop21:
+            loop22:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( (LA21_0==RULE_ID) ) {
-                    alt21=1;
+                if ( (LA22_0==RULE_ID) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt22) {
             	case 1 :
             	    // InternalInlineEdit.g:2219:2: rule__State__ActionsAssignment_3_2
             	    {
@@ -5999,7 +6017,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop22;
                 }
             } while (true);
 
@@ -6221,17 +6239,17 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             {
              before(grammarAccess.getStateAccess().getThingsAssignment_5_1()); 
             // InternalInlineEdit.g:2317:1: ( rule__State__ThingsAssignment_5_1 )*
-            loop22:
+            loop23:
             do {
-                int alt22=2;
-                int LA22_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( (LA22_0==RULE_ID) ) {
-                    alt22=1;
+                if ( (LA23_0==RULE_ID) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt22) {
+                switch (alt23) {
             	case 1 :
             	    // InternalInlineEdit.g:2317:2: rule__State__ThingsAssignment_5_1
             	    {
@@ -6245,7 +6263,7 @@ public class InternalInlineEditParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop22;
+            	    break loop23;
                 }
             } while (true);
 
