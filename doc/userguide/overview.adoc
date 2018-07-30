@@ -1,0 +1,81 @@
+== Overview
+This asset contains extensions to the odesign editor providing Xtext-enabled text entry fields.
+
+Xtext-enabled editors provide the usual Xtext features: syntax highlighting, auto completion, validation, etc.
+
+The Xtext language does not need to be modified to be used in the editor (except for <<advancedCapabilities>>).
+
+The text entry fields can be placed 
+
+* either inside a Sirius diagram (direct editors; <<directEdit, directEdit>>)
+* or in the Sirius properties view (widgets; <<property, property>>).
+
+The contents of the editors can be retrieved from two sources:
+
+* A semantic element of a model that's used as input to the diagram (<<model, model>>).
+In this case, we may set additional options:
+** limit the set of <<editableFeatures, editableFeatures>>,
+** ignore some nested features (<<ignoredNestedFeatures, ignoredNestedFeatures>>).
+** specify which features should be pre-selected when showing the Xtext editor (<<selectedFeatures, selectedFeatures>>).
+
+* A String feature of a semantic element (<<value, value>>).
+In this case, we may supply additional information if we wanted to edit an incomplete model:
+** text (hidden from the end-user) to be pre-pended (<<prefixText-suffixText, prefixText>>),
+** text (hidden from the end-user) to be appended (<<prefixText-suffixText, suffixText>>).
+
+For _model_-based _directEdit_ editors, if the model element is an edge, the affected label must be set (<<edgeLabelPosition, edgeLabelPosition>>).
+
+An editor can display
+
+* either single-line contents (<<singleLine-multiLine, singleLine>>),
+* or multi-line contents (<<singleLine-multiLine, multiLine>>).
+
+For all editors, we need to provide
+
+* An injector to access the Xtext language to use (<<injector, injector>>).
+	
+
+All of this can be summarized in one table:
+
+[options="autowidth"]
+|====
+|	^.<| *<<property, property>>*	2+^.<| *<<directEdit, directEdit>>*	| *add. info footnoteref:[info]*
+
+.2+.^| *<<model, model>>*	
+| <<singleLine-multiLine, image:images/XtextSingleLineModelDescription.png[] singleLine>>	
+| <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.png[] singleLine>>	
+.2+.^| _<<edgeLabelPosition, edgeLabelPosition>>_	
+|
+| <<singleLine-multiLine, image:images/XtextMultiLineModelDescription.png[] multiLine>>	
+| <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.png[] multiLine>> 
+|
+
+.2+.^| *<<value, value>>*	
+| <<singleLine-multiLine, image:images/XtextSingleLineValueDescription.png[] singleLine>>	
+2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] singleLine>>	
+.2+.^| _<<prefixText-suffixText, prefixText>>, <<prefixText-suffixText, suffixText>>_
+| <<singleLine-multiLine, image:images/XtextMultiLineValueDescription.png[] multiLine>>	
+2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] multiLine>>
+
+| *add. info footnoteref:[info]*	
+|  
+2+| _<<editableFeatures, editableFeatures>>, +
+ <<ignoredNestedFeatures, ignoredNestedFeatures>> +
+ <<selectedFeatures, selectedFeatures>>_
+| *for all:* _<<injector, injector>>_
+|====
+
+
+As advanced capabilities,
+
+* the editor might use a <<specialEditGrammar, different grammar>> (a.k.a. Xtext language) for editing model contents than the one used for serialization;
+* we can <<forceWhitespaceSerializer, force the serialization of whitespaces>> if our formatter does not work as expected;
+* the serializer can <<forceIgnoredFeaturesTransient, force ignored nested features to be transient>>;
+* we can <<constrainGlobalScope, constrain the editor's global Scope to all Ecore resources from the Sirius session>>.
+
+.Packaging
+
+we provide two different Eclipse features:
+
+* `com.altran.general.integration.xtextsirius.design.feature` contains all Eclipse plug-ins required to edit the Xtext-enabled entry fields in the odesign editor. It also contains the runtime feature below.
+* `com.altran.general.integration.xtextsirius.runtime.feature` contains all Eclipse plug-ins required at runtime to use the Xtext-enabled entry fields in a diagram (or associated property view).

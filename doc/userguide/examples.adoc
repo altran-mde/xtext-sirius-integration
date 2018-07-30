@@ -1,0 +1,198 @@
+== Examples
+
+=== `.odesign` Contents
+	
+.Screenshot of fowlerdsl.odesign
+image:images/exampleOdesign.png[]
+
+
+.fowlerdsl.odesign
+[source,subs="verbatim,quotes"]
+----
+platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fowlerdsl.odesign
+	+ fowlerdsl
+		+ Statemachine
+			+ Statemachine Diagram
+				+ Default
+					+ *TransitionEdge*                                        <2>
+							domainClass=statemachine.Transition
+							labelDirectEdit=TransitionEdit
+						+ Edge Style solid
+							+ *Center Label Style 8*
+								labelExpression="ocl:self.event.name.concat( ' as Label')"
+					+ EventsContainer
+						+ *EventNode*                                           <1>
+								domainClass=statemachine.Event
+								labelDirectEdit=EventEdit
+							+ *Square gray*
+								labelExpression="ocl:self.name.concat(if(self.guard.oclIsUndefined()) then '' else ' [' + self.guard.toString() + ']' endif)"
+					+ CommandsContainer
+					+ StateNode
+						+ *description*                                         <3>
+								domainClass=statemachine.State
+								labelDirectEdit=DescriptionEdit
+							+ *square gray*
+								labelExpression="ocl:'Desc: '.concat(self.description)"
+					+ Section DefaultSection
+						+ Direct Edit Label SimpleTextEdit
+						+ *Xtext Model Direct Edit Label EventEdit*             <1>
+								id=EventEdit
+								mapping=EventNode
+								inputLabelExpression="var:self"
+								injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId"
+								lines=singleLine
+							+ Begin
+								+ *Set*
+									featureName=_«empty»_
+									+ valueExpression="var:newValue"
+										External Java Action
+											name="MyAction"
+											id="exampleAction"
+							+ ignoredNestedFeatures=guard.min
+							+ selectedFeatures=Event.name
+						+ *Xtext Edge Model Direct Edit Label TransitionEdit*   <2>
+								id=TransitionEdit
+								mapping=TransitionEdge
+								inputLabelExpression="var:self"
+								injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId"
+								edgeLabelMappings=Center Label Style 8
+								lines=singleLine
+								editableFeatures=Transition.event, Transition.guard
+							+ Begin
+								+ *Set*
+									featureName=_«empty»_
+									valueExpression="var:newValue"
+						+ *Xtext Value Direct Edit Label DescriptionEdit*       <3>
+								id=DescriptionEdit
+								mapping=description
+								inputLabelExpression="feature:description"
+								injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"
+								lines=multiLine
+								prefixTextExpression="<html><head><title>t</title></head><body>"
+								suffixTextExpression="</body></html>"
+							+ Begin
+								+ *Set description*
+									featureName=description
+									valueExpression="var:newValue"
+			+ org.eclipse.xtext.example.fowlerdsl.viewpoint.Services
+		+ EventProperties
+			+ Default
+				+ Default12369
+				+ EventProperties
+						domainClass=statemachine.Event
+					+ Name
+					+ *Guard*                                                 <4>
+							id=EventGuardId
+							labelExpression="Guard"
+							valueExpression="feature:guard"
+							injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId"
+						+ Begin
+							+ *Set guard*
+								featureName=guard
+								valueExpression="var:newValue"
+		+ StateProperties
+			+ Default
+				+ Defaultxvsdas
+				+ StateProperties
+						domainClass=statemachine.State
+					+ Name
+					+ *Description*                                           <5>
+							id=StateDescriptionId
+							labelExpression="Description"
+							valueExpression="feature:description"
+							lineCount=5
+							injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"
+							prefixTextExpression="<html><head><title>t</title></head><body>"
+							suffixTextExpression="</body></html>"
+						+ Begin
+							+ *Set description*
+								featureName=description
+								valueExpression="var:newValue"
+platform:/resource/org.eclipse.xtext.example.fowlerdsl/model/generated/Statemachine.ecore
+----
+
+
+1. Single-line direct editor of all features of _Event_ instance of Sirius element `EventNode` with the injector supplied by `FowlerdslLanguageInjector`.
+Changes to the nested feature _Event.guard.min_ will be ignored.
+The feature _Event.name_ is pre-selected when showing the Xtext editor.
+The External Java Action `exampleAction` is called after the semantic element has been edited.
+Persisted to itself because _EventEdit.Set.featureName_ is empty.
++
+.Event Label (note it does not show the code)
+image:images/eventLabel.png[]
++
+.Event Editor
+image:images/eventEditor.png[]
+
+2. Single-line direct editor of features `{Transition.event, Transition.guard}` of _Transition_ instance of the `Center Label Style 8` label of Sirius element `TransitionEdge` with the injector supplied by `InlineEditLanguageInjector`.
+Persisted to itself because _TransitionEdit.Set.featureName_ is empty.
++
+.Transition Label (note it does have additional text at the end)
+image:images/transitionLabel.png[]
++
+.Transition Editor (note the target of the transition cannot be edited)
+image:images/transitionEditor.png[]
+
+3. Multi-line direct editor of _description_ feature of _State_ instance of Sirius element `description` with the injector supplied by `HtmlLanguageInjector`.
+The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
+Persisted to _State.description_ because of _DescriptionEdit.Set.featureName=description_.
++
+.Description Label (note it does have additional text at the front)
+image:images/descriptionLabel.png[]
++
+.Description Editor
+image:images/descriptionEditor.png[]
+
+4. Single-line property editor of _guard_ feature of _Event_ instance of Sirius element `EventGuardId` with the injector supplied by `FowlerdslLanguageInjector`.
+Persisted to _Event.guard_ because of _EventGuardId.Set.featureName=guard_.
++
+.Event Guard Property Editor
+image:images/guardProperty.png[]
+
+5. Multi-line property editor of _description_ feature of _State_ instance of Sirius element `StateDescriptionId` with the injector supplied by `HtmlLanguageInjector`.
+The attribute value will be prefixed by an HTML header and suffixed by an HTML footer.
+Persisted to _State.description_ because of _StateDescriptionId.Set.featureName=description_.
++
+.State Description Property Editor
+image:images/descriptionProperty.png[]
+
+
+=== `plugin.xml` Contents
+
+.plugin.xml
+[source,xml]
+----
+<extension point="com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector">
+	<injector
+		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId"
+		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.FowlerdslLanguageInjector"
+	/>
+	<injector
+		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId"
+		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.InlineEditLanguageInjector"
+	/>
+	<injector
+		id="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId"
+		class="org.eclipse.xtext.example.fowlerdsl.viewpoint.xtextsirius.HtmlLanguageInjector"
+	/>
+</extension>
+----
+
+
+=== Properties Views
+.Properties View of __Xtext Model Direct Edit Label *EventEdit* __
+image:images/directEditModelProperties.png[]
+
+
+.Properties View of __Xtext Edge Model Direct Edit Label *TransitionEdit* __
+image:images/edgeModelProperties.png[]
+
+.Properties View of __Xtext Value Direct Edit Label *DescriptionEdit* __
+image:images/directEditValueProperties.png[]
+
+
+.Properties View of __Xtext Model Text *EventGuardId* __
+image:images/singleLineModelWidgetProperties.png[]
+
+.Properties View of __Xtext Value Text Area *StateDescriptionId* __
+image:images/multiLineValueWidgetProperties.png[]

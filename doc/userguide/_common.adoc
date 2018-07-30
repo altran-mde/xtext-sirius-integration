@@ -1,0 +1,11 @@
+:miscellaneous.tabsize: 2
+:tabsize: 2
+:icons: font
+:sectnum: 
+:sectnums: 
+:experimental:
+:commandkey: &#8984;
+:m1keys: Ctrl]/kbd:[{commandkey}
+:source-highlighter: pygments
+:prewrap!:
+:xtext-sirius-version: 0.21.0-SNAPSHOT

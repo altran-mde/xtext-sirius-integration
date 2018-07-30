@@ -1,0 +1,187 @@
+[[advancedCapabilities]]
+== Advanced Capabilities
+
+
+[[specialEditGrammar]]
+=== Using a Different Grammar for Editing Model Contents
+
+For editing model contents, we might use a grammar that differs from the one used for model serialization.
+
+A typical use-case may allow to change the order of features in order to allow only a subset of them to be modified.
+
+.Example
+
+As an example, assume the following Xtext grammar snippet:
+[source, antlr]
+----
+grammar org.eclipse.xtext.example.fowlerdsl.Statemachine with org.eclipse.xtext.common.Terminals
+
+generate statemachine "http://www.eclipse.org/xtext/example/fowlerdsl/Statemachine"
+
+Statemachine :
+     {Statemachine}
+	('events' 
+		events+=Event+ 
+	'end')?
+
+	// ...
+;
+
+Event:
+	name=ID code=INT? ('[' guard=Guard ']')?
+;
+
+// ...
+
+----
+
+In our editor, we want the end-user to edit only the `name` and `guard` features of `Event`. This is not possible with the given grammar, as `code` is placed between them.
+
+To solve this, we create a new language:
+[source, antlr]
+----
+grammar org.eclipse.xtext.example.fowlerdsl.InlineEdit with org.eclipse.xtext.example.fowlerdsl.Statemachine
+
+import "http://www.eclipse.org/xtext/example/fowlerdsl/Statemachine" 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+InlineStatemachine returns Statemachine:   <1>
+	Statemachine
+;
+
+//@Override                                <2>
+Event:
+	name=ID ('[' guard=Guard ']')? code=INT?
+;
+
+----
+<1> We have to have a root rule, because Xtext uses the first rule as entry rule. We just forward to the original root rule.
+<2> Newer Xtext version know the `@Override` annotation to redefine a rule.
+
+This creates a grammar (for the identical metamodel) that serializes features `name` and `guard` adjacent to each other, so we can limit the editor to them.
+
+
+.Details
+
+The editing grammar must fulfill the following criteria:
+
+* based on identical metamodel
+* has same root element
+* contains rules for all semantic elements also covered by the original grammar (either inherited or self-implemented)
+* must serialize correctly from a model without any previous textual representation
+
+We might need to <<forceWhitespaceSerializer, fix serialization issues>> in this approach.
+
+
+
+[[forceWhitespaceSerializer]]
+=== Force Serialization of Whitespaces
+
+If we experience serialization issues, namely keywords get merged resulting in invalid syntax, we can use a workaround provided by `com.altran.general.integration.xtextsirius.runtime` plug-in.
+
+Typical symptoms of this issue include invalid auto-completion suggestions in the editor and exceptions on committing the changed elements.
+
+To fix this, register the following classes to the editing language:
+
+[source, java]
+----
+public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl.AbstractInlineEditRuntimeModule {
+
+	public Class<? extends IHiddenTokenSequencer> bindIHiddenTokenSequencer() {
+		return com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer.class;
+	}
+
+	public Class<? extends TextRegionAccessBuilder> bindTextRegionAccessBuilder() {
+		return com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder.class;
+	}
+	
+}
+----
+
+
+[[forceIgnoredFeaturesTransient]]
+=== Force Ignored Nested Features to be Transient
+
+Especially if we <<ignoredNestedFeatures, ignored nested features>>, we might need to adjust the serializer to be able to provide a suitable <<specialEditGrammar, adjusted grammar>>.
+
+.Example
+
+Assume the following Xtext grammar snippet defining an UML-like Association, to be displayed as edge:
+
+[source, antlr]
+----
+Association:
+	name=ID
+	target=TypeRef
+;
+
+// also used at lots of other places
+TypeRef:
+	lowerBound=INT '..' upperBound=INT type=[Type]
+;
+----
+
+Note that `TypeRef.type` is mandatory.
+
+Example model:
+----
+	wheels 1..4 RubberWheel
+----
+
+We want to ignore `target.type` for `Association` (as <<ignoredNestedFeatures, described>>) and use the following adjusted grammar:
+
+[source, antlr]
+----
+Association:
+	name=ID
+	target=AssociationTypeRef
+;
+
+AssociationTypeRef returns TypeRef:
+	lowerBound=INT '..' upperBound=INT
+;
+
+// also used at lots of other places
+TypeRef:
+	lowerBound=INT '..' upperBound=INT type=[Type]
+;
+----
+
+This won't work, because the Xtext serializer refuses to serialize a model if it cannot find a grammar rule for a mandatory feature.
+
+We solve this by registering a special `org.eclipse.xtext.serializer.sequencer.TransientValueService` to our adjusted grammar:
+
+[source, java]
+----
+public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl.AbstractInlineEditRuntimeModule {
+	public Class<? extends ITransientValueService> bindSerializerTransientValueService() {
+		return com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureTransientValueService.class;
+	}
+}
+----
+
+
+
+[[constrainGlobalScope]]
+=== Constrain the Global Scope to all Ecore Resources from the Sirius Session
+
+Sirius has its own link:https://www.eclipse.org/sirius/doc/developer/Architecture.html#session[session management], including the contained Ecore resources.
+We might want to limit the Xtext editor's global scope to these resources.
+
+A special `org.eclipse.xtext.scoping.IGlobalScopeProvider` achieves this:
+
+[source, java]
+----
+public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl.AbstractInlineEditRuntimeModule {
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return com.altran.general.integration.xtextsirius.runtime.resource.XtextSiriusResourceSetGlobalScopeProvider.class;
+	}
+}
+----
+
+CAUTION: This copies the contents of all Ecore resources from a Sirius session when showing an Xtext/Sirius editor.
+Depending on the number and size of the resources, the processing and memory performance might be significant.
+
+
+
+

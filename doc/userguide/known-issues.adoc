@@ -1,0 +1,20 @@
+== Known Issues
+
+* `com.google.inject.CreationException` with message
++
+----
+A just-in-time binding to org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory$Builder was already configured on a parent injector.
+at
+  com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextEditorSwtStyleOverridingModule.configure(XtextEditorSwtStyleOverridingModule.java:34)
+----
++
+We have to specialize the language injector in order to get rid of the scrollbars in Xtext editors.
+This works only if the language itself did not customize the injector in this part.
+Xbase is the prime example of languages including such a customization.
+If you can accept always-visible scrollbars as a compromise, override `com.altran.general.integration.xtextsirius.runtime.IXtextLanguageInjector.useSpecializedInjectorForProperties()` in your language injector and return `false`. +
+This could be fixed in a future version of Xtext/Sirius Integration, if we based on Xtext 2.13.
+
+* Determining the correct subsection for <<model, model content>> is not always possible.
+This leads to undesired content in the edit field for model content.
+We cannot avoid this completely as the subsection is determined by heuristics, which may fail by definition.
+We'd like to provide a hook so users can adjust this on their own, but this would expose the Xtext node API to the user, which is quite complex to use and not the right level of abstraction.
