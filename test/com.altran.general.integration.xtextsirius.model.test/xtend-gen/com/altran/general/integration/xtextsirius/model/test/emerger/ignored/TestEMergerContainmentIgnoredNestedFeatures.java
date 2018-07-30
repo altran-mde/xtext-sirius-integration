@@ -3,7 +3,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.ignored;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerContainment;
-import com.altran.general.integration.xtextsirius.util.EMerger;
+import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;

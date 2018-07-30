@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.serializer;
+package com.altran.general.integration.xtextsirius.runtime.serializer;
 
 import java.util.List;
 

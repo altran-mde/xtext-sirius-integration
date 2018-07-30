@@ -3,7 +3,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.editablefe
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
 import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerEAttribute;
 import com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures.EditableFeaturesExtension;
-import com.altran.general.integration.xtextsirius.util.EMerger;
+import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import java.util.Collections;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;

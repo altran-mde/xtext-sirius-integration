@@ -1,6 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
 
-import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer
+import com.altran.general.integration.xtextsirius.runtime.util.ModelRegionEditorPreparer
 import org.eclipse.xtext.util.TextRegion
 import org.junit.Test
 

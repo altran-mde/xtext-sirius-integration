@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.internal;
 
+import com.altran.general.integration.xtextsirius.runtime.util.SemanticElementLocation;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
-import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Guard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;

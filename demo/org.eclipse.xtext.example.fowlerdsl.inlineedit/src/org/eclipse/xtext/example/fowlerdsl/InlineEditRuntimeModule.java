@@ -6,8 +6,8 @@ package org.eclipse.xtext.example.fowlerdsl;
 import org.eclipse.xtext.formatting2.regionaccess.TextRegionAccessBuilder;
 import org.eclipse.xtext.serializer.sequencer.IHiddenTokenSequencer;
 
-import com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer;
-import com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder;
+import com.altran.general.integration.xtextsirius.runtime.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer;
+import com.altran.general.integration.xtextsirius.runtime.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder;
 
 /**
  * Use this class to register components to be used at runtime / without the

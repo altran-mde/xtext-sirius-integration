@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.util;
+package com.altran.general.integration.xtextsirius.runtime.util;
 
 import java.util.List;
 import java.util.stream.Stream;

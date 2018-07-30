@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.semanticregionnavigator
 
+import com.altran.general.integration.xtextsirius.runtime.util.SemanticRegionNavigator
 import com.altran.general.integration.xtextsirius.test.util.ARegion
-import com.altran.general.integration.xtextsirius.util.SemanticRegionNavigator
 import java.util.Collections
 import java.util.NoSuchElementException
 import java.util.Random

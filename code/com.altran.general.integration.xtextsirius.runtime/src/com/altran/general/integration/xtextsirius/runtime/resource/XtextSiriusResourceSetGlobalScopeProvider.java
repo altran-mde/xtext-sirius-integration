@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.resource;
+package com.altran.general.integration.xtextsirius.runtime.resource;
 
 import java.util.Objects;
 

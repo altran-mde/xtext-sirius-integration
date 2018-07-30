@@ -1,9 +1,9 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
+import com.altran.general.integration.xtextsirius.runtime.util.SemanticElementLocation;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
 import com.google.inject.Injector;
 import java.lang.reflect.Field;
 import java.util.Set;

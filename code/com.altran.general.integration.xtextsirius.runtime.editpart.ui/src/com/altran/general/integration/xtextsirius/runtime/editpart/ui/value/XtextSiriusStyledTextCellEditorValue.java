@@ -9,8 +9,8 @@ import org.eclipse.jdt.annotation.Nullable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusValueDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueDescriptor;
-import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
-import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
+import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
+import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
 
 public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor
 		implements IXtextSiriusValueDescribable {

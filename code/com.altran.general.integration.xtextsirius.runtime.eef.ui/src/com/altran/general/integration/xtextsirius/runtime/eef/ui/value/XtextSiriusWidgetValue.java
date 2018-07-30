@@ -6,7 +6,7 @@ import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.widgets.Composite;
 
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusWidget;
-import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
+import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
 import com.google.inject.Injector;
 
 public class XtextSiriusWidgetValue extends AXtextSiriusWidget {

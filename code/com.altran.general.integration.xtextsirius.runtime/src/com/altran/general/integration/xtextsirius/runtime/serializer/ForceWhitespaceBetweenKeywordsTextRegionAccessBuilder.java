@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.serializer;
+package com.altran.general.integration.xtextsirius.runtime.serializer;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;

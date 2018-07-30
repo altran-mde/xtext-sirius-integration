@@ -11,7 +11,7 @@ import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResou
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
-import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx
 		implements IXtextSiriusDescribable {

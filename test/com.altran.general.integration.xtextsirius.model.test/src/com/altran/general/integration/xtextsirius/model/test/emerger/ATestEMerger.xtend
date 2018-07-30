@@ -3,7 +3,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestFactory
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage
-import com.altran.general.integration.xtextsirius.util.EMerger
+import com.altran.general.integration.xtextsirius.runtime.util.EMerger
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EStructuralFeature
 

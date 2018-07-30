@@ -3,7 +3,7 @@ package com.altran.general.integration.xtextsirius.test.util.parentmap;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.xtext.AbstractElement;
 
-import com.altran.general.integration.xtextsirius.util.ParentMap;
+import com.altran.general.integration.xtextsirius.runtime.util.ParentMap;
 import com.google.common.collect.Multimap;
 
 public class AccessibleParentMap extends ParentMap {

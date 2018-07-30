@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.styledtextutil;
 
+import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
-import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
 import org.eclipse.xtext.util.TextRegion;
 import org.junit.Assert;
 import org.junit.Test;

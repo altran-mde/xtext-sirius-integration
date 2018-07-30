@@ -3,7 +3,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.editablefe
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerger;
-import com.altran.general.integration.xtextsirius.util.EMerger;
+import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.google.common.base.Objects;
 import java.util.Collections;
 import java.util.List;

@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusController;
-import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
+import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycleManager {

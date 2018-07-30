@@ -7,7 +7,7 @@ import org.eclipse.sirius.business.api.helper.task.AbstractCommandTask;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.FeatureNotFoundException;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
 
-import com.altran.general.integration.xtextsirius.util.EMerger;
+import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 
 public class ReplaceValueTask extends AbstractCommandTask {
 	private final @NonNull ReplaceValueParameter parameter;

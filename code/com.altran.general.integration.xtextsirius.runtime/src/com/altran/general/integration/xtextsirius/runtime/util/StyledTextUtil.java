@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.util;
+package com.altran.general.integration.xtextsirius.runtime.util;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.jdt.annotation.NonNull;
