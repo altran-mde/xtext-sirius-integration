@@ -23,4 +23,5 @@ Export-Package: com.altran.general.integration.xtextsirius.runtime,
  com.altran.general.integration.xtextsirius.runtime.resource,
  com.altran.general.integration.xtextsirius.runtime.serializer,
  com.altran.general.integration.xtextsirius.runtime.task,
- com.altran.general.integration.xtextsirius.runtime.util
+ com.altran.general.integration.xtextsirius.runtime.util,
+ com.altran.general.integration.xtextsirius.runtime.ignoredfeature

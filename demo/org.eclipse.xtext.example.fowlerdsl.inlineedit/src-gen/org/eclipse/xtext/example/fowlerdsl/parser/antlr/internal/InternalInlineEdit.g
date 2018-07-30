@@ -170,6 +170,67 @@ ruleTransition returns [EObject current=null]
 
 
 
+// Entry rule entryRuleRangeGuard
+entryRuleRangeGuard returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getRangeGuardRule()); }
+	 iv_ruleRangeGuard=ruleRangeGuard 
+	 { $current=$iv_ruleRangeGuard.current; } 
+	 EOF 
+;
+
+// Rule RangeGuard
+ruleRangeGuard returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRangeGuardAccess().getMinValueParserRuleCall_0_0()); 
+	    }
+		lv_min_0_0=ruleValue		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRangeGuardRule());
+	        }
+       		set(
+       			$current, 
+       			"min",
+        		lv_min_0_0, 
+        		"org.eclipse.xtext.example.fowlerdsl.Statemachine.Value");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_1='..' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getRangeGuardAccess().getFullStopFullStopKeyword_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRangeGuardAccess().getMaxValueParserRuleCall_2_0()); 
+	    }
+		lv_max_2_0=ruleValue		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRangeGuardRule());
+	        }
+       		set(
+       			$current, 
+       			"max",
+        		lv_max_2_0, 
+        		"org.eclipse.xtext.example.fowlerdsl.Statemachine.Value");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
 // Entry rule entryRuleStatemachine
 entryRuleStatemachine returns [EObject current=null] 
 	:
@@ -470,67 +531,6 @@ ruleValueGuard returns [EObject current=null]
 
 )
 )
-;
-
-
-
-
-
-// Entry rule entryRuleRangeGuard
-entryRuleRangeGuard returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getRangeGuardRule()); }
-	 iv_ruleRangeGuard=ruleRangeGuard 
-	 { $current=$iv_ruleRangeGuard.current; } 
-	 EOF 
-;
-
-// Rule RangeGuard
-ruleRangeGuard returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-(
-		{ 
-	        newCompositeNode(grammarAccess.getRangeGuardAccess().getMinValueParserRuleCall_0_0()); 
-	    }
-		lv_min_0_0=ruleValue		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRangeGuardRule());
-	        }
-       		set(
-       			$current, 
-       			"min",
-        		lv_min_0_0, 
-        		"org.eclipse.xtext.example.fowlerdsl.Statemachine.Value");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)	otherlv_1='..' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getRangeGuardAccess().getFullStopFullStopKeyword_1());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getRangeGuardAccess().getMaxValueParserRuleCall_2_0()); 
-	    }
-		lv_max_2_0=ruleValue		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRangeGuardRule());
-	        }
-       		set(
-       			$current, 
-       			"max",
-        		lv_max_2_0, 
-        		"org.eclipse.xtext.example.fowlerdsl.Statemachine.Value");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))
 ;
 
 

@@ -18,14 +18,17 @@ import com.google.inject.Injector;
 class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 	public AccessibleModelRegionEditorPreparer(final EObject semanticElement, final EObject parentSemanticElement,
 			final Injector injector, final boolean multiLine, final Set<String> editableFeatures,
+			final @NonNull Set<@NonNull String> ignoredNestedFeatures,
 			final EStructuralFeature semanticElementFeature) {
-		super(semanticElement, parentSemanticElement, injector, multiLine, editableFeatures, Collections.emptySet(),
+		super(semanticElement, parentSemanticElement, injector, multiLine, editableFeatures, ignoredNestedFeatures,
+				Collections.emptySet(),
 				semanticElementFeature);
 	}
 
 	public AccessibleModelRegionEditorPreparer(final EObject semanticElement, final Injector injector,
-			final boolean multiLine, final Set<String> editableFeatures) {
-		super(semanticElement, injector, multiLine, editableFeatures, Collections.emptySet());
+			final boolean multiLine, final Set<String> editableFeatures,
+			final @NonNull Set<@NonNull String> ignoredNestedFeatures) {
+		super(semanticElement, injector, multiLine, editableFeatures, ignoredNestedFeatures, Collections.emptySet());
 	}
 
 	@Override

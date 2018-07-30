@@ -29,7 +29,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet);
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet, _emptySet_1);
     preparer.setDefinedFeatures(CollectionLiterals.<EStructuralFeature>emptySet());
     preparer.calculateRegionForFeatures(event);
   }
@@ -40,7 +41,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet);
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet, _emptySet_1);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -59,7 +61,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(2);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet);
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet, _emptySet_1);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -78,7 +81,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(2);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet);
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet, _emptySet_1);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -100,7 +104,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
     final Command cmd = model.getCommands().get(1);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(cmd, _injector, false, _emptySet);
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(cmd, _injector, false, _emptySet, _emptySet_1);
     final ITextRegionAccess rootRegion = this.getRootRegion(cmd);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion cmdRegion = rootRegion.regionForEObject(cmd);

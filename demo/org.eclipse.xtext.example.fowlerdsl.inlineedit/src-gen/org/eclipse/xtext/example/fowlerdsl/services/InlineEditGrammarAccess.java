@@ -92,10 +92,43 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getStateStateIDTerminalRuleCall_3_0_1() { return cStateStateIDTerminalRuleCall_3_0_1; }
 	}
+
+	public class RangeGuardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.xtext.example.fowlerdsl.InlineEdit.RangeGuard");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cMinAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cMinValueParserRuleCall_0_0 = (RuleCall)cMinAssignment_0.eContents().get(0);
+		private final Keyword cFullStopFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cMaxAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMaxValueParserRuleCall_2_0 = (RuleCall)cMaxAssignment_2.eContents().get(0);
+		
+		//RangeGuard:
+		//	min=Value? '..' max=Value;
+		@Override public ParserRule getRule() { return rule; }
+
+		//min=Value? '..' max=Value
+		public Group getGroup() { return cGroup; }
+
+		//min=Value?
+		public Assignment getMinAssignment_0() { return cMinAssignment_0; }
+
+		//Value
+		public RuleCall getMinValueParserRuleCall_0_0() { return cMinValueParserRuleCall_0_0; }
+
+		//'..'
+		public Keyword getFullStopFullStopKeyword_1() { return cFullStopFullStopKeyword_1; }
+
+		//max=Value
+		public Assignment getMaxAssignment_2() { return cMaxAssignment_2; }
+
+		//Value
+		public RuleCall getMaxValueParserRuleCall_2_0() { return cMaxValueParserRuleCall_2_0; }
+	}
 	
 	
 	private final InlineStatemachineElements pInlineStatemachine;
 	private final TransitionElements pTransition;
+	private final RangeGuardElements pRangeGuard;
 	
 	private final Grammar grammar;
 
@@ -112,6 +145,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pInlineStatemachine = new InlineStatemachineElements();
 		this.pTransition = new TransitionElements();
+		this.pRangeGuard = new RangeGuardElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -167,6 +201,16 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransitionAccess().getRule();
 	}
 
+	//RangeGuard:
+	//	min=Value? '..' max=Value;
+	public RangeGuardElements getRangeGuardAccess() {
+		return pRangeGuard;
+	}
+	
+	public ParserRule getRangeGuardRule() {
+		return getRangeGuardAccess().getRule();
+	}
+
 	//Statemachine:
 	//	{Statemachine} ('events' events+=Event+ 'end')? ('resetEvents' resetEvents+=[Event]+ 'end')? ('commands'
 	//	commands+=Command+ 'end')? ('constants' constants+=Constant+ 'end')? states+=State*;
@@ -189,7 +233,7 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Guard:
-	//	ValueGuard | RangeGuard;
+	//	ValueGuard | super::RangeGuard;
 	public StatemachineGrammarAccess.GuardElements getGuardAccess() {
 		return gaStatemachine.getGuardAccess();
 	}
@@ -206,16 +250,6 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getValueGuardRule() {
 		return getValueGuardAccess().getRule();
-	}
-
-	//RangeGuard:
-	//	min=Value '..' max=Value;
-	public StatemachineGrammarAccess.RangeGuardElements getRangeGuardAccess() {
-		return gaStatemachine.getRangeGuardAccess();
-	}
-	
-	public ParserRule getRangeGuardRule() {
-		return getRangeGuardAccess().getRule();
 	}
 
 	//Value:

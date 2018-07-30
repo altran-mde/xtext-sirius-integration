@@ -20,8 +20,9 @@ public class TestPrepare extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
     EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, event, _injector, true, _emptySet, _event_Guard);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, event, _injector, true, _emptySet, _emptySet_1, _event_Guard);
     Assert.assertFalse(preparer.isPrepared());
     preparer.prepare();
     Assert.assertTrue(preparer.isPrepared());

@@ -12,9 +12,9 @@ import com.altran.general.integration.xtextsirius.test.util.ARegion;
 public abstract class AModelRegionEditorPreparer extends ARegion {
 	protected AccessibleModelRegionEditorPreparer getFakePreparer() {
 		return new AccessibleModelRegionEditorPreparer(AFowlerdslDefaultModelTest.statemachineFactory.createEvent(),
-				getInjector(), false, Collections.emptySet());
+				getInjector(), false, Collections.emptySet(), Collections.emptySet());
 	}
-	
+
 	protected String resolveRegion(final ITextRegionAccess rootRegion, final TextRegion region) {
 		return rootRegion.regionForDocument().getText().substring(region.getOffset(),
 				region.getOffset() + region.getLength());

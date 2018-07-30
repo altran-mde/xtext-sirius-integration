@@ -25,7 +25,8 @@ import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycleManager {
 	private final Set<@NonNull String> editableFeatures;
-	
+	private final Set<@NonNull String> ignoredNestedFeatuers;
+
 	public XtextSiriusEefLifecycleManagerModel(
 			final @NonNull Injector injector,
 			final boolean shouldUseSpecializedInjector,
@@ -38,69 +39,76 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 				.filter(StringUtils::isNotBlank)
 				.map(e -> StringUtils.substringAfterLast(e, "."))
 				.collect(Collectors.toSet());
+		this.ignoredNestedFeatuers = controlDescription.getIgnoredNestedFeatures().stream()
+				.filter(StringUtils::isNotBlank)
+				.collect(Collectors.toSet());
 	}
-	
+
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		this.widget = new XtextSiriusWidgetModel(parent, getInjector(), isMultiLine());
 		applyGridData(getWidget().getControl());
-		
+
 		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
 				this.contextAdapter);
 	}
-	
+
 	@Override
 	public void dispose() {
 		super.dispose();
 	}
-	
+
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
-		
+
 		this.newValueConsumer = (newValue) -> {
 			ModelRegionEditorPreparer preparer = null;
 			URI resourceUri = null;
-			
+
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
 				preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(), isMultiLine(),
-						getEditableFeatures(), Collections.emptySet());
-				
+						getEditableFeatures(), getIgnoredNestedFeatures(), Collections.emptySet());
+
 				resourceUri = semanticElement.eResource().getURI();
-				
+
 			} else if (newValue == null) {
 				final EObject self = getSelf();
 				if (self != null) {
 					final EStructuralFeature feature = getEditFeature(self);
 					if (feature != null) {
 						preparer = new ModelRegionEditorPreparer(null, self, getInjector(), isMultiLine(),
-								getEditableFeatures(), Collections.emptySet(),
+								getEditableFeatures(), getIgnoredNestedFeatures(), Collections.emptySet(),
 								feature);
-						
+
 						resourceUri = self.eResource().getURI();
 					}
 				}
 			}
-			
+
 			if (preparer != null && resourceUri != null) {
 				getWidget().updateUri(resourceUri);
 				getWidget().update(preparer.getText(), preparer.getSemanticElementLocation(), preparer.getTextRegion());
 			}
-			
+
 		};
 		this.controller.onNewValue(this.newValueConsumer);
-		
+
 	}
-	
+
 	private @NonNull Set<@NonNull String> getEditableFeatures() {
 		return this.editableFeatures;
 	}
-	
+
+	private @NonNull Set<@NonNull String> getIgnoredNestedFeatures() {
+		return this.ignoredNestedFeatuers;
+	}
+
 	@SuppressWarnings("restriction")
 	protected EStructuralFeature getEditFeature(final @NonNull EObject self) {
 		final String PREFIX = org.eclipse.sirius.common.tools.internal.interpreter.FeatureInterpreter.PREFIX;
-		
+
 		// we're using valueExpression (instead of EditExpression) as there is
 		// no field to explicitly set the editExpression in odesign model.
 		final String valueExpression = getWidgetDescription().getValueExpression();
@@ -109,11 +117,11 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			final EStructuralFeature feature = self.eClass().getEStructuralFeature(featureName);
 			return feature;
 		}
-		
+
 		return null;
 	}
-	
-	
+
+
 	@Override
 	public void aboutToBeHidden() {
 		if (getWidget().isDirty()) {
@@ -121,12 +129,12 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			if (semanticElement != null) {
 				semanticElement = FakeResourceUtil.getInstance().proxify(semanticElement, EcoreUtil.getURI(getSelf()));
 			}
-			
+
 			commit(semanticElement);
 		}
 		super.aboutToBeHidden();
 	}
-	
+
 	@Override
 	public XtextSiriusWidgetModel getWidget() {
 		return (XtextSiriusWidgetModel) super.getWidget();

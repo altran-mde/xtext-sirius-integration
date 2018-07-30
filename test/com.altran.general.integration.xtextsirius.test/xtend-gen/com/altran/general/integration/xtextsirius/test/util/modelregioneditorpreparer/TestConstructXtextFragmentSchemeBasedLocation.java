@@ -28,8 +28,9 @@ public class TestConstructXtextFragmentSchemeBasedLocation extends AModelRegionE
     final URI orgUri = EcoreUtil.getURI(guard);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
     EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, event, _injector, true, _emptySet, _event_Guard);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, event, _injector, true, _emptySet, _emptySet_1, _event_Guard);
     final SemanticElementLocation location = preparer.constructXtextFragmentSchemeBasedLocation();
     Assert.assertEquals(orgUri.fragment(), this.extractUriFragment(location));
   }
@@ -41,8 +42,9 @@ public class TestConstructXtextFragmentSchemeBasedLocation extends AModelRegionE
     final URI orgUri = EcoreUtil.getURI(event);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
     EReference _statemachine_Events = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getStatemachine_Events();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, model, _injector, true, _emptySet, _statemachine_Events);
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(null, model, _injector, true, _emptySet, _emptySet_1, _statemachine_Events);
     final SemanticElementLocation location = preparer.constructXtextFragmentSchemeBasedLocation();
     Assert.assertEquals(orgUri.fragment(), this.extractUriFragment(location));
   }

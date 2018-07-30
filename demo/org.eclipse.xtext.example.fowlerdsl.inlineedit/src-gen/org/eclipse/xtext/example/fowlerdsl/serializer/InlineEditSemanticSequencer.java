@@ -79,6 +79,19 @@ public class InlineEditSemanticSequencer extends StatemachineSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     RangeGuard returns RangeGuard
+	 *     Guard returns RangeGuard
+	 *
+	 * Constraint:
+	 *     (min=Value? max=Value)
+	 */
+	protected void sequence_RangeGuard(ISerializationContext context, RangeGuard semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Transition returns Transition
 	 *
 	 * Constraint:

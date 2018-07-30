@@ -20,7 +20,8 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
     Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet);
+    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, _emptySet, _emptySet_1);
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
     Assert.assertEquals(0, resolved.size());
   }
@@ -30,7 +31,8 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")), _emptySet);
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
     Assert.assertEquals(resolved.toString(), 1, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
@@ -41,7 +43,8 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")));
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")), _emptySet);
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
     Assert.assertEquals(resolved.toString(), 2, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
@@ -53,7 +56,8 @@ public class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(1);
     Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")));
+    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(event, _injector, false, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")), _emptySet);
     final Set<EStructuralFeature> resolved = preparer.resolveDefinedFeatures(event);
     Assert.assertEquals(resolved.toString(), 3, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));

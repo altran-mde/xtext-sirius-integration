@@ -11,7 +11,7 @@ class TestPrepare extends AModelRegionEditorPreparer {
 		
 		val event = model.events.get(0)
 		
-		val preparer = new AccessibleModelRegionEditorPreparer(null, event, injector, true, emptySet, statemachinePackage.event_Guard)
+		val preparer = new AccessibleModelRegionEditorPreparer(null, event, injector, true, emptySet, emptySet, statemachinePackage.event_Guard)
 		
 		assertFalse(preparer.prepared)
 		
