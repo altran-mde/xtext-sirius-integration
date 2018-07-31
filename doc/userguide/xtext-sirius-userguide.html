@@ -2153,7 +2153,7 @@ Yakindu Statecharts Xtext Support
 <div class="ulist">
 <ul>
 <li>
-<p><code>com.google.inject.CreationException</code> with message</p>
+<p><a href="https://gitlab.manatree.io/MDEAssets/XtextSiriusIntegration/issues/13">#13</a> <code>com.google.inject.CreationException</code> with message</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">A just-in-time binding to org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory$Builder was already configured on a parent injector.
@@ -2170,10 +2170,22 @@ This could be fixed in a future version of Xtext/Sirius Integration, if we based
 </div>
 </li>
 <li>
-<p>Determining the correct subsection for <a href="#model">model content</a> is not always possible.
+<p><a href="https://gitlab.manatree.io/MDEAssets/XtextSiriusIntegration/issues/12">#12</a> Determining the correct subsection for <a href="#model">model content</a> is not always possible.
 This leads to undesired content in the edit field for model content.
 We cannot avoid this completely as the subsection is determined by heuristics, which may fail by definition.
 We&#8217;d like to provide a hook so users can adjust this on their own, but this would expose the Xtext node API to the user, which is quite complex to use and not the right level of abstraction.</p>
+</li>
+<li>
+<p><a href="https://gitlab.manatree.io/MDEAssets/XtextSiriusIntegration/issues/14">#14</a> DirectEdit using the <kbd>F2</kbd> key only works once at a time.
+After the editor closes, the focus is lost, and we have to re-select the shape with the mouse prior to pressing <kbd>F2</kbd> again.</p>
+</li>
+<li>
+<p><a href="https://gitlab.manatree.io/MDEAssets/XtextSiriusIntegration/issues/15">#15</a> Sometimes dragging a shape with Xtext/Sirius direct editor leads to translucent rectangles.</p>
+</li>
+<li>
+<p><a href="https://gitlab.manatree.io/MDEAssets/XtextSiriusIntegration/issues/16">#16</a> The editor width is determined by the width of the edited shape&#8217;s label.
+Currently, there is no way to influence the editor width directly.
+As a workaround, we may append several spaces at the end of the label.</p>
 </li>
 </ul>
 </div>
