@@ -9,6 +9,10 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.jface.viewers.ICellEditorValidator;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
+import org.eclipse.sirius.diagram.tools.internal.command.builders.DirectEditCommandBuilder;
+import org.eclipse.sirius.viewpoint.DMappingBased;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
@@ -64,8 +68,13 @@ public class EditPartHelper {
 	/**
 	 * Copied from
 	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
+	 * and adjusted to Sirius
 	 */
 	public void performDirectEditRequest(final IXtextSiriusAwareLabelEditPart editPart, final Request request) {
+		if (!isDirectEditEnabled(editPart)) {
+			return;
+		}
+
 		final XtextDirectEditManager manager = editPart.getDescriptor().createDirectEditManager(editPart);
 		final Request theRequest = request;
 		try {
@@ -90,6 +99,29 @@ public class EditPartHelper {
 		}
 	}
 	
+	/**
+	 * Copied from
+	 * {@link org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramNameEditPart#isDirectEditEnabled()}
+	 */
+	protected boolean isDirectEditEnabled(final IXtextSiriusAwareLabelEditPart editPart) {
+		boolean directEditEnabled = false;
+		final EObject eObj = editPart.resolveSemanticElement();
+		if (eObj instanceof DMappingBased) {
+			final DMappingBased mappingBasedObject = (DMappingBased) eObj;
+			if (mappingBasedObject.getMapping() != null && mappingBasedObject instanceof DDiagramElement
+					&& ((DDiagramElement) mappingBasedObject).getDiagramElementMapping().getLabelDirectEdit() != null) {
+				// check precondition
+				final DirectEditLabel labelDirectEdit = ((DDiagramElement) mappingBasedObject)
+						.getDiagramElementMapping().getLabelDirectEdit();
+				final DirectEditCommandBuilder builder = new DirectEditCommandBuilder(
+						(DDiagramElement) mappingBasedObject, labelDirectEdit, null);
+				directEditEnabled = builder.canDirectEdit();
+			}
+		}
+		return directEditEnabled;
+	}
+
+
 	/**
 	 * Copied from
 	 * {@link org.yakindu.base.xtext.utils.gmf.directedit.XtextLabelEditPart}
