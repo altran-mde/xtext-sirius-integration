@@ -28,16 +28,15 @@
       ecorePackage="xtextsirius.ecore#/">
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextDescription/injectorId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextDescription/prefixTextExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextDescription/suffixTextExpression"/>
       <genOperations ecoreOperation="xtextsirius.ecore#//IXtextDescription/isMultiLine"/>
     </genClasses>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextModelDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextModelDescription/editableFeatures"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextModelDescription/ignoredNestedFeatures"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextValueDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextValueDescription/prefixTextExpression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextValueDescription/suffixTextExpression"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextValueDescription"/>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextPropertyDescription"/>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextDirectEditDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextDirectEditDescription/multiLine"/>

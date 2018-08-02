@@ -33,9 +33,16 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 			return;
 		}
 		
-		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(),
-				isMultiLine(), getDescriptor().getEditableFeatures(), getDescriptor().getIgnoredNestedFeatures(),
-				getDescriptor().getSelectedFeatures());
+		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(getInjector(), semanticElement);
+		preparer.setMultiLine(isMultiLine());
+		preparer.setEditableFeatures(getDescriptor().getEditableFeatures());
+		preparer.setIgnoredNestedFeatures(getDescriptor().getIgnoredNestedFeatures());
+		preparer.setSelectedFeatures(getDescriptor().getSelectedFeatures());
+		
+		final String prefixText = interpret(getDescriptor().getPrefixTextExpression());
+		preparer.setPrefixText(prefixText);
+		final String suffixText = interpret(getDescriptor().getSuffixTextExpression());
+		preparer.setSuffixText(suffixText);
 		
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();

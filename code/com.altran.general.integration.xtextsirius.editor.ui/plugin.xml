@@ -18,7 +18,7 @@
 				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.prefixtext.XtextValueDescriptionPrefixTextFilter"
 				id="properties.section.xtextValueDescription.prefixText"
 				tab="viewpoint.tab.general">
-					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription"/>
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription"/>
 			</propertySection>
 			
 			<propertySection
@@ -27,7 +27,7 @@
 				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.suffixtext.XtextValueDescriptionSuffixTextFilter"
 				id="properties.section.xtextValueDescription.suffixText"
 				tab="viewpoint.tab.general">
-					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription"/>
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription"/>
 			</propertySection>
 			
 			<propertySection

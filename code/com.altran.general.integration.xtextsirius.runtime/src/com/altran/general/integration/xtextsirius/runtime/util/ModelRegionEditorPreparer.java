@@ -9,6 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -279,11 +280,15 @@ public class ModelRegionEditorPreparer {
 
 	private final @Nullable EObject semanticElement;
 	private final @NonNull EObject parentSemanticElement;
-	private final boolean multiLine;
-	private final @NonNull Set<@NonNull String> editableFeatures;
-	private final @NonNull Set<@NonNull String> ignoredNestedFeatures;
-	private final @NonNull Set<@NonNull String> selectedFeatures;
 	private final EStructuralFeature semanticElementFeature;
+
+	private boolean multiLine = false;
+	private @NonNull Set<@NonNull String> editableFeatures = Collections.emptySet();
+	private @NonNull Set<@NonNull String> ignoredNestedFeatures = Collections.emptySet();
+	private @NonNull Set<@NonNull String> selectedFeatures = Collections.emptySet();
+	private @Nullable String prefixText = null;
+	private @Nullable String suffixText = null;
+
 	protected final Set<@NonNull EStructuralFeature> definedEditableFeatures = Sets.newLinkedHashSet();
 	protected final Set<@NonNull EStructuralFeature> definedSelectedFeatures = Sets.newLinkedHashSet();
 
@@ -314,15 +319,9 @@ public class ModelRegionEditorPreparer {
 	 *            features are assumed to be editable.
 	 */
 	public ModelRegionEditorPreparer(
-			final @NonNull EObject semanticElement,
 			final @NonNull Injector injector,
-			final boolean multiLine,
-			final @NonNull Set<@NonNull String> editableFeatures,
-			final @NonNull Set<@NonNull String> ignoredNestedFeatures,
-			final @NonNull Set<@NonNull String> selectedFeatures) {
-		this(semanticElement, semanticElement.eContainer(), injector, multiLine, editableFeatures,
-				ignoredNestedFeatures, selectedFeatures,
-				semanticElement.eContainingFeature());
+			final @NonNull EObject semanticElement) {
+		this(injector, semanticElement, semanticElement.eContainer(), semanticElement.eContainingFeature());
 	}
 
 	/**
@@ -345,20 +344,12 @@ public class ModelRegionEditorPreparer {
 	 *            {@code parentSemanticElement}.
 	 */
 	public ModelRegionEditorPreparer(
+			final @NonNull Injector injector,
 			final @Nullable EObject semanticElement,
 			final @NonNull EObject parentSemanticElement,
-			final @NonNull Injector injector,
-			final boolean multiLine,
-			final @NonNull Set<@NonNull String> editableFeatures,
-			final @NonNull Set<@NonNull String> ignoredNestedFeatures,
-			final @NonNull Set<@NonNull String> selectedFeatures,
 			final @NonNull EStructuralFeature semanticElementFeature) {
 		this.semanticElement = semanticElement;
 		this.parentSemanticElement = parentSemanticElement;
-		this.multiLine = multiLine;
-		this.editableFeatures = editableFeatures;
-		this.ignoredNestedFeatures = ignoredNestedFeatures;
-		this.selectedFeatures = selectedFeatures;
 		this.semanticElementFeature = semanticElementFeature;
 
 		injector.injectMembers(this);
@@ -411,6 +402,30 @@ public class ModelRegionEditorPreparer {
 		prepare();
 		return this.allText.substring(this.textRegion.getOffset(),
 				this.textRegion.getOffset() + this.textRegion.getLength());
+	}
+	
+	public void setMultiLine(final boolean multiLine) {
+		this.multiLine = multiLine;
+	}
+	
+	public void setEditableFeatures(final Set<String> editableFeatures) {
+		this.editableFeatures = editableFeatures;
+	}
+	
+	public void setIgnoredNestedFeatures(final Set<String> ignoredNestedFeatures) {
+		this.ignoredNestedFeatures = ignoredNestedFeatures;
+	}
+	
+	public void setSelectedFeatures(final Set<String> selectedFeatures) {
+		this.selectedFeatures = selectedFeatures;
+	}
+	
+	public void setPrefixText(final String prefixText) {
+		this.prefixText = prefixText;
+	}
+	
+	public void setSuffixText(final String suffixText) {
+		this.suffixText = suffixText;
 	}
 
 	protected void prepare() {
@@ -569,13 +584,24 @@ public class ModelRegionEditorPreparer {
 
 		ISemanticRegion firstRegion = SemanticRegionNavigator.getInstance().selectFirstmostRegion(featureRegions);
 		if (addRequiredTerminals) {
-			firstRegion = extendByAttachedTerminals(semanticElement, firstRegion, (r -> r.getPreviousSemanticRegion()));
+			final String pattern = getPrefixText();
+			if (pattern == null) {
+				firstRegion = extendHeuristiclyByAttachedTerminals(firstRegion, (r -> r.getPreviousSemanticRegion()));
+			} else {
+				firstRegion = extendPatternBasedByAttachedTerminals(firstRegion, StringUtils.reverse(pattern),
+						(r -> r.getPreviousSemanticRegion()));
+			}
 		}
 		final int startOffset = firstRegion.getOffset();
 
 		ISemanticRegion endRegion = SemanticRegionNavigator.getInstance().selectLastmostRegion(featureRegions);
 		if (addRequiredTerminals) {
-			endRegion = extendByAttachedTerminals(semanticElement, endRegion, (r -> r.getNextSemanticRegion()));
+			final String pattern = getSuffixText();
+			if (pattern == null) {
+				endRegion = extendHeuristiclyByAttachedTerminals(endRegion, (r -> r.getNextSemanticRegion()));
+			} else {
+				endRegion = extendPatternBasedByAttachedTerminals(endRegion, pattern, (r -> r.getNextSemanticRegion()));
+			}
 		}
 		final int endOffset = endRegion.getEndOffset();
 
@@ -584,15 +610,17 @@ public class ModelRegionEditorPreparer {
 
 	/**
 	 * Returns the SemanticRegion of existing terminals that are attached to the
-	 * semantic contents of {@code endRegion}, if any; otherwise, returns
-	 * {@code endRegion}.
+	 * semantic contents of {@code region}, if any; otherwise, returns
+	 * {@code region}.
 	 */
-	protected ISemanticRegion extendByAttachedTerminals(final EObject semanticElement, ISemanticRegion endRegion,
-			final Function<ISemanticRegion, ISemanticRegion> extender) {
+	protected ISemanticRegion extendHeuristiclyByAttachedTerminals(final @NonNull ISemanticRegion region,
+			final @NonNull Function<ISemanticRegion, ISemanticRegion> extender) {
+		ISemanticRegion result = region;
+
 		// this logic is really only trial&error, don't try to find a deeper
 		// meaning
-
-		final ISemanticRegion nextSemanticRegion = extender.apply(endRegion);
+		
+		final ISemanticRegion nextSemanticRegion = extender.apply(region);
 		if (nextSemanticRegion != null && nextSemanticRegion.getGrammarElement() instanceof Keyword) {
 
 			ISemanticRegion ongoingSemanticRegion = nextSemanticRegion;
@@ -619,13 +647,41 @@ public class ModelRegionEditorPreparer {
 					if (!parentMap.containsGrammarElementDeep(
 							(AbstractElement) ongoingSemanticRegion.getGrammarElement(),
 							ImmutableList.of(group))) {
-						endRegion = nextSemanticRegion;
+						result = nextSemanticRegion;
 					}
 				}
 			}
 		}
-		return endRegion;
+		return result;
 	}
+
+	protected ISemanticRegion extendPatternBasedByAttachedTerminals(final @NonNull ISemanticRegion region,
+			final @NonNull String pattern,
+			final @NonNull Function<ISemanticRegion, ISemanticRegion> extender) {
+		ISemanticRegion result = region;
+		
+		final StringBuilder remainingPattern = new StringBuilder(pattern);
+		
+		ISemanticRegion nextSemanticRegion = extender.apply(region);
+		while (remainingPattern.length() > 0 && nextSemanticRegion != null
+				&& nextSemanticRegion.getGrammarElement() instanceof Keyword) {
+			
+			final String keyword = ((Keyword) nextSemanticRegion.getGrammarElement()).getValue();
+			final int keywordLength = keyword.length();
+			if ((remainingPattern.length() >= keywordLength
+					&& keyword.equals(remainingPattern.substring(0, keywordLength)))) {
+				result = nextSemanticRegion;
+				remainingPattern.delete(0, keywordLength);
+			} else {
+				break;
+			}
+			
+			nextSemanticRegion = extender.apply(result);
+		}
+		
+		return result;
+	}
+
 
 	/**
 	 * Collects all <i>editableFeatures</i> that are set for
@@ -725,10 +781,18 @@ public class ModelRegionEditorPreparer {
 		return this.selectedFeatures;
 	}
 	
-	protected EStructuralFeature getSemanticElementFeature() {
+	protected @NonNull EStructuralFeature getSemanticElementFeature() {
 		return this.semanticElementFeature;
 	}
+	
+	protected @Nullable String getPrefixText() {
+		return this.prefixText;
+	}
 
+	protected @Nullable String getSuffixText() {
+		return this.suffixText;
+	}
+	
 	protected Serializer getSerializer() {
 		return (Serializer) this.serializer;
 	}

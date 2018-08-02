@@ -28,6 +28,10 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getPrefixTextExpression
+ * <em>Prefix Text Expression</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getSuffixTextExpression
+ * <em>Suffix Text Expression</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl#getIgnoredNestedFeatures
@@ -57,6 +61,50 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getPrefixTextExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getPrefixTextExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getSuffixTextExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
+	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getSuffixTextExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String suffixTextExpression = SUFFIX_TEXT_EXPRESSION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
@@ -131,6 +179,58 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 	 * @generated
 	 */
 	@Override
+	public String getPrefixTextExpression() {
+		return this.prefixTextExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setPrefixTextExpression(final String newPrefixTextExpression) {
+		final String oldPrefixTextExpression = this.prefixTextExpression;
+		this.prefixTextExpression = newPrefixTextExpression;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
+					oldPrefixTextExpression, this.prefixTextExpression));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getSuffixTextExpression() {
+		return this.suffixTextExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setSuffixTextExpression(final String newSuffixTextExpression) {
+		final String oldSuffixTextExpression = this.suffixTextExpression;
+		this.suffixTextExpression = newSuffixTextExpression;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
+					oldSuffixTextExpression, this.suffixTextExpression));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EList<String> getEditableFeatures() {
 		if (this.editableFeatures == null) {
 			this.editableFeatures = new EDataTypeEList<>(String.class, this,
@@ -173,6 +273,10 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 		switch (featureID) {
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				return getInjectorId();
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+				return getPrefixTextExpression();
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+				return getSuffixTextExpression();
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return getEditableFeatures();
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
@@ -192,6 +296,12 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 		switch (featureID) {
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId((String) newValue);
+				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+				setPrefixTextExpression((String) newValue);
+				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+				setSuffixTextExpression((String) newValue);
 				return;
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
@@ -216,6 +326,12 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId(INJECTOR_ID_EDEFAULT);
 				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+				setPrefixTextExpression(PREFIX_TEXT_EXPRESSION_EDEFAULT);
+				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+				setSuffixTextExpression(SUFFIX_TEXT_EXPRESSION_EDEFAULT);
+				return;
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
 				return;
@@ -237,6 +353,12 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+				return PREFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.prefixTextExpression != null
+						: !PREFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.prefixTextExpression);
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+				return SUFFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.suffixTextExpression != null
+						: !SUFFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.suffixTextExpression);
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
@@ -256,6 +378,10 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 			switch (derivedFeatureID) {
 				case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
+				case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+				case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -296,6 +422,10 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 			switch (baseFeatureID) {
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
 					return PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+					return PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+					return PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -339,6 +469,10 @@ public class XtextMultiLineModelDescriptionImpl extends TextAreaDescriptionImpl
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
+		result.append(", prefixTextExpression: ");
+		result.append(this.prefixTextExpression);
+		result.append(", suffixTextExpression: ");
+		result.append(this.suffixTextExpression);
 		result.append(", editableFeatures: ");
 		result.append(this.editableFeatures);
 		result.append(", ignoredNestedFeatures: ");

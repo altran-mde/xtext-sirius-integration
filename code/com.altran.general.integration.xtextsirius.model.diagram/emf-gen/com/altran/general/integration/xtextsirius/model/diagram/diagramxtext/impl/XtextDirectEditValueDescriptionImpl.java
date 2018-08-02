@@ -23,12 +23,12 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
- * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#isMultiLine
- * <em>Multi Line</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getSuffixTextExpression
  * <em>Suffix Text Expression</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#isMultiLine
+ * <em>Multi Line</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,26 +54,6 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #isMultiLine()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MULTI_LINE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isMultiLine() <em>Multi Line</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #isMultiLine()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean multiLine = MULTI_LINE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
@@ -118,6 +98,26 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected String suffixTextExpression = SUFFIX_TEXT_EXPRESSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isMultiLine()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MULTI_LINE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isMultiLine() <em>Multi Line</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isMultiLine()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean multiLine = MULTI_LINE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -251,12 +251,12 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 		switch (featureID) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
 				return getInjectorId();
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
-				return isMultiLine();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				return getPrefixTextExpression();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
 				return getSuffixTextExpression();
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
+				return isMultiLine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,14 +272,14 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
 				setInjectorId((String) newValue);
 				return;
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
-				setMultiLine((Boolean) newValue);
-				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				setPrefixTextExpression((String) newValue);
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
 				setSuffixTextExpression((String) newValue);
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
+				setMultiLine((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -296,14 +296,14 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
 				setInjectorId(INJECTOR_ID_EDEFAULT);
 				return;
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
-				setMultiLine(MULTI_LINE_EDEFAULT);
-				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				setPrefixTextExpression(PREFIX_TEXT_EXPRESSION_EDEFAULT);
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
 				setSuffixTextExpression(SUFFIX_TEXT_EXPRESSION_EDEFAULT);
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
+				setMultiLine(MULTI_LINE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -320,14 +320,14 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
 				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
-				return this.multiLine != MULTI_LINE_EDEFAULT;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				return PREFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.prefixTextExpression != null
 						: !PREFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.prefixTextExpression);
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
 				return SUFFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.suffixTextExpression != null
 						: !SUFFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.suffixTextExpression);
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
+				return this.multiLine != MULTI_LINE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -343,6 +343,10 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 			switch (derivedFeatureID) {
 				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
+				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -357,10 +361,6 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		if (baseClass == IXtextValueDescription.class) {
 			switch (derivedFeatureID) {
-				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-					return XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-					return XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -385,6 +385,10 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 			switch (baseFeatureID) {
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -399,10 +403,6 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		if (baseClass == IXtextValueDescription.class) {
 			switch (baseFeatureID) {
-				case XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-				case XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -430,12 +430,12 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
-		result.append(", multiLine: ");
-		result.append(this.multiLine);
 		result.append(", prefixTextExpression: ");
 		result.append(this.prefixTextExpression);
 		result.append(", suffixTextExpression: ");
 		result.append(this.suffixTextExpression);
+		result.append(", multiLine: ");
+		result.append(this.multiLine);
 		result.append(')');
 		return result.toString();
 	}

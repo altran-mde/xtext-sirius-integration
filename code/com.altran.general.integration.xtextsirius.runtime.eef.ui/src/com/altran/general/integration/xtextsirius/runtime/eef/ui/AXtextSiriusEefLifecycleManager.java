@@ -20,12 +20,16 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Control;
 
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
+import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 
 public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetLifecycleManager {
 	private final boolean multiLine;
 	private final Injector injector;
+
+	private final @NonNull String prefixTextExpression;
+	private final @NonNull String suffixTextExpression;
 
 	protected final IEefXtextDescription controlDescription;
 	protected final EditingContextAdapter contextAdapter;
@@ -49,6 +53,8 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		this.contextAdapter = contextAdapter;
 		this.multiLine = controlDescription.isMultiLine();
 		this.injector = createSpecializedInjector(injector, shouldUseSpecializedInjector);
+		this.prefixTextExpression = controlDescription.getPrefixTextExpression();
+		this.suffixTextExpression = controlDescription.getSuffixTextExpression();
 	}
 
 	@Override
@@ -126,6 +132,15 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		return result;
 	}
 
+	protected @NonNull String interpret(final @NonNull String expression) {
+		final EObject self = getSelf();
+		if (self != null) {
+			return EvaluateHelper.getInstance().evaluateString(expression, self);
+		}
+
+		return "";
+	}
+
 	protected @NonNull Injector createSpecializedInjector(final @NonNull Injector injector,
 			final boolean shouldUseSpecializedInjector) {
 		if (shouldUseSpecializedInjector) {
@@ -177,5 +192,14 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 
 	protected Injector getInjector() {
 		return this.injector;
+	}
+	
+	
+	protected @NonNull String getPrefixTextExpression() {
+		return this.prefixTextExpression;
+	}
+	
+	protected @NonNull String getSuffixTextExpression() {
+		return this.suffixTextExpression;
 	}
 }

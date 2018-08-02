@@ -1,6 +1,5 @@
 package com.altran.general.integration.xtextsirius.runtime.eef.ui.model;
 
-import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -68,8 +67,7 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
-				preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(), isMultiLine(),
-						getEditableFeatures(), getIgnoredNestedFeatures(), Collections.emptySet());
+				preparer = new ModelRegionEditorPreparer(getInjector(), semanticElement);
 
 				resourceUri = semanticElement.eResource().getURI();
 
@@ -78,9 +76,7 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 				if (self != null) {
 					final EStructuralFeature feature = getEditFeature(self);
 					if (feature != null) {
-						preparer = new ModelRegionEditorPreparer(null, self, getInjector(), isMultiLine(),
-								getEditableFeatures(), getIgnoredNestedFeatures(), Collections.emptySet(),
-								feature);
+						preparer = new ModelRegionEditorPreparer(getInjector(), null, self, feature);
 
 						resourceUri = self.eResource().getURI();
 					}
@@ -88,6 +84,15 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 			}
 
 			if (preparer != null && resourceUri != null) {
+				preparer.setMultiLine(isMultiLine());
+				preparer.setEditableFeatures(getEditableFeatures());
+				preparer.setIgnoredNestedFeatures(getIgnoredNestedFeatures());
+
+				final String prefixText = interpret(getPrefixTextExpression());
+				preparer.setPrefixText(prefixText);
+				final String suffixText = interpret(getSuffixTextExpression());
+				preparer.setSuffixText(suffixText);
+				
 				getWidget().updateUri(resourceUri);
 				getWidget().update(preparer.getText(), preparer.getSemanticElementLocation(), preparer.getTextRegion());
 			}

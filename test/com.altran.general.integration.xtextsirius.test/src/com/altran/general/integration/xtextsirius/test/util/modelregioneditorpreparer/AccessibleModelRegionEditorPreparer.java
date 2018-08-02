@@ -1,6 +1,5 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
-import java.util.Collections;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
@@ -16,19 +15,14 @@ import com.altran.general.integration.xtextsirius.runtime.util.SemanticElementLo
 import com.google.inject.Injector;
 
 class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
-	public AccessibleModelRegionEditorPreparer(final EObject semanticElement, final EObject parentSemanticElement,
-			final Injector injector, final boolean multiLine, final Set<String> editableFeatures,
-			final @NonNull Set<@NonNull String> ignoredNestedFeatures,
+	public AccessibleModelRegionEditorPreparer(final Injector injector, final EObject semanticElement,
+			final EObject parentSemanticElement,
 			final EStructuralFeature semanticElementFeature) {
-		super(semanticElement, parentSemanticElement, injector, multiLine, editableFeatures, ignoredNestedFeatures,
-				Collections.emptySet(),
-				semanticElementFeature);
+		super(injector, semanticElement, parentSemanticElement, semanticElementFeature);
 	}
 
-	public AccessibleModelRegionEditorPreparer(final EObject semanticElement, final Injector injector,
-			final boolean multiLine, final Set<String> editableFeatures,
-			final @NonNull Set<@NonNull String> ignoredNestedFeatures) {
-		super(semanticElement, injector, multiLine, editableFeatures, ignoredNestedFeatures, Collections.emptySet());
+	public AccessibleModelRegionEditorPreparer(final Injector injector, final EObject semanticElement) {
+		super(injector, semanticElement);
 	}
 
 	@Override

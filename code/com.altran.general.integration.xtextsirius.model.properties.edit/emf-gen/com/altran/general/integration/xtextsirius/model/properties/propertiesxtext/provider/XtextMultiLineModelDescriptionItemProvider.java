@@ -48,6 +48,8 @@ public class XtextMultiLineModelDescriptionItemProvider extends TextAreaDescript
 			super.getPropertyDescriptors(object);
 
 			addInjectorIdPropertyDescriptor(object);
+			addPrefixTextExpressionPropertyDescriptor(object);
+			addSuffixTextExpressionPropertyDescriptor(object);
 			addEditableFeaturesPropertyDescriptor(object);
 			addIgnoredNestedFeaturesPropertyDescriptor(object);
 		}
@@ -69,6 +71,52 @@ public class XtextMultiLineModelDescriptionItemProvider extends TextAreaDescript
 						getString("_UI_PropertyDescriptor_description", "_UI_IXtextDescription_injectorId_feature",
 								"_UI_IXtextDescription_type"),
 						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__INJECTOR_ID,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null,
+						null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Prefix Text Expression feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addPrefixTextExpressionPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextDescription_prefixTextExpression_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_IXtextDescription_prefixTextExpression_feature", "_UI_IXtextDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null,
+						null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Suffix Text Expression feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addSuffixTextExpressionPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextDescription_suffixTextExpression_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_IXtextDescription_suffixTextExpression_feature", "_UI_IXtextDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
 						true,
 						false,
 						false,
@@ -159,6 +207,8 @@ public class XtextMultiLineModelDescriptionItemProvider extends TextAreaDescript
 
 		switch (notification.getFeatureID(XtextMultiLineModelDescription.class)) {
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

@@ -174,13 +174,31 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_DESCRIPTION__MULTI_LINE = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>IEef Xtext
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	int IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -301,6 +319,24 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int IEEF_XTEXT_MODEL_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -456,7 +492,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -465,7 +501,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 1;
+	int IEEF_XTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>IEef Xtext Value
@@ -474,7 +510,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	int IEEF_XTEXT_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the
@@ -595,6 +631,24 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>IEef Xtext Property
@@ -724,6 +778,24 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -872,6 +944,24 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__MULTI_LINE = IEEF_XTEXT_PROPERTY_DESCRIPTION__MULTI_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -1028,8 +1118,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
-			+ 0;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -1038,8 +1127,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
-			+ 1;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>Eef Xtext Single Line Value
@@ -1048,7 +1136,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the
@@ -1177,8 +1265,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
-			+ 0;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -1187,8 +1274,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
-			+ 1;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>Eef Xtext Multi Line Value
@@ -1197,7 +1283,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class
@@ -1234,6 +1320,34 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIEefXtextDescription_MultiLine();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getPrefixTextExpression
+	 * <em>Prefix Text Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Prefix Text
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getPrefixTextExpression()
+	 * @see #getIEefXtextDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextDescription_PrefixTextExpression();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getSuffixTextExpression
+	 * <em>Suffix Text Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Suffix Text
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getSuffixTextExpression()
+	 * @see #getIEefXtextDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextDescription_SuffixTextExpression();
 
 	/**
 	 * Returns the meta object for class
@@ -1288,34 +1402,6 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIEefXtextValueDescription();
-
-	/**
-	 * Returns the meta object for the attribute
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
-	 * <em>Prefix Text Expression</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Prefix Text
-	 *         Expression</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression()
-	 * @see #getIEefXtextValueDescription()
-	 * @generated
-	 */
-	EAttribute getIEefXtextValueDescription_PrefixTextExpression();
-
-	/**
-	 * Returns the meta object for the attribute
-	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
-	 * <em>Suffix Text Expression</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Suffix Text
-	 *         Expression</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression()
-	 * @see #getIEefXtextValueDescription()
-	 * @generated
-	 */
-	EAttribute getIEefXtextValueDescription_SuffixTextExpression();
 
 	/**
 	 * Returns the meta object for class
@@ -1434,6 +1520,26 @@ public interface EefxtextPackage extends EPackage {
 		EAttribute IEEF_XTEXT_DESCRIPTION__MULTI_LINE = eINSTANCE.getIEefXtextDescription_MultiLine();
 
 		/**
+		 * The meta object literal for the '<em><b>Prefix Text
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION = eINSTANCE
+				.getIEefXtextDescription_PrefixTextExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Suffix Text
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = eINSTANCE
+				.getIEefXtextDescription_SuffixTextExpression();
+
+		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
 		 * <em>IEef Xtext Model Description</em>}' class. <!-- begin-user-doc
@@ -1475,26 +1581,6 @@ public interface EefxtextPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IEEF_XTEXT_VALUE_DESCRIPTION = eINSTANCE.getIEefXtextValueDescription();
-
-		/**
-		 * The meta object literal for the '<em><b>Prefix Text
-		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = eINSTANCE
-				.getIEefXtextValueDescription_PrefixTextExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Suffix Text
-		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute IEEF_XTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = eINSTANCE
-				.getIEefXtextValueDescription_SuffixTextExpression();
 
 		/**
 		 * The meta object literal for the
