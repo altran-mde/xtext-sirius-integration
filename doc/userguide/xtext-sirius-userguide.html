@@ -506,7 +506,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Niko Stotz</span><br>
 <span id="email" class="email"><a href="mailto:niko.stotz@altran.com">niko.stotz@altran.com</a></span><br>
-<span id="revnumber">version 0.21.0-SNAPSHOT</span>
+<span id="revnumber">version 0.22.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
@@ -531,21 +531,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_editor_contents">4.2. Editor Contents</a>
 <ul class="sectlevel3">
 <li><a href="#model">4.2.1. Editing Models</a></li>
-<li><a href="#value">4.2.2. Editing Values</a>
-<ul class="sectlevel4">
-<li><a href="#prefixText-suffixText">PrefixText and SuffixText</a></li>
-</ul>
-</li>
+<li><a href="#value">4.2.2. Editing Values</a></li>
 </ul>
 </li>
 <li><a href="#_editor_infos_sup_class_footnote_id_footnote_info_a_id_footnoteref_1_class_footnote_href_footnote_1_title_view_footnote_1_a_sup">4.3. Editor Infos <sup class="footnote" id="_footnote_info">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup></a>
 <ul class="sectlevel3">
 <li><a href="#injector">4.3.1. Injector</a></li>
 <li><a href="#singleLine-multiLine">4.3.2. Single-line vs. Multi-line</a></li>
-<li><a href="#editableFeatures">4.3.3. Editable Features</a></li>
-<li><a href="#ignoredNestedFeatures">4.3.4. Ignored Nested Features</a></li>
-<li><a href="#selectedFeatures">4.3.5. Pre-selected Features</a></li>
-<li><a href="#edgeLabelPosition">4.3.6. Position of Affected Edge Label</a></li>
+<li><a href="#prefixText-suffixText">4.3.3. PrefixText and SuffixText</a></li>
+<li><a href="#editableFeatures">4.3.4. Editable Features</a></li>
+<li><a href="#ignoredNestedFeatures">4.3.5. Ignored Nested Features</a></li>
+<li><a href="#selectedFeatures">4.3.6. Pre-selected Features</a></li>
+<li><a href="#edgeLabelPosition">4.3.7. Position of Affected Edge Label</a></li>
+<li><a href="#prefixTerminals-suffixTerminals">4.3.8. PrefixTerminals and SuffixTerminals</a></li>
 </ul>
 </li>
 <li><a href="#_additional_model_operations">4.4. Additional Model Operations</a></li>
@@ -677,6 +675,9 @@ In this case, we may set additional options:</p>
 <li>
 <p>specify which features should be pre-selected when showing the Xtext editor (<a href="#selectedFeatures">selectedFeatures</a>).</p>
 </li>
+<li>
+<p>specify which terminals should be included before and after the edited text (<a href="#prefixTerminals-suffixTerminals">prefixTerminals / suffixTerminals</a>).</p>
+</li>
 </ul>
 </div>
 </li>
@@ -747,22 +748,24 @@ In this case, we may supply additional information if we wanted to edit an incom
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextSingleLineModelDescription.png" alt="XtextSingleLineModelDescription"></span> singleLine</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextDirectEditModelDescription.png" alt="XtextDirectEditModelDescription"></span> singleLine</a></p></td>
 <td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock"><em><a href="#edgeLabelPosition">edgeLabelPosition</a></em></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock"><em><a href="#prefixTerminals-suffixTerminals">prefixTerminals</a><br>
+<a href="#prefixTerminals-suffixTerminals">suffixTerminals</a></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextMultiLineModelDescription.png" alt="XtextMultiLineModelDescription"></span> multiLine</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextDirectEditModelDescription.png" alt="XtextDirectEditModelDescription"></span> multiLine</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock"><strong><a href="#value">value</a></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextSingleLineValueDescription.png" alt="XtextSingleLineValueDescription"></span> singleLine</a></p></td>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextDirectEditValueDescription.png" alt="XtextDirectEditValueDescription"></span> singleLine</a></p></td>
-<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock"><em><a href="#prefixText-suffixText">prefixText</a>, <a href="#prefixText-suffixText">suffixText</a></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextDirectEditValueDescription.png" alt="XtextDirectEditValueDescription"></span> singleLine</a></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock"><em><a href="#prefixText-suffixText">prefixText</a><br>
+<a href="#prefixText-suffixText">suffixText</a></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextMultiLineValueDescription.png" alt="XtextMultiLineValueDescription"></span> multiLine</a></p></td>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextDirectEditValueDescription.png" alt="XtextDirectEditValueDescription"></span> multiLine</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#singleLine-multiLine"><span class="image"><img src="images/XtextDirectEditValueDescription.png" alt="XtextDirectEditValueDescription"></span> multiLine</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add. info <sup class="footnoteref">[<a class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup></strong></p></td>
@@ -870,6 +873,8 @@ In this case, we may supply additional information if we wanted to edit an incom
                 edgeLabelMappings=Center Label Style 8
                 lines=singleLine
                 editableFeatures=Transition.event, Transition.guard
+                prefixTerminalsExpression="aql:'['"
+                suffixTerminalsExpression="zxcvzxcv"
               + Begin
                 + <strong>Set</strong>
                   featureName=<em>«empty»</em>
@@ -1291,76 +1296,6 @@ The changes are committed to the Sirius edit session, but only persisted if and 
 </li>
 </ul>
 </div>
-<div class="sect4">
-<h5 id="prefixText-suffixText">PrefixText and SuffixText</h5>
-<div class="paragraph">
-<p>In order to provide appropriate auto-completion and other Xtext features, the editor requires a complete model.
-However, the String feature may contain only a subsection of a complete model.
-Therefore, the developer may provide text that should be pre-pended and appended to the String feature&#8217;s value in order to complete the model.
-The end-user still sees and edits only the String feature&#8217;s value.</p>
-</div>
-<div class="paragraph">
-<div class="title">Example</div>
-<p>Think of a simplified version of HTML implemented as Xtext language. A complete model might look like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight nowrap"><code data-lang="html"><span class="tok-p">&lt;</span><span class="tok-nt">html</span><span class="tok-p">&gt;</span>
-<span class="tok-p">&lt;</span><span class="tok-nt">head</span><span class="tok-p">&gt;</span>
-  <span class="tok-p">&lt;</span><span class="tok-nt">title</span><span class="tok-p">&gt;</span>This is a test<span class="tok-p">&lt;/</span><span class="tok-nt">title</span><span class="tok-p">&gt;</span>
-<span class="tok-p">&lt;/</span><span class="tok-nt">head</span><span class="tok-p">&gt;</span>
-<span class="tok-p">&lt;</span><span class="tok-nt">body</span><span class="tok-p">&gt;</span>
-  <span class="tok-p">&lt;</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>Some paragraph<span class="tok-p">&lt;/</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>
-  <span class="tok-p">&lt;</span><span class="tok-nt">ul</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">&lt;</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>This is <span class="tok-p">&lt;</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span>important<span class="tok-p">&lt;/</span><span class="tok-nt">b</span><span class="tok-p">&gt;&lt;/</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">&lt;</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>And something&#39;s <span class="tok-p">&lt;</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span>useful<span class="tok-p">&lt;/</span><span class="tok-nt">i</span><span class="tok-p">&gt;&lt;/</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>
-  <span class="tok-p">&lt;/</span><span class="tok-nt">ul</span><span class="tok-p">&gt;</span>
-  <span class="tok-p">&lt;</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>Some other not so <span class="tok-p">&lt;</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span>very interesting,<span class="tok-p">&lt;/</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span> but yet <span class="tok-p">&lt;</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span>highlighted<span class="tok-p">&lt;/</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span> paragraph<span class="tok-p">&lt;/</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>
-<span class="tok-p">&lt;/</span><span class="tok-nt">body</span><span class="tok-p">&gt;</span>
-<span class="tok-p">&lt;/</span><span class="tok-nt">html</span><span class="tok-p">&gt;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This language should be used for the description feature of classes in an entity model.</p>
-</div>
-<div class="paragraph">
-<p>However, the model may contain several such classes, and the description of all of them should end up in only one HTML file (in a later generation step).
-Instead of storing a complete model into every class' description (and bothering the end-user with it), the description contains only the following part:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight nowrap"><code data-lang="html">  <span class="tok-p">&lt;</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>Some paragraph<span class="tok-p">&lt;/</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>
-  <span class="tok-p">&lt;</span><span class="tok-nt">ul</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">&lt;</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>This is <span class="tok-p">&lt;</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span>important<span class="tok-p">&lt;/</span><span class="tok-nt">b</span><span class="tok-p">&gt;&lt;/</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">&lt;</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>And something&#39;s <span class="tok-p">&lt;</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span>useful<span class="tok-p">&lt;/</span><span class="tok-nt">i</span><span class="tok-p">&gt;&lt;/</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>
-  <span class="tok-p">&lt;/</span><span class="tok-nt">ul</span><span class="tok-p">&gt;</span>
-  <span class="tok-p">&lt;</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>Some other not so <span class="tok-p">&lt;</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span>very interesting,<span class="tok-p">&lt;/</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span> but yet <span class="tok-p">&lt;</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span>highlighted<span class="tok-p">&lt;/</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span> paragraph<span class="tok-p">&lt;/</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In order to complete the model for Xtext, the developer supplies the editor with</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">prefixTextExpression</dt>
-<dd>
-<p><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;Title&lt;/title&gt;&lt;head&gt;&lt;body&gt;</code></p>
-</dd>
-<dt class="hdlist1">suffixTextExpression</dt>
-<dd>
-<p><code>ocl:'&lt;/body&gt;'.concat('&lt;/html&gt;')</code><br>
-(the expression does not make sense really, it&#8217;s only to show we actually <em>can</em> use expressions.)</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>This way, Xtext works on a complete model, but only the relevant parts are available to the end-user.</p>
-</div>
-<div class="paragraph">
-<p>We provide these infos via the <code>prefixTextExpression</code> / <code>suffixTextExpression</code> properties.
-As hinted by the name, these fields accept both a simple string as well as any expression supported by Sirius.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1526,7 +1461,91 @@ For <em>Text Area</em> widgets, we can define the number of lines to be shown vi
 </div>
 </div>
 <div class="sect3">
-<h4 id="editableFeatures">4.3.3. Editable Features</h4>
+<h4 id="prefixText-suffixText">4.3.3. PrefixText and SuffixText</h4>
+<div class="paragraph">
+<p>In order to provide appropriate auto-completion and other Xtext features, a value editor requires a complete model.
+However, the String feature may contain only a subsection of a complete model.
+Therefore, the developer may provide text that should be pre-pended and appended to the String feature&#8217;s value in order to complete the model.
+The end-user still sees and edits only the String feature&#8217;s value.</p>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p>Think of a simplified version of HTML implemented as Xtext language. A complete model might look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight nowrap"><code data-lang="html"><span class="tok-p">&lt;</span><span class="tok-nt">html</span><span class="tok-p">&gt;</span>
+<span class="tok-p">&lt;</span><span class="tok-nt">head</span><span class="tok-p">&gt;</span>
+  <span class="tok-p">&lt;</span><span class="tok-nt">title</span><span class="tok-p">&gt;</span>This is a test<span class="tok-p">&lt;/</span><span class="tok-nt">title</span><span class="tok-p">&gt;</span>
+<span class="tok-p">&lt;/</span><span class="tok-nt">head</span><span class="tok-p">&gt;</span>
+<span class="tok-p">&lt;</span><span class="tok-nt">body</span><span class="tok-p">&gt;</span>
+  <span class="tok-p">&lt;</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>Some paragraph<span class="tok-p">&lt;/</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>
+  <span class="tok-p">&lt;</span><span class="tok-nt">ul</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&lt;</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>This is <span class="tok-p">&lt;</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span>important<span class="tok-p">&lt;/</span><span class="tok-nt">b</span><span class="tok-p">&gt;&lt;/</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&lt;</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>And something&#39;s <span class="tok-p">&lt;</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span>useful<span class="tok-p">&lt;/</span><span class="tok-nt">i</span><span class="tok-p">&gt;&lt;/</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>
+  <span class="tok-p">&lt;/</span><span class="tok-nt">ul</span><span class="tok-p">&gt;</span>
+  <span class="tok-p">&lt;</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>Some other not so <span class="tok-p">&lt;</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span>very interesting,<span class="tok-p">&lt;/</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span> but yet <span class="tok-p">&lt;</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span>highlighted<span class="tok-p">&lt;/</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span> paragraph<span class="tok-p">&lt;/</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>
+<span class="tok-p">&lt;/</span><span class="tok-nt">body</span><span class="tok-p">&gt;</span>
+<span class="tok-p">&lt;/</span><span class="tok-nt">html</span><span class="tok-p">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This language should be used for the description feature of classes in an entity model.</p>
+</div>
+<div class="paragraph">
+<p>However, the model may contain several such classes, and the description of all of them should end up in only one HTML file (in a later generation step).
+Instead of storing a complete model into every class' description (and bothering the end-user with it), the description contains only the following part:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight nowrap"><code data-lang="html">  <span class="tok-p">&lt;</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>Some paragraph<span class="tok-p">&lt;/</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>
+  <span class="tok-p">&lt;</span><span class="tok-nt">ul</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&lt;</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>This is <span class="tok-p">&lt;</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span>important<span class="tok-p">&lt;/</span><span class="tok-nt">b</span><span class="tok-p">&gt;&lt;/</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>
+    <span class="tok-p">&lt;</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>And something&#39;s <span class="tok-p">&lt;</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span>useful<span class="tok-p">&lt;/</span><span class="tok-nt">i</span><span class="tok-p">&gt;&lt;/</span><span class="tok-nt">li</span><span class="tok-p">&gt;</span>
+  <span class="tok-p">&lt;/</span><span class="tok-nt">ul</span><span class="tok-p">&gt;</span>
+  <span class="tok-p">&lt;</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span>Some other not so <span class="tok-p">&lt;</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span>very interesting,<span class="tok-p">&lt;/</span><span class="tok-nt">i</span><span class="tok-p">&gt;</span> but yet <span class="tok-p">&lt;</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span>highlighted<span class="tok-p">&lt;/</span><span class="tok-nt">b</span><span class="tok-p">&gt;</span> paragraph<span class="tok-p">&lt;/</span><span class="tok-nt">p</span><span class="tok-p">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In order to complete the model for Xtext, the developer supplies the editor with</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">prefixTextExpression</dt>
+<dd>
+<p><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;Title&lt;/title&gt;&lt;head&gt;&lt;body&gt;</code></p>
+</dd>
+<dt class="hdlist1">suffixTextExpression</dt>
+<dd>
+<p><code>ocl:'&lt;/body&gt;'.concat('&lt;/html&gt;')</code><br>
+(the expression does not make sense really, it&#8217;s only to show we actually <em>can</em> use expressions.)</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>This way, Xtext works on a complete model, but only the relevant parts are available to the end-user.</p>
+</div>
+<div class="paragraph">
+<p>We provide these infos via the <code>prefixTextExpression</code> / <code>suffixTextExpression</code> properties.
+As hinted by the name, these fields accept both a simple string as well as any expression supported by Sirius.</p>
+</div>
+<div class="ulist">
+<div class="title">Available implementations</div>
+<ul>
+<li>
+<p><a href="#directEdit"><span class="image"><img src="images/XtextEdgeLabelDirectEditValueDescription.png" alt="XtextEdgeLabelDirectEditValueDescription"></span> Edge Label Direct Editor for Value content</a></p>
+</li>
+<li>
+<p><a href="#directEdit"><span class="image"><img src="images/XtextDirectEditValueDescription.png" alt="XtextDirectEditValueDescription"></span> Direct Editor for Value content</a></p>
+</li>
+<li>
+<p><a href="#property"><span class="image"><img src="images/XtextMultiLineValueDescription.png" alt="XtextMultiLineValueDescription"></span> Text Area (aka multi-line) Widget for Value content</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editableFeatures">4.3.4. Editable Features</h4>
 <div class="paragraph">
 <p>The editor can limit which features of a semantic element are editable by the end-user.</p>
 </div>
@@ -1636,7 +1655,7 @@ This opens a pop-up window listing all available and currently selected features
 </div>
 </div>
 <div class="sect3">
-<h4 id="ignoredNestedFeatures">4.3.4. Ignored Nested Features</h4>
+<h4 id="ignoredNestedFeatures">4.3.5. Ignored Nested Features</h4>
 <div class="paragraph">
 <p>The editor can omit some nested features from committing back to the original model.</p>
 </div>
@@ -1734,7 +1753,7 @@ the first segment is a feature of the edited semantic element.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="selectedFeatures">4.3.5. Pre-selected Features</h4>
+<h4 id="selectedFeatures">4.3.6. Pre-selected Features</h4>
 <div class="paragraph">
 <p>The editor can set the initial text selection to defined features.</p>
 </div>
@@ -1801,7 +1820,7 @@ This opens a pop-up window listing all available and currently selected features
 </div>
 </div>
 <div class="sect3">
-<h4 id="edgeLabelPosition">4.3.6. Position of Affected Edge Label</h4>
+<h4 id="edgeLabelPosition">4.3.7. Position of Affected Edge Label</h4>
 <div class="paragraph">
 <p>Unfortunately, we cannot assign different <em>Direct Edit Label</em> tools to different edge labels (<code>begin</code>, <code>center</code>, <code>end</code>).</p>
 </div>
@@ -1819,6 +1838,193 @@ This opens a pop-up window listing all available and currently selected edge lab
 </li>
 <li>
 <p><a href="#directEdit"><span class="image"><img src="images/XtextEdgeLabelDirectEditValueDescription.png" alt="XtextEdgeLabelDirectEditValueDescription"></span> Edge Label Direct Editor for Value content</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="prefixTerminals-suffixTerminals">4.3.8. PrefixTerminals and SuffixTerminals</h4>
+<div class="paragraph">
+<p>By default, the editor uses some heuristics to determine which terminals should be included at the beginning and end of the edited text.</p>
+</div>
+<div class="paragraph">
+<p>This behavior can be overridden by the developer.
+For all value editors, the developer may define a <code>prefixTerminalsExpression</code> and/or a <code>suffixTerminalsExpression</code> in the odesign file.</p>
+</div>
+<div class="paragraph">
+<p>For both of them, the following rules apply:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the field is empty (aka. not set, aka. <em>null</em>), the heuristics will be used.</p>
+</li>
+<li>
+<p>If the field contains an interpreter expression (e.g. starting with <code>aql:</code>), the resulting string of the interpreter call is used for terminals matching.</p>
+</li>
+<li>
+<p>If the field contains anything else, the entered string is used for terminals matching.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Thus, if we want to disable the heuristics and don&#8217;t include any preceding terminals, our <code>prefixTerminalsExpression</code> looks like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight nowrap"><code data-lang="aql">aql:&#39;&#39;</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+The editor does not modify the resulting string in any way!
+Therefore, the editor also tries to match whitespace characters to terminals (as there might be grammars with semantic whitespace).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Example</div>
+<p>Assume the following grammar as example.
+It uses the usual C-like whitespace and comment rules:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight nowrap"><code data-lang="antlr"><span class="tok-nl">Event</span><span class="tok-p">:</span><span class="tok-w"></span>
+<span class="tok-w">  </span><span class="tok-s">&#39;event&#39;</span><span class="tok-w"> </span><span class="tok-nv">name</span><span class="tok-o">=</span><span class="tok-no">ID</span><span class="tok-w"> </span><span class="tok-s">&#39;[&#39;</span><span class="tok-w"> </span><span class="tok-nv">code</span><span class="tok-o">=</span><span class="tok-no">INT</span><span class="tok-w"> </span><span class="tok-s">&#39;]&#39;</span><span class="tok-w"> </span><span class="tok-o">(</span><span class="tok-s">&#39;guarded&#39;</span><span class="tok-w"> </span><span class="tok-s">&#39;by&#39;</span><span class="tok-w"> </span><span class="tok-nv">guard</span><span class="tok-o">=</span><span class="tok-p">[</span><span class="tok-x">Guard</span><span class="tok-p">]</span><span class="tok-o">)?</span><span class="tok-w"></span>
+<span class="tok-p">;</span><span class="tok-w"></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example model contents:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">event ford [23]
+
+event    arthur [42] guarded by Trillian
+
+event zaphod [4223] /* caution, very random! */ guarded by HeartOfGold</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For editing <em>Event</em>, assume:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">editableFeatures</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><em>code</em></p>
+</li>
+<li>
+<p><em>name</em></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">prefixTerminalsExpression</dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">event</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Thus, we always want to include the <code>event</code> terminal.</p>
+</div>
+</dd>
+<dt class="hdlist1">suffixTerminalsExpression</dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight nowrap"><code data-lang="aql">aql:&#39;]&#39;.concat(if(self.guard &lt;&gt; null) &#39;guarded&#39; else &#39;&#39;))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Thus, we always want to include the <code>]</code> terminal.
+If the edited <em>Event</em> had a <em>guard</em>, we do not want to edit it.
+However, we want to show the end-user that a guard is present, thus include the <code>guarded</code> terminal.
+Note that there are no spaces in the resulting string.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The resulting editor contents for all three <em>Event</em>s will look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">event ford [23]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">event    arthur [42] guarded</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">event zaphod [4223] /* caution, very random! */ guarded</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Terminals Matching</div>
+<p>We discuss the terminals matching process for <code>suffixTerminalsExpression</code> below.
+It works accordingly for <code>prefixTerminalsExpression</code>.</p>
+</div>
+<div class="paragraph">
+<p>We ignore all whitespace and comment contents, as defined by the editor grammar.
+Terminals matching starts at the last <a href="#editableFeatures">editable feature</a> in the text.
+From there, we look at all following tokens, and include them as long as their combined text matches the resulting string of <code>suffixTerminalsExpression</code>.
+As soon as we find a non-terminal token, we quit terminals matching.</p>
+</div>
+<div class="paragraph">
+<p>The example would work the same way if the <code>suffixTerminalsExpression</code> was:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">]guarded</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Explanation: For <em>event ford</em>, it would successfully match <code>]</code> but quit terminals matching afterwards, because the next token would not be a terminal (in this case, it would be the following <em>Event</em> rule).</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Sometimes, Xtext considers terminals as part of a feature.
+In this case the terminal is always contained in the edited text.
+It might help to add additional parenthesis to the grammar in order to give some hints to Xtext.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Available implementations</div>
+<ul>
+<li>
+<p><a href="#directEdit"><span class="image"><img src="images/XtextEdgeLabelDirectEditModelDescription.png" alt="XtextEdgeLabelDirectEditModelDescription"></span> Edge Label Direct Editor for Model content</a></p>
+</li>
+<li>
+<p><a href="#directEdit"><span class="image"><img src="images/XtextDirectEditModelDescription.png" alt="XtextDirectEditModelDescription"></span> Direct Editor for Model content</a></p>
+</li>
+<li>
+<p><a href="#property"><span class="image"><img src="images/XtextSingleLineModelDescription.png" alt="XtextSingleLineModelDescription"></span> Text (aka single-line) Widget for Model content</a></p>
+</li>
+<li>
+<p><a href="#property"><span class="image"><img src="images/XtextMultiLineModelDescription.png" alt="XtextMultiLineModelDescription"></span> Text Area (aka multi-line) Widget for Model content</a></p>
 </li>
 </ul>
 </div>
@@ -2083,7 +2289,7 @@ Depending on the number and size of the resources, the processing and memory per
 <h2 id="_versions">6. Versions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This version 0.21.0-SNAPSHOT of the asset was developed using the following components and versions.</p>
+<p>This version 0.22.0-SNAPSHOT of the asset was developed using the following components and versions.</p>
 </div>
 <div class="hdlist">
 <table>
@@ -2172,6 +2378,7 @@ This could be fixed in a future version of Xtext/Sirius Integration, if we based
 <li>
 <p><a href="https://gitlab.manatree.io/MDEAssets/XtextSiriusIntegration/issues/12">#12</a> Determining the correct subsection for <a href="#model">model content</a> is not always possible.
 This leads to undesired content in the edit field for model content.
+<a href="#prefixTerminals-suffixTerminals">PrefixTerminals and SuffixTerminals</a> can help to some extent.
 We cannot avoid this completely as the subsection is determined by heuristics, which may fail by definition.
 We&#8217;d like to provide a hook so users can adjust this on their own, but this would expose the Xtext node API to the user, which is quite complex to use and not the right level of abstraction.</p>
 </li>
@@ -2200,7 +2407,7 @@ As a workaround, we may append several spaces at the end of the label.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.21.0-SNAPSHOT<br>
+Version 0.22.0-SNAPSHOT<br>
 Last updated 2018-07-30 21:13:43 DST
 </div>
 </div>

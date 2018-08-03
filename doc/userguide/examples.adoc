@@ -58,6 +58,8 @@ platform:/resource/org.eclipse.xtext.example.fowlerdsl.viewpoint/description/fow
 								edgeLabelMappings=Center Label Style 8
 								lines=singleLine
 								editableFeatures=Transition.event, Transition.guard
+								prefixTerminalsExpression="aql:'['"
+								suffixTerminalsExpression="zxcvzxcv"
 							+ Begin
 								+ *Set*
 									featureName=_«empty»_

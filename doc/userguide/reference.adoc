@@ -573,7 +573,117 @@ This opens a pop-up window listing all available and currently selected edge lab
 
 [[prefixTerminals-suffixTerminals]]
 ==== PrefixTerminals and SuffixTerminals
+By default, the editor uses some heuristics to determine which terminals should be included at the beginning and end of the edited text.
 
+This behavior can be overridden by the developer.
+For all value editors, the developer may define a `prefixTerminalsExpression` and/or a `suffixTerminalsExpression` in the odesign file.
+
+For both of them, the following rules apply:
+
+. If the field is empty (aka. not set, aka. _null_), the heuristics will be used.
+. If the field contains an interpreter expression (e.g. starting with `aql:`), the resulting string of the interpreter call is used for terminals matching.
+. If the field contains anything else, the entered string is used for terminals matching.
+
+Thus, if we want to disable the heuristics and don't include any preceding terminals, our `prefixTerminalsExpression` looks like:
+
+[source, aql]
+----
+aql:''
+----
+
+CAUTION: The editor does not modify the resulting string in any way!
+Therefore, the editor also tries to match whitespace characters to terminals (as there might be grammars with semantic whitespace).
+
+.Example
+
+Assume the following grammar as example.
+It uses the usual C-like whitespace and comment rules:
+
+[source, antlr]
+----
+Event:
+  'event' name=ID '[' code=INT ']' ('guarded' 'by' guard=[Guard])?
+;
+----
+
+Example model contents:
+----
+event ford [23]
+
+event    arthur [42] guarded by Trillian
+
+event zaphod [4223] /* caution, very random! */ guarded by HeartOfGold
+----
+
+For editing _Event_, assume:
+
+editableFeatures:: 
+* _code_
+* _name_
+
+prefixTerminalsExpression:: 
++
+----
+event
+----
++
+Thus, we always want to include the `event` terminal.
+
+suffixTerminalsExpression:: 
++
+[source, aql]
+----
+aql:']'.concat(if(self.guard <> null) 'guarded' else ''))
+----
++
+Thus, we always want to include the `]` terminal.
+If the edited _Event_ had a _guard_, we do not want to edit it.
+However, we want to show the end-user that a guard is present, thus include the `guarded` terminal.
+Note that there are no spaces in the resulting string.
+
+The resulting editor contents for all three __Event__s will look like:
+
+----
+event ford [23]
+----
+
+----
+event    arthur [42] guarded
+----
+
+----
+event zaphod [4223] /* caution, very random! */ guarded
+----
+
+.Terminals Matching
+
+We discuss the terminals matching process for `suffixTerminalsExpression` below.
+It works accordingly for `prefixTerminalsExpression`.
+
+We ignore all whitespace and comment contents, as defined by the editor grammar.
+Terminals matching starts at the last <<editableFeatures, editable feature>> in the text.
+From there, we look at all following tokens, and include them as long as their combined text matches the resulting string of `suffixTerminalsExpression`.
+As soon as we find a non-terminal token, we quit terminals matching.
+
+The example would work the same way if the `suffixTerminalsExpression` was:
+
+----
+]guarded
+----
+
+Explanation: For _event ford_, it would successfully match `]` but quit terminals matching afterwards, because the next token would not be a terminal (in this case, it would be the following _Event_ rule).
+
+CAUTION: Sometimes, Xtext considers terminals as part of a feature.
+In this case the terminal is always contained in the edited text.
+It might help to add additional parenthesis to the grammar in order to give some hints to Xtext.
+
+
+.Available implementations
+
+* <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.png[] Edge Label Direct Editor for Model content>>
+* <<directEdit, image:images/XtextDirectEditModelDescription.png[] Direct Editor for Model content>>
+* <<property, image:images/XtextSingleLineModelDescription.png[] Text (aka single-line) Widget for Model content>>
+* <<property, image:images/XtextMultiLineModelDescription.png[] Text Area (aka multi-line) Widget for Model content>>
 
 
 === Additional Model Operations

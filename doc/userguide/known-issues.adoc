@@ -16,6 +16,7 @@ This could be fixed in a future version of Xtext/Sirius Integration, if we based
 
 * link:https://gitlab.manatree.io/MDEAssets/XtextSiriusIntegration/issues/12[#12] Determining the correct subsection for <<model, model content>> is not always possible.
 This leads to undesired content in the edit field for model content.
+<<prefixTerminals-suffixTerminals>> can help to some extent.
 We cannot avoid this completely as the subsection is determined by heuristics, which may fail by definition.
 We'd like to provide a hook so users can adjust this on their own, but this would expose the Xtext node API to the user, which is quite complex to use and not the right level of abstraction.
 
