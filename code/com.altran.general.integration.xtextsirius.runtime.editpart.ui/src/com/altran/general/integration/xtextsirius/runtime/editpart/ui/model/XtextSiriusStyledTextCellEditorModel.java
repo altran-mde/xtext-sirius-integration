@@ -12,9 +12,9 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiri
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
-import com.altran.general.integration.xtextsirius.runtime.util.ModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.runtime.util.SemanticElementLocation;
 import com.google.common.collect.Lists;
 
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {

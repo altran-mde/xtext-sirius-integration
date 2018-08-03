@@ -19,8 +19,8 @@ import org.eclipse.swt.widgets.Composite;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusController;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
-import com.altran.general.integration.xtextsirius.runtime.util.ModelRegionEditorPreparer;
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycleManager {

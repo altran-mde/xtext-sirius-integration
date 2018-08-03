@@ -1,6 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
 
-import com.altran.general.integration.xtextsirius.runtime.util.SemanticElementLocation
+import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.junit.Test
 

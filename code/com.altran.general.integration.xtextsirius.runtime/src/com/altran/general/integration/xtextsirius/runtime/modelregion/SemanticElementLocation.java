@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.runtime.util;
+package com.altran.general.integration.xtextsirius.runtime.modelregion;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;

@@ -12,7 +12,7 @@ import org.eclipse.xtext.util.TextRegion;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusWidget;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
-import com.altran.general.integration.xtextsirius.runtime.util.SemanticElementLocation;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
 import com.google.common.collect.Lists;
 import com.google.inject.Injector;
 

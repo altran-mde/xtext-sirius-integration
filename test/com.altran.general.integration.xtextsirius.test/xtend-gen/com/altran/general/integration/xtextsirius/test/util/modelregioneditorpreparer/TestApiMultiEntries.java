@@ -1,6 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
-import com.altran.general.integration.xtextsirius.runtime.util.ModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.google.inject.Injector;

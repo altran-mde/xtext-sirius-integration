@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.runtime.util;
+package com.altran.general.integration.xtextsirius.runtime.modelregion;
 
 import java.util.ArrayList;
 import java.util.Collections;
