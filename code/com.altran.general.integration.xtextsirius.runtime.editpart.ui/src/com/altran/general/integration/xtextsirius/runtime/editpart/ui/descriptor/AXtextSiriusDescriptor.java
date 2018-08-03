@@ -12,20 +12,9 @@ public abstract class AXtextSiriusDescriptor {
 	private final @NonNull Injector injector;
 	private final boolean multiLine;
 
-	private final @NonNull String prefixTextExpression;
-	private final @NonNull String suffixTextExpression;
-	
-	// public AXtextSiriusDescriptor(final @NonNull Injector injector, final
-	// boolean multiLine) {
-	// this.injector = injector;
-	// this.multiLine = multiLine;
-	// }
-
 	public AXtextSiriusDescriptor(final @NonNull Injector injector, final @NonNull IXtextDescription description) {
 		this.injector = injector;
 		this.multiLine = description.isMultiLine();
-		this.prefixTextExpression = description.getPrefixTextExpression();
-		this.suffixTextExpression = description.getSuffixTextExpression();
 	}
 
 	public @NonNull Injector getInjector() {
@@ -34,14 +23,6 @@ public abstract class AXtextSiriusDescriptor {
 
 	public boolean isMultiLine() {
 		return this.multiLine;
-	}
-
-	public @NonNull String getPrefixTextExpression() {
-		return this.prefixTextExpression;
-	}
-
-	public @NonNull String getSuffixTextExpression() {
-		return this.suffixTextExpression;
 	}
 
 	public abstract @NonNull XtextSiriusDirectEditManager createDirectEditManager(

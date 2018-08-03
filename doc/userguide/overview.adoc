@@ -17,6 +17,7 @@ In this case, we may set additional options:
 ** limit the set of <<editableFeatures, editableFeatures>>,
 ** ignore some nested features (<<ignoredNestedFeatures, ignoredNestedFeatures>>).
 ** specify which features should be pre-selected when showing the Xtext editor (<<selectedFeatures, selectedFeatures>>).
+** specify which terminals should be included before and after the edited text (<<prefixTerminals-suffixTerminals, prefixTerminals / suffixTerminals>>).
 
 * A String feature of a semantic element (<<value, value>>).
 In this case, we may supply additional information if we wanted to edit an incomplete model:
@@ -45,17 +46,19 @@ All of this can be summarized in one table:
 | <<singleLine-multiLine, image:images/XtextSingleLineModelDescription.png[] singleLine>>	
 | <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.png[] singleLine>>	
 .2+.^| _<<edgeLabelPosition, edgeLabelPosition>>_	
-|
+.2+.^| _<<prefixTerminals-suffixTerminals, prefixTerminals>> +
+<<prefixTerminals-suffixTerminals, suffixTerminals>>_
 | <<singleLine-multiLine, image:images/XtextMultiLineModelDescription.png[] multiLine>>	
 | <<singleLine-multiLine, image:images/XtextDirectEditModelDescription.png[] multiLine>> 
-|
 
 .2+.^| *<<value, value>>*	
 | <<singleLine-multiLine, image:images/XtextSingleLineValueDescription.png[] singleLine>>	
-2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] singleLine>>	
-.2+.^| _<<prefixText-suffixText, prefixText>>, <<prefixText-suffixText, suffixText>>_
+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] singleLine>>
+.2+.^|
+.2+.^| _<<prefixText-suffixText, prefixText>> +
+<<prefixText-suffixText, suffixText>>_
 | <<singleLine-multiLine, image:images/XtextMultiLineValueDescription.png[] multiLine>>	
-2+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] multiLine>>
+| <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] multiLine>>
 
 | *add. info footnoteref:[info]*	
 |  

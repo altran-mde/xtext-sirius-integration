@@ -27,16 +27,16 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
- * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getPrefixTextExpression
- * <em>Prefix Text Expression</em>}</li>
- * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getSuffixTextExpression
- * <em>Suffix Text Expression</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#isMultiLine
  * <em>Multi Line</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getIgnoredNestedFeatures
  * <em>Ignored Nested Features</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getPrefixTerminalsExpression
+ * <em>Prefix Terminals Expression</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getSuffixTerminalsExpression
+ * <em>Suffix Terminals Expression</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getSelectedFeatures
  * <em>Selected Features</em>}</li>
  * </ul>
@@ -64,50 +64,6 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
-	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getPrefixTextExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
-	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getPrefixTextExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
-	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getSuffixTextExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
-	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getSuffixTextExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected String suffixTextExpression = SUFFIX_TEXT_EXPRESSION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}'
@@ -150,6 +106,50 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected EList<String> ignoredNestedFeatures;
+
+	/**
+	 * The default value of the '{@link #getPrefixTerminalsExpression()
+	 * <em>Prefix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getPrefixTerminalsExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PREFIX_TERMINALS_EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPrefixTerminalsExpression()
+	 * <em>Prefix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getPrefixTerminalsExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String prefixTerminalsExpression = PREFIX_TERMINALS_EXPRESSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSuffixTerminalsExpression()
+	 * <em>Suffix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getSuffixTerminalsExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUFFIX_TERMINALS_EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSuffixTerminalsExpression()
+	 * <em>Suffix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getSuffixTerminalsExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String suffixTerminalsExpression = SUFFIX_TERMINALS_EXPRESSION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSelectedFeatures() <em>Selected
@@ -213,58 +213,6 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @generated
 	 */
 	@Override
-	public String getPrefixTextExpression() {
-		return this.prefixTextExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setPrefixTextExpression(final String newPrefixTextExpression) {
-		final String oldPrefixTextExpression = this.prefixTextExpression;
-		this.prefixTextExpression = newPrefixTextExpression;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
-					oldPrefixTextExpression, this.prefixTextExpression));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getSuffixTextExpression() {
-		return this.suffixTextExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setSuffixTextExpression(final String newSuffixTextExpression) {
-		final String oldSuffixTextExpression = this.suffixTextExpression;
-		this.suffixTextExpression = newSuffixTextExpression;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
-					oldSuffixTextExpression, this.suffixTextExpression));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
@@ -318,6 +266,58 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @generated
 	 */
 	@Override
+	public String getPrefixTerminalsExpression() {
+		return this.prefixTerminalsExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setPrefixTerminalsExpression(final String newPrefixTerminalsExpression) {
+		final String oldPrefixTerminalsExpression = this.prefixTerminalsExpression;
+		this.prefixTerminalsExpression = newPrefixTerminalsExpression;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION,
+					oldPrefixTerminalsExpression, this.prefixTerminalsExpression));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getSuffixTerminalsExpression() {
+		return this.suffixTerminalsExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setSuffixTerminalsExpression(final String newSuffixTerminalsExpression) {
+		final String oldSuffixTerminalsExpression = this.suffixTerminalsExpression;
+		this.suffixTerminalsExpression = newSuffixTerminalsExpression;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION,
+					oldSuffixTerminalsExpression, this.suffixTerminalsExpression));
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EList<String> getSelectedFeatures() {
 		if (this.selectedFeatures == null) {
 			this.selectedFeatures = new EDataTypeEList<>(String.class, this,
@@ -336,16 +336,16 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		switch (featureID) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 				return getInjectorId();
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-				return getPrefixTextExpression();
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				return getSuffixTextExpression();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 				return isMultiLine();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return getEditableFeatures();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 				return getIgnoredNestedFeatures();
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION:
+				return getPrefixTerminalsExpression();
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION:
+				return getSuffixTerminalsExpression();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
 				return getSelectedFeatures();
 		}
@@ -364,12 +364,6 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId((String) newValue);
 				return;
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-				setPrefixTextExpression((String) newValue);
-				return;
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				setSuffixTextExpression((String) newValue);
-				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 				setMultiLine((Boolean) newValue);
 				return;
@@ -380,6 +374,12 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 				getIgnoredNestedFeatures().clear();
 				getIgnoredNestedFeatures().addAll((Collection<? extends String>) newValue);
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION:
+				setPrefixTerminalsExpression((String) newValue);
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION:
+				setSuffixTerminalsExpression((String) newValue);
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
 				getSelectedFeatures().clear();
@@ -400,12 +400,6 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId(INJECTOR_ID_EDEFAULT);
 				return;
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-				setPrefixTextExpression(PREFIX_TEXT_EXPRESSION_EDEFAULT);
-				return;
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				setSuffixTextExpression(SUFFIX_TEXT_EXPRESSION_EDEFAULT);
-				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 				setMultiLine(MULTI_LINE_EDEFAULT);
 				return;
@@ -414,6 +408,12 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 				getIgnoredNestedFeatures().clear();
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION:
+				setPrefixTerminalsExpression(PREFIX_TERMINALS_EXPRESSION_EDEFAULT);
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION:
+				setSuffixTerminalsExpression(SUFFIX_TERMINALS_EXPRESSION_EDEFAULT);
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
 				getSelectedFeatures().clear();
@@ -433,18 +433,18 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-				return PREFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.prefixTextExpression != null
-						: !PREFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.prefixTextExpression);
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				return SUFFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.suffixTextExpression != null
-						: !SUFFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.suffixTextExpression);
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 				return this.multiLine != MULTI_LINE_EDEFAULT;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 				return this.ignoredNestedFeatures != null && !this.ignoredNestedFeatures.isEmpty();
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION:
+				return PREFIX_TERMINALS_EXPRESSION_EDEFAULT == null ? this.prefixTerminalsExpression != null
+						: !PREFIX_TERMINALS_EXPRESSION_EDEFAULT.equals(this.prefixTerminalsExpression);
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION:
+				return SUFFIX_TERMINALS_EXPRESSION_EDEFAULT == null ? this.suffixTerminalsExpression != null
+						: !SUFFIX_TERMINALS_EXPRESSION_EDEFAULT.equals(this.suffixTerminalsExpression);
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
 				return this.selectedFeatures != null && !this.selectedFeatures.isEmpty();
 		}
@@ -462,10 +462,6 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			switch (derivedFeatureID) {
 				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
-				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-					return XtextsiriusPackage.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-					return XtextsiriusPackage.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -484,6 +480,10 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES;
+				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION:
+					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION;
+				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION:
+					return XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -510,10 +510,6 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			switch (baseFeatureID) {
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID;
-				case XtextsiriusPackage.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-				case XtextsiriusPackage.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -532,6 +528,10 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES;
+				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION:
+					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION;
+				case XtextsiriusPackage.IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION:
+					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -561,16 +561,16 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		final StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
-		result.append(", prefixTextExpression: ");
-		result.append(this.prefixTextExpression);
-		result.append(", suffixTextExpression: ");
-		result.append(this.suffixTextExpression);
 		result.append(", multiLine: ");
 		result.append(this.multiLine);
 		result.append(", editableFeatures: ");
 		result.append(this.editableFeatures);
 		result.append(", ignoredNestedFeatures: ");
 		result.append(this.ignoredNestedFeatures);
+		result.append(", prefixTerminalsExpression: ");
+		result.append(this.prefixTerminalsExpression);
+		result.append(", suffixTerminalsExpression: ");
+		result.append(this.suffixTerminalsExpression);
 		result.append(", selectedFeatures: ");
 		result.append(this.selectedFeatures);
 		result.append(')');

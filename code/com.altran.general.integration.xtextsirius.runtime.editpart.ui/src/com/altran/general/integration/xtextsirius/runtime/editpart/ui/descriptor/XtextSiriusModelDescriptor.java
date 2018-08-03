@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
@@ -18,18 +19,9 @@ public class XtextSiriusModelDescriptor extends AXtextSiriusDescriptor {
 	private final @NonNull Set<@NonNull String> editableFeatures;
 	private final @NonNull Set<@NonNull String> selectedFeatures;
 	private final @NonNull Set<@NonNull String> ignoredNestedFeatures;
-
-	// public XtextSiriusModelDescriptor(
-	// final @NonNull Injector injector,
-	// final boolean multiLine,
-	// final @NonNull Set<@NonNull String> editableFeatures,
-	// final @NonNull Set<@NonNull String> selectedFeatures,
-	// final @NonNull Set<@NonNull String> ignoredNestedFeatures) {
-	// super(injector, multiLine);
-	// this.editableFeatures = editableFeatures;
-	// this.selectedFeatures = selectedFeatures;
-	// this.ignoredNestedFeatures = ignoredNestedFeatures;
-	// }
+	
+	private final @Nullable String prefixTerminalsExpression;
+	private final @Nullable String suffixTerminalsExpression;
 
 	public XtextSiriusModelDescriptor(final @NonNull Injector injector,
 			final @NonNull IXtextDirectEditModelDescription description) {
@@ -39,6 +31,8 @@ public class XtextSiriusModelDescriptor extends AXtextSiriusDescriptor {
 		this.ignoredNestedFeatures = description.getIgnoredNestedFeatures().stream()
 				.filter(StringUtils::isNotBlank)
 				.collect(Collectors.toSet());
+		this.prefixTerminalsExpression = description.getPrefixTerminalsExpression();
+		this.suffixTerminalsExpression = description.getSuffixTerminalsExpression();
 	}
 	
 	protected Set<@NonNull String> convertFeatureNames(final Collection<String> featureNames) {
@@ -64,5 +58,13 @@ public class XtextSiriusModelDescriptor extends AXtextSiriusDescriptor {
 	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(
 			final @NonNull IXtextSiriusAwareLabelEditPart editPart) {
 		return new XtextSiriusDirectEditManagerModel(editPart, this);
+	}
+	
+	public String getPrefixTerminalsExpression() {
+		return this.prefixTerminalsExpression;
+	}
+	
+	public String getSuffixTerminalsExpression() {
+		return this.suffixTerminalsExpression;
 	}
 }

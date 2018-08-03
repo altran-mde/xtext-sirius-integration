@@ -20,33 +20,33 @@ import com.google.common.collect.Lists;
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {
 	private SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;
-	
+
 	public XtextSiriusStyledTextCellEditorModel(final @NonNull XtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
 	}
-	
+
 	@Override
 	protected void doSetValue(final Object value) {
 		final EObject semanticElement = getSemanticElement();
-		
+
 		if (semanticElement == null) {
 			return;
 		}
-		
+
 		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(getInjector(), semanticElement);
 		preparer.setMultiLine(isMultiLine());
 		preparer.setEditableFeatures(getDescriptor().getEditableFeatures());
 		preparer.setIgnoredNestedFeatures(getDescriptor().getIgnoredNestedFeatures());
 		preparer.setSelectedFeatures(getDescriptor().getSelectedFeatures());
-		
-		final String prefixText = interpret(getDescriptor().getPrefixTextExpression());
+
+		final String prefixText = interpret(getDescriptor().getPrefixTerminalsExpression());
 		preparer.setPrefixText(prefixText);
-		final String suffixText = interpret(getDescriptor().getSuffixTextExpression());
+		final String suffixText = interpret(getDescriptor().getSuffixTerminalsExpression());
 		preparer.setSuffixText(suffixText);
-		
+
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();
-		
+
 		if (value instanceof String) {
 			final String str = (String) value;
 			if (StringUtils.isNotBlank(str)) {
@@ -55,27 +55,27 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 				textRegion = new TextRegion(textRegion.getOffset(), str.length());
 			}
 		}
-		
+
 		getXtextAdapter().resetVisibleRegion();
 		super.doSetValue(text);
-		
+
 		this.semanticElementLocation = preparer.getSemanticElementLocation();
-		
+
 		getXtextAdapter().setVisibleRegion(textRegion.getOffset(), textRegion.getLength());
 		this.selectedRegion = preparer.getSelectedRegion();
 	}
-	
+
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}
-	
+
 	public void updateSelectedRegion() {
 		if (this.selectedRegion != null) {
 			getXtextAdapter().getXtextSourceViewer().setSelectedRange(this.selectedRegion.getOffset(),
 					this.selectedRegion.getLength());
 		}
 	}
-	
+
 	@Override
 	public @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
 		final SemanticElementLocation location = getSemanticElementLocation();
@@ -90,15 +90,15 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 				return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(getSemanticElement()));
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	protected XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
 		return new XtextSiriusSyntaxErrorException((String) getValue(), getXtextAdapter().getVisibleRegion(),
 				Lists.newArrayList(parseResult.getSyntaxErrors()));
 	}
-
+	
 	@Override
 	public @NonNull XtextSiriusModelDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusModelDescriptor) super.getDescriptor();

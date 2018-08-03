@@ -21,7 +21,7 @@ public class XtextValueDescriptionPrefixTextPropertySection extends AbstractMult
 
 	@Override
 	protected EAttribute getFeature() {
-		return XtextsiriusPackage.eINSTANCE.getIXtextDescription_PrefixTextExpression();
+		return XtextsiriusPackage.eINSTANCE.getIXtextValueDescription_PrefixTextExpression();
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class XtextValueDescriptionPrefixTextPropertySection extends AbstractMult
 
 	@Override
 	protected String getDefaultLabelText() {
-		return "Prefix text";
+		return "Prefix Text Expression";
 	}
 
 	@Override

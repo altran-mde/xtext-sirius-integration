@@ -26,14 +26,17 @@
     <genClasses image="false" ecoreClass="eefxtext.ecore#//IEefXtextDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextDescription/injectorId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextDescription/multiLine"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextDescription/prefixTextExpression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextDescription/suffixTextExpression"/>
     </genClasses>
     <genClasses image="false" ecoreClass="eefxtext.ecore#//IEefXtextModelDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextModelDescription/editableFeatures"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextModelDescription/ignoredNestedFeatures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextModelDescription/prefixTerminalsExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextModelDescription/suffixTerminalsExpression"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="eefxtext.ecore#//IEefXtextValueDescription"/>
+    <genClasses image="false" ecoreClass="eefxtext.ecore#//IEefXtextValueDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextValueDescription/prefixTextExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextValueDescription/suffixTextExpression"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="eefxtext.ecore#//IEefXtextPropertyDescription"/>
     <genClasses ecoreClass="eefxtext.ecore#//EefXtextSingleLineModelDescription"/>
     <genClasses ecoreClass="eefxtext.ecore#//EefXtextMultiLineModelDescription"/>

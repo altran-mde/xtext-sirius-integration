@@ -48,9 +48,9 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 			super.getPropertyDescriptors(object);
 
 			addInjectorIdPropertyDescriptor(object);
+			addMultiLinePropertyDescriptor(object);
 			addPrefixTextExpressionPropertyDescriptor(object);
 			addSuffixTextExpressionPropertyDescriptor(object);
-			addMultiLinePropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
 	}
@@ -107,20 +107,19 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	 * @generated
 	 */
 	protected void addPrefixTextExpressionPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextDescription_prefixTextExpression_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IXtextDescription_prefixTextExpression_feature", "_UI_IXtextDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null,
-						null));
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextValueDescription_prefixTextExpression_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_IXtextValueDescription_prefixTextExpression_feature", "_UI_IXtextValueDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
@@ -130,20 +129,19 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	 * @generated
 	 */
 	protected void addSuffixTextExpressionPropertyDescriptor(final Object object) {
-		this.itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_IXtextDescription_suffixTextExpression_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IXtextDescription_suffixTextExpression_feature", "_UI_IXtextDescription_type"),
-						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
-						true,
-						false,
-						false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null,
-						null));
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextValueDescription_suffixTextExpression_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_IXtextValueDescription_suffixTextExpression_feature", "_UI_IXtextValueDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
 	}
 
 	/**
@@ -184,9 +182,9 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 
 		switch (notification.getFeatureID(XtextDirectEditValueDescription.class)) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID:
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

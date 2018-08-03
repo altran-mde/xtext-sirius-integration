@@ -74,31 +74,13 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_DESCRIPTION__INJECTOR_ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = 2;
-
-	/**
 	 * The number of structural features of the '<em>IXtext Description</em>'
 	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_DESCRIPTION_FEATURE_COUNT = 3;
+	int IXTEXT_DESCRIPTION_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the
@@ -122,24 +104,6 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_DESCRIPTION__INJECTOR_ID;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -158,13 +122,31 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>IXtext Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	int IXTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -194,7 +176,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+	int IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -203,7 +185,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
+	int IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>IXtext Value
@@ -212,7 +194,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
+	int IXTEXT_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
@@ -234,24 +216,6 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID = IXTEXT_DESCRIPTION__INJECTOR_ID;
-
-	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_PROPERTY_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_PROPERTY_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>IXtext Property
@@ -282,24 +246,6 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID = IXTEXT_DESCRIPTION__INJECTOR_ID;
-
-	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_DIRECT_EDIT_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_DIRECT_EDIT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
@@ -341,24 +287,6 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -387,13 +315,33 @@ public interface XtextsiriusPackage extends EPackage {
 			+ 1;
 
 	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
+			+ 3;
+
+	/**
 	 * The feature id for the '<em><b>Selected Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 2;
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>IXtext Direct Edit Model
@@ -402,7 +350,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 3;
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the
@@ -426,24 +374,6 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID = IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -453,13 +383,31 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE = IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE;
 
 	/**
+	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>IXtext Direct Edit Value
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 0;
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the
@@ -483,24 +431,6 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -519,13 +449,31 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>IXtext Property Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_PROPERTY_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -555,7 +503,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -564,7 +512,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>IXtext Property Value
@@ -573,7 +521,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_PROPERTY_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * Returns the meta object for class
@@ -598,34 +546,6 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextDescription_InjectorId();
-
-	/**
-	 * Returns the meta object for the attribute
-	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getPrefixTextExpression
-	 * <em>Prefix Text Expression</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Prefix Text
-	 *         Expression</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getPrefixTextExpression()
-	 * @see #getIXtextDescription()
-	 * @generated
-	 */
-	EAttribute getIXtextDescription_PrefixTextExpression();
-
-	/**
-	 * Returns the meta object for the attribute
-	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getSuffixTextExpression
-	 * <em>Suffix Text Expression</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Suffix Text
-	 *         Expression</em>'.
-	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getSuffixTextExpression()
-	 * @see #getIXtextDescription()
-	 * @generated
-	 */
-	EAttribute getIXtextDescription_SuffixTextExpression();
 
 	/**
 	 * Returns the meta object for class
@@ -668,6 +588,34 @@ public interface XtextsiriusPackage extends EPackage {
 	EAttribute getIXtextModelDescription_IgnoredNestedFeatures();
 
 	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getPrefixTerminalsExpression
+	 * <em>Prefix Terminals Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Prefix Terminals
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getPrefixTerminalsExpression()
+	 * @see #getIXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextModelDescription_PrefixTerminalsExpression();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getSuffixTerminalsExpression
+	 * <em>Suffix Terminals Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Suffix Terminals
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getSuffixTerminalsExpression()
+	 * @see #getIXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextModelDescription_SuffixTerminalsExpression();
+
+	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 	 * <em>IXtext Value Description</em>}'. <!-- begin-user-doc --> <!--
@@ -678,6 +626,34 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextValueDescription();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription#getPrefixTextExpression
+	 * <em>Prefix Text Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Prefix Text
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription#getPrefixTextExpression()
+	 * @see #getIXtextValueDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextValueDescription_PrefixTextExpression();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription#getSuffixTextExpression
+	 * <em>Suffix Text Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Suffix Text
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription#getSuffixTextExpression()
+	 * @see #getIXtextValueDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextValueDescription_SuffixTextExpression();
 
 	/**
 	 * Returns the meta object for class
@@ -826,24 +802,6 @@ public interface XtextsiriusPackage extends EPackage {
 		EAttribute IXTEXT_DESCRIPTION__INJECTOR_ID = eINSTANCE.getIXtextDescription_InjectorId();
 
 		/**
-		 * The meta object literal for the '<em><b>Prefix Text
-		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION = eINSTANCE.getIXtextDescription_PrefixTextExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Suffix Text
-		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = eINSTANCE.getIXtextDescription_SuffixTextExpression();
-
-		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
 		 * <em>IXtext Model Description</em>}' class. <!-- begin-user-doc -->
@@ -874,6 +832,26 @@ public interface XtextsiriusPackage extends EPackage {
 				.getIXtextModelDescription_IgnoredNestedFeatures();
 
 		/**
+		 * The meta object literal for the '<em><b>Prefix Terminals
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = eINSTANCE
+				.getIXtextModelDescription_PrefixTerminalsExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Suffix Terminals
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = eINSTANCE
+				.getIXtextModelDescription_SuffixTerminalsExpression();
+
+		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 		 * <em>IXtext Value Description</em>}' class. <!-- begin-user-doc -->
@@ -884,6 +862,26 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_VALUE_DESCRIPTION = eINSTANCE.getIXtextValueDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix Text
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = eINSTANCE
+				.getIXtextValueDescription_PrefixTextExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Suffix Text
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = eINSTANCE
+				.getIXtextValueDescription_SuffixTextExpression();
 
 		/**
 		 * The meta object literal for the

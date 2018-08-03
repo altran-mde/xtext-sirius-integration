@@ -297,10 +297,6 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 			switch (derivedFeatureID) {
 				case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
-				case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-					return XtextsiriusPackage.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-				case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-					return XtextsiriusPackage.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -313,6 +309,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		if (baseClass == IXtextValueDescription.class) {
 			switch (derivedFeatureID) {
+				case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+					return XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+				case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+					return XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -337,10 +337,6 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 			switch (baseFeatureID) {
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
 					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID;
-				case XtextsiriusPackage.IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-				case XtextsiriusPackage.IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}
@@ -353,6 +349,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		if (baseClass == IXtextValueDescription.class) {
 			switch (baseFeatureID) {
+				case XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
+					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
+				case XtextsiriusPackage.IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
+					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
 				default:
 					return -1;
 			}

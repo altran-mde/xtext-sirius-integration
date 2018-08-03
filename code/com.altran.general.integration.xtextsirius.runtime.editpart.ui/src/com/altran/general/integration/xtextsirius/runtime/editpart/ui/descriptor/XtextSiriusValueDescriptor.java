@@ -20,21 +20,14 @@ import com.google.inject.Injector;
 
 public class XtextSiriusValueDescriptor extends AXtextSiriusDescriptor {
 
-	// public XtextSiriusValueDescriptor(
-	// final @NonNull Injector injector, final boolean multiLine, final @NonNull
-	// String prefixText,
-	// final @NonNull String suffixText/*
-	// * , final @NonNull
-	// * EStructuralFeature valueFeature
-	// */) {
-	// super(injector, multiLine);
-	// this.prefixTextExpression = prefixText;
-	// this.suffixTextExpression = suffixText;
-	// }
-
+	private final @NonNull String prefixTextExpression;
+	private final @NonNull String suffixTextExpression;
+	
 	public XtextSiriusValueDescriptor(final @NonNull Injector injector,
 			final @NonNull IXtextDirectEditValueDescription description) {
 		super(injector, description);
+		this.prefixTextExpression = description.getPrefixTextExpression();
+		this.suffixTextExpression = description.getSuffixTextExpression();
 	}
 
 	@Override
@@ -70,5 +63,13 @@ public class XtextSiriusValueDescriptor extends AXtextSiriusDescriptor {
 		}
 
 		throw new IllegalStateException("Cannot find SetValue operation for directEdit " + this);
+	}
+	
+	public @NonNull String getPrefixTextExpression() {
+		return this.prefixTextExpression;
+	}
+	
+	public @NonNull String getSuffixTextExpression() {
+		return this.suffixTextExpression;
 	}
 }

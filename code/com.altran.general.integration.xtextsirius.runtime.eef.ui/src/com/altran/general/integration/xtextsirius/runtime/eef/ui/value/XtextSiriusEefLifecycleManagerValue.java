@@ -13,6 +13,8 @@ import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusCont
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycleManager {
+	private final @NonNull String prefixTextExpression;
+	private final @NonNull String suffixTextExpression;
 
 	public XtextSiriusEefLifecycleManagerValue(
 			final @NonNull Injector injector,
@@ -22,6 +24,9 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 			final @NonNull IInterpreter interpreter,
 			final @NonNull EditingContextAdapter contextAdapter) {
 		super(injector, shouldUseSpecializedInjector, controlDescription, variableManager, interpreter, contextAdapter);
+		
+		this.prefixTextExpression = controlDescription.getPrefixTextExpression();
+		this.suffixTextExpression = controlDescription.getSuffixTextExpression();
 	}
 
 	@Override
@@ -59,5 +64,13 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 			commit(getWidget().getText());
 		}
 		super.aboutToBeHidden();
+	}
+
+	protected @NonNull String getPrefixTextExpression() {
+		return this.prefixTextExpression;
+	}
+
+	protected @NonNull String getSuffixTextExpression() {
+		return this.suffixTextExpression;
 	}
 }

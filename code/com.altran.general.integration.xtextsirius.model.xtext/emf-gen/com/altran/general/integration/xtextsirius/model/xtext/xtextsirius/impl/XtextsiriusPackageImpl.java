@@ -187,26 +187,6 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIXtextDescription_PrefixTextExpression() {
-		return (EAttribute) this.iXtextDescriptionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIXtextDescription_SuffixTextExpression() {
-		return (EAttribute) this.iXtextDescriptionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EClass getIXtextModelDescription() {
 		return this.iXtextModelDescriptionEClass;
 	}
@@ -237,8 +217,48 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIXtextModelDescription_PrefixTerminalsExpression() {
+		return (EAttribute) this.iXtextModelDescriptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIXtextModelDescription_SuffixTerminalsExpression() {
+		return (EAttribute) this.iXtextModelDescriptionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getIXtextValueDescription() {
 		return this.iXtextValueDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIXtextValueDescription_PrefixTextExpression() {
+		return (EAttribute) this.iXtextValueDescriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIXtextValueDescription_SuffixTextExpression() {
+		return (EAttribute) this.iXtextValueDescriptionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -354,14 +374,16 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		// Create classes and their features
 		this.iXtextDescriptionEClass = createEClass(IXTEXT_DESCRIPTION);
 		createEAttribute(this.iXtextDescriptionEClass, IXTEXT_DESCRIPTION__INJECTOR_ID);
-		createEAttribute(this.iXtextDescriptionEClass, IXTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION);
-		createEAttribute(this.iXtextDescriptionEClass, IXTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION);
 
 		this.iXtextModelDescriptionEClass = createEClass(IXTEXT_MODEL_DESCRIPTION);
 		createEAttribute(this.iXtextModelDescriptionEClass, IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		createEAttribute(this.iXtextModelDescriptionEClass, IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES);
+		createEAttribute(this.iXtextModelDescriptionEClass, IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION);
+		createEAttribute(this.iXtextModelDescriptionEClass, IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION);
 
 		this.iXtextValueDescriptionEClass = createEClass(IXTEXT_VALUE_DESCRIPTION);
+		createEAttribute(this.iXtextValueDescriptionEClass, IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION);
+		createEAttribute(this.iXtextValueDescriptionEClass, IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION);
 
 		this.iXtextPropertyDescriptionEClass = createEClass(IXTEXT_PROPERTY_DESCRIPTION);
 
@@ -433,12 +455,6 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		initEAttribute(getIXtextDescription_InjectorId(), theEcorePackage.getEString(), "injectorId", null, 0, 1,
 				IXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIXtextDescription_PrefixTextExpression(), theEcorePackage.getEString(),
-				"prefixTextExpression", null, 0, 1, IXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIXtextDescription_SuffixTextExpression(), theEcorePackage.getEString(),
-				"suffixTextExpression", null, 0, 1, IXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(this.iXtextDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1, !IS_UNIQUE,
 				IS_ORDERED);
@@ -452,10 +468,22 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		initEAttribute(getIXtextModelDescription_IgnoredNestedFeatures(), theEcorePackage.getEString(),
 				"ignoredNestedFeatures", null, 0, -1, IXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIXtextModelDescription_PrefixTerminalsExpression(), theEcorePackage.getEString(),
+				"prefixTerminalsExpression", null, 0, 1, IXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIXtextModelDescription_SuffixTerminalsExpression(), theEcorePackage.getEString(),
+				"suffixTerminalsExpression", null, 0, 1, IXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(this.iXtextValueDescriptionEClass, IXtextValueDescription.class, "IXtextValueDescription",
 				IS_ABSTRACT,
 				IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIXtextValueDescription_PrefixTextExpression(), theEcorePackage.getEString(),
+				"prefixTextExpression", null, 0, 1, IXtextValueDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIXtextValueDescription_SuffixTextExpression(), theEcorePackage.getEString(),
+				"suffixTextExpression", null, 0, 1, IXtextValueDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(this.iXtextPropertyDescriptionEClass, IXtextPropertyDescription.class, "IXtextPropertyDescription",
 				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

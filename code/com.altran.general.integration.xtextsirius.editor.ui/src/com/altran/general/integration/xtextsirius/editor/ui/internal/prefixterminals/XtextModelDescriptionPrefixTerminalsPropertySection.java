@@ -1,8 +1,8 @@
-package com.altran.general.integration.xtextsirius.editor.ui.internal.suffixtext;
+package com.altran.general.integration.xtextsirius.editor.ui.internal.prefixterminals;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.sirius.editor.editorPlugin.SiriusEditor;
-import org.eclipse.sirius.editor.properties.sections.common.AbstractMultilinePropertySection;
+import org.eclipse.sirius.editor.properties.sections.common.AbstractTextPropertySection;
 import org.eclipse.sirius.editor.tools.api.assist.TypeContentProposalProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormAttachment;
@@ -12,7 +12,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
-public class XtextValueDescriptionSuffixTextPropertySection extends AbstractMultilinePropertySection {
+public class XtextModelDescriptionPrefixTerminalsPropertySection extends AbstractTextPropertySection {
 
 	@Override
 	protected boolean isEqual(final String newText) {
@@ -20,8 +20,8 @@ public class XtextValueDescriptionSuffixTextPropertySection extends AbstractMult
 	}
 
 	@Override
-	protected EAttribute getFeature() {
-		return XtextsiriusPackage.eINSTANCE.getIXtextValueDescription_SuffixTextExpression();
+	public EAttribute getFeature() {
+		return XtextsiriusPackage.eINSTANCE.getIXtextModelDescription_PrefixTerminalsExpression();
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class XtextValueDescriptionSuffixTextPropertySection extends AbstractMult
 
 	@Override
 	protected String getDefaultLabelText() {
-		return "Suffix Text Expression";
+		return "Prefix Terminals Expression";
 	}
 
 	@Override

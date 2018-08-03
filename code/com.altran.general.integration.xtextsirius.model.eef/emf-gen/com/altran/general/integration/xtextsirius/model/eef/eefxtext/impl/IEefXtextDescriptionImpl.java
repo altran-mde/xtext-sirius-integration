@@ -21,10 +21,6 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDe
  * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isMultiLine
  * <em>Multi Line</em>}</li>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#getPrefixTextExpression
- * <em>Prefix Text Expression</em>}</li>
- * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#getSuffixTextExpression
- * <em>Suffix Text Expression</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,50 +65,6 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	 * @ordered
 	 */
 	protected boolean multiLine = MULTI_LINE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
-	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getPrefixTextExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
-	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getPrefixTextExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
-	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getSuffixTextExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
-	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getSuffixTextExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected String suffixTextExpression = SUFFIX_TEXT_EXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -189,68 +141,12 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	 * @generated
 	 */
 	@Override
-	public String getPrefixTextExpression() {
-		return this.prefixTextExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setPrefixTextExpression(final String newPrefixTextExpression) {
-		final String oldPrefixTextExpression = this.prefixTextExpression;
-		this.prefixTextExpression = newPrefixTextExpression;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EefxtextPackage.IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION, oldPrefixTextExpression,
-					this.prefixTextExpression));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getSuffixTextExpression() {
-		return this.suffixTextExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void setSuffixTextExpression(final String newSuffixTextExpression) {
-		final String oldSuffixTextExpression = this.suffixTextExpression;
-		this.suffixTextExpression = newSuffixTextExpression;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EefxtextPackage.IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION, oldSuffixTextExpression,
-					this.suffixTextExpression));
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
 				return getInjectorId();
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
 				return isMultiLine();
-			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-				return getPrefixTextExpression();
-			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				return getSuffixTextExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,12 +164,6 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 				return;
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
 				setMultiLine((Boolean) newValue);
-				return;
-			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-				setPrefixTextExpression((String) newValue);
-				return;
-			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				setSuffixTextExpression((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,12 +183,6 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
 				setMultiLine(MULTI_LINE_EDEFAULT);
 				return;
-			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-				setPrefixTextExpression(PREFIX_TEXT_EXPRESSION_EDEFAULT);
-				return;
-			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				setSuffixTextExpression(SUFFIX_TEXT_EXPRESSION_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -316,12 +200,6 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
 				return this.multiLine != MULTI_LINE_EDEFAULT;
-			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
-				return PREFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.prefixTextExpression != null
-						: !PREFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.prefixTextExpression);
-			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
-				return SUFFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.suffixTextExpression != null
-						: !SUFFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.suffixTextExpression);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -342,10 +220,6 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 		result.append(this.injectorId);
 		result.append(", multiLine: ");
 		result.append(this.multiLine);
-		result.append(", prefixTextExpression: ");
-		result.append(this.prefixTextExpression);
-		result.append(", suffixTextExpression: ");
-		result.append(this.suffixTextExpression);
 		result.append(')');
 		return result.toString();
 	}

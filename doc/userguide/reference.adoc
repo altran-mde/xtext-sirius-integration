@@ -163,67 +163,6 @@ The changes are committed to the Sirius edit session, but only persisted if and 
 * <<property, image:images/XtextMultiLineValueDescription.png[] Text Area (aka multi-line) Widget for Value content>>
 
 
-
-[[prefixText-suffixText]]
-===== PrefixText and SuffixText
-
-In order to provide appropriate auto-completion and other Xtext features, the editor requires a complete model.
-However, the String feature may contain only a subsection of a complete model.
-Therefore, the developer may provide text that should be pre-pended and appended to the String feature's value in order to complete the model.
-The end-user still sees and edits only the String feature's value.
-
-.Example
-
-Think of a simplified version of HTML implemented as Xtext language. A complete model might look like this:
-
-[source, html]
-----
-<html>
-<head>
-	<title>This is a test</title>
-</head>
-<body>
-	<p>Some paragraph</p>
-	<ul>
-		<li>This is <b>important</b></li>
-		<li>And something's <i>useful</i></li>
-	</ul>
-	<p>Some other not so <i>very interesting,</i> but yet <b>highlighted</b> paragraph</p>
-</body>
-</html>
-----
-
-This language should be used for the description feature of classes in an entity model.
-
-However, the model may contain several such classes, and the description of all of them should end up in only one HTML file (in a later generation step).
-Instead of storing a complete model into every class' description (and bothering the end-user with it), the description contains only the following part:
-
-[source, html]
-----
-	<p>Some paragraph</p>
-	<ul>
-		<li>This is <b>important</b></li>
-		<li>And something's <i>useful</i></li>
-	</ul>
-	<p>Some other not so <i>very interesting,</i> but yet <b>highlighted</b> paragraph</p>
-----
-
-In order to complete the model for Xtext, the developer supplies the editor with
-
-prefixTextExpression::
-	`<html><head><title>Title</title><head><body>`
-suffixTextExpression::
-	`ocl:'</body>'.concat('</html>')` +
-	(the expression does not make sense really, it's only to show we actually _can_ use expressions.)
-
-This way, Xtext works on a complete model, but only the relevant parts are available to the end-user.
-
-
-We provide these infos via the `prefixTextExpression` / `suffixTextExpression` properties.
-As hinted by the name, these fields accept both a simple string as well as any expression supported by Sirius.
-
-
-
 === Editor Infos footnoteref:[info,	These are actually properties of the editor -- but this term is already used a lot.]
 
 [[injector]]
@@ -341,6 +280,71 @@ For _Text Area_ widgets, we can define the number of lines to be shown via the `
 * <<directEdit, image:images/XtextDirectEditValueDescription.png[] Direct Editor for Value content>>
 * <<property, image:images/XtextMultiLineValueDescription.png[] Text Area (aka multi-line) Widget for Value content>>
 * <<property, image:images/XtextMultiLineModelDescription.png[] Text Area (aka multi-line) Widget for Model content>>
+
+
+
+[[prefixText-suffixText]]
+==== PrefixText and SuffixText
+
+In order to provide appropriate auto-completion and other Xtext features, a value editor requires a complete model.
+However, the String feature may contain only a subsection of a complete model.
+Therefore, the developer may provide text that should be pre-pended and appended to the String feature's value in order to complete the model.
+The end-user still sees and edits only the String feature's value.
+
+.Example
+
+Think of a simplified version of HTML implemented as Xtext language. A complete model might look like this:
+
+[source, html]
+----
+<html>
+<head>
+	<title>This is a test</title>
+</head>
+<body>
+	<p>Some paragraph</p>
+	<ul>
+		<li>This is <b>important</b></li>
+		<li>And something's <i>useful</i></li>
+	</ul>
+	<p>Some other not so <i>very interesting,</i> but yet <b>highlighted</b> paragraph</p>
+</body>
+</html>
+----
+
+This language should be used for the description feature of classes in an entity model.
+
+However, the model may contain several such classes, and the description of all of them should end up in only one HTML file (in a later generation step).
+Instead of storing a complete model into every class' description (and bothering the end-user with it), the description contains only the following part:
+
+[source, html]
+----
+	<p>Some paragraph</p>
+	<ul>
+		<li>This is <b>important</b></li>
+		<li>And something's <i>useful</i></li>
+	</ul>
+	<p>Some other not so <i>very interesting,</i> but yet <b>highlighted</b> paragraph</p>
+----
+
+In order to complete the model for Xtext, the developer supplies the editor with
+
+prefixTextExpression::
+	`<html><head><title>Title</title><head><body>`
+suffixTextExpression::
+	`ocl:'</body>'.concat('</html>')` +
+	(the expression does not make sense really, it's only to show we actually _can_ use expressions.)
+
+This way, Xtext works on a complete model, but only the relevant parts are available to the end-user.
+
+We provide these infos via the `prefixTextExpression` / `suffixTextExpression` properties.
+As hinted by the name, these fields accept both a simple string as well as any expression supported by Sirius.
+
+.Available implementations
+
+* <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.png[] Edge Label Direct Editor for Value content>>
+* <<directEdit, image:images/XtextDirectEditValueDescription.png[] Direct Editor for Value content>>
+* <<property, image:images/XtextMultiLineValueDescription.png[] Text Area (aka multi-line) Widget for Value content>>
 
 
 
@@ -565,6 +569,11 @@ This opens a pop-up window listing all available and currently selected edge lab
 
 * <<directEdit, image:images/XtextEdgeLabelDirectEditModelDescription.png[] Edge Label Direct Editor for Model content>>
 * <<directEdit, image:images/XtextEdgeLabelDirectEditValueDescription.png[] Edge Label Direct Editor for Value content>>
+
+
+[[prefixTerminals-suffixTerminals]]
+==== PrefixTerminals and SuffixTerminals
+
 
 
 === Additional Model Operations

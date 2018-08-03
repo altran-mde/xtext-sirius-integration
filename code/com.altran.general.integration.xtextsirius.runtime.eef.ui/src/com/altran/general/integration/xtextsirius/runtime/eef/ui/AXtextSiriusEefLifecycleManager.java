@@ -28,9 +28,6 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 	private final boolean multiLine;
 	private final Injector injector;
 
-	private final @NonNull String prefixTextExpression;
-	private final @NonNull String suffixTextExpression;
-
 	protected final IEefXtextDescription controlDescription;
 	protected final EditingContextAdapter contextAdapter;
 
@@ -53,8 +50,6 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		this.contextAdapter = contextAdapter;
 		this.multiLine = controlDescription.isMultiLine();
 		this.injector = createSpecializedInjector(injector, shouldUseSpecializedInjector);
-		this.prefixTextExpression = controlDescription.getPrefixTextExpression();
-		this.suffixTextExpression = controlDescription.getSuffixTextExpression();
 	}
 
 	@Override
@@ -192,14 +187,5 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 
 	protected Injector getInjector() {
 		return this.injector;
-	}
-	
-	
-	protected @NonNull String getPrefixTextExpression() {
-		return this.prefixTextExpression;
-	}
-	
-	protected @NonNull String getSuffixTextExpression() {
-		return this.suffixTextExpression;
 	}
 }

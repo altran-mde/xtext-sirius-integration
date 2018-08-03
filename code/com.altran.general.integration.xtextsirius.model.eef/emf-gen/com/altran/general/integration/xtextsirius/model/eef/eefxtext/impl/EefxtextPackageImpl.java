@@ -191,26 +191,6 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIEefXtextDescription_PrefixTextExpression() {
-		return (EAttribute) this.iEefXtextDescriptionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIEefXtextDescription_SuffixTextExpression() {
-		return (EAttribute) this.iEefXtextDescriptionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public EClass getIEefXtextModelDescription() {
 		return this.iEefXtextModelDescriptionEClass;
 	}
@@ -241,8 +221,48 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIEefXtextModelDescription_PrefixTerminalsExpression() {
+		return (EAttribute) this.iEefXtextModelDescriptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIEefXtextModelDescription_SuffixTerminalsExpression() {
+		return (EAttribute) this.iEefXtextModelDescriptionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getIEefXtextValueDescription() {
 		return this.iEefXtextValueDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIEefXtextValueDescription_PrefixTextExpression() {
+		return (EAttribute) this.iEefXtextValueDescriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIEefXtextValueDescription_SuffixTextExpression() {
+		return (EAttribute) this.iEefXtextValueDescriptionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -329,14 +349,18 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		this.iEefXtextDescriptionEClass = createEClass(IEEF_XTEXT_DESCRIPTION);
 		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__INJECTOR_ID);
 		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__MULTI_LINE);
-		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__PREFIX_TEXT_EXPRESSION);
-		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION);
 
 		this.iEefXtextModelDescriptionEClass = createEClass(IEEF_XTEXT_MODEL_DESCRIPTION);
 		createEAttribute(this.iEefXtextModelDescriptionEClass, IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
 		createEAttribute(this.iEefXtextModelDescriptionEClass, IEEF_XTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES);
+		createEAttribute(this.iEefXtextModelDescriptionEClass,
+				IEEF_XTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION);
+		createEAttribute(this.iEefXtextModelDescriptionEClass,
+				IEEF_XTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION);
 
 		this.iEefXtextValueDescriptionEClass = createEClass(IEEF_XTEXT_VALUE_DESCRIPTION);
+		createEAttribute(this.iEefXtextValueDescriptionEClass, IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION);
+		createEAttribute(this.iEefXtextValueDescriptionEClass, IEEF_XTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION);
 
 		this.iEefXtextPropertyDescriptionEClass = createEClass(IEEF_XTEXT_PROPERTY_DESCRIPTION);
 
@@ -406,12 +430,6 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		initEAttribute(getIEefXtextDescription_MultiLine(), theEcorePackage.getEBoolean(), "multiLine", null, 0, 1,
 				IEefXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				!IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIEefXtextDescription_PrefixTextExpression(), theEcorePackage.getEString(),
-				"prefixTextExpression", null, 0, 1, IEefXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIEefXtextDescription_SuffixTextExpression(), theEcorePackage.getEString(),
-				"suffixTextExpression", null, 0, 1, IEefXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(this.iEefXtextModelDescriptionEClass, IEefXtextModelDescription.class, "IEefXtextModelDescription",
 				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -421,9 +439,21 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		initEAttribute(getIEefXtextModelDescription_IgnoredNestedFeatures(), theEcorePackage.getEString(),
 				"ignoredNestedFeatures", null, 0, -1, IEefXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIEefXtextModelDescription_PrefixTerminalsExpression(), theEcorePackage.getEString(),
+				"prefixTerminalsExpression", null, 0, 1, IEefXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIEefXtextModelDescription_SuffixTerminalsExpression(), theEcorePackage.getEString(),
+				"suffixTerminalsExpression", null, 0, 1, IEefXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(this.iEefXtextValueDescriptionEClass, IEefXtextValueDescription.class, "IEefXtextValueDescription",
 				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIEefXtextValueDescription_PrefixTextExpression(), theEcorePackage.getEString(),
+				"prefixTextExpression", null, 0, 1, IEefXtextValueDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIEefXtextValueDescription_SuffixTextExpression(), theEcorePackage.getEString(),
+				"suffixTextExpression", null, 0, 1, IEefXtextValueDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(this.iEefXtextPropertyDescriptionEClass, IEefXtextPropertyDescription.class,
 				"IEefXtextPropertyDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

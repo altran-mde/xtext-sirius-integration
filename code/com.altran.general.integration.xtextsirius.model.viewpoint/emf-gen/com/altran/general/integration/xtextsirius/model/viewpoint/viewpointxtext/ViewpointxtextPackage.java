@@ -77,24 +77,6 @@ public interface ViewpointxtextPackage extends EPackage {
 	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__PREFIX_TEXT_EXPRESSION = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -245,24 +227,6 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID;
 
 	/**
-	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -288,6 +252,24 @@ public interface ViewpointxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Selected Features</b></em>' attribute
@@ -440,6 +422,15 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID;
 
 	/**
+	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE;
+
+	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -456,15 +447,6 @@ public interface ViewpointxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 * @ordered
-	 */
-	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE;
 
 	/**
 	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
