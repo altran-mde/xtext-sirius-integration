@@ -673,9 +673,9 @@ The example would work the same way if the `suffixTerminalsExpression` was:
 
 Explanation: For _event ford_, it would successfully match `]` but quit terminals matching afterwards, because the next token would not be a terminal (in this case, it would be the following _Event_ rule).
 
-CAUTION: Sometimes, Xtext considers terminals as part of a feature.
+CAUTION: Sometimes, Xtext considers terminals to be part of a feature.
 In this case the terminal is always contained in the edited text.
-It might help to add additional parenthesis to the grammar in order to give some hints to Xtext.
+Adjusting the grammar might help: Wrap the feature in additional parentheses in order to give some hints to Xtext.
 
 
 .Available implementations
