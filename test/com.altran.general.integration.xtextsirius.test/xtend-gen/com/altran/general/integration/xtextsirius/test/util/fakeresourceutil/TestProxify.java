@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.fakeresourceutil;
 
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.altran.general.integration.xtextsirius.test.util.fakeresourceutil.ATestFakeResourceUtil;
-import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;

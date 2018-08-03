@@ -13,7 +13,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
 import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
-import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
@@ -51,6 +50,10 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 			addInjectorIdPropertyDescriptor(object);
 			addMultiLinePropertyDescriptor(object);
 			addEditableFeaturesPropertyDescriptor(object);
+			addIgnoredNestedFeaturesPropertyDescriptor(object);
+			addPrefixTerminalsExpressionPropertyDescriptor(object);
+			addSuffixTerminalsExpressionPropertyDescriptor(object);
+			addSelectedFeaturesPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
 	}
@@ -123,6 +126,100 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 	}
 
 	/**
+	 * This adds a property descriptor for the Ignored Nested Features feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addIgnoredNestedFeaturesPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_IXtextModelDescription_ignoredNestedFeatures_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_IXtextModelDescription_ignoredNestedFeatures_feature", "_UI_IXtextModelDescription_type"),
+				XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES,
+				true,
+				false,
+				false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null,
+				null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Prefix Terminals Expression
+	 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addPrefixTerminalsExpressionPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextModelDescription_prefixTerminalsExpression_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_IXtextModelDescription_prefixTerminalsExpression_feature",
+								"_UI_IXtextModelDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null,
+						null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Suffix Terminals Expression
+	 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addSuffixTerminalsExpressionPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextModelDescription_suffixTerminalsExpression_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_IXtextModelDescription_suffixTerminalsExpression_feature",
+								"_UI_IXtextModelDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null,
+						null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Selected Features feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	protected void addSelectedFeaturesPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextDirectEditModelDescription_selectedFeatures_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_IXtextDirectEditModelDescription_selectedFeatures_feature",
+								"_UI_IXtextDirectEditModelDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+						null,
+						null));
+	}
+
+	/**
 	 * This returns XtextDirectEditModelDescription.gif. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -162,6 +259,10 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION:
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION:
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -178,31 +279,6 @@ public class XtextDirectEditModelDescriptionItemProvider extends AXtextDirectEdi
 	@Override
 	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * This returns the label text for
-	 * {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(final Object owner, final Object feature, final Object child,
-			final Collection<?> selection) {
-		final Object childFeature = feature;
-		final Object childObject = child;
-
-		final boolean qualify = childFeature == ToolPackage.Literals.ABSTRACT_TOOL_DESCRIPTION__FILTERS ||
-				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__MASK
-				||
-				childFeature == org.eclipse.sirius.diagram.description.tool.ToolPackage.Literals.DIRECT_EDIT_LABEL__INITIAL_OPERATION;
-
-		if (qualify) {
-			return getString("_UI_CreateChild_text2",
-					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

@@ -211,6 +211,36 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIEefXtextModelDescription_IgnoredNestedFeatures() {
+		return (EAttribute) this.iEefXtextModelDescriptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIEefXtextModelDescription_PrefixTerminalsExpression() {
+		return (EAttribute) this.iEefXtextModelDescriptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIEefXtextModelDescription_SuffixTerminalsExpression() {
+		return (EAttribute) this.iEefXtextModelDescriptionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getIEefXtextValueDescription() {
 		return this.iEefXtextValueDescriptionEClass;
 	}
@@ -322,6 +352,11 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 
 		this.iEefXtextModelDescriptionEClass = createEClass(IEEF_XTEXT_MODEL_DESCRIPTION);
 		createEAttribute(this.iEefXtextModelDescriptionEClass, IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
+		createEAttribute(this.iEefXtextModelDescriptionEClass, IEEF_XTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES);
+		createEAttribute(this.iEefXtextModelDescriptionEClass,
+				IEEF_XTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION);
+		createEAttribute(this.iEefXtextModelDescriptionEClass,
+				IEEF_XTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION);
 
 		this.iEefXtextValueDescriptionEClass = createEClass(IEEF_XTEXT_VALUE_DESCRIPTION);
 		createEAttribute(this.iEefXtextValueDescriptionEClass, IEEF_XTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION);
@@ -400,6 +435,15 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIEefXtextModelDescription_EditableFeatures(), theEcorePackage.getEString(),
 				"editableFeatures", null, 0, -1, IEefXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIEefXtextModelDescription_IgnoredNestedFeatures(), theEcorePackage.getEString(),
+				"ignoredNestedFeatures", null, 0, -1, IEefXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIEefXtextModelDescription_PrefixTerminalsExpression(), theEcorePackage.getEString(),
+				"prefixTerminalsExpression", null, 0, 1, IEefXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIEefXtextModelDescription_SuffixTerminalsExpression(), theEcorePackage.getEString(),
+				"suffixTerminalsExpression", null, 0, 1, IEefXtextModelDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(this.iEefXtextValueDescriptionEClass, IEefXtextValueDescription.class, "IEefXtextValueDescription",

@@ -21,6 +21,7 @@ package com.altran.general.integration.xtextsirius.model.xtext.xtextsirius;
  * @generated
  */
 public interface IXtextValueDescription extends IXtextDescription {
+
 	/**
 	 * Returns the value of the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc -->

@@ -69,6 +69,10 @@ public class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 	public IRegion getVisibleRegion() {
 		return getXtextSourceviewer().getVisibleRegion();
 	}
+	
+	public XtextSourceViewer getXtextSourceViewer() {
+		return super.getXtextSourceviewer();
+	}
 
 	public long getModificationStamp() {
 		return getXtextDocument().getModificationStamp();

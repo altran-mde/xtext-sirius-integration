@@ -41,6 +41,7 @@ public class InlineEditParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 					put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 					put(grammarAccess.getTransitionAccess().getGroup_0(), "rule__Transition__Group_0__0");
+					put(grammarAccess.getRangeGuardAccess().getGroup(), "rule__RangeGuard__Group__0");
 					put(grammarAccess.getStatemachineAccess().getGroup(), "rule__Statemachine__Group__0");
 					put(grammarAccess.getStatemachineAccess().getGroup_1(), "rule__Statemachine__Group_1__0");
 					put(grammarAccess.getStatemachineAccess().getGroup_2(), "rule__Statemachine__Group_2__0");
@@ -48,7 +49,6 @@ public class InlineEditParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getStatemachineAccess().getGroup_4(), "rule__Statemachine__Group_4__0");
 					put(grammarAccess.getEventAccess().getGroup(), "rule__Event__Group__0");
 					put(grammarAccess.getEventAccess().getGroup_2(), "rule__Event__Group_2__0");
-					put(grammarAccess.getRangeGuardAccess().getGroup(), "rule__RangeGuard__Group__0");
 					put(grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
 					put(grammarAccess.getCommandAccess().getGroup_0(), "rule__Command__Group_0__0");
 					put(grammarAccess.getConstantAccess().getGroup(), "rule__Constant__Group__0");
@@ -60,6 +60,8 @@ public class InlineEditParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getTransitionAccess().getGuardAssignment_0_1(), "rule__Transition__GuardAssignment_0_1");
 					put(grammarAccess.getTransitionAccess().getEventAssignment_1(), "rule__Transition__EventAssignment_1");
 					put(grammarAccess.getTransitionAccess().getStateAssignment_3(), "rule__Transition__StateAssignment_3");
+					put(grammarAccess.getRangeGuardAccess().getMinAssignment_0(), "rule__RangeGuard__MinAssignment_0");
+					put(grammarAccess.getRangeGuardAccess().getMaxAssignment_2(), "rule__RangeGuard__MaxAssignment_2");
 					put(grammarAccess.getStatemachineAccess().getEventsAssignment_1_1(), "rule__Statemachine__EventsAssignment_1_1");
 					put(grammarAccess.getStatemachineAccess().getResetEventsAssignment_2_1(), "rule__Statemachine__ResetEventsAssignment_2_1");
 					put(grammarAccess.getStatemachineAccess().getCommandsAssignment_3_1(), "rule__Statemachine__CommandsAssignment_3_1");
@@ -69,8 +71,6 @@ public class InlineEditParser extends AbstractPartialContentAssistParser {
 					put(grammarAccess.getEventAccess().getCodeAssignment_1(), "rule__Event__CodeAssignment_1");
 					put(grammarAccess.getEventAccess().getGuardAssignment_2_1(), "rule__Event__GuardAssignment_2_1");
 					put(grammarAccess.getValueGuardAccess().getCondAssignment(), "rule__ValueGuard__CondAssignment");
-					put(grammarAccess.getRangeGuardAccess().getMinAssignment_0(), "rule__RangeGuard__MinAssignment_0");
-					put(grammarAccess.getRangeGuardAccess().getMaxAssignment_2(), "rule__RangeGuard__MaxAssignment_2");
 					put(grammarAccess.getConstantRefAccess().getConstantAssignment(), "rule__ConstantRef__ConstantAssignment");
 					put(grammarAccess.getIntLiteralAccess().getValueAssignment(), "rule__IntLiteral__ValueAssignment");
 					put(grammarAccess.getCommandAccess().getGuardAssignment_0_1(), "rule__Command__GuardAssignment_0_1");

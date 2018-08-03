@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Xtext / Sirius Integration EEF Runtime
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime.eef.ui;singleton:=true
-Bundle-Version: 0.10.0.qualifier
+Bundle-Version: 0.12.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.eef.ui.internal.XtextSiriusRuntimeEefUiPlugin
 Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional;visibility:=reexport,
  org.apache.commons.lang,

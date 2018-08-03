@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated XtextSiriusTest -->
+      <package
+            uri="http://www.example.org/XtextSiriusTest"
+            class="com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage"
+            genModel="model/XtextSiriusTest.genmodel"/>
+   </extension>
+
+</plugin>

@@ -1,6 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.util.fakeresourceutil
 
-import com.altran.general.integration.xtextsirius.util.FakeResourceUtil
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil
 import org.eclipse.emf.ecore.InternalEObject
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ConstantRef
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard

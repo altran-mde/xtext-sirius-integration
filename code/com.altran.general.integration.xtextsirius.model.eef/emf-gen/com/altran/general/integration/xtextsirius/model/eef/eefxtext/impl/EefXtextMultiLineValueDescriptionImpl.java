@@ -37,7 +37,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends IEefXtextDescriptionI
 	 * @ordered
 	 */
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -48,7 +47,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends IEefXtextDescriptionI
 	 * @ordered
 	 */
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -59,7 +57,6 @@ public class EefXtextMultiLineValueDescriptionImpl extends IEefXtextDescriptionI
 	 * @ordered
 	 */
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--

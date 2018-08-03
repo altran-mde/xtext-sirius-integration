@@ -73,14 +73,16 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="EventEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="EventEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue">
                 <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="vcxxcv" id="exampleAction"/>
               </firstModelOperations>
             </initialOperation>
+            <ignoredNestedFeatures>guard.min</ignoredNestedFeatures>
+            <selectedFeatures>Event.name</selectedFeatures>
           </ownedTools>
-          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="TransitionEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId" edgeLabelMappings="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style/@centerLabelStyleDescription">
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="TransitionEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId" prefixTerminalsExpression="aql:'['" suffixTerminalsExpression="zxcvzxcv" edgeLabelMappings="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style/@centerLabelStyleDescription">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
             </initialOperation>
@@ -92,7 +94,7 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="ThingEdit" multiLine="true" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="ThingEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId" multiLine="true">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
             </initialOperation>

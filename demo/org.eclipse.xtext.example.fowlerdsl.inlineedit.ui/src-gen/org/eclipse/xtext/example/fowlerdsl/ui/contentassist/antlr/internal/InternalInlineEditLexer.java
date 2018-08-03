@@ -115,10 +115,10 @@ public class InternalInlineEditLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalInlineEdit.g:14:7: ( 'events' )
-            // InternalInlineEdit.g:14:9: 'events'
+            // InternalInlineEdit.g:14:7: ( '..' )
+            // InternalInlineEdit.g:14:9: '..'
             {
-            match("events"); 
+            match(".."); 
 
 
             }
@@ -136,10 +136,10 @@ public class InternalInlineEditLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalInlineEdit.g:15:7: ( 'end' )
-            // InternalInlineEdit.g:15:9: 'end'
+            // InternalInlineEdit.g:15:7: ( 'events' )
+            // InternalInlineEdit.g:15:9: 'events'
             {
-            match("end"); 
+            match("events"); 
 
 
             }
@@ -157,10 +157,10 @@ public class InternalInlineEditLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalInlineEdit.g:16:7: ( 'resetEvents' )
-            // InternalInlineEdit.g:16:9: 'resetEvents'
+            // InternalInlineEdit.g:16:7: ( 'end' )
+            // InternalInlineEdit.g:16:9: 'end'
             {
-            match("resetEvents"); 
+            match("end"); 
 
 
             }
@@ -178,10 +178,10 @@ public class InternalInlineEditLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalInlineEdit.g:17:7: ( 'commands' )
-            // InternalInlineEdit.g:17:9: 'commands'
+            // InternalInlineEdit.g:17:7: ( 'resetEvents' )
+            // InternalInlineEdit.g:17:9: 'resetEvents'
             {
-            match("commands"); 
+            match("resetEvents"); 
 
 
             }
@@ -199,10 +199,10 @@ public class InternalInlineEditLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalInlineEdit.g:18:7: ( 'constants' )
-            // InternalInlineEdit.g:18:9: 'constants'
+            // InternalInlineEdit.g:18:7: ( 'commands' )
+            // InternalInlineEdit.g:18:9: 'commands'
             {
-            match("constants"); 
+            match("commands"); 
 
 
             }
@@ -220,10 +220,10 @@ public class InternalInlineEditLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalInlineEdit.g:19:7: ( '..' )
-            // InternalInlineEdit.g:19:9: '..'
+            // InternalInlineEdit.g:19:7: ( 'constants' )
+            // InternalInlineEdit.g:19:9: 'constants'
             {
-            match(".."); 
+            match("constants"); 
 
 
             }
@@ -1025,24 +1025,24 @@ public class InternalInlineEditLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\25\2\uffff\3\33\1\25\3\33\2\uffff\1\33\1\25\2\uffff\3\25\5\uffff\2\33\1\uffff\2\33\1\uffff\3\33\2\uffff\1\33\5\uffff\1\33\1\64\10\33\1\uffff\13\33\1\110\3\33\1\114\3\33\1\uffff\2\33\1\122\1\uffff\4\33\1\127\1\uffff\1\33\1\131\2\33\1\uffff\1\33\1\uffff\1\135\2\33\1\uffff\1\33\1\141\1\142\2\uffff";
+        "\1\uffff\1\25\2\uffff\1\25\6\34\2\uffff\1\34\1\25\2\uffff\3\25\6\uffff\2\34\1\uffff\5\34\2\uffff\1\34\5\uffff\1\34\1\64\10\34\1\uffff\13\34\1\110\3\34\1\114\3\34\1\uffff\2\34\1\122\1\uffff\4\34\1\127\1\uffff\1\34\1\131\2\34\1\uffff\1\34\1\uffff\1\135\2\34\1\uffff\1\34\1\141\1\142\2\uffff";
     static final String DFA12_eofS =
         "\143\uffff";
     static final String DFA12_minS =
-        "\1\0\1\76\2\uffff\1\156\1\145\1\157\1\56\1\164\1\145\1\143\2\uffff\1\150\1\101\2\uffff\2\0\1\52\5\uffff\1\145\1\144\1\uffff\1\163\1\155\1\uffff\1\141\1\163\1\164\2\uffff\1\151\5\uffff\1\156\1\60\1\145\1\155\1\163\1\164\1\143\1\151\1\156\1\164\1\uffff\1\164\1\141\1\164\1\145\1\162\1\157\1\147\1\163\1\105\1\156\1\141\1\60\1\151\1\156\1\163\1\60\1\166\1\144\1\156\1\uffff\1\160\1\163\1\60\1\uffff\1\145\1\163\2\164\1\60\1\uffff\1\156\1\60\1\163\1\151\1\uffff\1\164\1\uffff\1\60\1\157\1\163\1\uffff\1\156\2\60\2\uffff";
+        "\1\0\1\76\2\uffff\1\56\1\156\1\145\1\157\1\164\1\145\1\143\2\uffff\1\150\1\101\2\uffff\2\0\1\52\6\uffff\1\145\1\144\1\uffff\1\163\1\155\1\141\1\163\1\164\2\uffff\1\151\5\uffff\1\156\1\60\1\145\1\155\1\163\1\164\1\143\1\151\1\156\1\164\1\uffff\1\164\1\141\1\164\1\145\1\162\1\157\1\147\1\163\1\105\1\156\1\141\1\60\1\151\1\156\1\163\1\60\1\166\1\144\1\156\1\uffff\1\160\1\163\1\60\1\uffff\1\145\1\163\2\164\1\60\1\uffff\1\156\1\60\1\163\1\151\1\uffff\1\164\1\uffff\1\60\1\157\1\163\1\uffff\1\156\2\60\2\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\76\2\uffff\1\166\1\145\1\157\1\56\1\164\1\145\1\143\2\uffff\1\150\1\172\2\uffff\2\uffff\1\57\5\uffff\1\145\1\144\1\uffff\1\163\1\156\1\uffff\1\141\1\163\1\164\2\uffff\1\151\5\uffff\1\156\1\172\1\145\1\155\1\163\1\164\1\143\1\151\1\156\1\164\1\uffff\1\164\1\141\1\164\1\145\1\162\1\157\1\147\1\163\1\105\1\156\1\141\1\172\1\151\1\156\1\163\1\172\1\166\1\144\1\156\1\uffff\1\160\1\163\1\172\1\uffff\1\145\1\163\2\164\1\172\1\uffff\1\156\1\172\1\163\1\151\1\uffff\1\164\1\uffff\1\172\1\157\1\163\1\uffff\1\156\2\172\2\uffff";
+        "\1\uffff\1\76\2\uffff\1\56\1\166\1\145\1\157\1\164\1\145\1\143\2\uffff\1\150\1\172\2\uffff\2\uffff\1\57\6\uffff\1\145\1\144\1\uffff\1\163\1\156\1\141\1\163\1\164\2\uffff\1\151\5\uffff\1\156\1\172\1\145\1\155\1\163\1\164\1\143\1\151\1\156\1\164\1\uffff\1\164\1\141\1\164\1\145\1\162\1\157\1\147\1\163\1\105\1\156\1\141\1\172\1\151\1\156\1\163\1\172\1\166\1\144\1\156\1\uffff\1\160\1\163\1\172\1\uffff\1\145\1\163\2\164\1\172\1\uffff\1\156\1\172\1\163\1\151\1\uffff\1\164\1\uffff\1\172\1\157\1\163\1\uffff\1\156\2\172\2\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\3\7\uffff\1\15\1\16\2\uffff\1\20\1\21\3\uffff\1\25\1\26\1\1\1\2\1\3\2\uffff\1\20\2\uffff\1\11\3\uffff\1\15\1\16\1\uffff\1\21\1\22\1\23\1\24\1\25\12\uffff\1\5\23\uffff\1\12\3\uffff\1\4\5\uffff\1\17\4\uffff\1\14\1\uffff\1\7\3\uffff\1\10\3\uffff\1\6\1\13";
+        "\2\uffff\1\2\1\3\7\uffff\1\15\1\16\2\uffff\1\20\1\21\3\uffff\1\25\1\26\1\1\1\2\1\3\1\4\2\uffff\1\20\5\uffff\1\15\1\16\1\uffff\1\21\1\22\1\23\1\24\1\25\12\uffff\1\6\23\uffff\1\12\3\uffff\1\5\5\uffff\1\17\4\uffff\1\14\1\uffff\1\10\3\uffff\1\11\3\uffff\1\7\1\13";
     static final String DFA12_specialS =
         "\1\1\20\uffff\1\0\1\2\120\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\25\2\24\2\25\1\24\22\25\1\24\1\25\1\21\4\25\1\22\6\25\1\7\1\23\12\20\3\25\1\1\3\25\32\17\1\2\1\25\1\3\1\16\1\17\1\25\1\12\1\17\1\6\1\11\1\4\14\17\1\5\1\10\1\15\6\17\1\13\1\25\1\14\uff82\25",
+            "\11\25\2\24\2\25\1\24\22\25\1\24\1\25\1\21\4\25\1\22\6\25\1\4\1\23\12\20\3\25\1\1\3\25\32\17\1\2\1\25\1\3\1\16\1\17\1\25\1\12\1\17\1\7\1\11\1\5\14\17\1\6\1\10\1\15\6\17\1\13\1\25\1\14\uff82\25",
             "\1\26",
             "",
             "",
-            "\1\32\7\uffff\1\31",
-            "\1\34",
+            "\1\31",
+            "\1\33\7\uffff\1\32",
             "\1\35",
             "\1\36",
             "\1\37",
@@ -1051,7 +1051,7 @@ public class InternalInlineEditLexer extends Lexer {
             "",
             "",
             "\1\44",
-            "\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\32\34\4\uffff\1\34\1\uffff\32\34",
             "",
             "",
             "\0\46",
@@ -1062,12 +1062,12 @@ public class InternalInlineEditLexer extends Lexer {
             "",
             "",
             "",
+            "",
             "\1\52",
             "\1\53",
             "",
             "\1\54",
             "\1\55\1\56",
-            "",
             "\1\57",
             "\1\60",
             "\1\61",
@@ -1080,7 +1080,7 @@ public class InternalInlineEditLexer extends Lexer {
             "",
             "",
             "\1\63",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "\1\65",
             "\1\66",
             "\1\67",
@@ -1101,39 +1101,39 @@ public class InternalInlineEditLexer extends Lexer {
             "\1\105",
             "\1\106",
             "\1\107",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "\1\111",
             "\1\112",
             "\1\113",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "\1\115",
             "\1\116",
             "\1\117",
             "",
             "\1\120",
             "\1\121",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "",
             "\1\123",
             "\1\124",
             "\1\125",
             "\1\126",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "",
             "\1\130",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "\1\132",
             "\1\133",
             "",
             "\1\134",
             "",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "\1\136",
             "\1\137",
             "",
             "\1\140",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
-            "\12\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "",
             ""
     };
@@ -1194,13 +1194,13 @@ public class InternalInlineEditLexer extends Lexer {
 
                         else if ( (LA12_0==']') ) {s = 3;}
 
-                        else if ( (LA12_0=='e') ) {s = 4;}
+                        else if ( (LA12_0=='.') ) {s = 4;}
 
-                        else if ( (LA12_0=='r') ) {s = 5;}
+                        else if ( (LA12_0=='e') ) {s = 5;}
 
-                        else if ( (LA12_0=='c') ) {s = 6;}
+                        else if ( (LA12_0=='r') ) {s = 6;}
 
-                        else if ( (LA12_0=='.') ) {s = 7;}
+                        else if ( (LA12_0=='c') ) {s = 7;}
 
                         else if ( (LA12_0=='s') ) {s = 8;}
 

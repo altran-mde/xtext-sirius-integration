@@ -12,13 +12,14 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiri
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
-import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
-import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.google.common.collect.Lists;
 
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor {
 	private SemanticElementLocation semanticElementLocation;
+	private @Nullable TextRegion selectedRegion;
 
 	public XtextSiriusStyledTextCellEditorModel(final @NonNull XtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
@@ -32,8 +33,16 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 			return;
 		}
 
-		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(semanticElement, getInjector(),
-				isMultiLine(), getDescriptor().getEditableFeatures());
+		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(getInjector(), semanticElement);
+		preparer.setMultiLine(isMultiLine());
+		preparer.setEditableFeatures(getDescriptor().getEditableFeatures());
+		preparer.setIgnoredNestedFeatures(getDescriptor().getIgnoredNestedFeatures());
+		preparer.setSelectedFeatures(getDescriptor().getSelectedFeatures());
+
+		final String prefixText = interpret(getDescriptor().getPrefixTerminalsExpression());
+		preparer.setPrefixText(prefixText);
+		final String suffixText = interpret(getDescriptor().getSuffixTerminalsExpression());
+		preparer.setSuffixText(suffixText);
 
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();
@@ -53,10 +62,18 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		this.semanticElementLocation = preparer.getSemanticElementLocation();
 
 		getXtextAdapter().setVisibleRegion(textRegion.getOffset(), textRegion.getLength());
+		this.selectedRegion = preparer.getSelectedRegion();
 	}
 
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
+	}
+
+	public void updateSelectedRegion() {
+		if (this.selectedRegion != null) {
+			getXtextAdapter().getXtextSourceViewer().setSelectedRange(this.selectedRegion.getOffset(),
+					this.selectedRegion.getLength());
+		}
 	}
 
 	@Override

@@ -21,6 +21,7 @@ package com.altran.general.integration.xtextsirius.model.eef.eefxtext;
  * @generated
  */
 public interface IEefXtextValueDescription extends IEefXtextDescription {
+
 	/**
 	 * Returns the value of the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc -->

@@ -25,6 +25,7 @@ public class XtextMultiLineModelDescriptionConverter extends AXtextDescriptionCo
 
 			final EefXtextMultiLineModelDescription eefDescription = EefxtextFactory.eINSTANCE
 					.createEefXtextMultiLineModelDescription();
+			
 			eefDescription.setIdentifier(propertyDescription.getName());
 			eefDescription.setHelpExpression(propertyDescription.getHelpExpression());
 			eefDescription.setIsEnabledExpression(propertyDescription.getIsEnabledExpression());
@@ -40,6 +41,9 @@ public class XtextMultiLineModelDescriptionConverter extends AXtextDescriptionCo
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
 
+			eefDescription.setPrefixTerminalsExpression(propertyDescription.getPrefixTerminalsExpression());
+			eefDescription.setSuffixTerminalsExpression(propertyDescription.getSuffixTerminalsExpression());
+			
 			eefDescription.getEditableFeatures().addAll(propertyDescription.getEditableFeatures());
 
 			// Let's not forget to populate the cache for the other converters

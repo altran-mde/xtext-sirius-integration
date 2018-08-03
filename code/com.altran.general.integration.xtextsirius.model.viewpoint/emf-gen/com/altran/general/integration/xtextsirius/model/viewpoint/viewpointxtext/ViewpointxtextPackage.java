@@ -245,6 +245,42 @@ public interface ViewpointxtextPackage extends EPackage {
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Selected Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES;
+
+	/**
 	 * The feature id for the '<em><b>Edge Label Mappings</b></em>' reference
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

@@ -20,6 +20,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Control;
 
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
+import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 
@@ -124,6 +125,15 @@ public abstract class AXtextSiriusEefLifecycleManager extends AbstractEEFWidgetL
 		}
 
 		return result;
+	}
+
+	protected @NonNull String interpret(final @NonNull String expression) {
+		final EObject self = getSelf();
+		if (self != null) {
+			return EvaluateHelper.getInstance().evaluateString(expression, self);
+		}
+
+		return "";
 	}
 
 	protected @NonNull Injector createSpecializedInjector(final @NonNull Injector injector,

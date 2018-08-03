@@ -12,8 +12,8 @@ import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 
-import com.altran.general.integration.xtextsirius.util.ParentMap;
-import com.altran.general.integration.xtextsirius.util.RequiredGrammarTerminalsPresentEnsurer;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.ParentMap;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.RequiredGrammarTerminalsPresentEnsurer;
 
 public class AccessibleRequiredGrammarTerminalsPresentEnsurer extends RequiredGrammarTerminalsPresentEnsurer {
 	

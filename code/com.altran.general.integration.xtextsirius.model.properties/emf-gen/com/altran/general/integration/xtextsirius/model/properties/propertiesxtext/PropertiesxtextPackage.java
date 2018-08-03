@@ -192,13 +192,43 @@ public interface PropertiesxtextPackage extends EPackage {
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 3;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 4;
+
+	/**
 	 * The number of structural features of the '<em>Xtext Single Line Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the
@@ -350,13 +380,43 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 1;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 3;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 4;
+
+	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 2;
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the

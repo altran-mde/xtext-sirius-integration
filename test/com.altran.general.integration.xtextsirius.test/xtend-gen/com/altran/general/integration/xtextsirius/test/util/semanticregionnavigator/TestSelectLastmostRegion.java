@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.semanticregionnavigator;
 
+import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticRegionNavigator;
 import com.altran.general.integration.xtextsirius.test.util.ARegion;
-import com.altran.general.integration.xtextsirius.util.SemanticRegionNavigator;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;

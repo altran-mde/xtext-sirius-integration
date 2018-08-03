@@ -1,7 +1,7 @@
 package com.altran.general.integration.xtextsirius.test.util.fakeresourceutil;
 
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
-import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
 import java.util.List;
 import java.util.stream.Stream;
 import org.eclipse.emf.common.util.URI;

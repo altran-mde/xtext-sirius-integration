@@ -113,13 +113,40 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>IXtext Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
+	int IXTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -278,13 +305,52 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
+			+ 3;
+
+	/**
+	 * The feature id for the '<em><b>Selected Features</b></em>' attribute
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>IXtext Direct Edit Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 1;
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the
@@ -374,13 +440,40 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>IXtext Property Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_PROPERTY_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -481,6 +574,48 @@ public interface XtextsiriusPackage extends EPackage {
 	EAttribute getIXtextModelDescription_EditableFeatures();
 
 	/**
+	 * Returns the meta object for the attribute list
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getIgnoredNestedFeatures
+	 * <em>Ignored Nested Features</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Ignored Nested
+	 *         Features</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getIgnoredNestedFeatures()
+	 * @see #getIXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextModelDescription_IgnoredNestedFeatures();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getPrefixTerminalsExpression
+	 * <em>Prefix Terminals Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Prefix Terminals
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getPrefixTerminalsExpression()
+	 * @see #getIXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextModelDescription_PrefixTerminalsExpression();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getSuffixTerminalsExpression
+	 * <em>Suffix Terminals Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Suffix Terminals
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getSuffixTerminalsExpression()
+	 * @see #getIXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextModelDescription_SuffixTerminalsExpression();
+
+	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 	 * <em>IXtext Value Description</em>}'. <!-- begin-user-doc --> <!--
@@ -569,6 +704,20 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextDirectEditModelDescription();
+
+	/**
+	 * Returns the meta object for the attribute list
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getSelectedFeatures
+	 * <em>Selected Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 *
+	 * @return the meta object for the attribute list '<em>Selected
+	 *         Features</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getSelectedFeatures()
+	 * @see #getIXtextDirectEditModelDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextDirectEditModelDescription_SelectedFeatures();
 
 	/**
 	 * Returns the meta object for class
@@ -673,6 +822,36 @@ public interface XtextsiriusPackage extends EPackage {
 		EAttribute IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = eINSTANCE.getIXtextModelDescription_EditableFeatures();
 
 		/**
+		 * The meta object literal for the '<em><b>Ignored Nested
+		 * Features</b></em>' attribute list feature. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = eINSTANCE
+				.getIXtextModelDescription_IgnoredNestedFeatures();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix Terminals
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = eINSTANCE
+				.getIXtextModelDescription_PrefixTerminalsExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Suffix Terminals
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = eINSTANCE
+				.getIXtextModelDescription_SuffixTerminalsExpression();
+
+		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
 		 * <em>IXtext Value Description</em>}' class. <!-- begin-user-doc -->
@@ -747,6 +926,15 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION = eINSTANCE.getIXtextDirectEditModelDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Selected Features</b></em>'
+		 * attribute list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = eINSTANCE
+				.getIXtextDirectEditModelDescription_SelectedFeatures();
 
 		/**
 		 * The meta object literal for the

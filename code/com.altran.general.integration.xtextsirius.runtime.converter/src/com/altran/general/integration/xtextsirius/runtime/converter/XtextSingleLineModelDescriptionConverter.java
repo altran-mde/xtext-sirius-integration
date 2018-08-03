@@ -25,6 +25,7 @@ public class XtextSingleLineModelDescriptionConverter extends AXtextDescriptionC
 			
 			final EefXtextSingleLineModelDescription eefDescription = EefxtextFactory.eINSTANCE
 					.createEefXtextSingleLineModelDescription();
+			
 			eefDescription.setIdentifier(propertyDescription.getName());
 			eefDescription.setHelpExpression(propertyDescription.getHelpExpression());
 			eefDescription.setIsEnabledExpression(propertyDescription.getIsEnabledExpression());
@@ -39,6 +40,9 @@ public class XtextSingleLineModelDescriptionConverter extends AXtextDescriptionC
 			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
+			
+			eefDescription.setPrefixTerminalsExpression(propertyDescription.getPrefixTerminalsExpression());
+			eefDescription.setSuffixTerminalsExpression(propertyDescription.getSuffixTerminalsExpression());
 			
 			eefDescription.getEditableFeatures().addAll(propertyDescription.getEditableFeatures());
 			

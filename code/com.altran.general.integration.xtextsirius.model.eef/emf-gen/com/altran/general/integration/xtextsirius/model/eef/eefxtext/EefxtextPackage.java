@@ -312,13 +312,40 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>IEef Xtext Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 1;
+	int IEEF_XTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -726,13 +753,43 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 3;
+
+	/**
 	 * The number of structural features of the '<em>Eef Xtext Single Line Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -864,13 +921,43 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
+	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+
+	/**
+	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT
+			+ 3;
+
+	/**
 	 * The number of structural features of the '<em>Eef Xtext Multi Line Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the
@@ -1234,6 +1321,48 @@ public interface EefxtextPackage extends EPackage {
 	EAttribute getIEefXtextModelDescription_EditableFeatures();
 
 	/**
+	 * Returns the meta object for the attribute list
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getIgnoredNestedFeatures
+	 * <em>Ignored Nested Features</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute list '<em>Ignored Nested
+	 *         Features</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getIgnoredNestedFeatures()
+	 * @see #getIEefXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextModelDescription_IgnoredNestedFeatures();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getPrefixTerminalsExpression
+	 * <em>Prefix Terminals Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Prefix Terminals
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getPrefixTerminalsExpression()
+	 * @see #getIEefXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextModelDescription_PrefixTerminalsExpression();
+
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getSuffixTerminalsExpression
+	 * <em>Suffix Terminals Expression</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Suffix Terminals
+	 *         Expression</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getSuffixTerminalsExpression()
+	 * @see #getIEefXtextModelDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextModelDescription_SuffixTerminalsExpression();
+
+	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
 	 * <em>IEef Xtext Value Description</em>}'. <!-- begin-user-doc --> <!--
@@ -1410,6 +1539,36 @@ public interface EefxtextPackage extends EPackage {
 		 */
 		EAttribute IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = eINSTANCE
 				.getIEefXtextModelDescription_EditableFeatures();
+
+		/**
+		 * The meta object literal for the '<em><b>Ignored Nested
+		 * Features</b></em>' attribute list feature. <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = eINSTANCE
+				.getIEefXtextModelDescription_IgnoredNestedFeatures();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix Terminals
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = eINSTANCE
+				.getIEefXtextModelDescription_PrefixTerminalsExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Suffix Terminals
+		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = eINSTANCE
+				.getIEefXtextModelDescription_SuffixTerminalsExpression();
 
 		/**
 		 * The meta object literal for the

@@ -4,11 +4,12 @@
 package org.eclipse.xtext.example.fowlerdsl;
 
 import org.eclipse.xtext.formatting2.regionaccess.TextRegionAccessBuilder;
-import org.eclipse.xtext.resource.containers.ProjectDescriptionBasedContainerManager;
 import org.eclipse.xtext.serializer.sequencer.IHiddenTokenSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 
-import com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer;
-import com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder;
+import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureTransientValueService;
+import com.altran.general.integration.xtextsirius.runtime.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer;
+import com.altran.general.integration.xtextsirius.runtime.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder;
 
 /**
  * Use this class to register components to be used at runtime / without the
@@ -24,8 +25,8 @@ public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl
 	public Class<? extends TextRegionAccessBuilder> bindTextRegionAccessBuilder() {
 		return ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder.class;
 	}
-
-	public Class<? extends ProjectDescriptionBasedContainerManager> bindProjectDescriptionBasedContainerManager() {
-		return com.altran.general.integration.xtextsirius.resource.SiriusProjectDescriptionBasedContainerManager.class;
+	
+	public Class<? extends ITransientValueService> bindSerializerTransientValueService() {
+		return IgnoredFeatureTransientValueService.class;
 	}
 }

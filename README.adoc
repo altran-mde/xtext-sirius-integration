@@ -3,9 +3,9 @@
 This asset enables https://www.eclipse.org/Xtext/[Xtext] editors to be used as direct editor for https://www.eclipse.org/sirius/[Sirius] diagram elements or Sirius property widgets.
 
 .Direct Editor Example
-image:doc/images/eventEditor.png[]
+image:doc/userguide/images/eventEditor.png[]
 
 .Property Widget Example
-image:doc/images/descriptionProperty.png[]
+image:doc/userguide/images/descriptionProperty.png[]
 
-Please refer to the link:doc/userguide.adoc[user guide] for more details.
+Please refer to the link:doc/userguide/xtext-sirius-userguide.adoc[user guide] for more details.

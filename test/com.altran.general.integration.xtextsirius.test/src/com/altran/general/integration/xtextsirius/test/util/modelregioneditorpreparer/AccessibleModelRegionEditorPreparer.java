@@ -10,26 +10,26 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.util.TextRegion;
 
-import com.altran.general.integration.xtextsirius.util.ModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.util.SemanticElementLocation;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionCalculator;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
 import com.google.inject.Injector;
 
 class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
-	public AccessibleModelRegionEditorPreparer(final EObject semanticElement, final EObject parentSemanticElement,
-			final Injector injector, final boolean multiLine, final Set<String> editableFeatures,
+
+	public AccessibleModelRegionEditorPreparer(final Injector injector, final EObject semanticElement,
+			final EObject parentSemanticElement,
 			final EStructuralFeature semanticElementFeature) {
-		super(semanticElement, parentSemanticElement, injector, multiLine, editableFeatures,
-				semanticElementFeature);
+		super(injector, semanticElement, parentSemanticElement, semanticElementFeature);
 	}
 	
-	public AccessibleModelRegionEditorPreparer(final EObject semanticElement, final Injector injector,
-			final boolean multiLine, final Set<String> editableFeatures) {
-		super(semanticElement, injector, multiLine, editableFeatures);
+	public AccessibleModelRegionEditorPreparer(final Injector injector, final EObject semanticElement) {
+		super(injector, semanticElement);
 	}
 	
-	@Override
 	public TextRegion calculateRegionForFeatures(final EObject semanticElement) {
-		return super.calculateRegionForFeatures(semanticElement);
+		return new ModelRegionCalculator(this).calculateRegionForFeatures(semanticElement, getDefinedEditableFeatures(),
+				true);
 	}
 	
 	@Override
@@ -42,30 +42,28 @@ class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 		super.prepare();
 	}
 	
-	@Override
 	public Set<EStructuralFeature> resolveDefinedFeatures(final EObject semanticElement) {
-		return super.resolveDefinedFeatures(semanticElement);
+		final @NonNull Set<@NonNull EStructuralFeature> features = resolveEditableFeatures(semanticElement);
+		return new ModelRegionCalculator(this).resolveDefinedFeatures(semanticElement, features);
 	}
 	
-	@Override
 	public Set<@NonNull EStructuralFeature> resolveEditableFeatures(final EObject semanticElement) {
-		return super.resolveEditableFeatures(semanticElement);
+		return new ModelRegionCalculator(this).resolveFeatures(semanticElement, getEditableFeatures());
 	}
 	
-	@Override
 	public boolean canBeHandledByGetRegionForFeature(@NonNull final EStructuralFeature feature) {
-		return super.canBeHandledByGetRegionForFeature(feature);
+		return new ModelRegionCalculator(this).canBeHandledByGetRegionForFeature(feature);
 	}
 	
-	@Override
 	public @NonNull Set<@NonNull ISemanticRegion> translateToRegions(
 			@NonNull final Set<@NonNull EStructuralFeature> features, @NonNull final IEObjectRegion semanticRegion,
 			@NonNull final EObject semanticElement, @NonNull final ITextRegionAccess rootRegion) {
-		return super.translateToRegions(features, semanticRegion, semanticElement, rootRegion);
+		return new ModelRegionCalculator(this).translateToRegions(features, semanticRegion, semanticElement,
+				rootRegion);
 	}
 	
 	public void setDefinedFeatures(final @NonNull Set<@NonNull EStructuralFeature> definedFeatures) {
-		this.definedFeatures = definedFeatures;
+		this.getDefinedEditableFeatures().addAll(definedFeatures);
 	}
 	
 	public void setSemanticRegion(final @NonNull IEObjectRegion semanticRegion) {
@@ -80,7 +78,8 @@ class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 		this.allText = text;
 	}
 	
+	@Override
 	public boolean isPrepared() {
-		return this.prepared;
+		return super.isPrepared();
 	}
 }

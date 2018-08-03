@@ -1,0 +1,12 @@
+== Versions
+
+This version {xtext-sirius-version} of the asset was developed using the following components and versions.
+
+[horizontal]
+Eclipse:: 4.7.3a (Oxygen 3a)
+Google Guava:: 21.0
+Apache Commons:: 2.6
+Eclipse Xcore:: 1.5.0
+Eclipse Xtext:: 2.12.0
+Eclipse Sirius:: 5.1.1
+Yakindu Statecharts Xtext Support:: 3.1.1

@@ -11,10 +11,11 @@ import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResou
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
-import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
+import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx
-		implements IXtextSiriusDescribable {
+implements IXtextSiriusDescribable {
 	private final @NonNull AXtextSiriusDescriptor descriptor;
 
 	private EObject semanticElement;
@@ -43,7 +44,9 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 	}
 
 	protected IXtextFakeContextResourcesProvider createXtextFakeContextResourcesProvider() {
-		return new ResourceSetFakeContextResourcesProvider(this);
+		final ResourceSetFakeContextResourcesProvider result = new ResourceSetFakeContextResourcesProvider(this);
+		getInjector().injectMembers(result);
+		return result;
 	}
 
 	@Override
@@ -66,6 +69,15 @@ public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCe
 		getXtextAdapter().getFakeResourceContext().updateFakeResourceContext(createXtextFakeContextResourcesProvider());
 
 		resetDirty();
+	}
+
+	protected @NonNull String interpret(final @NonNull String expression) {
+		final EObject self = getSemanticElement();
+		if (self != null) {
+			return EvaluateHelper.getInstance().evaluateString(expression, self);
+		}
+
+		return "";
 	}
 
 	protected void setSemanticElement(final @Nullable EObject element) {

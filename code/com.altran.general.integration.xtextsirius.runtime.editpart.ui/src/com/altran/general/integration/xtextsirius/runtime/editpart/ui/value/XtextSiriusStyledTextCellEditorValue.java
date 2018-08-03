@@ -9,8 +9,7 @@ import org.eclipse.jdt.annotation.Nullable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusValueDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueDescriptor;
-import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
-import com.altran.general.integration.xtextsirius.util.StyledTextUtil;
+import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
 
 public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor
 		implements IXtextSiriusValueDescribable {
@@ -43,16 +42,6 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 			getXtextAdapter().setVisibleRegion(prefixText.length() + 1, text.length());
 		}
 	}
-	
-	protected @NonNull String interpret(final @NonNull String expression) {
-		final EObject self = getSemanticElement();
-		if (self != null) {
-			return EvaluateHelper.getInstance().evaluateString(expression, self);
-		}
-		
-		return "";
-	}
-	
 	
 	protected @Nullable String retrieveValueFromModel(final @Nullable String newText) {
 		final EObject semanticElement = getSemanticElement();

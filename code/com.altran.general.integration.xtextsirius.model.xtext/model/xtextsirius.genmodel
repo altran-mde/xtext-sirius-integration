@@ -32,6 +32,9 @@
     </genClasses>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextModelDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextModelDescription/editableFeatures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextModelDescription/ignoredNestedFeatures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextModelDescription/prefixTerminalsExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextModelDescription/suffixTerminalsExpression"/>
     </genClasses>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextValueDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextValueDescription/prefixTextExpression"/>
@@ -41,7 +44,9 @@
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextDirectEditDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextDirectEditDescription/multiLine"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextDirectEditModelDescription"/>
+    <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextDirectEditModelDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextDirectEditModelDescription/selectedFeatures"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextDirectEditValueDescription"/>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextPropertyModelDescription"/>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextPropertyValueDescription"/>

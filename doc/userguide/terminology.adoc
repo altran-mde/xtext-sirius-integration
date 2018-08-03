@@ -1,0 +1,37 @@
+== Terminology
+
+Sirius element::
+	Contents of the *.odesign model describing the Sirius application.
+	
+diagram element::
+	Sirius element describing something inside a diagram.
+	
+property element::
+	Sirius element describing something inside the properties view.
+	
+semantic element::
+	EObject of a model the end-user is working with.
+	
+identifier::
+	String entered in the "Id" field of a Sirius element, unique within the Sirius application.
+	
+direct editor::
+	Editor that is displayed inside the diagram if the end-user double-clicks a diagram element or presses kbd:[F2] while the diagram figure is focused.
+
+widget::
+	One entry field for a property element inside the properties view.
+
+newline::
+	Platform-dependent invisible character(s) denoting the end of one line of text and the start of a new line of text.
+	
+multi-line::
+	Text entry field that shows (potentially) more than one line, and allows the add and remove newlines. Opposite of single-line.
+	
+single-line::
+	Text entry field that shows only one line, and does not allow to add a newline. Opposite of multi-line.
+	
+injector::
+	Google Guice injector completely configured for an Xtext language.
+	
+feature::
+	Instance of Ecore EStructuralFeature describing a part of a semantic element.

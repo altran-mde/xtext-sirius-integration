@@ -13,3 +13,7 @@ InlineStatemachine returns Statemachine:
 Transition returns Transition:
 	('[' guard=Guard ']')? event=[Event] '=>' state=[State]
 ;
+
+RangeGuard returns RangeGuard:
+	min=Value? '..' max=Value?
+;

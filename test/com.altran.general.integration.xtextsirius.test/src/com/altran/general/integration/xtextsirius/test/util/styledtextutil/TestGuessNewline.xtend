@@ -1,6 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.util.styledtextutil
 
-import com.altran.general.integration.xtextsirius.util.StyledTextUtil
+import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil
 import org.junit.Test
 
 import static org.junit.Assert.*
