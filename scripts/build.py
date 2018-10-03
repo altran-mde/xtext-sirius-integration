@@ -18,7 +18,9 @@ def main(config_file, build_number, branch_name, target_profile):
     """Create the version number and start the build."""
     # Update the version locally, so other scripts can read and use it
     version = read_updated_version(config_file, build_number,branch_name)
+    version_branch_name = branch_name
     print('Version: ' + version)
+    print('Version branch name: ' + version_branch_name)
     print('Current directory: ' + os.getcwd())
     try:
      copy2('./settings.xml', '/root/.m2/settings.xml')

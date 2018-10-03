@@ -55,11 +55,11 @@ def execute(command_unix, command_windows, out_file=""):
 def install_and_import(package):
     """Install or import a specified package."""
     try:
-        importlib.import_module(f'{package}')
+        importlib.import_module('%s' % package)
     except ImportError:
         install(package)
     finally:
-        return importlib.import_module(f'{package}')
+        return importlib.import_module('%s' % package)
 
 
 def install(package):
@@ -94,7 +94,7 @@ def read_version(version_file, addTimestamp):
 def read_config(config_file, config_to_read):
     """Read the config specified."""
     config = __read_config_file(config_file)
-    config_value = config['CONFIG'][f'{config_to_read}']
+    config_value = config['CONFIG']['%s' % config_to_read]
     return config_value
 
 
