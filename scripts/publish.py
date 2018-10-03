@@ -17,9 +17,10 @@ from utility import read_config
 from utility import read_test_artifact
 
 
-def main(config_file,artifact_store_user,artifact_store_password, target_profile):
+def main(config_file,artifact_store_user,artifact_store_password, target_profile, branch_name):
     """Publish the artifact to an artifact repository."""
-    versionFolderPath = read_version(config_file,False)
+    # versionFolderPath = "rick-test/" + read_version(config_file,False)
+    versionFolderPath = "rick-test/" + branch_name
     versionAppName = read_version(config_file,True)
     print('Version: ' + versionAppName)
     url = read_config(config_file, 'artifact_repo_url')
@@ -38,34 +39,37 @@ def main(config_file,artifact_store_user,artifact_store_password, target_profile
         ArtifactoryPassword = os.environ.get('ArtifactStorePassword')
             
     path = ArtifactoryPath(
-        url + f'/{versionFolderPath}',
+        url + '/' + versionFolderPath,
         auth=(ArtifactoryUserName, ArtifactoryPassword)
     )
     try:
+        print("Would've made artifactory path but we're just testing so nah")
         path.mkdir()
     except OSError:
         pass    
     print('Publishing ....')
-    
+
     for file in glob.glob('releng/**/target/products/*.zip', recursive=True):
      path.deploy_file(file)
+     print("Would've deployed file: " + file)
      if sys.platform in file:
         filename, file_extension = os.path.splitext(os.path.basename(file))
         test_artifact_name=read_test_artifact(config_file,filename,file_extension)
         print('Update project config with test artifact: ' + test_artifact_name)
      print('Published ' + file + ' to Artifactory!')
 
-    print('Published to Artifact Repository: ' + url + f'/{versionFolderPath}')
+    print('Published to Artifact Repository: ' + url + '/' + versionFolderPath)
     
     #Maven deploy
+    print("Skipping deploy because we're just testing")
     try:
      copy2('./settings.xml', '/root/.m2/settings.xml')
     except:
      os.makedirs('/root/.m2')
      copy2('./settings.xml', '/root/.m2/settings.xml')
     print('Copied settings.xml to .m2')
-    mvn_target_profile='-P'+target_profile
-    maven_command = ['mvn', '-e', '-DskipTests', '-DskipITs', '-DskipInstall', mvn_target_profile, 'deploy']
+    mvn_target_profile='-P'+ target_profile
+    maven_command = ['mvn', '-e', '-DskipTests', '-DskipITs', '-Dversion=1.0.0.master', '-DskipInstall', mvn_target_profile, 'deploy']
 
     exitcode = execute(maven_command, maven_command)
     print('Published artifacts to P2 - URL: https://nexus-p2.manatree.io/nexus/content/repositories for '+ str(target_profile))
@@ -85,6 +89,7 @@ if __name__ == "__main__":
     parser.add_argument('-au', '--artifactstoreuser', default='', help='The user for Artifact Store')
     parser.add_argument('-ap', '--artifactstorepassword', default='', help='The password for Artifact Store user')
     parser.add_argument('-tp', '--targetProfile', default='sirius5.oxygen', help='The target profile for the build')
+    parser.add_argument('-bn', '--branchname', default='nobranch', help='The branch name of this build')
     args = vars(parser.parse_args())
 
     config_file = args['config']
@@ -95,6 +100,8 @@ if __name__ == "__main__":
     
     target_profile = args['targetProfile']
     print('Target Profile: ' + target_profile)
-    
-    main(config_file,artifact_store_user,artifact_store_password, target_profile)
 
+    branch_name = args['branchname']
+    print("Branch name: " + branch_name)
+    
+    main(config_file,artifact_store_user,artifact_store_password, target_profile, branch_name)
