@@ -19,8 +19,7 @@ from utility import read_test_artifact
 
 def main(config_file,artifact_store_user,artifact_store_password, target_profile, branch_name):
     """Publish the artifact to an artifact repository."""
-    # versionFolderPath = "rick-test/" + read_version(config_file,False)
-    versionFolderPath = "rick-test/" + branch_name
+    versionFolderPath = read_version(config_file,False)
     versionAppName = read_version(config_file,True)
     print('Version: ' + versionAppName)
     url = read_config(config_file, 'artifact_repo_url')
@@ -43,7 +42,6 @@ def main(config_file,artifact_store_user,artifact_store_password, target_profile
         auth=(ArtifactoryUserName, ArtifactoryPassword)
     )
     try:
-        print("Would've made artifactory path but we're just testing so nah")
         path.mkdir()
     except OSError:
         pass    
@@ -61,7 +59,6 @@ def main(config_file,artifact_store_user,artifact_store_password, target_profile
     print('Published to Artifact Repository: ' + url + '/' + versionFolderPath)
     
     #Maven deploy
-    print("Skipping deploy because we're just testing")
     try:
      copy2('./settings.xml', '/root/.m2/settings.xml')
     except:
