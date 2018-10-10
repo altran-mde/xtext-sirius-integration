@@ -2,6 +2,7 @@ package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
 
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.IRegion;
 import org.eclipse.jface.text.projection.ProjectionDocument;
 import org.eclipse.jface.text.source.AnnotationModel;
 import org.eclipse.xtext.ui.editor.XtextSourceViewer;
@@ -27,16 +28,16 @@ public class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 			@Override
 			protected boolean updateSlaveDocument(final IDocument slaveDocument,
 					final int modelRangeOffset, final int modelRangeLength)
-					throws BadLocationException {
+							throws BadLocationException {
 				if (slaveDocument instanceof ProjectionDocument) {
 					final ProjectionDocument projection = (ProjectionDocument) slaveDocument;
-					
+
 					final int offset = modelRangeOffset;
 					final int length = modelRangeLength;
-					
+
 					// This "mimicking" does not work for us, so we disable it
 					// (XtextSirius)
-					
+
 					// if (!isProjectionMode()) {
 					// // mimic original TextViewer behavior
 					// final IDocument master = projection.getMasterDocument();
@@ -46,7 +47,7 @@ public class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 					// length = (modelRangeOffset - offset) +
 					// modelRangeLength;
 					// }
-					
+
 					try {
 						// fHandleProjectionChanges= false;
 						setPrivateHandleProjectionChangesField(false);
@@ -64,7 +65,15 @@ public class XtextSiriusStyledTextXtextAdapter extends StyledTextXtextAdapter {
 		result.setDocument(getXtextDocument(), new AnnotationModel());
 		return result;
 	}
+
+	public IRegion getVisibleRegion() {
+		return getXtextSourceviewer().getVisibleRegion();
+	}
 	
+	public XtextSourceViewer getXtextSourceViewer() {
+		return super.getXtextSourceviewer();
+	}
+
 	public long getModificationStamp() {
 		return getXtextDocument().getModificationStamp();
 	}

@@ -13,7 +13,7 @@ public class XtextSiriusRuntimeEefUiPlugin extends AbstractUIPlugin {
 	
 	// The shared instance
 	private static XtextSiriusRuntimeEefUiPlugin plugin;
-
+	
 	@Override
 	public void start(final BundleContext context) throws Exception {
 		super.start(context);

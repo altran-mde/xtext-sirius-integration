@@ -13,7 +13,7 @@ public class XtextSiriusEditorUiPlugin extends AbstractUIPlugin {
 	
 	// The shared instance
 	private static XtextSiriusEditorUiPlugin plugin;
-
+	
 	@Override
 	public void start(final BundleContext context) throws Exception {
 		super.start(context);

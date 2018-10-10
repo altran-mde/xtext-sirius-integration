@@ -17,5 +17,5 @@ public class XtextValueDescriptionPrefixTextFilter extends ViewpointPropertyFilt
 	protected boolean isRightInputType(final Object arg0) {
 		return arg0 instanceof IXtextValueDescription;
 	}
-
+	
 }

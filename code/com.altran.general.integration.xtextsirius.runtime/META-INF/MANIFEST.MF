@@ -1,22 +1,28 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Xtext integration into Sirius
+Bundle-Name: Xtext / Sirius Integration Core Runtime
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime;singleton:=true
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.18.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.internal.XtextSiriusRuntimePlugin
 Bundle-Vendor: Altran
-Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional;visibility:=reexport,
+Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport,
  org.apache.commons.lang,
  org.eclipse.core.runtime,
  org.eclipse.eef,
  org.eclipse.sirius.common,
  org.eclipse.sirius.diagram,
  org.eclipse.sirius.ecore.extender,
- com.google.guava;bundle-version=21,
- org.eclipse.xtext
+ com.google.guava,
+ com.altran.general.integration.google.guava.patch,
+ org.eclipse.xtext,
+ org.eclipse.jface.text
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.runtime,
+ com.altran.general.integration.xtextsirius.runtime.exception,
+ com.altran.general.integration.xtextsirius.runtime.resource,
+ com.altran.general.integration.xtextsirius.runtime.serializer,
  com.altran.general.integration.xtextsirius.runtime.task,
- com.altran.general.integration.xtextsirius.serializer,
- com.altran.general.integration.xtextsirius.util
+ com.altran.general.integration.xtextsirius.runtime.util,
+ com.altran.general.integration.xtextsirius.runtime.ignoredfeature,
+ com.altran.general.integration.xtextsirius.runtime.modelregion

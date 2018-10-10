@@ -9,11 +9,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  * Use this class to register components to be used within the IDE.
  */
 public class StatemachineUiModule extends org.eclipse.xtext.example.fowlerdsl.ui.AbstractStatemachineUiModule {
-	public StatemachineUiModule(final AbstractUIPlugin plugin) {
+	public StatemachineUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
-	
-	// public void configureXtextDocumentProvider(final Binder binder) {
-	// binder.bind(XtextDocument.class).toProvider(FowlerdslXtextDocumentProvider.class);
-	// }
 }

@@ -1,6 +1,7 @@
 /local-maven-repository/
 bin/
 build/
+target/
 .gradle/
 *._trace
 *.xtendbin

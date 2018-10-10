@@ -32,11 +32,38 @@
 			
 			<propertySection
 				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.prefixterminals.XtextModelDescriptionPrefixTerminalsPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.prefixterminals.XtextModelDescriptionPrefixTerminalsFilter"
+				id="properties.section.xtextModelDescription.prefixTerminals"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextModelDescription.prefixTerminals"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.suffixterminals.XtextModelDescriptionSuffixTerminalsPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.suffixterminals.XtextModelDescriptionSuffixTerminalsFilter"
+				id="properties.section.xtextModelDescription.suffixTerminals"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
 				class="com.altran.general.integration.xtextsirius.editor.ui.internal.editablefeatures.XtextDirectEditModelDescriptionEditableFeaturesPropertySection"
 				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.editablefeatures.XtextDirectEditModelDescriptionEditableFeaturesFilter"
 				id="properties.section.xtextDirectEditModelDescription.editableFeatures"
 				tab="viewpoint.tab.general">
 					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.ignorednestedfeatures.XtextDirectEditModelDescriptionIgnoredNestedFeaturesPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.ignorednestedfeatures.XtextDirectEditModelDescriptionIgnoredNestedFeaturesFilter"
+				id="properties.section.xtextDirectEditModelDescription.editableFeatures"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription"/>
 			</propertySection>
 			
 			<propertySection
@@ -55,6 +82,15 @@
 				id="properties.section.xtextEdgeLabelDirectEditDescription.edgeLabelMapping"
 				tab="viewpoint.tab.general">
 					<input type="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription"/>
+			</propertySection>
+			
+			<propertySection
+				afterSection="properties.section.xtextDescription.injectorId"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.selectedfeatures.XtextDirectEditModelDescriptionSelectedFeaturesPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.selectedfeatures.XtextDirectEditModelDescriptionSelectedFeaturesFilter"
+				id="properties.section.xtextDirectEditModelDescription.selectedFeatures"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription"/>
 			</propertySection>
 			
 		</propertySections>

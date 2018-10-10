@@ -2,7 +2,6 @@ package com.altran.general.integration.xtextsirius.runtime.eef.ui.value;
 
 import org.eclipse.eef.common.ui.api.IEEFFormContainer;
 import org.eclipse.eef.core.api.EditingContextAdapter;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
@@ -11,20 +10,21 @@ import org.eclipse.swt.widgets.Composite;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusController;
-import com.altran.general.integration.xtextsirius.util.EvaluateHelper;
 import com.google.inject.Injector;
 
 public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycleManager {
 	private final @NonNull String prefixTextExpression;
 	private final @NonNull String suffixTextExpression;
-	
+
 	public XtextSiriusEefLifecycleManagerValue(
 			final @NonNull Injector injector,
+			final boolean shouldUseSpecializedInjector,
 			final @NonNull IEefXtextValueDescription controlDescription,
 			final @NonNull IVariableManager variableManager,
 			final @NonNull IInterpreter interpreter,
 			final @NonNull EditingContextAdapter contextAdapter) {
-		super(injector, controlDescription, variableManager, interpreter, contextAdapter);
+		super(injector, shouldUseSpecializedInjector, controlDescription, variableManager, interpreter, contextAdapter);
+		
 		this.prefixTextExpression = controlDescription.getPrefixTextExpression();
 		this.suffixTextExpression = controlDescription.getSuffixTextExpression();
 	}
@@ -35,18 +35,9 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 				interpret(getPrefixTextExpression()),
 				interpret(getSuffixTextExpression()));
 		applyGridData(getWidget().getControl());
-		
+
 		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
 				this.contextAdapter);
-	}
-	
-	protected @NonNull String interpret(final @NonNull String expression) {
-		final EObject self = getSelf();
-		if (self != null) {
-			return EvaluateHelper.getInstance().evaluateString(expression, self);
-		}
-
-		return "";
 	}
 
 	@Override
@@ -57,7 +48,7 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
-		
+
 		this.newValueConsumer = (newValue) -> {
 			if (newValue instanceof String) {
 				getWidget().update((String) newValue);
@@ -66,7 +57,7 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 		};
 		this.controller.onNewValue(this.newValueConsumer);
 	}
-	
+
 	@Override
 	public void aboutToBeHidden() {
 		if (getWidget().isDirty()) {
@@ -74,11 +65,11 @@ public class XtextSiriusEefLifecycleManagerValue extends AXtextSiriusEefLifecycl
 		}
 		super.aboutToBeHidden();
 	}
-	
+
 	protected @NonNull String getPrefixTextExpression() {
 		return this.prefixTextExpression;
 	}
-	
+
 	protected @NonNull String getSuffixTextExpression() {
 		return this.suffixTextExpression;
 	}

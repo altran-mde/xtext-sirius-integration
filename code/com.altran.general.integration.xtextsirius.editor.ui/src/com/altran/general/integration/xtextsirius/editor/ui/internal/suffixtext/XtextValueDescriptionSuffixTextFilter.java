@@ -7,12 +7,12 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtext
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 public class XtextValueDescriptionSuffixTextFilter extends ViewpointPropertyFilter {
-
+	
 	@Override
 	protected EStructuralFeature getFeature() {
 		return XtextsiriusPackage.eINSTANCE.getIXtextValueDescription_SuffixTextExpression();
 	}
-
+	
 	@Override
 	protected boolean isRightInputType(final Object arg0) {
 		return arg0 instanceof IXtextValueDescription;

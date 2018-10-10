@@ -20,6 +20,7 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.RangeGuard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Thing;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard;
 import org.eclipse.xtext.serializer.ISerializationContext;
@@ -62,6 +63,9 @@ public class InlineEditSemanticSequencer extends StatemachineSemanticSequencer {
 			case StatemachinePackage.STATEMACHINE:
 				sequence_Statemachine(context, (Statemachine) semanticObject); 
 				return; 
+			case StatemachinePackage.THING:
+				sequence_Thing(context, (Thing) semanticObject); 
+				return; 
 			case StatemachinePackage.TRANSITION:
 				sequence_Transition(context, (Transition) semanticObject); 
 				return; 
@@ -72,6 +76,19 @@ public class InlineEditSemanticSequencer extends StatemachineSemanticSequencer {
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     RangeGuard returns RangeGuard
+	 *     Guard returns RangeGuard
+	 *
+	 * Constraint:
+	 *     (min=Value? max=Value?)
+	 */
+	protected void sequence_RangeGuard(ISerializationContext context, RangeGuard semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:

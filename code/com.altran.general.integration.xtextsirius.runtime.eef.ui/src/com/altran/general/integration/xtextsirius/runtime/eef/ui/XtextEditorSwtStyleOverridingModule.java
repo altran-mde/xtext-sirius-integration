@@ -24,11 +24,11 @@ import com.google.inject.Provider;
 @SuppressWarnings("restriction")
 public class XtextEditorSwtStyleOverridingModule implements Module {
 	private final int style;
-
+	
 	public XtextEditorSwtStyleOverridingModule(final int style) {
 		this.style = style;
 	}
-
+	
 	@Override
 	public void configure(final Binder binder) {
 		binder.bind(EmbeddedEditorFactory.Builder.class)

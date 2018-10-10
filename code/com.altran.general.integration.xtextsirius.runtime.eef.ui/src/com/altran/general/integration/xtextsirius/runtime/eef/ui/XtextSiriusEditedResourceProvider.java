@@ -21,7 +21,7 @@ public class XtextSiriusEditedResourceProvider implements IEditedResourceProvide
 	
 	@Inject
 	private IResourceFactory resourceFactory;
-
+	
 	@Inject
 	@Named(Constants.FILE_EXTENSIONS)
 	private String fileExtension;

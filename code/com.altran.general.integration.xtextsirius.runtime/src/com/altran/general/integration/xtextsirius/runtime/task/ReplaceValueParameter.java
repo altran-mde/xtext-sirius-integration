@@ -1,5 +1,8 @@
 package com.altran.general.integration.xtextsirius.runtime.task;
 
+import java.util.Set;
+
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
@@ -11,16 +14,25 @@ public class ReplaceValueParameter {
 	private final EStructuralFeature feature;
 	private final Object value;
 	private final DRepresentationElement representationElement;
-	
+	private final URI originalUri;
+	private final Set<@NonNull String> featuresToReplace;
+	private final Set<@NonNull String> ignoredNestedFeatures;
+
 	public ReplaceValueParameter(
 			final @NonNull EObject elementToEdit,
 			final @NonNull EStructuralFeature feature,
 			final @Nullable Object value,
-			final @NonNull DRepresentationElement representationElement) {
+			final @NonNull DRepresentationElement representationElement,
+			final @NonNull Set<@NonNull String> featuresToReplace,
+			final @NonNull Set<@NonNull String> ignoredNestedFeatures,
+			final @Nullable URI originalUri) {
 		this.elementToEdit = elementToEdit;
 		this.feature = feature;
 		this.value = value;
 		this.representationElement = representationElement;
+		this.featuresToReplace = featuresToReplace;
+		this.ignoredNestedFeatures = ignoredNestedFeatures;
+		this.originalUri = originalUri;
 	}
 
 	public @NonNull EObject getElementToEdit() {
@@ -34,8 +46,20 @@ public class ReplaceValueParameter {
 	public @Nullable Object getValue() {
 		return this.value;
 	}
-	
+
 	public @NonNull DRepresentationElement getRepresentationElement() {
 		return this.representationElement;
+	}
+
+	public @NonNull Set<String> getFeaturesToReplace() {
+		return this.featuresToReplace;
+	}
+
+	public @NonNull Set<String> getIgnoredNestedFeatures() {
+		return this.ignoredNestedFeatures;
+	}
+
+	public @Nullable URI getOriginalUri() {
+		return this.originalUri;
 	}
 }

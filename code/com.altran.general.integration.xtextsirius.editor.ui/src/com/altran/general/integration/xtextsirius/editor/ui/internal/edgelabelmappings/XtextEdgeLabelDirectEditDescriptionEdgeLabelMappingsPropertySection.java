@@ -18,11 +18,11 @@ import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
-import com.google.common.collect.Streams;
+import com.google.common.collect.patch.Streams;
 
 public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 		extends AbstractEditorDialogWithListPropertySection {
-
+	
 	@Override
 	protected List<BasicLabelStyleDescription> getCurrentValue() {
 		return getDescription().getEdgeLabelMappings();
@@ -31,22 +31,22 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 	protected IXtextEdgeLabelDirectEditDescription getDescription() {
 		return (IXtextEdgeLabelDirectEditDescription) this.eObject;
 	}
-
+	
 	@Override
 	protected boolean getSortChoice() {
 		return true;
 	}
-
+	
 	@Override
 	protected String getDefaultLabelText() {
 		return "Edge Label Mappings";
 	}
-
+	
 	@Override
 	protected String getLabelText() {
 		return super.getLabelText() + ":";
 	}
-
+	
 	@Override
 	protected List<BasicLabelStyleDescription> getChoiceOfValues() {
 		return ((AXtextDirectEditLabel) getDescription()).getMapping().stream()

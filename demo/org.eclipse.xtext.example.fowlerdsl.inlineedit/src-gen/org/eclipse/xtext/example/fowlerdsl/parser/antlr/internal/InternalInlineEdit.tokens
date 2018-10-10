@@ -1,15 +1,16 @@
-'..'=19
+'..'=14
 '=>'=13
 '['=11
 ']'=12
 'actions'=22
-'commands'=17
-'constants'=18
+'commands'=18
+'constants'=19
 'description'=21
-'end'=15
-'events'=14
-'resetEvents'=16
+'end'=16
+'events'=15
+'resetEvents'=17
 'state'=20
+'things'=25
 '{'=23
 '}'=24
 RULE_ANY_OTHER=10
@@ -33,3 +34,4 @@ T__21=21
 T__22=22
 T__23=23
 T__24=24
+T__25=25

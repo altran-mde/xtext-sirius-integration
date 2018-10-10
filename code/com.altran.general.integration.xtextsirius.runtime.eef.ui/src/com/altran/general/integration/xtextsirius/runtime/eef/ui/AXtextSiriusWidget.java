@@ -11,7 +11,7 @@ import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
 
-import com.altran.general.integration.xtextsirius.util.FakeResourceUtil;
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
@@ -73,11 +73,11 @@ public abstract class AXtextSiriusWidget {
 	protected boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	protected void resetDirty() {
 		this.modificationStamp = retrieveModificationStamp();
 	}
-
+	
 	protected long retrieveModificationStamp() {
 		return this.editor.getDocument().getModificationStamp();
 	}

@@ -6,12 +6,12 @@ import org.eclipse.sirius.editor.properties.sections.common.AbstractTextProperty
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage;
 
 public class XtextDescriptionInjectorIdPropertySection extends AbstractTextPropertySection {
-
+	
 	@Override
 	public EAttribute getFeature() {
 		return XtextsiriusPackage.eINSTANCE.getIXtextDescription_InjectorId();
 	}
-
+	
 	@Override
 	protected String getDefaultLabelText() {
 		return "Injector ID";
@@ -21,7 +21,7 @@ public class XtextDescriptionInjectorIdPropertySection extends AbstractTextPrope
 	protected String getLabelText() {
 		return super.getLabelText() + ":";
 	}
-
+	
 	@Override
 	protected boolean isEqual(final String newText) {
 		return getFeatureAsText().equals(newText);

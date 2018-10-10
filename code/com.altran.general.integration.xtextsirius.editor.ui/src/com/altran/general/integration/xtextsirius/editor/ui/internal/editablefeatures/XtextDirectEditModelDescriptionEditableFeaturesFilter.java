@@ -17,5 +17,5 @@ public class XtextDirectEditModelDescriptionEditableFeaturesFilter extends Viewp
 	protected boolean isRightInputType(final Object arg0) {
 		return arg0 instanceof IXtextDirectEditModelDescription;
 	}
-
+	
 }

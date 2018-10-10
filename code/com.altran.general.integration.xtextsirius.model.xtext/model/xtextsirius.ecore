@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="xtextsirius" nsURI="http://altran.com/general/integration/xtextsirius/model/xtext/1.0"
+    nsPrefix="xtext-sirius">
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextDescription" abstract="true" interface="true">
+    <eOperations name="isMultiLine" unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="injectorId" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextModelDescription" abstract="true"
+      interface="true" eSuperTypes="#//IXtextDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="editableFeatures" unique="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoredNestedFeatures"
+        unique="false" upperBound="-1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefixTerminalsExpression"
+        unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffixTerminalsExpression"
+        unique="false" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextValueDescription" abstract="true"
+      interface="true" eSuperTypes="#//IXtextDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefixTextExpression" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffixTextExpression" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextPropertyDescription" abstract="true"
+      interface="true" eSuperTypes="#//IXtextDescription"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextDirectEditDescription" abstract="true"
+      interface="true" eSuperTypes="#//IXtextDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiLine" unique="false"
+        eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextDirectEditModelDescription" abstract="true"
+      interface="true" eSuperTypes="#//IXtextDirectEditDescription #//IXtextModelDescription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectedFeatures" unique="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextDirectEditValueDescription" abstract="true"
+      interface="true" eSuperTypes="#//IXtextDirectEditDescription #//IXtextValueDescription"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextPropertyModelDescription" abstract="true"
+      interface="true" eSuperTypes="#//IXtextPropertyDescription #//IXtextModelDescription"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IXtextPropertyValueDescription" abstract="true"
+      interface="true" eSuperTypes="#//IXtextPropertyDescription #//IXtextValueDescription"/>
+</ecore:EPackage>

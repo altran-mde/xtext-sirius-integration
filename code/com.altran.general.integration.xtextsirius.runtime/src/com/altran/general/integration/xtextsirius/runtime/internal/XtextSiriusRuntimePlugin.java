@@ -7,13 +7,13 @@ import org.osgi.framework.BundleContext;
  * The activator class controls the plug-in life cycle
  */
 public class XtextSiriusRuntimePlugin extends Plugin {
-
+	
 	// The plug-in ID
 	public static final String PLUGIN_ID = "com.altran.general.integration.xtextsirius.runtime"; //$NON-NLS-1$
 	
 	// The shared instance
 	private static XtextSiriusRuntimePlugin plugin;
-
+	
 	@Override
 	public void start(final BundleContext context) throws Exception {
 		super.start(context);

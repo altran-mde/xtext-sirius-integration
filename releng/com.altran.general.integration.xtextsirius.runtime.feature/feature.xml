@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.altran.general.integration.xtextsirius.runtime.feature"
+      label="Xtext / Sirius Integration Runtime Feature"
+      version="0.22.0.qualifier"
+      provider-name="Altran"
+      license-feature="com.altran.general.integration.xtextsirius.license"
+      license-feature-version="0.9.0.qualifier">
+
+   <description>
+      Xtext / Sirius Integration run-time Feature
+
+Run-time support for Xtext-enabled direct edit actions for Sirius diagrams and Xtext-enabled fields for Sirius property editors.
+   </description>
+
+   <copyright>
+      Copyright 2018 Altran Netherlands B.V.
+   </copyright>
+
+   <requires>
+      <import plugin="org.apache.commons.lang"/>
+      <import plugin="com.google.guava" version="21.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.eef"/>
+      <import plugin="org.eclipse.eef.core"/>
+      <import plugin="org.eclipse.eef.common.ui"/>
+      <import plugin="org.eclipse.eef.ide.ui"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
+      <import plugin="org.eclipse.sirius" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common"/>
+      <import plugin="org.eclipse.sirius.common.interpreter"/>
+      <import plugin="org.eclipse.sirius.ext.base"/>
+      <import plugin="org.eclipse.sirius.ecore.extender"/>
+      <import plugin="org.eclipse.sirius.diagram"/>
+      <import plugin="org.eclipse.sirius.diagram.ui"/>
+      <import plugin="org.eclipse.sirius.properties" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties.core" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.yakindu.base.xtext.utils.jface"/>
+      <import plugin="org.yakindu.base.xtext.utils.gmf"/>
+      <import plugin="org.eclipse.jdt.annotation" version="2.0.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.runtime"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.xtext"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.eef"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.runtime.editpart.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.runtime.eef.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.properties"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.viewpoint"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.model.diagram"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.xtextsirius.runtime.converter"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.altran.general.integration.google.guava.patch"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

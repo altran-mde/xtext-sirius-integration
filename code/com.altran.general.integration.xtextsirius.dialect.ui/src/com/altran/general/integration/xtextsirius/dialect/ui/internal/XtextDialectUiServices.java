@@ -17,6 +17,7 @@ import org.eclipse.sirius.diagram.description.tool.ToolPackage;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIServices;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
+import org.eclipse.sirius.ui.business.api.dialect.ExportResult;
 import org.eclipse.sirius.ui.tools.api.actions.export.SizeTooLargeException;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
@@ -33,13 +34,13 @@ import com.google.common.collect.ImmutableList;
 public class XtextDialectUiServices implements DialectUIServices {
 	@Override
 	public void setSelection(final DialectEditor dialectEditor, final List<DRepresentationElement> selection) {
-		throw new UnsupportedOperationException();
+		return;
 	}
 	
 	@Override
 	public void selectAndReveal(final DialectEditor dialectEditor,
 			final List<DRepresentationElement> selection) {
-		throw new UnsupportedOperationException();
+		return;
 	}
 	
 	@Override
@@ -47,9 +48,10 @@ public class XtextDialectUiServices implements DialectUIServices {
 		return ImmutableList.of(
 				createTool(DiagramxtextFactory.eINSTANCE.createXtextDirectEditModelDescription()),
 				createTool(DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()),
-
+				
 				createTool(ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()),
-				createTool(ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
+				createTool(ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription())
+				);
 	}
 	
 	protected CommandParameter createTool(final Object value) {
@@ -79,7 +81,7 @@ public class XtextDialectUiServices implements DialectUIServices {
 	@Override
 	public IEditorPart openEditor(final Session session, final DRepresentation dRepresentation,
 			final IProgressMonitor monitor) {
-		throw new UnsupportedOperationException();
+		return null;
 	}
 	
 	@Override
@@ -97,7 +99,7 @@ public class XtextDialectUiServices implements DialectUIServices {
 	
 	@Override
 	public Collection<DSemanticDecorator> getSelection(final DialectEditor editor) {
-		throw new UnsupportedOperationException();
+		return Collections.emptySet();
 	}
 	
 	@Override
@@ -170,6 +172,12 @@ public class XtextDialectUiServices implements DialectUIServices {
 	
 	// @Override
 	public void refreshEditor(final DialectEditor dialectEditor, final IProgressMonitor monitor) {
+		throw new UnsupportedOperationException();
+	}
+
+	// @Override
+	public ExportResult exportWithResult(final DRepresentation representation, final Session session, final IPath path,
+			final ExportFormat format, final IProgressMonitor monitor) throws SizeTooLargeException {
 		throw new UnsupportedOperationException();
 	}
 }

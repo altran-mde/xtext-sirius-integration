@@ -7,11 +7,11 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated viewpoint-xtext -->
+      <!-- @generated viewpointxtext -->
       <package
             uri="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0"
             class="com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage"
-            genModel="model/viewpoint-xtext.xcore"/>
+            genModel="model/viewpointxtext.genmodel"/>
    </extension>
 
 </plugin>

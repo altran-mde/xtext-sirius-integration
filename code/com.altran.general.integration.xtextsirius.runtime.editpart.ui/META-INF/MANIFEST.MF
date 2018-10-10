@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Ui
+Bundle-Name: Xtext / Sirius Integration Diagram Runtime
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime.editpart.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.18.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.editpart.ui.internal.XtextSiriusRuntimeEditPartUiPlugin
 Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional;visibility:=reexport,
  org.apache.commons.lang,
@@ -11,8 +11,11 @@ Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;resolution:=optional
  org.yakindu.base.xtext.utils.gmf,
  org.eclipse.xtext.ui,
  org.eclipse.sirius.diagram.ui,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.sirius.ecore.extender,
  com.altran.general.integration.xtextsirius.runtime,
  com.altran.general.integration.xtextsirius.model.diagram,
  com.altran.general.integration.xtextsirius.model.viewpoint
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Altran

@@ -36,7 +36,7 @@ public class XtextValueDescriptionPrefixTextPropertySection extends AbstractMult
 
 	@Override
 	protected String getDefaultLabelText() {
-		return "Prefix text";
+		return "Prefix Text Expression";
 	}
 
 	@Override
@@ -52,9 +52,9 @@ public class XtextValueDescriptionPrefixTextPropertySection extends AbstractMult
 		 * We set the color as it's a InterpretedExpression
 		 */
 		this.text.setBackground(SiriusEditor.getColorRegistry().get("yellow")); //$NON-NLS-1$
-		
+
 		TypeContentProposalProvider.bindPluginsCompletionProcessors(this, this.text);
-		
+
 		final FormData data = new FormData();
 		data.top = new FormAttachment(this.text, 0, SWT.TOP);
 		data.left = new FormAttachment(this.nameLabel);

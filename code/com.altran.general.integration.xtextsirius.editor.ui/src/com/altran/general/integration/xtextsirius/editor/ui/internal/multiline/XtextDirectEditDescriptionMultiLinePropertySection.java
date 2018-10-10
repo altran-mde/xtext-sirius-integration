@@ -9,12 +9,12 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
 import com.google.common.collect.ImmutableList;
 
 public class XtextDirectEditDescriptionMultiLinePropertySection extends AbstractRadioButtonPropertySection {
-
+	
 	@Override
 	protected List<Boolean> getChoiceOfValues() {
 		return ImmutableList.of(Boolean.FALSE, Boolean.TRUE);
 	}
-
+	
 	@Override
 	protected String getText(final Object object) {
 		if (Boolean.TRUE.equals(object)) {
@@ -22,17 +22,17 @@ public class XtextDirectEditDescriptionMultiLinePropertySection extends Abstract
 		}
 		return "single-line";
 	}
-
+	
 	@Override
 	protected String getFeatureAsText() {
 		return getText(getValue());
 	}
-
+	
 	@Override
 	protected boolean isEqual(final int index) {
 		return getFeatureValue(index).equals(getValue());
 	}
-
+	
 	protected Boolean getValue() {
 		return (Boolean) this.eObject.eGet(getFeature());
 	}
@@ -51,7 +51,7 @@ public class XtextDirectEditDescriptionMultiLinePropertySection extends Abstract
 	protected String getDefaultLabelText() {
 		return "Lines";
 	}
-
+	
 	@Override
 	protected String getLabelText() {
 		return getDefaultLabelText() + ":";

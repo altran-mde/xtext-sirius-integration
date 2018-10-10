@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachinePackage;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Thing;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
 
 /**
@@ -36,6 +37,7 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StateImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StateImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StateImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.StateImpl#getThings <em>Things</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +103,16 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
    * @ordered
    */
   protected EList<Transition> transitions;
+
+  /**
+   * The cached value of the '{@link #getThings() <em>Things</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getThings()
+   * @generated
+   * @ordered
+   */
+  protected EList<Thing> things;
 
   /**
    * <!-- begin-user-doc -->
@@ -202,6 +214,20 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Thing> getThings()
+  {
+    if (things == null)
+    {
+      things = new EObjectContainmentEList<Thing>(Thing.class, this, StatemachinePackage.STATE__THINGS);
+    }
+    return things;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -209,6 +235,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
     {
       case StatemachinePackage.STATE__TRANSITIONS:
         return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
+      case StatemachinePackage.STATE__THINGS:
+        return ((InternalEList<?>)getThings()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -231,6 +259,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
         return getActions();
       case StatemachinePackage.STATE__TRANSITIONS:
         return getTransitions();
+      case StatemachinePackage.STATE__THINGS:
+        return getThings();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -260,6 +290,10 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
         getTransitions().clear();
         getTransitions().addAll((Collection<? extends Transition>)newValue);
         return;
+      case StatemachinePackage.STATE__THINGS:
+        getThings().clear();
+        getThings().addAll((Collection<? extends Thing>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -286,6 +320,9 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
       case StatemachinePackage.STATE__TRANSITIONS:
         getTransitions().clear();
         return;
+      case StatemachinePackage.STATE__THINGS:
+        getThings().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -308,6 +345,8 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
         return actions != null && !actions.isEmpty();
       case StatemachinePackage.STATE__TRANSITIONS:
         return transitions != null && !transitions.isEmpty();
+      case StatemachinePackage.STATE__THINGS:
+        return things != null && !things.isEmpty();
     }
     return super.eIsSet(featureID);
   }

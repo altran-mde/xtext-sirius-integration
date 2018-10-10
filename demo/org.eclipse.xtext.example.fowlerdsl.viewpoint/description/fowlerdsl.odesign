@@ -43,6 +43,13 @@
           </style>
         </containerMappings>
         <containerMappings name="StateNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='SimpleTextEdit']" semanticCandidatesExpression="feature:states" domainClass="statemachine.State" childrenPresentation="List">
+          <borderedNodeMappings name="thingNode" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ThingEdit']" semanticCandidatesExpression="feature:things" domainClass="statemachine.Thing">
+            <style xsi:type="style:DotDescription">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
           <subNodeMappings name="description" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DescriptionEdit']" semanticCandidatesExpression="var:self" domainClass="statemachine.State">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="ocl:'Desc: '.concat(self.description)" labelAlignment="LEFT" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" width="8" height="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -61,15 +68,21 @@
           <ownedTools xsi:type="tool:DirectEditLabel" name="SimpleTextEdit" precondition="ocl:true" inputLabelExpression="feature:name">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="zsdf" id="exampleAction"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="EventEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId">
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="EventEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="vcxxcv" id="exampleAction"/>
+              </firstModelOperations>
             </initialOperation>
+            <ignoredNestedFeatures>guard.min</ignoredNestedFeatures>
+            <selectedFeatures>Event.name</selectedFeatures>
           </ownedTools>
-          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="TransitionEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId" edgeLabelMappings="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style/@centerLabelStyleDescription">
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="TransitionEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.inlineEditInjectorId" prefixTerminalsExpression="aql:'['" suffixTerminalsExpression="zxcvzxcv" edgeLabelMappings="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style/@centerLabelStyleDescription">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
             </initialOperation>
@@ -81,13 +94,18 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="ThingEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId" multiLine="true">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.xtext.example.fowlerdsl.viewpoint.Services"/>
   </ownedViewpoints>
-  <extensions xsi:type="properties:ViewExtensionDescription" identifier="Properties">
-    <pages identifier="Default" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0 //@extensions.0/@groups.1"/>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="EventProperties">
+    <pages identifier="Default12369" labelExpression="semantic" domainClass="statemachine.Event" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
     <groups identifier="EventProperties" labelExpression="Event" domainClass="statemachine.Event" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
         <initialOperation>
@@ -100,6 +118,9 @@
         </initialOperation>
       </controls>
     </groups>
+  </extensions>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="StateProperties">
+    <pages identifier="Defaultxvsdas" labelExpression="Page" domainClass="statemachine.State" semanticCandidateExpression="var:self" groups="//@extensions.1/@groups.0"/>
     <groups identifier="StateProperties" labelExpression="State" domainClass="statemachine.State" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:TextDescription" labelExpression="Name" valueExpression="feature:name">
         <initialOperation>
