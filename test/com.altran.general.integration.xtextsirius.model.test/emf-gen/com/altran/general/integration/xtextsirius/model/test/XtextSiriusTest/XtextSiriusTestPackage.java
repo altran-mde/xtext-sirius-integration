@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest;
 
@@ -583,16 +590,6 @@ public interface XtextSiriusTestPackage extends EPackage {
 	int AELEMENT_OPERATION_COUNT = IELEMENT_OPERATION_COUNT + 0;
 	
 	/**
-	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ElementImpl <em>Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ElementImpl
-	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestPackageImpl#getElement()
-	 * @generated
-	 */
-	int ELEMENT = 1;
-	
-	/**
 	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.IdElementImpl <em>Id Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -927,6 +924,16 @@ public interface XtextSiriusTestPackage extends EPackage {
 	int ID_ELEMENT_OPERATION_COUNT = AELEMENT_OPERATION_COUNT + 0;
 	
 	/**
+	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ElementImpl <em>Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.ElementImpl
+	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestPackageImpl#getElement()
+	 * @generated
+	 */
+	int ELEMENT = 1;
+	
+	/**
 	 * The feature id for the '<em><b>Changeable Attr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1240,7 +1247,6 @@ public interface XtextSiriusTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT_OPERATION_COUNT = AELEMENT_OPERATION_COUNT + 0;
-	
 	
 	/**
 	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.KeyElementImpl <em>Key Element</em>}' class.
@@ -1575,7 +1581,6 @@ public interface XtextSiriusTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int KEY_ELEMENT_OPERATION_COUNT = IELEMENT_OPERATION_COUNT + 0;
-	
 	
 	/**
 	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement <em>IContained Element</em>}' class.

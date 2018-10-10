@@ -1,6 +1,14 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.provider;
+
 
 import java.util.Collection;
 import java.util.List;
@@ -11,7 +19,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.sirius.properties.TextAreaDescription;
 import org.eclipse.sirius.properties.provider.TextAreaDescriptionItemProvider;
 
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage;
@@ -29,7 +36,7 @@ public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescript
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public XtextMultiLineValueDescriptionItemProvider(final AdapterFactory adapterFactory) {
@@ -39,7 +46,7 @@ public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescript
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -57,7 +64,7 @@ public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescript
 	/**
 	 * This adds a property descriptor for the Injector Id feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected void addInjectorIdPropertyDescriptor(final Object object) {
@@ -135,15 +142,16 @@ public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescript
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
-	 * @generated NOT
+	 * 
+	 * @generated
 	 */
 	@Override
 	public String getText(final Object object) {
-		final String label = ((TextAreaDescription) object).getLabelExpression();
-		return label == null || label.length() == 0 ? getString("_UI_XtextMultiLineValueDescription_type") : //$NON-NLS-1$
-				label;
+		final String label = ((XtextMultiLineValueDescription) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_XtextMultiLineValueDescription_type")
+				: getString("_UI_XtextMultiLineValueDescription_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
@@ -171,7 +179,7 @@ public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescript
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override

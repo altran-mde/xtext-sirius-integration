@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl;
 
@@ -61,7 +68,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 	 * method {@link #init init()}, which also performs initialization of the
 	 * package, or returns the registered package, if one already exists. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.PropertiesxtextPackage#eNS_URI
 	 * @see #init()
@@ -218,7 +225,7 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {

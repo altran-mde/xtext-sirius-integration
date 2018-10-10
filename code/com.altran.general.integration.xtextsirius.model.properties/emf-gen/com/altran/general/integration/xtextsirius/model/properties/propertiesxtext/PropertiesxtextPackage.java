@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext;
 
@@ -67,7 +74,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -76,7 +83,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -85,7 +92,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -94,7 +101,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -103,7 +110,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -121,7 +128,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -157,7 +164,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -176,7 +183,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -245,7 +252,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -254,7 +261,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -263,7 +270,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -272,7 +279,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -281,7 +288,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -299,7 +306,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -308,7 +315,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -344,7 +351,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -363,7 +370,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -433,7 +440,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -442,7 +449,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -451,7 +458,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -460,7 +467,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -469,7 +476,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -487,7 +494,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -523,7 +530,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -542,7 +549,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -592,7 +599,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -601,7 +608,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -610,7 +617,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -619,7 +626,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -628,7 +635,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -646,7 +653,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -655,7 +662,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -691,7 +698,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -710,7 +717,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -744,6 +751,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 3;
+
 
 	/**
 	 * Returns the meta object for class
@@ -800,7 +808,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
@@ -825,7 +833,7 @@ public interface PropertiesxtextPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
 		 * <em>Xtext Single Line Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl#getXtextSingleLineModelDescription()
 		 * @generated
@@ -837,7 +845,7 @@ public interface PropertiesxtextPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
 		 * <em>Xtext Multi Line Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl#getXtextMultiLineModelDescription()
 		 * @generated
@@ -849,7 +857,7 @@ public interface PropertiesxtextPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
 		 * <em>Xtext Single Line Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl#getXtextSingleLineValueDescription()
 		 * @generated
@@ -861,7 +869,7 @@ public interface PropertiesxtextPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
 		 * <em>Xtext Multi Line Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl#getXtextMultiLineValueDescription()
 		 * @generated

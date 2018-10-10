@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.xtext.xtextsirius;
 
@@ -67,7 +74,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -97,7 +104,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -163,7 +170,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -211,7 +218,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -241,7 +248,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -250,7 +257,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -270,7 +277,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
 	 * <em>IXtext Direct Edit Model Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextDirectEditModelDescription()
 	 * @generated
@@ -280,7 +287,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -289,7 +296,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -357,7 +364,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 	 * <em>IXtext Direct Edit Value Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextDirectEditValueDescription()
 	 * @generated
@@ -367,7 +374,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -376,7 +383,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -424,7 +431,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -490,7 +497,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -523,12 +530,13 @@ public interface XtextsiriusPackage extends EPackage {
 	 */
 	int IXTEXT_PROPERTY_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
 
+
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
 	 * <em>IXtext Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @return the meta object for class '<em>IXtext Description</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
 	 * @generated
@@ -564,7 +572,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getEditableFeatures
 	 * <em>Editable Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @return the meta object for the attribute list '<em>Editable
 	 *         Features</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getEditableFeatures()
@@ -710,7 +718,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getSelectedFeatures
 	 * <em>Selected Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @return the meta object for the attribute list '<em>Selected
 	 *         Features</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getSelectedFeatures()
@@ -761,7 +769,7 @@ public interface XtextsiriusPackage extends EPackage {
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
@@ -920,7 +928,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
 		 * <em>IXtext Direct Edit Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
 		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextDirectEditModelDescription()
 		 * @generated
@@ -941,7 +949,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 		 * <em>IXtext Direct Edit Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
 		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextDirectEditValueDescription()
 		 * @generated
@@ -953,7 +961,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
 		 * <em>IXtext Property Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
 		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextPropertyModelDescription()
 		 * @generated
@@ -965,7 +973,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
 		 * <em>IXtext Property Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
 		 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl#getIXtextPropertyValueDescription()
 		 * @generated

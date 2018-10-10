@@ -1,6 +1,14 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider;
+
 
 import java.util.Collection;
 import java.util.List;
@@ -11,8 +19,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.sirius.business.api.query.IdentifiedElementQuery;
-import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextPackage;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
@@ -158,15 +164,16 @@ public class XtextDirectEditValueDescriptionItemProvider extends AXtextDirectEdi
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
-	 * @generated NOT
+	 * 
+	 * @generated
 	 */
 	@Override
 	public String getText(final Object object) {
-		final String label = new IdentifiedElementQuery((IdentifiedElement) object).getLabel();
+		final String label = ((XtextDirectEditValueDescription) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_XtextDirectEditValueDescription_type")
 				: getString("_UI_XtextDirectEditValueDescription_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to

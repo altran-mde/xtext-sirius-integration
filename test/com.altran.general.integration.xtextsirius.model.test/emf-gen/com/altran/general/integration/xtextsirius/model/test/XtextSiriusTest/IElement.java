@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest;
 
@@ -35,6 +42,10 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Changeable Attr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Changeable Attr</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Changeable Attr</em>' attribute.
 	 * @see #setChangeableAttr(String)
@@ -73,6 +84,10 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * Returns the value of the '<em><b>Changeable List Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Changeable List Attr</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Changeable List Attr</em>' attribute list.
 	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage#getIElement_ChangeableListAttr()
@@ -101,6 +116,10 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * Returns the value of the '<em><b>Changeable Set Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Integer}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Changeable Set Attr</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Changeable Set Attr</em>' attribute list.
 	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage#getIElement_ChangeableSetAttr()
@@ -129,6 +148,10 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * Returns the value of the '<em><b>Changeable Bag Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Double}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Changeable Bag Attr</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Changeable Bag Attr</em>' attribute list.
 	 * @see com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage#getIElement_ChangeableBagAttr()
