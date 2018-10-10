@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext;
 
@@ -468,6 +475,7 @@ public interface ViewpointxtextPackage extends EPackage {
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION_FEATURE_COUNT = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION_FEATURE_COUNT
 			+ 1;
+
 
 	/**
 	 * Returns the meta object for class
