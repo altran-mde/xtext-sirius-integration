@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl;
 
@@ -99,7 +106,7 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * method {@link #init init()}, which also performs initialization of the
 	 * package, or returns the registered package, if one already exists. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage#eNS_URI
 	 * @see #init()
@@ -125,7 +132,7 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * when that field is accessed. Clients should not invoke it directly.
 	 * Instead, they should simply access that field to obtain the package. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -412,7 +419,7 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {

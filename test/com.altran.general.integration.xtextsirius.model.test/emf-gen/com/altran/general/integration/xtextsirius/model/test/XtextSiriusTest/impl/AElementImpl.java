@@ -1,20 +1,28 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.AElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -664,6 +672,45 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<A> getChangeableUniqueListCont() {
+		if (changeableUniqueListCont == null) {
+			changeableUniqueListCont = new EObjectContainmentEList<A>(AElement.class, this,
+					XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT);
+		}
+		return changeableUniqueListCont;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<A> getUnchangeableUniqueListCont() {
+		if (unchangeableUniqueListCont == null) {
+			unchangeableUniqueListCont = new EObjectContainmentEList<A>(AElement.class, this,
+					XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT);
+		}
+		return unchangeableUniqueListCont;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<A> getChangeableSetCont() {
+		if (changeableSetCont == null) {
+			changeableSetCont = new EObjectContainmentEList<A>(AElement.class, this,
+					XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT);
+		}
+		return changeableSetCont;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public A getChangeableCont() {
 		return changeableCont;
 	}
@@ -776,45 +823,6 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 				return ((InternalEList<?>) getUnchangeableSetCont()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<A> getChangeableUniqueListCont() {
-		if (changeableUniqueListCont == null) {
-			changeableUniqueListCont = new EObjectContainmentEList<A>(AElement.class, this,
-					XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT);
-		}
-		return changeableUniqueListCont;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<A> getUnchangeableUniqueListCont() {
-		if (unchangeableUniqueListCont == null) {
-			unchangeableUniqueListCont = new EObjectContainmentEList<A>(AElement.class, this,
-					XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT);
-		}
-		return unchangeableUniqueListCont;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<A> getChangeableSetCont() {
-		if (changeableSetCont == null) {
-			changeableSetCont = new EObjectContainmentEList<A>(AElement.class, this,
-					XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT);
-		}
-		return changeableSetCont;
 	}
 	
 	/**

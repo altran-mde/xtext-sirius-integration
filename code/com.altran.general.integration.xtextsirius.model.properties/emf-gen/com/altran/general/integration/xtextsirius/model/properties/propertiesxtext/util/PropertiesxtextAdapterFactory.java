@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.util;
 
@@ -80,7 +87,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected PropertiesxtextSwitch<Adapter> modelSwitch = new PropertiesxtextSwitch<Adapter>() {
@@ -203,6 +210,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAdapter(final Notifier target) {
 		return this.modelSwitch.doSwitch((EObject) target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class
@@ -355,7 +363,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	 * returns null so that we can easily ignore cases; it's useful to ignore a
 	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.sirius.properties.ControlDescription
 	 * @generated
@@ -371,7 +379,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	 * returns null so that we can easily ignore cases; it's useful to ignore a
 	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.sirius.properties.WidgetDescription
 	 * @generated
@@ -387,7 +395,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	 * returns null so that we can easily ignore cases; it's useful to ignore a
 	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.sirius.properties.TextDescription
 	 * @generated
@@ -483,7 +491,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	 * returns null so that we can easily ignore cases; it's useful to ignore a
 	 * case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.sirius.properties.TextAreaDescription
 	 * @generated

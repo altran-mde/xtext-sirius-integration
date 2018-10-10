@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.eef.eefxtext;
 
@@ -68,7 +75,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -77,7 +84,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -86,7 +93,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -113,7 +120,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -122,7 +129,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -131,7 +138,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -158,7 +165,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -167,7 +174,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -197,7 +204,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -206,7 +213,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -215,7 +222,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -242,7 +249,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -251,7 +258,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -260,7 +267,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -287,7 +294,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -296,7 +303,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -362,7 +369,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -371,7 +378,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -380,7 +387,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -407,7 +414,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -416,7 +423,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -425,7 +432,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -452,7 +459,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -461,7 +468,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -509,7 +516,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -518,7 +525,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -527,7 +534,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -554,7 +561,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -563,7 +570,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -572,7 +579,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -599,7 +606,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -608,7 +615,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -628,7 +635,7 @@ public interface EefxtextPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
 	 * <em>Eef Xtext Single Line Model Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextSingleLineModelDescription()
 	 * @generated
@@ -638,7 +645,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -647,7 +654,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -656,7 +663,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -683,7 +690,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -692,7 +699,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -701,7 +708,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -728,7 +735,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -737,7 +744,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -796,7 +803,7 @@ public interface EefxtextPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
 	 * <em>Eef Xtext Multi Line Model Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextMultiLineModelDescription()
 	 * @generated
@@ -806,7 +813,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -815,7 +822,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -824,7 +831,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -851,7 +858,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -860,7 +867,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -869,7 +876,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -896,7 +903,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -905,7 +912,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -964,7 +971,7 @@ public interface EefxtextPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
 	 * <em>Eef Xtext Single Line Value Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextSingleLineValueDescription()
 	 * @generated
@@ -974,7 +981,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -983,7 +990,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -992,7 +999,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1019,7 +1026,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1028,7 +1035,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1037,7 +1044,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1064,7 +1071,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1073,7 +1080,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1113,7 +1120,7 @@ public interface EefxtextPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
 	 * <em>Eef Xtext Multi Line Value Description</em>}' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextMultiLineValueDescription()
 	 * @generated
@@ -1123,7 +1130,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1132,7 +1139,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1141,7 +1148,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1168,7 +1175,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1177,7 +1184,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Edit Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1186,7 +1193,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1213,7 +1220,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1222,7 +1229,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -1256,6 +1263,7 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = IEEF_XTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
+
 
 	/**
 	 * Returns the meta object for class
@@ -1311,7 +1319,7 @@ public interface EefxtextPackage extends EPackage {
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures
 	 * <em>Editable Features</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @return the meta object for the attribute list '<em>Editable
 	 *         Features</em>'.
 	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getEditableFeatures()
@@ -1471,7 +1479,7 @@ public interface EefxtextPackage extends EPackage {
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
@@ -1619,7 +1627,7 @@ public interface EefxtextPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
 		 * <em>Eef Xtext Single Line Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineModelDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextSingleLineModelDescription()
 		 * @generated
@@ -1631,7 +1639,7 @@ public interface EefxtextPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
 		 * <em>Eef Xtext Multi Line Model Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineModelDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextMultiLineModelDescription()
 		 * @generated
@@ -1643,7 +1651,7 @@ public interface EefxtextPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
 		 * <em>Eef Xtext Single Line Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextSingleLineValueDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextSingleLineValueDescription()
 		 * @generated
@@ -1655,7 +1663,7 @@ public interface EefxtextPackage extends EPackage {
 		 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
 		 * <em>Eef Xtext Multi Line Value Description</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 *
+		 * 
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefXtextMultiLineValueDescriptionImpl
 		 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.EefxtextPackageImpl#getEefXtextMultiLineValueDescription()
 		 * @generated

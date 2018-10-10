@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.provider;
 
@@ -292,6 +299,99 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	}
 
 	/**
+	 * A child creation extender for the {@link DescriptionPackage}. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	public static class DescriptionChildCreationExtender implements IChildCreationExtender {
+		/**
+		 * The switch for creating child descriptors specific to each extended
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		protected static class CreationSwitch extends DescriptionSwitch<Object> {
+			/**
+			 * The child descriptors being populated. <!-- begin-user-doc -->
+			 * <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			protected List<Object> newChildDescriptors;
+
+			/**
+			 * The domain in which to create the children. <!-- begin-user-doc
+			 * --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			protected EditingDomain editingDomain;
+
+			/**
+			 * Creates the a switch for populating child descriptors in the
+			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			CreationSwitch(final List<Object> newChildDescriptors, final EditingDomain editingDomain) {
+				this.newChildDescriptors = newChildDescriptors;
+				this.editingDomain = editingDomain;
+			}
+
+			/**
+			 * <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			@Override
+			public Object caseEnvironment(final Environment object) {
+				this.newChildDescriptors
+						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
+								DiagramxtextFactory.eINSTANCE.createXtextDirectEditModelDescription()));
+
+				this.newChildDescriptors
+						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
+								DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()));
+
+				return null;
+			}
+
+			/**
+			 * <!-- begin-user-doc --> <!-- end-user-doc -->
+			 * 
+			 * @generated
+			 */
+			protected CommandParameter createChildParameter(final Object feature, final Object child) {
+				return new CommandParameter(null, feature, child);
+			}
+
+		}
+
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		@Override
+		public Collection<Object> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+			final ArrayList<Object> result = new ArrayList<>();
+			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
+			return result;
+		}
+
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		@Override
+		public ResourceLocator getResourceLocator() {
+			return DiagramxtextEditPlugin.INSTANCE;
+		}
+	}
+
+	/**
 	 * A child creation extender for the {@link ToolPackage}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -376,99 +476,6 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
 						DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()));
-
-				return null;
-			}
-
-			/**
-			 * <!-- begin-user-doc --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			protected CommandParameter createChildParameter(final Object feature, final Object child) {
-				return new CommandParameter(null, feature, child);
-			}
-
-		}
-
-		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		@Override
-		public Collection<Object> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
-			final ArrayList<Object> result = new ArrayList<>();
-			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
-			return result;
-		}
-
-		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		@Override
-		public ResourceLocator getResourceLocator() {
-			return DiagramxtextEditPlugin.INSTANCE;
-		}
-	}
-
-	/**
-	 * A child creation extender for the {@link DescriptionPackage}. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	public static class DescriptionChildCreationExtender implements IChildCreationExtender {
-		/**
-		 * The switch for creating child descriptors specific to each extended
-		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		protected static class CreationSwitch extends DescriptionSwitch<Object> {
-			/**
-			 * The child descriptors being populated. <!-- begin-user-doc -->
-			 * <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			protected List<Object> newChildDescriptors;
-
-			/**
-			 * The domain in which to create the children. <!-- begin-user-doc
-			 * --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			protected EditingDomain editingDomain;
-
-			/**
-			 * Creates the a switch for populating child descriptors in the
-			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			CreationSwitch(final List<Object> newChildDescriptors, final EditingDomain editingDomain) {
-				this.newChildDescriptors = newChildDescriptors;
-				this.editingDomain = editingDomain;
-			}
-
-			/**
-			 * <!-- begin-user-doc --> <!-- end-user-doc -->
-			 * 
-			 * @generated
-			 */
-			@Override
-			public Object caseEnvironment(final Environment object) {
-				this.newChildDescriptors
-						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
-								DiagramxtextFactory.eINSTANCE.createXtextDirectEditModelDescription()));
-
-				this.newChildDescriptors
-						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
-								DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()));
 
 				return null;
 			}

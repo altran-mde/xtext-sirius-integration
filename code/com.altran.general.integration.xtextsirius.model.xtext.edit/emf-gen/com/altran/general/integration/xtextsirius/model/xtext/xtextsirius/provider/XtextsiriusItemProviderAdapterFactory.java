@@ -1,4 +1,11 @@
 /**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.provider;
 
@@ -52,7 +59,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * This is used to implement
 	 * {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -78,7 +85,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @generated
 	 */
 	public XtextsiriusItemProviderAdapterFactory() {
@@ -92,7 +99,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	/**
 	 * This returns the root adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -103,7 +110,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	/**
 	 * This sets the composed adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -202,7 +209,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * This delegates to {@link #changeNotifier} and to
 	 * {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -217,7 +224,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	/**
 	 * This disposes all of the item providers created by this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
+	 * 
 	 * @generated
 	 */
 	@Override
