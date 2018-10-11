@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram-xtext="http://altran.com/general/integration/xtextsirius/model/diagram/1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-xtext="http://altran.com/general/integration/xtextsirius/model/properties/1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:viewpoint-xtext="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0" name="classes" version="12.0.0.2017041100">
+  <ownedViewpoints name="MyViewpoint" modelFileExtension="*.classes">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ClassModel" domainClass="classes::ClassModel" enablePopupBars="true">
+      <metamodel href="../../com.example.classes/model/generated/Classes.ecore#/"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="Association" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@toolSections.0/@ownedTools[name='editAssociation']" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@containerMappings[name='Class']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="classes::Association" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.lowerBound + '..' + self.upperBound + ']'">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Class" domainClass="classes::Class" childrenPresentation="List">
+          <subNodeMappings name="Attribute" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@toolSections.0/@ownedTools[name='editAttribute']" semanticCandidatesExpression="feature:attributes" domainClass="classes::Attribute">
+            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:self.visibility + ' ' + self.name + ': ' + self.type + '[' + self.lowerBound + if(self.lowerBound.toString() != self.upperBound.toString()) then ('..' + self.upperBound) else '' endif + ']'" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Constant" domainClass="classes::Constant" childrenPresentation="List">
+          <subNodeMappings name="ConstantInitial" semanticCandidatesExpression="var:self" domainClass="classes::Constant">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="feature:initial" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="editAttribute" injectorId="com.example.classes.design.ClassesLanguageInjectorId">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue"/>
+            </initialOperation>
+            <selectedFeatures>Attribute.name</selectedFeatures>
+          </ownedTools>
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="editAssociation" injectorId="com.example.classes.design.InlineClassesLanguageInjectorId" edgeLabelMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@edgeMappings[name='Association']/@style/@centerLabelStyleDescription">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue"/>
+            </initialOperation>
+            <editableFeatures>Association.name</editableFeatures>
+            <editableFeatures>Association.lowerBound</editableFeatures>
+            <editableFeatures>Association.upperBound</editableFeatures>
+            <selectedFeatures>Association.name</selectedFeatures>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="com.example.classes.design.Services"/>
+  </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="http://www.example.com/Classes#/"/>
+    <categories name="Default Category">
+      <pages name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <groups name="Default Group" labelExpression="Description" domainClass="classes::Description" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties-xtext:XtextMultiLineValueDescription" name="DescriptionProperty" valueExpression="feature:description" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.htmlInjectorId" prefixTextExpression="&lt;html>&lt;head>&lt;title>dummy&lt;/title>&lt;/head>&lt;body>" suffixTextExpression="&lt;/body>&lt;/html>">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
+</description:Group>

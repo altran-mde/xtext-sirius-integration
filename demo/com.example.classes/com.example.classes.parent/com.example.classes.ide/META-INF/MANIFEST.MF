@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.example.classes.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.example.classes.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.example.classes,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.example.ide.contentassist.antlr.internal,
+ com.example.ide.contentassist.antlr
+

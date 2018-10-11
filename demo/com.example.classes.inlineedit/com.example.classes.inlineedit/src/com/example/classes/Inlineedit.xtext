@@ -1,0 +1,16 @@
+grammar com.example.classes.Inlineedit with com.example.Classes
+
+import "http://www.example.com/Classes" 
+
+InlineClassModel returns ClassModel:
+	ClassModel
+;
+
+@Override 
+Association:
+	Description?
+	'association'
+	name=ID
+	'[' lowerBound=Value '..' upperBound=Value ']' 
+	source=[Class] '-->' target=[Class]
+;

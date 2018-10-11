@@ -85,7 +85,7 @@ class House {
 }
 
 class Room {
-	public size: Integer[2]
+	public size: Integer[2..2]
 }
 
 association rooms House --> Room[1..MAX_ROOMS]
