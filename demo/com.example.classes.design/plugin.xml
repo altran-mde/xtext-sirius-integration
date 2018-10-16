@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="com.example.classes.design.Activator"
+               id="com.example.classes.design"
+	       name="classes">
+    </component>
+  </extension>
+
+	<extension point="com.altran.general.integration.xtextsirius.runtime.xtextLanguageInjector">
+		<injector
+			id="com.example.classes.design.ClassesLanguageInjectorId"
+			class="com.example.classes.design.ClassesLanguageInjector"
+		/>
+		<injector
+			id="com.example.classes.design.InlineClassesLanguageInjectorId"
+			class="com.example.classes.design.InlineClassesLanguageInjector"
+		/>
+	</extension>
+</plugin>
