@@ -1,0 +1,94 @@
+grammar com.example.Classes with org.eclipse.xtext.common.Terminals
+
+generate classes "http://www.example.com/Classes"
+
+ClassModel:
+	content+=Content*
+;
+
+Content:
+	Constant
+	| Class
+	| Association
+;
+
+Constant:
+	Description?
+	'constant'
+	name=ID
+	'=' initial=Value
+;
+
+Association:
+	Description?
+	'association'
+	name=ID
+	source=[Class] '-->' target=[Class]
+	'[' lowerBound=Value '..' upperBound=Value ']' 
+;
+
+Class:
+	Description?
+	'class' name=ID '{'
+		attributes+=Attribute*	
+	'}'
+;
+
+Attribute:
+	Description?
+	visibility=Visibility
+	name=ID
+	':' type=Type
+	'[' lowerBound=Value '..' upperBound=Value ']' 
+;
+
+Type:
+	BuiltInType
+	| ClassRef
+;
+
+BuiltInType:
+	StringType
+	| IntegerType
+;
+
+StringType:
+	{StringType}
+	'string'
+;
+
+IntegerType:
+	{IntegerType}
+	'integer'
+;
+
+ClassRef:
+	target=[Class]
+;
+
+enum Visibility:
+	public = '+' | public = 'public'
+	| protected = '#' | protected = 'protected'
+	| private = '-' | private = 'private' 
+;
+
+Value:
+	IntegerLiteral
+	| ConstantRef
+;
+
+IntegerLiteral:
+	value=INT
+;
+
+ConstantRef:
+	target=[Constant]	
+;
+
+fragment Description:
+	description=DESCRIPTION_TEXT
+;
+
+terminal DESCRIPTION_TEXT:
+	'[[[' -> ']]]'
+;
