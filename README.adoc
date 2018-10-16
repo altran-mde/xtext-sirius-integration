@@ -1,4 +1,9 @@
-include::doc/userguide/_common.adoc[]
+:miscellaneous.tabsize: 2
+:tabsize: 2
+:icons: font
+:source-highlighter: pygments
+:prewrap!:
+:xtext-sirius-version: 0.22.1-SNAPSHOT
 :sectnums!: 
 :imagesdir: doc/images/
 
