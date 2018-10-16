@@ -4,7 +4,7 @@ Bundle-Name: Xtext / Sirius Integration VSP Extension Registration
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.dialect.ui;singleton:=true
 Bundle-Version: 0.9.1.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.dialect.ui.internal.XtextSiriusDialectUiPlugin
-Bundle-Vendor: Altran
+Bundle-Vendor: Altran Netherlands B.V.
 Require-Bundle: org.eclipse.sirius.diagram.ui,
  org.eclipse.gmf.runtime.diagram.ui,
  com.altran.general.integration.xtextsirius.model.viewpoint,

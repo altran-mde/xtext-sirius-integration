@@ -4,7 +4,7 @@ Bundle-Name: Xtext / Sirius Integration Core Runtime
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime;singleton:=true
 Bundle-Version: 0.18.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.internal.XtextSiriusRuntimePlugin
-Bundle-Vendor: Altran
+Bundle-Vendor: Altran Netherlands B.V.
 Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport,
  org.apache.commons.lang,
  org.eclipse.core.runtime,
