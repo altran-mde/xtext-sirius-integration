@@ -1,3 +1,10 @@
+:miscellaneous.tabsize: 2
+:tabsize: 2
+:icons: font
+:source-highlighter: pygments
+:figure-caption!:
+:imagesdir: doc/images/
+
 = Xtext / Sirius Integration
 
 This asset enables https://www.eclipse.org/Xtext/[Xtext] editors to be used as direct editor for https://www.eclipse.org/sirius/[Sirius] diagram elements or Sirius property widgets.
@@ -10,8 +17,8 @@ Plenty of options allow fine-tuning for specific use cases.
 .Use Cases
 * Use Xtext as direct editor for Sirius diagram figures and connections
 * Use Xtext in Sirius property editors
-* Edit parts of the Sirius editor is working on with Xtext
-* Edit text stored in a model with Xtext
+* Edit parts of the Sirius editor's model with Xtext
+* Edit text stored in the model with Xtext
 
 .Configuration Options
 * Single-line or multi-line Xtext editor
@@ -30,6 +37,9 @@ Assume a model and diagram akin to UML class diagrams.
 Each class is represented by a rectangle with several compartments.
 The first compartment shows the class name, the second compartment list the class attributes.
 
+.Sample Class Diagram
+image::SampleClassDiagram.png[] 
+
 Each attribute has 
 
 * a visibility, denoted by a symbol (`public`/`+`, `protected`/`#`, `private`/`-`),
@@ -38,12 +48,21 @@ Each attribute has
 * a multiplicity with lower and upper bounds, that may use constants declared elsewhere in the model,
 * a (possibly long) description text.
 
+.Error Reporting (invalid visibility)
+image::InvalidVisibility.png[]
+
 Xtext / Sirius Integration allows to edit all the visible features of the attribute just as we see them, without fiddling around in property editors.
 It automatically checks for valid input (i.e. does not accept `~` as visibility) and provides auto-completion for references to declared types or constants.
+
+.Auto-completion for constants
+image::ConstantAutoComplete.png[] 
 
 We hide the description feature from the Xtext editor, as it makes no sense to edit it in-line.
 Also, we pre-select only the attribute's name.
 This way, we changed only the name without touching the other features, if the user pressed F2, typed something, and pressed enter.
+
+.Pre-selected attribute name
+image::AttributeNamePreSelected.png[] 
 
 We can still edit all of the features separately in the properties view.
 
@@ -53,6 +72,9 @@ We can still edit all of the features separately in the properties view.
 Assume a model where every element can have a description.
 Formally, the description is just a string feature of the element.
 However, the user may use HTML-like tags in the description.
+
+.Partial HTML-like Xtext language in Properties View
+image::DescriptionProperties.png[] 
 
 Assume a build server task that collects the descriptions of all elements of one model and combines them into one HTML page.
 
@@ -131,7 +153,7 @@ To solve this issue, we create another Xtext language and use this one in our di
 
 [source, antlr]
 ----
-grammar com.example.classes.edit with com.example.classes
+grammar com.example.classes.edit with com.example.classes <1>
 
 import "http://example.com/Classes"
 
@@ -139,25 +161,26 @@ EditClassModel returns ClassModel:
 	ClassModel
 ;
 
-@Override                                               <1>
+@Override                                                 <2>
 Association:
 	'association'
 	name=ID
 	'[' lowerBound=Value '..' upperBound=Value ']' 
-	source=[Class] '-->' target=[Class]             <2>
+	source=[Class] '-->' target=[Class]                     <3>
 ----
-<1> Overrides the original Association grammar rule.
+<1> Extends the original grammar.
+
+<2> Overrides the original Association grammar rule.
 All other grammar rules remain untouched.
 
 <2> We moved the `source` and `target` features to the end of the element's text.
 This way, we can hide them from the user.
 
-
-
-.Direct Editor Example
-image:doc/userguide/images/eventEditor.png[]
-
-.Property Widget Example
-image:doc/userguide/images/descriptionProperty.png[]
+[.float-group]
+--
+image::OriginalGrammar.png[] 
+.Original Grammar vs. Editing Grammar
+image::ConnectionAlternativeGrammar.png[]
+--
 
 Please refer to the link:doc/userguide/xtext-sirius-userguide.adoc[user guide] for more details.
