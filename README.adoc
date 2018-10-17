@@ -2,6 +2,7 @@
 :tabsize: 2
 :icons: font
 :source-highlighter: pygments
+:figure-caption!:
 :prewrap!:
 :xtext-sirius-version: 0.22.1-SNAPSHOT
 :sectnums!: 
