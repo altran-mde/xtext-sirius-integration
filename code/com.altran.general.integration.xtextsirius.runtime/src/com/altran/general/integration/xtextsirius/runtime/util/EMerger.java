@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -409,6 +410,8 @@ public class EMerger<T extends EObject> {
 			}
 		}
 		
+		removeAllIgnoredFeatureAdapters(this.existing);
+		
 		return this.existing;
 	}
 	
@@ -438,9 +441,21 @@ public class EMerger<T extends EObject> {
 		} else {
 			mergeFeatureValueRecursive(feature, "", this.existing, null, oldValue, newValue);
 		}
-		
+
+		removeAllIgnoredFeatureAdapters(this.existing);
 		return this.existing;
 	}
+
+	private void removeAllIgnoredFeatureAdapters(final EObject exist) {
+		final EObject rootContainer = EcoreUtil.getRootContainer(exist);
+		for (final TreeIterator<EObject> iterator = rootContainer.eAllContents(); iterator.hasNext();) {
+			final EObject eObject = iterator.next();
+			if (eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance)) {
+				System.out.println("Removed IgnoredFeatureAdapter(s) from " + eObject.eClass().getName());
+			}
+		}
+	}
+	
 	
 	protected boolean validateFirstLevelFeature(final EStructuralFeature feature) {
 		return feature.isChangeable() && this.featuresToReplace.isEmpty()
