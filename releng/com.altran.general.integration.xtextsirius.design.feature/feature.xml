@@ -2,26 +2,30 @@
 <feature
       id="com.altran.general.integration.xtextsirius.design.feature"
       label="Xtext / Sirius Integration Feature"
-      version="0.15.0.qualifier"
-      provider-name="Altran"
+      version="0.15.1.qualifier"
+      provider-name="Altran Netherlands B.V."
       license-feature="com.altran.general.integration.xtextsirius.license"
       license-feature-version="0.9.0.qualifier">
 
    <description>
-		Xtext / Sirius Integration design-time Feature
-		
-		Provides odesign extensions to create Xtext-enabled direct edit actions for Sirius diagrams and Xtext-enabled fields for Sirius property editors.
+      Xtext / Sirius Integration design-time Feature
+  
+  Provides odesign extensions to create Xtext-enabled direct edit actions for Sirius diagrams and Xtext-enabled fields for Sirius property editors.
    </description>
 
    <copyright>
-		Copyright (C) 2018 Altran Netherlands B.V.
-		
-		This program and the accompanying materials are made
-		available under the terms of the Eclipse Public License 2.0
-		which is available at https://www.eclipse.org/legal/epl-2.0/
-		
-		SPDX-License-Identifier: EPL-2.0
+      Copyright (C) 2018 Altran Netherlands B.V.
+  
+  This program and the accompanying materials are made
+  available under the terms of the Eclipse Public License 2.0
+  which is available at https://www.eclipse.org/legal/epl-2.0/
+  
+  SPDX-License-Identifier: EPL-2.0
    </copyright>
+
+   <url>
+      <update label="Xtext / Sirius Integration P2" url="https://altran-mde.github.io/xtext-sirius-integration.io/p2/"/>
+   </url>
 
    <includes
          id="com.altran.general.integration.xtextsirius.runtime.feature"

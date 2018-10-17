@@ -3,6 +3,9 @@
 :icons: font
 :source-highlighter: pygments
 :figure-caption!:
+:prewrap!:
+:xtext-sirius-version: 0.22.1-SNAPSHOT
+:sectnums!: 
 :imagesdir: doc/images/
 
 = Xtext / Sirius Integration
@@ -11,6 +14,9 @@ This asset enables https://www.eclipse.org/Xtext/[Xtext] editors to be used as d
 It's mostly configured via the standard Sirius `.odesign` editor.
 Plenty of options allow fine-tuning for specific use cases.
 
+== Update Site
+
+The Update Site can be found at https://altran-mde.github.io/xtext-sirius-integration.io/p2/.
 
 == Main Features
 
@@ -30,6 +36,8 @@ Plenty of options allow fine-tuning for specific use cases.
 
 
 == Examples
+
+The source code of all examples can be found at link:demo/[].
 
 === Smart UML Class Attributes
 
@@ -184,3 +192,7 @@ image::ConnectionAlternativeGrammar.png[]
 --
 
 Please refer to the link:doc/userguide/xtext-sirius-userguide.adoc[user guide] for more details.
+
+== Required Dependencies
+
+include::doc/userguide/versions.adoc[lines=3..-1] 
