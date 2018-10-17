@@ -4,7 +4,7 @@ Bundle-Name: Test
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.altran.general.integration.xtextsirius.test.XtextSiriusTestUiPlugin
-Bundle-Vendor: Altran
+Bundle-Vendor: Altran Netherlands B.V.
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.junit,

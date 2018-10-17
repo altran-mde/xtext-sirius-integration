@@ -8,4 +8,4 @@
 :m1keys: Ctrl]/kbd:[{commandkey}
 :source-highlighter: pygments
 :prewrap!:
-:xtext-sirius-version: 0.22.0-SNAPSHOT
+:xtext-sirius-version: 0.22.1-SNAPSHOT
