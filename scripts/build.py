@@ -30,7 +30,7 @@ def main(config_file, build_number, branch_name, target_profile):
     print('Copied settings.xml to .m2')
 
     mvn_target_profile='-P'+target_profile
-    maven_command = ['mvn', '-e', '-DskipTests', '-DskipITs', '-Dskip.archive=true', mvn_target_profile,'install']
+    maven_command = ['mvn', '-e', 'clean','-DskipTests', '-DskipITs', '-Dskip.archive=true', mvn_target_profile,'install']
 
     exitcode = execute(maven_command, maven_command)
     print("Exit Code: " + str(exitcode))

@@ -30,7 +30,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	protected static XtextSiriusTestPackage modelPackage;
-	
+
 	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
@@ -42,7 +42,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 			modelPackage = XtextSiriusTestPackage.eINSTANCE;
 		}
 	}
-	
+
 	/**
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
@@ -55,7 +55,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	protected boolean isSwitchFor(EPackage ePackage) {
 		return ePackage == modelPackage;
 	}
-	
+
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
@@ -66,83 +66,83 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case XtextSiriusTestPackage.ID_ELEMENT: {
-				IdElement idElement = (IdElement) theEObject;
-				T1 result = caseIdElement(idElement);
-				if (result == null)
-					result = caseAElement(idElement);
-				if (result == null)
-					result = caseIElement(idElement);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case XtextSiriusTestPackage.ELEMENT: {
-				Element element = (Element) theEObject;
-				T1 result = caseElement(element);
-				if (result == null)
-					result = caseAElement(element);
-				if (result == null)
-					result = caseIElement(element);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case XtextSiriusTestPackage.IELEMENT: {
-				IElement<?> iElement = (IElement<?>) theEObject;
-				T1 result = caseIElement(iElement);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case XtextSiriusTestPackage.AELEMENT: {
-				AElement<?> aElement = (AElement<?>) theEObject;
-				T1 result = caseAElement(aElement);
-				if (result == null)
-					result = caseIElement(aElement);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case XtextSiriusTestPackage.KEY_ELEMENT: {
-				KeyElement keyElement = (KeyElement) theEObject;
-				T1 result = caseKeyElement(keyElement);
-				if (result == null)
-					result = caseIElement(keyElement);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case XtextSiriusTestPackage.ICONTAINED_ELEMENT: {
-				IContainedElement iContainedElement = (IContainedElement) theEObject;
-				T1 result = caseIContainedElement(iContainedElement);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case XtextSiriusTestPackage.CONTAINED_A: {
-				ContainedA containedA = (ContainedA) theEObject;
-				T1 result = caseContainedA(containedA);
-				if (result == null)
-					result = caseIContainedElement(containedA);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case XtextSiriusTestPackage.CONTAINED_B: {
-				ContainedB containedB = (ContainedB) theEObject;
-				T1 result = caseContainedB(containedB);
-				if (result == null)
-					result = caseIContainedElement(containedB);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			default:
-				return defaultCase(theEObject);
+		case XtextSiriusTestPackage.ID_ELEMENT: {
+			IdElement idElement = (IdElement) theEObject;
+			T1 result = caseIdElement(idElement);
+			if (result == null)
+				result = caseAElement(idElement);
+			if (result == null)
+				result = caseIElement(idElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XtextSiriusTestPackage.ELEMENT: {
+			Element element = (Element) theEObject;
+			T1 result = caseElement(element);
+			if (result == null)
+				result = caseAElement(element);
+			if (result == null)
+				result = caseIElement(element);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XtextSiriusTestPackage.IELEMENT: {
+			IElement<?> iElement = (IElement<?>) theEObject;
+			T1 result = caseIElement(iElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XtextSiriusTestPackage.AELEMENT: {
+			AElement<?> aElement = (AElement<?>) theEObject;
+			T1 result = caseAElement(aElement);
+			if (result == null)
+				result = caseIElement(aElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XtextSiriusTestPackage.KEY_ELEMENT: {
+			KeyElement keyElement = (KeyElement) theEObject;
+			T1 result = caseKeyElement(keyElement);
+			if (result == null)
+				result = caseIElement(keyElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XtextSiriusTestPackage.ICONTAINED_ELEMENT: {
+			IContainedElement iContainedElement = (IContainedElement) theEObject;
+			T1 result = caseIContainedElement(iContainedElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XtextSiriusTestPackage.CONTAINED_A: {
+			ContainedA containedA = (ContainedA) theEObject;
+			T1 result = caseContainedA(containedA);
+			if (result == null)
+				result = caseIContainedElement(containedA);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case XtextSiriusTestPackage.CONTAINED_B: {
+			ContainedB containedB = (ContainedB) theEObject;
+			T1 result = caseContainedB(containedB);
+			if (result == null)
+				result = caseIContainedElement(containedB);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Id Element</em>'.
 	 * <!-- begin-user-doc -->
@@ -157,7 +157,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public T1 caseIdElement(IdElement object) {
 		return null;
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
@@ -172,7 +172,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public T1 caseElement(Element object) {
 		return null;
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IElement</em>'.
 	 * <!-- begin-user-doc -->
@@ -187,7 +187,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public <T extends IElement<?>> T1 caseIElement(IElement<T> object) {
 		return null;
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>AElement</em>'.
 	 * <!-- begin-user-doc -->
@@ -202,7 +202,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public <A extends AElement<?>> T1 caseAElement(AElement<A> object) {
 		return null;
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Key Element</em>'.
 	 * <!-- begin-user-doc -->
@@ -217,7 +217,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public T1 caseKeyElement(KeyElement object) {
 		return null;
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IContained Element</em>'.
 	 * <!-- begin-user-doc -->
@@ -232,7 +232,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public T1 caseIContainedElement(IContainedElement object) {
 		return null;
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Contained A</em>'.
 	 * <!-- begin-user-doc -->
@@ -247,7 +247,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public T1 caseContainedA(ContainedA object) {
 		return null;
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Contained B</em>'.
 	 * <!-- begin-user-doc -->
@@ -262,7 +262,7 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public T1 caseContainedB(ContainedB object) {
 		return null;
 	}
-	
+
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
@@ -278,5 +278,5 @@ public class XtextSiriusTestSwitch<T1> extends Switch<T1> {
 	public T1 defaultCase(EObject object) {
 		return null;
 	}
-	
+
 } //XtextSiriusTestSwitch

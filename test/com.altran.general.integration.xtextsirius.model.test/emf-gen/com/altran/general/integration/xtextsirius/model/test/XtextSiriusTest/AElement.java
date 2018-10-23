@@ -49,7 +49,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	A getChangeableRef();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.AElement#getChangeableRef <em>Changeable Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	void setChangeableRef(A value);
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	A getUnchangeableRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable List Ref</b></em>' reference list.
 	 * <!-- begin-user-doc -->
@@ -89,7 +89,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getChangeableListRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable List Ref</b></em>' reference list.
 	 * <!-- begin-user-doc -->
@@ -104,7 +104,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getUnchangeableListRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Set Ref</b></em>' reference list.
 	 * <!-- begin-user-doc -->
@@ -119,7 +119,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getChangeableSetRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Set Ref</b></em>' reference list.
 	 * <!-- begin-user-doc -->
@@ -134,7 +134,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getUnchangeableSetRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Bag Ref</b></em>' reference list.
 	 * <!-- begin-user-doc -->
@@ -149,7 +149,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getChangeableBagRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Bag Ref</b></em>' reference list.
 	 * <!-- begin-user-doc -->
@@ -164,7 +164,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getUnchangeableBagRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Unique List Cont</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -179,7 +179,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getChangeableUniqueListCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Unique List Cont</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -194,7 +194,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getUnchangeableUniqueListCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Set Cont</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -209,7 +209,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getChangeableSetCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Cont</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -225,7 +225,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	A getChangeableCont();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.AElement#getChangeableCont <em>Changeable Cont</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -235,7 +235,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	void setChangeableCont(A value);
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Cont</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -250,7 +250,7 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	A getUnchangeableCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Set Cont</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -265,5 +265,5 @@ public interface AElement<A extends AElement<?>> extends IElement<A> {
 	 * @generated
 	 */
 	EList<A> getUnchangeableSetCont();
-	
+
 } // AElement

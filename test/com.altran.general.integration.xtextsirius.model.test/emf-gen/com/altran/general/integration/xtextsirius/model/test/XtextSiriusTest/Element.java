@@ -13,5 +13,5 @@ package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest;
  * @generated
  */
 public interface Element extends AElement<Element> {
-	
+
 } // Element

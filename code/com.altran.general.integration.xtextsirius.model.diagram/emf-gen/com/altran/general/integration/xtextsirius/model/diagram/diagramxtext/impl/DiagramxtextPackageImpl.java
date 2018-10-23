@@ -93,9 +93,10 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		}
 
 		// Obtain or create and register package
-		final DiagramxtextPackageImpl theDiagramxtextPackage = (DiagramxtextPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof DiagramxtextPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new DiagramxtextPackageImpl());
+		final Object registeredDiagramxtextPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		final DiagramxtextPackageImpl theDiagramxtextPackage = registeredDiagramxtextPackage instanceof DiagramxtextPackageImpl
+				? (DiagramxtextPackageImpl) registeredDiagramxtextPackage
+				: new DiagramxtextPackageImpl();
 
 		isInited = true;
 
@@ -113,7 +114,6 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 
 		// Mark meta-data to indicate it can't be changed
 		theDiagramxtextPackage.freeze();
-
 
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DiagramxtextPackage.eNS_URI, theDiagramxtextPackage);

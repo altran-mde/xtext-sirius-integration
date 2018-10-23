@@ -27,7 +27,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected static XtextSiriusTestPackage modelPackage;
-	
+
 	/**
 	 * Creates an instance of the adapter factory.
 	 * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 			modelPackage = XtextSiriusTestPackage.eINSTANCE;
 		}
 	}
-	
+
 	/**
 	 * Returns whether this factory is applicable for the type of the object.
 	 * <!-- begin-user-doc -->
@@ -58,7 +58,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
@@ -70,48 +70,48 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 		public Adapter caseIdElement(IdElement object) {
 			return createIdElementAdapter();
 		}
-		
+
 		@Override
 		public Adapter caseElement(Element object) {
 			return createElementAdapter();
 		}
-		
+
 		@Override
 		public <T extends IElement<?>> Adapter caseIElement(IElement<T> object) {
 			return createIElementAdapter();
 		}
-		
+
 		@Override
 		public <A extends AElement<?>> Adapter caseAElement(AElement<A> object) {
 			return createAElementAdapter();
 		}
-		
+
 		@Override
 		public Adapter caseKeyElement(KeyElement object) {
 			return createKeyElementAdapter();
 		}
-		
+
 		@Override
 		public Adapter caseIContainedElement(IContainedElement object) {
 			return createIContainedElementAdapter();
 		}
-		
+
 		@Override
 		public Adapter caseContainedA(ContainedA object) {
 			return createContainedAAdapter();
 		}
-		
+
 		@Override
 		public Adapter caseContainedB(ContainedB object) {
 			return createContainedBAdapter();
 		}
-		
+
 		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
 	};
-	
+
 	/**
 	 * Creates an adapter for the <code>target</code>.
 	 * <!-- begin-user-doc -->
@@ -124,8 +124,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject) target);
 	}
-	
-	
+
 	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IdElement <em>Id Element</em>}'.
 	 * <!-- begin-user-doc -->
@@ -139,7 +138,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIdElementAdapter() {
 		return null;
 	}
-	
+
 	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
@@ -153,7 +152,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createElementAdapter() {
 		return null;
 	}
-	
+
 	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement <em>IElement</em>}'.
 	 * <!-- begin-user-doc -->
@@ -167,7 +166,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIElementAdapter() {
 		return null;
 	}
-	
+
 	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.AElement <em>AElement</em>}'.
 	 * <!-- begin-user-doc -->
@@ -181,7 +180,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAElementAdapter() {
 		return null;
 	}
-	
+
 	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement <em>Key Element</em>}'.
 	 * <!-- begin-user-doc -->
@@ -195,7 +194,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createKeyElementAdapter() {
 		return null;
 	}
-	
+
 	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement <em>IContained Element</em>}'.
 	 * <!-- begin-user-doc -->
@@ -209,7 +208,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIContainedElementAdapter() {
 		return null;
 	}
-	
+
 	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedA <em>Contained A</em>}'.
 	 * <!-- begin-user-doc -->
@@ -223,7 +222,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createContainedAAdapter() {
 		return null;
 	}
-	
+
 	/**
 	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB <em>Contained B</em>}'.
 	 * <!-- begin-user-doc -->
@@ -237,7 +236,7 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createContainedBAdapter() {
 		return null;
 	}
-	
+
 	/**
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc -->
@@ -249,5 +248,5 @@ public class XtextSiriusTestAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEObjectAdapter() {
 		return null;
 	}
-	
+
 } //XtextSiriusTestAdapterFactory

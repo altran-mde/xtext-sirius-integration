@@ -26,7 +26,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 	protected ElementImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,7 +36,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 	protected EClass eStaticClass() {
 		return XtextSiriusTestPackage.Literals.ELEMENT;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,7 +47,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 	public void setChangeableRef(Element newChangeableRef) {
 		super.setChangeableRef(newChangeableRef);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +62,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return changeableListRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,7 +77,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return unchangeableListRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,7 +92,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return changeableSetRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,7 +107,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return unchangeableSetRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,7 +122,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return changeableBagRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,7 +137,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return unchangeableBagRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,7 +152,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return changeableUniqueListCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -167,7 +167,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return unchangeableUniqueListCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,7 +182,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return changeableSetCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,7 +193,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 	public NotificationChain basicSetChangeableCont(Element newChangeableCont, NotificationChain msgs) {
 		return super.basicSetChangeableCont(newChangeableCont, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,7 +204,7 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 	public NotificationChain basicSetUnchangeableCont(Element newUnchangeableCont, NotificationChain msgs) {
 		return super.basicSetUnchangeableCont(newUnchangeableCont, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,5 +219,5 @@ public class ElementImpl extends AElementImpl<Element> implements Element {
 		}
 		return unchangeableSetCont;
 	}
-	
+
 } //ElementImpl

@@ -2,7 +2,6 @@
  */
 package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Contained B</b></em>'.
@@ -36,7 +35,7 @@ public interface ContainedB extends IContainedElement {
 	 * @generated
 	 */
 	String getAttrB();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB#getAttrB <em>Attr B</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,7 +45,7 @@ public interface ContainedB extends IContainedElement {
 	 * @generated
 	 */
 	void setAttrB(String value);
-	
+
 	/**
 	 * Returns the value of the '<em><b>Attr Y</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,7 +61,7 @@ public interface ContainedB extends IContainedElement {
 	 * @generated
 	 */
 	String getAttrY();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.ContainedB#getAttrY <em>Attr Y</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,5 +71,5 @@ public interface ContainedB extends IContainedElement {
 	 * @generated
 	 */
 	void setAttrY(String value);
-	
+
 } // ContainedB

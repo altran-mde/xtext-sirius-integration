@@ -70,7 +70,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected static final String CHANGEABLE_ATTR_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableAttr() <em>Changeable Attr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -80,7 +80,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected String changeableAttr = CHANGEABLE_ATTR_EDEFAULT;
-	
+
 	/**
 	 * The default value of the '{@link #getUnchangeableAttr() <em>Unchangeable Attr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,7 +90,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected static final int UNCHANGEABLE_ATTR_EDEFAULT = 0;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableAttr() <em>Unchangeable Attr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -100,7 +100,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected int unchangeableAttr = UNCHANGEABLE_ATTR_EDEFAULT;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableListAttr() <em>Changeable List Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -110,7 +110,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<String> changeableListAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableListAttr() <em>Unchangeable List Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -120,7 +120,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<Boolean> unchangeableListAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableSetAttr() <em>Changeable Set Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -130,7 +130,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<Integer> changeableSetAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableSetAttr() <em>Unchangeable Set Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -140,7 +140,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<Integer> unchangeableSetAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableBagAttr() <em>Changeable Bag Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -150,7 +150,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<Double> changeableBagAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableBagAttr() <em>Unchangeable Bag Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -160,7 +160,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<Double> unchangeableBagAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getContainedSingle() <em>Contained Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -170,7 +170,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected IContainedElement containedSingle;
-	
+
 	/**
 	 * The cached value of the '{@link #getContainedMulti() <em>Contained Multi</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -180,7 +180,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<IContainedElement> containedMulti;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableRef() <em>Changeable Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -190,7 +190,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected A changeableRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableRef() <em>Unchangeable Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -200,7 +200,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected A unchangeableRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableListRef() <em>Changeable List Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -210,7 +210,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> changeableListRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableListRef() <em>Unchangeable List Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -220,7 +220,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> unchangeableListRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableSetRef() <em>Changeable Set Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -230,7 +230,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> changeableSetRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableSetRef() <em>Unchangeable Set Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -240,7 +240,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> unchangeableSetRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableBagRef() <em>Changeable Bag Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -250,7 +250,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> changeableBagRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableBagRef() <em>Unchangeable Bag Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -260,7 +260,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> unchangeableBagRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableUniqueListCont() <em>Changeable Unique List Cont</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -270,7 +270,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> changeableUniqueListCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableUniqueListCont() <em>Unchangeable Unique List Cont</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -280,7 +280,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> unchangeableUniqueListCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableSetCont() <em>Changeable Set Cont</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -290,7 +290,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> changeableSetCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableCont() <em>Changeable Cont</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -300,7 +300,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected A changeableCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableCont() <em>Unchangeable Cont</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -310,7 +310,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected A unchangeableCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableSetCont() <em>Unchangeable Set Cont</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -320,7 +320,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	 * @ordered
 	 */
 	protected EList<A> unchangeableSetCont;
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,7 +329,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	protected AElementImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -339,7 +339,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	protected EClass eStaticClass() {
 		return XtextSiriusTestPackage.Literals.AELEMENT;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,7 +348,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	public String getChangeableAttr() {
 		return changeableAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,7 +361,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR,
 					oldChangeableAttr, changeableAttr));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,7 +370,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	public int getUnchangeableAttr() {
 		return unchangeableAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -383,7 +383,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableListAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,7 +396,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableListAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -409,7 +409,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableSetAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -422,7 +422,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableSetAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -435,7 +435,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableBagAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,7 +448,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableBagAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -457,7 +457,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	public IContainedElement getContainedSingle() {
 		return containedSingle;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -476,7 +476,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -498,7 +498,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE,
 					newContainedSingle, newContainedSingle));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -511,7 +511,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return containedMulti;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -530,7 +530,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -539,7 +539,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	public A basicGetChangeableRef() {
 		return changeableRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -552,7 +552,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF,
 					oldChangeableRef, changeableRef));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -571,7 +571,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -580,7 +580,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	public A basicGetUnchangeableRef() {
 		return unchangeableRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -593,7 +593,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableListRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -606,7 +606,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableListRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -619,7 +619,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableSetRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -632,7 +632,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableSetRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -645,7 +645,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableBagRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -658,7 +658,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableBagRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -667,7 +667,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	public A getChangeableCont() {
 		return changeableCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -686,7 +686,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -708,7 +708,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT,
 					newChangeableCont, newChangeableCont));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -717,7 +717,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	public A getUnchangeableCont() {
 		return unchangeableCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,7 +736,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -749,7 +749,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableSetCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -758,26 +758,26 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
-				return basicSetContainedSingle(null, msgs);
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
-				return ((InternalEList<?>) getContainedMulti()).basicRemove(otherEnd, msgs);
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				return ((InternalEList<?>) getChangeableUniqueListCont()).basicRemove(otherEnd, msgs);
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
-				return ((InternalEList<?>) getUnchangeableUniqueListCont()).basicRemove(otherEnd, msgs);
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
-				return ((InternalEList<?>) getChangeableSetCont()).basicRemove(otherEnd, msgs);
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
-				return basicSetChangeableCont(null, msgs);
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_CONT:
-				return basicSetUnchangeableCont(null, msgs);
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_CONT:
-				return ((InternalEList<?>) getUnchangeableSetCont()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+			return basicSetContainedSingle(null, msgs);
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+			return ((InternalEList<?>) getContainedMulti()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			return ((InternalEList<?>) getChangeableUniqueListCont()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
+			return ((InternalEList<?>) getUnchangeableUniqueListCont()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
+			return ((InternalEList<?>) getChangeableSetCont()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
+			return basicSetChangeableCont(null, msgs);
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_CONT:
+			return basicSetUnchangeableCont(null, msgs);
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_CONT:
+			return ((InternalEList<?>) getUnchangeableSetCont()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -790,7 +790,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableUniqueListCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -803,7 +803,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return unchangeableUniqueListCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -816,7 +816,7 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		}
 		return changeableSetCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -825,62 +825,62 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR:
-				return getChangeableAttr();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_ATTR:
-				return getUnchangeableAttr();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_ATTR:
-				return getChangeableListAttr();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_LIST_ATTR:
-				return getUnchangeableListAttr();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_ATTR:
-				return getChangeableSetAttr();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_ATTR:
-				return getUnchangeableSetAttr();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
-				return getChangeableBagAttr();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_ATTR:
-				return getUnchangeableBagAttr();
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
-				return getContainedSingle();
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
-				return getContainedMulti();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
-				if (resolve)
-					return getChangeableRef();
-				return basicGetChangeableRef();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_REF:
-				if (resolve)
-					return getUnchangeableRef();
-				return basicGetUnchangeableRef();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_REF:
-				return getChangeableListRef();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_LIST_REF:
-				return getUnchangeableListRef();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_REF:
-				return getChangeableSetRef();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_REF:
-				return getUnchangeableSetRef();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_REF:
-				return getChangeableBagRef();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_REF:
-				return getUnchangeableBagRef();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				return getChangeableUniqueListCont();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
-				return getUnchangeableUniqueListCont();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
-				return getChangeableSetCont();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
-				return getChangeableCont();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_CONT:
-				return getUnchangeableCont();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_CONT:
-				return getUnchangeableSetCont();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR:
+			return getChangeableAttr();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_ATTR:
+			return getUnchangeableAttr();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_ATTR:
+			return getChangeableListAttr();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_LIST_ATTR:
+			return getUnchangeableListAttr();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_ATTR:
+			return getChangeableSetAttr();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_ATTR:
+			return getUnchangeableSetAttr();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
+			return getChangeableBagAttr();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_ATTR:
+			return getUnchangeableBagAttr();
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+			return getContainedSingle();
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+			return getContainedMulti();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
+			if (resolve)
+				return getChangeableRef();
+			return basicGetChangeableRef();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_REF:
+			if (resolve)
+				return getUnchangeableRef();
+			return basicGetUnchangeableRef();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_REF:
+			return getChangeableListRef();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_LIST_REF:
+			return getUnchangeableListRef();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_REF:
+			return getChangeableSetRef();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_REF:
+			return getUnchangeableSetRef();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_REF:
+			return getChangeableBagRef();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_REF:
+			return getUnchangeableBagRef();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			return getChangeableUniqueListCont();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
+			return getUnchangeableUniqueListCont();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
+			return getChangeableSetCont();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
+			return getChangeableCont();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_CONT:
+			return getUnchangeableCont();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_CONT:
+			return getUnchangeableSetCont();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -890,58 +890,58 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR:
-				setChangeableAttr((String) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_ATTR:
-				getChangeableListAttr().clear();
-				getChangeableListAttr().addAll((Collection<? extends String>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_ATTR:
-				getChangeableSetAttr().clear();
-				getChangeableSetAttr().addAll((Collection<? extends Integer>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
-				getChangeableBagAttr().clear();
-				getChangeableBagAttr().addAll((Collection<? extends Double>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
-				setContainedSingle((IContainedElement) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
-				getContainedMulti().clear();
-				getContainedMulti().addAll((Collection<? extends IContainedElement>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
-				setChangeableRef((A) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_REF:
-				getChangeableListRef().clear();
-				getChangeableListRef().addAll((Collection<? extends A>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_REF:
-				getChangeableSetRef().clear();
-				getChangeableSetRef().addAll((Collection<? extends A>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_REF:
-				getChangeableBagRef().clear();
-				getChangeableBagRef().addAll((Collection<? extends A>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				getChangeableUniqueListCont().clear();
-				getChangeableUniqueListCont().addAll((Collection<? extends A>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
-				getChangeableSetCont().clear();
-				getChangeableSetCont().addAll((Collection<? extends A>) newValue);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
-				setChangeableCont((A) newValue);
-				return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR:
+			setChangeableAttr((String) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_ATTR:
+			getChangeableListAttr().clear();
+			getChangeableListAttr().addAll((Collection<? extends String>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_ATTR:
+			getChangeableSetAttr().clear();
+			getChangeableSetAttr().addAll((Collection<? extends Integer>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
+			getChangeableBagAttr().clear();
+			getChangeableBagAttr().addAll((Collection<? extends Double>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+			setContainedSingle((IContainedElement) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+			getContainedMulti().clear();
+			getContainedMulti().addAll((Collection<? extends IContainedElement>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
+			setChangeableRef((A) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_REF:
+			getChangeableListRef().clear();
+			getChangeableListRef().addAll((Collection<? extends A>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_REF:
+			getChangeableSetRef().clear();
+			getChangeableSetRef().addAll((Collection<? extends A>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_REF:
+			getChangeableBagRef().clear();
+			getChangeableBagRef().addAll((Collection<? extends A>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			getChangeableUniqueListCont().clear();
+			getChangeableUniqueListCont().addAll((Collection<? extends A>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
+			getChangeableSetCont().clear();
+			getChangeableSetCont().addAll((Collection<? extends A>) newValue);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
+			setChangeableCont((A) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -950,49 +950,49 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR:
-				setChangeableAttr(CHANGEABLE_ATTR_EDEFAULT);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_ATTR:
-				getChangeableListAttr().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_ATTR:
-				getChangeableSetAttr().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
-				getChangeableBagAttr().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
-				setContainedSingle((IContainedElement) null);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
-				getContainedMulti().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
-				setChangeableRef((A) null);
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_REF:
-				getChangeableListRef().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_REF:
-				getChangeableSetRef().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_REF:
-				getChangeableBagRef().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				getChangeableUniqueListCont().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
-				getChangeableSetCont().clear();
-				return;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
-				setChangeableCont((A) null);
-				return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR:
+			setChangeableAttr(CHANGEABLE_ATTR_EDEFAULT);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_ATTR:
+			getChangeableListAttr().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_ATTR:
+			getChangeableSetAttr().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
+			getChangeableBagAttr().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+			setContainedSingle((IContainedElement) null);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+			getContainedMulti().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
+			setChangeableRef((A) null);
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_REF:
+			getChangeableListRef().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_REF:
+			getChangeableSetRef().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_REF:
+			getChangeableBagRef().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			getChangeableUniqueListCont().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
+			getChangeableSetCont().clear();
+			return;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
+			setChangeableCont((A) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1001,59 +1001,59 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR:
-				return CHANGEABLE_ATTR_EDEFAULT == null ? changeableAttr != null
-						: !CHANGEABLE_ATTR_EDEFAULT.equals(changeableAttr);
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_ATTR:
-				return unchangeableAttr != UNCHANGEABLE_ATTR_EDEFAULT;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_ATTR:
-				return changeableListAttr != null && !changeableListAttr.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_LIST_ATTR:
-				return unchangeableListAttr != null && !unchangeableListAttr.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_ATTR:
-				return changeableSetAttr != null && !changeableSetAttr.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_ATTR:
-				return unchangeableSetAttr != null && !unchangeableSetAttr.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
-				return changeableBagAttr != null && !changeableBagAttr.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_ATTR:
-				return unchangeableBagAttr != null && !unchangeableBagAttr.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
-				return containedSingle != null;
-			case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
-				return containedMulti != null && !containedMulti.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
-				return changeableRef != null;
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_REF:
-				return unchangeableRef != null;
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_REF:
-				return changeableListRef != null && !changeableListRef.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_LIST_REF:
-				return unchangeableListRef != null && !unchangeableListRef.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_REF:
-				return changeableSetRef != null && !changeableSetRef.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_REF:
-				return unchangeableSetRef != null && !unchangeableSetRef.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_REF:
-				return changeableBagRef != null && !changeableBagRef.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_REF:
-				return unchangeableBagRef != null && !unchangeableBagRef.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				return changeableUniqueListCont != null && !changeableUniqueListCont.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
-				return unchangeableUniqueListCont != null && !unchangeableUniqueListCont.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
-				return changeableSetCont != null && !changeableSetCont.isEmpty();
-			case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
-				return changeableCont != null;
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_CONT:
-				return unchangeableCont != null;
-			case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_CONT:
-				return unchangeableSetCont != null && !unchangeableSetCont.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_ATTR:
+			return CHANGEABLE_ATTR_EDEFAULT == null ? changeableAttr != null
+					: !CHANGEABLE_ATTR_EDEFAULT.equals(changeableAttr);
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_ATTR:
+			return unchangeableAttr != UNCHANGEABLE_ATTR_EDEFAULT;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_ATTR:
+			return changeableListAttr != null && !changeableListAttr.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_LIST_ATTR:
+			return unchangeableListAttr != null && !unchangeableListAttr.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_ATTR:
+			return changeableSetAttr != null && !changeableSetAttr.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_ATTR:
+			return unchangeableSetAttr != null && !unchangeableSetAttr.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_ATTR:
+			return changeableBagAttr != null && !changeableBagAttr.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_ATTR:
+			return unchangeableBagAttr != null && !unchangeableBagAttr.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_SINGLE:
+			return containedSingle != null;
+		case XtextSiriusTestPackage.AELEMENT__CONTAINED_MULTI:
+			return containedMulti != null && !containedMulti.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_REF:
+			return changeableRef != null;
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_REF:
+			return unchangeableRef != null;
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_LIST_REF:
+			return changeableListRef != null && !changeableListRef.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_LIST_REF:
+			return unchangeableListRef != null && !unchangeableListRef.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_REF:
+			return changeableSetRef != null && !changeableSetRef.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_REF:
+			return unchangeableSetRef != null && !unchangeableSetRef.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_BAG_REF:
+			return changeableBagRef != null && !changeableBagRef.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_BAG_REF:
+			return unchangeableBagRef != null && !unchangeableBagRef.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			return changeableUniqueListCont != null && !changeableUniqueListCont.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
+			return unchangeableUniqueListCont != null && !unchangeableUniqueListCont.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_SET_CONT:
+			return changeableSetCont != null && !changeableSetCont.isEmpty();
+		case XtextSiriusTestPackage.AELEMENT__CHANGEABLE_CONT:
+			return changeableCont != null;
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_CONT:
+			return unchangeableCont != null;
+		case XtextSiriusTestPackage.AELEMENT__UNCHANGEABLE_SET_CONT:
+			return unchangeableSetCont != null && !unchangeableSetCont.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1063,8 +1063,8 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 	public String toString() {
 		if (eIsProxy())
 			return super.toString();
-		
-		StringBuffer result = new StringBuffer(super.toString());
+
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (changeableAttr: ");
 		result.append(changeableAttr);
 		result.append(", unchangeableAttr: ");
@@ -1084,5 +1084,5 @@ public abstract class AElementImpl<A extends AElement<?>> extends MinimalEObject
 		result.append(')');
 		return result.toString();
 	}
-	
+
 } //AElementImpl

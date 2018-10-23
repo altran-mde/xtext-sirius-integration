@@ -466,7 +466,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 			return super.toString();
 		}
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
 		result.append(", editableFeatures: ");

@@ -352,7 +352,7 @@ public class EefXtextMultiLineModelDescriptionImpl extends IEefXtextDescriptionI
 			return super.toString();
 		}
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (editableFeatures: ");
 		result.append(this.editableFeatures);
 		result.append(", ignoredNestedFeatures: ");

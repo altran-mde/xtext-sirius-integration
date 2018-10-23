@@ -37,7 +37,7 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 		}
 		return new XtextSiriusTestFactoryImpl();
 	}
-	
+
 	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 	public XtextSiriusTestFactoryImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,21 +56,21 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case XtextSiriusTestPackage.ID_ELEMENT:
-				return createIdElement();
-			case XtextSiriusTestPackage.ELEMENT:
-				return createElement();
-			case XtextSiriusTestPackage.KEY_ELEMENT:
-				return createKeyElement();
-			case XtextSiriusTestPackage.CONTAINED_A:
-				return createContainedA();
-			case XtextSiriusTestPackage.CONTAINED_B:
-				return createContainedB();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case XtextSiriusTestPackage.ID_ELEMENT:
+			return createIdElement();
+		case XtextSiriusTestPackage.ELEMENT:
+			return createElement();
+		case XtextSiriusTestPackage.KEY_ELEMENT:
+			return createKeyElement();
+		case XtextSiriusTestPackage.CONTAINED_A:
+			return createContainedA();
+		case XtextSiriusTestPackage.CONTAINED_B:
+			return createContainedB();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,7 +80,7 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 		IdElementImpl idElement = new IdElementImpl();
 		return idElement;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,7 +90,7 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 		ElementImpl element = new ElementImpl();
 		return element;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,7 +100,7 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 		KeyElementImpl keyElement = new KeyElementImpl();
 		return keyElement;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,7 +110,7 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 		ContainedAImpl containedA = new ContainedAImpl();
 		return containedA;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,7 +120,7 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 		ContainedBImpl containedB = new ContainedBImpl();
 		return containedB;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,7 +129,7 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 	public XtextSiriusTestPackage getXtextSiriusTestPackage() {
 		return (XtextSiriusTestPackage) getEPackage();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,5 +140,5 @@ public class XtextSiriusTestFactoryImpl extends EFactoryImpl implements XtextSir
 	public static XtextSiriusTestPackage getPackage() {
 		return XtextSiriusTestPackage.eINSTANCE;
 	}
-	
+
 } //XtextSiriusTestFactoryImpl

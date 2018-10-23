@@ -50,7 +50,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	KeyElement getChangeableRef();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement#getChangeableRef <em>Changeable Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	void setChangeableRef(KeyElement value);
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -75,7 +75,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	KeyElement getUnchangeableRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable List Ref</b></em>' reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -91,7 +91,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getChangeableListRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable List Ref</b></em>' reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -107,7 +107,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getUnchangeableListRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Set Ref</b></em>' reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -123,7 +123,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getChangeableSetRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Set Ref</b></em>' reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -139,7 +139,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getUnchangeableSetRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Bag Ref</b></em>' reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -155,7 +155,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getChangeableBagRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Bag Ref</b></em>' reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -171,7 +171,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getUnchangeableBagRef();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Unique List Cont</b></em>' containment reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -187,7 +187,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getChangeableUniqueListCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Unique List Cont</b></em>' containment reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -203,7 +203,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getUnchangeableUniqueListCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Set Cont</b></em>' containment reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -219,7 +219,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getChangeableSetCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Cont</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -235,7 +235,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	KeyElement getChangeableCont();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement#getChangeableCont <em>Changeable Cont</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -245,7 +245,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	void setChangeableCont(KeyElement value);
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Cont</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -260,7 +260,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	KeyElement getUnchangeableCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Set Cont</b></em>' containment reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement}.
@@ -276,7 +276,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	EList<KeyElement> getUnchangeableSetCont();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Key Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -292,7 +292,7 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	String getKeyId();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.KeyElement#getKeyId <em>Key Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -302,5 +302,5 @@ public interface KeyElement extends IElement<KeyElement> {
 	 * @generated
 	 */
 	void setKeyId(String value);
-	
+
 } // KeyElement

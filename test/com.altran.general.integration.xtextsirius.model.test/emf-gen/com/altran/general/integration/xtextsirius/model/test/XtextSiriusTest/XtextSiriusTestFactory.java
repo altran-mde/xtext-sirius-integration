@@ -21,7 +21,7 @@ public interface XtextSiriusTestFactory extends EFactory {
 	 */
 	XtextSiriusTestFactory eINSTANCE = com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.impl.XtextSiriusTestFactoryImpl
 			.init();
-	
+
 	/**
 	 * Returns a new object of class '<em>Id Element</em>'.
 	 * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ public interface XtextSiriusTestFactory extends EFactory {
 	 * @generated
 	 */
 	IdElement createIdElement();
-	
+
 	/**
 	 * Returns a new object of class '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public interface XtextSiriusTestFactory extends EFactory {
 	 * @generated
 	 */
 	Element createElement();
-	
+
 	/**
 	 * Returns a new object of class '<em>Key Element</em>'.
 	 * <!-- begin-user-doc -->
@@ -48,7 +48,7 @@ public interface XtextSiriusTestFactory extends EFactory {
 	 * @generated
 	 */
 	KeyElement createKeyElement();
-	
+
 	/**
 	 * Returns a new object of class '<em>Contained A</em>'.
 	 * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public interface XtextSiriusTestFactory extends EFactory {
 	 * @generated
 	 */
 	ContainedA createContainedA();
-	
+
 	/**
 	 * Returns a new object of class '<em>Contained B</em>'.
 	 * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public interface XtextSiriusTestFactory extends EFactory {
 	 * @generated
 	 */
 	ContainedB createContainedB();
-	
+
 	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
@@ -75,5 +75,5 @@ public interface XtextSiriusTestFactory extends EFactory {
 	 * @generated
 	 */
 	XtextSiriusTestPackage getXtextSiriusTestPackage();
-	
+
 } //XtextSiriusTestFactory

@@ -9,3 +9,4 @@ org.eclipse.buildship.core.prefs
 .DS_Store
 locations.properties
 /README.htm*
+__pycache__

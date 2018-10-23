@@ -94,9 +94,10 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 		}
 
 		// Obtain or create and register package
-		final ViewpointxtextPackageImpl theViewpointxtextPackage = (ViewpointxtextPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof ViewpointxtextPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new ViewpointxtextPackageImpl());
+		final Object registeredViewpointxtextPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		final ViewpointxtextPackageImpl theViewpointxtextPackage = registeredViewpointxtextPackage instanceof ViewpointxtextPackageImpl
+				? (ViewpointxtextPackageImpl) registeredViewpointxtextPackage
+				: new ViewpointxtextPackageImpl();
 
 		isInited = true;
 
@@ -115,7 +116,6 @@ public class ViewpointxtextPackageImpl extends EPackageImpl implements Viewpoint
 
 		// Mark meta-data to indicate it can't be changed
 		theViewpointxtextPackage.freeze();
-
 
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ViewpointxtextPackage.eNS_URI, theViewpointxtextPackage);

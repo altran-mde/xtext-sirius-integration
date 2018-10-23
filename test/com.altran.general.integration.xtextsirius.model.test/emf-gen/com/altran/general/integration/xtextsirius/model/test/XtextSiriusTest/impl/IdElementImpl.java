@@ -38,7 +38,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,7 +48,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,7 +57,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	protected IdElementImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,7 +67,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	protected EClass eStaticClass() {
 		return XtextSiriusTestPackage.Literals.ID_ELEMENT;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,7 +78,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	public void setChangeableRef(IdElement newChangeableRef) {
 		super.setChangeableRef(newChangeableRef);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,7 +93,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return changeableListRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,7 +108,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return unchangeableListRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +123,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return changeableSetRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,7 +138,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return unchangeableSetRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,7 +153,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return changeableBagRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,7 +168,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return unchangeableBagRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,7 +183,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return changeableUniqueListCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,7 +198,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return unchangeableUniqueListCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -213,7 +213,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return changeableSetCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,7 +224,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	public NotificationChain basicSetChangeableCont(IdElement newChangeableCont, NotificationChain msgs) {
 		return super.basicSetChangeableCont(newChangeableCont, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,7 +235,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	public NotificationChain basicSetUnchangeableCont(IdElement newUnchangeableCont, NotificationChain msgs) {
 		return super.basicSetUnchangeableCont(newUnchangeableCont, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,7 +250,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		}
 		return unchangeableSetCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,7 +259,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	public String getId() {
 		return id;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -271,7 +271,7 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.ID_ELEMENT__ID, oldId, id));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,12 +280,12 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.ID_ELEMENT__ID:
-				return getId();
+		case XtextSiriusTestPackage.ID_ELEMENT__ID:
+			return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,13 +294,13 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.ID_ELEMENT__ID:
-				setId((String) newValue);
-				return;
+		case XtextSiriusTestPackage.ID_ELEMENT__ID:
+			setId((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,13 +309,13 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.ID_ELEMENT__ID:
-				setId(ID_EDEFAULT);
-				return;
+		case XtextSiriusTestPackage.ID_ELEMENT__ID:
+			setId(ID_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,12 +324,12 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.ID_ELEMENT__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case XtextSiriusTestPackage.ID_ELEMENT__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -339,12 +339,12 @@ public class IdElementImpl extends AElementImpl<IdElement> implements IdElement 
 	public String toString() {
 		if (eIsProxy())
 			return super.toString();
-		
-		StringBuffer result = new StringBuffer(super.toString());
+
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		result.append(id);
 		result.append(')');
 		return result.toString();
 	}
-	
+
 } //IdElementImpl

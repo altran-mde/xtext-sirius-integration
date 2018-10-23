@@ -130,9 +130,10 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		}
 
 		// Obtain or create and register package
-		final EefxtextPackageImpl theEefxtextPackage = (EefxtextPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof EefxtextPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new EefxtextPackageImpl());
+		final Object registeredEefxtextPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		final EefxtextPackageImpl theEefxtextPackage = registeredEefxtextPackage instanceof EefxtextPackageImpl
+				? (EefxtextPackageImpl) registeredEefxtextPackage
+				: new EefxtextPackageImpl();
 
 		isInited = true;
 
@@ -148,7 +149,6 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 
 		// Mark meta-data to indicate it can't be changed
 		theEefxtextPackage.freeze();
-
 
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EefxtextPackage.eNS_URI, theEefxtextPackage);
