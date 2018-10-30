@@ -120,7 +120,6 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		return null;
 	}
 
-
 	protected boolean containsUnresolvableProxies(final EObject eObject) {
 		return !EcoreUtil.UnresolvedProxyCrossReferencer.find(eObject).isEmpty();
 	}
