@@ -44,7 +44,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	 * @ordered
 	 */
 	protected static final String ATTR_A_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getAttrA() <em>Attr A</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -54,7 +54,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	 * @ordered
 	 */
 	protected String attrA = ATTR_A_EDEFAULT;
-	
+
 	/**
 	 * The default value of the '{@link #getAttrB() <em>Attr B</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -64,7 +64,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	 * @ordered
 	 */
 	protected static final String ATTR_B_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getAttrB() <em>Attr B</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	 * @ordered
 	 */
 	protected String attrB = ATTR_B_EDEFAULT;
-	
+
 	/**
 	 * The default value of the '{@link #getAttrX() <em>Attr X</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,7 +84,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	 * @ordered
 	 */
 	protected static final String ATTR_X_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getAttrX() <em>Attr X</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -94,7 +94,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	 * @ordered
 	 */
 	protected String attrX = ATTR_X_EDEFAULT;
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,7 +103,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	protected ContainedAImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,7 +113,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	protected EClass eStaticClass() {
 		return XtextSiriusTestPackage.Literals.CONTAINED_A;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,7 +122,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	public String getAttrA() {
 		return attrA;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,7 +135,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.CONTAINED_A__ATTR_A, oldAttrA,
 					attrA));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,7 +144,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	public String getAttrB() {
 		return attrB;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,7 +157,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.CONTAINED_A__ATTR_B, oldAttrB,
 					attrB));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,7 +166,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	public String getAttrX() {
 		return attrX;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -179,7 +179,7 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.CONTAINED_A__ATTR_X, oldAttrX,
 					attrX));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,16 +188,16 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_A:
-				return getAttrA();
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_B:
-				return getAttrB();
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_X:
-				return getAttrX();
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_A:
+			return getAttrA();
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_B:
+			return getAttrB();
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_X:
+			return getAttrX();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,19 +206,19 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_A:
-				setAttrA((String) newValue);
-				return;
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_B:
-				setAttrB((String) newValue);
-				return;
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_X:
-				setAttrX((String) newValue);
-				return;
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_A:
+			setAttrA((String) newValue);
+			return;
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_B:
+			setAttrB((String) newValue);
+			return;
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_X:
+			setAttrX((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,19 +227,19 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_A:
-				setAttrA(ATTR_A_EDEFAULT);
-				return;
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_B:
-				setAttrB(ATTR_B_EDEFAULT);
-				return;
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_X:
-				setAttrX(ATTR_X_EDEFAULT);
-				return;
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_A:
+			setAttrA(ATTR_A_EDEFAULT);
+			return;
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_B:
+			setAttrB(ATTR_B_EDEFAULT);
+			return;
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_X:
+			setAttrX(ATTR_X_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,16 +248,16 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_A:
-				return ATTR_A_EDEFAULT == null ? attrA != null : !ATTR_A_EDEFAULT.equals(attrA);
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_B:
-				return ATTR_B_EDEFAULT == null ? attrB != null : !ATTR_B_EDEFAULT.equals(attrB);
-			case XtextSiriusTestPackage.CONTAINED_A__ATTR_X:
-				return ATTR_X_EDEFAULT == null ? attrX != null : !ATTR_X_EDEFAULT.equals(attrX);
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_A:
+			return ATTR_A_EDEFAULT == null ? attrA != null : !ATTR_A_EDEFAULT.equals(attrA);
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_B:
+			return ATTR_B_EDEFAULT == null ? attrB != null : !ATTR_B_EDEFAULT.equals(attrB);
+		case XtextSiriusTestPackage.CONTAINED_A__ATTR_X:
+			return ATTR_X_EDEFAULT == null ? attrX != null : !ATTR_X_EDEFAULT.equals(attrX);
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,8 +267,8 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 	public String toString() {
 		if (eIsProxy())
 			return super.toString();
-		
-		StringBuffer result = new StringBuffer(super.toString());
+
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (attrA: ");
 		result.append(attrA);
 		result.append(", attrB: ");
@@ -278,5 +278,5 @@ public class ContainedAImpl extends MinimalEObjectImpl.Container implements Cont
 		result.append(')');
 		return result.toString();
 	}
-	
+
 } //ContainedAImpl

@@ -270,7 +270,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 			return super.toString();
 		}
 
-		final StringBuffer result = new StringBuffer(super.toString());
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (prefixTextExpression: ");
 		result.append(this.prefixTextExpression);
 		result.append(", suffixTextExpression: ");

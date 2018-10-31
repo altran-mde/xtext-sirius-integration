@@ -107,9 +107,10 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 		}
 
 		// Obtain or create and register package
-		final PropertiesxtextPackageImpl thePropertiesxtextPackage = (PropertiesxtextPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof PropertiesxtextPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new PropertiesxtextPackageImpl());
+		final Object registeredPropertiesxtextPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		final PropertiesxtextPackageImpl thePropertiesxtextPackage = registeredPropertiesxtextPackage instanceof PropertiesxtextPackageImpl
+				? (PropertiesxtextPackageImpl) registeredPropertiesxtextPackage
+				: new PropertiesxtextPackageImpl();
 
 		isInited = true;
 
@@ -127,7 +128,6 @@ public class PropertiesxtextPackageImpl extends EPackageImpl implements Properti
 
 		// Mark meta-data to indicate it can't be changed
 		thePropertiesxtextPackage.freeze();
-
 
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(PropertiesxtextPackage.eNS_URI, thePropertiesxtextPackage);
