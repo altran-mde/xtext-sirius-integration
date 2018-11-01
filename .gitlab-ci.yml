@@ -17,11 +17,10 @@ Sirius 5 Oxygen:
     - linux_docker
   script:
     - ./scripts/build.py -br $CI_COMMIT_REF_NAME -bn $CI_JOB_ID -tp $SIRIUS_5
-    - ls -sh releng/**/target/*.zip
   artifacts:
     when: always
     paths:
-      - releng/**/target/*.zip
+      - $ZIP_PATH/*.zip
 
 publish:
   stage: publish
