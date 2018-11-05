@@ -21,6 +21,7 @@ import org.eclipse.xtext.util.TextRegion;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
+import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
 import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureAdapter;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
@@ -108,6 +109,10 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 			}
 			final EObject element = location.resolve(parseResult.getRootASTElement().eResource());
 			if (element != null) {
+				if (containsUnresolvableProxies(element)) {
+					final XtextSiriusErrorException ex = handleUnresolvableProxies();
+					throw ex;
+				}
 				return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(getSemanticElement()));
 			}
 		}
@@ -115,9 +120,17 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 		return null;
 	}
 
+	protected boolean containsUnresolvableProxies(final EObject eObject) {
+		return !EcoreUtil.UnresolvedProxyCrossReferencer.find(eObject).isEmpty();
+	}
+
 	protected XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
 		return new XtextSiriusSyntaxErrorException((String) getValue(), getXtextAdapter().getVisibleRegion(),
 				Lists.newArrayList(parseResult.getSyntaxErrors()));
+	}
+
+	protected XtextSiriusErrorException handleUnresolvableProxies() {
+		return new XtextSiriusErrorException("Entered text contains unresolvable references", (String) getValue());
 	}
 
 	@Override
