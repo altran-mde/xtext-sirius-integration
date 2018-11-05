@@ -10,7 +10,6 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
 
 import org.apache.commons.lang.StringUtils;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
@@ -40,11 +39,7 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 	@Override
 	protected void focusLost() {
 		super.focusLost();
-		// Merging (if any) is handled during super#focusLost(), so we can
-		// safely remove adapters
-		if (getSemanticElement() != null) {
-			removeAllIgnoredFeatureAdapters(getSemanticElement());
-		}
+		removeAllIgnoredFeatureAdapters();
 	}
 
 	@Override
@@ -137,12 +132,14 @@ public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledText
 	public @NonNull XtextSiriusModelDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusModelDescriptor) super.getDescriptor();
 	}
-
-	protected void removeAllIgnoredFeatureAdapters(final EObject exist) {
-		final EObject rootContainer = EcoreUtil.getRootContainer(exist);
-		for (final TreeIterator<EObject> iterator = rootContainer.eAllContents(); iterator.hasNext();) {
-			final EObject eObject = iterator.next();
-			eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance);
+	
+	/** Must not be called before the merging is complete */
+	protected void removeAllIgnoredFeatureAdapters() {
+		if (getSemanticElement() == null) {
+			return;
 		}
+		final EObject rootContainer = EcoreUtil.getRootContainer(getSemanticElement());
+		rootContainer.eAllContents()
+				.forEachRemaining(eObject -> eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance));
 	}
 }
