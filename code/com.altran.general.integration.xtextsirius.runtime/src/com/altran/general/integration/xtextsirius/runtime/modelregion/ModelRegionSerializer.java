@@ -28,45 +28,44 @@ import com.google.common.collect.Lists;
 @SuppressWarnings("restriction")
 public class ModelRegionSerializer {
 	private final ModelRegionEditorPreparer preparer;
-	
+
 	public ModelRegionSerializer(final ModelRegionEditorPreparer preparer) {
 		this.preparer = preparer;
 	}
-	
+
 	public ITextRegionAccess serialize(final @NonNull EObject rootContainer) {
 		markIgnoredFeatures(rootContainer);
 		return this.preparer.getSerializer().serializeToRegions(rootContainer);
 	}
-	
+
 	protected void markIgnoredFeatures(final @NonNull EObject rootContainer) {
 		final EClass semanticElementEClass = getSemanticElementEClass();
 		Lists.newArrayList(rootContainer.eAllContents()).stream()
 				.filter(eObject -> eObject.eClass() == semanticElementEClass)
 				.forEach(eObject -> markIgnoredFeatures("", eObject));
 	}
-	
+
 	protected void markIgnoredFeatures(final @NonNull String prefix, final @NonNull EObject element) {
 		element.eClass().getEAllStructuralFeatures().stream()
 				.forEach(feature -> markIgnoredFeature(feature, prefix, element));
 	}
-	
+
 	protected void markIgnoredFeatures(final @NonNull String prefix, final @NonNull Collection<EObject> element) {
 		element.stream()
 				.forEach(eObject -> markIgnoredFeatures(prefix, eObject));
 	}
-	
+
 	protected void markIgnoredFeature(final @NonNull EStructuralFeature feature, final @NonNull String prefix,
 			final @Nullable EObject element) {
 		if (element == null) {
 			return;
 		}
-		
+
 		final String featurePath = FeaturePathUtil.getInstance().concatFeaturePath(prefix, feature);
 		if (this.preparer.getIgnoredNestedFeatures().contains(featurePath)) {
 			element.eAdapters().add(new IgnoredFeatureAdapter(feature.getName()));
 		} else if (feature instanceof EReference && ((EReference) feature).isContainment()) {
 			final Object child = element.eGet(feature);
-			System.err.println("child: " + child);
 			if (child instanceof EObject) {
 				markIgnoredFeatures(featurePath, (EObject) child);
 			} else if (feature.isMany() && child instanceof Collection) {
@@ -75,7 +74,7 @@ public class ModelRegionSerializer {
 			}
 		}
 	}
-	
+
 	protected EClass getSemanticElementEClass() {
 		if (this.preparer.getSemanticElement() != null) {
 			return this.preparer.getSemanticElement().eClass();
@@ -83,7 +82,7 @@ public class ModelRegionSerializer {
 			return (EClass) this.preparer.getSemanticElementFeature().getEType();
 		}
 	}
-	
+
 	protected List<EObject> getEObjectsInCollection(final Collection<?> collection) {
 		return collection.stream()
 				.filter(EObject.class::isInstance)
