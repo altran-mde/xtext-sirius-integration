@@ -1,0 +1,64 @@
+target "Xtext/Sirius Integration Target"
+
+with configurePhase source requirements
+
+//location "http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/" {
+//	
+//}
+
+location "http://download.eclipse.org/releases/oxygen" {
+	org.eclipse.emf.ecore.xcore.sdk.feature.group
+	org.eclipse.jdt.feature.group
+	org.eclipse.xtext.sdk.feature.group
+}
+
+location "http://download.eclipse.org/eclipse/updates/4.7" {
+	org.eclipse.platform.ide
+}
+
+location "http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository" {
+	com.google.guava
+	com.google.guava.source
+}
+
+location "http://updates.yakindu.com/statecharts/releases/" {
+	org.yakindu.base.xtext.utils.gmf.feature.group
+	org.yakindu.base.xtext.utils.jface.feature.group
+}
+
+location "http://download.eclipse.org/sirius/updates/releases/5.1.1/oxygen" {
+	org.eclipse.sirius.doc.feature.feature.group
+	org.eclipse.sirius.doc.feature.source.feature.group
+	org.eclipse.sirius.interpreter.feature.feature.group
+	org.eclipse.sirius.interpreter.feature.source.feature.group
+	org.eclipse.sirius.properties.feature.feature.group
+	org.eclipse.sirius.properties.feature.source.feature.group
+	org.eclipse.sirius.runtime.acceleo.feature.group
+	org.eclipse.sirius.runtime.acceleo.source.feature.group
+	org.eclipse.sirius.runtime.aql.feature.group
+	org.eclipse.sirius.runtime.aql.source.feature.group
+	org.eclipse.sirius.runtime.feature.group
+	org.eclipse.sirius.runtime.ide.eef.feature.group
+	org.eclipse.sirius.runtime.ide.eef.source.feature.group
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group
+	org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group
+	org.eclipse.sirius.runtime.ide.ui.feature.group
+	org.eclipse.sirius.runtime.ide.ui.source.feature.group
+	org.eclipse.sirius.runtime.ide.xtext.feature.group
+	org.eclipse.sirius.runtime.ide.xtext.source.feature.group
+	org.eclipse.sirius.runtime.ocl.feature.group
+	org.eclipse.sirius.runtime.ocl.source.feature.group
+	org.eclipse.sirius.runtime.source.feature.group
+	org.eclipse.sirius.samples.feature.group
+	org.eclipse.sirius.samples.source.feature.group
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group
+	org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group
+	org.eclipse.sirius.specifier.ide.ui.aql.feature.group
+	org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group
+	org.eclipse.sirius.specifier.ide.ui.feature.group
+	org.eclipse.sirius.specifier.ide.ui.source.feature.group
+	org.eclipse.sirius.specifier.properties.feature.feature.group
+	org.eclipse.sirius.specifier.properties.feature.source.feature.group
+	org.eclipse.sirius.tests.support.feature.group
+	org.eclipse.sirius.tests.support.source.feature.group
+}
