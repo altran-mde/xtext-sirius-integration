@@ -16,12 +16,9 @@ import java.util.stream.Stream;
 
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.xtext.AbstractElement;
-import org.eclipse.xtext.AbstractNegatedToken;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CharacterRange;
 import org.eclipse.xtext.CompoundElement;
 import org.eclipse.xtext.CrossReference;
-import org.eclipse.xtext.EnumLiteralDeclaration;
 import org.eclipse.xtext.RuleCall;
 
 import com.google.common.collect.LinkedHashMultimap;
@@ -33,16 +30,16 @@ public class ParentMap {
 	protected final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> map = LinkedHashMultimap.create();
 	private final AbstractElement parent;
 	private final AbstractElement base;
-
+	
 	public ParentMap(
 			final @NonNull AbstractElement parent,
 			final @NonNull AbstractElement base) {
 		this.parent = parent;
 		this.base = base;
-
+		
 		collectContainedGrammarElementsDeep(this.parent, this.base);
 	}
-
+	
 	/**
 	 * Builds up the inverted grammar tree (child --> allParents).
 	 */
@@ -52,9 +49,9 @@ public class ParentMap {
 		if (this.map.containsEntry(base, parent)) {
 			return;
 		}
-		
+
 		this.map.put(base, parent);
-		
+
 		if (base instanceof CompoundElement) {
 			for (final AbstractElement element : ((CompoundElement) base).getElements()) {
 				collectContainedGrammarElementsDeep(base, element);
@@ -65,16 +62,23 @@ public class ParentMap {
 			collectContainedGrammarElementsDeep(base, ((Assignment) base).getTerminal());
 		} else if (base instanceof CrossReference) {
 			collectContainedGrammarElementsDeep(base, ((CrossReference) base).getTerminal());
-		} else if (base instanceof CharacterRange) {
-			collectContainedGrammarElementsDeep(base, ((CharacterRange) base).getLeft());
-			collectContainedGrammarElementsDeep(base, ((CharacterRange) base).getRight());
-		} else if (base instanceof AbstractNegatedToken) {
-			collectContainedGrammarElementsDeep(base, ((AbstractNegatedToken) base).getTerminal());
-		} else if (base instanceof EnumLiteralDeclaration) {
-			collectContainedGrammarElementsDeep(base, ((EnumLiteralDeclaration) base).getLiteral());
+			// We probably don't need to handle these elements, as they are
+			// covered
+			// by RuleCall
+			// } else if (base instanceof CharacterRange) {
+			// collectContainedGrammarElementsDeep(base, ((CharacterRange)
+			// base).getLeft());
+			// collectContainedGrammarElementsDeep(base, ((CharacterRange)
+			// base).getRight());
+			// } else if (base instanceof AbstractNegatedToken) {
+			// collectContainedGrammarElementsDeep(base, ((AbstractNegatedToken)
+			// base).getTerminal());
+			// } else if (base instanceof EnumLiteralDeclaration) {
+			// collectContainedGrammarElementsDeep(base,
+			// ((EnumLiteralDeclaration) base).getLiteral());
 		}
 	}
-
+	
 	/**
 	 * Checks if {@code grammarElement} or any of its (direct and indirect)
 	 * parents in the grammar tree (aka {@code parentMap}) is contained in
@@ -85,7 +89,7 @@ public class ParentMap {
 			final @NonNull List<@NonNull AbstractElement> grammarElements) {
 		return containsGrammarElementDeep(grammarElement, grammarElements, Sets.newLinkedHashSet());
 	}
-
+	
 	private boolean containsGrammarElementDeep(
 			final @NonNull AbstractElement grammarElement,
 			final @NonNull List<@NonNull AbstractElement> grammarElements,
@@ -95,21 +99,21 @@ public class ParentMap {
 		} else {
 			visitedElements.add(grammarElement);
 		}
-		
+
 		if (grammarElements.contains(grammarElement)) {
 			return true;
 		}
-
+		
 		final Collection<@NonNull AbstractElement> parents = this.map.get(grammarElement);
 		for (final AbstractElement parent : parents) {
 			if (parent != null && parent != grammarElement) {
 				return containsGrammarElementDeep(parent, grammarElements, visitedElements);
 			}
 		}
-
+		
 		return false;
 	}
-
+	
 	/**
 	 * Finds all parents of {@code el} recursively, and maps these parents to
 	 * their leaf object in the grammar model.
@@ -117,7 +121,7 @@ public class ParentMap {
 	public @NonNull Stream<@NonNull AbstractElement> findAllParents(final @NonNull AbstractElement el) {
 		return findAllParents(el, Sets.newLinkedHashSet()).stream();
 	}
-	
+
 	private @NonNull Set<@NonNull AbstractElement> findAllParents(final @NonNull AbstractElement el,
 			@NonNull final Set<@NonNull AbstractElement> result) {
 		if (result.contains(el)) {
@@ -125,20 +129,20 @@ public class ParentMap {
 		} else {
 			result.add(el);
 		}
-		
+
 		final Collection<@NonNull AbstractElement> directParents = this.map.get(el);
 		directParents.stream()
 				.filter(e -> e != el)
 				.forEach(e -> findAllParents(e, result));
-
+		
 		if (!(el instanceof CompoundElement)) {
 			Streams.stream(el.eAllContents())
 					.filter(c -> c.eContents().isEmpty() && c instanceof AbstractElement)
 					.map(AbstractElement.class::cast)
 					.forEach(c -> result.add(c));
 		}
-		
+
 		return result;
 	}
-
+	
 }
