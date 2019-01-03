@@ -32,7 +32,7 @@ fragment References:
 ;
 
 Reference:
-	'->' target=[IContainerContent|QID]
+	'->' target=[IContainerContent|QID] ('/' target2=[IContainerContent|QID])?
 ;
 
 fragment References2:

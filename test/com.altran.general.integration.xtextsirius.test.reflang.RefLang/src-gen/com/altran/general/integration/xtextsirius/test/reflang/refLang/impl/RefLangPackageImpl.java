@@ -280,6 +280,16 @@ public class RefLangPackageImpl extends EPackageImpl implements RefLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getReference_Target2()
+  {
+    return (EReference)referenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getReferences2()
   {
     return references2EClass;
@@ -382,6 +392,7 @@ public class RefLangPackageImpl extends EPackageImpl implements RefLangPackage
 
     referenceEClass = createEClass(REFERENCE);
     createEReference(referenceEClass, REFERENCE__TARGET);
+    createEReference(referenceEClass, REFERENCE__TARGET2);
 
     references2EClass = createEClass(REFERENCES2);
     createEReference(references2EClass, REFERENCES2__REFERENCES2);
@@ -449,6 +460,7 @@ public class RefLangPackageImpl extends EPackageImpl implements RefLangPackage
 
     initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReference_Target(), this.getIContainerContent(), null, "target", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReference_Target2(), this.getIContainerContent(), null, "target2", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(references2EClass, References2.class, "References2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReferences2_References2(), this.getReference(), null, "references2", null, 0, -1, References2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

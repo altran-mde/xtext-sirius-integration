@@ -36,11 +36,12 @@
           </style>
         </containerMappings>
         <toolSections>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="DirectEditReference" injectorId="com.altran.general.integration.xtextsirius.test.reflang.ui.RefLangInjectorId" multiLine="true">
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="DirectEditReference" injectorId="com.altran.general.integration.xtextsirius.test.reflang.edit.ui.RefLangEditInjectorId" multiLine="true">
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue"/>
             </initialOperation>
             <editableFeatures>References.references</editableFeatures>
+            <ignoredNestedFeatures>references.target2</ignoredNestedFeatures>
           </ownedTools>
         </toolSections>
       </defaultLayer>

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRefLangParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "'}'", "'1'", "'->'", "'2'", "'3'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "'}'", "'1'", "'->'", "'/'", "'2'", "'3'", "'.'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
@@ -32,6 +32,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int RULE_INT=5;
+    public static final int T__18=18;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
@@ -257,7 +258,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
             if ( (LA2_0==RULE_ID) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( (LA2_1==EOF||LA2_1==RULE_ID||(LA2_1>=12 && LA2_1<=13)||(LA2_1>=15 && LA2_1<=16)) ) {
+                if ( (LA2_1==EOF||LA2_1==RULE_ID||(LA2_1>=12 && LA2_1<=13)||(LA2_1>=16 && LA2_1<=17)) ) {
                     alt2=2;
                 }
                 else if ( (LA2_1==11) ) {
@@ -517,7 +518,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==15) ) {
+            if ( (LA5_0==16) ) {
                 alt5=1;
             }
             switch (alt5) {
@@ -549,7 +550,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==16) ) {
+            if ( (LA6_0==17) ) {
                 alt6=1;
             }
             switch (alt6) {
@@ -720,7 +721,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==15) ) {
+            if ( (LA8_0==16) ) {
                 alt8=1;
             }
             switch (alt8) {
@@ -752,7 +753,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==16) ) {
+            if ( (LA9_0==17) ) {
                 alt9=1;
             }
             switch (alt9) {
@@ -933,21 +934,22 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReference"
-    // InternalRefLang.g:358:1: ruleReference returns [EObject current=null] : (otherlv_0= '->' ( ( ruleQID ) ) ) ;
+    // InternalRefLang.g:358:1: ruleReference returns [EObject current=null] : (otherlv_0= '->' ( ( ruleQID ) ) (otherlv_2= '/' ( ( ruleQID ) ) )? ) ;
     public final EObject ruleReference() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
+        Token otherlv_2=null;
 
 
         	enterRule();
 
         try {
-            // InternalRefLang.g:364:2: ( (otherlv_0= '->' ( ( ruleQID ) ) ) )
-            // InternalRefLang.g:365:2: (otherlv_0= '->' ( ( ruleQID ) ) )
+            // InternalRefLang.g:364:2: ( (otherlv_0= '->' ( ( ruleQID ) ) (otherlv_2= '/' ( ( ruleQID ) ) )? ) )
+            // InternalRefLang.g:365:2: (otherlv_0= '->' ( ( ruleQID ) ) (otherlv_2= '/' ( ( ruleQID ) ) )? )
             {
-            // InternalRefLang.g:365:2: (otherlv_0= '->' ( ( ruleQID ) ) )
-            // InternalRefLang.g:366:3: otherlv_0= '->' ( ( ruleQID ) )
+            // InternalRefLang.g:365:2: (otherlv_0= '->' ( ( ruleQID ) ) (otherlv_2= '/' ( ( ruleQID ) ) )? )
+            // InternalRefLang.g:366:3: otherlv_0= '->' ( ( ruleQID ) ) (otherlv_2= '/' ( ( ruleQID ) ) )?
             {
             otherlv_0=(Token)match(input,14,FOLLOW_10); 
 
@@ -967,7 +969,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getReferenceAccess().getTargetIContainerContentCrossReference_1_0());
             				
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_11);
             ruleQID();
 
             state._fsp--;
@@ -978,6 +980,55 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
             }
 
+
+            }
+
+            // InternalRefLang.g:386:3: (otherlv_2= '/' ( ( ruleQID ) ) )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==15) ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalRefLang.g:387:4: otherlv_2= '/' ( ( ruleQID ) )
+                    {
+                    otherlv_2=(Token)match(input,15,FOLLOW_10); 
+
+                    				newLeafNode(otherlv_2, grammarAccess.getReferenceAccess().getSolidusKeyword_2_0());
+                    			
+                    // InternalRefLang.g:391:4: ( ( ruleQID ) )
+                    // InternalRefLang.g:392:5: ( ruleQID )
+                    {
+                    // InternalRefLang.g:392:5: ( ruleQID )
+                    // InternalRefLang.g:393:6: ruleQID
+                    {
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getReferenceRule());
+                    						}
+                    					
+
+                    						newCompositeNode(grammarAccess.getReferenceAccess().getTarget2IContainerContentCrossReference_2_1_0());
+                    					
+                    pushFollow(FOLLOW_2);
+                    ruleQID();
+
+                    state._fsp--;
+
+
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -1004,7 +1055,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReferences2"
-    // InternalRefLang.g:391:1: ruleReferences2[EObject in_current] returns [EObject current=in_current] : (otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )* ) ;
+    // InternalRefLang.g:413:1: ruleReferences2[EObject in_current] returns [EObject current=in_current] : (otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )* ) ;
     public final EObject ruleReferences2(EObject in_current) throws RecognitionException {
         EObject current = in_current;
 
@@ -1016,33 +1067,33 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRefLang.g:397:2: ( (otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )* ) )
-            // InternalRefLang.g:398:2: (otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )* )
+            // InternalRefLang.g:419:2: ( (otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )* ) )
+            // InternalRefLang.g:420:2: (otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )* )
             {
-            // InternalRefLang.g:398:2: (otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )* )
-            // InternalRefLang.g:399:3: otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )*
+            // InternalRefLang.g:420:2: (otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )* )
+            // InternalRefLang.g:421:3: otherlv_0= '2' ( (lv_references2_1_0= ruleReference ) )*
             {
-            otherlv_0=(Token)match(input,15,FOLLOW_9); 
+            otherlv_0=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_0, grammarAccess.getReferences2Access().getDigitTwoKeyword_0());
             		
-            // InternalRefLang.g:403:3: ( (lv_references2_1_0= ruleReference ) )*
-            loop11:
+            // InternalRefLang.g:425:3: ( (lv_references2_1_0= ruleReference ) )*
+            loop12:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA11_0==14) ) {
-                    alt11=1;
+                if ( (LA12_0==14) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt12) {
             	case 1 :
-            	    // InternalRefLang.g:404:4: (lv_references2_1_0= ruleReference )
+            	    // InternalRefLang.g:426:4: (lv_references2_1_0= ruleReference )
             	    {
-            	    // InternalRefLang.g:404:4: (lv_references2_1_0= ruleReference )
-            	    // InternalRefLang.g:405:5: lv_references2_1_0= ruleReference
+            	    // InternalRefLang.g:426:4: (lv_references2_1_0= ruleReference )
+            	    // InternalRefLang.g:427:5: lv_references2_1_0= ruleReference
             	    {
 
             	    					newCompositeNode(grammarAccess.getReferences2Access().getReferences2ReferenceParserRuleCall_1_0());
@@ -1061,100 +1112,6 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
             	    						"references2",
             	    						lv_references2_1_0,
             	    						"com.altran.general.integration.xtextsirius.test.reflang.RefLang.Reference");
-            	    					afterParserOrEnumRuleCall();
-            	    				
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop11;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleReferences2"
-
-
-    // $ANTLR start "ruleReferences3"
-    // InternalRefLang.g:427:1: ruleReferences3[EObject in_current] returns [EObject current=in_current] : (otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )* ) ;
-    public final EObject ruleReferences3(EObject in_current) throws RecognitionException {
-        EObject current = in_current;
-
-        Token otherlv_0=null;
-        EObject lv_references3_1_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalRefLang.g:433:2: ( (otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )* ) )
-            // InternalRefLang.g:434:2: (otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )* )
-            {
-            // InternalRefLang.g:434:2: (otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )* )
-            // InternalRefLang.g:435:3: otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )*
-            {
-            otherlv_0=(Token)match(input,16,FOLLOW_9); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getReferences3Access().getDigitThreeKeyword_0());
-            		
-            // InternalRefLang.g:439:3: ( (lv_references3_1_0= ruleReference3 ) )*
-            loop12:
-            do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
-
-                if ( (LA12_0==14) ) {
-                    alt12=1;
-                }
-
-
-                switch (alt12) {
-            	case 1 :
-            	    // InternalRefLang.g:440:4: (lv_references3_1_0= ruleReference3 )
-            	    {
-            	    // InternalRefLang.g:440:4: (lv_references3_1_0= ruleReference3 )
-            	    // InternalRefLang.g:441:5: lv_references3_1_0= ruleReference3
-            	    {
-
-            	    					newCompositeNode(grammarAccess.getReferences3Access().getReferences3Reference3ParserRuleCall_1_0());
-            	    				
-            	    pushFollow(FOLLOW_9);
-            	    lv_references3_1_0=ruleReference3();
-
-            	    state._fsp--;
-
-
-            	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getReferences3Rule());
-            	    					}
-            	    					add(
-            	    						current,
-            	    						"references3",
-            	    						lv_references3_1_0,
-            	    						"com.altran.general.integration.xtextsirius.test.reflang.RefLang.Reference3");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -1188,11 +1145,105 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
+    // $ANTLR end "ruleReferences2"
+
+
+    // $ANTLR start "ruleReferences3"
+    // InternalRefLang.g:449:1: ruleReferences3[EObject in_current] returns [EObject current=in_current] : (otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )* ) ;
+    public final EObject ruleReferences3(EObject in_current) throws RecognitionException {
+        EObject current = in_current;
+
+        Token otherlv_0=null;
+        EObject lv_references3_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalRefLang.g:455:2: ( (otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )* ) )
+            // InternalRefLang.g:456:2: (otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )* )
+            {
+            // InternalRefLang.g:456:2: (otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )* )
+            // InternalRefLang.g:457:3: otherlv_0= '3' ( (lv_references3_1_0= ruleReference3 ) )*
+            {
+            otherlv_0=(Token)match(input,17,FOLLOW_9); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getReferences3Access().getDigitThreeKeyword_0());
+            		
+            // InternalRefLang.g:461:3: ( (lv_references3_1_0= ruleReference3 ) )*
+            loop13:
+            do {
+                int alt13=2;
+                int LA13_0 = input.LA(1);
+
+                if ( (LA13_0==14) ) {
+                    alt13=1;
+                }
+
+
+                switch (alt13) {
+            	case 1 :
+            	    // InternalRefLang.g:462:4: (lv_references3_1_0= ruleReference3 )
+            	    {
+            	    // InternalRefLang.g:462:4: (lv_references3_1_0= ruleReference3 )
+            	    // InternalRefLang.g:463:5: lv_references3_1_0= ruleReference3
+            	    {
+
+            	    					newCompositeNode(grammarAccess.getReferences3Access().getReferences3Reference3ParserRuleCall_1_0());
+            	    				
+            	    pushFollow(FOLLOW_9);
+            	    lv_references3_1_0=ruleReference3();
+
+            	    state._fsp--;
+
+
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getReferences3Rule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"references3",
+            	    						lv_references3_1_0,
+            	    						"com.altran.general.integration.xtextsirius.test.reflang.RefLang.Reference3");
+            	    					afterParserOrEnumRuleCall();
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop13;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleReferences3"
 
 
     // $ANTLR start "entryRuleReference3"
-    // InternalRefLang.g:462:1: entryRuleReference3 returns [EObject current=null] : iv_ruleReference3= ruleReference3 EOF ;
+    // InternalRefLang.g:484:1: entryRuleReference3 returns [EObject current=null] : iv_ruleReference3= ruleReference3 EOF ;
     public final EObject entryRuleReference3() throws RecognitionException {
         EObject current = null;
 
@@ -1200,8 +1251,8 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRefLang.g:462:51: (iv_ruleReference3= ruleReference3 EOF )
-            // InternalRefLang.g:463:2: iv_ruleReference3= ruleReference3 EOF
+            // InternalRefLang.g:484:51: (iv_ruleReference3= ruleReference3 EOF )
+            // InternalRefLang.g:485:2: iv_ruleReference3= ruleReference3 EOF
             {
              newCompositeNode(grammarAccess.getReference3Rule()); 
             pushFollow(FOLLOW_1);
@@ -1228,7 +1279,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReference3"
-    // InternalRefLang.g:469:1: ruleReference3 returns [EObject current=null] : (otherlv_0= '->' ( ( ruleQID ) ) ) ;
+    // InternalRefLang.g:491:1: ruleReference3 returns [EObject current=null] : (otherlv_0= '->' ( ( ruleQID ) ) ) ;
     public final EObject ruleReference3() throws RecognitionException {
         EObject current = null;
 
@@ -1238,21 +1289,21 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRefLang.g:475:2: ( (otherlv_0= '->' ( ( ruleQID ) ) ) )
-            // InternalRefLang.g:476:2: (otherlv_0= '->' ( ( ruleQID ) ) )
+            // InternalRefLang.g:497:2: ( (otherlv_0= '->' ( ( ruleQID ) ) ) )
+            // InternalRefLang.g:498:2: (otherlv_0= '->' ( ( ruleQID ) ) )
             {
-            // InternalRefLang.g:476:2: (otherlv_0= '->' ( ( ruleQID ) ) )
-            // InternalRefLang.g:477:3: otherlv_0= '->' ( ( ruleQID ) )
+            // InternalRefLang.g:498:2: (otherlv_0= '->' ( ( ruleQID ) ) )
+            // InternalRefLang.g:499:3: otherlv_0= '->' ( ( ruleQID ) )
             {
             otherlv_0=(Token)match(input,14,FOLLOW_10); 
 
             			newLeafNode(otherlv_0, grammarAccess.getReference3Access().getHyphenMinusGreaterThanSignKeyword_0());
             		
-            // InternalRefLang.g:481:3: ( ( ruleQID ) )
-            // InternalRefLang.g:482:4: ( ruleQID )
+            // InternalRefLang.g:503:3: ( ( ruleQID ) )
+            // InternalRefLang.g:504:4: ( ruleQID )
             {
-            // InternalRefLang.g:482:4: ( ruleQID )
-            // InternalRefLang.g:483:5: ruleQID
+            // InternalRefLang.g:504:4: ( ruleQID )
+            // InternalRefLang.g:505:5: ruleQID
             {
 
             					if (current==null) {
@@ -1299,7 +1350,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQID"
-    // InternalRefLang.g:501:1: entryRuleQID returns [String current=null] : iv_ruleQID= ruleQID EOF ;
+    // InternalRefLang.g:523:1: entryRuleQID returns [String current=null] : iv_ruleQID= ruleQID EOF ;
     public final String entryRuleQID() throws RecognitionException {
         String current = null;
 
@@ -1307,8 +1358,8 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalRefLang.g:501:43: (iv_ruleQID= ruleQID EOF )
-            // InternalRefLang.g:502:2: iv_ruleQID= ruleQID EOF
+            // InternalRefLang.g:523:43: (iv_ruleQID= ruleQID EOF )
+            // InternalRefLang.g:524:2: iv_ruleQID= ruleQID EOF
             {
              newCompositeNode(grammarAccess.getQIDRule()); 
             pushFollow(FOLLOW_1);
@@ -1335,7 +1386,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQID"
-    // InternalRefLang.g:508:1: ruleQID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // InternalRefLang.g:530:1: ruleQID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1347,40 +1398,40 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalRefLang.g:514:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalRefLang.g:515:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalRefLang.g:536:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // InternalRefLang.g:537:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // InternalRefLang.g:515:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalRefLang.g:516:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // InternalRefLang.g:537:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalRefLang.g:538:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_11); 
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             			current.merge(this_ID_0);
             		
 
             			newLeafNode(this_ID_0, grammarAccess.getQIDAccess().getIDTerminalRuleCall_0());
             		
-            // InternalRefLang.g:523:3: (kw= '.' this_ID_2= RULE_ID )*
-            loop13:
+            // InternalRefLang.g:545:3: (kw= '.' this_ID_2= RULE_ID )*
+            loop14:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA13_0==17) ) {
-                    alt13=1;
+                if ( (LA14_0==18) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt14) {
             	case 1 :
-            	    // InternalRefLang.g:524:4: kw= '.' this_ID_2= RULE_ID
+            	    // InternalRefLang.g:546:4: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,17,FOLLOW_10); 
+            	    kw=(Token)match(input,18,FOLLOW_10); 
 
             	    				current.merge(kw);
             	    				newLeafNode(kw, grammarAccess.getQIDAccess().getFullStopKeyword_1_0());
             	    			
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_11); 
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             	    				current.merge(this_ID_2);
             	    			
@@ -1392,7 +1443,7 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop14;
                 }
             } while (true);
 
@@ -1427,11 +1478,12 @@ public class InternalRefLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000012L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000001A002L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000018002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010002L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000032002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000030002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020002L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000004002L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040002L});
 
 }

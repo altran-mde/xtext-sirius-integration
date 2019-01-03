@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.altran.general.integration.xtextsirius.test.reflang.refLang.impl.ReferenceImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.altran.general.integration.xtextsirius.test.reflang.refLang.impl.ReferenceImpl#getTarget2 <em>Target2</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +40,16 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
    * @ordered
    */
   protected IContainerContent target;
+
+  /**
+   * The cached value of the '{@link #getTarget2() <em>Target2</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTarget2()
+   * @generated
+   * @ordered
+   */
+  protected IContainerContent target2;
 
   /**
    * <!-- begin-user-doc -->
@@ -109,6 +120,49 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
    * <!-- end-user-doc -->
    * @generated
    */
+  public IContainerContent getTarget2()
+  {
+    if (target2 != null && target2.eIsProxy())
+    {
+      InternalEObject oldTarget2 = (InternalEObject)target2;
+      target2 = (IContainerContent)eResolveProxy(oldTarget2);
+      if (target2 != oldTarget2)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RefLangPackage.REFERENCE__TARGET2, oldTarget2, target2));
+      }
+    }
+    return target2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IContainerContent basicGetTarget2()
+  {
+    return target2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTarget2(IContainerContent newTarget2)
+  {
+    IContainerContent oldTarget2 = target2;
+    target2 = newTarget2;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RefLangPackage.REFERENCE__TARGET2, oldTarget2, target2));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -117,6 +171,9 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
       case RefLangPackage.REFERENCE__TARGET:
         if (resolve) return getTarget();
         return basicGetTarget();
+      case RefLangPackage.REFERENCE__TARGET2:
+        if (resolve) return getTarget2();
+        return basicGetTarget2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -133,6 +190,9 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
     {
       case RefLangPackage.REFERENCE__TARGET:
         setTarget((IContainerContent)newValue);
+        return;
+      case RefLangPackage.REFERENCE__TARGET2:
+        setTarget2((IContainerContent)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -151,6 +211,9 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
       case RefLangPackage.REFERENCE__TARGET:
         setTarget((IContainerContent)null);
         return;
+      case RefLangPackage.REFERENCE__TARGET2:
+        setTarget2((IContainerContent)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -167,6 +230,8 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
     {
       case RefLangPackage.REFERENCE__TARGET:
         return target != null;
+      case RefLangPackage.REFERENCE__TARGET2:
+        return target2 != null;
     }
     return super.eIsSet(featureID);
   }

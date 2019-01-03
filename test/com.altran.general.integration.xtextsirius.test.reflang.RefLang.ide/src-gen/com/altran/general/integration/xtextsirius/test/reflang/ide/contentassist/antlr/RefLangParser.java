@@ -36,6 +36,7 @@ public class RefLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLeafAccess().getGroup(), "rule__Leaf__Group__0");
 			builder.put(grammarAccess.getReferencesAccess().getGroup(), "rule__References__Group__0");
 			builder.put(grammarAccess.getReferenceAccess().getGroup(), "rule__Reference__Group__0");
+			builder.put(grammarAccess.getReferenceAccess().getGroup_2(), "rule__Reference__Group_2__0");
 			builder.put(grammarAccess.getReferences2Access().getGroup(), "rule__References2__Group__0");
 			builder.put(grammarAccess.getReferences3Access().getGroup(), "rule__References3__Group__0");
 			builder.put(grammarAccess.getReference3Access().getGroup(), "rule__Reference3__Group__0");
@@ -47,6 +48,7 @@ public class RefLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLeafAccess().getNameAssignment_0(), "rule__Leaf__NameAssignment_0");
 			builder.put(grammarAccess.getReferencesAccess().getReferencesAssignment_1(), "rule__References__ReferencesAssignment_1");
 			builder.put(grammarAccess.getReferenceAccess().getTargetAssignment_1(), "rule__Reference__TargetAssignment_1");
+			builder.put(grammarAccess.getReferenceAccess().getTarget2Assignment_2_1(), "rule__Reference__Target2Assignment_2_1");
 			builder.put(grammarAccess.getReferences2Access().getReferences2Assignment_1(), "rule__References2__References2Assignment_1");
 			builder.put(grammarAccess.getReferences3Access().getReferences3Assignment_1(), "rule__References3__References3Assignment_1");
 			builder.put(grammarAccess.getReference3Access().getTarget3Assignment_1(), "rule__Reference3__Target3Assignment_1");

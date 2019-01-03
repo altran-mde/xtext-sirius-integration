@@ -172,12 +172,17 @@ public class RefLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTargetAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cTargetIContainerContentCrossReference_1_0 = (CrossReference)cTargetAssignment_1.eContents().get(0);
 		private final RuleCall cTargetIContainerContentQIDParserRuleCall_1_0_1 = (RuleCall)cTargetIContainerContentCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cSolidusKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cTarget2Assignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cTarget2IContainerContentCrossReference_2_1_0 = (CrossReference)cTarget2Assignment_2_1.eContents().get(0);
+		private final RuleCall cTarget2IContainerContentQIDParserRuleCall_2_1_0_1 = (RuleCall)cTarget2IContainerContentCrossReference_2_1_0.eContents().get(1);
 		
 		//Reference:
-		//	'->' target=[IContainerContent|QID];
+		//	'->' target=[IContainerContent|QID] ('/' target2=[IContainerContent|QID])?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'->' target=[IContainerContent|QID]
+		//'->' target=[IContainerContent|QID] ('/' target2=[IContainerContent|QID])?
 		public Group getGroup() { return cGroup; }
 		
 		//'->'
@@ -191,6 +196,21 @@ public class RefLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//QID
 		public RuleCall getTargetIContainerContentQIDParserRuleCall_1_0_1() { return cTargetIContainerContentQIDParserRuleCall_1_0_1; }
+		
+		//('/' target2=[IContainerContent|QID])?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_2_0() { return cSolidusKeyword_2_0; }
+		
+		//target2=[IContainerContent|QID]
+		public Assignment getTarget2Assignment_2_1() { return cTarget2Assignment_2_1; }
+		
+		//[IContainerContent|QID]
+		public CrossReference getTarget2IContainerContentCrossReference_2_1_0() { return cTarget2IContainerContentCrossReference_2_1_0; }
+		
+		//QID
+		public RuleCall getTarget2IContainerContentQIDParserRuleCall_2_1_0_1() { return cTarget2IContainerContentQIDParserRuleCall_2_1_0_1; }
 	}
 	public class References2Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.altran.general.integration.xtextsirius.test.reflang.RefLang.References2");
@@ -411,7 +431,7 @@ public class RefLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Reference:
-	//	'->' target=[IContainerContent|QID];
+	//	'->' target=[IContainerContent|QID] ('/' target2=[IContainerContent|QID])?;
 	public ReferenceElements getReferenceAccess() {
 		return pReference;
 	}

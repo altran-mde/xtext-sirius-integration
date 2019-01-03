@@ -104,16 +104,10 @@ public class RefLangSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Reference returns Reference
 	 *
 	 * Constraint:
-	 *     target=[IContainerContent|QID]
+	 *     (target=[IContainerContent|QID] target2=[IContainerContent|QID]?)
 	 */
 	protected void sequence_Reference(ISerializationContext context, Reference semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RefLangPackage.Literals.REFERENCE__TARGET) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RefLangPackage.Literals.REFERENCE__TARGET));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getReferenceAccess().getTargetIContainerContentQIDParserRuleCall_1_0_1(), semanticObject.eGet(RefLangPackage.Literals.REFERENCE__TARGET, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

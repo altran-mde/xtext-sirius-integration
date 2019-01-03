@@ -1,0 +1,12 @@
+grammar com.altran.general.integration.xtextsirius.test.reflang.edit.RefLangEdit with com.altran.general.integration.xtextsirius.test.reflang.RefLang
+
+import "http://www.altran.com/general/integration/xtextsirius/test/reflang/RefLang" 
+
+XContainer returns Container:
+	Container
+;
+
+@Override 
+Reference returns Reference:
+	'->' target=[IContainerContent|QID]
+;

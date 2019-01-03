@@ -271,13 +271,22 @@ public interface RefLangPackage extends EPackage
   int REFERENCE__TARGET = 0;
 
   /**
+   * The feature id for the '<em><b>Target2</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE__TARGET2 = 1;
+
+  /**
    * The number of structural features of the '<em>Reference</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REFERENCE_FEATURE_COUNT = 1;
+  int REFERENCE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.altran.general.integration.xtextsirius.test.reflang.refLang.impl.References2Impl <em>References2</em>}' class.
@@ -491,6 +500,17 @@ public interface RefLangPackage extends EPackage
   EReference getReference_Target();
 
   /**
+   * Returns the meta object for the reference '{@link com.altran.general.integration.xtextsirius.test.reflang.refLang.Reference#getTarget2 <em>Target2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Target2</em>'.
+   * @see com.altran.general.integration.xtextsirius.test.reflang.refLang.Reference#getTarget2()
+   * @see #getReference()
+   * @generated
+   */
+  EReference getReference_Target2();
+
+  /**
    * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.test.reflang.refLang.References2 <em>References2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -683,6 +703,14 @@ public interface RefLangPackage extends EPackage
      * @generated
      */
     EReference REFERENCE__TARGET = eINSTANCE.getReference_Target();
+
+    /**
+     * The meta object literal for the '<em><b>Target2</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFERENCE__TARGET2 = eINSTANCE.getReference_Target2();
 
     /**
      * The meta object literal for the '{@link com.altran.general.integration.xtextsirius.test.reflang.refLang.impl.References2Impl <em>References2</em>}' class.

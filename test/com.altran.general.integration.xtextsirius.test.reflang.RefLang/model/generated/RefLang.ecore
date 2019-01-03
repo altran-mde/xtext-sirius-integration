@@ -21,6 +21,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//IContainerContent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target2" eType="#//IContainerContent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="References2">
     <eStructuralFeatures xsi:type="ecore:EReference" name="references2" upperBound="-1"

@@ -383,6 +383,28 @@ ruleReference returns [EObject current=null]
 				}
 			)
 		)
+		(
+			otherlv_2='/'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getReferenceAccess().getSolidusKeyword_2_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getReferenceRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getReferenceAccess().getTarget2IContainerContentCrossReference_2_1_0());
+					}
+					ruleQID
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
