@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="refLang" nsURI="http://www.altran.com/general/integration/xtextsirius/test/reflang/RefLang"
+    nsPrefix="refLang">
+  <eClassifiers xsi:type="ecore:EClass" name="Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//IContainerContent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IContainerContent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SubContainer" eSuperTypes="#//IContainerContent #//References #//References2 #//References3">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subContents" upperBound="-1"
+        eType="#//IContainerContent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Leaf" eSuperTypes="#//IContainerContent #//References #//References2 #//References3">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="References">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//Reference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//IContainerContent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="References2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references2" upperBound="-1"
+        eType="#//Reference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="References3">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references3" upperBound="-1"
+        eType="#//Reference3" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference3">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target3" eType="#//IContainerContent"/>
+  </eClassifiers>
+</ecore:EPackage>

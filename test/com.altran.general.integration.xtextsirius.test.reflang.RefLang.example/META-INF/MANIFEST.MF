@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Example
+Bundle-SymbolicName: com.altran.general.integration.xtextsirius.test.reflang.RefLang.example
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: com.altran.general.integration.xtextsirius.test.reflang.RefLang;bundle-version="1.0.0"

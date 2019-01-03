@@ -1,0 +1,52 @@
+grammar com.altran.general.integration.xtextsirius.test.reflang.RefLang with org.eclipse.xtext.common.Terminals
+
+generate refLang "http://www.altran.com/general/integration/xtextsirius/test/reflang/RefLang"
+
+Container:
+	contents+=IContainerContent*
+;
+
+IContainerContent:
+	SubContainer
+	| Leaf	
+;
+
+SubContainer:
+	name=ID '{'
+		subContents+=IContainerContent*
+	'}'
+	References?
+	References2?
+	References3?
+;
+
+Leaf:
+	name=ID
+	References?
+	References2?
+	References3?
+;
+
+fragment References:
+	'1' references+=Reference*
+;
+
+Reference:
+	'->' target=[IContainerContent|QID]
+;
+
+fragment References2:
+	'2' references2+=Reference*
+;
+
+fragment References3:
+	'3' references3+=Reference3*
+;
+
+Reference3:
+	'->' target3=[IContainerContent|QID]
+;
+
+QID:
+	ID ('.' ID)*
+;

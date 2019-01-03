@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:refLang="http://www.altran.com/general/integration/xtextsirius/test/reflang/RefLang" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_pSbWoA6WEemBpdxdACPxtg" selectedViews="_vKNXcA6YEemXyPSKVzzorw" version="13.0.0.201804031646">
+    <semanticResources>test1.reflang</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_vKNXcA6YEemXyPSKVzzorw">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_w1cKMA6YEemXyPSKVzzorw" name="test1" repPath="#_w0JwwA6YEemXyPSKVzzorw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']"/>
+        <target xmi:type="refLang:Container" href="test1.reflang#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_w1X4wA6YEemXyPSKVzzorw" name="test1" uid="_w0JwwA6YEemXyPSKVzzorw">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_w1X4wQ6YEemXyPSKVzzorw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_w1X4wg6YEemXyPSKVzzorw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_w1w6UA6YEemXyPSKVzzorw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_w1w6UQ6YEemXyPSKVzzorw" type="Sirius" element="_w1X4wA6YEemXyPSKVzzorw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_w2M_MA6YEemXyPSKVzzorw" type="2001" element="_w1X4xA6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_w2WwMA6YEemXyPSKVzzorw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_w2WwMQ6YEemXyPSKVzzorw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="__4kyMA6YEemXyPSKVzzorw" type="3003" element="__4WvwA6YEemXyPSKVzzorw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="__4kyMQ6YEemXyPSKVzzorw" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__4kyMg6YEemXyPSKVzzorw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_w2M_MQ6YEemXyPSKVzzorw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w2M_Mg6YEemXyPSKVzzorw" width="85" height="49"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_w2nO4A6YEemXyPSKVzzorw" type="2001" element="_w1X4xg6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_w2n18A6YEemXyPSKVzzorw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_w2n18Q6YEemXyPSKVzzorw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="__4lZQA6YEemXyPSKVzzorw" type="3003" element="__4XW0A6YEemXyPSKVzzorw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="__4lZQQ6YEemXyPSKVzzorw" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__4lZQg6YEemXyPSKVzzorw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_w2nO4Q6YEemXyPSKVzzorw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w2nO4g6YEemXyPSKVzzorw" x="36" y="276" width="73" height="61"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_w2qSMA6YEemXyPSKVzzorw" type="2002" element="_w1X4zA6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_w2q5QA6YEemXyPSKVzzorw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_w2sHYA6YEemXyPSKVzzorw" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_9LZk0A6ZEemEMM6YGVPUoQ" type="3008" element="_9LFbwA6ZEemEMM6YGVPUoQ">
+              <children xmi:type="notation:Node" xmi:id="_9LbaAA6ZEemEMM6YGVPUoQ" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_9LcBEA6ZEemEMM6YGVPUoQ" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_9LdPMA6ZEemEMM6YGVPUoQ" type="3007" element="_9LH4AA6ZEemEMM6YGVPUoQ">
+                  <children xmi:type="notation:Node" xmi:id="_9Ld2QA6ZEemEMM6YGVPUoQ" type="5003">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_9Ld2QQ6ZEemEMM6YGVPUoQ" y="5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_9LfEYA6ZEemEMM6YGVPUoQ" type="3003" element="_9LH4AQ6ZEemEMM6YGVPUoQ">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_9LfEYQ6ZEemEMM6YGVPUoQ" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LfEYg6ZEemEMM6YGVPUoQ"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_9LdPMQ6ZEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LdPMg6ZEemEMM6YGVPUoQ" x="31" y="30" width="73" height="30"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_9LcBEQ6ZEemEMM6YGVPUoQ"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_9LcBEg6ZEemEMM6YGVPUoQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_9LZk0Q6ZEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LZk0g6ZEemEMM6YGVPUoQ" x="31" y="126"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9LcoIA6ZEemEMM6YGVPUoQ" type="3008" element="_9LGp4A6ZEemEMM6YGVPUoQ">
+              <children xmi:type="notation:Node" xmi:id="_9LcoIw6ZEemEMM6YGVPUoQ" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_9LcoJA6ZEemEMM6YGVPUoQ" type="7002">
+                <styles xmi:type="notation:SortingStyle" xmi:id="_9LcoJQ6ZEemEMM6YGVPUoQ"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_9LcoJg6ZEemEMM6YGVPUoQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_9LcoIQ6ZEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LcoIg6ZEemEMM6YGVPUoQ" x="31" y="30"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_w2sHYQ6YEemXyPSKVzzorw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_w2sHYg6YEemXyPSKVzzorw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_w2qSMQ6YEemXyPSKVzzorw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w2qSMg6YEemXyPSKVzzorw" x="144"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_w2sucA6YEemXyPSKVzzorw" type="2002" element="_w1X41g6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_w2tVgA6YEemXyPSKVzzorw" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_w2tVgQ6YEemXyPSKVzzorw" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_9LfEYw6ZEemEMM6YGVPUoQ" type="3007" element="_9LJGIA6ZEemEMM6YGVPUoQ">
+              <children xmi:type="notation:Node" xmi:id="_9LfEZg6ZEemEMM6YGVPUoQ" type="5003">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_9LfEZw6ZEemEMM6YGVPUoQ" y="5"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_9LfrcA6ZEemEMM6YGVPUoQ" type="3003" element="_9LJGIQ6ZEemEMM6YGVPUoQ">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_9LfrcQ6ZEemEMM6YGVPUoQ" fontName="Segoe UI"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9Lfrcg6ZEemEMM6YGVPUoQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_9LfEZA6ZEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LfEZQ6ZEemEMM6YGVPUoQ" x="31" y="30" width="265" height="193"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_w2tVgg6YEemXyPSKVzzorw"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_w2tVgw6YEemXyPSKVzzorw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_w2sucQ6YEemXyPSKVzzorw" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w2sucg6YEemXyPSKVzzorw" x="888" y="168"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_w1w6Ug6YEemXyPSKVzzorw"/>
+        <edges xmi:type="notation:Edge" xmi:id="_z3qvoA6ZEemEMM6YGVPUoQ" type="4001" element="_z3S8MA6ZEemEMM6YGVPUoQ" source="_w2nO4A6YEemXyPSKVzzorw" target="_w2M_MA6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_z3yEYA6ZEemEMM6YGVPUoQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z3yEYQ6ZEemEMM6YGVPUoQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_z3yrcA6ZEemEMM6YGVPUoQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z3yrcQ6ZEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_z3zSgA6ZEemEMM6YGVPUoQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z3zSgQ6ZEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_z3qvoQ6ZEemEMM6YGVPUoQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_z3qvog6ZEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z3qvow6ZEemEMM6YGVPUoQ" points="[0, 0, 28, 60]$[-28, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z38ccA6ZEemEMM6YGVPUoQ" id="(0.4931506849315068,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z38ccQ6ZEemEMM6YGVPUoQ" id="(0.49411764705882355,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_9LgSgA6ZEemEMM6YGVPUoQ" type="4001" element="_9LKUQA6ZEemEMM6YGVPUoQ" source="_9LdPMA6ZEemEMM6YGVPUoQ" target="_w2M_MA6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_9LgShA6ZEemEMM6YGVPUoQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LgShQ6ZEemEMM6YGVPUoQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9LgShg6ZEemEMM6YGVPUoQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LgShw6ZEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9LgSiA6ZEemEMM6YGVPUoQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LgSiQ6ZEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_9LgSgQ6ZEemEMM6YGVPUoQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_9LgSgg6ZEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9LgSgw6ZEemEMM6YGVPUoQ" points="[15, 0, -204, -12]$[219, 12, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9Lg5kA6ZEemEMM6YGVPUoQ" id="(0.2054794520547945,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9Lg5kQ6ZEemEMM6YGVPUoQ" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_9Lg5kg6ZEemEMM6YGVPUoQ" type="4001" element="_9LMwgA6ZEemEMM6YGVPUoQ" source="_9LcoIA6ZEemEMM6YGVPUoQ" target="_w2qSMA6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_9Lg5lg6ZEemEMM6YGVPUoQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9Lg5lw6ZEemEMM6YGVPUoQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9Lg5mA6ZEemEMM6YGVPUoQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9Lg5mQ6ZEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9Lg5mg6ZEemEMM6YGVPUoQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9Lg5mw6ZEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_9Lg5kw6ZEemEMM6YGVPUoQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_9Lg5lA6ZEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9Lg5lQ6ZEemEMM6YGVPUoQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9LhgoA6ZEemEMM6YGVPUoQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9LhgoQ6ZEemEMM6YGVPUoQ" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_9Lhgog6ZEemEMM6YGVPUoQ" type="4001" element="_9LMwgw6ZEemEMM6YGVPUoQ" source="_9LfEYw6ZEemEMM6YGVPUoQ" target="_9LdPMA6ZEemEMM6YGVPUoQ">
+          <children xmi:type="notation:Node" xmi:id="_9Lhgpg6ZEemEMM6YGVPUoQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9Lhgpw6ZEemEMM6YGVPUoQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9LhgqA6ZEemEMM6YGVPUoQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9LhgqQ6ZEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_9Lhgqg6ZEemEMM6YGVPUoQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9Lhgqw6ZEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_9Lhgow6ZEemEMM6YGVPUoQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_9LhgpA6ZEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9LhgpQ6ZEemEMM6YGVPUoQ" points="[-15, -3, 873, 168]$[-873, -169, 15, 2]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9LlyEA6ZEemEMM6YGVPUoQ" id="(0.05660377358490567,0.07772020725388601)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9LlyEQ6ZEemEMM6YGVPUoQ" id="(0.2054794520547945,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_KT5sKA6aEemEMM6YGVPUoQ" type="4001" element="_KT2Bww6aEemEMM6YGVPUoQ" source="_9LfEYw6ZEemEMM6YGVPUoQ" target="_w2nO4A6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_KT5sLA6aEemEMM6YGVPUoQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KT5sLQ6aEemEMM6YGVPUoQ" x="2" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_KT5sLg6aEemEMM6YGVPUoQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KT5sLw6aEemEMM6YGVPUoQ" x="4" y="-9"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_KT6TMA6aEemEMM6YGVPUoQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KT6TMQ6aEemEMM6YGVPUoQ" x="-2" y="-10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_KT5sKQ6aEemEMM6YGVPUoQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_KT5sKg6aEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KT5sKw6aEemEMM6YGVPUoQ" points="[-38, 15, 856, -72]$[-414, 165, 480, 78]$[-857, 93, 37, 6]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KT6TMg6aEemEMM6YGVPUoQ" id="(0.16037735849056603,0.07772020725388601)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KT6TMw6aEemEMM6YGVPUoQ" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_PVO4AA6aEemEMM6YGVPUoQ" type="4001" element="_PVMbwA6aEemEMM6YGVPUoQ" source="_w2nO4A6YEemXyPSKVzzorw" target="_w2qSMA6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_PVPfEA6aEemEMM6YGVPUoQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVPfEQ6aEemEMM6YGVPUoQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PVPfEg6aEemEMM6YGVPUoQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVPfEw6aEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PVPfFA6aEemEMM6YGVPUoQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVPfFQ6aEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_PVO4AQ6aEemEMM6YGVPUoQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_PVO4Ag6aEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PVO4Aw6aEemEMM6YGVPUoQ" points="[0, 0, -173, 60]$[172, -60, -1, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PVPfFg6aEemEMM6YGVPUoQ" id="(0.4931506849315068,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PVPfFw6aEemEMM6YGVPUoQ" id="(0.5052083333333334,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_PVPfGA6aEemEMM6YGVPUoQ" type="4001" element="_PVMbww6aEemEMM6YGVPUoQ" source="_9LZk0A6ZEemEMM6YGVPUoQ" target="_9LcoIA6ZEemEMM6YGVPUoQ">
+          <children xmi:type="notation:Node" xmi:id="_PVQGIA6aEemEMM6YGVPUoQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVQGIQ6aEemEMM6YGVPUoQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PVQGIg6aEemEMM6YGVPUoQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVQGIw6aEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PVQGJA6aEemEMM6YGVPUoQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVQGJQ6aEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_PVPfGQ6aEemEMM6YGVPUoQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_PVPfGg6aEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PVPfGw6aEemEMM6YGVPUoQ" points="[-1, 0, -1, 60]$[-1, -60, -1, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PVQGJg6aEemEMM6YGVPUoQ" id="(0.5067567567567568,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PVQGJw6aEemEMM6YGVPUoQ" id="(0.5067567567567568,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_PVQGKA6aEemEMM6YGVPUoQ" type="4001" element="_PVNC0g6aEemEMM6YGVPUoQ" source="_9LfEYw6ZEemEMM6YGVPUoQ" target="_w2nO4A6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_PVQtMQ6aEemEMM6YGVPUoQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVQtMg6aEemEMM6YGVPUoQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PVQtMw6aEemEMM6YGVPUoQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVQtNA6aEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PVQtNQ6aEemEMM6YGVPUoQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PVQtNg6aEemEMM6YGVPUoQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_PVQGKQ6aEemEMM6YGVPUoQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_PVQGKg6aEemEMM6YGVPUoQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PVQtMA6aEemEMM6YGVPUoQ" points="[0, 0, 793, 33]$[-793, -33, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PVQtNw6aEemEMM6YGVPUoQ" id="(0.16037735849056603,0.07772020725388601)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PVQtOA6aEemEMM6YGVPUoQ" id="(0.5,0.5)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_w1X4xA6YEemXyPSKVzzorw" name="Leaf1" incomingEdges="_z3S8MA6ZEemEMM6YGVPUoQ _9LKUQA6ZEemEMM6YGVPUoQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="refLang:Leaf" href="test1.reflang#//@contents.0"/>
+      <semanticElements xmi:type="refLang:Leaf" href="test1.reflang#//@contents.0"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="__4WvwA6YEemXyPSKVzzorw" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_w1X4xg6YEemXyPSKVzzorw" name="Leaf2" outgoingEdges="_z3S8MA6ZEemEMM6YGVPUoQ _PVMbwA6aEemEMM6YGVPUoQ" incomingEdges="_KT2Bww6aEemEMM6YGVPUoQ _PVNC0g6aEemEMM6YGVPUoQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="refLang:Leaf" href="test1.reflang#//@contents.1"/>
+      <semanticElements xmi:type="refLang:Leaf" href="test1.reflang#//@contents.1"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="__4XW0A6YEemXyPSKVzzorw" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_w1X4zA6YEemXyPSKVzzorw" name="Cont1" incomingEdges="_9LMwgA6ZEemEMM6YGVPUoQ _PVMbwA6aEemEMM6YGVPUoQ">
+      <target xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.2"/>
+      <semanticElements xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.2"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_w1X4zQ6YEemXyPSKVzzorw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_9LFbwA6ZEemEMM6YGVPUoQ" name="Cont1_1" outgoingEdges="_PVMbww6aEemEMM6YGVPUoQ">
+        <target xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.2/@subContents.0"/>
+        <semanticElements xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.2/@subContents.0"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_9LGC0A6ZEemEMM6YGVPUoQ" borderSize="1" borderSizeComputationExpression="1">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']"/>
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_9LH4AA6ZEemEMM6YGVPUoQ" name="Leaf_1_1" outgoingEdges="_9LKUQA6ZEemEMM6YGVPUoQ" incomingEdges="_9LMwgw6ZEemEMM6YGVPUoQ" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="refLang:Leaf" href="test1.reflang#//@contents.2/@subContents.0/@subContents.0"/>
+          <semanticElements xmi:type="refLang:Leaf" href="test1.reflang#//@contents.2/@subContents.0/@subContents.0"/>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_9LH4AQ6ZEemEMM6YGVPUoQ" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_9LGp4A6ZEemEMM6YGVPUoQ" name="Cont1_2" outgoingEdges="_9LMwgA6ZEemEMM6YGVPUoQ" incomingEdges="_PVMbww6aEemEMM6YGVPUoQ">
+        <target xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.2/@subContents.1"/>
+        <semanticElements xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.2/@subContents.1"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_9LHQ8A6ZEemEMM6YGVPUoQ" borderSize="1" borderSizeComputationExpression="1">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_w1X41g6YEemXyPSKVzzorw" name="Cont2">
+      <target xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.3"/>
+      <semanticElements xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.3"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_w1X41w6YEemXyPSKVzzorw" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_9LJGIA6ZEemEMM6YGVPUoQ" name="Leaf2_1" outgoingEdges="_9LMwgw6ZEemEMM6YGVPUoQ _KT2Bww6aEemEMM6YGVPUoQ _PVNC0g6aEemEMM6YGVPUoQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="refLang:Leaf" href="test1.reflang#//@contents.3/@subContents.0"/>
+        <semanticElements xmi:type="refLang:Leaf" href="test1.reflang#//@contents.3/@subContents.0"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_9LJGIQ6ZEemEMM6YGVPUoQ" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_z3S8MA6ZEemEMM6YGVPUoQ" sourceNode="_w1X4xg6YEemXyPSKVzzorw" targetNode="_w1X4xA6YEemXyPSKVzzorw">
+      <target xmi:type="refLang:Reference" href="test1.reflang#//@contents.1/@references.0"/>
+      <semanticElements xmi:type="refLang:Reference" href="test1.reflang#//@contents.1/@references.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_z3V_gA6ZEemEMM6YGVPUoQ" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_z3V_gQ6ZEemEMM6YGVPUoQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_9LKUQA6ZEemEMM6YGVPUoQ" sourceNode="_9LH4AA6ZEemEMM6YGVPUoQ" targetNode="_w1X4xA6YEemXyPSKVzzorw">
+      <target xmi:type="refLang:Reference" href="test1.reflang#//@contents.2/@subContents.0/@subContents.0/@references.0"/>
+      <semanticElements xmi:type="refLang:Reference" href="test1.reflang#//@contents.2/@subContents.0/@subContents.0/@references.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_9LLiYA6ZEemEMM6YGVPUoQ" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_9LLiYQ6ZEemEMM6YGVPUoQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_9LMwgA6ZEemEMM6YGVPUoQ" sourceNode="_9LGp4A6ZEemEMM6YGVPUoQ" targetNode="_w1X4zA6YEemXyPSKVzzorw">
+      <target xmi:type="refLang:Reference" href="test1.reflang#//@contents.2/@subContents.1/@references.0"/>
+      <semanticElements xmi:type="refLang:Reference" href="test1.reflang#//@contents.2/@subContents.1/@references.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_9LMwgQ6ZEemEMM6YGVPUoQ" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_9LMwgg6ZEemEMM6YGVPUoQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_9LMwgw6ZEemEMM6YGVPUoQ" sourceNode="_9LJGIA6ZEemEMM6YGVPUoQ" targetNode="_9LH4AA6ZEemEMM6YGVPUoQ">
+      <target xmi:type="refLang:Reference" href="test1.reflang#//@contents.3/@subContents.0/@references.0"/>
+      <semanticElements xmi:type="refLang:Reference" href="test1.reflang#//@contents.3/@subContents.0/@references.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_9LNXkA6ZEemEMM6YGVPUoQ" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_9LNXkQ6ZEemEMM6YGVPUoQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_KT2Bww6aEemEMM6YGVPUoQ" sourceNode="_9LJGIA6ZEemEMM6YGVPUoQ" targetNode="_w1X4xg6YEemXyPSKVzzorw">
+      <target xmi:type="refLang:Reference" href="test1.reflang#//@contents.3/@subContents.0/@references.1"/>
+      <semanticElements xmi:type="refLang:Reference" href="test1.reflang#//@contents.3/@subContents.0/@references.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_KT2BxA6aEemEMM6YGVPUoQ" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_KT2BxQ6aEemEMM6YGVPUoQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_PVMbwA6aEemEMM6YGVPUoQ" sourceNode="_w1X4xg6YEemXyPSKVzzorw" targetNode="_w1X4zA6YEemXyPSKVzzorw">
+      <target xmi:type="refLang:Reference3" href="test1.reflang#//@contents.1/@references3.0"/>
+      <semanticElements xmi:type="refLang:Reference3" href="test1.reflang#//@contents.1/@references3.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_PVMbwQ6aEemEMM6YGVPUoQ" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='Reference3Edge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_PVMbwg6aEemEMM6YGVPUoQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='Reference3Edge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_PVMbww6aEemEMM6YGVPUoQ" sourceNode="_9LFbwA6ZEemEMM6YGVPUoQ" targetNode="_9LGp4A6ZEemEMM6YGVPUoQ">
+      <target xmi:type="refLang:Reference3" href="test1.reflang#//@contents.2/@subContents.0/@references3.0"/>
+      <semanticElements xmi:type="refLang:Reference3" href="test1.reflang#//@contents.2/@subContents.0/@references3.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_PVNC0A6aEemEMM6YGVPUoQ" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='Reference3Edge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_PVNC0Q6aEemEMM6YGVPUoQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='Reference3Edge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_PVNC0g6aEemEMM6YGVPUoQ" sourceNode="_9LJGIA6ZEemEMM6YGVPUoQ" targetNode="_w1X4xg6YEemXyPSKVzzorw">
+      <target xmi:type="refLang:Reference3" href="test1.reflang#//@contents.3/@subContents.0/@references3.0"/>
+      <semanticElements xmi:type="refLang:Reference3" href="test1.reflang#//@contents.3/@subContents.0/@references3.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_PVNC0w6aEemEMM6YGVPUoQ" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='Reference3Edge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_PVNC1A6aEemEMM6YGVPUoQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='Reference3Edge']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_w1X44A6YEemXyPSKVzzorw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer"/>
+    <target xmi:type="refLang:Container" href="test1.reflang#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

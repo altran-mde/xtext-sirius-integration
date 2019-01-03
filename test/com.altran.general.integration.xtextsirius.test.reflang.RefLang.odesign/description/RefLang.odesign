@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram-xtext="http://altran.com/general/integration/xtextsirius/model/diagram/1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="RefLang" version="12.0.0.2017041100">
+  <ownedViewpoints name="RefLangRep" modelFileExtension="reflang">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="RefLangDiag" domainClass="refLang::Container" enablePopupBars="true">
+      <metamodel href="http://www.altran.com/general/integration/xtextsirius/test/reflang/RefLang#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="LeafNode" labelDirectEdit="//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@toolSections.0/@ownedTools[name='DirectEditReference']" semanticCandidatesExpression="aql:self.eContents()" domainClass="refLang::Leaf">
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="ReferenceEdge" sourceMapping="//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode'] //@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']" targetMapping="//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode'] //@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']" targetFinderExpression="feature:target" sourceFinderExpression="aql:self.eContainer()" domainClass="refLang::Reference" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Reference3Edge" sourceMapping="//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode'] //@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']" targetMapping="//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode'] //@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']" targetFinderExpression="feature:target3" sourceFinderExpression="aql:self.eContainer()" domainClass="refLang::Reference3" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="SubContainerNode" labelDirectEdit="//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@toolSections.0/@ownedTools[name='DirectEditReference']" semanticCandidatesExpression="aql:self.eContents()" domainClass="refLang::SubContainer" reusedNodeMappings="//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']" reusedContainerMappings="//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@containerMappings[name='SubContainerNode']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="DirectEditReference" injectorId="com.altran.general.integration.xtextsirius.test.reflang.ui.RefLangInjectorId" multiLine="true">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue"/>
+            </initialOperation>
+            <editableFeatures>References.references</editableFeatures>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
