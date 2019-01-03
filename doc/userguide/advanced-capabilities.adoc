@@ -88,11 +88,11 @@ To fix this, register the following classes to the editing language:
 public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl.AbstractInlineEditRuntimeModule {
 
 	public Class<? extends IHiddenTokenSequencer> bindIHiddenTokenSequencer() {
-		return com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer.class;
+		return com.altran.general.integration.xtextsirius.runtime.serializer.ForceWhitespaceBetweenKeywordsHiddenTokenSequencer.class;
 	}
 
 	public Class<? extends TextRegionAccessBuilder> bindTextRegionAccessBuilder() {
-		return com.altran.general.integration.xtextsirius.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder.class;
+		return com.altran.general.integration.xtextsirius.runtime.serializer.ForceWhitespaceBetweenKeywordsTextRegionAccessBuilder.class;
 	}
 	
 }
