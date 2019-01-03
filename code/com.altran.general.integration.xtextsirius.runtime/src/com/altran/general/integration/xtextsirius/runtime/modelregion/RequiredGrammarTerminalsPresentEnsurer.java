@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.modelregion;
@@ -45,13 +45,13 @@ import com.google.common.collect.Sets;
  */
 @SuppressWarnings("restriction")
 public class RequiredGrammarTerminalsPresentEnsurer {
-	
+
 	private final EObject element;
 	private final EStructuralFeature feature;
-	
+
 	protected ITextRegionAccess rootRegion;
 	protected StringBuffer allText;
-	
+
 	protected IEObjectRegion elementRegion;
 	protected AbstractElement grammarElement;
 	protected List<@NonNull AbstractElement> containedElementPath;
@@ -60,7 +60,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	protected List<AbstractElement> elementsBefore;
 	protected List<AbstractElement> elementsAfter;
 	protected ParentMap parentMap;
-	
+
 	public RequiredGrammarTerminalsPresentEnsurer(
 			final @NonNull EObject element,
 			final @NonNull EStructuralFeature feature,
@@ -71,66 +71,66 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		this.rootRegion = rootRegion;
 		this.allText = allText;
 	}
-	
+
 	public @NonNull TextRegion ensure() {
 		validate();
-		
+
 		collectBeforeAndAfter();
-		
+
 		calculateParentMap();
-		
+
 		final int offset = calculateOffsetForInsertion();
-		
+
 		return prepareTextRegion(offset);
 	}
-	
+
 	protected TextRegion prepareTextRegion(final int offset) {
 		final String beforeText = collectToTerminalText(this.elementsBefore);
 		final String afterText = collectToTerminalText(this.elementsAfter);
-		
+
 		this.allText.insert(offset, afterText);
 		this.allText.insert(offset, beforeText);
-		
+
 		return new TextRegion(offset + beforeText.length(), 0);
 	}
-	
+
 	protected int calculateOffsetForInsertion() {
 		final Set<@NonNull ISemanticRegion> regionsOfContainedElements = findRegionsOfContainedElements();
-		
+
 		int offset;
-		
+
 		final List<@NonNull AbstractElement> ruleLeafs = orderRuleLeafs(
 				GrammarUtil.containingRule(this.containedElement));
-		
+
 		final AbstractElement containedElementLeaf = findFirstLeaf(this.containedElement, ruleLeafs);
 		final int indexOfContainedElementLeaf = ruleLeafs.indexOf(containedElementLeaf);
-		
+
 		// this is probably only a workaround, but it works for the current test
 		// cases and abstract reasoning about possible grammars and token
 		// streams is hard /-:
 		if (regionsOfContainedElements.size() == 1) {
 			offset = calculateOffsetFromSingleCandidate(regionsOfContainedElements, ruleLeafs,
 					indexOfContainedElementLeaf);
-			
+
 		} else {
 			offset = calculateOffsetFromMultipleCandidates(regionsOfContainedElements, ruleLeafs,
 					indexOfContainedElementLeaf);
 		}
 		return offset;
 	}
-	
+
 	protected int calculateOffsetFromMultipleCandidates(
 			final @NonNull Set<@NonNull ISemanticRegion> regionsOfContainedElements,
 			final @NonNull List<@NonNull AbstractElement> ruleLeafs,
 			final int indexOfContainedElementLeaf) {
-		
+
 		int offset;
 		final Set<Pair<AbstractElement, ISemanticRegion>> regionsBefore = regionsOfContainedElements.stream()
 				.filter(r -> !this.parentMap.containsGrammarElementDeep((AbstractElement) r.getGrammarElement(),
 						this.elementsAfter))
 				.map(r -> Tuples.pair(findFirstLeaf((AbstractElement) r.getGrammarElement(), ruleLeafs), r))
 				.collect(Collectors.toSet());
-		
+
 		final Set<@NonNull ISemanticRegion> regions = regionsBefore.stream()
 				.map(p -> p.getSecond())
 				.collect(Collectors.toSet());
@@ -147,12 +147,12 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		}
 		return offset;
 	}
-	
+
 	protected int calculateOffsetFromSingleCandidate(
 			final @NonNull Set<@NonNull ISemanticRegion> regionsOfContainedElements,
 			final @NonNull List<@NonNull AbstractElement> ruleLeafs,
 			final int indexOfContainedElementLeaf) {
-		
+
 		int offset;
 		final ISemanticRegion nearestRegion = regionsOfContainedElements.iterator().next();
 		final AbstractElement firstLeaf = findFirstLeaf((AbstractElement) nearestRegion.getGrammarElement(), ruleLeafs);
@@ -163,11 +163,11 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		}
 		return offset;
 	}
-	
+
 	protected void calculateParentMap() {
 		this.parentMap = new ParentMap(this.grammarElement, this.grammarElement);
 	}
-	
+
 	/**
 	 * Sort elements of {@code containingGroup} into {@code elementsBefore} or
 	 * {@code elementsAfter}, depending on their position relative to
@@ -176,9 +176,9 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	protected void collectBeforeAndAfter() {
 		this.elementsBefore = Lists.newArrayList();
 		this.elementsAfter = Lists.newArrayList();
-		
+
 		List<AbstractElement> currentList = this.elementsBefore;
-		
+
 		for (final AbstractElement ae : this.containingGroup.getElements()) {
 			if (ae == this.containedElement
 					|| EcoreUtil2.eAllContentsAsList(ae).contains(this.containedElement)) {
@@ -188,38 +188,38 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 			}
 		}
 	}
-	
+
 	protected void validate() {
 		if (this.element.eIsSet(this.feature)) {
 			throw new IllegalStateException("Feature " + this.feature + " is set in " + this.element);
 		}
-		
+
 		this.elementRegion = this.rootRegion.regionForEObject(this.element);
-		
+
 		if (!(this.elementRegion.getGrammarElement() instanceof RuleCall)) {
 			throw new IllegalArgumentException("element does not resolve to RuleCall grammar element: " + this.element);
 		}
-		
+
 		this.grammarElement = (RuleCall) this.elementRegion.getGrammarElement();
-		
+
 		this.containedElementPath = findContainedElementPath(this.grammarElement, this.feature);
-		
+
 		if (this.containedElementPath.isEmpty()) {
 			throw new IllegalArgumentException(
 					"Cannot find grammar element for feature " + this.feature + " in " + this.element);
 		}
-		
+
 		this.containedElement = Iterables.getLast(this.containedElementPath);
 		this.containingGroup = GrammarUtil.containingGroup(this.containedElement);
 		// 0-th entry must be == grammarElement, so we don't need it
 		this.containedElementPath.remove(0);
-		
+
 		if (this.containingGroup == null) {
 			throw new IllegalArgumentException("Cannot find containing group for grammar element of feature "
 					+ this.feature + " in " + this.element);
 		}
 	}
-	
+
 	/**
 	 * Finds the path through grammar from {@code abstractElement} to an
 	 * Assignment to {@code feature}.
@@ -227,16 +227,16 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	protected @NonNull List<@NonNull AbstractElement> findContainedElementPath(
 			final @NonNull AbstractElement abstractElement,
 			final @NonNull EStructuralFeature feature) {
-		
+
 		if (abstractElement instanceof Assignment) {
 			if (feature.getName().equals(((Assignment) abstractElement).getFeature())) {
 				return Collections.singletonList(abstractElement);
 			}
 		}
-		
+
 		if (abstractElement instanceof RuleCall) {
 			final AbstractElement alternatives = ((RuleCall) abstractElement).getRule().getAlternatives();
-			
+
 			final List<AbstractElement> alternativesResult = findContainedElementPath(alternatives, feature);
 			if (!alternativesResult.isEmpty()) {
 				final ArrayList<AbstractElement> result = Lists.newArrayList(alternativesResult);
@@ -244,7 +244,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 				return result;
 			}
 		}
-		
+
 		if (abstractElement instanceof CompoundElement) {
 			for (final AbstractElement alternative : ((CompoundElement) abstractElement).getElements()) {
 				final List<AbstractElement> alternativeResult = findContainedElementPath(alternative, feature);
@@ -255,10 +255,10 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 				}
 			}
 		}
-		
+
 		return Collections.emptyList();
 	}
-	
+
 	/**
 	 * Merges all terminals' values within {@code grammarElements}, or returns a
 	 * whitespace if there are no terminals.
@@ -268,21 +268,21 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 				.filter(e -> e instanceof Keyword)
 				.map(el -> ((Keyword) el).getValue())
 				.collect(Collectors.joining());
-		
+
 		if (!result.isEmpty()) {
 			return result;
 		}
-		
+
 		return getWhitespace(this.grammarElement);
 	}
-	
+
 	/**
 	 * Converts one path through the grammar tree to semanticRegions.
 	 */
 	protected @NonNull Set<@NonNull ISemanticRegion> findRegionsOfContainedElements() {
-		
+
 		final Set<@NonNull ISemanticRegion> result = Sets.newLinkedHashSet();
-		
+
 		final EObject grammarElement = this.elementRegion.getGrammarElement();
 		if (grammarElement instanceof AbstractElement) {
 			for (final ISemanticRegion region : this.elementRegion.getAllSemanticRegions()) {
@@ -295,21 +295,21 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 				}
 			}
 		}
-		
+
 		return result;
 	}
-	
+
 	/**
 	 * Returns a ordered list of all leafs contained in a grammar model rule.
 	 */
 	protected @NonNull List<@NonNull AbstractElement> orderRuleLeafs(final @NonNull AbstractRule rule) {
 		final ArrayList<@NonNull AbstractElement> result = Lists.newArrayList();
-		
+
 		orderGrammar(rule.getAlternatives(), result);
-		
+
 		return result;
 	}
-	
+
 	protected void orderGrammar(final @NonNull AbstractElement el, final @NonNull List<@NonNull AbstractElement> list) {
 		final EList<EObject> contents = el.eContents();
 		if (contents.isEmpty()) {
@@ -322,7 +322,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 			}
 		}
 	}
-	
+
 	/**
 	 * Finds first parent of {@code el} contained in {@code leafs}.
 	 */
@@ -332,11 +332,11 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		final AbstractElement firstLeaf = leafs.stream()
 				.filter(e -> allParents.contains(e))
 				.findFirst()
-				.get();
-		
+				.orElse(leafs.iterator().next());
+
 		return firstLeaf;
 	}
-	
+
 	/**
 	 * Extracts a valid whitespace character from the grammar.
 	 */
@@ -346,5 +346,5 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 						Keyword.class)
 				.iterator().next().getValue();
 	}
-	
+
 }

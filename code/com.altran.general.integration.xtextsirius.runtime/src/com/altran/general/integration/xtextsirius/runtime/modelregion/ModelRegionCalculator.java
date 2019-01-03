@@ -1,14 +1,15 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.modelregion;
 
+import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
@@ -200,6 +201,12 @@ public class ModelRegionCalculator {
 						final Object child = semanticElement.eGet(feature);
 						if (child instanceof EObject) {
 							return Streams.stream(rootRegion.regionForEObject((EObject) child).getAllSemanticRegions());
+						} else if (child instanceof Collection) {
+							return ((Collection<?>) child).stream()
+									.filter(EObject.class::isInstance)
+									.map(EObject.class::cast)
+									.flatMap(e -> Streams
+											.stream(rootRegion.regionForEObject(e).getAllSemanticRegions()));
 						} else {
 							return Stream.of();
 						}
