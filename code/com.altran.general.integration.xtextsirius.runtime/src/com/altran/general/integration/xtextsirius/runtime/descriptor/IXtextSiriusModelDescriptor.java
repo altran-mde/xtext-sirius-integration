@@ -7,17 +7,13 @@ import org.eclipse.jdt.annotation.NonNull;
 
 public interface IXtextSiriusModelDescriptor extends IXtextSiriusDescriptor {
 
-	@NonNull
-	Set<@NonNull String> getEditableFeatures();
+	public @NonNull Set<@NonNull String> getEditableFeatures();
 
-	@NonNull
-	Set<@NonNull String> getSelectedFeatures();
+	public @NonNull Set<@NonNull String> getSelectedFeatures();
 
-	@NonNull
-	Set<@NonNull String> getIgnoredNestedFeatures();
+	public @NonNull Set<@NonNull String> getIgnoredNestedFeatures();
 
-	String getPrefixTerminalsExpression();
+	public @NonNull String getPrefixTerminalsExpression();
 
-	String getSuffixTerminalsExpression();
-
+	public @NonNull String getSuffixTerminalsExpression();
 }

@@ -9,31 +9,58 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.value;
 
+import org.apache.commons.lang.StringUtils;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusValueEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusValueEditor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueEditpartDescriptor;
 
 public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor
-		implements IXtextSiriusDescribable {
-	
+		implements IXtextSiriusValueEditorCallback {
+
 	private final @NonNull EStructuralFeature valueFeature;
-	
+
 	public XtextSiriusStyledTextCellEditorValue(
 			final @NonNull XtextSiriusValueEditpartDescriptor descriptor, final @NonNull EStructuralFeature valueFeature) {
-		super(descriptor, new XtextSiriusValueEditor(descriptor, valueFeature));
+		super(descriptor, new XtextSiriusValueEditor(descriptor));
 		this.valueFeature = valueFeature;
 	}
+
+	@Override
+	protected void doSetValue(final Object value) {
+		if (value instanceof String) {
+			String newText = (String) value;
+			if (StringUtils.isBlank(newText)) {
+				newText = retrieveValueFromModel(newText);
+			}
+			
+			super.doSetValue(newText);
+		}
+	}
+	
+	protected @Nullable String retrieveValueFromModel(final @Nullable String newText) {
+		final EObject semanticElement = getSemanticElement();
+		
+		String result = newText;
+		if (semanticElement != null) {
+			result = StringUtils.defaultString((String) semanticElement.eGet(getValueFeature()));
+		}
+		return result;
+	}
+	
 	
 	@Override
 	public @NonNull XtextSiriusValueEditpartDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusValueEditpartDescriptor) super.getDescriptor();
 	}
-	
-	protected EStructuralFeature getValueFeature() {
+
+	@Override
+	public EStructuralFeature getValueFeature() {
 		return this.valueFeature;
 	}
 }

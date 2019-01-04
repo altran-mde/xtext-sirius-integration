@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport
  com.google.guava,
  com.altran.general.integration.google.guava.patch,
  org.eclipse.xtext,
- com.altran.general.integration.xtextsirius.model.xtext
+ com.altran.general.integration.xtextsirius.model.xtext,
+ com.altran.general.integration.xtextsirius.model.eef
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.runtime,

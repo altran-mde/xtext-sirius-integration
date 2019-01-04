@@ -13,11 +13,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.jface.text.IDocumentExtension4;
-import org.eclipse.jface.text.IRegion;
 import org.eclipse.swt.SWT;
-import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.util.TextRegion;
 import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
 import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
@@ -26,19 +23,20 @@ import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEdi
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
-import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
-import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
-import com.google.common.collect.Lists;
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx
 implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	private final IXtextSiriusEditpartDescriptor descriptor;
+	@SuppressWarnings("rawtypes")
 	private final AXtextSiriusEditor editor;
 	
 	private long modificationStamp = IDocumentExtension4.UNKNOWN_MODIFICATION_STAMP;
 	
+	@SuppressWarnings("unchecked")
 	public AXtextSiriusStyledTextCellEditor(
-			final @NonNull IXtextSiriusEditpartDescriptor descriptor, final @NonNull AXtextSiriusEditor editor) {
+			final @NonNull IXtextSiriusEditpartDescriptor descriptor,
+			@SuppressWarnings("rawtypes") final @NonNull AXtextSiriusEditor editor) {
 		super(translateToStyle(descriptor), descriptor.getInjector());
 		this.descriptor = descriptor;
 		this.editor = editor;
@@ -65,43 +63,24 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	}
 
 	@Override
-	public void callbackSetValue(final Object value) {
+	public void callbackSetValue(final Object value, final int offset, final int length) {
 		super.doSetValue(value);
-	}
-
-	@Override
-	public void resetVisibleRegion() {
 		getXtextAdapter().resetVisibleRegion();
-	}
+		setVisibleRegion(offset, length);
+		final EObject element = getSemanticElement();
+		final XtextResource fakeResource = getXtextAdapter().getFakeResourceContext().getFakeResource();
+		if (element != null) {
+			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
+		} else {
+			final EObject fallback = getFallbackContainer();
+			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
+		}
 
-	@Override
-	public XtextResource getFakeResource() {
-		return getXtextAdapter().getFakeResourceContext().getFakeResource();
-	}
-	
-	@Override
-	public void updateFakeResourceContext() {
 		getXtextAdapter().getFakeResourceContext().updateFakeResourceContext(createXtextFakeContextResourcesProvider());
+		
+		resetDirty();
 	}
 
-	@Override
-	public IParseResult getXtextParseResult() {
-		return getXtextAdapter().getXtextParseResult();
-	}
-	
-	@Override
-	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
-		final IRegion visibleRegionJFace = getXtextAdapter().getVisibleRegion();
-		final TextRegion visibleRegion = new TextRegion(visibleRegionJFace.getOffset(), visibleRegionJFace.getLength());
-		return new XtextSiriusSyntaxErrorException((String) getValue(), visibleRegion,
-				Lists.newArrayList(parseResult.getSyntaxErrors()));
-	}
-	
-	@Override
-	public XtextSiriusErrorException handleUnresolvableProxies() {
-		return new XtextSiriusErrorException("Entered text contains unresolvable references", (String) getValue());
-	}
-	
 	protected IXtextFakeContextResourcesProvider createXtextFakeContextResourcesProvider() {
 		final ResourceSetFakeContextResourcesProvider result = new ResourceSetFakeContextResourcesProvider(this);
 		getInjector().injectMembers(result);
@@ -134,8 +113,7 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		return getEditor().getFallbackContainer();
 	}
 	
-	@Override
-	public void resetDirty() {
+	protected void resetDirty() {
 		this.modificationStamp = retrieveModificationStamp();
 	}
 	
@@ -153,6 +131,7 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		return this.descriptor;
 	}
 
+	@SuppressWarnings("rawtypes")
 	protected AXtextSiriusEditor getEditor() {
 		return this.editor;
 	}

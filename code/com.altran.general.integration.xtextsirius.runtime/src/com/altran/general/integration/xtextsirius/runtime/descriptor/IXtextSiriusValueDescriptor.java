@@ -5,10 +5,8 @@ import org.eclipse.jdt.annotation.NonNull;
 
 public interface IXtextSiriusValueDescriptor extends IXtextSiriusDescriptor {
 
-	@NonNull
-	String getPrefixTextExpression();
+	public @NonNull String getPrefixTextExpression();
 
-	@NonNull
-	String getSuffixTextExpression();
+	public @NonNull String getSuffixTextExpression();
 
 }

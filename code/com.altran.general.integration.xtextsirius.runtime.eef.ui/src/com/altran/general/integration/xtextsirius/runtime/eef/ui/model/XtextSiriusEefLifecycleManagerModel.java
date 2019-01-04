@@ -1,162 +1,51 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.eef.ui.model;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.function.Consumer;
 
-import org.apache.commons.lang.StringUtils;
-import org.eclipse.eef.common.ui.api.IEEFFormContainer;
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.jface.text.IRegion;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.statushandlers.StatusManager;
+import org.eclipse.xtext.parser.IParseResult;
+import org.eclipse.xtext.ui.editor.model.XtextDocument;
+import org.eclipse.xtext.util.TextRegion;
 
-import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription;
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
-import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusController;
-import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
-import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
-import com.google.inject.Injector;
+import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusWidget;
+import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
+import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
+import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
+import com.google.common.collect.Lists;
 
-public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycleManager {
-	private final Set<@NonNull String> editableFeatures;
-	private final Set<@NonNull String> ignoredNestedFeatuers;
-	
-	private final @Nullable String prefixTerminalsExpression;
-	private final @Nullable String suffixTerminalsExpression;
-	
+public class XtextSiriusEefLifecycleManagerModel
+extends AXtextSiriusEefLifecycleManager<IXtextSiriusModelEditorCallback, XtextSiriusModelEditor>
+implements IXtextSiriusModelEditorCallback {
 	public XtextSiriusEefLifecycleManagerModel(
-			final @NonNull Injector injector,
-			final boolean shouldUseSpecializedInjector,
-			final @NonNull IEefXtextModelDescription controlDescription,
+			final @NonNull IXtextSiriusModelDescriptor descriptor,
+			final @NonNull IEefXtextDescription controlDescription,
 			final @NonNull IVariableManager variableManager,
 			final @NonNull IInterpreter interpreter,
 			final @NonNull EditingContextAdapter contextAdapter) {
-		super(injector, shouldUseSpecializedInjector, controlDescription, variableManager, interpreter, contextAdapter);
-		
-		this.editableFeatures = controlDescription.getEditableFeatures().stream()
-				.filter(StringUtils::isNotBlank)
-				.map(e -> StringUtils.substringAfterLast(e, "."))
-				.collect(Collectors.toSet());
-
-		this.ignoredNestedFeatuers = controlDescription.getIgnoredNestedFeatures().stream()
-				.filter(StringUtils::isNotBlank)
-				.collect(Collectors.toSet());
-		
-		
-		this.prefixTerminalsExpression = controlDescription.getPrefixTerminalsExpression();
-		this.suffixTerminalsExpression = controlDescription.getSuffixTerminalsExpression();
-	}
-	
-	@Override
-	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
-		this.widget = new XtextSiriusWidgetModel(parent, getInjector(), isMultiLine());
-		applyGridData(getWidget().getControl());
-		
-		this.controller = new XtextSiriusController(this.controlDescription, this.variableManager, this.interpreter,
-				this.contextAdapter);
-	}
-	
-	@Override
-	public void dispose() {
-		super.dispose();
-	}
-	
-	@Override
-	public void aboutToBeShown() {
-		super.aboutToBeShown();
-		
-		this.newValueConsumer = (newValue) -> {
-			ModelRegionEditorPreparer preparer = null;
-			URI resourceUri = null;
-			
-			if (newValue instanceof EObject) {
-				final EObject semanticElement = (EObject) newValue;
-				preparer = new ModelRegionEditorPreparer(getInjector(), semanticElement);
-				
-				resourceUri = semanticElement.eResource().getURI();
-				
-			} else if (newValue == null) {
-				final EObject self = getSelf();
-				if (self != null) {
-					final EStructuralFeature feature = getEditFeature(self);
-					if (feature != null) {
-						preparer = new ModelRegionEditorPreparer(getInjector(), null, self, feature);
-						
-						resourceUri = self.eResource().getURI();
-					}
-				}
-			}
-			
-			if (preparer != null && resourceUri != null) {
-				preparer.setMultiLine(isMultiLine());
-				preparer.setEditableFeatures(getEditableFeatures());
-				preparer.setIgnoredNestedFeatures(getIgnoredNestedFeatures());
-				
-				final String prefixText = interpret(getPrefixTerminalsExpression());
-				preparer.setPrefixText(prefixText);
-				final String suffixText = interpret(getSuffixTerminalsExpression());
-				preparer.setSuffixText(suffixText);
-
-				getWidget().updateUri(resourceUri);
-				getWidget().update(preparer.getText(), preparer.getSemanticElementLocation(), preparer.getTextRegion());
-			}
-			
-		};
-		this.controller.onNewValue(this.newValueConsumer);
-		
-	}
-	
-	private @NonNull Set<@NonNull String> getEditableFeatures() {
-		return this.editableFeatures;
-	}
-	
-	private @NonNull Set<@NonNull String> getIgnoredNestedFeatures() {
-		return this.ignoredNestedFeatuers;
-	}
-	
-	@SuppressWarnings("restriction")
-	protected EStructuralFeature getEditFeature(final @NonNull EObject self) {
-		final String PREFIX = org.eclipse.sirius.common.tools.internal.interpreter.FeatureInterpreter.PREFIX;
-		
-		// we're using valueExpression (instead of EditExpression) as there is
-		// no field to explicitly set the editExpression in odesign model.
-		final String valueExpression = getWidgetDescription().getValueExpression();
-		if (StringUtils.startsWith(valueExpression, PREFIX)) {
-			final String featureName = valueExpression.substring(PREFIX.length());
-			final EStructuralFeature feature = self.eClass().getEStructuralFeature(featureName);
-			return feature;
-		}
-		
-		return null;
-	}
-	
-	
-	@Override
-	public void aboutToBeHidden() {
-		if (getWidget().isDirty()) {
-			EObject semanticElement = getWidget().getSemanticElement();
-			if (semanticElement != null) {
-				semanticElement = FakeResourceUtil.getInstance().proxify(semanticElement, EcoreUtil.getURI(getSelf()));
-			}
-			
-			commit(semanticElement);
-		}
-		super.aboutToBeHidden();
+		super(new XtextSiriusModelEditor(descriptor), descriptor, controlDescription, variableManager, interpreter,
+				contextAdapter);
 	}
 	
 	@Override
@@ -164,11 +53,57 @@ public class XtextSiriusEefLifecycleManagerModel extends AXtextSiriusEefLifecycl
 		return (XtextSiriusWidgetModel) super.getWidget();
 	}
 	
-	protected String getPrefixTerminalsExpression() {
-		return this.prefixTerminalsExpression;
+	@Override
+	public IParseResult getXtextParseResult() {
+		final XtextDocument document = getWidget().getDocument();
+		return document.readOnly(state -> state.getParseResult());
+	}
+
+	@Override
+	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
+		final IRegion visibleRegionJFace = getWidget().getViewer().getVisibleRegion();
+		final TextRegion visibleRegion = new TextRegion(visibleRegionJFace.getOffset(), visibleRegionJFace.getLength());
+		return handleXtextSiriusIssueException(new XtextSiriusSyntaxErrorException((String) getValue(), visibleRegion,
+				Lists.newArrayList(parseResult.getSyntaxErrors())));
 	}
 	
-	protected String getSuffixTerminalsExpression() {
-		return this.suffixTerminalsExpression;
+	@Override
+	public XtextSiriusErrorException handleUnresolvableProxies() {
+		return handleXtextSiriusIssueException(
+				new XtextSiriusErrorException("Entered text contains unresolvable references", (String) getValue()));
+	}
+
+	@Override
+	protected Consumer<Object> createNewValueConsumer() {
+		return (newValue) -> {
+			URI resourceUri = null;
+			if (newValue instanceof EObject) {
+				final EObject semanticElement = (EObject) newValue;
+
+				resourceUri = semanticElement.eResource().getURI();
+				getEditor().setSemanticElement(semanticElement);
+			} else if (newValue == null) {
+				final EObject self = getSelf();
+				if (self != null) {
+					resourceUri = self.eResource().getURI();
+					getEditor().setSemanticElement(self);
+				}
+			}
+
+			getEditor().doSetValue(newValue);
+			
+			
+			getWidget().updateUri(resourceUri);
+		};
+	}
+	
+	@Override
+	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
+		return new XtextSiriusWidgetModel(parent, getInjector());
+	}
+	
+	protected <E extends AXtextSiriusIssueException> E handleXtextSiriusIssueException(final E exception) {
+		StatusManager.getManager().handle(exception.toStatus(), StatusManager.SHOW);
+		return exception;
 	}
 }

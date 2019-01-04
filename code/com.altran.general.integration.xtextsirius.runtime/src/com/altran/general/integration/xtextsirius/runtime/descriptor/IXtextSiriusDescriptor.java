@@ -6,10 +6,9 @@ import com.google.inject.Injector;
 
 
 public interface IXtextSiriusDescriptor {
-	
-	@NonNull
-	Injector getInjector();
-	
+
+	public @NonNull Injector getInjector();
+
 	boolean isMultiLine();
-	
+
 }

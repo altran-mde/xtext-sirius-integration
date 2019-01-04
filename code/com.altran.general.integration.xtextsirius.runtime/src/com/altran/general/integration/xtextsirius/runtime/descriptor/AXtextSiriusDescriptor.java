@@ -11,23 +11,30 @@ package com.altran.general.integration.xtextsirius.runtime.descriptor;
 
 import org.eclipse.jdt.annotation.NonNull;
 
+import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription;
 import com.google.inject.Injector;
 
 public abstract class AXtextSiriusDescriptor implements IXtextSiriusDescriptor {
-	private final @NonNull Injector injector;
+	private final Injector injector;
 	private final boolean multiLine;
-	
+
 	public AXtextSiriusDescriptor(final @NonNull Injector injector, final @NonNull IXtextDescription description) {
 		this.injector = injector;
 		this.multiLine = description.isMultiLine();
 	}
-	
+
+	public AXtextSiriusDescriptor(final @NonNull Injector injector,
+			final @NonNull IEefXtextDescription description) {
+		this.injector = injector;
+		this.multiLine = description.isMultiLine();
+	}
+
 	@Override
-	public Injector getInjector() {
+	public @NonNull Injector getInjector() {
 		return this.injector;
 	}
-	
+
 	@Override
 	public boolean isMultiLine() {
 		return this.multiLine;
