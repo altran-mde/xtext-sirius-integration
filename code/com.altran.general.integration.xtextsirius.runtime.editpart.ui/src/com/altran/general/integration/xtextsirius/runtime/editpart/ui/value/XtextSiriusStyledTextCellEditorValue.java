@@ -1,75 +1,36 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.value;
 
-import org.apache.commons.lang.StringUtils;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.jdt.annotation.Nullable;
 
+import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusValueEditor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusValueDescribable;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueEditpartDescriptor;
 
 public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor
-		implements IXtextSiriusValueDescribable {
+		implements IXtextSiriusDescribable {
 	
 	private final @NonNull EStructuralFeature valueFeature;
 	
 	public XtextSiriusStyledTextCellEditorValue(
-			final @NonNull XtextSiriusValueDescriptor descriptor, final @NonNull EStructuralFeature valueFeature) {
-		super(descriptor);
+			final @NonNull XtextSiriusValueEditpartDescriptor descriptor, final @NonNull EStructuralFeature valueFeature) {
+		super(descriptor, new XtextSiriusValueEditor(descriptor, valueFeature));
 		this.valueFeature = valueFeature;
 	}
 	
 	@Override
-	protected void doSetValue(final Object value) {
-		if (value instanceof String) {
-			String newText = (String) value;
-			if (StringUtils.isBlank(newText)) {
-				newText = retrieveValueFromModel(newText);
-			}
-			
-			final StringBuffer text = new StringBuffer(newText);
-			StyledTextUtil.getInstance().removeNewlinesIfSingleLine(text, 0, text.length(), isMultiLine());
-			
-			getXtextAdapter().resetVisibleRegion();
-			final String prefixText = interpret(getDescriptor().getPrefixTextExpression());
-			final String suffixText = interpret(getDescriptor().getSuffixTextExpression());
-			super.doSetValue(prefixText + StyledTextUtil.getInstance().guessNewline(text.toString()) + text
-					+ suffixText);
-			
-			getXtextAdapter().setVisibleRegion(prefixText.length() + 1, text.length());
-		}
-	}
-	
-	protected @Nullable String retrieveValueFromModel(final @Nullable String newText) {
-		final EObject semanticElement = getSemanticElement();
-		
-		String result = newText;
-		if (semanticElement != null) {
-			result = StringUtils.defaultString((String) semanticElement.eGet(getValueFeature()));
-		}
-		return result;
-	}
-	
-	@Override
-	public @Nullable Object getValueToCommit() {
-		return getValue();
-	}
-	
-	@Override
-	public @NonNull XtextSiriusValueDescriptor getDescriptor() {
-		return (@NonNull XtextSiriusValueDescriptor) super.getDescriptor();
+	public @NonNull XtextSiriusValueEditpartDescriptor getDescriptor() {
+		return (@NonNull XtextSiriusValueEditpartDescriptor) super.getDescriptor();
 	}
 	
 	protected EStructuralFeature getValueFeature() {

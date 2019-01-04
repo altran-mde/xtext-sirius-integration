@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
@@ -19,17 +19,25 @@ import org.eclipse.swt.widgets.Composite;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 
 public abstract class XtextSiriusDirectEditManager extends XtextDirectEditManager implements IXtextSiriusDescribable {
-	private @NonNull final AXtextSiriusDescriptor descriptor;
+	private @NonNull final IXtextSiriusEditpartDescriptor descriptor;
 	
 	public XtextSiriusDirectEditManager(
 			final @NonNull IXtextAwareEditPart editPart,
-			final @NonNull AXtextSiriusDescriptor descriptor) {
-		super(editPart, descriptor.getInjector(), descriptor.translateToStyle());
+			final @NonNull IXtextSiriusEditpartDescriptor descriptor) {
+		super(editPart, descriptor.getInjector(), translateToStyle(descriptor));
 		this.descriptor = descriptor;
+	}
+	
+	private static int translateToStyle(final @NonNull IXtextSiriusEditpartDescriptor descriptor) {
+		if (descriptor.isMultiLine()) {
+			return SWT.MULTI | SWT.WRAP;
+		} else {
+			return SWT.SINGLE;
+		}
 	}
 	
 	@Override
@@ -76,7 +84,7 @@ public abstract class XtextSiriusDirectEditManager extends XtextDirectEditManage
 	}
 	
 	@Override
-	public @NonNull AXtextSiriusDescriptor getDescriptor() {
+	public @NonNull IXtextSiriusEditpartDescriptor getDescriptor() {
 		return this.descriptor;
 	}
 }

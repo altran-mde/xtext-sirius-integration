@@ -15,8 +15,4 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor
 
 public interface IXtextSiriusAwareLabelEditPart extends IXtextAwareEditPart, IXtextSiriusDescribable {
 	
-	// public @Nullable EObject getSemanticElement();
-	
-	// public @NonNull EObject getClosestExistingSemanticElement();
-	
 }

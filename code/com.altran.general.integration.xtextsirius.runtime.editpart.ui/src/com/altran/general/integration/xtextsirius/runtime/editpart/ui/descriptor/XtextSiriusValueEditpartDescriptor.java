@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor;
@@ -21,22 +21,19 @@ import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusValueDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditManager;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.value.XtextSiriusDirectEditManagerValue;
 import com.google.inject.Injector;
 
-public class XtextSiriusValueDescriptor extends AXtextSiriusDescriptor {
+public class XtextSiriusValueEditpartDescriptor extends XtextSiriusValueDescriptor
+		implements IXtextSiriusEditpartDescriptor {
 
-	private final @NonNull String prefixTextExpression;
-	private final @NonNull String suffixTextExpression;
-	
-	public XtextSiriusValueDescriptor(final @NonNull Injector injector,
+	public XtextSiriusValueEditpartDescriptor(final @NonNull Injector injector,
 			final @NonNull IXtextDirectEditValueDescription description) {
 		super(injector, description);
-		this.prefixTextExpression = description.getPrefixTextExpression();
-		this.suffixTextExpression = description.getSuffixTextExpression();
 	}
 
 	@Override
@@ -72,13 +69,5 @@ public class XtextSiriusValueDescriptor extends AXtextSiriusDescriptor {
 		}
 
 		throw new IllegalStateException("Cannot find SetValue operation for directEdit " + this);
-	}
-	
-	public @NonNull String getPrefixTextExpression() {
-		return this.prefixTextExpression;
-	}
-	
-	public @NonNull String getSuffixTextExpression() {
-		return this.suffixTextExpression;
 	}
 }

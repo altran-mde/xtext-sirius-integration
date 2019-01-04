@@ -15,14 +15,16 @@ Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport
  com.google.guava,
  com.altran.general.integration.google.guava.patch,
  org.eclipse.xtext,
- org.eclipse.jface.text
+ com.altran.general.integration.xtextsirius.model.xtext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.runtime,
+ com.altran.general.integration.xtextsirius.runtime.descriptor,
+ com.altran.general.integration.xtextsirius.runtime.editor,
  com.altran.general.integration.xtextsirius.runtime.exception,
+ com.altran.general.integration.xtextsirius.runtime.ignoredfeature,
+ com.altran.general.integration.xtextsirius.runtime.modelregion,
  com.altran.general.integration.xtextsirius.runtime.resource,
  com.altran.general.integration.xtextsirius.runtime.serializer,
  com.altran.general.integration.xtextsirius.runtime.task,
- com.altran.general.integration.xtextsirius.runtime.util,
- com.altran.general.integration.xtextsirius.runtime.ignoredfeature,
- com.altran.general.integration.xtextsirius.runtime.modelregion
+ com.altran.general.integration.xtextsirius.runtime.util
