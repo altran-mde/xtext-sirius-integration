@@ -1,28 +1,27 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde?>
-<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Xtext/Sirius Integration Target" sequenceNumber="1546433920">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde?><!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl --><target name="Xtext/Sirius Integration Target" sequenceNumber="1546599986">
   <locations>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.6.0.v20180527-1213"/>
       <unit id="org.eclipse.jdt.feature.group" version="3.14.0.v20180611-0500"/>
       <unit id="org.eclipse.xtext.sdk.feature.group" version="2.14.0.v20180523-0937"/>
       <unit id="org.eclipse.platform.feature.group" version="4.8.0.v20180611-0656"/>
       <repository location="http://download.eclipse.org/releases/photon"/>
     </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
       <unit id="com.google.guava.source" version="21.0.0.v20170206-1425"/>
       <unit id="com.google.inject" version="3.0.0.v201605172100"/>
       <unit id="com.google.inject.source" version="3.0.0.v201605172100"/>
+      <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
+      <unit id="org.apache.commons.lang3.source" version="3.1.0.v201403281430"/>
       <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository"/>
     </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.yakindu.base.xtext.utils.gmf.feature.group" version="3.4.3.201811121440"/>
       <unit id="org.yakindu.base.xtext.utils.jface.feature.group" version="3.4.3.201811121440"/>
       <repository location="http://updates.yakindu.com/statecharts/releases/"/>
     </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.sirius.doc.feature.feature.group" version="6.0.2.201809251458"/>
       <unit id="org.eclipse.sirius.doc.feature.source.feature.group" version="6.0.2.201809251458"/>
       <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="6.0.2.201809251458"/>

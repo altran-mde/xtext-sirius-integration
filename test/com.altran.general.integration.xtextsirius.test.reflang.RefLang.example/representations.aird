@@ -225,6 +225,22 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PVQtNw6aEemEMM6YGVPUoQ" id="(0.16037735849056603,0.07772020725388601)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PVQtOA6aEemEMM6YGVPUoQ" id="(0.5,0.5)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_3I6IwA9bEemG6Yu32J8WUw" type="4001" element="_3I0pMA9bEemG6Yu32J8WUw" source="_w2nO4A6YEemXyPSKVzzorw" target="_w2qSMA6YEemXyPSKVzzorw">
+          <children xmi:type="notation:Node" xmi:id="_3I6v0A9bEemG6Yu32J8WUw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3I6v0Q9bEemG6Yu32J8WUw" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_3I6v0g9bEemG6Yu32J8WUw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3I6v0w9bEemG6Yu32J8WUw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_3I6v1A9bEemG6Yu32J8WUw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3I6v1Q9bEemG6Yu32J8WUw" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_3I6IwQ9bEemG6Yu32J8WUw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_3I6Iwg9bEemG6Yu32J8WUw" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3I6Iww9bEemG6Yu32J8WUw" points="[0, 0, -101, 277]$[101, -277, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3I6v1g9bEemG6Yu32J8WUw" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3I6v1w9bEemG6Yu32J8WUw" id="(0.5,0.5)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_w1X4xA6YEemXyPSKVzzorw" name="Leaf1" incomingEdges="_z3S8MA6ZEemEMM6YGVPUoQ _9LKUQA6ZEemEMM6YGVPUoQ" width="3" height="3" resizeKind="NSEW">
@@ -235,7 +251,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_w1X4xg6YEemXyPSKVzzorw" name="Leaf2" outgoingEdges="_z3S8MA6ZEemEMM6YGVPUoQ _PVMbwA6aEemEMM6YGVPUoQ" incomingEdges="_KT2Bww6aEemEMM6YGVPUoQ _PVNC0g6aEemEMM6YGVPUoQ" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_w1X4xg6YEemXyPSKVzzorw" name="Leaf2" outgoingEdges="_z3S8MA6ZEemEMM6YGVPUoQ _PVMbwA6aEemEMM6YGVPUoQ _3I0pMA9bEemG6Yu32J8WUw" incomingEdges="_KT2Bww6aEemEMM6YGVPUoQ _PVNC0g6aEemEMM6YGVPUoQ" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="refLang:Leaf" href="test1.reflang#//@contents.1"/>
       <semanticElements xmi:type="refLang:Leaf" href="test1.reflang#//@contents.1"/>
       <ownedStyle xmi:type="diagram:Square" xmi:id="__4XW0A6YEemXyPSKVzzorw" labelPosition="node">
@@ -243,7 +259,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@nodeMappings[name='LeafNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_w1X4zA6YEemXyPSKVzzorw" name="Cont1" incomingEdges="_9LMwgA6ZEemEMM6YGVPUoQ _PVMbwA6aEemEMM6YGVPUoQ">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_w1X4zA6YEemXyPSKVzzorw" name="Cont1" incomingEdges="_9LMwgA6ZEemEMM6YGVPUoQ _PVMbwA6aEemEMM6YGVPUoQ _3I0pMA9bEemG6Yu32J8WUw">
       <target xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.2"/>
       <semanticElements xmi:type="refLang:SubContainer" href="test1.reflang#//@contents.2"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_w1X4zQ6YEemXyPSKVzzorw" borderSize="1" borderSizeComputationExpression="1">
@@ -365,6 +381,15 @@
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_PVNC1A6aEemEMM6YGVPUoQ"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='Reference3Edge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3I0pMA9bEemG6Yu32J8WUw" sourceNode="_w1X4xg6YEemXyPSKVzzorw" targetNode="_w1X4zA6YEemXyPSKVzzorw">
+      <target xmi:type="refLang:Reference" href="test1.reflang#//@contents.1/@references.1"/>
+      <semanticElements xmi:type="refLang:Reference" href="test1.reflang#//@contents.1/@references.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3I1QQA9bEemG6Yu32J8WUw" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3I1QQQ9bEemG6Yu32J8WUw"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']/@defaultLayer/@edgeMappings[name='ReferenceEdge']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/com.altran.general.integration.xtextsirius.test.reflang.RefLang.odesign/description/RefLang.odesign#//@ownedViewpoints[name='RefLangRep']/@ownedRepresentations[name='RefLangDiag']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_w1X44A6YEemXyPSKVzzorw"/>

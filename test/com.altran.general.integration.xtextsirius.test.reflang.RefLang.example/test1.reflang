@@ -1,8 +1,7 @@
 Leaf1
 
 Leaf2
-	1 -> Leaf1 / Leaf2
-	3 -> Cont1
+	1 -> Leaf1 / Leaf2 -> Leaf2 3 -> Cont1
 	
 Cont1 {
 	Cont1_1 {

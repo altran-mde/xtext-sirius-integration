@@ -18,6 +18,8 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2018060614512
 	com.google.guava.source
 	com.google.inject
 	com.google.inject.source
+	org.apache.commons.lang3
+	org.apache.commons.lang3.source
 }
 
 location "http://updates.yakindu.com/statecharts/releases/" {

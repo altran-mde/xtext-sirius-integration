@@ -47,6 +47,11 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue"/>
             </initialOperation>
+            <editableFeatures>Attribute.name</editableFeatures>
+            <editableFeatures>Attribute.visibility</editableFeatures>
+            <editableFeatures>Attribute.type</editableFeatures>
+            <editableFeatures>Attribute.lowerBound</editableFeatures>
+            <editableFeatures>Attribute.upperBound</editableFeatures>
             <selectedFeatures>Attribute.name</selectedFeatures>
           </ownedTools>
           <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="editAssociation" injectorId="com.example.classes.design.InlineClassesLanguageInjectorId" edgeLabelMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@edgeMappings[name='Association']/@style/@centerLabelStyleDescription">
