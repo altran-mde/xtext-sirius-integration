@@ -12,6 +12,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.ignored;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerContainment;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
@@ -59,9 +60,9 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends ATestEMergerCon
     EMerger<Element> _xblockexpression = null;
     {
       this.existing = existing;
-      Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+      IXtextSiriusModelDescriptor _createDescriptor = this.createDescriptor(CollectionLiterals.<String>emptySet(), this.nestedFeaturesToIgnore);
       URI _createURI = URI.createURI("resourceName.xmi#/42");
-      _xblockexpression = new EMerger<Element>(existing, _emptySet, this.nestedFeaturesToIgnore, _createURI);
+      _xblockexpression = new EMerger<Element>(_createDescriptor, existing, _createURI);
     }
     return _xblockexpression;
   }
@@ -71,9 +72,9 @@ public class TestEMergerContainmentIgnoredNestedFeatures extends ATestEMergerCon
     EMerger<Element> _xblockexpression = null;
     {
       this.existing = existing;
-      Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+      IXtextSiriusModelDescriptor _createDescriptor = this.createDescriptor(CollectionLiterals.<String>emptySet(), this.nestedFeaturesToIgnore);
       URI _createURI = URI.createURI("resourceName.xmi#/42");
-      _xblockexpression = new EMerger<Element>(existing, _emptySet, this.nestedFeaturesToIgnore, _createURI);
+      _xblockexpression = new EMerger<Element>(_createDescriptor, existing, _createURI);
     }
     return _xblockexpression;
   }

@@ -54,7 +54,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 
-		new EMerger(existing, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(editableFeatures, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	def createEMerger(T existing, EStructuralFeature feature) {
@@ -66,7 +66,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 		
-		new EMerger(existing, #{feature.name}, emptySet, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(#{feature.name}, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	def createEMerger(T existing, EStructuralFeature feature, Set<String> editableFeatures) {
@@ -78,7 +78,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 		
-		new EMerger(existing, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(editableFeatures, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	def void checkUntouchedFeatures() {

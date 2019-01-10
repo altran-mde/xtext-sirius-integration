@@ -20,7 +20,7 @@ class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
+		val preparer = new AccessibleModelRegionEditorPreparer(multilineDescriptor, event)
 
 		val resolved = preparer.resolveDefinedFeatures(event)
 
@@ -33,8 +33,7 @@ class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
-		preparer.editableFeatures = #{"name", "guard"}
+		val preparer = new AccessibleModelRegionEditorPreparer(editableFeatureDescriptor(#{"name", "guard"}), event)
 
 		val resolved = preparer.resolveDefinedFeatures(event)
 
@@ -48,8 +47,7 @@ class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
-		preparer.editableFeatures = #{"name", "code", "guard"}
+		val preparer = new AccessibleModelRegionEditorPreparer(editableFeatureDescriptor(#{"name", "code", "guard"}), event)
 
 		val resolved = preparer.resolveDefinedFeatures(event)
 
@@ -64,8 +62,7 @@ class TestResolveDefinedFeatures extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(1)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
-		preparer.editableFeatures = #{"name", "code", "guard"}
+		val preparer = new AccessibleModelRegionEditorPreparer(editableFeatureDescriptor(#{"name", "code", "guard"}), event)
 
 		val resolved = preparer.resolveDefinedFeatures(event)
 

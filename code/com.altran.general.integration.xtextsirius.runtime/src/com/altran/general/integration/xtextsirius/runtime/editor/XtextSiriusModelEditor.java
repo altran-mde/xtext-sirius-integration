@@ -22,45 +22,43 @@ import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
 	private @Nullable SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;
-
+	
 	public XtextSiriusModelEditor(final @NonNull IXtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
 	}
-
+	
 	@Override
 	public void doSetValue(final @Nullable Object value) {
 		ModelRegionEditorPreparer preparer = null;
 		URI resourceUri = null;
-
+		
 		EObject semanticElement;
 		if (value instanceof EObject) {
 			semanticElement = (EObject) value;
-			preparer = new ModelRegionEditorPreparer(getInjector(), semanticElement);
+			preparer = new ModelRegionEditorPreparer(getDescriptor(), semanticElement);
 			resourceUri = semanticElement.eResource().getURI();
-
+			
 		} else {
 			semanticElement = getSemanticElement();
 			if (semanticElement != null) {
 				if (getFallbackContainer() != null) {
 					final EStructuralFeature feature = getCallback().getValueFeature();
 					if (feature != null) {
-						preparer = new ModelRegionEditorPreparer(getInjector(), null, semanticElement, feature);
+						preparer = new ModelRegionEditorPreparer(getDescriptor(), null, semanticElement, feature);
 						resourceUri = semanticElement.eResource().getURI();
 					}
 				}
 				if (preparer == null) {
-					preparer = new ModelRegionEditorPreparer(getInjector(), semanticElement);
+					preparer = new ModelRegionEditorPreparer(getDescriptor(), semanticElement);
 					resourceUri = semanticElement.eResource().getURI();
 				}
 			}
 		}
-
+		
 		if (preparer != null && resourceUri != null) {
-			initPreparer(preparer);
-			
 			String text = preparer.getText();
 			TextRegion textRegion = preparer.getTextRegion();
-
+			
 			if (value instanceof String) {
 				final String str = (String) value;
 				if (StringUtils.isNotBlank(str)) {
@@ -69,52 +67,12 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 					textRegion = new TextRegion(textRegion.getOffset(), str.length());
 				}
 			}
-
+			
 			super.updateCallbackSetValue(text, textRegion.getOffset(), textRegion.getLength());
-
+			
 			this.semanticElementLocation = preparer.getSemanticElementLocation();
 			this.selectedRegion = preparer.getSelectedRegion();
 		}
-	}
-	
-	private void doSetValueModelEditPart(final Object value) {
-		final EObject semanticElement = getSemanticElement();
-
-		if (semanticElement == null) {
-			return;
-		}
-
-		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(getInjector(), semanticElement);
-		preparer.setMultiLine(isMultiLine());
-		preparer.setEditableFeatures(getDescriptor().getEditableFeatures());
-		preparer.setIgnoredNestedFeatures(getDescriptor().getIgnoredNestedFeatures());
-		preparer.setSelectedFeatures(getDescriptor().getSelectedFeatures());
-
-		final String prefixText = interpret(getDescriptor().getPrefixTerminalsExpression());
-		preparer.setPrefixText(prefixText);
-		final String suffixText = interpret(getDescriptor().getSuffixTerminalsExpression());
-		preparer.setSuffixText(suffixText);
-
-		String text = preparer.getText();
-		TextRegion textRegion = preparer.getTextRegion();
-
-		if (value instanceof String) {
-			final String str = (String) value;
-			if (StringUtils.isNotBlank(str)) {
-				text = StringUtils.overlay(text, str, textRegion.getOffset(),
-						textRegion.getOffset() + textRegion.getLength());
-				textRegion = new TextRegion(textRegion.getOffset(), str.length());
-			}
-		}
-
-		// getXtextAdapter().resetVisibleRegion();
-		// super.doSetValue(text);
-
-		this.semanticElementLocation = preparer.getSemanticElementLocation();
-
-		// getXtextAdapter().setVisibleRegion(textRegion.getOffset(),
-		// textRegion.getLength());
-		this.selectedRegion = preparer.getSelectedRegion();
 	}
 
 	@Override
@@ -135,10 +93,10 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(getSemanticElement()));
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	/** Must not be called before the merging is complete */
 	public void removeAllIgnoredFeatureAdapters() {
 		if (getSemanticElement() == null) {
@@ -148,30 +106,18 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		rootContainer.eAllContents()
 				.forEachRemaining(eObject -> eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance));
 	}
-	
+
 	public @Nullable TextRegion getSelectedRegion() {
 		return this.selectedRegion;
 	}
-	
+
 	@Override
 	public IXtextSiriusModelDescriptor getDescriptor() {
 		return (IXtextSiriusModelDescriptor) super.getDescriptor();
 	}
-	
+
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
-	}
-	
-	private void initPreparer(final @NonNull ModelRegionEditorPreparer preparer) {
-		preparer.setMultiLine(isMultiLine());
-		preparer.setEditableFeatures(getDescriptor().getEditableFeatures());
-		preparer.setIgnoredNestedFeatures(getDescriptor().getIgnoredNestedFeatures());
-		preparer.setSelectedFeatures(getDescriptor().getSelectedFeatures());
-
-		final String prefixText = interpret(getDescriptor().getPrefixTerminalsExpression());
-		preparer.setPrefixText(prefixText);
-		final String suffixText = interpret(getDescriptor().getSuffixTerminalsExpression());
-		preparer.setSuffixText(suffixText);
 	}
 
 	protected boolean containsUnresolvableProxies(final @NonNull EObject eObject) {

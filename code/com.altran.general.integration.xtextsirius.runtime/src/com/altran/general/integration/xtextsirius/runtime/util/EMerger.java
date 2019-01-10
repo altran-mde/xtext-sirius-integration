@@ -1,15 +1,16 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.util;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiConsumer;
@@ -24,6 +25,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureAdapter;
 
 /**
@@ -374,19 +377,16 @@ import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.Ignored
  *            Type of EObject to merge.
  */
 public class EMerger<T extends EObject> {
+	private final @NonNull IXtextSiriusDescriptor descriptor;
 	private final @NonNull T existing;
-	private final Set<@NonNull String> featuresToReplace;
-	private final Set<@NonNull String> nestedFeaturesToIgnore;
 	private @Nullable final URI originalUri;
 	
 	public EMerger(
+			final @NonNull IXtextSiriusDescriptor descriptor,
 			final @NonNull T existing,
-			final @NonNull Set<@NonNull String> featuresToReplace,
-			final @NonNull Set<@NonNull String> nestedFeaturesToIgnore,
 			final @Nullable URI originalUri) {
+		this.descriptor = descriptor;
 		this.existing = existing;
-		this.featuresToReplace = featuresToReplace;
-		this.nestedFeaturesToIgnore = nestedFeaturesToIgnore;
 		this.originalUri = originalUri;
 	}
 	
@@ -443,8 +443,13 @@ public class EMerger<T extends EObject> {
 	}
 	
 	protected boolean validateFirstLevelFeature(final EStructuralFeature feature) {
-		return feature.isChangeable() && this.featuresToReplace.isEmpty()
-				|| this.featuresToReplace.contains(feature.getName());
+		Set<String> featuresToReplace = Collections.emptySet();
+		final IXtextSiriusDescriptor desc = getDescriptor();
+		if (desc instanceof IXtextSiriusModelDescriptor) {
+			featuresToReplace = ((IXtextSiriusModelDescriptor) desc).getEditableFeatures();
+		}
+		return feature.isChangeable() && featuresToReplace.isEmpty()
+				|| featuresToReplace.contains(feature.getName());
 	}
 	
 	protected void validateNewValue(final EStructuralFeature feature, final Object newValue) {
@@ -514,7 +519,9 @@ public class EMerger<T extends EObject> {
 			final @NonNull EStructuralFeature feature,
 			final @NonNull String prefix,
 			final @NonNull EObject exist) {
-		if (this.nestedFeaturesToIgnore.contains(prefix)) {
+		final IXtextSiriusDescriptor desc = getDescriptor();
+		if (desc instanceof IXtextSiriusModelDescriptor
+				&& ((IXtextSiriusModelDescriptor) desc).getIgnoredNestedFeatures().contains(prefix)) {
 			exist.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance);
 			return true;
 		}
@@ -737,5 +744,9 @@ public class EMerger<T extends EObject> {
 			
 			return existing;
 		}
+	}
+
+	public IXtextSiriusDescriptor getDescriptor() {
+		return this.descriptor;
 	}
 }

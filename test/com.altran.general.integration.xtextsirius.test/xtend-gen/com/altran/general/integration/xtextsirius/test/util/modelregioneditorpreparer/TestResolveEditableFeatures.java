@@ -9,9 +9,9 @@
  */
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
-import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.Set;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -27,8 +27,8 @@ public class TestResolveEditableFeatures extends AModelRegionEditorPreparer {
   public void emptyFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, event);
     final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
     Assert.assertEquals(0, resolved.size());
   }
@@ -37,9 +37,8 @@ public class TestResolveEditableFeatures extends AModelRegionEditorPreparer {
   public void invalidFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
-    preparer.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("some", "feature")));
+    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _editableFeatureDescriptor = this.editableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("some", "feature")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_editableFeatureDescriptor, event);
     final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
     Assert.assertEquals(0, resolved.size());
   }
@@ -48,9 +47,8 @@ public class TestResolveEditableFeatures extends AModelRegionEditorPreparer {
   public void someInvalidFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
-    preparer.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "some", "guard", "cond")));
+    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _editableFeatureDescriptor = this.editableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "some", "guard", "cond")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_editableFeatureDescriptor, event);
     final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
     Assert.assertEquals(resolved.toString(), 2, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));
@@ -61,9 +59,8 @@ public class TestResolveEditableFeatures extends AModelRegionEditorPreparer {
   public void validFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
-    preparer.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
+    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _editableFeatureDescriptor = this.editableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_editableFeatureDescriptor, event);
     final Set<EStructuralFeature> resolved = preparer.resolveEditableFeatures(event);
     Assert.assertEquals(resolved.toString(), 2, resolved.size());
     Assert.assertNotNull(this.<EStructuralFeature>findFirstByName(resolved, "name"));

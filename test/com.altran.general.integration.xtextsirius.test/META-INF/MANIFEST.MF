@@ -12,5 +12,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.example.fowlerdsl.inlineedit,
  org.eclipse.xtext.example.fowlerdsl,
  org.eclipse.jdt.annotation;bundle-version="2"
+Export-Package: com.altran.general.integration.xtextsirius.test
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

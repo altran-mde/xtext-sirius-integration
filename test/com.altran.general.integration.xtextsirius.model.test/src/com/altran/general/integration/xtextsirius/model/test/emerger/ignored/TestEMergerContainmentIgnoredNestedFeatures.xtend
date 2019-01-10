@@ -37,14 +37,14 @@ class TestEMergerContainmentIgnoredNestedFeatures extends ATestEMergerContainmen
 	override protected createEMerger(Element existing, Element edited) {
 		this.existing = existing
 		
-		new EMerger(existing, emptySet, nestedFeaturesToIgnore, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(createDescriptor(emptySet, nestedFeaturesToIgnore), existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	
 	override protected createEMerger(Element existing, EStructuralFeature feature) {
 		this.existing = existing
 		
-		new EMerger(existing, emptySet, nestedFeaturesToIgnore, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(createDescriptor(emptySet, nestedFeaturesToIgnore), existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	@After
