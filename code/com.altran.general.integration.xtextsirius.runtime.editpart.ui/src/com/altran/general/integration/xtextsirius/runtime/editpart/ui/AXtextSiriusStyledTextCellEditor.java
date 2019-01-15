@@ -9,10 +9,20 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.jface.text.IDocumentExtension4;
+import org.eclipse.sirius.diagram.description.DiagramElementMapping;
+import org.eclipse.sirius.diagram.description.tool.DirectEditLabel;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
+import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
+import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
+import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
+import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 import org.eclipse.swt.SWT;
 import org.eclipse.xtext.resource.XtextResource;
 import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
@@ -22,7 +32,6 @@ import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEdi
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx
@@ -51,8 +60,8 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		}
 	}
 	
-	public @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
-		return getEditor().getValueToCommit();
+	public @Nullable Object commit(final @NonNull EObject representationTarget) {
+		return getEditor().commit(adjustTarget(representationTarget), getValueFeature());
 	}
 	
 	@Override
@@ -94,9 +103,82 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	
 	@Override
 	protected void doSetValue(final Object value) {
-		getEditor().doSetValue(value);
+		getEditor().doSetValue(value, getValueFeature());
 	}
 	
+	protected @Nullable EStructuralFeature getValueFeature() {
+		final @Nullable DRepresentationElement representationElement = extractRepresentationElement();
+		final SetValue setValue = extractSetValue(representationElement);
+
+		if (representationElement != null && setValue != null) {
+			EObject target = representationElement.getTarget();
+			final String featureName = setValue.getFeatureName();
+
+			final EStructuralFeature feature;
+
+			if (StringUtils.isNotBlank(featureName)) {
+				feature = target.eClass().getEStructuralFeature(featureName);
+			} else {
+				feature = target.eContainingFeature();
+				target = target.eContainer();
+			}
+
+			return feature;
+		}
+		
+		return null;
+	}
+
+	protected @NonNull EObject adjustTarget(final @NonNull EObject target) {
+		final @Nullable DRepresentationElement representationElement = extractRepresentationElement();
+		final SetValue setValue = extractSetValue(representationElement);
+
+		if (representationElement != null && setValue != null) {
+			final String featureName = setValue.getFeatureName();
+
+			if (StringUtils.isBlank(featureName)) {
+				return target.eContainer();
+			}
+		}
+		
+		return target;
+	}
+	
+	private @Nullable DRepresentationElement extractRepresentationElement() {
+		final @Nullable IXtextSiriusAwareLabelEditPart editPart = getDescriptor().getEditPart();
+		if (editPart != null) {
+			final Object model = editPart.getModel();
+			if (model instanceof View) {
+				final EObject element = ((View) model).getElement();
+				if (element instanceof DRepresentationElement) {
+					return (DRepresentationElement) element;
+				}
+			}
+		}
+
+		return null;
+	}
+
+	private @Nullable SetValue extractSetValue(final @Nullable DRepresentationElement representationElement) {
+		if (representationElement != null) {
+			final RepresentationElementMapping mapping = representationElement.getMapping();
+			if (mapping instanceof DiagramElementMapping) {
+				final DirectEditLabel labelDirectEdit = ((DiagramElementMapping) mapping).getLabelDirectEdit();
+				if (labelDirectEdit != null) {
+					final InitialOperation initialOperation = labelDirectEdit.getInitialOperation();
+					if (initialOperation != null) {
+						final ModelOperation firstModelOperation = initialOperation.getFirstModelOperations();
+						if (firstModelOperation instanceof SetValue) {
+							return (@Nullable SetValue) firstModelOperation;
+						}
+					}
+				}
+			}
+		}
+
+		return null;
+	}
+
 	protected void setSemanticElement(final @Nullable EObject element) {
 		getEditor().setSemanticElement(element);
 	}

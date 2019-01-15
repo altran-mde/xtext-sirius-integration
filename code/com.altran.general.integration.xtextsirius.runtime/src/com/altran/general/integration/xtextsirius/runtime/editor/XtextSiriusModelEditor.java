@@ -17,6 +17,7 @@ import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusS
 import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureAdapter;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
+import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
@@ -28,7 +29,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 	}
 	
 	@Override
-	public void doSetValue(final @Nullable Object value) {
+	public void doSetValue(final @Nullable Object value, final @Nullable EStructuralFeature valueFeature) {
 		ModelRegionEditorPreparer preparer = null;
 		URI resourceUri = null;
 		
@@ -42,9 +43,8 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			semanticElement = getSemanticElement();
 			if (semanticElement != null) {
 				if (getFallbackContainer() != null) {
-					final EStructuralFeature feature = getCallback().getValueFeature();
-					if (feature != null) {
-						preparer = new ModelRegionEditorPreparer(getDescriptor(), null, semanticElement, feature);
+					if (valueFeature != null) {
+						preparer = new ModelRegionEditorPreparer(getDescriptor(), null, semanticElement, valueFeature);
 						resourceUri = semanticElement.eResource().getURI();
 					}
 				}
@@ -76,7 +76,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 	}
 
 	@Override
-	public @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
+	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
 		final SemanticElementLocation location = getSemanticElementLocation();
 		if (location != null) {
 			final IParseResult parseResult = getCallback().getXtextParseResult();
@@ -95,6 +95,20 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		}
 
 		return null;
+	}
+	
+	@Override
+	public Object commit(final @NonNull EObject target, final @NonNull EStructuralFeature valueFeature) {
+		final EMerger<EObject> merger = new EMerger<>(getDescriptor(), target,
+				target != null ? EcoreUtil.getURI(target) : null);
+		final Object valueToCommit = getValueToCommit();
+		final EObject result = merger.merge(valueToCommit, valueFeature);
+		EcoreUtil.resolveAll(result);
+		if (result.eClass().getFeatureID(valueFeature) == -1) {
+			return result;
+		} else {
+			return result.eGet(valueFeature);
+		}
 	}
 
 	/** Must not be called before the merging is complete */

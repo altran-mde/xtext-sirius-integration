@@ -1,14 +1,21 @@
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
+import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.inject.Injector;
 
+/**
+ * Takes care of all Xtext/Sirius Integration magic except {@linkplain EMerger}
+ *
+ * @param <C>
+ */
 public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	private final IXtextSiriusDescriptor descriptor;
 	private C callback;
@@ -22,10 +29,14 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	}
 
 
-	public abstract void doSetValue(final @Nullable Object value);
+	public abstract void doSetValue(final @Nullable Object value, final @Nullable EStructuralFeature valueFeature);
 
-	public abstract @Nullable Object getValueToCommit() throws AXtextSiriusIssueException;
-
+	public abstract Object commit(final @NonNull EObject target, final @NonNull EStructuralFeature valueFeature);
+	
+	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
+		return getCallback().getValue();
+	}
+	
 	public void setCallback(final C callback) {
 		this.callback = callback;
 	}

@@ -9,7 +9,6 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jface.text.IRegion;
 import org.eclipse.xtext.parser.IParseResult;
@@ -66,14 +65,21 @@ implements IXtextSiriusModelEditorCallback {
 	public @NonNull XtextSiriusModelEditpartDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusModelEditpartDescriptor) super.getDescriptor();
 	}
-	
-	@Override
-	public EStructuralFeature getValueFeature() {
-		// this is not needed for directEdit, only properties (as only
-		// properties can have a cardinality mismatch between model contents and
-		// parse result)
-		return null;
-	}
+
+	// @Override
+	// public EStructuralFeature getValueFeature() {
+	// EObject target = get.getTarget();
+	// final String featureName = setValue.getFeatureName();
+	//
+	// final EStructuralFeature feature;
+	//
+	// if (StringUtils.isNotBlank(featureName)) {
+	// feature = target.eClass().getEStructuralFeature(featureName);
+	// } else {
+	// feature = target.eContainingFeature();
+	// target = target.eContainer();
+	// }
+	// }
 
 	@Override
 	protected XtextSiriusModelEditor getEditor() {

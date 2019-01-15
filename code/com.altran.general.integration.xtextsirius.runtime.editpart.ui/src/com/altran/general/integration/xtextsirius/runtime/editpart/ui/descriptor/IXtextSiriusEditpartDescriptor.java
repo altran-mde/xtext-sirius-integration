@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor;
 
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
@@ -9,7 +10,8 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriu
 
 public interface IXtextSiriusEditpartDescriptor extends IXtextSiriusDescriptor {
 
-	@NonNull
-	XtextSiriusDirectEditManager createDirectEditManager(
-			@NonNull IXtextSiriusAwareLabelEditPart editPart);
+	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(
+			final @NonNull IXtextSiriusAwareLabelEditPart editPart);
+
+	public @Nullable IXtextSiriusAwareLabelEditPart getEditPart();
 }

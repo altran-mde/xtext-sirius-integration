@@ -1,5 +1,8 @@
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusValueDescriptor;
@@ -11,7 +14,7 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 	}
 
 	@Override
-	public void doSetValue(final @Nullable Object value) {
+	public void doSetValue(final @Nullable Object value, final @Nullable EStructuralFeature valueFeature) {
 		if (value instanceof String) {
 			final StringBuffer text = new StringBuffer((String) value);
 			final int length = text.length();
@@ -28,8 +31,10 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 	}
 
 	@Override
-	public @Nullable Object getValueToCommit() {
-		return getCallback().getValue();
+	public Object commit(@NonNull final EObject target, @NonNull final EStructuralFeature valueFeature) {
+		final Object valueToCommit = getValueToCommit();
+		target.eSet(valueFeature, valueToCommit);
+		return valueToCommit;
 	}
 
 	@Override

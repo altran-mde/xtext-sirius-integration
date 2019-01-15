@@ -88,7 +88,7 @@ implements IXtextSiriusEditorCallback {
 	@Override
 	public void aboutToBeHidden() {
 		if (getWidget().isDirty()) {
-			commit(getEditor().getValueToCommit());
+			commit();
 		}
 
 		super.aboutToBeHidden();
@@ -116,8 +116,7 @@ implements IXtextSiriusEditorCallback {
 		return null;
 	}
 
-	@Override
-	public EStructuralFeature getValueFeature() {
+	protected EStructuralFeature getValueFeature() {
 		@SuppressWarnings("restriction")
 		final String PREFIX = org.eclipse.sirius.common.tools.internal.interpreter.FeatureInterpreter.PREFIX;
 
@@ -143,7 +142,7 @@ implements IXtextSiriusEditorCallback {
 		applyGridData(getWidget().getControl());
 		
 		this.controller = new XtextSiriusController(getWidgetDescription(), getVariableManager(), getInterpreter(),
-		getContextAdapter());
+				getContextAdapter());
 	}
 
 	@Override
@@ -206,13 +205,14 @@ implements IXtextSiriusEditorCallback {
 		return result;
 	}
 
-	protected void commit(final Object newValue) {
+	protected void commit() {
 		getContextAdapter().performModelChange(() -> {
 			final String editExpression = getWidgetDescription().getEditExpression();
 			final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
 
 			final Map<String, Object> variables = Maps.newLinkedHashMap();
 			variables.putAll(getVariableManager().getVariables());
+			final Object newValue = getEditor().commit(getSelf(), getValueFeature());
 			variables.put(EEFExpressionUtils.EEFText.NEW_VALUE, newValue);
 
 			EvalFactory.of(getInterpreter(), variables).logIfBlank(eAttribute).call(editExpression);

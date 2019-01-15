@@ -36,15 +36,15 @@ implements IXtextSiriusValueEditorCallback {
 		super(new XtextSiriusValueEditor(descriptor), descriptor, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-
+	
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {
 			getEditor().setSemanticElement(getSelf());
-			getEditor().doSetValue(newValue);
+			getEditor().doSetValue(newValue, getValueFeature());
 		};
 	}
-
+	
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetValue(parent, getInjector());

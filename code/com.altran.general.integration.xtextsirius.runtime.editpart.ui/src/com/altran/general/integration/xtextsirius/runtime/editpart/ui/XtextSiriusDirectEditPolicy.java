@@ -9,11 +9,8 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
@@ -24,7 +21,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.helper.task.ICommandTask;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.internal.helper.task.ModelOperationToTask;
@@ -48,7 +44,6 @@ import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.task.ReplaceValueParameter;
 import com.altran.general.integration.xtextsirius.runtime.task.ReplaceValueTask;
@@ -70,21 +65,26 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 				final DRepresentationElement representationElement = extractRepresentationElement();
 
 				try {
-					final ReplaceValueParameter replaceValueParameter = extractReplaceValueParameter(
-							(AXtextSiriusStyledTextCellEditor) cellEditor, representationElement);
+					final AXtextSiriusStyledTextCellEditor xtextSiriusCellEditor = (AXtextSiriusStyledTextCellEditor) cellEditor;
+					// final ReplaceValueParameter replaceValueParameter =
+					// extractReplaceValueParameter(
+					// xtextSiriusCellEditor, representationElement);
+					//
+					// if (replaceValueParameter != null) {
+					final TransactionalEditingDomain editingDomain = TransactionUtil
+							.getEditingDomain(representationElement.getTarget());
 
-					if (replaceValueParameter != null) {
-						final TransactionalEditingDomain editingDomain = TransactionUtil
-								.getEditingDomain(replaceValueParameter.getElementToEdit());
+					final SiriusCommand siriusCommand = new SiriusCommand(editingDomain);
+					final ReplaceValueTask task = new ReplaceValueTask(representationElement,
+							representationTarget -> xtextSiriusCellEditor.commit(representationTarget));
+					// addChildTasks(representationElement,
+					// replaceValueParameter, editingDomain, task);
+					addChildTasks(representationElement, editingDomain, task);
+					
+					siriusCommand.getTasks().add(task);
 
-						final SiriusCommand siriusCommand = new SiriusCommand(editingDomain);
-						final ReplaceValueTask task = new ReplaceValueTask(replaceValueParameter);
-						addChildTasks(representationElement, replaceValueParameter, editingDomain, task);
-						
-						siriusCommand.getTasks().add(task);
-
-						return new ICommandProxy(new GMFCommandWrapper(editingDomain, siriusCommand));
-					}
+					return new ICommandProxy(new GMFCommandWrapper(editingDomain, siriusCommand));
+					// }
 				} catch (final AXtextSiriusIssueException ex) {
 					StatusManager.getManager().handle(ex.toStatus(), StatusManager.SHOW);
 				}
@@ -98,20 +98,28 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 	 * This is a pretty hacky way to simulate the same behavior as
 	 * {@link org.eclipse.sirius.business.internal.helper.task.ExecuteToolOperationTask#createChildrenTasks(ICommandTask, ContainerModelOperation, CommandContext)}.
 	 */
+	// protected void addChildTasks(final DRepresentationElement
+	// representationElement,
+	// final ReplaceValueParameter replaceValueParameter, final
+	// TransactionalEditingDomain editingDomain,
+	// final ReplaceValueTask task) {
 	protected void addChildTasks(final DRepresentationElement representationElement,
-			final ReplaceValueParameter replaceValueParameter, final TransactionalEditingDomain editingDomain,
+			final TransactionalEditingDomain editingDomain,
 			final ReplaceValueTask task) {
 		final SetValue setValue = extractSetValue(representationElement);
 		if (setValue != null) {
-			final EObject elementToEdit = replaceValueParameter.getElementToEdit();
+			final EObject elementToEdit = representationElement.getTarget();
 			final Session session = new EObjectQuery(elementToEdit).getSession();
 			final ModelAccessor modelAccessor = SiriusPlugin.getDefault().getModelAccessorRegistry()
 					.getModelAccessor(editingDomain.getResourceSet());
 			final EMFCommandFactoryUI uiCallback = new EMFCommandFactoryUI();
-			final EObject contextEObject = extractContextEObject(replaceValueParameter, elementToEdit);
-			final CommandContext context = new CommandContext(contextEObject,
-					SiriusUtil.findRepresentation(representationElement));
-			createChildTasks(task, setValue, context, session, modelAccessor, uiCallback);
+			// FIXME: find contextEObject
+			// final EObject contextEObject =
+			// extractContextEObject(replaceValueParameter, elementToEdit);
+			// final CommandContext context = new CommandContext(contextEObject,
+			// SiriusUtil.findRepresentation(representationElement));
+			// createChildTasks(task, setValue, context, session, modelAccessor,
+			// uiCallback);
 		}
 	}
 	
@@ -143,38 +151,42 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 		}
 	}
 
-	protected ReplaceValueParameter extractReplaceValueParameter(
-			final AXtextSiriusStyledTextCellEditor cellEditor,
-			final @Nullable DRepresentationElement representationElement) throws AXtextSiriusIssueException {
-		final SetValue setValue = extractSetValue(representationElement);
-
-		if (representationElement != null && setValue != null) {
-			EObject target = representationElement.getTarget();
-			final String featureName = setValue.getFeatureName();
-
-			final EStructuralFeature feature;
-
-			if (StringUtils.isNotBlank(featureName)) {
-				feature = target.eClass().getEStructuralFeature(featureName);
-			} else {
-				feature = target.eContainingFeature();
-				target = target.eContainer();
-			}
-
-			final Object newValue = cellEditor.getValueToCommit();
-
-			final IXtextSiriusEditpartDescriptor descriptor = cellEditor.getDescriptor();
-			final EObject semanticElement = cellEditor.getSemanticElement();
-			final URI originalUri = semanticElement != null ? EcoreUtil.getURI(semanticElement) : null;
-
-			final ReplaceValueParameter result = new ReplaceValueParameter(descriptor, target, feature, newValue,
-					representationElement, originalUri);
-
-			return result;
-		}
-
-		return null;
-	}
+	// protected ReplaceValueParameter extractReplaceValueParameter(
+	// final AXtextSiriusStyledTextCellEditor cellEditor,
+	// final @Nullable DRepresentationElement representationElement) throws
+	// AXtextSiriusIssueException {
+	// final SetValue setValue = extractSetValue(representationElement);
+	//
+	// if (representationElement != null && setValue != null) {
+	// EObject target = representationElement.getTarget();
+	// final String featureName = setValue.getFeatureName();
+	//
+	// final EStructuralFeature feature;
+	//
+	// if (StringUtils.isNotBlank(featureName)) {
+	// feature = target.eClass().getEStructuralFeature(featureName);
+	// } else {
+	// feature = target.eContainingFeature();
+	// target = target.eContainer();
+	// }
+	//
+	// final Object newValue = cellEditor.getValueToCommit();
+	//
+	// final IXtextSiriusEditpartDescriptor descriptor =
+	// cellEditor.getDescriptor();
+	// final EObject semanticElement = cellEditor.getSemanticElement();
+	// final URI originalUri = semanticElement != null ?
+	// EcoreUtil.getURI(semanticElement) : null;
+	//
+	// final ReplaceValueParameter result = new
+	// ReplaceValueParameter(descriptor, target, feature, newValue,
+	// representationElement, originalUri);
+	//
+	// return result;
+	// }
+	//
+	// return null;
+	// }
 
 	private @Nullable DRepresentationElement extractRepresentationElement() {
 		final EditPart host = getHost();

@@ -10,6 +10,7 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor;
 
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
@@ -19,16 +20,24 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.Xtex
 import com.google.inject.Injector;
 
 public class XtextSiriusModelEditpartDescriptor extends XtextSiriusModelDescriptor
-		implements IXtextSiriusEditpartDescriptor {
-
+implements IXtextSiriusEditpartDescriptor {
+	
+	private @Nullable IXtextSiriusAwareLabelEditPart editPart;
+	
 	public XtextSiriusModelEditpartDescriptor(final @NonNull Injector injector,
 			final @NonNull IXtextDirectEditModelDescription description) {
 		super(injector, description);
 	}
-	
+
 	@Override
 	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(
 			final @NonNull IXtextSiriusAwareLabelEditPart editPart) {
+		this.editPart = editPart;
 		return new XtextSiriusDirectEditManagerModel(editPart, this);
+	}
+	
+	@Override
+	public @Nullable IXtextSiriusAwareLabelEditPart getEditPart() {
+		return this.editPart;
 	}
 }
