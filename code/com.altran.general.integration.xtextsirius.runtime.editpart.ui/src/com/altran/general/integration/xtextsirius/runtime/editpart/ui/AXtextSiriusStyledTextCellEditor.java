@@ -9,9 +9,7 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
@@ -61,7 +59,7 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	}
 	
 	public @Nullable Object commit(final @NonNull EObject representationTarget) {
-		return getEditor().commit(adjustTarget(representationTarget), getValueFeature());
+		return getEditor().commit(representationTarget, getValueFeatureName());
 	}
 	
 	@Override
@@ -103,47 +101,20 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	
 	@Override
 	protected void doSetValue(final Object value) {
-		getEditor().doSetValue(value, getValueFeature());
+		getEditor().doSetValue(value, getValueFeatureName());
 	}
 	
-	protected @Nullable EStructuralFeature getValueFeature() {
+	protected @Nullable String getValueFeatureName() {
 		final @Nullable DRepresentationElement representationElement = extractRepresentationElement();
 		final SetValue setValue = extractSetValue(representationElement);
 
 		if (representationElement != null && setValue != null) {
-			EObject target = representationElement.getTarget();
-			final String featureName = setValue.getFeatureName();
-
-			final EStructuralFeature feature;
-
-			if (StringUtils.isNotBlank(featureName)) {
-				feature = target.eClass().getEStructuralFeature(featureName);
-			} else {
-				feature = target.eContainingFeature();
-				target = target.eContainer();
-			}
-
-			return feature;
+			return setValue.getFeatureName();
 		}
 		
 		return null;
 	}
 
-	protected @NonNull EObject adjustTarget(final @NonNull EObject target) {
-		final @Nullable DRepresentationElement representationElement = extractRepresentationElement();
-		final SetValue setValue = extractSetValue(representationElement);
-
-		if (representationElement != null && setValue != null) {
-			final String featureName = setValue.getFeatureName();
-
-			if (StringUtils.isBlank(featureName)) {
-				return target.eContainer();
-			}
-		}
-		
-		return target;
-	}
-	
 	private @Nullable DRepresentationElement extractRepresentationElement() {
 		final @Nullable IXtextSiriusAwareLabelEditPart editPart = getDescriptor().getEditPart();
 		if (editPart != null) {

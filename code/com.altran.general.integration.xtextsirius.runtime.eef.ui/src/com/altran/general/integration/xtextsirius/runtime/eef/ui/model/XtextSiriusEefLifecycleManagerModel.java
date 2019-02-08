@@ -92,7 +92,6 @@ implements IXtextSiriusModelEditorCallback {
 			
 			getEditor().doSetValue(newValue, getValueFeature());
 
-
 			getWidget().updateUri(resourceUri);
 		};
 	}

@@ -21,7 +21,6 @@ import org.eclipse.eef.core.api.utils.EvalFactory;
 import org.eclipse.eef.ide.ui.api.widgets.AbstractEEFWidgetLifecycleManager;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
@@ -116,7 +115,7 @@ implements IXtextSiriusEditorCallback {
 		return null;
 	}
 
-	protected EStructuralFeature getValueFeature() {
+	protected @Nullable String getValueFeature() {
 		@SuppressWarnings("restriction")
 		final String PREFIX = org.eclipse.sirius.common.tools.internal.interpreter.FeatureInterpreter.PREFIX;
 
@@ -124,9 +123,7 @@ implements IXtextSiriusEditorCallback {
 		// no field to explicitly set the editExpression in odesign model.
 		final String valueExpression = getWidgetDescription().getValueExpression();
 		if (StringUtils.startsWith(valueExpression, PREFIX)) {
-			final String featureName = valueExpression.substring(PREFIX.length());
-			final EStructuralFeature feature = getSelf().eClass().getEStructuralFeature(featureName);
-			return feature;
+			return valueExpression.substring(PREFIX.length());
 		}
 
 		return null;

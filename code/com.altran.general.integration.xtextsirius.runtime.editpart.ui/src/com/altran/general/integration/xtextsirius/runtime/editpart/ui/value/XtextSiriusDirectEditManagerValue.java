@@ -24,13 +24,13 @@ implements IXtextSiriusDescribable {
 			final @NonNull XtextSiriusValueEditpartDescriptor descriptor) {
 		super(editPart, descriptor);
 	}
-
+	
 	@Override
 	protected AXtextSiriusStyledTextCellEditor createCellEditor() {
 		return new XtextSiriusStyledTextCellEditorValue(getDescriptor(),
-				getDescriptor().getValueFeature(getEditPart()));
+				getDescriptor().getValueFeatureName(getEditPart()));
 	}
-
+	
 	@Override
 	public @NonNull XtextSiriusValueEditpartDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusValueEditpartDescriptor) super.getDescriptor();

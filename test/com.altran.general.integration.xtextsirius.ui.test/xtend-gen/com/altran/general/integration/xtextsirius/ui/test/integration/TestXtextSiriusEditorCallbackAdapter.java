@@ -1,0 +1,79 @@
+package com.altran.general.integration.xtextsirius.ui.test.integration;
+
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusValueEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
+import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
+import com.google.inject.Injector;
+import java.util.Collections;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
+import org.eclipse.xtext.parser.IParseResult;
+import org.eclipse.xtext.resource.IResourceFactory;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.util.StringInputStream;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+
+@SuppressWarnings("all")
+public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
+  protected final XtextResource fakeResource;
+  
+  public TestXtextSiriusEditorCallbackAdapter(final Injector injector, final EObject model) {
+    try {
+      final URI uri = model.eResource().getURI();
+      Resource _createResource = injector.<IResourceFactory>getInstance(IResourceFactory.class).createResource(uri);
+      this.fakeResource = ((XtextResource) _createResource);
+      String _text = NodeModelUtils.getNode(model).getRootNode().getText();
+      StringInputStream _stringInputStream = new StringInputStream(_text);
+      this.fakeResource.load(_stringInputStream, Collections.<Object, Object>emptyMap());
+      FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, uri);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Override
+  public void callbackSetValue(final Object value, final int offset, final int length) {
+    try {
+      final String newContent = value.toString();
+      this.fakeResource.reparse(newContent);
+      this.fakeResource.relink();
+      final EObject element = this.getSemanticElement();
+      FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, element.eResource().getURI());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  protected abstract EObject getSemanticElement();
+  
+  @Override
+  public IParseResult getXtextParseResult() {
+    IParseResult _xblockexpression = null;
+    {
+      EcoreUtil2.resolveLazyCrossReferences(this.fakeResource, null);
+      _xblockexpression = this.fakeResource.getParseResult();
+    }
+    return _xblockexpression;
+  }
+  
+  @Override
+  public Object getValue() {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  }
+  
+  @Override
+  public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
+    throw new AssertionError(parseResult);
+  }
+  
+  @Override
+  public XtextSiriusErrorException handleUnresolvableProxies() {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  }
+}

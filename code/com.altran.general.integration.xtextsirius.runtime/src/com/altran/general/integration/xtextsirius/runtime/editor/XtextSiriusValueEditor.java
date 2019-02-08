@@ -14,7 +14,7 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 	}
 
 	@Override
-	public void doSetValue(final @Nullable Object value, final @Nullable EStructuralFeature valueFeature) {
+	public void doSetValue(final @Nullable Object value, final @Nullable String valueFeatureName) {
 		if (value instanceof String) {
 			final StringBuffer text = new StringBuffer((String) value);
 			final int length = text.length();
@@ -31,9 +31,11 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 	}
 
 	@Override
-	public Object commit(@NonNull final EObject target, @NonNull final EStructuralFeature valueFeature) {
+	public Object commit(final @NonNull EObject target, final @Nullable String valueFeatureName) {
+		final EStructuralFeature valueFeature = enforceValueFeature(target, valueFeatureName);
+		final EObject adjustedTarget = adjustTarget(target, valueFeatureName);
 		final Object valueToCommit = getValueToCommit();
-		target.eSet(valueFeature, valueToCommit);
+		adjustedTarget.eSet(valueFeature, valueToCommit);
 		return valueToCommit;
 	}
 

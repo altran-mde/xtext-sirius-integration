@@ -29,7 +29,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 	}
 	
 	@Override
-	public void doSetValue(final @Nullable Object value, final @Nullable EStructuralFeature valueFeature) {
+	public void doSetValue(final @Nullable Object value, final @Nullable String valueFeatureName) {
 		ModelRegionEditorPreparer preparer = null;
 		URI resourceUri = null;
 		
@@ -43,6 +43,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			semanticElement = getSemanticElement();
 			if (semanticElement != null) {
 				if (getFallbackContainer() != null) {
+					final EStructuralFeature valueFeature = convertValueFeature(valueFeatureName);
 					if (valueFeature != null) {
 						preparer = new ModelRegionEditorPreparer(getDescriptor(), null, semanticElement, valueFeature);
 						resourceUri = semanticElement.eResource().getURI();
@@ -98,17 +99,33 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 	}
 	
 	@Override
-	public Object commit(final @NonNull EObject target, final @NonNull EStructuralFeature valueFeature) {
-		final EMerger<EObject> merger = new EMerger<>(getDescriptor(), target,
-				target != null ? EcoreUtil.getURI(target) : null);
-		final Object valueToCommit = getValueToCommit();
-		final EObject result = merger.merge(valueToCommit, valueFeature);
-		EcoreUtil.resolveAll(result);
-		if (result.eClass().getFeatureID(valueFeature) == -1) {
-			return result;
-		} else {
-			return result.eGet(valueFeature);
+	public Object commit(final @NonNull EObject target, final @Nullable String valueFeatureName) {
+		try {
+			final Object valueToCommit = getValueToCommit();
+			if (!StringUtils.isBlank(valueFeatureName) || !(valueToCommit instanceof EObject)) {
+				final EStructuralFeature valueFeature = enforceValueFeature(target, valueFeatureName);
+				final EObject adjustedTarget = adjustTarget(target, valueFeatureName);
+				final EMerger<EObject> merger = new EMerger<>(getDescriptor(), adjustedTarget, getUri(adjustedTarget));
+				final EObject result = merger.merge(valueToCommit, valueFeature);
+				EcoreUtil.resolveAll(result);
+				if (result.eClass().getFeatureID(valueFeature) != -1) {
+					return result;
+				} else {
+					return result.eGet(valueFeature);
+				}
+			} else {
+				final EMerger<EObject> merger = new EMerger<>(getDescriptor(), target, getUri(target));
+				final EObject result = merger.merge((EObject) valueToCommit);
+				EcoreUtil.resolveAll(result);
+				return result;
+			}
+		} finally {
+			removeAllIgnoredFeatureAdapters();
 		}
+	}
+	
+	protected @Nullable URI getUri(final EObject adjustedTarget) {
+		return adjustedTarget != null ? EcoreUtil.getURI(adjustedTarget) : null;
 	}
 
 	/** Must not be called before the merging is complete */

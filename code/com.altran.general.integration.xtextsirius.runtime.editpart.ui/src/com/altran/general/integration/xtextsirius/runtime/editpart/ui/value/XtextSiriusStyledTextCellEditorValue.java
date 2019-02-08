@@ -21,16 +21,16 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiri
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusValueEditpartDescriptor;
 
 public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor
-		implements IXtextSiriusValueEditorCallback {
-
-	private final @NonNull EStructuralFeature valueFeature;
-
+implements IXtextSiriusValueEditorCallback {
+	
+	private final @NonNull String valueFeatureName;
+	
 	public XtextSiriusStyledTextCellEditorValue(
-			final @NonNull XtextSiriusValueEditpartDescriptor descriptor, final @NonNull EStructuralFeature valueFeature) {
+			final @NonNull XtextSiriusValueEditpartDescriptor descriptor, final @NonNull String valueFeatureName) {
 		super(descriptor, new XtextSiriusValueEditor(descriptor));
-		this.valueFeature = valueFeature;
+		this.valueFeatureName = valueFeatureName;
 	}
-
+	
 	@Override
 	protected void doSetValue(final Object value) {
 		if (value instanceof String) {
@@ -38,29 +38,31 @@ public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledText
 			if (StringUtils.isBlank(newText)) {
 				newText = retrieveValueFromModel(newText);
 			}
-			
+
 			super.doSetValue(newText);
 		}
 	}
-	
+
 	protected @Nullable String retrieveValueFromModel(final @Nullable String newText) {
 		final EObject semanticElement = getSemanticElement();
-		
+
 		String result = newText;
 		if (semanticElement != null) {
-			result = StringUtils.defaultString((String) semanticElement.eGet(getValueFeature()));
+			final EStructuralFeature valueFeature = semanticElement.eClass()
+					.getEStructuralFeature(getValueFeatureName());
+			result = StringUtils.defaultString((String) semanticElement.eGet(valueFeature));
 		}
 		return result;
 	}
-	
-	
+
+
 	@Override
 	public @NonNull XtextSiriusValueEditpartDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusValueEditpartDescriptor) super.getDescriptor();
 	}
-
+	
 	@Override
-	public EStructuralFeature getValueFeature() {
-		return this.valueFeature;
+	protected @NonNull String getValueFeatureName() {
+		return this.valueFeatureName;
 	}
 }

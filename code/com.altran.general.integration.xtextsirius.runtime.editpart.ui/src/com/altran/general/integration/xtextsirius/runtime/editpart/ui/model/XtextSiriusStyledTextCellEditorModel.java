@@ -66,21 +66,6 @@ implements IXtextSiriusModelEditorCallback {
 		return (@NonNull XtextSiriusModelEditpartDescriptor) super.getDescriptor();
 	}
 
-	// @Override
-	// public EStructuralFeature getValueFeature() {
-	// EObject target = get.getTarget();
-	// final String featureName = setValue.getFeatureName();
-	//
-	// final EStructuralFeature feature;
-	//
-	// if (StringUtils.isNotBlank(featureName)) {
-	// feature = target.eClass().getEStructuralFeature(featureName);
-	// } else {
-	// feature = target.eContainingFeature();
-	// target = target.eContainer();
-	// }
-	// }
-
 	@Override
 	protected XtextSiriusModelEditor getEditor() {
 		return (XtextSiriusModelEditor) super.getEditor();

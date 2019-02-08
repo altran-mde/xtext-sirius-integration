@@ -10,7 +10,6 @@
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -23,7 +22,6 @@ import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 
 import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusValueDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditManager;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.value.XtextSiriusDirectEditManagerValue;
@@ -31,35 +29,39 @@ import com.google.inject.Injector;
 
 public class XtextSiriusValueEditpartDescriptor extends XtextSiriusValueDescriptor
 implements IXtextSiriusEditpartDescriptor {
-	
+
 	private @Nullable IXtextSiriusAwareLabelEditPart editPart;
-	
+
 	public XtextSiriusValueEditpartDescriptor(final @NonNull Injector injector,
 			final @NonNull IXtextDirectEditValueDescription description) {
 		super(injector, description);
 	}
-	
+
 	@Override
 	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(
 			final @NonNull IXtextSiriusAwareLabelEditPart editPart) {
 		this.editPart = editPart;
 		return new XtextSiriusDirectEditManagerValue(editPart, this);
 	}
-
+	
 	@Override
 	public @Nullable IXtextSiriusAwareLabelEditPart getEditPart() {
 		return this.editPart;
 	}
-	
-	public @NonNull EStructuralFeature getValueFeature(final IXtextSiriusAwareLabelEditPart editPart) {
-		final EObject semanticElement = EditPartHelper.getInstance().getSemanticElement(editPart);
-		if (semanticElement != null) {
-			return semanticElement.eClass().getEStructuralFeature(getValueFeatureName(editPart));
-		}
-		
-		throw new IllegalStateException("Cannot directEdit a non-existing semanticElement");
-	}
-	
+
+	// public @NonNull EStructuralFeature getValueFeature(final
+	// IXtextSiriusAwareLabelEditPart editPart) {
+	// final EObject semanticElement =
+	// EditPartHelper.getInstance().getSemanticElement(editPart);
+	// if (semanticElement != null) {
+	// return
+	// semanticElement.eClass().getEStructuralFeature(getValueFeatureName(editPart));
+	// }
+	//
+	// throw new IllegalStateException("Cannot directEdit a non-existing
+	// semanticElement");
+	// }
+
 	public @NonNull String getValueFeatureName(final IXtextSiriusAwareLabelEditPart editPart) {
 		final EObject decorator = editPart.resolveSemanticElement();
 		if (decorator instanceof DDiagramElement) {
@@ -76,7 +78,7 @@ implements IXtextSiriusEditpartDescriptor {
 				}
 			}
 		}
-		
+
 		throw new IllegalStateException("Cannot find SetValue operation for directEdit " + this);
 	}
 }

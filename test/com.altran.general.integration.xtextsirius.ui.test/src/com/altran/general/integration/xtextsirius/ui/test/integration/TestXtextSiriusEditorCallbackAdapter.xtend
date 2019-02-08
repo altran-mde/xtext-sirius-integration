@@ -1,0 +1,53 @@
+package com.altran.general.integration.xtextsirius.ui.test.integration
+
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusValueEditorCallback
+import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil
+import com.google.inject.Injector
+import java.util.Collections
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
+import org.eclipse.xtext.parser.IParseResult
+import org.eclipse.xtext.resource.IResourceFactory
+import org.eclipse.xtext.resource.XtextResource
+import org.eclipse.xtext.util.StringInputStream
+
+abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
+	protected val XtextResource fakeResource
+	
+	new(Injector injector, EObject model) {
+		val uri = model.eResource.URI
+		fakeResource = injector.getInstance(IResourceFactory).createResource(uri) as XtextResource
+		fakeResource.load(new StringInputStream(NodeModelUtils::getNode(model).rootNode.text), Collections::emptyMap)
+		FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, uri)
+	}
+	
+	override callbackSetValue(Object value, int offset, int length) {
+		val newContent = value.toString
+		fakeResource.reparse(newContent)
+		fakeResource.relink
+		val element = getSemanticElement()
+		FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
+	}
+	
+	abstract protected def EObject getSemanticElement() 
+	
+	override getXtextParseResult() {
+		EcoreUtil2::resolveLazyCrossReferences(fakeResource, null)
+		fakeResource.parseResult
+	}
+	
+	override getValue() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	override handleSyntaxErrors(IParseResult parseResult) {
+		throw new AssertionError(parseResult)
+	}
+	
+	override handleUnresolvableProxies() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+}

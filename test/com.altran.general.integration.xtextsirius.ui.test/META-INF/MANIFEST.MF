@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Xtext/Sirius Integration UI Tests
+Bundle-SymbolicName: com.altran.general.integration.xtextsirius.ui.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Altran
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.ui.test
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.espilce.commons.resource,
+ org.espilce.commons.testsupport.resource,
+ org.espilce.commons.emf.testsupport.resource,
+ org.junit;bundle-version=4,
+ org.eclipse.emf.ecore,
+ com.altran.general.integration.xtextsirius.test.reflang.RefLang,
+ org.espilce.commons.emf.testsupport;bundle-version=0.3,
+ com.altran.general.integration.xtextsirius.model.xtext,
+ com.altran.general.integration.xtextsirius.model.diagram,
+ com.altran.general.integration.xtextsirius.model.eef,
+ org.eclipse.sirius.ext.base,
+ com.altran.general.integration.xtextsirius.runtime,
+ org.eclipse.xtext,
+ org.eclipse.xtext.example.fowlerdsl,
+ com.altran.general.integration.xtextsirius.test
