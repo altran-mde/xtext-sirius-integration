@@ -1,12 +1,3 @@
-/**
- * Copyright (C) 2018 Altran Netherlands B.V.
- * 
- * This program and the accompanying materials are made
- * available under the terms of the Eclipse Public License 2.0
- * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
- * SPDX-License-Identifier: EPL-2.0
- */
 package org.eclipse.xtext.example.fowlerdsl.parser.antlr.internal; 
 
 import org.eclipse.xtext.*;
@@ -462,7 +453,10 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             if ( (LA3_0==RULE_ID) ) {
                 int LA3_1 = input.LA(2);
 
-                if ( (LA3_1==EOF||LA3_1==RULE_ID||LA3_1==12||LA3_1==16) ) {
+                if ( (LA3_1==EOF||LA3_1==12||LA3_1==16) ) {
+                    alt3=1;
+                }
+                else if ( (LA3_1==RULE_ID) ) {
                     alt3=1;
                 }
             }
@@ -561,7 +555,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatemachine"
-    // InternalInlineEdit.g:244:1: ruleStatemachine returns [EObject current=null] : ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )+ otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )+ otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )+ otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )* ) ;
+    // InternalInlineEdit.g:244:1: ruleStatemachine returns [EObject current=null] : ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )* otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )* otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )* otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )* otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )* ) ;
     public final EObject ruleStatemachine() throws RecognitionException {
         EObject current = null;
 
@@ -586,11 +580,11 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalInlineEdit.g:247:28: ( ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )+ otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )+ otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )+ otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )* ) )
-            // InternalInlineEdit.g:248:1: ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )+ otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )+ otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )+ otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )* )
+            // InternalInlineEdit.g:247:28: ( ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )* otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )* otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )* otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )* otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )* ) )
+            // InternalInlineEdit.g:248:1: ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )* otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )* otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )* otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )* otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )* )
             {
-            // InternalInlineEdit.g:248:1: ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )+ otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )+ otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )+ otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )* )
-            // InternalInlineEdit.g:248:2: () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )+ otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )+ otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )+ otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )*
+            // InternalInlineEdit.g:248:1: ( () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )* otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )* otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )* otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )* otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )* )
+            // InternalInlineEdit.g:248:2: () (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )* otherlv_3= 'end' )? (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )* otherlv_6= 'end' )? (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )* otherlv_9= 'end' )? (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )* otherlv_12= 'end' )? ( (lv_states_13_0= ruleState ) )*
             {
             // InternalInlineEdit.g:248:2: ()
             // InternalInlineEdit.g:249:5: 
@@ -603,7 +597,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalInlineEdit.g:254:2: (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end' )?
+            // InternalInlineEdit.g:254:2: (otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )* otherlv_3= 'end' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -612,14 +606,13 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalInlineEdit.g:254:4: otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )+ otherlv_3= 'end'
+                    // InternalInlineEdit.g:254:4: otherlv_1= 'events' ( (lv_events_2_0= ruleEvent ) )* otherlv_3= 'end'
                     {
-                    otherlv_1=(Token)match(input,15,FOLLOW_5); 
+                    otherlv_1=(Token)match(input,15,FOLLOW_9); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getStatemachineAccess().getEventsKeyword_1_0());
                         
-                    // InternalInlineEdit.g:258:1: ( (lv_events_2_0= ruleEvent ) )+
-                    int cnt4=0;
+                    // InternalInlineEdit.g:258:1: ( (lv_events_2_0= ruleEvent ) )*
                     loop4:
                     do {
                         int alt4=2;
@@ -664,12 +657,8 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt4 >= 1 ) break loop4;
-                                EarlyExitException eee =
-                                    new EarlyExitException(4, input);
-                                throw eee;
+                    	    break loop4;
                         }
-                        cnt4++;
                     } while (true);
 
                     otherlv_3=(Token)match(input,16,FOLLOW_10); 
@@ -682,7 +671,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalInlineEdit.g:280:3: (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )+ otherlv_6= 'end' )?
+            // InternalInlineEdit.g:280:3: (otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )* otherlv_6= 'end' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -691,14 +680,13 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalInlineEdit.g:280:5: otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )+ otherlv_6= 'end'
+                    // InternalInlineEdit.g:280:5: otherlv_4= 'resetEvents' ( (otherlv_5= RULE_ID ) )* otherlv_6= 'end'
                     {
-                    otherlv_4=(Token)match(input,17,FOLLOW_5); 
+                    otherlv_4=(Token)match(input,17,FOLLOW_9); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getStatemachineAccess().getResetEventsKeyword_2_0());
                         
-                    // InternalInlineEdit.g:284:1: ( (otherlv_5= RULE_ID ) )+
-                    int cnt6=0;
+                    // InternalInlineEdit.g:284:1: ( (otherlv_5= RULE_ID ) )*
                     loop6:
                     do {
                         int alt6=2;
@@ -733,12 +721,8 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt6 >= 1 ) break loop6;
-                                EarlyExitException eee =
-                                    new EarlyExitException(6, input);
-                                throw eee;
+                    	    break loop6;
                         }
-                        cnt6++;
                     } while (true);
 
                     otherlv_6=(Token)match(input,16,FOLLOW_11); 
@@ -751,7 +735,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalInlineEdit.g:301:3: (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )+ otherlv_9= 'end' )?
+            // InternalInlineEdit.g:301:3: (otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )* otherlv_9= 'end' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -760,14 +744,13 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalInlineEdit.g:301:5: otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )+ otherlv_9= 'end'
+                    // InternalInlineEdit.g:301:5: otherlv_7= 'commands' ( (lv_commands_8_0= ruleCommand ) )* otherlv_9= 'end'
                     {
                     otherlv_7=(Token)match(input,18,FOLLOW_12); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getStatemachineAccess().getCommandsKeyword_3_0());
                         
-                    // InternalInlineEdit.g:305:1: ( (lv_commands_8_0= ruleCommand ) )+
-                    int cnt8=0;
+                    // InternalInlineEdit.g:305:1: ( (lv_commands_8_0= ruleCommand ) )*
                     loop8:
                     do {
                         int alt8=2;
@@ -788,7 +771,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                     	     
                     	    	        newCompositeNode(grammarAccess.getStatemachineAccess().getCommandsCommandParserRuleCall_3_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_13);
+                    	    pushFollow(FOLLOW_12);
                     	    lv_commands_8_0=ruleCommand();
 
                     	    state._fsp--;
@@ -812,15 +795,11 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt8 >= 1 ) break loop8;
-                                EarlyExitException eee =
-                                    new EarlyExitException(8, input);
-                                throw eee;
+                    	    break loop8;
                         }
-                        cnt8++;
                     } while (true);
 
-                    otherlv_9=(Token)match(input,16,FOLLOW_14); 
+                    otherlv_9=(Token)match(input,16,FOLLOW_13); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getStatemachineAccess().getEndKeyword_3_2());
                         
@@ -830,7 +809,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalInlineEdit.g:327:3: (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )+ otherlv_12= 'end' )?
+            // InternalInlineEdit.g:327:3: (otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )* otherlv_12= 'end' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -839,14 +818,13 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalInlineEdit.g:327:5: otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )+ otherlv_12= 'end'
+                    // InternalInlineEdit.g:327:5: otherlv_10= 'constants' ( (lv_constants_11_0= ruleConstant ) )* otherlv_12= 'end'
                     {
-                    otherlv_10=(Token)match(input,19,FOLLOW_5); 
+                    otherlv_10=(Token)match(input,19,FOLLOW_9); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getStatemachineAccess().getConstantsKeyword_4_0());
                         
-                    // InternalInlineEdit.g:331:1: ( (lv_constants_11_0= ruleConstant ) )+
-                    int cnt10=0;
+                    // InternalInlineEdit.g:331:1: ( (lv_constants_11_0= ruleConstant ) )*
                     loop10:
                     do {
                         int alt10=2;
@@ -891,15 +869,11 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt10 >= 1 ) break loop10;
-                                EarlyExitException eee =
-                                    new EarlyExitException(10, input);
-                                throw eee;
+                    	    break loop10;
                         }
-                        cnt10++;
                     } while (true);
 
-                    otherlv_12=(Token)match(input,16,FOLLOW_15); 
+                    otherlv_12=(Token)match(input,16,FOLLOW_14); 
 
                         	newLeafNode(otherlv_12, grammarAccess.getStatemachineAccess().getEndKeyword_4_2());
                         
@@ -930,7 +904,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getStatemachineAccess().getStatesStateParserRuleCall_5_0()); 
             	    	    
-            	    pushFollow(FOLLOW_15);
+            	    pushFollow(FOLLOW_14);
             	    lv_states_13_0=ruleState();
 
             	    state._fsp--;
@@ -1041,7 +1015,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             // InternalInlineEdit.g:393:1: (lv_name_0_0= RULE_ID )
             // InternalInlineEdit.g:394:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_16); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_15); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -1075,7 +1049,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                     // InternalInlineEdit.g:411:1: (lv_code_1_0= RULE_INT )
                     // InternalInlineEdit.g:412:3: lv_code_1_0= RULE_INT
                     {
-                    lv_code_1_0=(Token)match(input,RULE_INT,FOLLOW_17); 
+                    lv_code_1_0=(Token)match(input,RULE_INT,FOLLOW_16); 
 
                     			newLeafNode(lv_code_1_0, grammarAccess.getEventAccess().getCodeINTTerminalRuleCall_1_0()); 
                     		
@@ -1233,11 +1207,11 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                 {
                 int LA15_1 = input.LA(2);
 
-                if ( (LA15_1==14) ) {
-                    alt15=2;
-                }
-                else if ( (LA15_1==EOF||LA15_1==RULE_ID||LA15_1==12||LA15_1==16) ) {
+                if ( (LA15_1==EOF||LA15_1==RULE_ID||LA15_1==12||LA15_1==16) ) {
                     alt15=1;
+                }
+                else if ( (LA15_1==14) ) {
+                    alt15=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1855,7 +1829,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             // InternalInlineEdit.g:694:1: (lv_name_3_0= RULE_ID )
             // InternalInlineEdit.g:695:3: lv_name_3_0= RULE_ID
             {
-            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_18); 
+            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_17); 
 
             			newLeafNode(lv_name_3_0, grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -1981,7 +1955,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             // InternalInlineEdit.g:751:1: (lv_name_0_0= RULE_ID )
             // InternalInlineEdit.g:752:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_19); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getConstantAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -2127,7 +2101,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             // InternalInlineEdit.g:812:1: (lv_name_1_0= RULE_ID )
             // InternalInlineEdit.g:813:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_20); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_19); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -2158,7 +2132,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalInlineEdit.g:829:4: otherlv_2= 'description' ( (lv_description_3_0= RULE_STRING ) )
                     {
-                    otherlv_2=(Token)match(input,21,FOLLOW_21); 
+                    otherlv_2=(Token)match(input,21,FOLLOW_20); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getStateAccess().getDescriptionKeyword_2_0());
                         
@@ -2168,7 +2142,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                     // InternalInlineEdit.g:834:1: (lv_description_3_0= RULE_STRING )
                     // InternalInlineEdit.g:835:3: lv_description_3_0= RULE_STRING
                     {
-                    lv_description_3_0=(Token)match(input,RULE_STRING,FOLLOW_22); 
+                    lv_description_3_0=(Token)match(input,RULE_STRING,FOLLOW_21); 
 
                     			newLeafNode(lv_description_3_0, grammarAccess.getStateAccess().getDescriptionSTRINGTerminalRuleCall_2_1_0()); 
                     		
@@ -2205,7 +2179,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalInlineEdit.g:851:6: otherlv_4= 'actions' otherlv_5= '{' ( (otherlv_6= RULE_ID ) )+ otherlv_7= '}'
                     {
-                    otherlv_4=(Token)match(input,22,FOLLOW_23); 
+                    otherlv_4=(Token)match(input,22,FOLLOW_22); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getStateAccess().getActionsKeyword_3_0());
                         
@@ -2237,7 +2211,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                     	    	            current = createModelElement(grammarAccess.getStateRule());
                     	    	        }
                     	            
-                    	    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_24); 
+                    	    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_23); 
 
                     	    		newLeafNode(otherlv_6, grammarAccess.getStateAccess().getActionsCommandCrossReference_3_2_0()); 
                     	    	
@@ -2257,7 +2231,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
                         cnt19++;
                     } while (true);
 
-                    otherlv_7=(Token)match(input,24,FOLLOW_25); 
+                    otherlv_7=(Token)match(input,24,FOLLOW_24); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_3_3());
                         
@@ -2288,7 +2262,7 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FOLLOW_25);
+            	    pushFollow(FOLLOW_24);
             	    lv_transitions_8_0=ruleTransition();
 
             	    state._fsp--;
@@ -2556,19 +2530,18 @@ public class InternalInlineEditParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010010L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000001E0002L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000001C0002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000810L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000010810L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000180002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000822L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000002610810L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000002410810L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000001000010L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000002010810L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010810L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000180002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000822L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000002610810L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002410810L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000001000010L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000002010810L});
 
 }

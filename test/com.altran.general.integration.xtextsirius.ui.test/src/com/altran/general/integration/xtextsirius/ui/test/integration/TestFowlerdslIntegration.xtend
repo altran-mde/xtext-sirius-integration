@@ -20,6 +20,7 @@ import org.junit.Test
 
 import static org.espilce.commons.emf.testsupport.AssertEmf.*
 import static org.junit.Assert.*
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Event
 
 class TestFowlerdslIntegration {
 	extension AModelLoader modelLoader = new AModelLoader() {
@@ -100,7 +101,278 @@ class TestFowlerdslIntegration {
 	def void unloadModel() {
 		model.eResource.unload
 	}
-
+	
+	@Test
+	def void event_empty() {
+		val descriptor = eventDescriptor()
+		val elementToEdit = model.events.last
+		val editor = new XtextSiriusModelEditor(descriptor) => [
+			semanticElement = elementToEdit
+			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
+				
+				override callbackSetValue(Object value, int offset, int length) {
+					assertEquals(29, offset)
+					assertEquals(9, length)
+					
+					super.callbackSetValue(value, offset, length)
+				}
+				
+				override protected getSemanticElement() {
+					elementToEdit
+				}
+			}
+		]
+		
+		val valueFeatureName = ""
+		editor.doSetValue("eventX 33", valueFeatureName)
+		val result = editor.commit(elementToEdit, valueFeatureName) as Event
+		assertModelEquals(createEvent => [
+			name = "eventX"
+			code = 33
+		], result)
+		val rootContainer = EcoreUtil::getRootContainer(result)
+		EcoreUtil::resolveAll(rootContainer)
+		assertModelEquals(
+			modelText
+				.replace("event2 2", "eventX 33")
+				.replace("event2 => B", "eventX => B")
+				.parseModel("test.statemachine"),
+			rootContainer
+		)
+	}
+	
+	@Test
+	def void event_guard_set() {
+		val descriptor = eventDescriptor()
+		val elementToEdit = model.events.head
+		val editor = new XtextSiriusModelEditor(descriptor) => [
+			semanticElement = elementToEdit
+			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
+				
+				override callbackSetValue(Object value, int offset, int length) {
+					assertEquals(29, offset)
+					assertEquals(9, length)
+					
+					super.callbackSetValue(value, offset, length)
+				}
+				
+				override protected getSemanticElement() {
+					elementToEdit
+				}
+			}
+		]
+		
+		val valueFeatureName = "guard"
+		editor.doSetValue("2", valueFeatureName)
+		val result = editor.commit(elementToEdit, valueFeatureName) as Statemachine
+		val valueToCommit = result.events.head
+		assertModelEquals(createValueGuard => [
+			cond = createIntLiteral => [
+				value = 2
+			]
+		], valueToCommit)
+		val rootContainer = EcoreUtil::getRootContainer(valueToCommit)
+		EcoreUtil::resolveAll(rootContainer)
+		assertModelEquals(
+			modelText
+				.replace("[c1..22]", "[2]")
+				.parseModel("test.statemachine"),
+			rootContainer
+		)
+	}
+	
+	@Test
+	def void event_guard_unset() {
+		val descriptor = eventDescriptor()
+		val elementToEdit = model.events.last
+		val editor = new XtextSiriusModelEditor(descriptor) => [
+			semanticElement = elementToEdit
+			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
+				
+				override callbackSetValue(Object value, int offset, int length) {
+					assertEquals(37, offset)
+					assertEquals(0, length)
+					
+					super.callbackSetValue(value, offset, length)
+				}
+				
+				override protected getSemanticElement() {
+					elementToEdit
+				}
+			}
+		]
+		
+		val valueFeatureName = "guard"
+		editor.doSetValue("", valueFeatureName)
+		val result = editor.commit(elementToEdit, valueFeatureName) as Statemachine
+		val valueToCommit = result.events.last
+		assertModelEquals(createValueGuard => [
+			cond = createIntLiteral => [
+				value = 2
+			]
+		], valueToCommit)
+		val rootContainer = EcoreUtil::getRootContainer(valueToCommit)
+		EcoreUtil::resolveAll(rootContainer)
+		assertModelEquals(
+			modelText
+				.replace("event2 2", "event2 2 [2]")
+				.parseModel("test.statemachine"),
+			rootContainer
+		)
+	}
+	
+	@Test
+	def void statemachine_events_set() {
+		val descriptor = eventDescriptor()
+		val elementToEdit = model
+		val editor = new XtextSiriusModelEditor(descriptor) => [
+			semanticElement = elementToEdit
+			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
+				
+				override callbackSetValue(Object value, int offset, int length) {
+					assertEquals(10, offset)
+					assertEquals(30, length)
+					
+					super.callbackSetValue(value, offset, length)
+				}
+				
+				override protected getSemanticElement() {
+					elementToEdit
+				}
+			}
+		]
+		
+		val valueFeatureName = "events"
+		editor.doSetValue("event 1 [ .. 22 ] event2 2", valueFeatureName)
+		val result = editor.commit(elementToEdit, valueFeatureName) as Statemachine
+		val valueToCommit = result
+		val rootContainer = EcoreUtil::getRootContainer(valueToCommit)
+		EcoreUtil::resolveAll(rootContainer)
+		assertModelEquals(
+			modelText
+				.parseModel("test.statemachine"),
+			rootContainer
+		)
+	}
+	
+	@Test
+	def void statemachine_events_unset() {
+		val descriptor = eventDescriptor()
+		model.events.clear()
+		val elementToEdit = model
+		val editor = new XtextSiriusModelEditor(descriptor) => [
+			semanticElement = elementToEdit
+			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
+				
+				override callbackSetValue(Object value, int offset, int length) {
+					assertEquals(10, offset)
+					assertEquals(0, length)
+					
+					super.callbackSetValue(value, offset, length)
+				}
+				
+				override protected getSemanticElement() {
+					elementToEdit
+				}
+			}
+		]
+		
+		val valueFeatureName = "events"
+		editor.doSetValue("event 1 [ .. 22 ] event2 2", valueFeatureName)
+		val result = editor.commit(elementToEdit, valueFeatureName) as Statemachine
+		val valueToCommit = result
+		val rootContainer = EcoreUtil::getRootContainer(valueToCommit)
+		EcoreUtil::resolveAll(rootContainer)
+		assertModelEquals(
+			modelText
+				.parseModel("test.statemachine"),
+			rootContainer
+		)
+	}
+	
+	@Test
+	def void guard_empty_set() {
+		val descriptor = eventDescriptor()
+		val elementToEdit = model.events.head.guard
+		val editor = new XtextSiriusModelEditor(descriptor) => [
+			semanticElement = elementToEdit
+			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
+				
+				override callbackSetValue(Object value, int offset, int length) {
+					assertEquals(20, offset)
+					assertEquals(9, length)
+					
+					super.callbackSetValue(value, offset, length)
+				}
+				
+				override protected getSemanticElement() {
+					elementToEdit
+				}
+			}
+		]
+		
+		val valueFeatureName = ""
+		editor.doSetValue("2", valueFeatureName)
+		val result = editor.commit(elementToEdit, valueFeatureName) as Statemachine
+		val valueToCommit = result.events.head
+		assertModelEquals(createValueGuard => [
+			cond = createIntLiteral => [
+				value = 2
+			]
+		], valueToCommit)
+		val rootContainer = EcoreUtil::getRootContainer(valueToCommit)
+		EcoreUtil::resolveAll(rootContainer)
+		assertModelEquals(
+			modelText
+				.replace("[c1..22]", "[2]")
+				.parseModel("test.statemachine"),
+			rootContainer
+		)
+	}
+	
+	@Test
+	def void guard_empty_unset() {
+		val descriptor = eventDescriptor()
+		val container = model.events.last 
+		val elementToEdit = container.guard
+		val editor = new XtextSiriusModelEditor(descriptor) => [
+			fallbackContainer = container
+			semanticElement = elementToEdit
+			
+			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
+				
+				override callbackSetValue(Object value, int offset, int length) {
+					assertEquals(37, offset)
+					assertEquals(0, length)
+					
+					super.callbackSetValue(value, offset, length)
+				}
+				
+				override protected getSemanticElement() {
+					container
+				}
+			}
+		]
+		
+		val valueFeatureName = ""
+		editor.doSetValue("", valueFeatureName)
+		val result = editor.commit(container, valueFeatureName) as Statemachine
+		val valueToCommit = result.events.last
+		assertModelEquals(createValueGuard => [
+			cond = createIntLiteral => [
+				value = 2
+			]
+		], valueToCommit)
+		val rootContainer = EcoreUtil::getRootContainer(valueToCommit)
+		EcoreUtil::resolveAll(rootContainer)
+		assertModelEquals(
+			modelText
+				.replace("event2 2", "event2 2 [2]")
+				.parseModel("test.statemachine"),
+			rootContainer
+		)
+	}
+	
 	@Test
 	def void eventNoEdit() {
 		val descriptor = eventDescriptor()

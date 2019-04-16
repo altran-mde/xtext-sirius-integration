@@ -273,7 +273,7 @@ ruleStatemachine returns [EObject current=null]
 	    }
 
 )
-)+	otherlv_3='end' 
+)*	otherlv_3='end' 
     {
     	newLeafNode(otherlv_3, grammarAccess.getStatemachineAccess().getEndKeyword_1_2());
     }
@@ -294,7 +294,7 @@ ruleStatemachine returns [EObject current=null]
 	}
 
 )
-)+	otherlv_6='end' 
+)*	otherlv_6='end' 
     {
     	newLeafNode(otherlv_6, grammarAccess.getStatemachineAccess().getEndKeyword_2_2());
     }
@@ -320,7 +320,7 @@ ruleStatemachine returns [EObject current=null]
 	    }
 
 )
-)+	otherlv_9='end' 
+)*	otherlv_9='end' 
     {
     	newLeafNode(otherlv_9, grammarAccess.getStatemachineAccess().getEndKeyword_3_2());
     }
@@ -346,7 +346,7 @@ ruleStatemachine returns [EObject current=null]
 	    }
 
 )
-)+	otherlv_12='end' 
+)*	otherlv_12='end' 
     {
     	newLeafNode(otherlv_12, grammarAccess.getStatemachineAccess().getEndKeyword_4_2());
     }

@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.modelregion;
@@ -60,11 +60,17 @@ public class SemanticElementLocation {
 	private void storeLocation(final @NonNull EObject semanticElement) {
 		final Resource resource = semanticElement.eResource();
 		this.uriFragment = resource.getURIFragment(semanticElement);
-		this.parentUriFragment = resource.getURIFragment(semanticElement.eContainer());
-		this.containingFeature = semanticElement.eContainingFeature();
-		if (this.containingFeature.isMany()) {
-			this.index = ((EList<EObject>) semanticElement.eContainer()
-					.eGet(this.containingFeature)).indexOf(semanticElement);
+		final EObject parent = semanticElement.eContainer();
+		if (parent != null) {
+			this.parentUriFragment = resource.getURIFragment(parent);
+			this.containingFeature = semanticElement.eContainingFeature();
+			if (this.containingFeature.isMany()) {
+				this.index = ((EList<EObject>) parent
+						.eGet(this.containingFeature)).indexOf(semanticElement);
+			}
+		} else {
+			this.parentUriFragment = null;
+			this.containingFeature = null;
 		}
 	}
 	
@@ -73,13 +79,15 @@ public class SemanticElementLocation {
 		final EObject result = resource.getEObject(this.uriFragment);
 		if (result != null) {
 			return result;
-		}
-		
-		final Object containingElement = resource.getEObject(this.parentUriFragment).eGet(this.containingFeature);
-		if (this.containingFeature.isMany()) {
-			return ((EList<EObject>) containingElement).get(this.index);
+		} else if (this.parentUriFragment != null) {
+			final Object containingElement = resource.getEObject(this.parentUriFragment).eGet(this.containingFeature);
+			if (this.containingFeature.isMany()) {
+				return ((EList<EObject>) containingElement).get(this.index);
+			} else {
+				return (EObject) containingElement;
+			}
 		} else {
-			return (EObject) containingElement;
+			throw new IllegalStateException("cannot resolve EObject without container");
 		}
 	}
 }
