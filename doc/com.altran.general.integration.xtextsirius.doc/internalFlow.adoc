@@ -1,0 +1,383 @@
+= Internal Flow in Xtext/Sirius Integration
+
+== Model Direct Edit
+[plantuml, model-direct-edit, svg]
+....
+hide footbox
+
+actor User as user
+
+control Eclipse as eclipse
+
+participant "XtextSiriusDirectEditManagerModel" as editMgr
+participant "XtextSiriusStyledTextCellEditorModel" as cellEditor
+participant "XtextSiriusModelEditor" as modelEditor
+participant "ModelRegionEditorPreparer" as preparer
+participant "ModelRegionSerializer" as serializer
+participant "ModelRegionCalculator" as regionCalculator
+participant "IgnoredFeatureAdapter" as ignoredFeatureAdapter
+participant "SemanticElementLocation" as location
+participant EMerger as merger
+
+participant ReplaceValueTask as replaceValueTask
+
+'participant "IgnoredFeature\nTransientValueService" as transientValueService
+
+== Open Direct Edit ==
+
+user -> eclipse ++: double click
+
+eclipse -> editMgr ++: show()
+'editMgr -> editMgr ++: createCellEditorOn()
+editMgr -> editMgr ++: createCellEditor()
+
+editMgr -> cellEditor **
+activate cellEditor
+
+cellEditor -> modelEditor **
+cellEditor -> modelEditor: setCallback(this)
+' new cellEditor
+return 
+
+'editMgr -> cellEditor: create()
+
+' editMgr.createCellEditor()
+return
+
+' editMgr.createCellEditorOn()
+'return
+
+editMgr -> editMgr ++: initCellEditor()
+
+editMgr -> editMgr ++: setSemanticElement()
+
+editMgr -> cellEditor ++: setSemanticElement()
+cellEditor -> modelEditor: setSemanticElement()
+' cellEditor.setSemanticElement()
+return
+
+editMgr -> cellEditor ++: setFallbackContainer()
+cellEditor -> modelEditor: setFallbackContainer()
+'cellEditor.setFallbackContainer()
+return
+
+' editMgr.setSemanticElement()
+return
+
+editMgr -> editMgr ++: setEditText()
+editMgr -> cellEditor ++: doSetValue()
+cellEditor -> modelEditor ++: doSetValue()
+modelEditor -> preparer **
+
+modelEditor -> preparer ++: getText()
+preparer -> preparer ++: prepare()
+
+preparer -> serializer **
+preparer -> serializer ++: serialize()
+
+serializer -> serializer ++: markIgnoredFeatures()
+serializer -> ignoredFeatureAdapter **
+'serializer.markIgnoredFeatures()
+return
+
+serializer -> serializer ++: Serializer::serializeToRegions()
+serializer -> serializer ++: IgnoredFeatureTransientValueService\n.isValueTransient()
+serializer -> ignoredFeatureAdapter: getFeatureName()
+'transientValueService.isValueTransient()
+return
+
+
+'serializer.serializeToRegions()
+return
+
+'serializer.serialize()
+return serialize()
+
+preparer -> serializer !!
+
+preparer -> location **
+activate location
+location -> location: storeLocation()
+'new location
+return
+
+preparer -> regionCalculator **
+activate regionCalculator
+preparer -> regionCalculator: calculateFeatureRegion(editableFeatures)
+preparer -> regionCalculator !!
+deactivate regionCalculator
+
+preparer -> regionCalculator **
+activate regionCalculator
+preparer -> regionCalculator: calculateFeatureRegion(selectedFeatures)
+preparer -> regionCalculator !!
+deactivate regionCalculator
+
+'preparer.prepare()
+return prepare()
+
+'preparer.getText()
+return getText()
+
+modelEditor -> modelEditor ++: updateCallbackSetValue()
+modelEditor -> cellEditor ++: callbackSetValue()
+cellEditor -> cellEditor: super.doSetValue()
+cellEditor -> cellEditor: setVisibleRegion()
+cellEditor -> cellEditor: updateFakeResourceUri()
+'cellEditor -> cellEditor: updateFakeResourceContext()
+'cellEditor -> cellEditor: resetDirty()
+
+' cellEditor.callbackSetValue()
+return
+' updateCallbackSetValue()
+return
+
+modelEditor -> preparer: getSemanticElementLocation()
+
+modelEditor -> preparer !!
+' modelEditor.doSetValue()
+return doSetValue()
+
+' cellEditor.doSetValue()
+return doSetValue()
+
+' editMgr.setEditText()
+return setEditText()
+
+editMgr -> cellEditor ++: updateSelectedRegion()
+cellEditor -> modelEditor: getSelectedRegion()
+' cellEditor.updateSelectedRegion()
+return
+
+' editMgr.initCellEditor()
+return initCellEditor()
+
+' editMgr.show()
+return show()
+
+' eclipse.double click
+return double click
+
+user -> eclipse: change text
+
+== Close Direct Edit ==
+
+user -> eclipse ++: move focus away
+
+eclipse -> editMgr ++: applyEditorValue()
+
+editMgr -> editMgr ++: commit()
+
+editMgr -> replaceValueTask **
+
+'editMgr -> editPart ++: getDirectEditCommand()
+'
+'editPart -> replaceValueTask **
+'editPart -> editingDomain ++: runExclusive()
+'
+'editingDomain -> replaceValueTask **
+'
+' editingDomain.runExclusive()
+'return
+'
+' editPart.getDirectEditCommand()
+'return
+
+'editMgr -> editMgr ++: execute()
+
+editMgr -> replaceValueTask ++: execute()
+
+replaceValueTask -> cellEditor ++: commit()
+
+cellEditor -> modelEditor ++: commit()
+
+modelEditor -> modelEditor ++: getValueToCommit()
+modelEditor -> cellEditor: getXtextParseResult()
+modelEditor -> location: resolve()
+modelEditor -> modelEditor: FakeResourceUtil::proxify()
+modelEditor -> location !!
+' modelEditor.getValueToCommit()
+return
+
+modelEditor -> modelEditor: adjustTarget()
+modelEditor -> merger **
+activate merger
+modelEditor -> merger: merge()
+modelEditor -> merger !!
+deactivate merger
+modelEditor -> modelEditor: EcoreUtil::resolveAll()
+modelEditor -> modelEditor ++: removeAllIgnoredFeatureAdapters()
+
+modelEditor -> ignoredFeatureAdapter !!
+
+'modelEditor.removeAllIgnoredFeatureAdapters()
+return
+
+
+'modelEditor.commit()
+return commit()
+
+'cellEditor.commit()
+return commit()
+
+replaceValueTask -> replaceValueTask: updateRepresentation()
+
+'replaceValueTask.execute()
+return execute()
+
+editMgr -> replaceValueTask !!
+
+' editMgr.execute()
+'return
+
+' editMgr.commit()
+return commit()
+
+
+' editMgr.applyEditorValue()
+return applyEditorValue()
+
+eclipse -> cellEditor !!
+cellEditor -> modelEditor !!
+
+' eclipse.move focus away
+return move focus away
+....
+
+
+== Value Direct Edit
+[plantuml, value-direct-edit, svg]
+....
+hide footbox
+
+actor User as user
+
+control Eclipse as eclipse
+
+participant "XtextSiriusDirectEditManagerValue" as editMgr
+participant "XtextSiriusStyledTextCellEditorValue" as cellEditor
+participant "XtextSiriusValueEditor" as valueEditor
+
+participant ReplaceValueTask as replaceValueTask
+
+== Open Direct Edit ==
+
+user -> eclipse ++: double click
+
+eclipse -> editMgr ++: show()
+
+editMgr -> editMgr ++: createCellEditor()
+
+editMgr -> cellEditor **
+activate cellEditor
+
+cellEditor -> valueEditor **
+cellEditor -> valueEditor: setCallback(this)
+
+'new cellEditor
+return
+
+'editMgr.createCellEditor()
+return
+
+editMgr -> editMgr ++: initCellEditor()
+
+editMgr -> editMgr ++: setSemanticElement()
+
+editMgr -> cellEditor ++: setSemanticElement()
+cellEditor -> valueEditor: setSemanticElement()
+'cellEditor.setSemanticElement()
+return
+
+editMgr -> cellEditor ++: setFallbackContainer()
+cellEditor -> valueEditor: setFallbackContainer()
+'cellEditor.setFallbackContainer()
+return
+
+'editMgr.setSemanticElement()
+return
+
+editMgr -> editMgr ++: setEditText()
+
+editMgr -> cellEditor ++: doSetValue()
+
+cellEditor -> valueEditor ++: doSetValue()
+valueEditor -> valueEditor ++: updateCallbackSetValue()
+
+valueEditor -> cellEditor ++: callbackSetValue()
+cellEditor -> cellEditor: super.doSetValue()
+cellEditor -> cellEditor: setVisibleRegion()
+cellEditor -> cellEditor: updateFakeResourceUri()
+
+'cellEditor.callbackSetValue()
+return
+
+'valueEditor.updateCallbackSetValue()
+return
+
+
+'valueEditor.doSetValue()
+return doSetValue()
+
+'cellEditor.doSetValue()
+return doSetValue()
+
+'editMgr.setEditText()
+return
+
+'editMgr.initCellEditor()
+return
+
+'editMgr.show()
+return show()
+
+' eclipse.double click
+return double click
+
+user -> eclipse: change text
+
+== Close Direct Edit ==
+
+user -> eclipse ++: move focus away
+
+eclipse -> editMgr ++: applyEditorValue()
+editMgr -> editMgr ++: commit()
+
+editMgr -> replaceValueTask **
+
+editMgr -> replaceValueTask ++: execute()
+
+replaceValueTask -> cellEditor ++: commit()
+
+cellEditor -> valueEditor ++: commit()
+
+valueEditor -> valueEditor: adjustTarget()
+
+valueEditor -> valueEditor ++: getValueToCommit()
+valueEditor -> cellEditor: getValue()
+'valueEditor.getValueToCommit()
+return
+
+'valueEditor.commit()
+return commit()
+
+'cellEditor.commit()
+return commit()
+
+'replaceValueTask.execute()
+return execute()
+
+editMgr -> replaceValueTask !!
+
+'editMgr.commit()
+return commit()
+
+'editMgr.applyEditorValue()
+return applyEditorValue()
+
+eclipse -> cellEditor !!
+cellEditor -> valueEditor !!
+
+' eclipse.move focus away
+return move focus away
+....

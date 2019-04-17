@@ -10,3 +10,4 @@ org.eclipse.buildship.core.prefs
 locations.properties
 /README.htm*
 __pycache__
+.asciidoctor/
