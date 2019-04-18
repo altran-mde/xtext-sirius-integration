@@ -6,11 +6,17 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusValueDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
 
 public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValueEditorCallback> {
 	public XtextSiriusValueEditor(final IXtextSiriusValueDescriptor descriptor) {
 		super(descriptor);
+	}
+
+	@Override
+	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
+		return getCallback().getValue();
 	}
 
 	@Override
@@ -40,7 +46,7 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 	}
 
 	@Override
-	public IXtextSiriusValueDescriptor getDescriptor() {
+	protected IXtextSiriusValueDescriptor getDescriptor() {
 		return (IXtextSiriusValueDescriptor) super.getDescriptor();
 	}
 }

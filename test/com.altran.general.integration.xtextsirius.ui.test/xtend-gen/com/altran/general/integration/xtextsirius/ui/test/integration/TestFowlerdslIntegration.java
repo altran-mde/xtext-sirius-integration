@@ -1,17 +1,13 @@
 package com.altran.general.integration.xtextsirius.ui.test.integration;
 
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
-import com.altran.general.integration.xtextsirius.test.FowlerdslEnvironment;
-import com.altran.general.integration.xtextsirius.test.InlineFowlerdslEnvironment;
+import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdsl;
 import com.altran.general.integration.xtextsirius.ui.test.integration.TestXtextSiriusEditorCallbackAdapter;
 import com.google.inject.Injector;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
@@ -21,46 +17,19 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.Guard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.IntLiteral;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.RangeGuard;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
-import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachineFactory;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard;
 import org.eclipse.xtext.parser.IParseResult;
-import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
-import org.espilce.commons.emf.testsupport.AModelLoader;
 import org.espilce.commons.emf.testsupport.AssertEmf;
 import org.espilce.commons.lang.StringUtils2;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestFowlerdslIntegration {
-  @Extension
-  private AModelLoader modelLoader = new AModelLoader() {
-    @Override
-    public ResourceSet provideResourceSet() {
-      return new ResourceSetImpl();
-    }
-  };
-  
-  @Extension
-  private DiagramxtextFactory diagramFactory = DiagramxtextFactory.eINSTANCE;
-  
-  @Extension
-  private StatemachineFactory statemachineFactory = StatemachineFactory.eINSTANCE;
-  
-  private Statemachine model;
-  
-  @BeforeClass
-  public static void loadFowlerds() {
-    FowlerdslEnvironment.getInstance();
-    InlineFowlerdslEnvironment.getInstance();
-  }
-  
+public class TestFowlerdslIntegration extends ATestFowlerdsl {
+  @Override
   protected String modelText() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("events");
@@ -142,23 +111,6 @@ public class TestFowlerdslIntegration {
     _builder.newLine();
     _builder.append("end");
     return StringUtils2.normalizeNewline(_builder.toString());
-  }
-  
-  protected Statemachine parseModel() {
-    EObject _parseModel = this.modelLoader.parseModel(this.modelText(), "test.statemachine");
-    final Statemachine result = ((Statemachine) _parseModel);
-    EcoreUtil.resolveAll(result);
-    return result;
-  }
-  
-  @Before
-  public void loadModel() {
-    this.model = this.parseModel();
-  }
-  
-  @After
-  public void unloadModel() {
-    this.model.eResource().unload();
   }
   
   @Test
@@ -583,13 +535,5 @@ public class TestFowlerdslIntegration {
     };
     XtextDirectEditModelDescription _doubleArrow = ObjectExtensions.<XtextDirectEditModelDescription>operator_doubleArrow(_createXtextDirectEditModelDescription, _function);
     return new XtextSiriusModelDescriptor(_inlineInjector, _doubleArrow);
-  }
-  
-  protected Injector getInjector() {
-    return FowlerdslEnvironment.getInstance().getInjector();
-  }
-  
-  protected Injector getInlineInjector() {
-    return InlineFowlerdslEnvironment.getInstance().getInjector();
   }
 }

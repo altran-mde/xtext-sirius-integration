@@ -23,22 +23,22 @@ import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
 	private @Nullable SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;
-
+	
 	public XtextSiriusModelEditor(final @NonNull IXtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
 	}
-
+	
 	@Override
 	public void doSetValue(final @Nullable Object value, final @Nullable String valueFeatureName) {
 		ModelRegionEditorPreparer preparer = null;
 		URI resourceUri = null;
-
+		
 		EObject semanticElement;
 		if (value instanceof EObject) {
 			semanticElement = (EObject) value;
 			preparer = new ModelRegionEditorPreparer(getDescriptor(), semanticElement);
 			resourceUri = semanticElement.eResource().getURI();
-
+			
 		} else {
 			semanticElement = getSemanticElement();
 			if (semanticElement != null) {
@@ -55,11 +55,11 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				}
 			}
 		}
-
+		
 		if (preparer != null && resourceUri != null) {
 			String text = preparer.getText();
 			TextRegion textRegion = preparer.getTextRegion();
-
+			
 			if (value instanceof String) {
 				final String str = (String) value;
 				if (StringUtils.isNotBlank(str)) {
@@ -68,14 +68,14 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 					textRegion = new TextRegion(textRegion.getOffset(), str.length());
 				}
 			}
-
+			
 			super.updateCallbackSetValue(text, textRegion.getOffset(), textRegion.getLength());
-
+			
 			this.semanticElementLocation = preparer.getSemanticElementLocation();
 			this.selectedRegion = preparer.getSelectedRegion();
 		}
 	}
-	
+
 	@Override
 	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
 		final SemanticElementLocation location = getSemanticElementLocation();
@@ -94,10 +94,10 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(getSemanticElement()));
 			}
 		}
-		
+
 		return null;
 	}
-
+	
 	@Override
 	public Object commit(final @NonNull EObject target, final @Nullable String valueFeatureName) {
 		try {
@@ -123,11 +123,11 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			removeAllIgnoredFeatureAdapters();
 		}
 	}
-
+	
 	protected @Nullable URI getUri(final EObject adjustedTarget) {
 		return adjustedTarget != null ? EcoreUtil.getURI(adjustedTarget) : null;
 	}
-	
+
 	/** Must not be called before the merging is complete */
 	public void removeAllIgnoredFeatureAdapters() {
 		if (getSemanticElement() == null) {
@@ -137,20 +137,20 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		rootContainer.eAllContents()
 				.forEachRemaining(eObject -> eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance));
 	}
-	
+
 	public @Nullable TextRegion getSelectedRegion() {
 		return this.selectedRegion;
 	}
-	
+
 	@Override
-	public IXtextSiriusModelDescriptor getDescriptor() {
+	protected IXtextSiriusModelDescriptor getDescriptor() {
 		return (IXtextSiriusModelDescriptor) super.getDescriptor();
 	}
-	
+
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}
-	
+
 	protected boolean containsUnresolvableProxies(final @NonNull EObject eObject) {
 		return !EcoreUtil.UnresolvedProxyCrossReferencer.find(eObject).isEmpty();
 	}

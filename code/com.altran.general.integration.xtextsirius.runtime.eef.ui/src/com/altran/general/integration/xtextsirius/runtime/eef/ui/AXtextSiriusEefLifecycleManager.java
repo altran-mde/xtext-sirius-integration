@@ -45,13 +45,13 @@ implements IXtextSiriusEditorCallback {
 	private final E editor;
 	private final Injector injector;
 	private final IEefXtextDescription controlDescription;
-
+	
 	private XtextSiriusController controller;
 	private XtextSiriusWidget widget;
 	private Consumer<Object> newValueConsumer;
 	private boolean enabled;
-	
 
+	
 	@SuppressWarnings("unchecked")
 	public AXtextSiriusEefLifecycleManager(
 			final @NonNull E editor,
@@ -66,36 +66,36 @@ implements IXtextSiriusEditorCallback {
 		editor.setCallback((C) this);
 		this.controlDescription = controlDescription;
 	}
-	
+
 	protected abstract XtextSiriusWidget createXtextSiriusWidget(final Composite parent);
 	protected abstract Consumer<Object> createNewValueConsumer();
-
+	
 	@Override
 	public void refresh() {
 		super.refresh();
 		getController().refresh();
 	}
-
+	
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
-		
+
 		this.newValueConsumer = createNewValueConsumer();
 		getController().onNewValue(this.newValueConsumer);
 	}
-	
+
 	@Override
 	public void aboutToBeHidden() {
 		if (getWidget().isDirty()) {
 			commit();
 		}
-
+		
 		super.aboutToBeHidden();
 		getController().removeValueConsumer();
 		this.newValueConsumer = null;
 		getWidget().cleanup();
 	}
-
+	
 	@Override
 	public void callbackSetValue(final Object value, final int offset, final int length) {
 		if (value instanceof String) {
@@ -103,86 +103,85 @@ implements IXtextSiriusEditorCallback {
 			updateWidgetUriWithSelf();
 		}
 	}
-
-	@Override
-	public @Nullable Object getValue() {
+	
+	protected @Nullable Object getValue() {
 		final StyledText textWidget = getWidget().getTextWidget();
 		if (textWidget != null) {
 			final String text = textWidget.getText();
 			return text;
 		}
-
+		
 		return null;
 	}
-
+	
 	protected @Nullable String getValueFeature() {
 		@SuppressWarnings("restriction")
 		final String PREFIX = org.eclipse.sirius.common.tools.internal.interpreter.FeatureInterpreter.PREFIX;
-
+		
 		// we're using valueExpression (instead of EditExpression) as there is
 		// no field to explicitly set the editExpression in odesign model.
 		final String valueExpression = getWidgetDescription().getValueExpression();
 		if (StringUtils.startsWith(valueExpression, PREFIX)) {
 			return valueExpression.substring(PREFIX.length());
 		}
-
+		
 		return null;
 	}
-	
+
 	public XtextSiriusWidget getWidget() {
 		return this.widget;
 	}
-
+	
 	@Override
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		this.widget = createXtextSiriusWidget(parent);
 		applyGridData(getWidget().getControl());
-		
+
 		this.controller = new XtextSiriusController(getWidgetDescription(), getVariableManager(), getInterpreter(),
 				getContextAdapter());
 	}
-
+	
 	@Override
 	protected @Nullable XtextSiriusController getController() {
 		return this.controller;
 	}
-
+	
 	@Override
 	protected @NonNull IEefXtextDescription getWidgetDescription() {
 		return this.controlDescription;
 	}
-
+	
 	@Override
 	protected void setEnabled(final boolean isEnabled) {
 		this.enabled = isEnabled;
 	}
-
+	
 	@Override
 	protected boolean isEnabled() {
 		return this.enabled;
 	}
-
+	
 	@Override
 	protected @Nullable Control getValidationControl() {
 		if (getWidget() != null) {
 			return getWidget().getControl();
 		}
-
+		
 		return null;
 	}
-
+	
 	protected @NonNull EditingContextAdapter getContextAdapter() {
 		return this.editingContextAdapter;
 	}
-	
+
 	protected @NonNull IVariableManager getVariableManager() {
 		return this.variableManager;
 	}
-	
+
 	protected @NonNull IInterpreter getInterpreter() {
 		return this.interpreter;
 	}
-
+	
 	protected void applyGridData(final @Nullable Control widgetControl) {
 		if (widgetControl != null) {
 			final GridData gridData = translateToGridData();
@@ -191,52 +190,52 @@ implements IXtextSiriusEditorCallback {
 			widgetControl.setLayoutData(gridData);
 		}
 	}
-
+	
 	protected @NonNull GridData translateToGridData() {
 		final GridData result = new GridData(SWT.FILL, SWT.BEGINNING, true, false);
 		if (getWidgetDescription().isMultiLine()) {
 			// because it's two times the answer
 			result.heightHint = 42 * 2;
 		}
-
+		
 		return result;
 	}
-
+	
 	protected void commit() {
 		getContextAdapter().performModelChange(() -> {
 			final String editExpression = getWidgetDescription().getEditExpression();
 			final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
-
+			
 			final Map<String, Object> variables = Maps.newLinkedHashMap();
 			variables.putAll(getVariableManager().getVariables());
 			final Object newValue = getEditor().commit(getSelf(), getValueFeature());
 			variables.put(EEFExpressionUtils.EEFText.NEW_VALUE, newValue);
-
+			
 			EvalFactory.of(getInterpreter(), variables).logIfBlank(eAttribute).call(editExpression);
 		});
 	}
-
+	
 	protected void updateWidgetUriWithSelf() {
 		final EObject self = getSelf();
 		if (self != null) {
 			getWidget().updateUri(self.eResource().getURI());
 		}
 	}
-
+	
 	protected @Nullable EObject getSelf() {
 		final Object self = getVariableManager().getVariables().get(EEFExpressionUtils.SELF);
 		if (self instanceof EObject) {
 			return (EObject) self;
 		}
-
+		
 		return null;
-
+		
 	}
-
+	
 	protected E getEditor() {
 		return this.editor;
 	}
-	
+
 	protected Injector getInjector() {
 		return this.injector;
 	}
