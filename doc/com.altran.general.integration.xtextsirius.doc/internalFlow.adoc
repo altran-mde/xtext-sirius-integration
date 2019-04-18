@@ -1,6 +1,8 @@
 = Internal Flow in Xtext/Sirius Integration
 
-== Model Direct Edit
+== Direct Edit
+
+=== Model
 [plantuml, model-direct-edit, svg]
 ....
 hide footbox
@@ -21,139 +23,123 @@ participant EMerger as merger
 
 participant ReplaceValueTask as replaceValueTask
 
-'participant "IgnoredFeature\nTransientValueService" as transientValueService
+title Direct Edit Model
 
 == Open Direct Edit ==
 
 user -> eclipse ++: double click
 
-eclipse -> editMgr ++: show()
-'editMgr -> editMgr ++: createCellEditorOn()
-editMgr -> editMgr ++: createCellEditor()
+	eclipse -> editMgr ++: show()
+		editMgr -> editMgr ++: createCellEditor()
 
-editMgr -> cellEditor **
-activate cellEditor
+			editMgr -> cellEditor **
+			activate cellEditor
+				cellEditor -> modelEditor **
+				cellEditor -> modelEditor: setCallback(this)
+			' new cellEditor
+			return 
 
-cellEditor -> modelEditor **
-cellEditor -> modelEditor: setCallback(this)
-' new cellEditor
-return 
+		' editMgr.createCellEditor()
+		return
 
-'editMgr -> cellEditor: create()
+		editMgr -> editMgr ++: initCellEditor()
+			editMgr -> editMgr ++: setSemanticElement()
 
-' editMgr.createCellEditor()
-return
+				editMgr -> cellEditor ++: setSemanticElement()
+					cellEditor -> modelEditor: setSemanticElement()
+				' cellEditor.setSemanticElement()
+				return
 
-' editMgr.createCellEditorOn()
-'return
+				editMgr -> cellEditor ++: setFallbackContainer()
+					cellEditor -> modelEditor: setFallbackContainer()
+				'cellEditor.setFallbackContainer()
+				return
 
-editMgr -> editMgr ++: initCellEditor()
+			' editMgr.setSemanticElement()
+			return
 
-editMgr -> editMgr ++: setSemanticElement()
+			editMgr -> editMgr ++: setEditText()
+				editMgr -> cellEditor ++: doSetValue()
+					cellEditor -> modelEditor ++: doSetValue()
+						modelEditor -> preparer **
 
-editMgr -> cellEditor ++: setSemanticElement()
-cellEditor -> modelEditor: setSemanticElement()
-' cellEditor.setSemanticElement()
-return
+						modelEditor -> preparer ++: getText()
+							preparer -> preparer ++: prepare()
 
-editMgr -> cellEditor ++: setFallbackContainer()
-cellEditor -> modelEditor: setFallbackContainer()
-'cellEditor.setFallbackContainer()
-return
+								preparer -> serializer **
 
-' editMgr.setSemanticElement()
-return
+								preparer -> serializer ++: serialize()
+									serializer -> serializer ++: markIgnoredFeatures()
+										serializer -> ignoredFeatureAdapter **
+									'serializer.markIgnoredFeatures()
+									return
 
-editMgr -> editMgr ++: setEditText()
-editMgr -> cellEditor ++: doSetValue()
-cellEditor -> modelEditor ++: doSetValue()
-modelEditor -> preparer **
+									serializer -> serializer ++: Serializer::serializeToRegions()
+										serializer -> serializer ++: IgnoredFeatureTransientValueService\n.isValueTransient()
+											serializer -> ignoredFeatureAdapter: getFeatureName()
+										'transientValueService.isValueTransient()
+										return
+									'serializer.serializeToRegions()
+									return
+								'serializer.serialize()
+								return serialize()
 
-modelEditor -> preparer ++: getText()
-preparer -> preparer ++: prepare()
+								preparer -> serializer !!
 
-preparer -> serializer **
-preparer -> serializer ++: serialize()
+								preparer -> location **
+								activate location
+									location -> location: storeLocation()
+								'new location
+								return
 
-serializer -> serializer ++: markIgnoredFeatures()
-serializer -> ignoredFeatureAdapter **
-'serializer.markIgnoredFeatures()
-return
+								preparer -> regionCalculator **
+								activate regionCalculator
+									preparer -> regionCalculator: calculateFeatureRegion(editableFeatures)
+									preparer -> regionCalculator !!
+								deactivate regionCalculator
 
-serializer -> serializer ++: Serializer::serializeToRegions()
-serializer -> serializer ++: IgnoredFeatureTransientValueService\n.isValueTransient()
-serializer -> ignoredFeatureAdapter: getFeatureName()
-'transientValueService.isValueTransient()
-return
+								preparer -> regionCalculator **
+								activate regionCalculator
+									preparer -> regionCalculator: calculateFeatureRegion(selectedFeatures)
+									preparer -> regionCalculator !!
+								deactivate regionCalculator
 
+							'preparer.prepare()
+							return prepare()
+						'preparer.getText()
+						return getText()
 
-'serializer.serializeToRegions()
-return
+						modelEditor -> modelEditor ++: updateCallbackSetValue()
+							modelEditor -> cellEditor ++: callbackSetValue()
+								cellEditor -> cellEditor: super.doSetValue()
+								cellEditor -> cellEditor: setVisibleRegion()
+								cellEditor -> cellEditor: updateFakeResourceUri()
+								'cellEditor -> cellEditor: updateFakeResourceContext()
+								'cellEditor -> cellEditor: resetDirty()
+							' cellEditor.callbackSetValue()
+							return
+						' updateCallbackSetValue()
+						return
 
-'serializer.serialize()
-return serialize()
+						modelEditor -> preparer: getSemanticElementLocation()
 
-preparer -> serializer !!
+						modelEditor -> preparer !!
+					' modelEditor.doSetValue()
+					return doSetValue()
+				' cellEditor.doSetValue()
+				return doSetValue()
+			' editMgr.setEditText()
+			return setEditText()
 
-preparer -> location **
-activate location
-location -> location: storeLocation()
-'new location
-return
+			editMgr -> cellEditor ++: updateSelectedRegion()
+				cellEditor -> modelEditor: getSelectedRegion()
+			' cellEditor.updateSelectedRegion()
+			return
 
-preparer -> regionCalculator **
-activate regionCalculator
-preparer -> regionCalculator: calculateFeatureRegion(editableFeatures)
-preparer -> regionCalculator !!
-deactivate regionCalculator
-
-preparer -> regionCalculator **
-activate regionCalculator
-preparer -> regionCalculator: calculateFeatureRegion(selectedFeatures)
-preparer -> regionCalculator !!
-deactivate regionCalculator
-
-'preparer.prepare()
-return prepare()
-
-'preparer.getText()
-return getText()
-
-modelEditor -> modelEditor ++: updateCallbackSetValue()
-modelEditor -> cellEditor ++: callbackSetValue()
-cellEditor -> cellEditor: super.doSetValue()
-cellEditor -> cellEditor: setVisibleRegion()
-cellEditor -> cellEditor: updateFakeResourceUri()
-'cellEditor -> cellEditor: updateFakeResourceContext()
-'cellEditor -> cellEditor: resetDirty()
-
-' cellEditor.callbackSetValue()
-return
-' updateCallbackSetValue()
-return
-
-modelEditor -> preparer: getSemanticElementLocation()
-
-modelEditor -> preparer !!
-' modelEditor.doSetValue()
-return doSetValue()
-
-' cellEditor.doSetValue()
-return doSetValue()
-
-' editMgr.setEditText()
-return setEditText()
-
-editMgr -> cellEditor ++: updateSelectedRegion()
-cellEditor -> modelEditor: getSelectedRegion()
-' cellEditor.updateSelectedRegion()
-return
-
-' editMgr.initCellEditor()
-return initCellEditor()
-
-' editMgr.show()
-return show()
+		' editMgr.initCellEditor()
+		return initCellEditor()
+	' editMgr.show()
+	return show()
 
 ' eclipse.double click
 return double click
@@ -164,88 +150,65 @@ user -> eclipse: change text
 
 user -> eclipse ++: move focus away
 
-eclipse -> editMgr ++: applyEditorValue()
+	eclipse -> editMgr ++: applyEditorValue()
+			editMgr -> editMgr ++: commit()
 
-editMgr -> editMgr ++: commit()
+				editMgr -> replaceValueTask **
+				editMgr -> replaceValueTask ++: execute()
+					replaceValueTask -> cellEditor ++: commit()
+						cellEditor -> modelEditor ++: commit()
 
-editMgr -> replaceValueTask **
+							modelEditor -> modelEditor ++: getValueToCommit()
+								modelEditor -> cellEditor: getXtextParseResult()
+								modelEditor -> location: resolve()
+								modelEditor -> modelEditor: FakeResourceUtil::proxify()
+								modelEditor -> location !!
+							' modelEditor.getValueToCommit()
+							return
 
-'editMgr -> editPart ++: getDirectEditCommand()
-'
-'editPart -> replaceValueTask **
-'editPart -> editingDomain ++: runExclusive()
-'
-'editingDomain -> replaceValueTask **
-'
-' editingDomain.runExclusive()
-'return
-'
-' editPart.getDirectEditCommand()
-'return
+							modelEditor -> modelEditor: adjustTarget()
 
-'editMgr -> editMgr ++: execute()
+							modelEditor -> merger **
+							activate merger
+								modelEditor -> merger: merge()
+								modelEditor -> merger !!
+							deactivate merger
 
-editMgr -> replaceValueTask ++: execute()
+							modelEditor -> modelEditor: EcoreUtil::resolveAll()
 
-replaceValueTask -> cellEditor ++: commit()
+							modelEditor -> modelEditor ++: removeAllIgnoredFeatureAdapters()
+								modelEditor -> ignoredFeatureAdapter !!
+							'modelEditor.removeAllIgnoredFeatureAdapters()
+							return
 
-cellEditor -> modelEditor ++: commit()
+						'modelEditor.commit()
+						return commit()
+					'cellEditor.commit()
+					return commit()
 
-modelEditor -> modelEditor ++: getValueToCommit()
-modelEditor -> cellEditor: getXtextParseResult()
-modelEditor -> location: resolve()
-modelEditor -> modelEditor: FakeResourceUtil::proxify()
-modelEditor -> location !!
-' modelEditor.getValueToCommit()
-return
+					replaceValueTask -> replaceValueTask: updateRepresentation()
 
-modelEditor -> modelEditor: adjustTarget()
-modelEditor -> merger **
-activate merger
-modelEditor -> merger: merge()
-modelEditor -> merger !!
-deactivate merger
-modelEditor -> modelEditor: EcoreUtil::resolveAll()
-modelEditor -> modelEditor ++: removeAllIgnoredFeatureAdapters()
+				'replaceValueTask.execute()
+				return execute()
 
-modelEditor -> ignoredFeatureAdapter !!
+				editMgr -> replaceValueTask !!
 
-'modelEditor.removeAllIgnoredFeatureAdapters()
-return
+			' editMgr.execute()
+			'return
+		' editMgr.commit()
+		return commit()
+	' editMgr.applyEditorValue()
+	return applyEditorValue()
 
-
-'modelEditor.commit()
-return commit()
-
-'cellEditor.commit()
-return commit()
-
-replaceValueTask -> replaceValueTask: updateRepresentation()
-
-'replaceValueTask.execute()
-return execute()
-
-editMgr -> replaceValueTask !!
-
-' editMgr.execute()
-'return
-
-' editMgr.commit()
-return commit()
-
-
-' editMgr.applyEditorValue()
-return applyEditorValue()
-
-eclipse -> cellEditor !!
-cellEditor -> modelEditor !!
+	eclipse -> cellEditor !!
+	cellEditor -> modelEditor !!
 
 ' eclipse.move focus away
 return move focus away
 ....
 
 
-== Value Direct Edit
+=== Value
 [plantuml, value-direct-edit, svg]
 ....
 hide footbox
@@ -260,77 +223,62 @@ participant "XtextSiriusValueEditor" as valueEditor
 
 participant ReplaceValueTask as replaceValueTask
 
+title Direct Edit Value
+
 == Open Direct Edit ==
 
 user -> eclipse ++: double click
 
-eclipse -> editMgr ++: show()
+	eclipse -> editMgr ++: show()
 
-editMgr -> editMgr ++: createCellEditor()
+		editMgr -> editMgr ++: createCellEditor()
+			editMgr -> cellEditor **
+			activate cellEditor
+				cellEditor -> valueEditor **
+				cellEditor -> valueEditor: setCallback(this)
+			'new cellEditor
+			return
+		'editMgr.createCellEditor()
+		return
 
-editMgr -> cellEditor **
-activate cellEditor
+		editMgr -> editMgr ++: initCellEditor()
 
-cellEditor -> valueEditor **
-cellEditor -> valueEditor: setCallback(this)
+			editMgr -> editMgr ++: setSemanticElement()
+				editMgr -> cellEditor ++: setSemanticElement()
+					cellEditor -> valueEditor: setSemanticElement()
+				'cellEditor.setSemanticElement()
+				return
 
-'new cellEditor
-return
+				editMgr -> cellEditor ++: setFallbackContainer()
+					cellEditor -> valueEditor: setFallbackContainer()
+				'cellEditor.setFallbackContainer()
+				return
+			'editMgr.setSemanticElement()
+			return
 
-'editMgr.createCellEditor()
-return
+			editMgr -> editMgr ++: setEditText()
+				editMgr -> cellEditor ++: doSetValue()
+					cellEditor -> valueEditor ++: doSetValue()
+						valueEditor -> valueEditor ++: updateCallbackSetValue()
+							valueEditor -> cellEditor ++: callbackSetValue()
+								cellEditor -> cellEditor: super.doSetValue()
+								cellEditor -> cellEditor: setVisibleRegion()
+								cellEditor -> cellEditor: updateFakeResourceUri()
+							'cellEditor.callbackSetValue()
+							return
+						'valueEditor.updateCallbackSetValue()
+						return
+					'valueEditor.doSetValue()
+					return doSetValue()
+				'cellEditor.doSetValue()
+				return doSetValue()
+			'editMgr.setEditText()
+			return setEditText()
 
-editMgr -> editMgr ++: initCellEditor()
-
-editMgr -> editMgr ++: setSemanticElement()
-
-editMgr -> cellEditor ++: setSemanticElement()
-cellEditor -> valueEditor: setSemanticElement()
-'cellEditor.setSemanticElement()
-return
-
-editMgr -> cellEditor ++: setFallbackContainer()
-cellEditor -> valueEditor: setFallbackContainer()
-'cellEditor.setFallbackContainer()
-return
-
-'editMgr.setSemanticElement()
-return
-
-editMgr -> editMgr ++: setEditText()
-
-editMgr -> cellEditor ++: doSetValue()
-
-cellEditor -> valueEditor ++: doSetValue()
-valueEditor -> valueEditor ++: updateCallbackSetValue()
-
-valueEditor -> cellEditor ++: callbackSetValue()
-cellEditor -> cellEditor: super.doSetValue()
-cellEditor -> cellEditor: setVisibleRegion()
-cellEditor -> cellEditor: updateFakeResourceUri()
-
-'cellEditor.callbackSetValue()
-return
-
-'valueEditor.updateCallbackSetValue()
-return
-
-
-'valueEditor.doSetValue()
-return doSetValue()
-
-'cellEditor.doSetValue()
-return doSetValue()
-
-'editMgr.setEditText()
-return
-
-'editMgr.initCellEditor()
-return
-
-'editMgr.show()
-return show()
-
+		'editMgr.initCellEditor()
+		return initCellEditor()
+	'editMgr.show()
+	return show()
 ' eclipse.double click
 return double click
 
@@ -340,44 +288,313 @@ user -> eclipse: change text
 
 user -> eclipse ++: move focus away
 
-eclipse -> editMgr ++: applyEditorValue()
-editMgr -> editMgr ++: commit()
+	eclipse -> editMgr ++: applyEditorValue()
+		editMgr -> editMgr ++: commit()
+			editMgr -> replaceValueTask **
+			editMgr -> replaceValueTask ++: execute()
+				replaceValueTask -> cellEditor ++: commit()
+					cellEditor -> valueEditor ++: commit()
+						valueEditor -> valueEditor: adjustTarget()
+						valueEditor -> valueEditor ++: getValueToCommit()
+							valueEditor -> cellEditor: getValue()
+						'valueEditor.getValueToCommit()
+						return
+					'valueEditor.commit()
+					return commit()
+				'cellEditor.commit()
+				return commit()
+			'replaceValueTask.execute()
+			return execute()
+			editMgr -> replaceValueTask !!
+		'editMgr.commit()
+		return commit()
+	'editMgr.applyEditorValue()
+	return applyEditorValue()
 
-editMgr -> replaceValueTask **
-
-editMgr -> replaceValueTask ++: execute()
-
-replaceValueTask -> cellEditor ++: commit()
-
-cellEditor -> valueEditor ++: commit()
-
-valueEditor -> valueEditor: adjustTarget()
-
-valueEditor -> valueEditor ++: getValueToCommit()
-valueEditor -> cellEditor: getValue()
-'valueEditor.getValueToCommit()
-return
-
-'valueEditor.commit()
-return commit()
-
-'cellEditor.commit()
-return commit()
-
-'replaceValueTask.execute()
-return execute()
-
-editMgr -> replaceValueTask !!
-
-'editMgr.commit()
-return commit()
-
-'editMgr.applyEditorValue()
-return applyEditorValue()
-
-eclipse -> cellEditor !!
-cellEditor -> valueEditor !!
+	eclipse -> cellEditor !!
+	cellEditor -> valueEditor !!
 
 ' eclipse.move focus away
 return move focus away
+....
+
+
+== Properties
+
+=== Model
+[plantuml, model-properties, svg]
+....
+hide footbox
+
+actor User as user
+
+control Eclipse as eclipse
+
+participant "XtextSiriusEefLifecycleManagerModel" as widgetMgr
+participant "XtextSiriusModelEditor" as editor
+participant "XtextSiriusWidgetModel" as widget
+participant "XtextSiriusController" as controller
+
+participant "ModelRegionEditorPreparer" as preparer
+participant "ModelRegionSerializer" as serializer
+participant "ModelRegionCalculator" as regionCalculator
+participant "IgnoredFeatureAdapter" as ignoredFeatureAdapter
+participant "SemanticElementLocation" as location
+participant EMerger as merger
+
+title Properties Model
+
+== Display Properties ==
+
+user -> eclipse ++: open properties
+
+	eclipse -> widgetMgr **
+		activate widgetMgr
+		widgetMgr -> editor **
+		widgetMgr -> editor: setCallback(this)
+	'new widgetMgr
+	return
+
+	eclipse -> widgetMgr ++: createMainControl()
+		widgetMgr -> widgetMgr ++: createXtextSiriusWidget()
+			widgetMgr -> widget **
+		'widgetMgr.createXtextSiriusWidget()
+		return
+		widgetMgr -> controller **
+	'widgetMgr.createMainControl()
+	return
+
+	eclipse -> widgetMgr ++: aboutToBeShown()
+		widgetMgr -> widgetMgr: createNewValueConsumer()
+		widgetMgr -> controller: onNewValue()
+	'widgetMgr.aboutToBeShown()
+	return aboutToBeShown()
+
+	eclipse -> widgetMgr ++: refresh()
+		widgetMgr -> controller ++: refresh()
+			controller -> widgetMgr ++: newValueConsumer()
+				widgetMgr -> editor: setSemanticElement()
+				widgetMgr -> editor ++: doSetValue()
+
+					editor -> preparer **
+					editor -> preparer ++: getText()
+						preparer -> preparer ++: prepare()
+
+							preparer -> serializer **
+							preparer -> serializer ++: serialize()
+
+								serializer -> serializer ++: markIgnoredFeatures()
+									serializer -> ignoredFeatureAdapter **
+								'serializer.markIgnoredFeatures()
+								return
+
+								serializer -> serializer ++: Serializer::serializeToRegions()
+									serializer -> serializer ++: IgnoredFeatureTransientValueService\n.isValueTransient()
+										serializer -> ignoredFeatureAdapter: getFeatureName()
+									'transientValueService.isValueTransient()
+									return
+								'serializer.serializeToRegions()
+								return
+
+							'serializer.serialize()
+							return serialize()
+
+							preparer -> serializer !!
+
+							preparer -> location **
+							activate location
+								location -> location: storeLocation()
+							'new location
+							return
+
+							preparer -> regionCalculator **
+							activate regionCalculator
+								preparer -> regionCalculator: calculateFeatureRegion(editableFeatures)
+								preparer -> regionCalculator !!
+							deactivate regionCalculator
+
+							preparer -> regionCalculator **
+							activate regionCalculator
+								preparer -> regionCalculator: calculateFeatureRegion(selectedFeatures)
+								preparer -> regionCalculator !!
+							deactivate regionCalculator
+
+						'preparer.prepare()
+						return prepare()
+					'preparer.getText()
+					return getText()
+
+					editor -> editor ++: updateCallbackSetValue()
+						editor -> widgetMgr ++: callbackSetValue()
+							widgetMgr -> widget: update()
+							widgetMgr -> widget: updateUri()
+						' widgetMgr.callbackSetValue()
+						return
+					' updateCallbackSetValue()
+					return
+
+					editor -> preparer: getSemanticElementLocation()
+
+					editor -> preparer !!
+				' editor.doSetValue()
+				return doSetValue()
+			' widgetMgr.newValueConsumer()
+			return newValueConsumer()
+		'controller.refresh()
+		return refresh()
+	'widgetMgr.refresh()
+	return refresh()
+
+'eclipse.open properties
+return open properties
+
+user -> eclipse: change text
+
+== Hide Properties ==
+
+user -> eclipse ++: close properties
+
+	eclipse -> widgetMgr ++: aboutToBeHidden()
+		widgetMgr -> widgetMgr ++: commit()
+			widgetMgr -> editor ++: commit()
+				
+				editor -> editor ++: getValueToCommit()
+					editor -> widgetMgr ++: getXtextParseResult()
+						widgetMgr -> widget: getParseResult()
+					'widgetMgr.getXtextParseResult()
+					return
+					editor -> location: resolve()
+					editor -> editor: FakeResourceUtil::proxify()
+					editor -> location !!
+				'editor.getValueToCommit()
+				return
+				
+				editor -> editor: adjustTarget()
+				
+				editor -> merger **
+				activate merger
+					editor -> merger: merge()
+					editor -> merger !!
+				deactivate merger
+	
+				editor -> editor: EcoreUtil::resolveAll()
+	
+				editor -> editor ++: removeAllIgnoredFeatureAdapters()
+					editor -> ignoredFeatureAdapter !!
+				'editor.removeAllIgnoredFeatureAdapters()
+				return
+			'editor.commit()
+			return commit()
+		'widgetMgr.commit()
+		return commit()
+	'widgetMgr.aboutToBeHidden()
+	return aboutToBeHidden()
+
+	eclipse -> widgetMgr !!
+	widgetMgr -> editor !!
+	widgetMgr -> widget !!
+	widgetMgr -> controller !! 
+
+'eclipse.close properties
+return close properties
+....
+
+=== Value
+[plantuml, value-properties, svg]
+....
+hide footbox
+
+actor User as user
+
+control Eclipse as eclipse
+
+participant "XtextSiriusEefLifecycleManagerValue" as widgetMgr
+participant "XtextSiriusValueEditor" as editor
+participant "XtextSiriusWidgetValue" as widget
+participant "XtextSiriusController" as controller
+
+title Properties Value
+
+== Display Properties ==
+
+user -> eclipse ++: open properties
+
+	eclipse -> widgetMgr **
+	activate widgetMgr
+		widgetMgr -> editor **
+		widgetMgr -> editor:setCallback(this)
+	'new widgetMgr
+	return
+
+	eclipse -> widgetMgr ++: createMainControl()
+		widgetMgr -> widgetMgr ++: createXtextSiriusWidget()
+			widgetMgr -> widget **
+		'widgetMgr.createXtextSiriusWidget()
+		return
+		widgetMgr -> controller **
+	'widgetMgr.createMainControl()
+	return createMainControl()
+
+	eclipse -> widgetMgr ++: aboutToBeShown()
+		widgetMgr -> widgetMgr: createNewValueConsumer()
+		widgetMgr -> controller: onNewValue()
+	'widgetMgr.aboutToBeShown()
+	return aboutToBeShown()
+
+	eclipse -> widgetMgr ++: refresh()
+		widgetMgr -> controller ++: refresh()
+			controller -> widgetMgr ++: newValueConsumer()
+				widgetMgr -> editor: setSemanticElement()
+				widgetMgr -> editor ++: doSetValue()
+					editor -> editor ++: updateCallbackSetValue()
+						editor -> widgetMgr ++: callbackSetValue()
+							widgetMgr -> widget: update()
+							widgetMgr -> widget: updateUri()
+						'widgetMgr.callbackSetValue()
+						return
+					'editor.updateCallbackSetValue()
+					return
+				'editor.doSetValue()
+				return
+			'widgetMgr.newValueConsumer()
+			return newValueConsumer()
+		'controller.refresh()
+		return refresh()
+	'widgetMgr.refresh()
+	return refresh()
+
+'eclipse.open properties
+return open properties
+
+user -> eclipse: change text
+
+== Hide Properties ==
+
+user -> eclipse ++: close properties
+
+	eclipse -> widgetMgr ++: aboutToBeHidden()
+		widgetMgr -> widgetMgr ++: commit()
+			widgetMgr -> editor ++: commit()
+				editor -> editor: adjustTarget()
+				editor -> editor ++: getValueToCommit()
+					editor -> widgetMgr ++: getValue()
+						widgetMgr -> widget: getText()
+					'widgetMgr.getValue()
+					return
+				'editor.getValueToCommit()
+				return
+			'editor.commit()
+			return commit()
+		'widgetMgr.commit()
+		return commit()
+	'widgetMgr.aboutToBeHidden()
+	return aboutToBeHidden()
+
+	eclipse -> widgetMgr !!
+	widgetMgr -> editor !!
+	widgetMgr -> widget !!
+	widgetMgr -> controller !! 
+
+'eclipse.close properties
+return close properties
 ....
