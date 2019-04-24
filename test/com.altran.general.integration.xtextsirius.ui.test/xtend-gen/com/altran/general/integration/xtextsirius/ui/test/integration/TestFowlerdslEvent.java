@@ -1,7 +1,9 @@
 package com.altran.general.integration.xtextsirius.ui.test.integration;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
 import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdsl;
 import com.altran.general.integration.xtextsirius.ui.test.integration.TestXtextSiriusEditorCallbackAdapter;
@@ -9,7 +11,6 @@ import com.google.inject.Injector;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
-import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -20,6 +21,40 @@ import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestFowlerdslEvent extends ATestFowlerdsl {
+  protected static class TestXtextSiriusModelEditor extends XtextSiriusModelEditor {
+    public TestXtextSiriusModelEditor(final IXtextSiriusModelDescriptor descriptor) {
+      super(descriptor);
+    }
+    
+    @Override
+    public void setSemanticElement(final EObject element) {
+      IXtextSiriusModelEditorCallback _callback = this.getCallback();
+      boolean _tripleNotEquals = (_callback != null);
+      if (_tripleNotEquals) {
+        IXtextSiriusModelEditorCallback _callback_1 = this.getCallback();
+        ((TestXtextSiriusEditorCallbackAdapter) _callback_1).semanticElement = element;
+      }
+      super.setSemanticElement(element);
+    }
+  }
+  
+  protected static class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAdapter {
+    private final String expectedText;
+    
+    public AssertingXtextSiriusEditorCallback(final Injector injector, final EObject model, final String expectedText) {
+      super(injector, model);
+      this.expectedText = expectedText;
+    }
+    
+    @Override
+    public void callbackSetValue(final Object value, final int offset, final int length) {
+      Assert.assertTrue((value instanceof String));
+      final String text = ((String) value).substring(offset, (offset + length));
+      Assert.assertEquals(this.expectedText, text);
+      super.callbackSetValue(value, offset, length);
+    }
+  }
+  
   @Override
   protected String modelText() {
     StringConcatenation _builder = new StringConcatenation();
@@ -101,29 +136,16 @@ public class TestFowlerdslEvent extends ATestFowlerdsl {
   
   protected void assertEdit(final EObject elementToEdit, final String valueFeatureName, final String expectedText, final String newText, final EObject expectedResultElement) {
     final XtextSiriusModelDescriptor descriptor = this.eventDescriptor();
-    XtextSiriusModelEditor _xtextSiriusModelEditor = new XtextSiriusModelEditor(descriptor);
-    final Procedure1<XtextSiriusModelEditor> _function = (XtextSiriusModelEditor it) -> {
-      it.setSemanticElement(elementToEdit);
-      Injector _injector = this.getInjector();
-      it.setCallback(new TestXtextSiriusEditorCallbackAdapter(_injector, this.model) {
-        @Override
-        public void callbackSetValue(final Object value, final int offset, final int length) {
-          Assert.assertTrue((value instanceof String));
-          Assert.assertEquals(expectedText, value.toString().substring(offset, (offset + length)));
-        }
-        
-        @Override
-        public IParseResult getXtextParseResult() {
-          return super.getXtextParseResult();
-        }
-        
-        @Override
-        protected EObject getSemanticElement() {
-          return elementToEdit;
-        }
-      });
-    };
-    final XtextSiriusModelEditor editor = ObjectExtensions.<XtextSiriusModelEditor>operator_doubleArrow(_xtextSiriusModelEditor, _function);
+    final TestFowlerdslEvent.TestXtextSiriusModelEditor editor = new TestFowlerdslEvent.TestXtextSiriusModelEditor(descriptor);
+    Injector _injector = this.getInjector();
+    TestFowlerdslEvent.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback = new TestFowlerdslEvent.AssertingXtextSiriusEditorCallback(_injector, this.model, expectedText);
+    editor.setCallback(_assertingXtextSiriusEditorCallback);
+    editor.setSemanticElement(elementToEdit);
+    editor.doSetValue("", valueFeatureName);
+    Injector _injector_1 = this.getInjector();
+    TestFowlerdslEvent.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback_1 = new TestFowlerdslEvent.AssertingXtextSiriusEditorCallback(_injector_1, this.model, newText);
+    editor.setCallback(_assertingXtextSiriusEditorCallback_1);
+    editor.setSemanticElement(elementToEdit);
     editor.doSetValue(newText, valueFeatureName);
     Object _commit = editor.commit(elementToEdit, valueFeatureName);
     final EObject result = ((EObject) _commit);

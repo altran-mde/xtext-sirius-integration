@@ -11,6 +11,7 @@ import java.util.Collections;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.parser.IParseResult;
@@ -18,10 +19,14 @@ import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Pure;
 
 @SuppressWarnings("all")
 public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
   protected final XtextResource fakeResource;
+  
+  @Accessors
+  protected EObject semanticElement;
   
   public TestXtextSiriusEditorCallbackAdapter(final Injector injector, final EObject model) {
     try {
@@ -50,8 +55,6 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
     }
   }
   
-  protected abstract EObject getSemanticElement();
-  
   @Override
   public IParseResult getXtextParseResult() {
     IParseResult _xblockexpression = null;
@@ -75,5 +78,14 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   @Override
   public XtextSiriusErrorException handleUnresolvableProxies() {
     throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  }
+  
+  @Pure
+  public EObject getSemanticElement() {
+    return this.semanticElement;
+  }
+  
+  public void setSemanticElement(final EObject semanticElement) {
+    this.semanticElement = semanticElement;
   }
 }

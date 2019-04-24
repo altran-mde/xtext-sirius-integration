@@ -7,6 +7,7 @@ import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil
 import com.google.inject.Injector
 import java.util.Collections
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.parser.IParseResult
@@ -16,6 +17,8 @@ import org.eclipse.xtext.util.StringInputStream
 
 abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
 	protected val XtextResource fakeResource
+	@Accessors
+	protected var EObject semanticElement
 	
 	new(Injector injector, EObject model) {
 		val uri = model.eResource.URI
@@ -31,8 +34,6 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 		val element = getSemanticElement()
 		FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
 	}
-	
-	abstract protected def EObject getSemanticElement() 
 	
 	override getXtextParseResult() {
 		EcoreUtil2::resolveLazyCrossReferences(fakeResource, null)

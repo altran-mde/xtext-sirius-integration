@@ -1,13 +1,15 @@
 package com.altran.general.integration.xtextsirius.ui.test.integration
 
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor
+import com.google.inject.Injector
 import org.eclipse.emf.ecore.EObject
 import org.espilce.commons.lang.StringUtils2
+import org.junit.Test
 
 import static org.espilce.commons.emf.testsupport.AssertEmf.*
 import static org.junit.Assert.*
-import org.junit.Test
 
 class TestFowlerdslEvent extends ATestFowlerdsl {
 	
@@ -57,28 +59,48 @@ class TestFowlerdslEvent extends ATestFowlerdsl {
 		)
 	} 
 	
+	protected static class TestXtextSiriusModelEditor extends XtextSiriusModelEditor {
+		
+		new(IXtextSiriusModelDescriptor descriptor) {
+			super(descriptor)
+		}
+		
+		override setSemanticElement(EObject element) {
+			if (callback !== null) {
+				(callback as TestXtextSiriusEditorCallbackAdapter).semanticElement = element
+			}
+			super.semanticElement = element
+		}
+	}
+	
+	protected static class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAdapter {
+		val String expectedText
+		
+		new(Injector injector, EObject model, String expectedText) {
+			super(injector, model)
+			this.expectedText = expectedText
+		}
+		
+		override callbackSetValue(Object value, int offset, int length) {
+			assertTrue(value instanceof String)
+			val text = (value as String).substring(offset, offset + length)
+			assertEquals(expectedText, text)
+			super.callbackSetValue(value, offset, length)
+		}
+	}
+	
 	protected def void assertEdit(EObject elementToEdit, String valueFeatureName, String expectedText, String newText, EObject expectedResultElement) {
 		val descriptor = eventDescriptor()
-		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
-			callback = new TestXtextSiriusEditorCallbackAdapter(injector, model) {
-				
-				override callbackSetValue(Object value, int offset, int length) {
-//					getSemanticElementLocation().
-					assertTrue(value instanceof String)
-					assertEquals(expectedText, value.toString.substring(offset, offset + length))
-				}
-				
-				override getXtextParseResult() {
-					super.getXtextParseResult()
-				}
-				
-				override protected getSemanticElement() {
-					elementToEdit
-				}
-			}
-		]
+		val editor = new TestXtextSiriusModelEditor(descriptor)
+		
+		editor.callback = new AssertingXtextSiriusEditorCallback(injector, model, expectedText)
+		editor.semanticElement = elementToEdit
+		editor.doSetValue("", valueFeatureName)
+		
+		editor.callback = new AssertingXtextSiriusEditorCallback(injector, model, newText)
+		editor.semanticElement = elementToEdit
 		editor.doSetValue(newText, valueFeatureName)
+		
 		val result = editor.commit(elementToEdit, valueFeatureName) as EObject
 		assertModelEquals(expectedResultElement, result)
 	}
