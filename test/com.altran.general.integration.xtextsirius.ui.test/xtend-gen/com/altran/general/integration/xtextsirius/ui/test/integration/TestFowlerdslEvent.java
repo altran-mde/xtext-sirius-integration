@@ -1,126 +1,35 @@
 package com.altran.general.integration.xtextsirius.ui.test.integration;
 
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
-import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
-import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
-import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdsl;
-import com.altran.general.integration.xtextsirius.ui.test.integration.TestXtextSiriusEditorCallbackAdapter;
-import com.google.inject.Injector;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtend2.lib.StringConcatenation;
+import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdslCombined;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.ConstantRef;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.IntLiteral;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.RangeGuard;
+import org.eclipse.xtext.example.fowlerdsl.statemachine.ValueGuard;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
-import org.espilce.commons.emf.testsupport.AssertEmf;
-import org.espilce.commons.lang.StringUtils2;
-import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestFowlerdslEvent extends ATestFowlerdsl {
-  protected static class TestXtextSiriusModelEditor extends XtextSiriusModelEditor {
-    public TestXtextSiriusModelEditor(final IXtextSiriusModelDescriptor descriptor) {
-      super(descriptor);
-    }
-    
-    @Override
-    public void setSemanticElement(final EObject element) {
-      IXtextSiriusModelEditorCallback _callback = this.getCallback();
-      boolean _tripleNotEquals = (_callback != null);
-      if (_tripleNotEquals) {
-        IXtextSiriusModelEditorCallback _callback_1 = this.getCallback();
-        ((TestXtextSiriusEditorCallbackAdapter) _callback_1).semanticElement = element;
-      }
-      super.setSemanticElement(element);
-    }
-  }
-  
-  protected static class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAdapter {
-    private final String expectedText;
-    
-    public AssertingXtextSiriusEditorCallback(final Injector injector, final EObject model, final String expectedText) {
-      super(injector, model);
-      this.expectedText = expectedText;
-    }
-    
-    @Override
-    public void callbackSetValue(final Object value, final int offset, final int length) {
-      Assert.assertTrue((value instanceof String));
-      final String text = ((String) value).substring(offset, (offset + length));
-      Assert.assertEquals(this.expectedText, text);
-      super.callbackSetValue(value, offset, length);
-    }
-  }
-  
-  @Override
-  protected String modelText() {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("events");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("eventSD 2 [ c2 .. c1 ]");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("event2 3 [ 2 ]");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("event3 4 ");
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("commands");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("cmd0 0");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("cmd1 1 [2]");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("cmd2 2");
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("constants");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("c1 23");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("c2 4");
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("state A ");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("description \"<p>This is a deschkriptschion</p>\\n\"");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("event2 => A");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("event2 => B");
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("state B");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    return StringUtils2.normalizeNewline(_builder.toString());
+public class TestFowlerdslEvent extends ATestFowlerdslCombined {
+  @Test
+  public void unchanged() {
+    Event _last = IterableExtensions.<Event>last(this.model.getEvents());
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("event3");
+      it.setCode(4);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_last, 
+      "event3 4", 
+      null, _doubleArrow);
   }
   
   @Test
-  public void asdf() {
+  public void changeCode() {
     Event _last = IterableExtensions.<Event>last(this.model.getEvents());
     Event _createEvent = this.statemachineFactory.createEvent();
     final Procedure1<Event> _function = (Event it) -> {
@@ -129,35 +38,320 @@ public class TestFowlerdslEvent extends ATestFowlerdsl {
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
     this.assertEdit(_last, 
-      "", 
       "event3 4", 
       "event3 5", _doubleArrow);
   }
   
-  protected void assertEdit(final EObject elementToEdit, final String valueFeatureName, final String expectedText, final String newText, final EObject expectedResultElement) {
-    final XtextSiriusModelDescriptor descriptor = this.eventDescriptor();
-    final TestFowlerdslEvent.TestXtextSiriusModelEditor editor = new TestFowlerdslEvent.TestXtextSiriusModelEditor(descriptor);
-    Injector _injector = this.getInjector();
-    TestFowlerdslEvent.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback = new TestFowlerdslEvent.AssertingXtextSiriusEditorCallback(_injector, this.model, expectedText);
-    editor.setCallback(_assertingXtextSiriusEditorCallback);
-    editor.setSemanticElement(elementToEdit);
-    editor.doSetValue("", valueFeatureName);
-    Injector _injector_1 = this.getInjector();
-    TestFowlerdslEvent.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback_1 = new TestFowlerdslEvent.AssertingXtextSiriusEditorCallback(_injector_1, this.model, newText);
-    editor.setCallback(_assertingXtextSiriusEditorCallback_1);
-    editor.setSemanticElement(elementToEdit);
-    editor.doSetValue(newText, valueFeatureName);
-    Object _commit = editor.commit(elementToEdit, valueFeatureName);
-    final EObject result = ((EObject) _commit);
-    AssertEmf.assertModelEquals(expectedResultElement, result);
+  @Test
+  public void changeName() {
+    Event _last = IterableExtensions.<Event>last(this.model.getEvents());
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("eventX");
+      it.setCode(4);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_last, 
+      "event3 4", 
+      "eventX 4", _doubleArrow);
   }
   
-  protected XtextSiriusModelDescriptor eventDescriptor() {
-    Injector _inlineInjector = this.getInlineInjector();
-    XtextDirectEditModelDescription _createXtextDirectEditModelDescription = this.diagramFactory.createXtextDirectEditModelDescription();
-    final Procedure1<XtextDirectEditModelDescription> _function = (XtextDirectEditModelDescription it) -> {
+  @Test
+  public void changeNameAndCode() {
+    Event _last = IterableExtensions.<Event>last(this.model.getEvents());
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("eventX");
+      it.setCode(5);
     };
-    XtextDirectEditModelDescription _doubleArrow = ObjectExtensions.<XtextDirectEditModelDescription>operator_doubleArrow(_createXtextDirectEditModelDescription, _function);
-    return new XtextSiriusModelDescriptor(_inlineInjector, _doubleArrow);
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_last, 
+      "event3 4", 
+      "eventX 5", _doubleArrow);
+  }
+  
+  @Test
+  public void empty() {
+    this.assertEdit(
+      IterableExtensions.<Event>last(this.model.getEvents()), 
+      "event3 4", 
+      "", 
+      null);
+  }
+  
+  @Test
+  public void unchangedGuard() {
+    Event _get = this.model.getEvents().get(1);
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("event2");
+      it.setCode(3);
+      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
+        IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
+        final Procedure1<IntLiteral> _function_2 = (IntLiteral it_2) -> {
+          it_2.setValue(2);
+        };
+        IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_2);
+        it_1.setCond(_doubleArrow);
+      };
+      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_get, 
+      "event2 3 [ 2 ]", 
+      null, _doubleArrow);
+  }
+  
+  @Test
+  public void changeNameGuard() {
+    Event _get = this.model.getEvents().get(1);
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("eventX");
+      it.setCode(3);
+      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
+        IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
+        final Procedure1<IntLiteral> _function_2 = (IntLiteral it_2) -> {
+          it_2.setValue(2);
+        };
+        IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_2);
+        it_1.setCond(_doubleArrow);
+      };
+      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_get, 
+      "event2 3 [ 2 ]", 
+      "eventX 3 [ 2 ]", _doubleArrow);
+  }
+  
+  @Test
+  public void changeGuard() {
+    Event _get = this.model.getEvents().get(1);
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("event2");
+      it.setCode(3);
+      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
+        IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
+        final Procedure1<IntLiteral> _function_2 = (IntLiteral it_2) -> {
+          it_2.setValue(3);
+        };
+        IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_2);
+        it_1.setCond(_doubleArrow);
+      };
+      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_get, 
+      "event2 3 [ 2 ]", 
+      "event2 3 [ 3 ]", _doubleArrow);
+  }
+  
+  @Test
+  public void removeGuard() {
+    Event _get = this.model.getEvents().get(1);
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("event2");
+      it.setCode(3);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_get, 
+      "event2 3 [ 2 ]", 
+      "event2 3", _doubleArrow);
+  }
+  
+  @Test
+  public void changeGuardRef() {
+    Event _get = this.model.getEvents().get(1);
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("event2");
+      it.setCode(3);
+      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
+        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
+          it_2.setConstant(IterableExtensions.<Constant>head(this.model.getConstants()));
+        };
+        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
+        it_1.setCond(_doubleArrow);
+      };
+      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_get, 
+      "event2 3 [ 2 ]", 
+      "event2 3 [ c1 ]", _doubleArrow);
+  }
+  
+  @Test
+  public void changeGuardDoubleRef() {
+    Event _get = this.model.getEvents().get(1);
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("event2");
+      it.setCode(3);
+      RangeGuard _createRangeGuard = this.statemachineFactory.createRangeGuard();
+      final Procedure1<RangeGuard> _function_1 = (RangeGuard it_1) -> {
+        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
+          it_2.setConstant(IterableExtensions.<Constant>head(this.model.getConstants()));
+        };
+        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
+        it_1.setMin(_doubleArrow);
+        ConstantRef _createConstantRef_1 = this.statemachineFactory.createConstantRef();
+        final Procedure1<ConstantRef> _function_3 = (ConstantRef it_2) -> {
+          it_2.setConstant(IterableExtensions.<Constant>last(this.model.getConstants()));
+        };
+        ConstantRef _doubleArrow_1 = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef_1, _function_3);
+        it_1.setMax(_doubleArrow_1);
+      };
+      RangeGuard _doubleArrow = ObjectExtensions.<RangeGuard>operator_doubleArrow(_createRangeGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_get, 
+      "event2 3 [ 2 ]", 
+      "event2 3 [c1..c2]", _doubleArrow);
+  }
+  
+  @Test
+  public void unchangedRangeGuard() {
+    Event _head = IterableExtensions.<Event>head(this.model.getEvents());
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("eventSD");
+      it.setCode(2);
+      RangeGuard _createRangeGuard = this.statemachineFactory.createRangeGuard();
+      final Procedure1<RangeGuard> _function_1 = (RangeGuard it_1) -> {
+        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
+          it_2.setConstant(IterableExtensions.<Constant>last(this.model.getConstants()));
+        };
+        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
+        it_1.setMin(_doubleArrow);
+        ConstantRef _createConstantRef_1 = this.statemachineFactory.createConstantRef();
+        final Procedure1<ConstantRef> _function_3 = (ConstantRef it_2) -> {
+          it_2.setConstant(IterableExtensions.<Constant>head(this.model.getConstants()));
+        };
+        ConstantRef _doubleArrow_1 = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef_1, _function_3);
+        it_1.setMax(_doubleArrow_1);
+      };
+      RangeGuard _doubleArrow = ObjectExtensions.<RangeGuard>operator_doubleArrow(_createRangeGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_head, 
+      "eventSD 2 [ c2 .. c1 ]", 
+      null, _doubleArrow);
+  }
+  
+  @Test
+  public void removeRangeGuard() {
+    Event _head = IterableExtensions.<Event>head(this.model.getEvents());
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("eventSD");
+      it.setCode(2);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_head, 
+      "eventSD 2 [ c2 .. c1 ]", 
+      "eventSD 2", _doubleArrow);
+  }
+  
+  @Test
+  public void changeRangeGuardToMin() {
+    Event _head = IterableExtensions.<Event>head(this.model.getEvents());
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("eventSD");
+      it.setCode(2);
+      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
+        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
+          it_2.setConstant(IterableExtensions.<Constant>last(this.model.getConstants()));
+        };
+        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
+        it_1.setCond(_doubleArrow);
+      };
+      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_head, 
+      "eventSD 2 [ c2 .. c1 ]", 
+      "eventSD 2 [c2]", _doubleArrow);
+  }
+  
+  @Test
+  public void changeRangeGuardToMax() {
+    Event _head = IterableExtensions.<Event>head(this.model.getEvents());
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("eventSD");
+      it.setCode(2);
+      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
+        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
+          it_2.setConstant(IterableExtensions.<Constant>head(this.model.getConstants()));
+        };
+        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
+        it_1.setCond(_doubleArrow);
+      };
+      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_head, 
+      "eventSD 2 [ c2 .. c1 ]", 
+      "eventSD 2 [c1]", _doubleArrow);
+  }
+  
+  @Test
+  public void changeRangeGuard() {
+    Event _head = IterableExtensions.<Event>head(this.model.getEvents());
+    Event _createEvent = this.statemachineFactory.createEvent();
+    final Procedure1<Event> _function = (Event it) -> {
+      it.setName("eventSD");
+      it.setCode(2);
+      RangeGuard _createRangeGuard = this.statemachineFactory.createRangeGuard();
+      final Procedure1<RangeGuard> _function_1 = (RangeGuard it_1) -> {
+        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
+          it_2.setConstant(IterableExtensions.<Constant>last(this.model.getConstants()));
+        };
+        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
+        it_1.setMin(_doubleArrow);
+        IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
+        final Procedure1<IntLiteral> _function_3 = (IntLiteral it_2) -> {
+          it_2.setValue(5);
+        };
+        IntLiteral _doubleArrow_1 = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_3);
+        it_1.setMax(_doubleArrow_1);
+      };
+      RangeGuard _doubleArrow = ObjectExtensions.<RangeGuard>operator_doubleArrow(_createRangeGuard, _function_1);
+      it.setGuard(_doubleArrow);
+    };
+    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    this.assertEdit(_head, 
+      "eventSD 2 [ c2 .. c1 ]", 
+      "eventSD 2 [ c2 .. 5 ]", _doubleArrow);
+  }
+  
+  @Override
+  protected String getFeatureName() {
+    return "";
   }
 }

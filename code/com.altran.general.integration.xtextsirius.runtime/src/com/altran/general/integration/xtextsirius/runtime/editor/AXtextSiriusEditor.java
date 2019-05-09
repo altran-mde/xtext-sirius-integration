@@ -1,6 +1,7 @@
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
 import org.apache.commons.lang.StringUtils;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
@@ -23,6 +24,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 
 	private @Nullable EObject semanticElement;
 	private @Nullable EObject fallbackContainer;
+	private @Nullable String valueFeatureName;
 
 
 	public AXtextSiriusEditor(final @NonNull IXtextSiriusDescriptor descriptor) {
@@ -30,9 +32,9 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	}
 
 
-	public abstract void doSetValue(final @Nullable Object value, final @Nullable String valueFeature);
+	public abstract void doSetValue(final @Nullable Object value);
 
-	public abstract Object commit(final @NonNull EObject target, final @Nullable String valueFeature);
+	public abstract Object commit(final @NonNull EObject target);
 	
 	protected abstract @Nullable Object getValueToCommit() throws AXtextSiriusIssueException;
 
@@ -47,13 +49,32 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	public void setFallbackContainer(final @NonNull EObject fallbackContainer) {
 		this.fallbackContainer = fallbackContainer;
 	}
-
+	
+	public void setValueFeatureName(@Nullable final String valueFeatureName) {
+		this.valueFeatureName = valueFeatureName;
+	}
+	
 	public @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
 
-	public EObject getFallbackContainer() {
-		return this.fallbackContainer;
+	public @NonNull EObject getFallbackContainer() {
+		if (this.fallbackContainer != null) {
+			return this.fallbackContainer;
+		} else {
+			throw new IllegalStateException("No FallbackContainer");
+		}
+	}
+	
+	public @Nullable String getValueFeatureName() {
+		return this.valueFeatureName;
+	}
+
+	protected void assertState() {
+		Assert.isNotNull(getDescriptor(), "Descriptor is null");
+		Assert.isNotNull(getInjector(), "Injector is null");
+		Assert.isNotNull(getCallback(), "Callback is null");
+		Assert.isNotNull(getFallbackContainer(), "FallbackContainer is null");
 	}
 	
 	protected void updateCallbackSetValue(final @Nullable Object value, final int offset, final int length) {

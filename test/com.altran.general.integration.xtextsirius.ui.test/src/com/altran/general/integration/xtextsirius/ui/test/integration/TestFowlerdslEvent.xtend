@@ -1,55 +1,25 @@
 package com.altran.general.integration.xtextsirius.ui.test.integration
 
-import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor
-import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor
-import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor
-import com.google.inject.Injector
-import org.eclipse.emf.ecore.EObject
-import org.espilce.commons.lang.StringUtils2
 import org.junit.Test
 
-import static org.espilce.commons.emf.testsupport.AssertEmf.*
-import static org.junit.Assert.*
-
-class TestFowlerdslEvent extends ATestFowlerdsl {
-	
-	protected override modelText() {
-		StringUtils2::normalizeNewline(
-		'''
-			events
-			 eventSD 2 [ c2 .. c1 ]
-			 event2 3 [ 2 ]
-			 event3 4 
-			end
-			
-			commands
-			 cmd0 0
-			 cmd1 1 [2]
-			 cmd2 2
-			end
-			
-			constants
-			 c1 23
-			 c2 4
-			end
-			
-			state A 
-				description "<p>This is a deschkriptschion</p>\n"
-				event2 => A
-				event2 => B
-			end
-			
-			state B
-			
-			end
-		''')
-	}
-	
+class TestFowlerdslEvent extends ATestFowlerdslCombined {
 	@Test
-	def void asdf() {
+	def void unchanged() {
 		assertEdit(
 			model.events.last,
-			"",
+			"event3 4",
+			null,
+			createEvent => [
+				name = "event3"
+				code = 4
+			]
+		)
+	}
+
+	@Test
+	def void changeCode() {
+		assertEdit(
+			model.events.last,
 			"event3 4",
 			"event3 5",
 			createEvent => [
@@ -57,56 +27,219 @@ class TestFowlerdslEvent extends ATestFowlerdsl {
 				code = 5
 			]
 		)
-	} 
-	
-	protected static class TestXtextSiriusModelEditor extends XtextSiriusModelEditor {
-		
-		new(IXtextSiriusModelDescriptor descriptor) {
-			super(descriptor)
-		}
-		
-		override setSemanticElement(EObject element) {
-			if (callback !== null) {
-				(callback as TestXtextSiriusEditorCallbackAdapter).semanticElement = element
-			}
-			super.semanticElement = element
-		}
-	}
-	
-	protected static class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAdapter {
-		val String expectedText
-		
-		new(Injector injector, EObject model, String expectedText) {
-			super(injector, model)
-			this.expectedText = expectedText
-		}
-		
-		override callbackSetValue(Object value, int offset, int length) {
-			assertTrue(value instanceof String)
-			val text = (value as String).substring(offset, offset + length)
-			assertEquals(expectedText, text)
-			super.callbackSetValue(value, offset, length)
-		}
-	}
-	
-	protected def void assertEdit(EObject elementToEdit, String valueFeatureName, String expectedText, String newText, EObject expectedResultElement) {
-		val descriptor = eventDescriptor()
-		val editor = new TestXtextSiriusModelEditor(descriptor)
-		
-		editor.callback = new AssertingXtextSiriusEditorCallback(injector, model, expectedText)
-		editor.semanticElement = elementToEdit
-		editor.doSetValue("", valueFeatureName)
-		
-		editor.callback = new AssertingXtextSiriusEditorCallback(injector, model, newText)
-		editor.semanticElement = elementToEdit
-		editor.doSetValue(newText, valueFeatureName)
-		
-		val result = editor.commit(elementToEdit, valueFeatureName) as EObject
-		assertModelEquals(expectedResultElement, result)
 	}
 
-	protected def eventDescriptor() {
-		new XtextSiriusModelDescriptor(inlineInjector, createXtextDirectEditModelDescription => [
-		])
+	@Test
+	def void changeName() {
+		assertEdit(
+			model.events.last,
+			"event3 4",
+			"eventX 4",
+			createEvent => [
+				name = "eventX"
+				code = 4
+			]
+		)
 	}
+
+	@Test
+	def void changeNameAndCode() {
+		assertEdit(
+			model.events.last,
+			"event3 4",
+			"eventX 5",
+			createEvent => [
+				name = "eventX"
+				code = 5
+			]
+		)
+	}
+
+	@Test
+	def void empty() {
+		assertEdit(
+			model.events.last,
+			"event3 4",
+			"",
+			null
+		)
+	}
+
+	@Test
+	def void unchangedGuard() {
+		assertEdit(
+			model.events.get(1),
+			"event2 3 [ 2 ]",
+			null,
+			createEvent => [
+				name = "event2"
+				code = 3
+				guard = createValueGuard => [
+					cond = createIntLiteral => [value = 2]
+				]
+			]
+		)
+	}
+
+	@Test
+	def void changeNameGuard() {
+		assertEdit(
+			model.events.get(1),
+			"event2 3 [ 2 ]",
+			"eventX 3 [ 2 ]",
+			createEvent => [
+				name = "eventX"
+				code = 3
+				guard = createValueGuard => [
+					cond = createIntLiteral => [value = 2]
+				]
+			]
+		)
+	}
+
+	@Test
+	def void changeGuard() {
+		assertEdit(
+			model.events.get(1),
+			"event2 3 [ 2 ]",
+			"event2 3 [ 3 ]",
+			createEvent => [
+				name = "event2"
+				code = 3
+				guard = createValueGuard => [
+					cond = createIntLiteral => [value = 3]
+				]
+			]
+		)
+	}
+
+	@Test
+	def void removeGuard() {
+		assertEdit(
+			model.events.get(1),
+			"event2 3 [ 2 ]",
+			"event2 3",
+			createEvent => [
+				name = "event2"
+				code = 3
+			]
+		)
+	}
+
+	@Test
+	def void changeGuardRef() {
+		assertEdit(
+			model.events.get(1),
+			"event2 3 [ 2 ]",
+			"event2 3 [ c1 ]",
+			createEvent => [
+				name = "event2"
+				code = 3
+				guard = createValueGuard => [
+					cond = createConstantRef => [constant = model.constants.head]
+				]
+			]
+		)
+	}
+
+	@Test
+	def void changeGuardDoubleRef() {
+		assertEdit(
+			model.events.get(1),
+			"event2 3 [ 2 ]",
+			"event2 3 [c1..c2]",
+			createEvent => [
+				name = "event2"
+				code = 3
+				guard = createRangeGuard => [
+					min = createConstantRef => [constant = model.constants.head]
+					max = createConstantRef => [constant = model.constants.last]
+				]
+			]
+		)
+	}
+
+	@Test
+	def void unchangedRangeGuard() {
+		assertEdit(
+			model.events.head,
+			"eventSD 2 [ c2 .. c1 ]",
+			null,
+			createEvent => [
+				name = "eventSD"
+				code = 2
+				guard = createRangeGuard => [
+					min = createConstantRef => [constant = model.constants.last]
+					max = createConstantRef => [constant = model.constants.head]
+				]
+			]
+		)
+	}
+
+	@Test
+	def void removeRangeGuard() {
+		assertEdit(
+			model.events.head,
+			"eventSD 2 [ c2 .. c1 ]",
+			"eventSD 2",
+			createEvent => [
+				name = "eventSD"
+				code = 2
+			]
+		)
+	}
+
+	@Test
+	def void changeRangeGuardToMin() {
+		assertEdit(
+			model.events.head,
+			"eventSD 2 [ c2 .. c1 ]",
+			"eventSD 2 [c2]",
+			createEvent => [
+				name = "eventSD"
+				code = 2
+				guard = createValueGuard => [
+					cond = createConstantRef => [constant = model.constants.last]
+				]
+			]
+		)
+	}
+
+	@Test
+	def void changeRangeGuardToMax() {
+		assertEdit(
+			model.events.head,
+			"eventSD 2 [ c2 .. c1 ]",
+			"eventSD 2 [c1]",
+			createEvent => [
+				name = "eventSD"
+				code = 2
+				guard = createValueGuard => [
+					cond = createConstantRef => [constant = model.constants.head]
+				]
+			]
+		)
+	}
+
+	@Test
+	def void changeRangeGuard() {
+		assertEdit(
+			model.events.head,
+			"eventSD 2 [ c2 .. c1 ]",
+			"eventSD 2 [ c2 .. 5 ]",
+			createEvent => [
+				name = "eventSD"
+				code = 2
+				guard = createRangeGuard => [
+					min = createConstantRef => [constant = model.constants.last]
+					max = createIntLiteral => [value = 5]
+				]
+			]
+		)
+	}
+
+	override protected getFeatureName() {
+		""
+	}
+
 }

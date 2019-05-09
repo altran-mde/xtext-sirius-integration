@@ -37,20 +37,21 @@ implements IXtextSiriusValueEditorCallback {
 		super(new XtextSiriusValueEditor(descriptor), descriptor, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-
+	
 	@Override
 	public @Nullable Object getValue() {
 		return super.getValue();
 	}
-	
+
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {
 			getEditor().setSemanticElement(getSelf());
-			getEditor().doSetValue(newValue, getValueFeature());
+			getEditor().setValueFeatureName(getValueFeature());
+			getEditor().doSetValue(newValue);
 		};
 	}
-	
+
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetValue(parent, getInjector());

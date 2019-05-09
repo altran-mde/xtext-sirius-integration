@@ -45,7 +45,7 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 	}
 	
 	override handleSyntaxErrors(IParseResult parseResult) {
-		throw new AssertionError(parseResult)
+		throw new AssertionError(parseResult.syntaxErrors.map[it.syntaxErrorMessage])
 	}
 	
 	override handleUnresolvableProxies() {

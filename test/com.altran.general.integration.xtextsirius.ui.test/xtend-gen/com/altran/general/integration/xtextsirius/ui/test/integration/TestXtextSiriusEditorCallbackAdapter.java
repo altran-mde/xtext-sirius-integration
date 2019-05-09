@@ -13,12 +13,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.nodemodel.INode;
+import org.eclipse.xtext.nodemodel.SyntaxErrorMessage;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 
 @SuppressWarnings("all")
@@ -72,7 +76,11 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   
   @Override
   public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
-    throw new AssertionError(parseResult);
+    final Function1<INode, SyntaxErrorMessage> _function = (INode it) -> {
+      return it.getSyntaxErrorMessage();
+    };
+    Iterable<SyntaxErrorMessage> _map = IterableExtensions.<INode, SyntaxErrorMessage>map(parseResult.getSyntaxErrors(), _function);
+    throw new AssertionError(_map);
   }
   
   @Override
