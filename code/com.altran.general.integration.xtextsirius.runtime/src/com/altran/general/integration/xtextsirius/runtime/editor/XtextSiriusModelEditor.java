@@ -175,15 +175,20 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				final XtextSiriusSyntaxErrorException ex = getCallback().handleSyntaxErrors(parseResult);
 				throw ex;
 			}
-			final EObject element = location.resolve(parseResult.getRootASTElement().eResource());
+			final Object element = location.resolve(parseResult.getRootASTElement().eResource());
 			if (element != null) {
-				if (containsUnresolvableProxies(element)) {
-					final XtextSiriusErrorException ex = getCallback().handleUnresolvableProxies();
-					throw ex;
+				if (element instanceof EObject) {
+					if (containsUnresolvableProxies((EObject) element)) {
+						final XtextSiriusErrorException ex = getCallback().handleUnresolvableProxies();
+						throw ex;
+					}
+					return FakeResourceUtil.getInstance().proxify((EObject) element,
+							EcoreUtil.getURI(getSemanticElement()));
+					// return FakeResourceUtil.getInstance().proxify(element,
+					// EcoreUtil.getURI(getEffectiveSemanticElement()));
 				}
-				return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(getSemanticElement()));
-				// return FakeResourceUtil.getInstance().proxify(element,
-				// EcoreUtil.getURI(getEffectiveSemanticElement()));
+				// TODO: proxify EObjects in List
+				return element;
 			}
 		}
 		

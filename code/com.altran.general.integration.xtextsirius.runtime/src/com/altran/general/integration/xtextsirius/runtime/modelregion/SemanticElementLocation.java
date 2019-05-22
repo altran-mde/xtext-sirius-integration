@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 /**
  * Stores the location of an {@link EObject} in a robust way.
@@ -36,20 +37,24 @@ import org.eclipse.jdt.annotation.NonNull;
  */
 public class SemanticElementLocation {
 	
+	@Nullable
 	private String uriFragment;
+	@Nullable
 	private String parentUriFragment;
+	@Nullable
 	private EStructuralFeature containingFeature;
-	private int index;
+	@Nullable
+	private Integer index;
 	
 	public SemanticElementLocation(final @NonNull EObject semanticElement) {
 		storeLocation(semanticElement);
 	}
 	
 	public SemanticElementLocation(
-			final @NonNull String uriFragment,
+			final @Nullable String uriFragment,
 			final @NonNull String parentUriFragment,
 			final @NonNull EStructuralFeature containingFeature,
-			final int index) {
+			final @Nullable Integer index) {
 		this.uriFragment = uriFragment;
 		this.parentUriFragment = parentUriFragment;
 		this.containingFeature = containingFeature;
@@ -63,8 +68,9 @@ public class SemanticElementLocation {
 		final EObject parent = semanticElement.eContainer();
 		if (parent != null) {
 			this.parentUriFragment = resource.getURIFragment(parent);
-			this.containingFeature = semanticElement.eContainingFeature();
-			if (this.containingFeature.isMany()) {
+			final EStructuralFeature eContainingFeature = semanticElement.eContainingFeature();
+			this.containingFeature = eContainingFeature;
+			if (eContainingFeature.isMany()) {
 				this.index = ((EList<EObject>) parent
 						.eGet(this.containingFeature)).indexOf(semanticElement);
 			}
@@ -75,19 +81,25 @@ public class SemanticElementLocation {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public EObject resolve(final @NonNull Resource resource) {
-		final EObject result = resource.getEObject(this.uriFragment);
-		if (result != null) {
-			return result;
-		} else if (this.parentUriFragment != null) {
-			final Object containingElement = resource.getEObject(this.parentUriFragment).eGet(this.containingFeature);
-			if (this.containingFeature.isMany()) {
-				return ((EList<EObject>) containingElement).get(this.index);
-			} else {
-				return (EObject) containingElement;
+	public Object resolve(final @NonNull Resource resource) {
+		if (this.uriFragment != null) {
+			final EObject result = resource.getEObject(this.uriFragment);
+			if (result != null) {
+				return result;
 			}
-		} else {
-			throw new IllegalStateException("cannot resolve EObject without container");
 		}
+		
+		final EStructuralFeature nerv = this.containingFeature;
+		if (nerv != null && this.parentUriFragment != null) {
+			final Object containingElement = resource.getEObject(this.parentUriFragment)
+					.eGet(nerv);
+			return containingElement;
+			// if (nerv.isMany() && this.index != null) {
+			// return ((EList<EObject>) containingElement).get(this.index);
+			// } else {
+			// return (EObject) containingElement;
+			// }
+		}
+		throw new IllegalStateException("cannot resolve EObject without container");
 	}
 }

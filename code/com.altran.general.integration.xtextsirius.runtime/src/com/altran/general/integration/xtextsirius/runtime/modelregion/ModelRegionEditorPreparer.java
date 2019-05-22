@@ -477,9 +477,9 @@ public class ModelRegionEditorPreparer {
 	protected SemanticElementLocation constructXtextFragmentSchemeBasedLocation() {
 		final EStructuralFeature feature = getSemanticElementFeature();
 		final String parentFragment = EcoreUtil.getURI(getParent()).fragment();
-		final String fragment;
-		fragment = parentFragment + "/@" + feature.getName() +
-				(feature.isMany() ? ".0" : "");
+		// final String fragment;
+		// fragment = parentFragment + "/@" + feature.getName(); // +
+		// (feature.isMany() ? ".0" : "");
 		// if (getSemanticElement() != null) {
 		// fragment = parentFragment + "/@" + feature.getName() +
 		// (feature.isMany() ? ".0" : "");
@@ -492,7 +492,7 @@ public class ModelRegionEditorPreparer {
 		// final String fragment = parentFragment + "/@" + feature.getName() +
 		// (feature.isMany() ? ".0" : "");
 
-		return new SemanticElementLocation(fragment, parentFragment, feature, 0);
+		return new SemanticElementLocation(null, parentFragment, feature, 0);
 	}
 	
 	
