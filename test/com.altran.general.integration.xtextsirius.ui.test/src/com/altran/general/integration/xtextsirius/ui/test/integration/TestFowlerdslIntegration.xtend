@@ -76,7 +76,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.callbackSetValue(value, offset, length)
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					elementToEdit
 				}
 			}
@@ -115,7 +115,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.callbackSetValue(value, offset, length)
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					elementToEdit
 				}
 			}
@@ -155,7 +155,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.callbackSetValue(value, offset, length)
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					elementToEdit
 				}
 			}
@@ -195,7 +195,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.callbackSetValue(value, offset, length)
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					elementToEdit
 				}
 			}
@@ -230,7 +230,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.callbackSetValue(value, offset, length)
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					elementToEdit
 				}
 			}
@@ -264,7 +264,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.callbackSetValue(value, offset, length)
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					elementToEdit
 				}
 			}
@@ -307,7 +307,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.callbackSetValue(value, offset, length)
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					container
 				}
 			}
@@ -349,7 +349,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.callbackSetValue(value, offset, length)
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					elementToEdit
 				}
 				
@@ -388,7 +388,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					super.getXtextParseResult()
 				}
 				
-				override getSemanticElement() {
+				override getTestSemanticElement() {
 					elementToEdit
 				}
 				

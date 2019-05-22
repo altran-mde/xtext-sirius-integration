@@ -3,6 +3,7 @@ package com.altran.general.integration.xtextsirius.runtime.editor;
 import java.util.Optional;
 
 import org.apache.commons.lang.StringUtils;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -159,8 +160,11 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 	}
 	
 	@Override
-	protected @Nullable EObject getValueToCommit() throws AXtextSiriusIssueException {
+	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
 		if (this.deleteEntry) {
+			if (getEffectiveStructuralFeature().isMany()) {
+				return ECollections.emptyEList();
+			}
 			return null;
 		}
 		
@@ -193,7 +197,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			EObject result = target;
 
 			if (!this.noOp) {
-				final EObject valueToCommit = getValueToCommit();
+				final Object valueToCommit = getValueToCommit();
 				final EObject adjustedTarget = adjustTarget(target, getValueFeatureName());
 				if (!StringUtils.isBlank(getValueFeatureName())
 						|| (valueToCommit != null && !(valueToCommit instanceof EObject))) {
@@ -211,8 +215,8 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				}
 			}
 
-			final EStructuralFeature resultValueFeature = enforceValueFeature(result, getValueFeatureName());
-			if (result.eClass().getFeatureID(resultValueFeature) == -1) {
+			final EStructuralFeature resultValueFeature = convertValueFeature(result, getValueFeatureName());
+			if (resultValueFeature == null || result.eClass().getFeatureID(resultValueFeature) == -1) {
 				return result;
 			} else {
 				return result.eGet(resultValueFeature);
