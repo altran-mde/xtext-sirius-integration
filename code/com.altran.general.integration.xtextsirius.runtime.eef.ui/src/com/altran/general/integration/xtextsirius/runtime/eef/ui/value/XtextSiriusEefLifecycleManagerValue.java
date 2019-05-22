@@ -48,7 +48,7 @@ implements IXtextSiriusValueEditorCallback {
 		return (newValue) -> {
 			getEditor().setSemanticElement(getSelf());
 			getEditor().setValueFeatureName(getValueFeature());
-			getEditor().doSetValue(newValue);
+			getEditor().setValue(newValue);
 		};
 	}
 

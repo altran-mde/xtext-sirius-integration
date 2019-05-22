@@ -37,7 +37,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow_1 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_1, _function_1);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       null, 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow, _doubleArrow_1)));
   }
@@ -46,7 +46,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
   public void empty() {
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "", 
       Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
   }
@@ -77,7 +77,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow_1 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_1, _function_1);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "c1 22 c2 42", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow, _doubleArrow_1)));
   }
@@ -108,7 +108,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow_1 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_1, _function_1);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "c1 23 c2 43", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow, _doubleArrow_1)));
   }
@@ -128,7 +128,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant, _function);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "c2 42", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow)));
   }
@@ -148,7 +148,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant, _function);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "c1 23", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow)));
   }
@@ -168,7 +168,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant, _function);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "c3 13", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow)));
   }
@@ -199,7 +199,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow_1 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_1, _function_1);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "c3 13 c1 23", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow, _doubleArrow_1)));
   }
@@ -241,7 +241,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow_2 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_2, _function_2);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "c3 13 c1 23 c2 42", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow, _doubleArrow_1, _doubleArrow_2)));
   }
@@ -283,7 +283,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     Constant _doubleArrow_2 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_2, _function_2);
     this.assertEdit(
       this.model, 
-      "c1 23 c2 42", 
+      "c1 23  c2 42", 
       "c1 23 c2 42, c3 13", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow, _doubleArrow_1, _doubleArrow_2)));
   }

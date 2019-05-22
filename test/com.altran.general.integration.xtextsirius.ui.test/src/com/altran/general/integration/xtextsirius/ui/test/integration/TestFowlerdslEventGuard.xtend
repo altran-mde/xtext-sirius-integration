@@ -9,10 +9,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.last,
 			"",
 			null,
-			createEvent => [
-				name = "event3"
-				code = 4
-			]
+			null
 		)
 	}
 
@@ -22,12 +19,8 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.last,
 			"",
 			"5",
-			createEvent => [
-				name = "event3"
-				code = 4
-				guard = createValueGuard => [
-					cond = createIntLiteral => [value = 5]
-				]
+			createValueGuard => [
+				cond = createIntLiteral => [value = 5]
 			]
 		)
 	}
@@ -38,12 +31,8 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.get(1),
 			"2",
 			null,
-			createEvent => [
-				name = "event2"
-				code = 3
-				guard = createValueGuard => [
-					cond = createIntLiteral => [value = 2]
-				]
+			createValueGuard => [
+				cond = createIntLiteral => [value = 2]
 			]
 		)
 	}
@@ -54,10 +43,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.get(1),
 			"2",
 			"",
-			createEvent => [
-				name = "event2"
-				code = 3
-			]
+			null
 		)
 	}
 
@@ -67,12 +53,8 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.get(1),
 			"2",
 			"5",
-			createEvent => [
-				name = "event2"
-				code = 3
-				guard = createValueGuard => [
-					cond = createIntLiteral => [value = 5]
-				]
+			createValueGuard => [
+				cond = createIntLiteral => [value = 5]
 			]
 		)
 	}
@@ -83,12 +65,8 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.last,
 			"",
 			"c2",
-			createEvent => [
-				name = "event3"
-				code = 4
-				guard = createValueGuard => [
-					cond = createConstantRef => [constant = model.constants.last]
-				]
+			createValueGuard => [
+				cond = createConstantRef => [constant = model.constants.last]
 			]
 		)
 	}
@@ -99,12 +77,8 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.get(2),
 			"c1",
 			null,
-			createEvent => [
-				name = "event4"
-				code = 3
-				guard = createValueGuard => [
-					cond = createConstantRef => [constant = model.constants.head]
-				]
+			createValueGuard => [
+				cond = createConstantRef => [constant = model.constants.head]
 			]
 		)
 	}
@@ -115,10 +89,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.get(2),
 			"c1",
 			"",
-			createEvent => [
-				name = "event4"
-				code = 3
-			]
+			null
 		)
 	}
 
@@ -128,12 +99,8 @@ class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 			model.events.get(2),
 			"c1",
 			"c2",
-			createEvent => [
-				name = "event4"
-				code = 3
-				guard = createValueGuard => [
-					cond = createConstantRef => [constant = model.constants.last]
-				]
+			createValueGuard => [
+				cond = createConstantRef => [constant = model.constants.last]
 			]
 		)
 	}

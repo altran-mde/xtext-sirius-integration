@@ -15,38 +15,26 @@ import org.junit.Test;
 public class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
   @Test
   public void emptyUnchanged() {
-    Event _last = IterableExtensions.<Event>last(this.model.getEvents());
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event3");
-      it.setCode(4);
-    };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_last, 
+    this.assertEdit(
+      IterableExtensions.<Event>last(this.model.getEvents()), 
       "", 
-      null, _doubleArrow);
+      null, 
+      null);
   }
   
   @Test
   public void emptyAdd() {
     Event _last = IterableExtensions.<Event>last(this.model.getEvents());
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event3");
-      it.setCode(4);
-      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
-      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
-        IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
-        final Procedure1<IntLiteral> _function_2 = (IntLiteral it_2) -> {
-          it_2.setValue(5);
-        };
-        IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_2);
-        it_1.setCond(_doubleArrow);
+    ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+    final Procedure1<ValueGuard> _function = (ValueGuard it) -> {
+      IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
+      final Procedure1<IntLiteral> _function_1 = (IntLiteral it_1) -> {
+        it_1.setValue(5);
       };
-      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
-      it.setGuard(_doubleArrow);
+      IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_1);
+      it.setCond(_doubleArrow);
     };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
     this.assertEdit(_last, 
       "", 
       "5", _doubleArrow);
@@ -55,23 +43,16 @@ public class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
   @Test
   public void existingUnchanged() {
     Event _get = this.model.getEvents().get(1);
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event2");
-      it.setCode(3);
-      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
-      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
-        IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
-        final Procedure1<IntLiteral> _function_2 = (IntLiteral it_2) -> {
-          it_2.setValue(2);
-        };
-        IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_2);
-        it_1.setCond(_doubleArrow);
+    ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+    final Procedure1<ValueGuard> _function = (ValueGuard it) -> {
+      IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
+      final Procedure1<IntLiteral> _function_1 = (IntLiteral it_1) -> {
+        it_1.setValue(2);
       };
-      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
-      it.setGuard(_doubleArrow);
+      IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_1);
+      it.setCond(_doubleArrow);
     };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
     this.assertEdit(_get, 
       "2", 
       null, _doubleArrow);
@@ -79,38 +60,26 @@ public class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
   
   @Test
   public void existingEmpty() {
-    Event _get = this.model.getEvents().get(1);
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event2");
-      it.setCode(3);
-    };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_get, 
+    this.assertEdit(
+      this.model.getEvents().get(1), 
       "2", 
-      "", _doubleArrow);
+      "", 
+      null);
   }
   
   @Test
   public void existingChange() {
     Event _get = this.model.getEvents().get(1);
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event2");
-      it.setCode(3);
-      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
-      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
-        IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
-        final Procedure1<IntLiteral> _function_2 = (IntLiteral it_2) -> {
-          it_2.setValue(5);
-        };
-        IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_2);
-        it_1.setCond(_doubleArrow);
+    ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+    final Procedure1<ValueGuard> _function = (ValueGuard it) -> {
+      IntLiteral _createIntLiteral = this.statemachineFactory.createIntLiteral();
+      final Procedure1<IntLiteral> _function_1 = (IntLiteral it_1) -> {
+        it_1.setValue(5);
       };
-      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
-      it.setGuard(_doubleArrow);
+      IntLiteral _doubleArrow = ObjectExtensions.<IntLiteral>operator_doubleArrow(_createIntLiteral, _function_1);
+      it.setCond(_doubleArrow);
     };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
     this.assertEdit(_get, 
       "2", 
       "5", _doubleArrow);
@@ -119,23 +88,16 @@ public class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
   @Test
   public void emptyAddRef() {
     Event _last = IterableExtensions.<Event>last(this.model.getEvents());
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event3");
-      it.setCode(4);
-      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
-      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
-        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
-        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
-          it_2.setConstant(IterableExtensions.<Constant>last(this.model.getConstants()));
-        };
-        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
-        it_1.setCond(_doubleArrow);
+    ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+    final Procedure1<ValueGuard> _function = (ValueGuard it) -> {
+      ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+      final Procedure1<ConstantRef> _function_1 = (ConstantRef it_1) -> {
+        it_1.setConstant(IterableExtensions.<Constant>last(this.model.getConstants()));
       };
-      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
-      it.setGuard(_doubleArrow);
+      ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_1);
+      it.setCond(_doubleArrow);
     };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
     this.assertEdit(_last, 
       "", 
       "c2", _doubleArrow);
@@ -144,23 +106,16 @@ public class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
   @Test
   public void refUnchanged() {
     Event _get = this.model.getEvents().get(2);
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event4");
-      it.setCode(3);
-      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
-      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
-        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
-        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
-          it_2.setConstant(IterableExtensions.<Constant>head(this.model.getConstants()));
-        };
-        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
-        it_1.setCond(_doubleArrow);
+    ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+    final Procedure1<ValueGuard> _function = (ValueGuard it) -> {
+      ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+      final Procedure1<ConstantRef> _function_1 = (ConstantRef it_1) -> {
+        it_1.setConstant(IterableExtensions.<Constant>head(this.model.getConstants()));
       };
-      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
-      it.setGuard(_doubleArrow);
+      ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_1);
+      it.setCond(_doubleArrow);
     };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
     this.assertEdit(_get, 
       "c1", 
       null, _doubleArrow);
@@ -168,38 +123,26 @@ public class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
   
   @Test
   public void refEmpty() {
-    Event _get = this.model.getEvents().get(2);
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event4");
-      it.setCode(3);
-    };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_get, 
+    this.assertEdit(
+      this.model.getEvents().get(2), 
       "c1", 
-      "", _doubleArrow);
+      "", 
+      null);
   }
   
   @Test
   public void refChange() {
     Event _get = this.model.getEvents().get(2);
-    Event _createEvent = this.statemachineFactory.createEvent();
-    final Procedure1<Event> _function = (Event it) -> {
-      it.setName("event4");
-      it.setCode(3);
-      ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
-      final Procedure1<ValueGuard> _function_1 = (ValueGuard it_1) -> {
-        ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
-        final Procedure1<ConstantRef> _function_2 = (ConstantRef it_2) -> {
-          it_2.setConstant(IterableExtensions.<Constant>last(this.model.getConstants()));
-        };
-        ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_2);
-        it_1.setCond(_doubleArrow);
+    ValueGuard _createValueGuard = this.statemachineFactory.createValueGuard();
+    final Procedure1<ValueGuard> _function = (ValueGuard it) -> {
+      ConstantRef _createConstantRef = this.statemachineFactory.createConstantRef();
+      final Procedure1<ConstantRef> _function_1 = (ConstantRef it_1) -> {
+        it_1.setConstant(IterableExtensions.<Constant>last(this.model.getConstants()));
       };
-      ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function_1);
-      it.setGuard(_doubleArrow);
+      ConstantRef _doubleArrow = ObjectExtensions.<ConstantRef>operator_doubleArrow(_createConstantRef, _function_1);
+      it.setCond(_doubleArrow);
     };
-    Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
+    ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
     this.assertEdit(_get, 
       "c1", 
       "c2", _doubleArrow);

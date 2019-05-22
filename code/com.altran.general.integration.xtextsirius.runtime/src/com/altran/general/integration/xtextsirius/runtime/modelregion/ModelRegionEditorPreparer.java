@@ -422,8 +422,15 @@ public class ModelRegionEditorPreparer {
 		} else {
 			this.semanticElementLocation = constructXtextFragmentSchemeBasedLocation();
 			this.semanticRegion = getRootRegion().regionForEObject(getParent());
-			this.textRegion = new RequiredGrammarTerminalsPresentEnsurer(getParent(), getSemanticElementFeature(),
-					getRootRegion(), getAllText()).ensure();
+			final Object value = getParent().eGet(getSemanticElementFeature());
+			if (value != null) {
+				this.textRegion = new ModelRegionCalculator(this).calculateFeatureRegion(getParent(),
+						Collections.singleton(getSemanticElementFeature().getName()),
+						Sets.newHashSet(getSemanticElementFeature()), false);
+			} else {
+				this.textRegion = new RequiredGrammarTerminalsPresentEnsurer(getParent(), getSemanticElementFeature(),
+						getRootRegion(), getAllText()).ensure();
+			}
 			this.selectedRegion = new TextRegion(getSemanticRegion().getOffset(), 0);
 		}
 		
@@ -470,12 +477,26 @@ public class ModelRegionEditorPreparer {
 	protected SemanticElementLocation constructXtextFragmentSchemeBasedLocation() {
 		final EStructuralFeature feature = getSemanticElementFeature();
 		final String parentFragment = EcoreUtil.getURI(getParent()).fragment();
-		final String fragment = parentFragment + "/@" + feature.getName() + (feature.isMany() ? ".0" : "");
+		final String fragment;
+		fragment = parentFragment + "/@" + feature.getName() +
+				(feature.isMany() ? ".0" : "");
+		// if (getSemanticElement() != null) {
+		// fragment = parentFragment + "/@" + feature.getName() +
+		// (feature.isMany() ? ".0" : "");
+		// } else {
+		// fragment = parentFragment + (feature.isMany() ? ""
+		// : "/@" +
+		// feature.getName());
+		// }
+		// final String fragment = parentFragment + "/@" + feature.getName();
+		// final String fragment = parentFragment + "/@" + feature.getName() +
+		// (feature.isMany() ? ".0" : "");
+
 		return new SemanticElementLocation(fragment, parentFragment, feature, 0);
 	}
 	
 	
-	protected EObject getSemanticElement() {
+	protected @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
 	
@@ -483,7 +504,7 @@ public class ModelRegionEditorPreparer {
 		return getDescriptor().isMultiLine();
 	}
 	
-	protected EObject getParent() {
+	protected @NonNull EObject getParent() {
 		return this.parentSemanticElement;
 	}
 	

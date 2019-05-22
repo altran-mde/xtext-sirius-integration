@@ -18,12 +18,13 @@ import org.eclipse.xtext.util.StringInputStream
 abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
 	protected val XtextResource fakeResource
 	@Accessors
-	protected var EObject semanticElement
+	protected var EObject testSemanticElement
 	
 	new(Injector injector, EObject model) {
 		val uri = model.eResource.URI
 		fakeResource = injector.getInstance(IResourceFactory).createResource(uri) as XtextResource
-		fakeResource.load(new StringInputStream(NodeModelUtils::getNode(model).rootNode.text), Collections::emptyMap)
+		val text = NodeModelUtils::getNode(model).rootNode.text
+		fakeResource.load(new StringInputStream(text), Collections::emptyMap)
 		FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, uri)
 	}
 	
@@ -31,8 +32,10 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 		val newContent = value.toString
 		fakeResource.reparse(newContent)
 		fakeResource.relink
-		val element = getSemanticElement()
-		FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
+		val element = getTestSemanticElement()
+//		if (element !== null) {
+			FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
+//		}
 	}
 	
 	override getXtextParseResult() {

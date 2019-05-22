@@ -27,7 +27,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       null, 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow, _doubleArrow_1)));
   }
@@ -37,7 +37,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "", 
       Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
   }
@@ -59,7 +59,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "cmd0 22 cmd1 42", 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow, _doubleArrow_1)));
   }
@@ -81,7 +81,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "cmd0 22 cmd1 43", 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow, _doubleArrow_1)));
   }
@@ -97,7 +97,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "cmd0 23", 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow)));
   }
@@ -113,7 +113,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "cmd1 42", 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow)));
   }
@@ -129,7 +129,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "cmd2 13", 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow)));
   }
@@ -151,7 +151,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "cmd2 13 cmd0 23", 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow, _doubleArrow_1)));
   }
@@ -179,7 +179,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "cmd2 13 cmd0 23 cmd1 42", 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow, _doubleArrow_1, _doubleArrow_2)));
   }
@@ -207,7 +207,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model.getCommands(), 
       this.model, 
-      "cmd0 23 cmd1 42", 
+      "cmd0 23  cmd1 42", 
       "cmd0 23 cmd1 42 cmd2 13", 
       Collections.<Command>unmodifiableList(CollectionLiterals.<Command>newArrayList(_doubleArrow, _doubleArrow_1, _doubleArrow_2)));
   }

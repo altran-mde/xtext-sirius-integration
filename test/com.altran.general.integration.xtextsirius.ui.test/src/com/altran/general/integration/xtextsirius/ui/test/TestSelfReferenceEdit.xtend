@@ -7,11 +7,13 @@ import org.espilce.commons.lang.loadhelper.ILoadHelper
 import org.espilce.commons.resource.loadhelper.WorkspacePluginLoadHelper
 import org.espilce.commons.testsupport.resource.ATestWorkspace
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 
 import static org.espilce.commons.resource.WorkspaceUtils.waitForWorkspaceChanges
 import static org.junit.Assert.*
 
+@Ignore
 class TestSelfReferenceEdit extends ATestWorkspace {
 	val fileName = "test1.reflang"
 

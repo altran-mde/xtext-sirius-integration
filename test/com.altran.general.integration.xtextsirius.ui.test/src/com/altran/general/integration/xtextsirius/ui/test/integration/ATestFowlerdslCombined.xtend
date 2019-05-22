@@ -102,7 +102,7 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 		
 		override setSemanticElement(EObject element) {
 			if (callback !== null) {
-				(callback as TestXtextSiriusEditorCallbackAdapter).semanticElement = element
+				(callback as TestXtextSiriusEditorCallbackAdapter).testSemanticElement = element
 			}
 			super.semanticElement = element
 		}
@@ -142,11 +142,12 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 		editor.valueFeatureName = valueFeatureName
 		
 		val EObject commitTarget = if (elementToEdit instanceof EObject) elementToEdit else fallbackContainer
-		if (elementToEdit instanceof EObject) {
-			editor.semanticElement = elementToEdit
-		}
+		editor.semanticElement = commitTarget
+//		if (elementToEdit instanceof EObject) {
+//			editor.semanticElement = elementToEdit
+//		}
 		editor.fallbackContainer = fallbackContainer
-		editor.doSetValue(null)
+		editor.setValue(null)
 		
 		if (newText !== null) {
 			editor.callback = new AssertingXtextSiriusEditorCallback(injector, model, "newText", newText)
@@ -155,11 +156,12 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 		}
 		
 		// set to new callback
-		if (elementToEdit instanceof EObject) {
-			editor.semanticElement = elementToEdit
-		}
+		editor.semanticElement = commitTarget
+//		if (elementToEdit instanceof EObject) {
+//			editor.semanticElement = elementToEdit
+//		}
 		
-		editor.doSetValue(newText)
+		editor.setValue(newText)
 		
 		val result = editor.commit(commitTarget)
 		if (expectedResultElement instanceof EObject) {

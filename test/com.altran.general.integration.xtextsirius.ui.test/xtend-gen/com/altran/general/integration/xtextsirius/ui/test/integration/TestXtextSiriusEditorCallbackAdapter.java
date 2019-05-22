@@ -30,15 +30,15 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   protected final XtextResource fakeResource;
   
   @Accessors
-  protected EObject semanticElement;
+  protected EObject testSemanticElement;
   
   public TestXtextSiriusEditorCallbackAdapter(final Injector injector, final EObject model) {
     try {
       final URI uri = model.eResource().getURI();
       Resource _createResource = injector.<IResourceFactory>getInstance(IResourceFactory.class).createResource(uri);
       this.fakeResource = ((XtextResource) _createResource);
-      String _text = NodeModelUtils.getNode(model).getRootNode().getText();
-      StringInputStream _stringInputStream = new StringInputStream(_text);
+      final String text = NodeModelUtils.getNode(model).getRootNode().getText();
+      StringInputStream _stringInputStream = new StringInputStream(text);
       this.fakeResource.load(_stringInputStream, Collections.<Object, Object>emptyMap());
       FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, uri);
     } catch (Throwable _e) {
@@ -52,7 +52,7 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
       final String newContent = value.toString();
       this.fakeResource.reparse(newContent);
       this.fakeResource.relink();
-      final EObject element = this.getSemanticElement();
+      final EObject element = this.getTestSemanticElement();
       FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, element.eResource().getURI());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -89,11 +89,11 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   }
   
   @Pure
-  public EObject getSemanticElement() {
-    return this.semanticElement;
+  public EObject getTestSemanticElement() {
+    return this.testSemanticElement;
   }
   
-  public void setSemanticElement(final EObject semanticElement) {
-    this.semanticElement = semanticElement;
+  public void setTestSemanticElement(final EObject testSemanticElement) {
+    this.testSemanticElement = testSemanticElement;
   }
 }

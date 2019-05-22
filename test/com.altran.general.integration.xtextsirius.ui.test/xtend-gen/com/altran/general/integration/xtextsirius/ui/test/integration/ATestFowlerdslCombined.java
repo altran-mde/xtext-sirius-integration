@@ -30,7 +30,7 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
       boolean _tripleNotEquals = (_callback != null);
       if (_tripleNotEquals) {
         IXtextSiriusModelEditorCallback _callback_1 = this.getCallback();
-        ((TestXtextSiriusEditorCallbackAdapter) _callback_1).semanticElement = element;
+        ((TestXtextSiriusEditorCallbackAdapter) _callback_1).testSemanticElement = element;
       }
       super.setSemanticElement(element);
     }
@@ -147,11 +147,9 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
       _xifexpression = fallbackContainer;
     }
     final EObject commitTarget = _xifexpression;
-    if ((elementToEdit instanceof EObject)) {
-      editor.setSemanticElement(((EObject)elementToEdit));
-    }
+    editor.setSemanticElement(commitTarget);
     editor.setFallbackContainer(fallbackContainer);
-    editor.doSetValue(null);
+    editor.setValue(null);
     if ((newText != null)) {
       Injector _injector_1 = this.getInjector();
       ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback_1 = new ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback(_injector_1, this.model, "newText", newText);
@@ -161,10 +159,8 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
       ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback_2 = new ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback(_injector_2, this.model, "newText", expectedText);
       editor.setCallback(_assertingXtextSiriusEditorCallback_2);
     }
-    if ((elementToEdit instanceof EObject)) {
-      editor.setSemanticElement(((EObject)elementToEdit));
-    }
-    editor.doSetValue(newText);
+    editor.setSemanticElement(commitTarget);
+    editor.setValue(newText);
     final Object result = editor.commit(commitTarget);
     if ((expectedResultElement instanceof EObject)) {
       AssertEmf.assertModelEquals(((EObject)expectedResultElement), ((EObject) result));

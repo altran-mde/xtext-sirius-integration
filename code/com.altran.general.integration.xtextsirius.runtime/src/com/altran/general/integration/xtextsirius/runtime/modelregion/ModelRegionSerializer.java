@@ -76,8 +76,9 @@ public class ModelRegionSerializer {
 	}
 
 	protected EClass getSemanticElementEClass() {
-		if (this.preparer.getSemanticElement() != null) {
-			return this.preparer.getSemanticElement().eClass();
+		final EObject semanticElement = this.preparer.getSemanticElement();
+		if (semanticElement != null) {
+			return semanticElement.eClass();
 		} else {
 			return (EClass) this.preparer.getSemanticElementFeature().getEType();
 		}

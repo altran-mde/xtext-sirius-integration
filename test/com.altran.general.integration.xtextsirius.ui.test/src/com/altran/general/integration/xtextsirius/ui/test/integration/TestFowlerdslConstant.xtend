@@ -7,7 +7,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void unchanged() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			null,
 			#[
 				createConstant => [
@@ -26,7 +26,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void empty() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"",
 			#[
 			]
@@ -37,7 +37,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void changeFirst() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"c1 22 c2 42",
 			#[
 				createConstant => [
@@ -56,7 +56,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void changeLast() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"c1 23 c2 43",
 			#[
 				createConstant => [
@@ -75,7 +75,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void removeFirst() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"c2 42",
 			#[
 				createConstant => [
@@ -90,7 +90,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void removeLast() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"c1 23",
 			#[
 				createConstant => [
@@ -105,7 +105,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void replace() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"c3 13",
 			#[
 				createConstant => [
@@ -120,7 +120,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void replaceMove() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"c3 13 c1 23",
 			#[
 				createConstant => [
@@ -139,7 +139,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void addFirst() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"c3 13 c1 23 c2 42",
 			#[
 				createConstant => [
@@ -162,7 +162,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 	def void addLast() {
 		assertEdit(
 			model,
-			"c1 23 c2 42",
+			"c1 23  c2 42",
 			"c1 23 c2 42, c3 13",
 			#[
 				createConstant => [

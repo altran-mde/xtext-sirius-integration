@@ -8,7 +8,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			null,
 			#[
 				createCommand => [
@@ -28,7 +28,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"",
 			#[]
 		)
@@ -39,7 +39,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"cmd0 22 cmd1 42",
 			#[
 				createCommand => [
@@ -59,7 +59,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"cmd0 22 cmd1 43",
 			#[
 				createCommand => [
@@ -79,7 +79,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"cmd0 23",
 			#[
 				createCommand => [
@@ -95,7 +95,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"cmd1 42",
 			#[
 				createCommand => [
@@ -111,7 +111,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"cmd2 13",
 			#[
 				createCommand => [
@@ -127,7 +127,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"cmd2 13 cmd0 23",
 			#[
 				createCommand => [
@@ -147,7 +147,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"cmd2 13 cmd0 23 cmd1 42",
 			#[
 				createCommand => [
@@ -171,7 +171,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 		assertEdit(
 			model.commands,
 			model,
-			"cmd0 23 cmd1 42",
+			"cmd0 23  cmd1 42",
 			"cmd0 23 cmd1 42 cmd2 13",
 			#[
 				createCommand => [
