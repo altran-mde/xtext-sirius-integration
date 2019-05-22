@@ -138,7 +138,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslCombined {
   public void replaceMove() {
     Command _createCommand = this.statemachineFactory.createCommand();
     final Procedure1<Command> _function = (Command it) -> {
-      it.setName("cmd0");
+      it.setName("cmd2");
       it.setCode(13);
     };
     Command _doubleArrow = ObjectExtensions.<Command>operator_doubleArrow(_createCommand, _function);

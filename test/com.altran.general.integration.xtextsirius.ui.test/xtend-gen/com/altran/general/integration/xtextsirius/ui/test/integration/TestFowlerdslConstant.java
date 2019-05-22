@@ -284,7 +284,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslCombined {
     this.assertEdit(
       this.model, 
       "c1 23  c2 42", 
-      "c1 23 c2 42, c3 13", 
+      "c1 23 c2 42 c3 13", 
       Collections.<Constant>unmodifiableList(CollectionLiterals.<Constant>newArrayList(_doubleArrow, _doubleArrow_1, _doubleArrow_2)));
   }
   

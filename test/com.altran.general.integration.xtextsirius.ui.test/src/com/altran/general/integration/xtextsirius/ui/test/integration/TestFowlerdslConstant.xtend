@@ -163,7 +163,7 @@ class TestFowlerdslConstant extends ATestFowlerdslCombined {
 		assertEdit(
 			model,
 			"c1 23  c2 42",
-			"c1 23 c2 42, c3 13",
+			"c1 23 c2 42 c3 13",
 			#[
 				createConstant => [
 					name = "c1"

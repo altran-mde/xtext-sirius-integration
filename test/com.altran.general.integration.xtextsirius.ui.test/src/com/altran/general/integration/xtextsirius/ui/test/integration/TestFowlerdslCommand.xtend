@@ -131,7 +131,7 @@ class TestFowlerdslCommand extends ATestFowlerdslCombined {
 			"cmd2 13 cmd0 23",
 			#[
 				createCommand => [
-					name = "cmd0"
+					name = "cmd2"
 					code = 13
 				],
 				createCommand => [
