@@ -1,7 +1,5 @@
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
-import java.util.Optional;
-
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -10,10 +8,6 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.editor.deletion.BlankDeletionDecider;
-import com.altran.general.integration.xtextsirius.runtime.editor.deletion.IDeletionDecider;
-import com.altran.general.integration.xtextsirius.runtime.editor.noop.INoOpDecider;
-import com.altran.general.integration.xtextsirius.runtime.editor.noop.NullNoOpDecider;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.inject.Injector;
@@ -27,10 +21,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	private final IXtextSiriusDescriptor descriptor;
 	private C callback;
 
-	private @NonNull IDeletionDecider deletionDecider = new BlankDeletionDecider();
-	private @NonNull INoOpDecider noOpDecider = new NullNoOpDecider();
-	@NonNull
-	protected final IXtextSiriusEditingDecider editingDecider = new NullNoOpBlankDeletionEditingDecider();
+	private @NonNull IXtextSiriusEditingDecider editingDecider = new NullNoOpBlankDeletionEditingDecider();
 
 	private @Nullable EObject semanticElement;
 	private @Nullable EObject fallbackContainer;
@@ -62,14 +53,10 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		this.valueFeatureName = valueFeatureName;
 	}
 	
-	public void setDeletionDecider(final IDeletionDecider deletionDecider) {
-		this.deletionDecider = deletionDecider;
+	public void setEditingDecider(final @NonNull IXtextSiriusEditingDecider editingDecider) {
+		this.editingDecider = editingDecider;
 	}
 	
-	public void setNoOpDecider(final INoOpDecider noOpDecider) {
-		this.noOpDecider = noOpDecider;
-	}
-
 	public @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
@@ -96,14 +83,10 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		return this.valueFeatureName;
 	}
 
-	public IDeletionDecider getDeletionDecider() {
-		return this.deletionDecider;
+	public @NonNull IXtextSiriusEditingDecider getEditingDecider() {
+		return this.editingDecider;
 	}
-	
-	public INoOpDecider getNoOpDecider() {
-		return this.noOpDecider;
-	}
-	
+
 	public IXtextSiriusDescriptor getDescriptor() {
 		return this.descriptor;
 	}
@@ -187,11 +170,15 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		return this.callback;
 	}
 
-	protected boolean isNoOp(final @Nullable Object value) {
-		return getNoOpDecider().isNoOp(value, this);
+	protected void setInitialValue(final @Nullable Object initialValue, final @Nullable String textValue) {
+		getEditingDecider().setInitialValue(initialValue, textValue, this);
+	}
+	
+	protected boolean isNoOp(final @Nullable String editedText) {
+		return getEditingDecider().isNoOp(editedText, this);
 	}
 
-	protected @NonNull Optional<String> isDeletion(final @Nullable Object value) {
-		return getDeletionDecider().isDeletion(value, this);
+	protected boolean isDeletion(final @Nullable String editedText) {
+		return getEditingDecider().isDeletion(editedText, this);
 	}
 }
