@@ -70,8 +70,8 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	}
 	
 	@Override
-	public void callbackSetValue(final Object value, final int offset, final int length) {
-		super.doSetValue(value);
+	public void callbackInitText(final @Nullable String initialValue, final int offset, final int length) {
+		super.doSetValue(initialValue);
 		getXtextAdapter().resetVisibleRegion();
 		setVisibleRegion(offset, length);
 		final EObject element = getSemanticElement();
@@ -86,6 +86,16 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		getXtextAdapter().getFakeResourceContext().updateFakeResourceContext(createXtextFakeContextResourcesProvider());
 
 		resetDirty();
+	}
+
+	@Override
+	public @Nullable String callbackGetText() {
+		final Object value = getValue();
+		if (value instanceof String) {
+			return (String) value;
+		}
+
+		return null;
 	}
 	
 	protected IXtextFakeContextResourcesProvider createXtextFakeContextResourcesProvider() {
@@ -102,7 +112,7 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	@Override
 	protected void doSetValue(final Object value) {
 		getEditor().setValueFeatureName(getValueFeatureName());
-		getEditor().setValue(value);
+		getEditor().initValue(value);
 	}
 
 	protected @Nullable String getValueFeatureName() {

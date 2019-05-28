@@ -9,8 +9,10 @@ import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowle
 import com.altran.general.integration.xtextsirius.ui.test.integration.TestXtextSiriusEditorCallbackAdapter;
 import com.google.inject.Injector;
 import java.util.List;
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.espilce.commons.emf.testsupport.AssertEmf;
@@ -37,25 +39,48 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
   }
   
   protected static class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAdapter {
-    private final String message;
+    private final String newText;
     
     private final String expectedText;
     
-    public AssertingXtextSiriusEditorCallback(final Injector injector, final EObject model, final String message, final String expectedText) {
+    private String initialValue;
+    
+    private int offset;
+    
+    private int length;
+    
+    public AssertingXtextSiriusEditorCallback(final Injector injector, final EObject model, final String newText, final String expectedText) {
       super(injector, model);
-      this.message = message;
+      this.newText = newText;
       this.expectedText = expectedText;
     }
     
     @Override
-    public void callbackSetValue(final Object value, final int offset, final int length) {
-      Assert.assertTrue("value is not string", (value instanceof String));
-      final String text = ((String) value).substring(offset, (offset + length));
+    public void callbackInitText(final String initialValue, final int offset, final int length) {
+      final String text = ((String) initialValue).substring(offset, (offset + length));
+      this.initialValue = initialValue;
+      this.offset = offset;
+      this.length = length;
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append(this.message);
-      _builder.append(" doesn\'t match");
+      _builder.append("doesn\'t match");
       Assert.assertEquals(_builder.toString(), this.expectedText, text);
-      super.callbackSetValue(value, offset, length);
+      super.callbackInitText(initialValue, offset, length);
+    }
+    
+    @Override
+    public IParseResult getXtextParseResult() {
+      IParseResult _xblockexpression = null;
+      {
+        final String overlay = StringUtils.overlay(this.initialValue, this.newText, this.offset, (this.offset + this.length));
+        this.updateEditedText(overlay);
+        _xblockexpression = super.getXtextParseResult();
+      }
+      return _xblockexpression;
+    }
+    
+    @Override
+    public String callbackGetText() {
+      return this.newText;
     }
   }
   
@@ -137,8 +162,8 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
     final XtextSiriusModelDescriptor descriptor = this.eventDescriptor();
     final ATestFowlerdslCombined.TestXtextSiriusModelEditor editor = new ATestFowlerdslCombined.TestXtextSiriusModelEditor(descriptor);
     Injector _injector = this.getInjector();
-    ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback = new ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback(_injector, this.model, "expectedText", expectedText);
-    editor.setCallback(_assertingXtextSiriusEditorCallback);
+    ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback callback = new ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback(_injector, this.model, newText, expectedText);
+    editor.setCallback(callback);
     editor.setValueFeatureName(valueFeatureName);
     EObject _xifexpression = null;
     if ((elementToEdit instanceof EObject)) {
@@ -149,18 +174,7 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
     final EObject commitTarget = _xifexpression;
     editor.setSemanticElement(commitTarget);
     editor.setFallbackContainer(fallbackContainer);
-    editor.setValue(null);
-    if ((newText != null)) {
-      Injector _injector_1 = this.getInjector();
-      ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback_1 = new ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback(_injector_1, this.model, "newText", newText);
-      editor.setCallback(_assertingXtextSiriusEditorCallback_1);
-    } else {
-      Injector _injector_2 = this.getInjector();
-      ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback _assertingXtextSiriusEditorCallback_2 = new ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback(_injector_2, this.model, "newText", expectedText);
-      editor.setCallback(_assertingXtextSiriusEditorCallback_2);
-    }
-    editor.setSemanticElement(commitTarget);
-    editor.setValue(newText);
+    editor.initValue(null);
     final Object result = editor.commit(commitTarget);
     if ((expectedResultElement instanceof EObject)) {
       AssertEmf.assertModelEquals(((EObject)expectedResultElement), ((EObject) result));

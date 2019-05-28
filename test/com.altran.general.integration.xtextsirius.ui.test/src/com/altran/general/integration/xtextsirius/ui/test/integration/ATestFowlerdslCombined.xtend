@@ -5,9 +5,9 @@ import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSirius
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor
 import com.google.inject.Injector
 import java.util.List
+import org.apache.commons.lang.StringUtils
 import org.eclipse.emf.ecore.EObject
 import org.espilce.commons.lang.StringUtils2
-import org.junit.Test
 
 import static org.espilce.commons.emf.testsupport.AssertEmf.*
 import static org.junit.Assert.*
@@ -109,21 +109,39 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 	}
 	
 	protected static class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAdapter {
-		val String message
+		val String newText
 		val String expectedText
 		
-		new(Injector injector, EObject model, String message, String expectedText) {
+		String initialValue
+		int offset
+		int length
+		
+		new(Injector injector, EObject model, String newText, String expectedText) {
 			super(injector, model)
-			this.message = message
+			this.newText = newText
 			this.expectedText = expectedText
 		}
 		
-		override callbackSetValue(Object value, int offset, int length) {
-			assertTrue("value is not string", value instanceof String)
-			val text = (value as String).substring(offset, offset + length)
-			assertEquals('''«message» doesn't match''', expectedText, text)
-			super.callbackSetValue(value, offset, length)
+		override callbackInitText(String initialValue, int offset, int length) {
+//			assertTrue("value is not string", value instanceof String)
+			val text = (initialValue as String).substring(offset, offset + length)
+			this.initialValue = initialValue
+			this.offset = offset;
+			this.length = length;
+			assertEquals('''doesn't match''', expectedText, text)
+			super.callbackInitText(initialValue, offset, length)
 		}
+		
+		override getXtextParseResult() {
+			val overlay = StringUtils.overlay(initialValue, newText, offset, offset + length)
+			updateEditedText(overlay)
+			super.xtextParseResult
+		}
+		
+		override callbackGetText() {
+			this.newText
+		}
+		
 	}
 	
 	protected def void assertEdit(EObject elementToEdit, String expectedText, String newText, Object expectedResultElement) {
@@ -138,7 +156,8 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 		val descriptor = eventDescriptor()
 		val editor = new TestXtextSiriusModelEditor(descriptor)
 		
-		editor.callback = new AssertingXtextSiriusEditorCallback(injector, model, "expectedText", expectedText)
+		var callback = new AssertingXtextSiriusEditorCallback(injector, model, newText, expectedText)
+		editor.callback = callback
 		editor.valueFeatureName = valueFeatureName
 		
 		val EObject commitTarget = if (elementToEdit instanceof EObject) elementToEdit else fallbackContainer
@@ -147,21 +166,25 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 //			editor.semanticElement = elementToEdit
 //		}
 		editor.fallbackContainer = fallbackContainer
-		editor.setValue(null)
+		editor.initValue(null)
 		
-		if (newText !== null) {
-			editor.callback = new AssertingXtextSiriusEditorCallback(injector, model, "newText", newText)
-		} else {
-			editor.callback = new AssertingXtextSiriusEditorCallback(injector, model, "newText", expectedText)
-		}
+//		callback = if (newText !== null) {
+//			new AssertingXtextSiriusEditorCallback(injector, model, "newText", newText)
+//		} else {
+//			new AssertingXtextSiriusEditorCallback(injector, model, "newText", expectedText)
+//		}
+//		
+//		editor.callback = callback
 		
 		// set to new callback
-		editor.semanticElement = commitTarget
+//		editor.semanticElement = commitTarget
 //		if (elementToEdit instanceof EObject) {
 //			editor.semanticElement = elementToEdit
 //		}
-		
-		editor.setValue(newText)
+
+//		callback.updateEditedText(newText)
+	
+//		editor.setValue(newText)
 		
 		val result = editor.commit(commitTarget)
 		if (expectedResultElement instanceof EObject) {

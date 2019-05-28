@@ -16,6 +16,8 @@ import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
+import com.altran.general.integration.xtextsirius.runtime.editor.deletion.NullDeletionDecider;
+import com.altran.general.integration.xtextsirius.runtime.editor.noop.BlankNoOpDecider;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelEditpartDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
@@ -24,17 +26,20 @@ import com.google.common.collect.Lists;
 
 public class XtextSiriusStyledTextCellEditorModel extends AXtextSiriusStyledTextCellEditor
 implements IXtextSiriusModelEditorCallback {
-
+	
 	public XtextSiriusStyledTextCellEditorModel(final @NonNull XtextSiriusModelEditpartDescriptor descriptor) {
 		super(descriptor, new XtextSiriusModelEditor(descriptor));
-	}
 
+		getEditor().setNoOpDecider(new BlankNoOpDecider());
+		getEditor().setDeletionDecider(new NullDeletionDecider());
+	}
+	
 	@Override
 	protected void focusLost() {
 		super.focusLost();
 		getEditor().removeAllIgnoredFeatureAdapters();
 	}
-
+	
 	public void updateSelectedRegion() {
 		final TextRegion selectedRegion = getEditor().getSelectedRegion();
 		if (selectedRegion != null) {
@@ -42,30 +47,30 @@ implements IXtextSiriusModelEditorCallback {
 					selectedRegion.getLength());
 		}
 	}
-
+	
 	@Override
 	public IParseResult getXtextParseResult() {
 		return getXtextAdapter().getXtextParseResult();
 	}
-	
+
 	@Override
 	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
 		final IRegion visibleRegionJFace = getXtextAdapter().getVisibleRegion();
 		final TextRegion visibleRegion = new TextRegion(visibleRegionJFace.getOffset(), visibleRegionJFace.getLength());
-		return new XtextSiriusSyntaxErrorException((String) getValue(), visibleRegion,
+		return new XtextSiriusSyntaxErrorException((String) callbackGetText(), visibleRegion,
 				Lists.newArrayList(parseResult.getSyntaxErrors()));
 	}
-	
+
 	@Override
 	public XtextSiriusErrorException handleUnresolvableProxies() {
-		return new XtextSiriusErrorException("Entered text contains unresolvable references", (String) getValue());
+		return new XtextSiriusErrorException("Entered text contains unresolvable references", (String) callbackGetText());
 	}
-	
+
 	@Override
 	public @NonNull XtextSiriusModelEditpartDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusModelEditpartDescriptor) super.getDescriptor();
 	}
-
+	
 	@Override
 	protected XtextSiriusModelEditor getEditor() {
 		return (XtextSiriusModelEditor) super.getEditor();

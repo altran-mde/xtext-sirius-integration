@@ -97,14 +97,13 @@ implements IXtextSiriusEditorCallback {
 	}
 
 	@Override
-	public void callbackSetValue(final Object value, final int offset, final int length) {
-		if (value instanceof String) {
-			getWidget().update((String) value, new TextRegion(offset, length));
-			updateWidgetUriWithSelf();
-		}
+	public void callbackInitText(final String initialValue, final int offset, final int length) {
+		getWidget().update((String) initialValue, new TextRegion(offset, length));
+		updateWidgetUriWithSelf();
 	}
 
-	protected @Nullable Object getValue() {
+	@Override
+	public @Nullable String callbackGetText() {
 		final StyledText textWidget = getWidget().getTextWidget();
 		if (textWidget != null) {
 			final String text = textWidget.getText();

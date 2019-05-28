@@ -28,23 +28,22 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 		FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, uri)
 	}
 	
-	override callbackSetValue(Object value, int offset, int length) {
-		val newContent = value.toString
-		fakeResource.reparse(newContent)
-		fakeResource.relink
+	override callbackInitText(String initialText, int offset, int length) {
+		updateEditedText(initialText)
 		val element = getTestSemanticElement()
 //		if (element !== null) {
 			FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
 //		}
 	}
 	
+	def updateEditedText(String newContent) {
+		fakeResource.reparse(newContent ?: "")
+		fakeResource.relink
+	}
+	
 	override getXtextParseResult() {
 		EcoreUtil2::resolveLazyCrossReferences(fakeResource, null)
 		fakeResource.parseResult
-	}
-	
-	override getValue() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
 	override handleSyntaxErrors(IParseResult parseResult) {

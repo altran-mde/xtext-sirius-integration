@@ -24,4 +24,5 @@ Require-Bundle: com.google.guava,
  com.altran.general.integration.xtextsirius.runtime,
  org.eclipse.xtext,
  org.eclipse.xtext.example.fowlerdsl,
- com.altran.general.integration.xtextsirius.test
+ com.altran.general.integration.xtextsirius.test,
+ org.apache.commons.lang

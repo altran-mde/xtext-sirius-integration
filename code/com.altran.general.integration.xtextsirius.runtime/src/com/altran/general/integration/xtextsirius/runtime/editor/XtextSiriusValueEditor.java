@@ -16,13 +16,13 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 
 	@Override
 	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
-		return getCallback().getValue();
+		return getCallback().callbackGetText();
 	}
 
 	@Override
-	public void setValue(final @Nullable Object value) {
-		if (value instanceof String) {
-			final StringBuffer text = new StringBuffer((String) value);
+	public void initValue(final @Nullable Object initialValue) {
+		if (initialValue instanceof String) {
+			final StringBuffer text = new StringBuffer((String) initialValue);
 			final int length = text.length();
 			StyledTextUtil.getInstance().removeNewlinesIfSingleLine(text, 0, length, isMultiLine());
 
@@ -32,7 +32,7 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 			
 			final int offset = prefixText.length() + 1;
 			final String completeText = prefixText + editablePart + suffixText;
-			updateCallbackSetValue(completeText, offset, length);
+			updateCallbackInitText(completeText, offset, length);
 		}
 	}
 

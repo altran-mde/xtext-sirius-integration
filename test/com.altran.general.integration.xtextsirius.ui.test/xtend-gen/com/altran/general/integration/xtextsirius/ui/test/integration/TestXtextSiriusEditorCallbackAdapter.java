@@ -47,13 +47,22 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   }
   
   @Override
-  public void callbackSetValue(final Object value, final int offset, final int length) {
+  public void callbackInitText(final String initialText, final int offset, final int length) {
+    this.updateEditedText(initialText);
+    final EObject element = this.getTestSemanticElement();
+    FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, element.eResource().getURI());
+  }
+  
+  public void updateEditedText(final String newContent) {
     try {
-      final String newContent = value.toString();
-      this.fakeResource.reparse(newContent);
+      String _elvis = null;
+      if (newContent != null) {
+        _elvis = newContent;
+      } else {
+        _elvis = "";
+      }
+      this.fakeResource.reparse(_elvis);
       this.fakeResource.relink();
-      final EObject element = this.getTestSemanticElement();
-      FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, element.eResource().getURI());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -67,11 +76,6 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
       _xblockexpression = this.fakeResource.getParseResult();
     }
     return _xblockexpression;
-  }
-  
-  @Override
-  public Object getValue() {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
   }
   
   @Override

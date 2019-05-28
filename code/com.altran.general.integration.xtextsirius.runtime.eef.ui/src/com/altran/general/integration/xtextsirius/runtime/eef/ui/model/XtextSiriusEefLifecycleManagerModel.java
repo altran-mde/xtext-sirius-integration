@@ -47,61 +47,61 @@ implements IXtextSiriusModelEditorCallback {
 		super(new XtextSiriusModelEditor(descriptor), descriptor, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-	
+
 	@Override
 	public XtextSiriusWidgetModel getWidget() {
 		return (XtextSiriusWidgetModel) super.getWidget();
 	}
-	
+
 	@Override
 	public IParseResult getXtextParseResult() {
 		final XtextDocument document = getWidget().getDocument();
 		return document.readOnly(state -> state.getParseResult());
 	}
-
+	
 	@Override
 	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
 		final IRegion visibleRegionJFace = getWidget().getViewer().getVisibleRegion();
 		final TextRegion visibleRegion = new TextRegion(visibleRegionJFace.getOffset(), visibleRegionJFace.getLength());
-		return handleXtextSiriusIssueException(new XtextSiriusSyntaxErrorException((String) getValue(), visibleRegion,
+		return handleXtextSiriusIssueException(new XtextSiriusSyntaxErrorException((String) callbackGetText(), visibleRegion,
 				Lists.newArrayList(parseResult.getSyntaxErrors())));
 	}
-	
+
 	@Override
 	public XtextSiriusErrorException handleUnresolvableProxies() {
 		return handleXtextSiriusIssueException(
-				new XtextSiriusErrorException("Entered text contains unresolvable references", (String) getValue()));
+				new XtextSiriusErrorException("Entered text contains unresolvable references", (String) callbackGetText()));
 	}
-
+	
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {
 			URI resourceUri = null;
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
-
+				
 				resourceUri = semanticElement.eResource().getURI();
 				getEditor().setSemanticElement(semanticElement);
 			} else if (newValue == null) {
 				final EObject self = getSelf();
 				if (self != null) {
 					resourceUri = self.eResource().getURI();
-					getEditor().setSemanticElement(self);
+					getEditor().setFallbackContainer(self);
 				}
 			}
-
-			getEditor().setValueFeatureName(getValueFeature());
-			getEditor().setValue(newValue);
 			
+			getEditor().setValueFeatureName(getValueFeature());
+			getEditor().initValue(newValue);
+
 			getWidget().updateUri(resourceUri);
 		};
 	}
-	
+
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetModel(parent, getInjector());
 	}
-	
+
 	protected <E extends AXtextSiriusIssueException> E handleXtextSiriusIssueException(final E exception) {
 		StatusManager.getManager().handle(exception.toStatus(), StatusManager.SHOW);
 		return exception;

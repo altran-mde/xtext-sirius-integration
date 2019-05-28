@@ -73,7 +73,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					assertEquals(29, offset)
 					assertEquals(9, length)
 					
-					super.callbackSetValue(value, offset, length)
+					super.callbackInitValue(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -83,7 +83,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = ""
-		editor.setValue("eventX 33")
+		editor.initValue("eventX 33")
 		val result = editor.commit(elementToEdit) as Event
 		assertModelEquals(createEvent => [
 			name = "eventX"
@@ -112,7 +112,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					assertEquals(29, offset)
 					assertEquals(9, length)
 					
-					super.callbackSetValue(value, offset, length)
+					super.callbackInitValue(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -122,7 +122,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = "guard"
-		editor.setValue("2")
+		editor.initValue("2")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result.events.head
 		assertModelEquals(createValueGuard => [
@@ -152,7 +152,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					assertEquals(37, offset)
 					assertEquals(0, length)
 					
-					super.callbackSetValue(value, offset, length)
+					super.callbackInitValue(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -162,7 +162,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = "guard"
-		editor.setValue("")
+		editor.initValue("")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result.events.last
 		assertModelEquals(createValueGuard => [
@@ -192,7 +192,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					assertEquals(10, offset)
 					assertEquals(30, length)
 					
-					super.callbackSetValue(value, offset, length)
+					super.callbackInitValue(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -202,7 +202,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = "events"
-		editor.setValue("event 1 [ .. 22 ] event2 2")
+		editor.initValue("event 1 [ .. 22 ] event2 2")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result
 		val rootContainer = EcoreUtil::getRootContainer(valueToCommit)
@@ -227,7 +227,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					assertEquals(10, offset)
 					assertEquals(0, length)
 					
-					super.callbackSetValue(value, offset, length)
+					super.callbackInitValue(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -237,7 +237,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = "events"
-		editor.setValue("event 1 [ .. 22 ] event2 2")
+		editor.initValue("event 1 [ .. 22 ] event2 2")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result
 		val rootContainer = EcoreUtil::getRootContainer(valueToCommit)
@@ -261,7 +261,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					assertEquals(20, offset)
 					assertEquals(9, length)
 					
-					super.callbackSetValue(value, offset, length)
+					super.callbackInitValue(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -271,7 +271,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = ""
-		editor.setValue("2")
+		editor.initValue("2")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result.events.head
 		assertModelEquals(createValueGuard => [
@@ -304,7 +304,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					assertEquals(37, offset)
 					assertEquals(0, length)
 					
-					super.callbackSetValue(value, offset, length)
+					super.callbackInitValue(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -314,7 +314,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = ""
-		editor.setValue("")
+		editor.initValue("")
 		val result = editor.commit(container) as Statemachine
 		val valueToCommit = result.events.last
 		assertModelEquals(createValueGuard => [
@@ -346,7 +346,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 					assertEquals(10, offset)
 					assertEquals(17, length)
 					
-					super.callbackSetValue(value, offset, length)
+					super.callbackInitValue(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -357,7 +357,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = elementToEdit.eContainingFeature.name
-		editor.setValue("")
+		editor.initValue("")
 		val result = editor.commit(elementToEdit.eContainer) as Statemachine
 		val valueToCommit = result.events.head
 		assertModelEquals(createEvent => [
@@ -396,7 +396,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		]
 		
 		editor.valueFeatureName = ""
-		editor.setValue("")
+		editor.initValue("")
 		val valueToCommit = editor.commit(elementToEdit) as EObject
 		assertModelEquals(createEvent => [
 			name = "avenT"
