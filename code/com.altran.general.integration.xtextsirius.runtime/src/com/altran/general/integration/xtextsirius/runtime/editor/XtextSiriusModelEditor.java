@@ -64,7 +64,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 
 		final EObject semanticElement = getSemanticElement();
 		final EObject fallbackContainer = getFallbackContainer();
-		if (StringUtils.isBlank(getValueFeatureName())) {
+		if (!isValueFeatureDefined()) {
 			if (semanticElement != null) {
 				this.effectiveSemanticElement = semanticElement;
 				this.effectiveFallbackContainer = getFallbackContainer();
@@ -72,9 +72,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				// this.resourceUri = semanticElement.eResource().getURI();
 			} else {
 				this.effectiveSemanticElement = fallbackContainer;
-				this.effectiveFallbackContainer = fallbackContainer.eContainer() != null
-						? fallbackContainer.eContainer()
-						: fallbackContainer;
+				this.effectiveFallbackContainer = eContainerIfExists(fallbackContainer);
 				this.effectiveStructuralFeature = fallbackContainer.eContainingFeature();
 				// this.resourceUri = fallbackContainer.eResource().getURI();
 			}
@@ -108,6 +106,10 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		}
 
 		this.entryPointDetermined = true;
+	}
+
+	public boolean isValueFeatureDefined() {
+		return !StringUtils.isBlank(getValueFeatureName());
 	}
 
 	@Override
@@ -163,47 +165,47 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 	@Override
 	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
 		final SemanticElementLocation location = getSemanticElementLocation();
-		if (location != null) {
-			final IParseResult parseResult = getCallback().getXtextParseResult();
-			if (parseResult.hasSyntaxErrors()) {
-				final XtextSiriusSyntaxErrorException ex = getCallback().handleSyntaxErrors(parseResult);
-				throw ex;
-			}
-			Object result = location.resolve(parseResult.getRootASTElement().eResource());
-			if (result != null) {
-				if (result instanceof EObject) {
-					final EObject element = (EObject) result;
-					if (containsUnresolvableProxies(element)) {
-						final XtextSiriusErrorException ex = getCallback().handleUnresolvableProxies();
-						throw ex;
-					}
-					EObject origElement = getSemanticElement();
-					if (origElement == null) {
-						final EObject elementContainer = element.eContainer();
-						if (elementContainer != null) {
-							origElement = getFallbackContainer();
-							if (origElement != null) {
-								final EObject merged = FakeResourceUtil.getInstance().proxify(elementContainer,
-										EcoreUtil.getURI(origElement));
-								result = merged.eGet(element.eContainmentFeature());
-								return result;
-							}
-						}
-					}
-
-					result = FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(origElement));
-					return result;
-					// return
-					// FakeResourceUtil.getInstance().proxify(element,
-					// EcoreUtil.getURI(getEffectiveSemanticElement()));
-					// TODO: proxify EObjects in List
-				} else {
-					return result;
-				}
-			}
+		if (location == null) {
+			return null;
 		}
 
-		return null;
+		final IParseResult parseResult = getCallback().getXtextParseResult();
+		if (parseResult.hasSyntaxErrors()) {
+			final XtextSiriusSyntaxErrorException ex = getCallback().handleSyntaxErrors(parseResult);
+			throw ex;
+		}
+
+		final Object result = location.resolve(parseResult.getRootASTElement().eResource());
+		if (result == null) {
+			return null;
+		}
+
+		if (result instanceof EObject) {
+			final EObject element = (EObject) result;
+			if (containsUnresolvableProxies(element)) {
+				final XtextSiriusErrorException ex = getCallback().handleUnresolvableProxies();
+				throw ex;
+			}
+
+			final EObject origElement = getEffectiveSemanticElement();
+			if (origElement == null) {
+				final EObject elementContainer = element.eContainer();
+				if (elementContainer != null) {
+					final EObject origFallbackContainer = getEffectiveFallbackContainer();
+					final EObject merged = FakeResourceUtil.getInstance().proxify(elementContainer,
+							EcoreUtil.getURI(origFallbackContainer));
+					return merged.eGet(element.eContainmentFeature());
+				}
+			}
+
+			return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(origElement));
+			// return
+			// FakeResourceUtil.getInstance().proxify(element,
+			// EcoreUtil.getURI(getEffectiveSemanticElement()));
+			// TODO: proxify EObjects in List
+		}
+
+		return result;
 	}
 
 	@Override
@@ -228,9 +230,9 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				}
 
 				final EObject adjustedTarget = adjustTarget(target, getValueFeatureName());
-				if (!StringUtils.isBlank(getValueFeatureName())
+				if (isValueFeatureDefined()
 						|| (valueToCommit != null && !(valueToCommit instanceof EObject))) {
-					final EStructuralFeature valueFeature = enforceValueFeature(target, getValueFeatureName());
+					final EStructuralFeature valueFeature = getEffectiveStructuralFeature();
 					final EMerger<EObject> merger = new EMerger<>(getDescriptor(), adjustedTarget,
 							getUri(adjustedTarget));
 					result = merger.merge(valueToCommit, valueFeature);
