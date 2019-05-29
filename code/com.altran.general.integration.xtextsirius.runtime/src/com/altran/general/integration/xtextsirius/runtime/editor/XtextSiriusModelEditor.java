@@ -30,17 +30,11 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		super(descriptor);
 	}
 
-	// private @NonNull URI resourceUri;
 	private @Nullable EObject effectiveSemanticElement;
 	private @NonNull EObject effectiveFallbackContainer;
 	private @NonNull EStructuralFeature effectiveStructuralFeature;
 
 	private boolean entryPointDetermined = false;
-
-	// private @NonNull URI getEffectiveResourceUri() {
-	// determineModelEntryPoint();
-	// return this.resourceUri;
-	// }
 
 	private @Nullable EObject getEffectiveSemanticElement() {
 		determineModelEntryPoint();
@@ -69,12 +63,10 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				this.effectiveSemanticElement = semanticElement;
 				this.effectiveFallbackContainer = getFallbackContainer();
 				this.effectiveStructuralFeature = semanticElement.eContainingFeature();
-				// this.resourceUri = semanticElement.eResource().getURI();
 			} else {
 				this.effectiveSemanticElement = fallbackContainer;
 				this.effectiveFallbackContainer = eContainerIfExists(fallbackContainer);
 				this.effectiveStructuralFeature = fallbackContainer.eContainingFeature();
-				// this.resourceUri = fallbackContainer.eResource().getURI();
 			}
 		} else {
 			final EStructuralFeature eStructuralFeature = fallbackContainer.eClass()
@@ -85,19 +77,10 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 					this.effectiveSemanticElement = (EObject) featureValue;
 					this.effectiveFallbackContainer = fallbackContainer;
 					this.effectiveStructuralFeature = eStructuralFeature;
-					// if (featureValue != null) {
-					// this.resourceUri = ((EObject)
-					// featureValue).eResource().getURI();
-					// } else {
-					// this.resourceUri =
-					// fallbackContainer.eResource().getURI();
-					// }
 				} else {
 					this.effectiveSemanticElement = null;
 					this.effectiveFallbackContainer = fallbackContainer;
 					this.effectiveStructuralFeature = eStructuralFeature;
-					// this.resourceUri =
-					// fallbackContainer.eResource().getURI();
 				}
 			} else {
 				// FIXME: Real Exception
@@ -125,36 +108,16 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();
 
-		// if (!isNoOp(initialValue)) {
-		// this.noOp = false;
-		// @Nullable
-		// String textValue = null;
-		//
-		// final Optional<String> deletion = isDeletion(initialValue);
-		// if (deletion.isPresent()) {
-		// this.deleteEntry = true;
-		// textValue = deletion.get();
-		// } else {
-		// this.deleteEntry = false;
-
 		final String initialText = text.substring(textRegion.getOffset(),
 				textRegion.getOffset() + textRegion.getLength());
 		@Nullable
 		final String textValue = initializeText(initialValue, initialText);
-		// if (initialValue instanceof String) {
-		// textValue = (String) initialValue;
-		// }
-		// }
 
 		if (textValue != null) {
 			text = StringUtils.overlay(text, textValue, textRegion.getOffset(),
 					textRegion.getOffset() + textRegion.getLength());
 			textRegion = new TextRegion(textRegion.getOffset(), textValue.length());
 		}
-		// } else {
-		// this.noOp = true;
-		// }
-		;
 
 		updateCallbackInitText(text, textRegion.getOffset(), textRegion.getLength());
 
@@ -199,9 +162,6 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			}
 
 			return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(origElement));
-			// return
-			// FakeResourceUtil.getInstance().proxify(element,
-			// EcoreUtil.getURI(getEffectiveSemanticElement()));
 			// TODO: proxify EObjects in List
 		}
 
@@ -237,12 +197,10 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 							getUri(adjustedTarget));
 					result = merger.merge(valueToCommit, valueFeature);
 					EcoreUtil.resolveAll(result);
-					// return result;
 				} else if (valueToCommit != null) {
 					final EMerger<EObject> merger = new EMerger<>(getDescriptor(), target, getUri(target));
 					result = merger.merge((EObject) valueToCommit);
 					EcoreUtil.resolveAll(result);
-					// return result;
 				}
 			}
 
