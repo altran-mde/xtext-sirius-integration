@@ -14,9 +14,9 @@ import org.eclipse.jface.text.IRegion;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.util.TextRegion;
 
-import com.altran.general.integration.xtextsirius.runtime.editor.BlankNoOpNullDeletionEditingDecider;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
+import com.altran.general.integration.xtextsirius.runtime.editor.decider.BlankNoOpNullDeletionEditingDecider;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.AXtextSiriusStyledTextCellEditor;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.XtextSiriusModelEditpartDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;

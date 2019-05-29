@@ -8,6 +8,8 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editor.decider.IXtextSiriusEditingDecider;
+import com.altran.general.integration.xtextsirius.runtime.editor.decider.NullNoOpBlankDeletionEditingDecider;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.inject.Injector;
