@@ -13,7 +13,6 @@
 	<packaging>pom</packaging>
 
 	<modules>
-    	<module>com.altran.general.integration.google.guava.patch</module>
 		<module>com.altran.general.integration.xtextsirius.dialect.ui</module>
 		<module>com.altran.general.integration.xtextsirius.editor.ui</module>
 		<module>com.altran.general.integration.xtextsirius.model.diagram</module>
