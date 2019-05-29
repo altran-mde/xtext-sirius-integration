@@ -50,7 +50,7 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
   
   public EMerger<T> createEMerger(final T existing, final T edited) {
     final Function1<EStructuralFeature, Boolean> _function = (EStructuralFeature it) -> {
-      return Boolean.valueOf(edited.eIsSet(it));
+      return Boolean.valueOf(((!it.isDerived()) && edited.eIsSet(it)));
     };
     final Function1<EStructuralFeature, String> _function_1 = (EStructuralFeature it) -> {
       return it.getName();
