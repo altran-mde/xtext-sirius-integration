@@ -24,44 +24,44 @@ import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
 	private @Nullable SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;
-	
+
 	@SuppressWarnings("null")
 	public XtextSiriusModelEditor(final @NonNull IXtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
 	}
-	
+
 	// private @NonNull URI resourceUri;
 	private @Nullable EObject effectiveSemanticElement;
 	private @NonNull EObject effectiveFallbackContainer;
 	private @NonNull EStructuralFeature effectiveStructuralFeature;
-	
+
 	private boolean entryPointDetermined = false;
-	
+
 	// private @NonNull URI getEffectiveResourceUri() {
 	// determineModelEntryPoint();
 	// return this.resourceUri;
 	// }
-	
+
 	private @Nullable EObject getEffectiveSemanticElement() {
 		determineModelEntryPoint();
 		return this.effectiveSemanticElement;
 	}
-	
+
 	private @NonNull EObject getEffectiveFallbackContainer() {
 		determineModelEntryPoint();
 		return this.effectiveFallbackContainer;
 	}
-	
+
 	private @NonNull EStructuralFeature getEffectiveStructuralFeature() {
 		determineModelEntryPoint();
 		return this.effectiveStructuralFeature;
 	}
-	
+
 	private void determineModelEntryPoint() {
 		if (this.entryPointDetermined) {
 			return;
 		}
-		
+
 		final EObject semanticElement = getSemanticElement();
 		final EObject fallbackContainer = getFallbackContainer();
 		if (StringUtils.isBlank(getValueFeatureName())) {
@@ -106,23 +106,23 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				throw new RuntimeException("nix gut");
 			}
 		}
-		
+
 		this.entryPointDetermined = true;
 	}
-	
+
 	@Override
 	public void initValue(final @Nullable Object initialValue) {
 		assertState();
-		
+
 		final EObject effectiveSemanticElement = getEffectiveSemanticElement();
 		final EObject effectiveFallbackContainer = getEffectiveFallbackContainer();
 		final EStructuralFeature effectiveStructuralFeature = getEffectiveStructuralFeature();
 		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(getDescriptor(),
 				effectiveSemanticElement, effectiveFallbackContainer, effectiveStructuralFeature);
-		
+
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();
-		
+
 		// if (!isNoOp(initialValue)) {
 		// this.noOp = false;
 		// @Nullable
@@ -134,14 +134,16 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		// textValue = deletion.get();
 		// } else {
 		// this.deleteEntry = false;
-		
+
+		final String initialText = text.substring(textRegion.getOffset(),
+				textRegion.getOffset() + textRegion.getLength());
 		@Nullable
-		String textValue = null;
-		if (initialValue instanceof String) {
-			textValue = (String) initialValue;
-		}
+		final String textValue = initializeText(initialValue, initialText);
+		// if (initialValue instanceof String) {
+		// textValue = (String) initialValue;
 		// }
-		
+		// }
+
 		if (textValue != null) {
 			text = StringUtils.overlay(text, textValue, textRegion.getOffset(),
 					textRegion.getOffset() + textRegion.getLength());
@@ -150,14 +152,14 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		// } else {
 		// this.noOp = true;
 		// }
-		setInitialValue(initialValue, textValue);
-		
+		;
+
 		updateCallbackInitText(text, textRegion.getOffset(), textRegion.getLength());
-		
+
 		this.semanticElementLocation = preparer.getSemanticElementLocation();
 		this.selectedRegion = preparer.getSelectedRegion();
 	}
-	
+
 	@Override
 	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
 		final SemanticElementLocation location = getSemanticElementLocation();
@@ -167,37 +169,54 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				final XtextSiriusSyntaxErrorException ex = getCallback().handleSyntaxErrors(parseResult);
 				throw ex;
 			}
-			final Object element = location.resolve(parseResult.getRootASTElement().eResource());
-			if (element != null) {
-				if (element instanceof EObject) {
-					if (containsUnresolvableProxies((EObject) element)) {
+			Object result = location.resolve(parseResult.getRootASTElement().eResource());
+			if (result != null) {
+				if (result instanceof EObject) {
+					final EObject element = (EObject) result;
+					if (containsUnresolvableProxies(element)) {
 						final XtextSiriusErrorException ex = getCallback().handleUnresolvableProxies();
 						throw ex;
 					}
-					return FakeResourceUtil.getInstance().proxify((EObject) element,
-							EcoreUtil.getURI(getSemanticElement()));
-					// return FakeResourceUtil.getInstance().proxify(element,
+					EObject origElement = getSemanticElement();
+					if (origElement == null) {
+						final EObject elementContainer = element.eContainer();
+						if (elementContainer != null) {
+							origElement = getFallbackContainer();
+							if (origElement != null) {
+								final EObject merged = FakeResourceUtil.getInstance().proxify(elementContainer,
+										EcoreUtil.getURI(origElement));
+								result = merged.eGet(element.eContainmentFeature());
+								return result;
+							}
+						}
+					}
+
+					result = FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(origElement));
+					return result;
+					// return
+					// FakeResourceUtil.getInstance().proxify(element,
 					// EcoreUtil.getURI(getEffectiveSemanticElement()));
+					// TODO: proxify EObjects in List
+				} else {
+					return result;
 				}
-				// TODO: proxify EObjects in List
-				return element;
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	@Override
 	public Object commit(final @NonNull EObject target) {
 		assertState();
 		try {
 			EObject result = target;
-			
-			final String text = getCallback().callbackGetText();
 
+			final String text = getCallback().callbackGetText();
+			
 			if (!isNoOp(text)) {
 				final Object valueToCommit;
-
+				
 				if (isDeletion(text)) {
 					if (getEffectiveStructuralFeature().isMany()) {
 						valueToCommit = ECollections.emptyEList();
@@ -207,7 +226,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				} else {
 					valueToCommit = getValueToCommit();
 				}
-				
+
 				final EObject adjustedTarget = adjustTarget(target, getValueFeatureName());
 				if (!StringUtils.isBlank(getValueFeatureName())
 						|| (valueToCommit != null && !(valueToCommit instanceof EObject))) {
@@ -224,7 +243,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 					// return result;
 				}
 			}
-			
+
 			final EStructuralFeature resultValueFeature = convertValueFeature(result, getValueFeatureName());
 			if (resultValueFeature == null || result.eClass().getFeatureID(resultValueFeature) == -1) {
 				return result;
@@ -235,11 +254,11 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			removeAllIgnoredFeatureAdapters();
 		}
 	}
-	
+
 	protected @Nullable URI getUri(final EObject adjustedTarget) {
 		return adjustedTarget != null ? EcoreUtil.getURI(adjustedTarget) : null;
 	}
-	
+
 	/** Must not be called before the merging is complete */
 	public void removeAllIgnoredFeatureAdapters() {
 		if (getSemanticElement() == null) {
@@ -249,20 +268,20 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		rootContainer.eAllContents()
 				.forEachRemaining(eObject -> eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance));
 	}
-	
+
 	public @Nullable TextRegion getSelectedRegion() {
 		return this.selectedRegion;
 	}
-	
+
 	@Override
 	public IXtextSiriusModelDescriptor getDescriptor() {
 		return (IXtextSiriusModelDescriptor) super.getDescriptor();
 	}
-	
+
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}
-	
+
 	protected boolean containsUnresolvableProxies(final @NonNull EObject eObject) {
 		return !EcoreUtil.UnresolvedProxyCrossReferencer.find(eObject).isEmpty();
 	}
