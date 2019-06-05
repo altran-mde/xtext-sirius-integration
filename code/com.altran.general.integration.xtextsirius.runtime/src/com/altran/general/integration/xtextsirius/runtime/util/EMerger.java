@@ -470,6 +470,9 @@ public class EMerger<T extends EObject> {
 			final @NonNull String prefix,
 			final @NonNull EObject exist,
 			final @NonNull EObject newEl) {
+		if (feature.isDerived()) {
+			return;
+		}			
 		
 		final String featurePath = FeaturePathUtil.getInstance().concatFeaturePath(prefix, feature);
 		
