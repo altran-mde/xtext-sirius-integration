@@ -29,33 +29,33 @@ import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
 	private @Nullable SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;
-
+	
 	private IModelAdjuster modelAdjuster;
-
+	
 	public XtextSiriusModelEditor(final @NonNull IXtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
 	}
-
+	
 	private @Nullable EObject getEffectiveSemanticElement() {
 		determineModelAdjuster();
 		return this.modelAdjuster.getSemanticElement(getModelEntryPoint());
 	}
-
+	
 	private @NonNull EObject getEffectiveFallbackContainer() {
 		determineModelAdjuster();
 		return this.modelAdjuster.getFallbackContainer(getModelEntryPoint());
 	}
-
+	
 	private @NonNull EStructuralFeature getEffectiveStructuralFeature() {
 		determineModelAdjuster();
 		return this.modelAdjuster.getStructuralFeature(getModelEntryPoint());
 	}
-
+	
 	private void determineModelAdjuster() {
 		if (this.modelAdjuster != null) {
 			return;
 		}
-
+		
 		final EObject semanticElement = getSemanticElement();
 		final EObject fallbackContainer = getFallbackContainer();
 		if (!isValueFeatureDefined()) {
@@ -95,95 +95,101 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			}
 		}
 	}
-
+	
 	public boolean isValueFeatureDefined() {
 		return !StringUtils.isBlank(getValueFeatureName());
 	}
-
+	
 	@Override
 	public void initValue(final @Nullable Object initialValue) {
 		assertState();
-
+		
 		final EObject effectiveSemanticElement = getEffectiveSemanticElement();
 		final EObject effectiveFallbackContainer = getEffectiveFallbackContainer();
 		final EStructuralFeature effectiveStructuralFeature = getEffectiveStructuralFeature();
 		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(getDescriptor(),
 				effectiveSemanticElement, effectiveFallbackContainer, effectiveStructuralFeature);
-
+		
 		String text = preparer.getText();
 		TextRegion textRegion = preparer.getTextRegion();
-
+		
 		final String initialText = text.substring(textRegion.getOffset(),
 				textRegion.getOffset() + textRegion.getLength());
 		@Nullable
 		final String textValue = initializeText(initialValue, initialText);
-
+		
 		if (textValue != null) {
 			text = StringUtils.overlay(text, textValue, textRegion.getOffset(),
 					textRegion.getOffset() + textRegion.getLength());
 			textRegion = new TextRegion(textRegion.getOffset(), textValue.length());
 		}
-
+		
 		updateCallbackInitText(text, textRegion.getOffset(), textRegion.getLength());
-
+		
 		this.semanticElementLocation = preparer.getSemanticElementLocation();
 		this.selectedRegion = preparer.getSelectedRegion();
 	}
-
+	
 	@Override
 	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
 		final SemanticElementLocation location = getSemanticElementLocation();
 		if (location == null) {
 			return null;
 		}
-
+		
 		final IParseResult parseResult = getCallback().getXtextParseResult();
 		if (parseResult.hasSyntaxErrors()) {
 			final XtextSiriusSyntaxErrorException ex = getCallback().handleSyntaxErrors(parseResult);
 			throw ex;
 		}
-
+		
 		final Object result = location.resolve(parseResult.getRootASTElement().eResource());
 		if (result == null) {
 			return null;
 		}
-
+		
 		if (result instanceof EObject) {
 			final EObject element = (EObject) result;
 			if (containsUnresolvableProxies(element)) {
 				final XtextSiriusErrorException ex = getCallback().handleUnresolvableProxies();
 				throw ex;
 			}
-
-			final EObject origElement = getEffectiveSemanticElement();
-			if (origElement == null) {
-				final EObject elementContainer = element.eContainer();
-				if (elementContainer != null) {
-					final EObject origFallbackContainer = getEffectiveFallbackContainer();
-					final EObject merged = FakeResourceUtil.getInstance().proxify(elementContainer,
-							EcoreUtil.getURI(origFallbackContainer));
-					return merged.eGet(element.eContainmentFeature());
-				}
-			}
-
-			return FakeResourceUtil.getInstance().proxify(element, EcoreUtil.getURI(origElement));
+			
+			final EObject origElement = this.modelAdjuster.getClosestElement(getModelEntryPoint());
+			final ModelEntryPoint mep = new ModelEntryPoint(element, null, getValueFeatureName());
+			final EObject closestElement = this.modelAdjuster.getClosestElement(mep);
+			return FakeResourceUtil.getInstance().proxify(closestElement, EcoreUtil.getURI(origElement));
+			// if (origElement == null) {
+			// final EObject elementContainer = element.eContainer();
+			// if (elementContainer != null) {
+			// final EObject origFallbackContainer =
+			// getEffectiveFallbackContainer();
+			// final EObject merged =
+			// FakeResourceUtil.getInstance().proxify(elementContainer,
+			// EcoreUtil.getURI(origFallbackContainer));
+			// return merged.eGet(element.eContainmentFeature());
+			// }
+			// }
+			//
+			// return FakeResourceUtil.getInstance().proxify(element,
+			// EcoreUtil.getURI(origElement));
 			// TODO: proxify EObjects in List
 		}
-
+		
 		return result;
 	}
-
+	
 	@Override
 	public Object commit(final @NonNull EObject target) {
 		assertState();
 		try {
 			EObject result = target;
-
-			final String text = getCallback().callbackGetText();
 			
+			final String text = getCallback().callbackGetText();
+
 			if (!isNoOp(text)) {
 				final Object valueToCommit;
-				
+
 				if (isDeletion(text)) {
 					if (getEffectiveStructuralFeature().isMany()) {
 						valueToCommit = ECollections.emptyEList();
@@ -193,7 +199,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				} else {
 					valueToCommit = getValueToCommit();
 				}
-
+				
 				final EObject adjustedTarget = adjustTarget(target, getValueFeatureName());
 				if (isValueFeatureDefined()
 						|| (valueToCommit != null && !(valueToCommit instanceof EObject))) {
@@ -208,7 +214,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 					EcoreUtil.resolveAll(result);
 				}
 			}
-
+			
 			final EStructuralFeature resultValueFeature = convertValueFeature(result, getValueFeatureName());
 			if (resultValueFeature == null || result.eClass().getFeatureID(resultValueFeature) == -1) {
 				return result;
@@ -219,11 +225,11 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			removeAllIgnoredFeatureAdapters();
 		}
 	}
-
+	
 	protected @Nullable URI getUri(final EObject adjustedTarget) {
 		return adjustedTarget != null ? EcoreUtil.getURI(adjustedTarget) : null;
 	}
-
+	
 	/** Must not be called before the merging is complete */
 	public void removeAllIgnoredFeatureAdapters() {
 		if (getSemanticElement() == null) {
@@ -233,20 +239,20 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		rootContainer.eAllContents()
 				.forEachRemaining(eObject -> eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance));
 	}
-
+	
 	public @Nullable TextRegion getSelectedRegion() {
 		return this.selectedRegion;
 	}
-
+	
 	@Override
 	public IXtextSiriusModelDescriptor getDescriptor() {
 		return (IXtextSiriusModelDescriptor) super.getDescriptor();
 	}
-
+	
 	protected @Nullable SemanticElementLocation getSemanticElementLocation() {
 		return this.semanticElementLocation;
 	}
-
+	
 	protected boolean containsUnresolvableProxies(final @NonNull EObject eObject) {
 		return !EcoreUtil.UnresolvedProxyCrossReferencer.find(eObject).isEmpty();
 	}

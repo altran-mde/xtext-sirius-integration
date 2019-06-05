@@ -10,22 +10,27 @@ public class ModelEntryPoint {
 	private @Nullable EObject fallbackContainer;
 	private @Nullable String valueFeatureName;
 	private @Nullable EStructuralFeature valueFeature;
-	
+
 	public ModelEntryPoint() {
 		this(null, null, null, null);
 	}
+	
+	public ModelEntryPoint(
+			final @NonNull EObject semanticElement) {
+		this(semanticElement, null, null, null);
+	}
 
+	public ModelEntryPoint(
+			final @Nullable EObject semanticElement,
+			final @Nullable EObject fallbackContainer) {
+		this(semanticElement, fallbackContainer, null, null);
+	}
+	
 	public ModelEntryPoint(
 			final @Nullable EObject semanticElement,
 			final @Nullable EObject fallbackContainer,
 			final @Nullable String valueFeatureName) {
 		this(semanticElement, fallbackContainer, valueFeatureName, null);
-	}
-	
-	public ModelEntryPoint(
-			final @Nullable EObject semanticElement,
-			final @Nullable EObject fallbackContainer) {
-		this(semanticElement, fallbackContainer, null, null);
 	}
 
 	public ModelEntryPoint(
@@ -34,7 +39,7 @@ public class ModelEntryPoint {
 			final @NonNull EStructuralFeature valueFeature) {
 		this(semanticElement, fallbackContainer, valueFeature.getName(), valueFeature);
 	}
-	
+
 	public ModelEntryPoint(
 			final @Nullable EObject semanticElement,
 			final @Nullable EObject fallbackContainer,
@@ -45,35 +50,35 @@ public class ModelEntryPoint {
 		this.valueFeatureName = valueFeatureName;
 		this.valueFeature = valueFeature;
 	}
-
+	
 	public @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
-	
+
 	public @Nullable EObject getFallbackContainer() {
 		return this.fallbackContainer;
 	}
-	
+
 	public @Nullable String getValueFeatureName() {
 		return this.valueFeatureName;
 	}
-	
+
 	public @Nullable EStructuralFeature getValueFeature() {
 		return this.valueFeature;
 	}
-	
+
 	public void setSemanticElement(final @Nullable EObject semanticElement) {
 		this.semanticElement = semanticElement;
 	}
-	
+
 	public void setFallbackContainer(final @Nullable EObject fallbackContainer) {
 		this.fallbackContainer = fallbackContainer;
 	}
-	
+
 	public void setValueFeatureName(final @Nullable String valueFeatureName) {
 		this.valueFeatureName = valueFeatureName;
 	}
-	
+
 	public void setValueFeature(@Nullable final EStructuralFeature valueFeature) {
 		this.valueFeature = valueFeature;
 	}

@@ -8,7 +8,7 @@ import org.eclipse.jdt.annotation.Nullable;
 import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
 
 public class FeatureFallbackModelAdjuster extends AModelAdjuster {
-
+	
 	@Override
 	public @Nullable EObject getSemanticElement(final @NonNull ModelEntryPoint modelEntryPoint) {
 		final Object featureValue = getAssuredFallbackContainer(modelEntryPoint)
@@ -19,12 +19,12 @@ public class FeatureFallbackModelAdjuster extends AModelAdjuster {
 			throw new IllegalStateException("featureValue no EObject");
 		}
 	}
-
+	
 	@Override
 	public @NonNull EObject getFallbackContainer(final @NonNull ModelEntryPoint modelEntryPoint) {
 		return getAssuredFallbackContainer(modelEntryPoint);
 	}
-
+	
 	@Override
 	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint) {
 		return getFeatureInFallback(modelEntryPoint);
