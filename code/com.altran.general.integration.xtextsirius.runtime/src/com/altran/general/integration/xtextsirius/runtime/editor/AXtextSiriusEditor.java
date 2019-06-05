@@ -11,6 +11,7 @@ import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriu
 import com.altran.general.integration.xtextsirius.runtime.editor.decider.IXtextSiriusEditingDecider;
 import com.altran.general.integration.xtextsirius.runtime.editor.decider.NullNoOpBlankDeletionEditingDecider;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
+import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.inject.Injector;
 
@@ -25,10 +26,8 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 
 	private @NonNull IXtextSiriusEditingDecider editingDecider = new NullNoOpBlankDeletionEditingDecider();
 
-	private @Nullable EObject semanticElement;
-	private @Nullable EObject fallbackContainer;
-	private @Nullable String valueFeatureName;
-
+	private @Nullable ModelEntryPoint modelEntryPoint;
+	
 	public AXtextSiriusEditor(final @NonNull IXtextSiriusDescriptor descriptor) {
 		this.descriptor = descriptor;
 	}
@@ -43,41 +42,30 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		this.callback = callback;
 	}
 
-	public void setSemanticElement(final @Nullable EObject element) {
-		this.semanticElement = element;
+	// public void setSemanticElement(final @Nullable EObject element) {
+	// this.semanticElement = element;
+	// }
+	//
+	// public void setFallbackContainer(final @NonNull EObject
+	// fallbackContainer) {
+	// this.fallbackContainer = fallbackContainer;
+	// }
+	//
+	// public void setValueFeatureName(@Nullable final String valueFeatureName)
+	// {
+	// this.valueFeatureName = valueFeatureName;
+	// }
+	
+	public void setModelEntryPoint(final @NonNull ModelEntryPoint modelEntryPoint) {
+		this.modelEntryPoint = modelEntryPoint;
 	}
 
-	public void setFallbackContainer(final @NonNull EObject fallbackContainer) {
-		this.fallbackContainer = fallbackContainer;
-	}
-	
-	public void setValueFeatureName(@Nullable final String valueFeatureName) {
-		this.valueFeatureName = valueFeatureName;
-	}
-	
 	public void setEditingDecider(final @NonNull IXtextSiriusEditingDecider editingDecider) {
 		this.editingDecider = editingDecider;
 	}
 	
-	public @Nullable EObject getSemanticElement() {
-		return this.semanticElement;
-	}
-
-	public @NonNull EObject getFallbackContainer() {
-		if (this.fallbackContainer != null) {
-			return this.fallbackContainer;
-		} else {
-			final EObject element = this.semanticElement;
-			if (element != null) {
-				return eContainerIfExists(element);
-			} else {
-				throw new IllegalStateException("No FallbackContainer");
-			}
-		}
-	}
-
-	public @Nullable String getValueFeatureName() {
-		return this.valueFeatureName;
+	public ModelEntryPoint getModelEntryPoint() {
+		return this.modelEntryPoint;
 	}
 
 	public @NonNull IXtextSiriusEditingDecider getEditingDecider() {
@@ -86,6 +74,28 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 
 	public IXtextSiriusDescriptor getDescriptor() {
 		return this.descriptor;
+	}
+
+	protected @Nullable EObject getSemanticElement() {
+		return getModelEntryPoint().getSemanticElement();
+	}
+
+	protected @NonNull EObject getFallbackContainer() {
+		final EObject fallbackContainer = getModelEntryPoint().getFallbackContainer();
+		if (fallbackContainer != null) {
+			return fallbackContainer;
+		} else {
+			final EObject element = getModelEntryPoint().getSemanticElement();
+			if (element != null) {
+				return EcoreNavigationUtil.eContainerIfExists(element);
+			} else {
+				throw new IllegalStateException("No FallbackContainer");
+			}
+		}
+	}
+
+	protected @Nullable String getValueFeatureName() {
+		return getModelEntryPoint().getValueFeatureName();
 	}
 
 	protected void assertState() {
@@ -144,12 +154,6 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		}
 
 		return target;
-	}
-
-	protected @NonNull EObject eContainerIfExists(final EObject fallbackContainer) {
-		return fallbackContainer.eContainer() != null
-				? fallbackContainer.eContainer()
-				: fallbackContainer;
 	}
 
 	protected @NonNull String interpret(final @NonNull String expression) {

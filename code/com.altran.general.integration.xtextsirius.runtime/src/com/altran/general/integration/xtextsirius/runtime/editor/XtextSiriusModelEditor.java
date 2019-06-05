@@ -12,6 +12,11 @@ import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.ElementFallbackModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.ElementModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FeatureFallbackModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FeatureNullModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.IModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
@@ -25,34 +30,29 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 	private @Nullable SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;
 
-	@SuppressWarnings("null")
+	private IModelAdjuster modelAdjuster;
+
 	public XtextSiriusModelEditor(final @NonNull IXtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
 	}
 
-	private @Nullable EObject effectiveSemanticElement;
-	private @NonNull EObject effectiveFallbackContainer;
-	private @NonNull EStructuralFeature effectiveStructuralFeature;
-
-	private boolean entryPointDetermined = false;
-
 	private @Nullable EObject getEffectiveSemanticElement() {
-		determineModelEntryPoint();
-		return this.effectiveSemanticElement;
+		determineModelAdjuster();
+		return this.modelAdjuster.getSemanticElement(getModelEntryPoint());
 	}
 
 	private @NonNull EObject getEffectiveFallbackContainer() {
-		determineModelEntryPoint();
-		return this.effectiveFallbackContainer;
+		determineModelAdjuster();
+		return this.modelAdjuster.getFallbackContainer(getModelEntryPoint());
 	}
 
 	private @NonNull EStructuralFeature getEffectiveStructuralFeature() {
-		determineModelEntryPoint();
-		return this.effectiveStructuralFeature;
+		determineModelAdjuster();
+		return this.modelAdjuster.getStructuralFeature(getModelEntryPoint());
 	}
 
-	private void determineModelEntryPoint() {
-		if (this.entryPointDetermined) {
+	private void determineModelAdjuster() {
+		if (this.modelAdjuster != null) {
 			return;
 		}
 
@@ -60,13 +60,18 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		final EObject fallbackContainer = getFallbackContainer();
 		if (!isValueFeatureDefined()) {
 			if (semanticElement != null) {
-				this.effectiveSemanticElement = semanticElement;
-				this.effectiveFallbackContainer = getFallbackContainer();
-				this.effectiveStructuralFeature = semanticElement.eContainingFeature();
+				this.modelAdjuster = new ElementModelAdjuster();
+				// this.effectiveSemanticElement = semanticElement;
+				// this.effectiveFallbackContainer = getFallbackContainer();
+				// this.effectiveStructuralFeature =
+				// semanticElement.eContainingFeature();
 			} else {
-				this.effectiveSemanticElement = fallbackContainer;
-				this.effectiveFallbackContainer = eContainerIfExists(fallbackContainer);
-				this.effectiveStructuralFeature = fallbackContainer.eContainingFeature();
+				this.modelAdjuster = new ElementFallbackModelAdjuster();
+				// this.effectiveSemanticElement = fallbackContainer;
+				// this.effectiveFallbackContainer =
+				// eContainerIfExists(fallbackContainer);
+				// this.effectiveStructuralFeature =
+				// fallbackContainer.eContainingFeature();
 			}
 		} else {
 			final EStructuralFeature eStructuralFeature = fallbackContainer.eClass()
@@ -74,21 +79,21 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			if (eStructuralFeature != null) {
 				final Object featureValue = fallbackContainer.eGet(eStructuralFeature);
 				if (featureValue == null || featureValue instanceof EObject) {
-					this.effectiveSemanticElement = (EObject) featureValue;
-					this.effectiveFallbackContainer = fallbackContainer;
-					this.effectiveStructuralFeature = eStructuralFeature;
+					this.modelAdjuster = new FeatureFallbackModelAdjuster();
+					// this.effectiveSemanticElement = (EObject) featureValue;
+					// this.effectiveFallbackContainer = fallbackContainer;
+					// this.effectiveStructuralFeature = eStructuralFeature;
 				} else {
-					this.effectiveSemanticElement = null;
-					this.effectiveFallbackContainer = fallbackContainer;
-					this.effectiveStructuralFeature = eStructuralFeature;
+					this.modelAdjuster = new FeatureNullModelAdjuster();
+					// this.effectiveSemanticElement = null;
+					// this.effectiveFallbackContainer = fallbackContainer;
+					// this.effectiveStructuralFeature = eStructuralFeature;
 				}
 			} else {
 				// FIXME: Real Exception
 				throw new RuntimeException("nix gut");
 			}
 		}
-
-		this.entryPointDetermined = true;
 	}
 
 	public boolean isValueFeatureDefined() {

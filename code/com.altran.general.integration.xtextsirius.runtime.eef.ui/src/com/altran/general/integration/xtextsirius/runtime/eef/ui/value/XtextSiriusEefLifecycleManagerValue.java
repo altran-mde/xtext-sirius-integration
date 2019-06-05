@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusValueDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusValueEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusValueEditor;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusWidget;
@@ -37,21 +38,21 @@ implements IXtextSiriusValueEditorCallback {
 		super(new XtextSiriusValueEditor(descriptor), descriptor, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-
+	
 	@Override
 	public @Nullable String callbackGetText() {
 		return super.callbackGetText();
 	}
-	
+
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {
-			getEditor().setSemanticElement(getSelf());
-			getEditor().setValueFeatureName(getValueFeature());
+			final ModelEntryPoint modelEntryPoint = new ModelEntryPoint(getSelf(), null, getValueFeature());
+			getEditor().setModelEntryPoint(modelEntryPoint);
 			getEditor().initValue(newValue);
 		};
 	}
-	
+
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetValue(parent, getInjector());

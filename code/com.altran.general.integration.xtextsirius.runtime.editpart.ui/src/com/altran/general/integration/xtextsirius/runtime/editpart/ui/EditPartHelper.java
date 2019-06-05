@@ -25,6 +25,8 @@ import org.eclipse.sirius.viewpoint.DMappingBased;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
+import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
+
 /**
  * We had to move some code here because we need to adhere to several lines of
  * inheritance
@@ -154,7 +156,11 @@ public class EditPartHelper {
 		return (DSemanticDecorator) editPart.resolveSemanticElement();
 	}
 
-	public @Nullable EObject getSemanticElement(final IXtextSiriusAwareLabelEditPart editPart) {
+	public @NonNull ModelEntryPoint getModelEntryPoint(final IXtextSiriusAwareLabelEditPart editPart) {
+		return new ModelEntryPoint(getSemanticElement(editPart), getClosestExistingSemanticElement(editPart));
+	}
+	
+	protected @Nullable EObject getSemanticElement(final IXtextSiriusAwareLabelEditPart editPart) {
 		return ((DSemanticDecorator) editPart.resolveSemanticElement()).getTarget();
 	}
 
@@ -170,7 +176,7 @@ public class EditPartHelper {
 		editPart.installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new XtextSiriusDirectEditPolicy());
 	}
 
-	public @NonNull EObject getClosestExistingSemanticElement(final IXtextSiriusAwareLabelEditPart editPart) {
+	protected @NonNull EObject getClosestExistingSemanticElement(final IXtextSiriusAwareLabelEditPart editPart) {
 		return findClosestExistingSemanticElementRecursive(resolveSemanticElement(editPart));
 	}
 

@@ -27,6 +27,7 @@ import org.eclipse.xtext.util.TextRegion;
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusWidget;
@@ -47,18 +48,18 @@ implements IXtextSiriusModelEditorCallback {
 		super(new XtextSiriusModelEditor(descriptor), descriptor, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-
+	
 	@Override
 	public XtextSiriusWidgetModel getWidget() {
 		return (XtextSiriusWidgetModel) super.getWidget();
 	}
-
+	
 	@Override
 	public IParseResult getXtextParseResult() {
 		final XtextDocument document = getWidget().getDocument();
 		return document.readOnly(state -> state.getParseResult());
 	}
-	
+
 	@Override
 	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
 		final IRegion visibleRegionJFace = getWidget().getViewer().getVisibleRegion();
@@ -66,42 +67,45 @@ implements IXtextSiriusModelEditorCallback {
 		return handleXtextSiriusIssueException(new XtextSiriusSyntaxErrorException((String) callbackGetText(), visibleRegion,
 				Lists.newArrayList(parseResult.getSyntaxErrors())));
 	}
-
+	
 	@Override
 	public XtextSiriusErrorException handleUnresolvableProxies() {
 		return handleXtextSiriusIssueException(
 				new XtextSiriusErrorException("Entered text contains unresolvable references", (String) callbackGetText()));
 	}
-	
+
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {
 			URI resourceUri = null;
+			final ModelEntryPoint modelEntryPoint = new ModelEntryPoint();
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
-				
+
 				resourceUri = semanticElement.eResource().getURI();
-				getEditor().setSemanticElement(semanticElement);
+				modelEntryPoint.setSemanticElement(semanticElement);
 			} else if (newValue == null) {
 				final EObject self = getSelf();
 				if (self != null) {
 					resourceUri = self.eResource().getURI();
-					getEditor().setFallbackContainer(self);
+					modelEntryPoint.setFallbackContainer(self);
 				}
 			}
-			
-			getEditor().setValueFeatureName(getValueFeature());
-			getEditor().initValue(newValue);
 
+			modelEntryPoint.setValueFeatureName(getValueFeature());
+
+			getEditor().setModelEntryPoint(modelEntryPoint);
+			getEditor().initValue(newValue);
+			
 			getWidget().updateUri(resourceUri);
 		};
 	}
-
+	
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetModel(parent, getInjector());
 	}
-
+	
 	protected <E extends AXtextSiriusIssueException> E handleXtextSiriusIssueException(final E exception) {
 		StatusManager.getManager().handle(exception.toStatus(), StatusManager.SHOW);
 		return exception;

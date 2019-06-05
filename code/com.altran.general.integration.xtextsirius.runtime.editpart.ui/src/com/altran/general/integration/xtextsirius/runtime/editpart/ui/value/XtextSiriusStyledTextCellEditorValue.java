@@ -22,15 +22,15 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor
 
 public class XtextSiriusStyledTextCellEditorValue extends AXtextSiriusStyledTextCellEditor
 implements IXtextSiriusValueEditorCallback {
-	
+
 	private final @NonNull String valueFeatureName;
-	
+
 	public XtextSiriusStyledTextCellEditorValue(
 			final @NonNull XtextSiriusValueEditpartDescriptor descriptor, final @NonNull String valueFeatureName) {
 		super(descriptor, new XtextSiriusValueEditor(descriptor));
 		this.valueFeatureName = valueFeatureName;
 	}
-	
+
 	@Override
 	protected void doSetValue(final Object value) {
 		if (value instanceof String) {
@@ -38,14 +38,14 @@ implements IXtextSiriusValueEditorCallback {
 			if (StringUtils.isBlank(newText)) {
 				newText = retrieveValueFromModel(newText);
 			}
-
+			
 			super.doSetValue(newText);
 		}
 	}
-
+	
 	protected @Nullable String retrieveValueFromModel(final @Nullable String newText) {
-		final EObject semanticElement = getSemanticElement();
-
+		final EObject semanticElement = getModelEntryPoint().getSemanticElement();
+		
 		String result = newText;
 		if (semanticElement != null) {
 			final EStructuralFeature valueFeature = semanticElement.eClass()
@@ -54,13 +54,13 @@ implements IXtextSiriusValueEditorCallback {
 		}
 		return result;
 	}
-
-
+	
+	
 	@Override
 	public @NonNull XtextSiriusValueEditpartDescriptor getDescriptor() {
 		return (@NonNull XtextSiriusValueEditpartDescriptor) super.getDescriptor();
 	}
-	
+
 	@Override
 	protected @NonNull String getValueFeatureName() {
 		return this.valueFeatureName;

@@ -28,6 +28,7 @@ import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResou
 
 import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
@@ -74,12 +75,13 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		super.doSetValue(initialValue);
 		getXtextAdapter().resetVisibleRegion();
 		setVisibleRegion(offset, length);
-		final EObject element = getSemanticElement();
+		final ModelEntryPoint mep = getModelEntryPoint();
+		final EObject element = mep.getSemanticElement();
 		final XtextResource fakeResource = getXtextAdapter().getFakeResourceContext().getFakeResource();
 		if (element != null) {
 			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
 		} else {
-			final EObject fallback = getFallbackContainer();
+			final EObject fallback = mep.getFallbackContainer();
 			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
 		}
 		
@@ -111,7 +113,7 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 
 	@Override
 	protected void doSetValue(final Object value) {
-		getEditor().setValueFeatureName(getValueFeatureName());
+		// getEditor().setValueFeatureName(getValueFeatureName());
 		getEditor().initValue(value);
 	}
 
@@ -161,22 +163,23 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		return null;
 	}
 	
-	protected void setSemanticElement(final @Nullable EObject element) {
-		getEditor().setSemanticElement(element);
+	protected void setModelEntryPoint(final @NonNull ModelEntryPoint modelEntryPoint) {
+		modelEntryPoint.setValueFeatureName(getValueFeatureName());
+		getEditor().setModelEntryPoint(modelEntryPoint);
 	}
-
-	public @Nullable EObject getSemanticElement() {
-		return getEditor().getSemanticElement();
+	
+	public @NonNull ModelEntryPoint getModelEntryPoint() {
+		return getEditor().getModelEntryPoint();
 	}
-
-	protected void setFallbackContainer(final @NonNull EObject fallbackContainer) {
-		getEditor().setFallbackContainer(fallbackContainer);
-	}
-
-	protected EObject getFallbackContainer() {
-		return getEditor().getFallbackContainer();
-	}
-
+	
+	// public @Nullable EObject getSemanticElement() {
+	// return getEditor().getSemanticElement();
+	// }
+	//
+	// protected EObject getFallbackContainer() {
+	// return getEditor().getFallbackContainer();
+	// }
+	//
 	protected void resetDirty() {
 		this.modificationStamp = retrieveModificationStamp();
 	}

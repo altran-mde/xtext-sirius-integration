@@ -11,6 +11,7 @@ import org.espilce.commons.lang.StringUtils2
 
 import static org.espilce.commons.emf.testsupport.AssertEmf.*
 import static org.junit.Assert.*
+import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint
 
 abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 	
@@ -100,11 +101,12 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 			super(descriptor)
 		}
 		
-		override setSemanticElement(EObject element) {
+		override setModelEntryPoint(ModelEntryPoint modelEntryPoint) {
 			if (callback !== null) {
-				(callback as TestXtextSiriusEditorCallbackAdapter).testSemanticElement = element
+				(callback as TestXtextSiriusEditorCallbackAdapter).testSemanticElement = modelEntryPoint.semanticElement
 			}
-			super.semanticElement = element
+
+			super.modelEntryPoint = modelEntryPoint
 		}
 	}
 	
@@ -158,14 +160,15 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 		
 		var callback = new AssertingXtextSiriusEditorCallback(injector, model, newText, expectedText)
 		editor.callback = callback
-		editor.valueFeatureName = valueFeatureName
+//		editor.valueFeatureName = valueFeatureName
 		
 		val EObject commitTarget = if (elementToEdit instanceof EObject) elementToEdit else fallbackContainer
-		editor.semanticElement = commitTarget
+//		editor.semanticElement = commitTarget
 //		if (elementToEdit instanceof EObject) {
 //			editor.semanticElement = elementToEdit
 //		}
-		editor.fallbackContainer = fallbackContainer
+//		editor.fallbackContainer = fallbackContainer
+		editor.modelEntryPoint = new ModelEntryPoint(commitTarget, fallbackContainer, valueFeatureName)
 		editor.initValue(null)
 		
 //		callback = if (newText !== null) {

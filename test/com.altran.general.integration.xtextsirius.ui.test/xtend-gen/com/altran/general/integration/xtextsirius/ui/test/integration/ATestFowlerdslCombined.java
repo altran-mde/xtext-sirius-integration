@@ -4,6 +4,7 @@ import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.Xte
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
 import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdsl;
 import com.altran.general.integration.xtextsirius.ui.test.integration.TestXtextSiriusEditorCallbackAdapter;
@@ -27,14 +28,14 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
     }
     
     @Override
-    public void setSemanticElement(final EObject element) {
+    public void setModelEntryPoint(final ModelEntryPoint modelEntryPoint) {
       IXtextSiriusModelEditorCallback _callback = this.getCallback();
       boolean _tripleNotEquals = (_callback != null);
       if (_tripleNotEquals) {
         IXtextSiriusModelEditorCallback _callback_1 = this.getCallback();
-        ((TestXtextSiriusEditorCallbackAdapter) _callback_1).testSemanticElement = element;
+        ((TestXtextSiriusEditorCallbackAdapter) _callback_1).testSemanticElement = modelEntryPoint.getSemanticElement();
       }
-      super.setSemanticElement(element);
+      super.setModelEntryPoint(modelEntryPoint);
     }
   }
   
@@ -164,7 +165,6 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
     Injector _injector = this.getInjector();
     ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback callback = new ATestFowlerdslCombined.AssertingXtextSiriusEditorCallback(_injector, this.model, newText, expectedText);
     editor.setCallback(callback);
-    editor.setValueFeatureName(valueFeatureName);
     EObject _xifexpression = null;
     if ((elementToEdit instanceof EObject)) {
       _xifexpression = ((EObject)elementToEdit);
@@ -172,8 +172,8 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
       _xifexpression = fallbackContainer;
     }
     final EObject commitTarget = _xifexpression;
-    editor.setSemanticElement(commitTarget);
-    editor.setFallbackContainer(fallbackContainer);
+    ModelEntryPoint _modelEntryPoint = new ModelEntryPoint(commitTarget, fallbackContainer, valueFeatureName);
+    editor.setModelEntryPoint(_modelEntryPoint);
     editor.initValue(null);
     final Object result = editor.commit(commitTarget);
     if ((expectedResultElement instanceof EObject)) {
