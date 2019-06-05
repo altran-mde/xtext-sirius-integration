@@ -10,19 +10,19 @@
 	<packaging>eclipse-repository</packaging>
 
 	<properties>
-    	<maven.deploy.skip>true</maven.deploy.skip>
+    	<maven.deploy.skip>false</maven.deploy.skip>
     </properties>
     
     <distributionManagement>
         <repository>
            <id>nexus-p2</id>
            <name>Internal Releases</name>
-           <url>https://my-nexus-p2/nexus/content/repositories/eclipse-releases/xtext-sirius-integration/</url>
+           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-releases/sirius5.oxygen/</url>
         </repository>
 	    <snapshotRepository>
            <id>nexus-p2</id>
            <name>Internal Snapshots</name>
-           <url>https://my-nexus-p2/nexus/content/repositories/eclipse-snapshots/xtext-sirius-integration/</url>
+           <url>https://nexus-p2.manatree.io/nexus/content/repositories/eclipse-snapshots/sirius5.oxygen/</url>
         </snapshotRepository>
 	</distributionManagement>
 </project>
