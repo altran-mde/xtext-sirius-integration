@@ -59,10 +59,6 @@ implements IXtextSiriusModelEditorCallback {
 				Lists.newArrayList(parseResult.getSyntaxErrors()));
 	}
 
-	protected XtextSiriusErrorException handleUnresolvableProxies() {
-		return new XtextSiriusErrorException("Entered text contains unresolvable references", (String) getValue());
-	}
-	
 	@Override
 	public XtextSiriusErrorException handleUnresolvableProxies() {
 		return new XtextSiriusErrorException("Entered text contains unresolvable references", (String) callbackGetText());
