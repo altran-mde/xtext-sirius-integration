@@ -23,44 +23,44 @@ import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 
 import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureAdapter;
 import com.altran.general.integration.xtextsirius.runtime.util.FeaturePathUtil;
-import com.google.common.collect.patch.Streams;
+import com.google.common.collect.Streams;
 
 @SuppressWarnings("restriction")
 public class ModelRegionSerializer {
 	private final ModelRegionEditorPreparer preparer;
-
+	
 	public ModelRegionSerializer(final ModelRegionEditorPreparer preparer) {
 		this.preparer = preparer;
 	}
-	
+
 	public ITextRegionAccess serialize(final @NonNull EObject rootContainer) {
 		markIgnoredFeatures(rootContainer);
 		return this.preparer.getSerializer().serializeToRegions(rootContainer);
 	}
-
+	
 	protected void markIgnoredFeatures(final @NonNull EObject rootContainer) {
 		final EClass semanticElementEClass = getSemanticElementEClass();
 		Streams.stream(rootContainer.eAllContents())
 				.filter(eObject -> eObject.eClass() == semanticElementEClass)
 				.forEach(eObject -> markIgnoredFeatures("", eObject));
 	}
-
+	
 	protected void markIgnoredFeatures(final @NonNull String prefix, final @NonNull EObject element) {
 		element.eClass().getEAllStructuralFeatures().stream()
 				.forEach(feature -> markIgnoredFeature(feature, prefix, element));
 	}
-
+	
 	protected void markIgnoredFeatures(final @NonNull String prefix, final @NonNull Collection<EObject> element) {
 		element.stream()
 				.forEach(eObject -> markIgnoredFeatures(prefix, eObject));
 	}
-
+	
 	protected void markIgnoredFeature(final @NonNull EStructuralFeature feature, final @NonNull String prefix,
 			final @Nullable EObject element) {
 		if (element == null) {
 			return;
 		}
-
+		
 		final String featurePath = FeaturePathUtil.getInstance().concatFeaturePath(prefix, feature);
 		if (this.preparer.getIgnoredNestedFeatures().contains(featurePath)) {
 			element.eAdapters().add(new IgnoredFeatureAdapter(feature.getName()));
@@ -74,7 +74,7 @@ public class ModelRegionSerializer {
 			}
 		}
 	}
-
+	
 	protected EClass getSemanticElementEClass() {
 		final EObject semanticElement = this.preparer.getSemanticElement();
 		if (semanticElement != null) {
@@ -83,7 +83,7 @@ public class ModelRegionSerializer {
 			return (EClass) this.preparer.getSemanticElementFeature().getEType();
 		}
 	}
-
+	
 	protected List<EObject> getEObjectsInCollection(final Collection<?> collection) {
 		return collection.stream()
 				.filter(EObject.class::isInstance)

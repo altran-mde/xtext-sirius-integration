@@ -48,18 +48,18 @@ implements IXtextSiriusModelEditorCallback {
 		super(new XtextSiriusModelEditor(descriptor), descriptor, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-	
+
 	@Override
 	public XtextSiriusWidgetModel getWidget() {
 		return (XtextSiriusWidgetModel) super.getWidget();
 	}
-	
+
 	@Override
 	public IParseResult getXtextParseResult() {
 		final XtextDocument document = getWidget().getDocument();
 		return document.readOnly(state -> state.getParseResult());
 	}
-
+	
 	@Override
 	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
 		final IRegion visibleRegionJFace = getWidget().getViewer().getVisibleRegion();
@@ -67,13 +67,13 @@ implements IXtextSiriusModelEditorCallback {
 		return handleXtextSiriusIssueException(new XtextSiriusSyntaxErrorException((String) callbackGetText(), visibleRegion,
 				Lists.newArrayList(parseResult.getSyntaxErrors())));
 	}
-	
+
 	@Override
 	public XtextSiriusErrorException handleUnresolvableProxies() {
 		return handleXtextSiriusIssueException(
 				new XtextSiriusErrorException("Entered text contains unresolvable references", (String) callbackGetText()));
 	}
-
+	
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {
@@ -81,7 +81,7 @@ implements IXtextSiriusModelEditorCallback {
 			final ModelEntryPoint modelEntryPoint = new ModelEntryPoint();
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
-
+				
 				resourceUri = semanticElement.eResource().getURI();
 				modelEntryPoint.setSemanticElement(semanticElement);
 			} else if (newValue == null) {
@@ -96,16 +96,16 @@ implements IXtextSiriusModelEditorCallback {
 
 			getEditor().setModelEntryPoint(modelEntryPoint);
 			getEditor().initValue(newValue);
-			
+
 			getWidget().updateUri(resourceUri);
 		};
 	}
-	
+
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetModel(parent, getInjector());
 	}
-	
+
 	protected <E extends AXtextSiriusIssueException> E handleXtextSiriusIssueException(final E exception) {
 		StatusManager.getManager().handle(exception.toStatus(), StatusManager.SHOW);
 		return exception;

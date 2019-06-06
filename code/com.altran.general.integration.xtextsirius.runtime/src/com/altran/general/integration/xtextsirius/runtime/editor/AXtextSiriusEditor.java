@@ -16,7 +16,11 @@ import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.inject.Injector;
 
 /**
+<<<<<<< 4d4e43d69034cb185630da619852eec7dd09b39e
  * Takes care of all Xtext/Sirius Integration magic.
+=======
+ * Takes care of all Xtext/Sirius Integration magic except {@linkplain EMerger}
+>>>>>>> working state with EMerger included in editor (lots of cleaning required)
  *
  * @param <C>
  */
@@ -37,7 +41,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	public abstract Object commit(final @NonNull EObject target);
 	
 	protected abstract @Nullable Object getValueToCommit() throws AXtextSiriusIssueException;
-
+	
 	public void setCallback(final C callback) {
 		this.callback = callback;
 	}

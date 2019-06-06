@@ -14,7 +14,6 @@ Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport
  org.eclipse.sirius.ecore.extender,
  org.eclipse.sirius.ext.base,
  com.google.guava,
- com.altran.general.integration.google.guava.patch,
  org.eclipse.xtext,
  com.altran.general.integration.xtextsirius.model.xtext,
  com.altran.general.integration.xtextsirius.model.eef

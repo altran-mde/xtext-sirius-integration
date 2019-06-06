@@ -9,7 +9,6 @@
  */
 package com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Id Element</b></em>'.
@@ -42,7 +41,7 @@ public interface IdElement extends AElement<IdElement> {
 	 * @generated
 	 */
 	String getId();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IdElement#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,5 +51,5 @@ public interface IdElement extends AElement<IdElement> {
 	 * @generated
 	 */
 	void setId(String value);
-	
+
 } // IdElement

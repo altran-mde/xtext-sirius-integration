@@ -102,6 +102,8 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void event_empty() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method semanticElement(Event) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe method callbackInitValue(Object, int, int) is undefined for the type TestXtextSiriusEditorCallbackAdapter"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()"
       + "\nThe method callbackSetValue(Object, int, int) of type new TestXtextSiriusEditorCallbackAdapter(){} must override a superclass method.");
@@ -110,6 +112,8 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void event_guard_set() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method semanticElement(Event) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe method callbackInitValue(Object, int, int) is undefined for the type TestXtextSiriusEditorCallbackAdapter"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()"
       + "\nThe method callbackSetValue(Object, int, int) of type new TestXtextSiriusEditorCallbackAdapter(){} must override a superclass method.");
@@ -118,6 +122,8 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void event_guard_unset() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method semanticElement(Event) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe method callbackInitValue(Object, int, int) is undefined for the type TestXtextSiriusEditorCallbackAdapter"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()"
       + "\nThe method callbackSetValue(Object, int, int) of type new TestXtextSiriusEditorCallbackAdapter(){} must override a superclass method.");
@@ -126,6 +132,8 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void statemachine_events_set() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method semanticElement(Statemachine) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe method callbackInitValue(Object, int, int) is undefined for the type TestXtextSiriusEditorCallbackAdapter"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()"
       + "\nThe method callbackSetValue(Object, int, int) of type new TestXtextSiriusEditorCallbackAdapter(){} must override a superclass method.");
@@ -134,6 +142,8 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void statemachine_events_unset() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method semanticElement(Statemachine) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe method callbackInitValue(Object, int, int) is undefined for the type TestXtextSiriusEditorCallbackAdapter"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()"
       + "\nThe method callbackSetValue(Object, int, int) of type new TestXtextSiriusEditorCallbackAdapter(){} must override a superclass method.");
@@ -142,6 +152,8 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void guard_empty_set() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method semanticElement(Guard) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe method callbackInitValue(Object, int, int) is undefined for the type TestXtextSiriusEditorCallbackAdapter"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()"
       + "\nThe method callbackSetValue(Object, int, int) of type new TestXtextSiriusEditorCallbackAdapter(){} must override a superclass method.");
@@ -150,6 +162,9 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void guard_empty_unset() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method fallbackContainer(Event) is undefined"
+      + "\nThe method semanticElement(Guard) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe method callbackInitValue(Object, int, int) is undefined for the type TestXtextSiriusEditorCallbackAdapter"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()"
       + "\nThe method callbackSetValue(Object, int, int) of type new TestXtextSiriusEditorCallbackAdapter(){} must override a superclass method.");
@@ -158,6 +173,8 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void eventNoEdit() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method semanticElement(Event) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe method callbackInitValue(Object, int, int) is undefined for the type TestXtextSiriusEditorCallbackAdapter"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()"
       + "\nThe method callbackSetValue(Object, int, int) of type new TestXtextSiriusEditorCallbackAdapter(){} must override a superclass method.");
@@ -166,6 +183,8 @@ public class TestFowlerdslIntegration extends ATestFowlerdsl {
   @Test
   public void eventEdit() {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method semanticElement(Event) is undefined"
+      + "\nThe method valueFeatureName(String) is undefined for the type XtextSiriusModelEditor"
       + "\nThe anonymous subclass of TestXtextSiriusEditorCallbackAdapter does not implement callbackGetText()");
   }
   

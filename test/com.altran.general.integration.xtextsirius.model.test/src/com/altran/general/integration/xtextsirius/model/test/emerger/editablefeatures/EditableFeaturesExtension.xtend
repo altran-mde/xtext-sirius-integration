@@ -38,7 +38,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 
 	def createEMerger(T existing, T edited) {
 		createEMerger(existing, edited, edited.eClass.EAllStructuralFeatures
-			.filter[edited.eIsSet(it)]
+			.filter[!isDerived && edited.eIsSet(it)]
 			.map[name]
 			.toSet
 		)
@@ -129,24 +129,24 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 		}
 	}
 
-	protected def createAttributeValue(EAttribute feature) {
-		if (feature.isMany) {
-			switch (feature.EType) {
-				case EcorePackage.Literals::ESTRING:
-					#["aaa", "bbb"]
-				case EcorePackage.Literals::EINT:
-					#[23, 42]
-				case EcorePackage.Literals::EDOUBLE:
-					#[2.71, 3.14]
-			}
-		} else {
-			EcoreUtil.createFromString(feature.EType as EDataType, switch (feature.EType) {
-				case EcorePackage.Literals::ESTRING: "aaa"
-				case EcorePackage.Literals::EINT: "23"
-				case EcorePackage.Literals::EDOUBLE: "2.71"
-			})
-		}
-	}
+    protected def createAttributeValue(EAttribute feature) {
+        if (feature.isMany) {
+            switch (feature.EType) {
+                case EcorePackage$Literals::ESTRING:
+                    #["aaa", "bbb"]
+                case EcorePackage$Literals::EINT:
+                    #[23, 42]
+                case EcorePackage$Literals::EDOUBLE:
+                    #[2.71, 3.14]
+            }
+        } else {
+            EcoreUtil.createFromString(feature.EType as EDataType, switch (feature.EType) {
+                case EcorePackage$Literals::ESTRING: "aaa"
+                case EcorePackage$Literals::EINT: "23"
+                case EcorePackage$Literals::EDOUBLE: "2.71"
+            })
+        }
+    }
 
 	protected def createReferenceValue(EReference feature, AtomicInteger integer) {
 		var i = integer.get

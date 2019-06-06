@@ -52,7 +52,7 @@ implements IXtextSiriusValueEditorCallback {
 			getEditor().initValue(newValue);
 		};
 	}
-
+	
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetValue(parent, getInjector());

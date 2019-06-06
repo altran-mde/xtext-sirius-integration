@@ -36,7 +36,7 @@ implements IXtextSiriusEditpartDescriptor {
 			final @NonNull IXtextDirectEditValueDescription description) {
 		super(injector, description);
 	}
-
+	
 	@Override
 	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(
 			final @NonNull IXtextSiriusAwareLabelEditPart editPart) {
@@ -78,7 +78,7 @@ implements IXtextSiriusEditpartDescriptor {
 				}
 			}
 		}
-
+		
 		throw new IllegalStateException("Cannot find SetValue operation for directEdit " + this);
 	}
 }
