@@ -20,6 +20,8 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 	@Accessors
 	protected var EObject testSemanticElement
 	
+	String newContent
+	
 	new(Injector injector, EObject model) {
 		val uri = model.eResource.URI
 		fakeResource = injector.getInstance(IResourceFactory).createResource(uri) as XtextResource
@@ -36,7 +38,12 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 //		}
 	}
 	
+	override callbackGetText() {
+		newContent
+	}
+	
 	def updateEditedText(String newContent) {
+		this.newContent = newContent
 		fakeResource.reparse(newContent ?: "")
 		fakeResource.relink
 	}

@@ -32,6 +32,8 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   @Accessors
   protected EObject testSemanticElement;
   
+  private String newContent;
+  
   public TestXtextSiriusEditorCallbackAdapter(final Injector injector, final EObject model) {
     try {
       final URI uri = model.eResource().getURI();
@@ -53,8 +55,14 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
     FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, element.eResource().getURI());
   }
   
+  @Override
+  public String callbackGetText() {
+    return this.newContent;
+  }
+  
   public void updateEditedText(final String newContent) {
     try {
+      this.newContent = newContent;
       String _elvis = null;
       if (newContent != null) {
         _elvis = newContent;
