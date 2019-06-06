@@ -29,6 +29,7 @@ import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResou
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
@@ -38,9 +39,9 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	private final IXtextSiriusEditpartDescriptor descriptor;
 	@SuppressWarnings("rawtypes")
 	private final AXtextSiriusEditor editor;
-
+	
 	private long modificationStamp = IDocumentExtension4.UNKNOWN_MODIFICATION_STAMP;
-
+	
 	@SuppressWarnings("unchecked")
 	public AXtextSiriusStyledTextCellEditor(
 			final @NonNull IXtextSiriusEditpartDescriptor descriptor,
@@ -50,7 +51,7 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		this.editor = editor;
 		editor.setCallback(this);
 	}
-
+	
 	private static int translateToStyle(final @NonNull IXtextSiriusEditpartDescriptor descriptor) {
 		if (descriptor.isMultiLine()) {
 			return SWT.MULTI | SWT.WRAP;
@@ -58,76 +59,71 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 			return SWT.SINGLE;
 		}
 	}
-
+	
 	public @Nullable Object commit(final @NonNull EObject representationTarget) {
 		return getEditor().commit(representationTarget);
 	}
-
+	
 	@Override
 	protected XtextSiriusStyledTextXtextAdapter createXtextAdapter() {
 		return new XtextSiriusStyledTextXtextAdapter(getInjector(),
 				getContextFakeResourceProvider() == null ? IXtextFakeContextResourcesProvider.NULL_CONTEXT_PROVIDER
 						: getContextFakeResourceProvider());
 	}
-	
+
 	@Override
 	public void callbackInitText(final @Nullable String initialValue, final int offset, final int length) {
 		super.doSetValue(initialValue);
 		getXtextAdapter().resetVisibleRegion();
 		setVisibleRegion(offset, length);
 		final ModelEntryPoint mep = getModelEntryPoint();
-		final EObject element = mep.getSemanticElement();
+		final EObject element = new MinimalModelAdjuster().getClosestElement(mep);
 		final XtextResource fakeResource = getXtextAdapter().getFakeResourceContext().getFakeResource();
-		if (element != null) {
-			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
-		} else {
-			final EObject fallback = mep.getFallbackContainer();
-			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
-		}
-		
-		getXtextAdapter().getFakeResourceContext().updateFakeResourceContext(createXtextFakeContextResourcesProvider());
+		FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
 
+		getXtextAdapter().getFakeResourceContext().updateFakeResourceContext(createXtextFakeContextResourcesProvider());
+		
 		resetDirty();
 	}
-
+	
 	@Override
 	public @Nullable String callbackGetText() {
 		final Object value = getValue();
 		if (value instanceof String) {
 			return (String) value;
 		}
-
+		
 		return null;
 	}
-	
+
 	protected IXtextFakeContextResourcesProvider createXtextFakeContextResourcesProvider() {
 		final ResourceSetFakeContextResourcesProvider result = new ResourceSetFakeContextResourcesProvider(this);
 		getInjector().injectMembers(result);
 		return result;
 	}
-
+	
 	@Override
 	public XtextSiriusStyledTextXtextAdapter getXtextAdapter() {
 		return (XtextSiriusStyledTextXtextAdapter) super.getXtextAdapter();
 	}
-
+	
 	@Override
 	protected void doSetValue(final Object value) {
 		// getEditor().setValueFeatureName(getValueFeatureName());
 		getEditor().initValue(value);
 	}
-
+	
 	protected @Nullable String getValueFeatureName() {
 		final @Nullable DRepresentationElement representationElement = extractRepresentationElement();
 		final SetValue setValue = extractSetValue(representationElement);
-		
+
 		if (representationElement != null && setValue != null) {
 			return setValue.getFeatureName();
 		}
-
+		
 		return null;
 	}
-	
+
 	private @Nullable DRepresentationElement extractRepresentationElement() {
 		final @Nullable IXtextSiriusAwareLabelEditPart editPart = getDescriptor().getEditPart();
 		if (editPart != null) {
@@ -139,10 +135,10 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	private @Nullable SetValue extractSetValue(final @Nullable DRepresentationElement representationElement) {
 		if (representationElement != null) {
 			final RepresentationElementMapping mapping = representationElement.getMapping();
@@ -159,45 +155,37 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	protected void setModelEntryPoint(final @NonNull ModelEntryPoint modelEntryPoint) {
 		modelEntryPoint.setValueFeatureName(getValueFeatureName());
 		getEditor().setModelEntryPoint(modelEntryPoint);
 	}
-	
+
 	public @NonNull ModelEntryPoint getModelEntryPoint() {
 		return getEditor().getModelEntryPoint();
 	}
-	
-	// public @Nullable EObject getSemanticElement() {
-	// return getEditor().getSemanticElement();
-	// }
-	//
-	// protected EObject getFallbackContainer() {
-	// return getEditor().getFallbackContainer();
-	// }
-	//
+
 	protected void resetDirty() {
 		this.modificationStamp = retrieveModificationStamp();
 	}
-
+	
 	protected long retrieveModificationStamp() {
 		return getXtextAdapter().getModificationStamp();
 	}
-
+	
 	@Override
 	public boolean isDirty() {
 		return this.modificationStamp != retrieveModificationStamp();
 	}
-
+	
 	@Override
 	public @NonNull IXtextSiriusEditpartDescriptor getDescriptor() {
 		return this.descriptor;
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	protected AXtextSiriusEditor getEditor() {
 		return this.editor;

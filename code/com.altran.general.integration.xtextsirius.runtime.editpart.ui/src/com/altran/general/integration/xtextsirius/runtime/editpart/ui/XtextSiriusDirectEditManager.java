@@ -69,17 +69,6 @@ public abstract class XtextSiriusDirectEditManager extends XtextDirectEditManage
 
 	}
 
-	// protected void setSemanticElement(final @Nullable EObject element, final
-	// @NonNull EObject fallbackContainer) {
-	// final AXtextSiriusStyledTextCellEditor cellEditor = getCellEditor();
-	// if (cellEditor != null) {
-	// cellEditor.setSemanticElement(element);
-	// if (element == null) {
-	// cellEditor.setFallbackContainer(fallbackContainer);
-	// }
-	// }
-	// }
-
 	@Override
 	protected IXtextSiriusAwareLabelEditPart getEditPart() {
 		return (IXtextSiriusAwareLabelEditPart) super.getEditPart();
