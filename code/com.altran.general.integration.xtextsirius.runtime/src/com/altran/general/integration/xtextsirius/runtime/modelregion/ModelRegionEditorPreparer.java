@@ -37,6 +37,7 @@ import org.eclipse.xtext.util.ExceptionAcceptor;
 import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.util.TextRegion;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
@@ -277,7 +278,7 @@ public class ModelRegionEditorPreparer {
 	private final IXtextSiriusModelDescriptor descriptor;
 	private final @Nullable EObject semanticElement;
 	private final @NonNull EObject parentSemanticElement;
-	private final EStructuralFeature semanticElementFeature;
+	private final EStructuralFeature valueFeature;
 	
 	private final Set<@NonNull EStructuralFeature> definedEditableFeatures = Sets.newLinkedHashSet();
 	private final Set<@NonNull EStructuralFeature> definedSelectedFeatures = Sets.newLinkedHashSet();
@@ -296,39 +297,21 @@ public class ModelRegionEditorPreparer {
 	
 	
 	/**
-	 * Creates a ModelRegionEditorPreparer based on a non-null target.
+	 * Creates a ModelRegionEditorPreparer.
 	 *
-	 * @param semanticElement
-	 *            Target to edit.
-	 */
-	public ModelRegionEditorPreparer(
-			final @NonNull IXtextSiriusModelDescriptor descriptor,
-			final @NonNull EObject semanticElement) {
-		this(descriptor, semanticElement,
-				semanticElement.eContainer() != null ? semanticElement.eContainer() : semanticElement,
-				semanticElement.eContainingFeature());
-	}
-	
-	/**
-	 * Creates a ModelRegionEditorPreparer based on a nullable target.
-	 *
-	 * @param semanticElement
-	 *            Target to edit.
-	 * @param parentSemanticElement
-	 *            EContainer of {@code semanticElement}.
-	 * @param semanticElementFeature
-	 *            Feature of {@code semanticElement} within
-	 *            {@code parentSemanticElement}.
 	 */
 	public ModelRegionEditorPreparer(
 			final IXtextSiriusModelDescriptor descriptor,
-			final @Nullable EObject semanticElement,
-			final @NonNull EObject parentSemanticElement,
-			final @NonNull EStructuralFeature semanticElementFeature) {
+			final @NonNull ModelEntryPoint modelEntryPoint) {
+		final EObject fallbackContainer = modelEntryPoint.getFallbackContainer();
+		if (fallbackContainer == null) {
+			throw new IllegalStateException("Need a fallbackContainer");
+		}
+
 		this.descriptor = descriptor;
-		this.semanticElement = semanticElement;
-		this.parentSemanticElement = parentSemanticElement;
-		this.semanticElementFeature = semanticElementFeature;
+		this.semanticElement = modelEntryPoint.getSemanticElement();
+		this.parentSemanticElement = fallbackContainer;
+		this.valueFeature = modelEntryPoint.getValueFeature();
 		
 		descriptor.getInjector().injectMembers(this);
 	}
@@ -477,6 +460,7 @@ public class ModelRegionEditorPreparer {
 	protected SemanticElementLocation constructXtextFragmentSchemeBasedLocation() {
 		final EStructuralFeature feature = getSemanticElementFeature();
 		final String parentFragment = EcoreUtil.getURI(getParent()).fragment();
+		// TODO: Check if needed or delete
 		// final String fragment;
 		// fragment = parentFragment + "/@" + feature.getName(); // +
 		// (feature.isMany() ? ".0" : "");
@@ -521,7 +505,7 @@ public class ModelRegionEditorPreparer {
 	}
 
 	protected @NonNull EStructuralFeature getSemanticElementFeature() {
-		return this.semanticElementFeature;
+		return this.valueFeature;
 	}
 
 	protected @Nullable String getPrefixText() {

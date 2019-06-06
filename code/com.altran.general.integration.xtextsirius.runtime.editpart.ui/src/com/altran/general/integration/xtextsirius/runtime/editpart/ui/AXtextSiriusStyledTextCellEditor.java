@@ -26,9 +26,9 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
 import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;

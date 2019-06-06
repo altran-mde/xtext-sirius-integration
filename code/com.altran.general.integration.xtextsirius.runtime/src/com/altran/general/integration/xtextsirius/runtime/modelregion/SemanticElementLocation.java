@@ -36,7 +36,7 @@ import org.eclipse.jdt.annotation.Nullable;
  *
  */
 public class SemanticElementLocation {
-	
+
 	@Nullable
 	private String uriFragment;
 	@Nullable
@@ -45,11 +45,11 @@ public class SemanticElementLocation {
 	private EStructuralFeature containingFeature;
 	@Nullable
 	private Integer index;
-	
+
 	public SemanticElementLocation(final @NonNull EObject semanticElement) {
 		storeLocation(semanticElement);
 	}
-	
+
 	public SemanticElementLocation(
 			final @Nullable String uriFragment,
 			final @NonNull String parentUriFragment,
@@ -60,7 +60,7 @@ public class SemanticElementLocation {
 		this.containingFeature = containingFeature;
 		this.index = index;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private void storeLocation(final @NonNull EObject semanticElement) {
 		final Resource resource = semanticElement.eResource();
@@ -79,8 +79,7 @@ public class SemanticElementLocation {
 			this.containingFeature = null;
 		}
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	public Object resolve(final @NonNull Resource resource) {
 		if (this.uriFragment != null) {
 			final EObject result = resource.getEObject(this.uriFragment);
@@ -88,13 +87,14 @@ public class SemanticElementLocation {
 				return result;
 			}
 		}
-		
-		final EStructuralFeature nerv = this.containingFeature;
-		if (nerv != null && this.parentUriFragment != null) {
+
+		final EStructuralFeature feature = this.containingFeature;
+		if (feature != null && this.parentUriFragment != null) {
 			final Object containingElement = resource.getEObject(this.parentUriFragment)
-					.eGet(nerv);
+					.eGet(feature);
 			return containingElement;
-			// if (nerv.isMany() && this.index != null) {
+			// TODO: check if needed or remove
+			// if (feature.isMany() && this.index != null) {
 			// return ((EList<EObject>) containingElement).get(this.index);
 			// } else {
 			// return (EObject) containingElement;

@@ -22,7 +22,7 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.resource.XtextSiriusResourceSetGlobalScopeProvider;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;

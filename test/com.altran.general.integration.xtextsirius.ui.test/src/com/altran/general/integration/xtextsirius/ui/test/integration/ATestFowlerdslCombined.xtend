@@ -1,5 +1,6 @@
 package com.altran.general.integration.xtextsirius.ui.test.integration
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor
@@ -11,42 +12,8 @@ import org.espilce.commons.lang.StringUtils2
 
 import static org.espilce.commons.emf.testsupport.AssertEmf.*
 import static org.junit.Assert.*
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint
 
 abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
-	
-//	protected override modelText() {
-//		StringUtils2::normalizeNewline(
-//		'''
-//			events
-//			 eventSD 2 [ c2 .. c1 ]
-//			 event2 3 [ 2 ]
-//			 event4 3 [ c1 ]
-//			 event3 4 
-//			end
-//			
-//			commands
-//			 cmd0 0
-//			 cmd1 1 [2]
-//			 cmd2 2
-//			end
-//			
-//			constants
-//			 c1 23
-//			 c2 4
-//			end
-//			
-//			state A 
-//				description "<p>This is a deschkriptschion</p>\n"
-//				event2 => A
-//				event2 => B
-//			end
-//			
-//			state B
-//			
-//			end
-//		''')
-//	}
 	
 	protected override modelText() {
 		StringUtils2::normalizeNewline(
@@ -79,21 +46,8 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 			end
 		''')
 	}
-	protected def String getFeatureName()
 	
-//	@Test
-//	def void asdf() {
-//		assertEdit(
-//			model.events.last,
-//			"",
-//			"event3 4",
-//			"event3 5",
-//			createEvent => [
-//				name = "event3"
-//				code = 5
-//			]
-//		)
-//	} 
+	protected def String getFeatureName()
 	
 	protected static class TestXtextSiriusModelEditor extends XtextSiriusModelEditor {
 		
@@ -125,7 +79,6 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 		}
 		
 		override callbackInitText(String initialValue, int offset, int length) {
-//			assertTrue("value is not string", value instanceof String)
 			val text = (initialValue as String).substring(offset, offset + length)
 			this.initialValue = initialValue
 			this.offset = offset;
@@ -160,34 +113,10 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 		
 		var callback = new AssertingXtextSiriusEditorCallback(injector, model, newText, expectedText)
 		editor.callback = callback
-//		editor.valueFeatureName = valueFeatureName
 		
 		val EObject commitTarget = if (elementToEdit instanceof EObject) elementToEdit else fallbackContainer
-//		editor.semanticElement = commitTarget
-//		if (elementToEdit instanceof EObject) {
-//			editor.semanticElement = elementToEdit
-//		}
-//		editor.fallbackContainer = fallbackContainer
 		editor.modelEntryPoint = new ModelEntryPoint(commitTarget, fallbackContainer, valueFeatureName)
 		editor.initValue(null)
-		
-//		callback = if (newText !== null) {
-//			new AssertingXtextSiriusEditorCallback(injector, model, "newText", newText)
-//		} else {
-//			new AssertingXtextSiriusEditorCallback(injector, model, "newText", expectedText)
-//		}
-//		
-//		editor.callback = callback
-		
-		// set to new callback
-//		editor.semanticElement = commitTarget
-//		if (elementToEdit instanceof EObject) {
-//			editor.semanticElement = elementToEdit
-//		}
-
-//		callback.updateEditedText(newText)
-	
-//		editor.setValue(newText)
 		
 		val result = editor.commit(commitTarget)
 		if (expectedResultElement instanceof EObject) {

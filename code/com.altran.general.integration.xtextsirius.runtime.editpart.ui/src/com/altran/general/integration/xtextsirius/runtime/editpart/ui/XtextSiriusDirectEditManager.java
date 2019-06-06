@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 

@@ -1,3 +1,12 @@
+/**
+ * Copyright (C) 2019 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
 import org.apache.commons.lang.StringUtils;
@@ -7,9 +16,11 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.editor.decider.IXtextSiriusEditingDecider;
+import com.altran.general.integration.xtextsirius.runtime.editor.decider.IEditingDecider;
 import com.altran.general.integration.xtextsirius.runtime.editor.decider.NullNoOpBlankDeletionEditingDecider;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
@@ -21,10 +32,12 @@ import com.google.inject.Injector;
  * @param <C>
  */
 public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
+	private final MinimalModelAdjuster minModelAdjuster = new MinimalModelAdjuster();
+	
 	private final IXtextSiriusDescriptor descriptor;
 	private C callback;
 
-	private @NonNull IXtextSiriusEditingDecider editingDecider = new NullNoOpBlankDeletionEditingDecider();
+	private @NonNull IEditingDecider editingDecider = new NullNoOpBlankDeletionEditingDecider();
 
 	private @Nullable ModelEntryPoint modelEntryPoint;
 	
@@ -42,25 +55,11 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		this.callback = callback;
 	}
 
-	// public void setSemanticElement(final @Nullable EObject element) {
-	// this.semanticElement = element;
-	// }
-	//
-	// public void setFallbackContainer(final @NonNull EObject
-	// fallbackContainer) {
-	// this.fallbackContainer = fallbackContainer;
-	// }
-	//
-	// public void setValueFeatureName(@Nullable final String valueFeatureName)
-	// {
-	// this.valueFeatureName = valueFeatureName;
-	// }
-	
 	public void setModelEntryPoint(final @NonNull ModelEntryPoint modelEntryPoint) {
 		this.modelEntryPoint = modelEntryPoint;
 	}
 
-	public void setEditingDecider(final @NonNull IXtextSiriusEditingDecider editingDecider) {
+	public void setEditingDecider(final @NonNull IEditingDecider editingDecider) {
 		this.editingDecider = editingDecider;
 	}
 	
@@ -68,7 +67,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		return this.modelEntryPoint;
 	}
 
-	public @NonNull IXtextSiriusEditingDecider getEditingDecider() {
+	public @NonNull IEditingDecider getEditingDecider() {
 		return this.editingDecider;
 	}
 
@@ -77,21 +76,11 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	}
 
 	protected @Nullable EObject getSemanticElement() {
-		return getModelEntryPoint().getSemanticElement();
+		return this.minModelAdjuster.getSemanticElement(getModelEntryPoint());
 	}
 
 	protected @NonNull EObject getFallbackContainer() {
-		final EObject fallbackContainer = getModelEntryPoint().getFallbackContainer();
-		if (fallbackContainer != null) {
-			return fallbackContainer;
-		} else {
-			final EObject element = getModelEntryPoint().getSemanticElement();
-			if (element != null) {
-				return EcoreNavigationUtil.eContainerIfExists(element);
-			} else {
-				throw new IllegalStateException("No FallbackContainer");
-			}
-		}
+		return this.minModelAdjuster.getFallbackContainer(getModelEntryPoint());
 	}
 
 	protected @Nullable String getValueFeatureName() {
@@ -109,10 +98,12 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		getCallback().callbackInitText(value, offset, length);
 	}
 
+	@Deprecated
 	protected @Nullable EStructuralFeature convertValueFeature(final @Nullable String featureName) {
 		return convertValueFeature(getSemanticElement(), featureName);
 	}
 
+	@Deprecated
 	protected @Nullable EStructuralFeature convertValueFeature(final @Nullable EObject element,
 			final @Nullable String featureName) {
 		if (element != null) {
@@ -133,6 +124,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		return null;
 	}
 	
+	@Deprecated
 	protected @NonNull EStructuralFeature enforceValueFeature(final @NonNull EObject fallback,
 			final @Nullable String featureName) {
 		final EStructuralFeature converted = convertValueFeature(featureName);
@@ -148,6 +140,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		throw new IllegalArgumentException("Cannot find valueFeature " + featureName + " for " + fallback);
 	}
 	
+	@Deprecated
 	protected @NonNull EObject adjustTarget(final @NonNull EObject target, final @Nullable String valueFeatureName) {
 		if (StringUtils.isBlank(valueFeatureName) || target.eClass().getEStructuralFeature(valueFeatureName) == null) {
 			return EcoreNavigationUtil.eContainerIfExists(target);
