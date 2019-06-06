@@ -17,23 +17,23 @@ import org.eclipse.emf.ecore.EObject
 
 abstract class ATestFakeResourceUtil extends AFowlerdslDefaultModelTest {
 	protected static class AccessibleFakeResourceUtil extends FakeResourceUtil {
-		override public insertSynthetic(URI uri) {
+		override insertSynthetic(URI uri) {
 			super.insertSynthetic(uri)
 		}
 
-		override public removeSynthetic(URI uri) {
+		override removeSynthetic(URI uri) {
 			super.removeSynthetic(uri)
 		}
 
-		override public equalsDisregardingSyntheticAndFileExtension(URI a, URI b) {
+		override equalsDisregardingSyntheticAndFileExtension(URI a, URI b) {
 			super.equalsDisregardingSyntheticAndFileExtension(a, b)
 		}
 
-		override public collectAllReferencedObjectsDeep(EObject base) {
+		override collectAllReferencedObjectsDeep(EObject base) {
 			super.collectAllReferencedObjectsDeep(base)
 		}
 
-		override public collectAllReferencedObjects(EObject base) {
+		override collectAllReferencedObjects(EObject base) {
 			super.collectAllReferencedObjects(base)
 		}
 	}
