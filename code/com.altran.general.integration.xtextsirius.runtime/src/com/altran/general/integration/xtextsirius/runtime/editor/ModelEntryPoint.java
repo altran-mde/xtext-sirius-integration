@@ -1,5 +1,6 @@
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
@@ -18,6 +19,12 @@ public class ModelEntryPoint {
 	public ModelEntryPoint(
 			final @NonNull EObject semanticElement) {
 		this(semanticElement, null, null, null);
+	}
+	
+	public ModelEntryPoint(
+			final @NonNull EObject semanticElement,
+			final @Nullable String valueFeatureName) {
+		this(semanticElement, null, valueFeatureName, null);
 	}
 
 	public ModelEntryPoint(
@@ -81,5 +88,9 @@ public class ModelEntryPoint {
 
 	public void setValueFeature(@Nullable final EStructuralFeature valueFeature) {
 		this.valueFeature = valueFeature;
+	}
+
+	public boolean hasValueFeature() {
+		return getValueFeature() != null || StringUtils.isNotBlank(getValueFeatureName());
 	}
 }

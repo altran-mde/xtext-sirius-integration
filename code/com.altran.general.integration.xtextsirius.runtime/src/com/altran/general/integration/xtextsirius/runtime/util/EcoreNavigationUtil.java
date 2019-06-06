@@ -9,4 +9,8 @@ public class EcoreNavigationUtil {
 				? fallbackContainer.eContainer()
 				: fallbackContainer;
 	}
+
+	public static boolean hasFeature(final @NonNull EObject eObject, final @NonNull String featureName) {
+		return eObject.eClass().getEStructuralFeature(featureName) != null;
+	}
 }

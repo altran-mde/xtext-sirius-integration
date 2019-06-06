@@ -35,7 +35,15 @@ public abstract class AModelAdjuster implements IModelAdjuster {
 	protected @NonNull EStructuralFeature getFeatureInFallback(final @NonNull ModelEntryPoint modelEntryPoint) {
 		final String valueFeatureName = modelEntryPoint.getValueFeatureName();
 		if (valueFeatureName != null) {
-			return getAssuredFallbackContainer(modelEntryPoint).eClass().getEStructuralFeature(valueFeatureName);
+			final EObject fallbackContainer = getAssuredFallbackContainer(modelEntryPoint);
+			final EStructuralFeature structuralFeature = fallbackContainer.eClass()
+					.getEStructuralFeature(valueFeatureName);
+			if (structuralFeature != null) {
+				return structuralFeature;
+			} else {
+				throw new IllegalStateException(
+						"No structuralFeature " + valueFeatureName + " in " + fallbackContainer);
+			}
 		} else {
 			throw new IllegalStateException("No valueFeatureName");
 		}

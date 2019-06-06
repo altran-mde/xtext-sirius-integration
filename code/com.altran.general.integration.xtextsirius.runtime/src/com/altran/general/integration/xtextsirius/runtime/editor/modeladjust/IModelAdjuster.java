@@ -15,4 +15,6 @@ public interface IModelAdjuster {
 	public @NonNull EObject getClosestElement(final @NonNull ModelEntryPoint modelEntryPoint);
 	
 	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint);
+
+	public @Nullable Object getValue(final @NonNull ModelEntryPoint modelEntryPoint);
 }

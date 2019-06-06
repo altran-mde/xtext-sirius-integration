@@ -29,4 +29,9 @@ public class FeatureFallbackModelAdjuster extends AModelAdjuster {
 	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint) {
 		return getFeatureInFallback(modelEntryPoint);
 	}
+	
+	@Override
+	public @Nullable Object getValue(final @NonNull ModelEntryPoint modelEntryPoint) {
+		return getAssuredFallbackContainer(modelEntryPoint).eGet(getFeatureInFallback(modelEntryPoint));
+	}
 }
