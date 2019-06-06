@@ -109,7 +109,6 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	
 	@Override
 	protected void doSetValue(final Object value) {
-		// getEditor().setValueFeatureName(getValueFeatureName());
 		getEditor().initValue(value);
 	}
 	
