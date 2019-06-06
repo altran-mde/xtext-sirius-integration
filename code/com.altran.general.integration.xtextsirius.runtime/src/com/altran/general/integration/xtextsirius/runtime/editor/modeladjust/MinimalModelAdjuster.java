@@ -30,7 +30,16 @@ public class MinimalModelAdjuster extends AModelAdjuster {
 	
 	@Override
 	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint) {
-		return getFeatureInFallback(modelEntryPoint);
+		if (modelEntryPoint.hasValueFeature()) {
+			return getFeatureInFallback(modelEntryPoint);
+		}
+		
+		final EObject semanticElement = getSemanticElement(modelEntryPoint);
+		if (semanticElement != null) {
+			return semanticElement.eContainingFeature();
+		}
+		
+		throw new IllegalStateException("no valueFeature");
 	}
 	
 	@Override

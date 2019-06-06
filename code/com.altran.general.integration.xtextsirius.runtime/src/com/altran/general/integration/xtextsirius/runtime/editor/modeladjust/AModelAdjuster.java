@@ -26,14 +26,18 @@ public abstract class AModelAdjuster implements IModelAdjuster {
 			return getFallbackContainer(modelEntryPoint);
 		}
 	}
-	
+
 	@Override
 	public @NonNull ModelEntryPoint adjust(@NonNull final ModelEntryPoint modelEntryPoint) {
-		final EStructuralFeature structuralFeature = getStructuralFeature(modelEntryPoint);
-		return new ModelEntryPoint(getSemanticElement(modelEntryPoint), getFallbackContainer(modelEntryPoint),
-				structuralFeature);
-	}
+		if (modelEntryPoint.hasValueFeature()) {
+			final EStructuralFeature structuralFeature = getStructuralFeature(modelEntryPoint);
+			return new ModelEntryPoint(getSemanticElement(modelEntryPoint), getFallbackContainer(modelEntryPoint),
+					structuralFeature);
+		}
 
+		return new ModelEntryPoint(getSemanticElement(modelEntryPoint), getFallbackContainer(modelEntryPoint));
+	}
+	
 	protected @NonNull EObject getAssuredFallbackContainer(final @NonNull ModelEntryPoint modelEntryPoint) {
 		final EObject fallbackContainer = modelEntryPoint.getFallbackContainer();
 		if (fallbackContainer != null) {
@@ -47,7 +51,7 @@ public abstract class AModelAdjuster implements IModelAdjuster {
 			}
 		}
 	}
-	
+
 	protected @NonNull EStructuralFeature getFeatureInFallback(final @NonNull ModelEntryPoint modelEntryPoint) {
 		final String valueFeatureName = modelEntryPoint.getValueFeatureName();
 		if (valueFeatureName != null) {
