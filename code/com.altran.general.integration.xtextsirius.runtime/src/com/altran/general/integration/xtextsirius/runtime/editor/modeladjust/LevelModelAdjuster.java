@@ -16,11 +16,16 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
-public class FeatureFallbackModelAdjuster extends AModelAdjuster {
+public class LevelModelAdjuster extends AModelAdjuster {
 	
 	@Override
-	public @Nullable EObject getSemanticElement(final @NonNull ModelEntryPoint modelEntryPoint) {
-		return getElementInFallbackFeature(modelEntryPoint);
+	public @NonNull EObject getSemanticElement(final @NonNull ModelEntryPoint modelEntryPoint) {
+		final EObject semanticElement = modelEntryPoint.getSemanticElement();
+		if (semanticElement != null) {
+			return semanticElement;
+		}
+		
+		return getAssuredFallbackContainer(modelEntryPoint);
 	}
 	
 	@Override

@@ -15,11 +15,14 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
-import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.ElementModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.IModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.LevelModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 
 public class FeatureAdjuster {
-	private final ElementModelAdjuster modelAdjuster = new ElementModelAdjuster();
+	// private final IModelAdjuster modelAdjuster = new
+	// ElementFallbackFeatureModelAdjuster();
+	private final IModelAdjuster modelAdjuster = new LevelModelAdjuster();
 	private final @NonNull ModelEntryPoint targetModelEntryPoint;
 	
 	public FeatureAdjuster(final @NonNull ModelEntryPoint targetModelEntryPoint) {
@@ -37,7 +40,7 @@ public class FeatureAdjuster {
 		if (EcoreNavigationUtil.hasFeature(closestElement, this.targetModelEntryPoint.getValueFeatureName())) {
 			return target;
 		} else {
-			return EcoreNavigationUtil.eContainerIfExists(target);
+			return EcoreNavigationUtil.eContainerIfExists(closestElement);
 		}
 	}
 	

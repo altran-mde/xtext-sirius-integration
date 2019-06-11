@@ -14,9 +14,11 @@ import org.eclipse.xtext.parser.IParseResult
 import org.eclipse.xtext.resource.IResourceFactory
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.util.StringInputStream
+import org.junit.Assert
 
 abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
 	protected val XtextResource fakeResource
+	
 	@Accessors
 	protected var EObject testSemanticElement
 	
@@ -33,9 +35,8 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 	override callbackInitText(String initialText, int offset, int length) {
 		updateEditedText(initialText)
 		val element = getTestSemanticElement()
-//		if (element !== null) {
-			FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
-//		}
+		Assert.assertNotNull("testSemanticElement is null", element)
+		FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
 	}
 	
 	override callbackGetText() {
@@ -58,6 +59,6 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 	}
 	
 	override handleUnresolvableProxies() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		throw new AssertionError("Found unresolvable proxies")
 	}
 }

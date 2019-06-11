@@ -12,6 +12,7 @@ package com.altran.general.integration.xtextsirius.runtime.editor.modeladjust;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
@@ -49,6 +50,16 @@ public abstract class AModelAdjuster implements IModelAdjuster {
 			} else {
 				throw new IllegalStateException("No FallbackContainer");
 			}
+		}
+	}
+	
+	protected @Nullable EObject getElementInFallbackFeature(final @NonNull ModelEntryPoint modelEntryPoint) {
+		final Object featureValue = getAssuredFallbackContainer(modelEntryPoint)
+				.eGet(getFeatureInFallback(modelEntryPoint));
+		if (featureValue == null || featureValue instanceof EObject) {
+			return (EObject) featureValue;
+		} else {
+			throw new IllegalStateException("featureValue no EObject");
 		}
 	}
 

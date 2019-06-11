@@ -24,6 +24,7 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.junit.Assert;
 
 @SuppressWarnings("all")
 public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
@@ -52,6 +53,7 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   public void callbackInitText(final String initialText, final int offset, final int length) {
     this.updateEditedText(initialText);
     final EObject element = this.getTestSemanticElement();
+    Assert.assertNotNull("testSemanticElement is null", element);
     FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, element.eResource().getURI());
   }
   
@@ -97,7 +99,7 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   
   @Override
   public XtextSiriusErrorException handleUnresolvableProxies() {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+    throw new AssertionError("Found unresolvable proxies");
   }
   
   @Pure

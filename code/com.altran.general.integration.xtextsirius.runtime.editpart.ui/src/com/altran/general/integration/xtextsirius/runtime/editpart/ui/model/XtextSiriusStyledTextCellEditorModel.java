@@ -9,8 +9,11 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui.model;
 
+import java.util.ArrayList;
+
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jface.text.IRegion;
+import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.util.TextRegion;
 
@@ -55,8 +58,9 @@ implements IXtextSiriusModelEditorCallback {
 	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
 		final IRegion visibleRegionJFace = getXtextAdapter().getVisibleRegion();
 		final TextRegion visibleRegion = new TextRegion(visibleRegionJFace.getOffset(), visibleRegionJFace.getLength());
+		final ArrayList<INode> syntaxErrors = Lists.newArrayList(parseResult.getSyntaxErrors());
 		return new XtextSiriusSyntaxErrorException((String) callbackGetText(), visibleRegion,
-				Lists.newArrayList(parseResult.getSyntaxErrors()));
+				syntaxErrors);
 	}
 
 	@Override

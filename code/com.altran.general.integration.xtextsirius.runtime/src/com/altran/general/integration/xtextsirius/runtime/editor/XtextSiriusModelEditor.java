@@ -21,7 +21,7 @@ import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.ElementFallbackModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FallbackModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.ElementModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FeatureFallbackModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FeatureNullModelAdjuster;
@@ -215,7 +215,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		if (semanticElement != null) {
 			return new ElementModelAdjuster();
 		} else {
-			return new ElementFallbackModelAdjuster();
+			return new FallbackModelAdjuster();
 		}
 	}
 

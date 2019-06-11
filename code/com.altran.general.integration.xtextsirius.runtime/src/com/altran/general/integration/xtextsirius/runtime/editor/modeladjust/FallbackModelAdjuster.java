@@ -17,7 +17,7 @@ import org.eclipse.jdt.annotation.Nullable;
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 
-public class ElementFallbackModelAdjuster extends AModelAdjuster {
+public class FallbackModelAdjuster extends AModelAdjuster {
 
 	@Override
 	public @NonNull EObject getSemanticElement(final @NonNull ModelEntryPoint modelEntryPoint) {

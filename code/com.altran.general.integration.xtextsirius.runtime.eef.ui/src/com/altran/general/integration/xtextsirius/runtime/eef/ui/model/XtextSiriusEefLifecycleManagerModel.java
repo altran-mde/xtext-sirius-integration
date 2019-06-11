@@ -48,18 +48,18 @@ implements IXtextSiriusModelEditorCallback {
 		super(new XtextSiriusModelEditor(descriptor), descriptor, controlDescription, variableManager, interpreter,
 				contextAdapter);
 	}
-
+	
 	@Override
 	public XtextSiriusWidgetModel getWidget() {
 		return (XtextSiriusWidgetModel) super.getWidget();
 	}
-
+	
 	@Override
 	public IParseResult getXtextParseResult() {
 		final XtextDocument document = getWidget().getDocument();
 		return document.readOnly(state -> state.getParseResult());
 	}
-	
+
 	@Override
 	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
 		final IRegion visibleRegionJFace = getWidget().getViewer().getVisibleRegion();
@@ -67,45 +67,46 @@ implements IXtextSiriusModelEditorCallback {
 		return handleXtextSiriusIssueException(new XtextSiriusSyntaxErrorException((String) callbackGetText(), visibleRegion,
 				Lists.newArrayList(parseResult.getSyntaxErrors())));
 	}
-
+	
 	@Override
 	public XtextSiriusErrorException handleUnresolvableProxies() {
 		return handleXtextSiriusIssueException(
 				new XtextSiriusErrorException("Entered text contains unresolvable references", (String) callbackGetText()));
 	}
-	
+
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {
 			URI resourceUri = null;
-			final ModelEntryPoint modelEntryPoint = new ModelEntryPoint();
+			final EObject self = getSelf();
+			
+			final ModelEntryPoint modelEntryPoint;
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
-				
+				modelEntryPoint = new ModelEntryPoint(semanticElement, self, getValueFeature());
+
 				resourceUri = semanticElement.eResource().getURI();
-				modelEntryPoint.setSemanticElement(semanticElement);
-			} else if (newValue == null) {
-				final EObject self = getSelf();
-				if (self != null) {
-					resourceUri = self.eResource().getURI();
-					modelEntryPoint.setFallbackContainer(self);
+			} else {
+				if (self == null) {
+					throw new IllegalStateException("Cannot dermine self EObject");
 				}
+				modelEntryPoint = new ModelEntryPoint(null, self, getValueFeature());
+
+				resourceUri = self.eResource().getURI();
 			}
-
-			modelEntryPoint.setValueFeatureName(getValueFeature());
-
+			
 			getEditor().setModelEntryPoint(modelEntryPoint);
 			getEditor().initValue(newValue);
-
+			
 			getWidget().updateUri(resourceUri);
 		};
 	}
-
+	
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetModel(parent, getInjector());
 	}
-
+	
 	protected <E extends AXtextSiriusIssueException> E handleXtextSiriusIssueException(final E exception) {
 		StatusManager.getManager().handle(exception.toStatus(), StatusManager.SHOW);
 		return exception;
