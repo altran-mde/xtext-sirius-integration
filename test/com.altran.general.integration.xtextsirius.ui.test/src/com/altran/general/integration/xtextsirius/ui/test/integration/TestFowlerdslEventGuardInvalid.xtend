@@ -1,7 +1,8 @@
 package com.altran.general.integration.xtextsirius.ui.test.integration
 
-import org.junit.Test
+import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined
 import org.junit.Ignore
+import org.junit.Test
 
 @Ignore("Probably wrong expectation: containing event instead of guard")
 class TestFowlerdslEventGuardInvalid extends ATestFowlerdslCombined {

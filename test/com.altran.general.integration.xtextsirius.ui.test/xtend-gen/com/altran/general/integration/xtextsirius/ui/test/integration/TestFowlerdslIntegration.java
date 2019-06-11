@@ -4,8 +4,8 @@ import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.Xte
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
-import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdsl;
-import com.altran.general.integration.xtextsirius.ui.test.integration.TestXtextSiriusEditorCallbackAdapter;
+import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdsl;
+import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusEditorCallbackAdapter;
 import com.google.inject.Injector;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;

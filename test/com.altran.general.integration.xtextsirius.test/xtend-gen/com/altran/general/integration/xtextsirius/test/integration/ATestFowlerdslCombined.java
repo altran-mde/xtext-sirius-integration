@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.ui.test.integration;
+package com.altran.general.integration.xtextsirius.test.integration;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
@@ -6,8 +6,8 @@ import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriu
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
-import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdsl;
-import com.altran.general.integration.xtextsirius.ui.test.integration.TestXtextSiriusEditorCallbackAdapter;
+import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdsl;
+import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusEditorCallbackAdapter;
 import com.google.inject.Injector;
 import java.util.List;
 import org.apache.commons.lang.StringUtils;

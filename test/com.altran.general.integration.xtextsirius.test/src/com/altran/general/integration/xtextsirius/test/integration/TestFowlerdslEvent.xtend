@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.ui.test.integration
+package com.altran.general.integration.xtextsirius.test.integration
 
 import org.junit.Test
 

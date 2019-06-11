@@ -1,6 +1,6 @@
-package com.altran.general.integration.xtextsirius.ui.test.integration;
+package com.altran.general.integration.xtextsirius.test.integration;
 
-import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdslCombined;
+import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined;
 import java.util.Collections;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;

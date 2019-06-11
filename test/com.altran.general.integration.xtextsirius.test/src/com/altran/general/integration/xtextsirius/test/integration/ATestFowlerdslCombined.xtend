@@ -1,4 +1,4 @@
-package com.altran.general.integration.xtextsirius.ui.test.integration
+package com.altran.general.integration.xtextsirius.test.integration
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor

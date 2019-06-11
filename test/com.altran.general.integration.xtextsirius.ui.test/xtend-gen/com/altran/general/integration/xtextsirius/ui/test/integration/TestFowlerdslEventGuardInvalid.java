@@ -1,6 +1,6 @@
 package com.altran.general.integration.xtextsirius.ui.test.integration;
 
-import com.altran.general.integration.xtextsirius.ui.test.integration.ATestFowlerdslCombined;
+import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ConstantRef;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;

@@ -1,12 +1,11 @@
-package com.altran.general.integration.xtextsirius.ui.test.integration
+package com.altran.general.integration.xtextsirius.test.integration
 
 import org.junit.Test
 
-class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
+class TestFowlerdslEventGuard extends ATestFowlerdslCombined {
 	@Test
 	def void emptyUnchanged() {
 		assertEdit(
-			model.events.last.guard,
 			model.events.last,
 			"",
 			null,
@@ -17,7 +16,6 @@ class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
 	@Test
 	def void emptyAdd() {
 		assertEdit(
-			model.events.last.guard,
 			model.events.last,
 			"",
 			"5",
@@ -30,7 +28,6 @@ class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
 	@Test
 	def void existingUnchanged() {
 		assertEdit(
-			model.events.get(1).guard,
 			model.events.get(1),
 			"2",
 			null,
@@ -43,7 +40,6 @@ class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
 	@Test
 	def void existingEmpty() {
 		assertEdit(
-			model.events.get(1).guard,
 			model.events.get(1),
 			"2",
 			"",
@@ -54,7 +50,6 @@ class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
 	@Test
 	def void existingChange() {
 		assertEdit(
-			model.events.get(1).guard,
 			model.events.get(1),
 			"2",
 			"5",
@@ -67,7 +62,6 @@ class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
 	@Test
 	def void emptyAddRef() {
 		assertEdit(
-			model.events.last.guard,
 			model.events.last,
 			"",
 			"c2",
@@ -80,7 +74,6 @@ class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
 	@Test
 	def void refUnchanged() {
 		assertEdit(
-			model.events.get(2).guard,
 			model.events.get(2),
 			"c1",
 			null,
@@ -93,7 +86,6 @@ class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
 	@Test
 	def void refEmpty() {
 		assertEdit(
-			model.events.get(2).guard,
 			model.events.get(2),
 			"c1",
 			"",
@@ -104,7 +96,6 @@ class TestFowlerdslEventGuardSelf extends ATestFowlerdslCombined {
 	@Test
 	def void refChange() {
 		assertEdit(
-			model.events.get(2).guard,
 			model.events.get(2),
 			"c1",
 			"c2",
