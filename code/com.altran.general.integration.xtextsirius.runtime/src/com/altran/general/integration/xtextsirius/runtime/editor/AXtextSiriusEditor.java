@@ -33,14 +33,14 @@ import com.google.inject.Injector;
  */
 public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	private final MinimalModelAdjuster minModelAdjuster = new MinimalModelAdjuster();
-
+	
 	private final IXtextSiriusDescriptor descriptor;
 	private C callback;
 	
 	private @NonNull IEditingDecider editingDecider = new NullNoOpBlankDeletionEditingDecider();
 	
 	private @Nullable ModelEntryPoint modelEntryPoint;
-
+	
 	public AXtextSiriusEditor(final @NonNull IXtextSiriusDescriptor descriptor) {
 		this.descriptor = descriptor;
 	}
@@ -48,8 +48,8 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	public abstract void initValue(final @Nullable Object initialValue);
 	
 	public abstract Object commit(final @NonNull EObject target) throws AXtextSiriusIssueException;
-
-	protected abstract @Nullable Object getValueToCommit() throws AXtextSiriusIssueException;
+	
+	protected abstract @Nullable Object retrieveValueToCommit() throws AXtextSiriusIssueException;
 	
 	public void setCallback(final C callback) {
 		this.callback = callback;
@@ -62,7 +62,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	public void setEditingDecider(final @NonNull IEditingDecider editingDecider) {
 		this.editingDecider = editingDecider;
 	}
-
+	
 	public ModelEntryPoint getModelEntryPoint() {
 		return this.modelEntryPoint;
 	}
@@ -90,10 +90,12 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	protected void assertState() {
 		Assert.isNotNull(getDescriptor(), "Descriptor is null");
 		Assert.isNotNull(getInjector(), "Injector is null");
+		Assert.isNotNull(getModelEntryPoint(), "ModelEntryPoint is null");
 		Assert.isNotNull(getCallback(), "Callback is null");
 		Assert.isNotNull(getFallbackContainer(), "FallbackContainer is null");
+		Assert.isNotNull(getEditingDecider(), "EditingDecider is null");
 	}
-
+	
 	protected void updateCallbackInitText(final @Nullable String value, final int offset, final int length) {
 		getCallback().callbackInitText(value, offset, length);
 	}
@@ -123,7 +125,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		
 		return null;
 	}
-
+	
 	@Deprecated
 	protected @NonNull EStructuralFeature enforceValueFeature(final @NonNull EObject fallback,
 			final @Nullable String featureName) {
@@ -131,15 +133,15 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		if (converted != null) {
 			return converted;
 		}
-
+		
 		final EStructuralFeature fallbackFeature = convertValueFeature(fallback, featureName);
 		if (fallbackFeature != null) {
 			return fallbackFeature;
 		}
-
+		
 		throw new IllegalArgumentException("Cannot find valueFeature " + featureName + " for " + fallback);
 	}
-
+	
 	@Deprecated
 	protected @NonNull EObject adjustTarget(final @NonNull EObject target, final @Nullable String valueFeatureName) {
 		if (StringUtils.isBlank(valueFeatureName) || target.eClass().getEStructuralFeature(valueFeatureName) == null) {
@@ -173,7 +175,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	protected @Nullable String initializeText(final @Nullable Object initialValue, final @Nullable String textValue) {
 		return getEditingDecider().initializeText(initialValue, textValue, this);
 	}
-
+	
 	protected boolean isNoOp(final @Nullable String editedText) {
 		return getEditingDecider().isNoOp(editedText, this);
 	}
