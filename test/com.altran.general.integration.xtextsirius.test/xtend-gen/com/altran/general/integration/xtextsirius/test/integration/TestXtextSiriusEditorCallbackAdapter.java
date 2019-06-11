@@ -1,10 +1,17 @@
+/**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package com.altran.general.integration.xtextsirius.test.integration;
 
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusValueEditorCallback;
-import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
-import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.google.inject.Injector;
 import java.util.Collections;
@@ -13,16 +20,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.nodemodel.INode;
-import org.eclipse.xtext.nodemodel.SyntaxErrorMessage;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.StringInputStream;
+import org.eclipse.xtext.util.TextRegion;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import org.junit.Assert;
 
@@ -89,17 +93,8 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   }
   
   @Override
-  public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
-    final Function1<INode, SyntaxErrorMessage> _function = (INode it) -> {
-      return it.getSyntaxErrorMessage();
-    };
-    Iterable<SyntaxErrorMessage> _map = IterableExtensions.<INode, SyntaxErrorMessage>map(parseResult.getSyntaxErrors(), _function);
-    throw new AssertionError(_map);
-  }
-  
-  @Override
-  public XtextSiriusErrorException handleUnresolvableProxies() {
-    throw new AssertionError("Found unresolvable proxies");
+  public TextRegion callbackGetVisibleRegion() {
+    return new TextRegion(0, 0);
   }
   
   @Pure

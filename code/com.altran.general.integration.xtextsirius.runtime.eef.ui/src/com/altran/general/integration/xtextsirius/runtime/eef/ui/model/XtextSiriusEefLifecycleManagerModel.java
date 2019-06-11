@@ -19,7 +19,6 @@ import org.eclipse.jface.text.IRegion;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.statushandlers.StatusManager;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.TextRegion;
@@ -31,10 +30,6 @@ import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusMod
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusWidget;
-import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
-import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
-import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
-import com.google.common.collect.Lists;
 
 public class XtextSiriusEefLifecycleManagerModel
 extends AXtextSiriusEefLifecycleManager<IXtextSiriusModelEditorCallback, XtextSiriusModelEditor>
@@ -61,17 +56,10 @@ implements IXtextSiriusModelEditorCallback {
 	}
 
 	@Override
-	public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
+	public @NonNull TextRegion callbackGetVisibleRegion() {
 		final IRegion visibleRegionJFace = getWidget().getViewer().getVisibleRegion();
 		final TextRegion visibleRegion = new TextRegion(visibleRegionJFace.getOffset(), visibleRegionJFace.getLength());
-		return handleXtextSiriusIssueException(new XtextSiriusSyntaxErrorException((String) callbackGetText(), visibleRegion,
-				Lists.newArrayList(parseResult.getSyntaxErrors())));
-	}
-	
-	@Override
-	public XtextSiriusErrorException handleUnresolvableProxies() {
-		return handleXtextSiriusIssueException(
-				new XtextSiriusErrorException("Entered text contains unresolvable references", (String) callbackGetText()));
+		return visibleRegion;
 	}
 
 	@Override
@@ -105,10 +93,5 @@ implements IXtextSiriusModelEditorCallback {
 	@Override
 	protected XtextSiriusWidget createXtextSiriusWidget(final Composite parent) {
 		return new XtextSiriusWidgetModel(parent, getInjector());
-	}
-	
-	protected <E extends AXtextSiriusIssueException> E handleXtextSiriusIssueException(final E exception) {
-		StatusManager.getManager().handle(exception.toStatus(), StatusManager.SHOW);
-		return exception;
 	}
 }

@@ -9,6 +9,8 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
+import java.util.ArrayList;
+
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.ecore.EObject;
@@ -16,13 +18,14 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
-import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FallbackModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.ElementModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FallbackModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FeatureFallbackModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.FeatureNullModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.IModelAdjuster;
@@ -35,6 +38,7 @@ import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticEl
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
+import com.google.common.collect.Lists;
 
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
 	private IModelAdjuster modelAdjuster;
@@ -130,8 +134,10 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 
 		final IParseResult parseResult = getCallback().getXtextParseResult();
 		if (parseResult.hasSyntaxErrors()) {
-			final XtextSiriusSyntaxErrorException ex = getCallback().handleSyntaxErrors(parseResult);
-			throw ex;
+			final ArrayList<INode> syntaxErrors = Lists.newArrayList(parseResult.getSyntaxErrors());
+			final String text = getCallback().callbackGetText();
+			final TextRegion visibleRegion = getCallback().callbackGetVisibleRegion();
+			throw new XtextSiriusSyntaxErrorException(text, visibleRegion, syntaxErrors);
 		}
 
 		final Object result = location.resolve(parseResult.getRootASTElement().eResource());
@@ -142,8 +148,8 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		if (result instanceof EObject) {
 			final EObject element = (EObject) result;
 			if (containsUnresolvableProxies(element)) {
-				final XtextSiriusErrorException ex = getCallback().handleUnresolvableProxies();
-				throw ex;
+				throw new XtextSiriusErrorException("Entered text contains unresolvable references",
+						getCallback().callbackGetText());
 			}
 
 			final EObject origElement = getModelAdjuster().getClosestElement(getModelEntryPoint());
@@ -154,16 +160,6 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		}
 
 		return result;
-	}
-
-	/** Must not be called before the merging is complete */
-	public void removeAllIgnoredFeatureAdapters() {
-		if (getSemanticElement() == null) {
-			return;
-		}
-		final EObject rootContainer = EcoreUtil.getRootContainer(getSemanticElement());
-		rootContainer.eAllContents()
-				.forEachRemaining(eObject -> eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance));
 	}
 
 	public @Nullable TextRegion getSelectedRegion() {
@@ -181,6 +177,16 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 	
 	private boolean isValueFeatureDefined() {
 		return getModelEntryPoint().hasValueFeature();
+	}
+
+	private void removeAllIgnoredFeatureAdapters() {
+		if (getSemanticElement() == null) {
+			return;
+		}
+		final EObject rootContainer = EcoreUtil
+				.getRootContainer(getModelAdjuster().getClosestElement(getModelEntryPoint()));
+		rootContainer.eAllContents()
+				.forEachRemaining(eObject -> eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance));
 	}
 
 	private void initModelAdjuster() {

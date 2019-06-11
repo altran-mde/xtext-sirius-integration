@@ -31,6 +31,7 @@ import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.ui.statushandlers.StatusManager;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription;
@@ -38,6 +39,7 @@ import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriu
 import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.internal.XtextSiriusRuntimeEefUiPlugin;
+import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 
@@ -204,15 +206,19 @@ implements IXtextSiriusEditorCallback {
 	
 	protected void commit() {
 		final IStatus status = getContextAdapter().performModelChange(() -> {
-			final String editExpression = getWidgetDescription().getEditExpression();
-			final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
-			
-			final Map<String, Object> variables = Maps.newLinkedHashMap();
-			variables.putAll(getVariableManager().getVariables());
-			final Object newValue = getEditor().commit(getSelf());
-			variables.put(EEFExpressionUtils.EEFText.NEW_VALUE, newValue);
-			
-			EvalFactory.of(getInterpreter(), variables).logIfBlank(eAttribute).call(editExpression);
+			try {
+				final String editExpression = getWidgetDescription().getEditExpression();
+				final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
+				
+				final Map<String, Object> variables = Maps.newLinkedHashMap();
+				variables.putAll(getVariableManager().getVariables());
+				final Object newValue = getEditor().commit(getSelf());
+				variables.put(EEFExpressionUtils.EEFText.NEW_VALUE, newValue);
+				
+				EvalFactory.of(getInterpreter(), variables).logIfBlank(eAttribute).call(editExpression);
+			} catch (final AXtextSiriusIssueException e) {
+				StatusManager.getManager().handle(e.toStatus(), StatusManager.SHOW);
+			}
 		});
 
 		if (!status.isOK()) {
