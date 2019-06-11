@@ -64,7 +64,7 @@ abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
 	
 	protected def void assertEdit(Object elementToEdit, EObject fallbackContainer, String valueFeatureName, String expectedText, String newText, Object expectedResultElement) {
 		val descriptor = createDescriptor()
-		val editor = new TestXtextSiriusModelEditor(descriptor)
+		val editor = new TestXtextSiriusModelEditorAdapter(descriptor)
 		
 		var callback = new AssertingXtextSiriusEditorCallback(injector, model, newText, expectedText)
 		editor.callback = callback

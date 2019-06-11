@@ -15,7 +15,7 @@ import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSirius
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdsl;
 import com.altran.general.integration.xtextsirius.test.integration.AssertingXtextSiriusEditorCallback;
-import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusModelEditor;
+import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusModelEditorAdapter;
 import com.google.inject.Injector;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
@@ -101,7 +101,7 @@ public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
   
   protected void assertEdit(final Object elementToEdit, final EObject fallbackContainer, final String valueFeatureName, final String expectedText, final String newText, final Object expectedResultElement) {
     final XtextSiriusModelDescriptor descriptor = this.createDescriptor();
-    final TestXtextSiriusModelEditor editor = new TestXtextSiriusModelEditor(descriptor);
+    final TestXtextSiriusModelEditorAdapter editor = new TestXtextSiriusModelEditorAdapter(descriptor);
     Injector _injector = this.getInjector();
     AssertingXtextSiriusEditorCallback callback = new AssertingXtextSiriusEditorCallback(_injector, this.model, newText, expectedText);
     editor.setCallback(callback);

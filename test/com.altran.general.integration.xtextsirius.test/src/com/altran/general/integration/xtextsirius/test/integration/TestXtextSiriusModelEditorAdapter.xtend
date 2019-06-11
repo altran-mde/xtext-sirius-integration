@@ -14,18 +14,19 @@ import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriu
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster
 
-class TestXtextSiriusModelEditor extends XtextSiriusModelEditor {
+class TestXtextSiriusModelEditorAdapter extends XtextSiriusModelEditor {
 	
 	new(IXtextSiriusModelDescriptor descriptor) {
 		super(descriptor)
 	}
 	
 	override setModelEntryPoint(ModelEntryPoint modelEntryPoint) {
-		if (this.callback !== null) {
-			(this.callback as TestXtextSiriusEditorCallbackAdapter).testSemanticElement = new MinimalModelAdjuster().getClosestElement(modelEntryPoint)
+		val callback = this.callback
+		if (callback instanceof TestXtextSiriusEditorCallbackAdapter) {
+			callback.testSemanticElement = new MinimalModelAdjuster().getClosestElement(modelEntryPoint)
 		}
 
-		super.modelEntryPoint = modelEntryPoint
+		super.setModelEntryPoint(modelEntryPoint)
 	}
 }
 
