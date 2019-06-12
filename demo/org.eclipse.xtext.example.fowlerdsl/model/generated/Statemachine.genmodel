@@ -8,6 +8,7 @@
   <genPackages prefix="Statemachine" basePackage="org.eclipse.xtext.example.fowlerdsl"
       disposableProviderFactory="true" fileExtensions="statemachine" ecorePackage="Statemachine.ecore#/">
     <genClasses ecoreClass="Statemachine.ecore#//Statemachine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Statemachine.ecore#//Statemachine/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Statemachine.ecore#//Statemachine/events"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Statemachine.ecore#//Statemachine/resetEvents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Statemachine.ecore#//Statemachine/commands"/>

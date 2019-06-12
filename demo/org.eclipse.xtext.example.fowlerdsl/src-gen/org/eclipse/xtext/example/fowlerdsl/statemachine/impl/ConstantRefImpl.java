@@ -169,13 +169,4 @@ public class ConstantRefImpl extends ValueImpl implements ConstantRef
     return super.eIsSet(featureID);
   }
 
-	@Override
-	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
-		
-		return this.constant != null ? this.constant.toString() : "?";
-	}
-	
 } //ConstantRefImpl

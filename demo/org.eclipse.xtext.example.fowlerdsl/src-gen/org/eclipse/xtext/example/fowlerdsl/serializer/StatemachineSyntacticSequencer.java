@@ -22,19 +22,19 @@ public class StatemachineSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected StatemachineGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_State_ThingsKeyword_5_0_q;
-	protected AbstractElementAlias match_Statemachine___CommandsKeyword_3_0_EndKeyword_3_2__q;
-	protected AbstractElementAlias match_Statemachine___ConstantsKeyword_4_0_EndKeyword_4_2__q;
-	protected AbstractElementAlias match_Statemachine___EventsKeyword_1_0_EndKeyword_1_2__q;
-	protected AbstractElementAlias match_Statemachine___ResetEventsKeyword_2_0_EndKeyword_2_2__q;
+	protected AbstractElementAlias match_Statemachine___CommandsKeyword_4_0_EndKeyword_4_2__q;
+	protected AbstractElementAlias match_Statemachine___ConstantsKeyword_5_0_EndKeyword_5_2__q;
+	protected AbstractElementAlias match_Statemachine___EventsKeyword_2_0_EndKeyword_2_2__q;
+	protected AbstractElementAlias match_Statemachine___ResetEventsKeyword_3_0_EndKeyword_3_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (StatemachineGrammarAccess) access;
 		match_State_ThingsKeyword_5_0_q = new TokenAlias(false, true, grammarAccess.getStateAccess().getThingsKeyword_5_0());
-		match_Statemachine___CommandsKeyword_3_0_EndKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getCommandsKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEndKeyword_3_2()));
-		match_Statemachine___ConstantsKeyword_4_0_EndKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getConstantsKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEndKeyword_4_2()));
-		match_Statemachine___EventsKeyword_1_0_EndKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEventsKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEndKeyword_1_2()));
-		match_Statemachine___ResetEventsKeyword_2_0_EndKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getResetEventsKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEndKeyword_2_2()));
+		match_Statemachine___CommandsKeyword_4_0_EndKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getCommandsKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEndKeyword_4_2()));
+		match_Statemachine___ConstantsKeyword_5_0_EndKeyword_5_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getConstantsKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEndKeyword_5_2()));
+		match_Statemachine___EventsKeyword_2_0_EndKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEventsKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEndKeyword_2_2()));
+		match_Statemachine___ResetEventsKeyword_3_0_EndKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getResetEventsKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getStatemachineAccess().getEndKeyword_3_2()));
 	}
 	
 	@Override
@@ -51,14 +51,14 @@ public class StatemachineSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_State_ThingsKeyword_5_0_q.equals(syntax))
 				emit_State_ThingsKeyword_5_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Statemachine___CommandsKeyword_3_0_EndKeyword_3_2__q.equals(syntax))
-				emit_Statemachine___CommandsKeyword_3_0_EndKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Statemachine___ConstantsKeyword_4_0_EndKeyword_4_2__q.equals(syntax))
-				emit_Statemachine___ConstantsKeyword_4_0_EndKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Statemachine___EventsKeyword_1_0_EndKeyword_1_2__q.equals(syntax))
-				emit_Statemachine___EventsKeyword_1_0_EndKeyword_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Statemachine___ResetEventsKeyword_2_0_EndKeyword_2_2__q.equals(syntax))
-				emit_Statemachine___ResetEventsKeyword_2_0_EndKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Statemachine___CommandsKeyword_4_0_EndKeyword_4_2__q.equals(syntax))
+				emit_Statemachine___CommandsKeyword_4_0_EndKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Statemachine___ConstantsKeyword_5_0_EndKeyword_5_2__q.equals(syntax))
+				emit_Statemachine___ConstantsKeyword_5_0_EndKeyword_5_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Statemachine___EventsKeyword_2_0_EndKeyword_2_2__q.equals(syntax))
+				emit_Statemachine___EventsKeyword_2_0_EndKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Statemachine___ResetEventsKeyword_3_0_EndKeyword_3_2__q.equals(syntax))
+				emit_Statemachine___ResetEventsKeyword_3_0_EndKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -88,11 +88,14 @@ public class StatemachineSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     events+=Event 'end' ('resetEvents' 'end')? (ambiguity) 'constants' constants+=Constant
 	 *     events+=Event 'end' ('resetEvents' 'end')? (ambiguity) ('constants' 'end')? (rule end)
 	 *     events+=Event 'end' ('resetEvents' 'end')? (ambiguity) ('constants' 'end')? states+=State
+	 *     name=ID ('events' 'end')? ('resetEvents' 'end')? (ambiguity) 'constants' constants+=Constant
+	 *     name=ID ('events' 'end')? ('resetEvents' 'end')? (ambiguity) ('constants' 'end')? (rule end)
+	 *     name=ID ('events' 'end')? ('resetEvents' 'end')? (ambiguity) ('constants' 'end')? states+=State
 	 *     resetEvents+=[Event|ID] 'end' (ambiguity) 'constants' constants+=Constant
 	 *     resetEvents+=[Event|ID] 'end' (ambiguity) ('constants' 'end')? (rule end)
 	 *     resetEvents+=[Event|ID] 'end' (ambiguity) ('constants' 'end')? states+=State
 	 */
-	protected void emit_Statemachine___CommandsKeyword_3_0_EndKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Statemachine___CommandsKeyword_4_0_EndKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -107,10 +110,12 @@ public class StatemachineSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     commands+=Command 'end' (ambiguity) states+=State
 	 *     events+=Event 'end' ('resetEvents' 'end')? ('commands' 'end')? (ambiguity) (rule end)
 	 *     events+=Event 'end' ('resetEvents' 'end')? ('commands' 'end')? (ambiguity) states+=State
+	 *     name=ID ('events' 'end')? ('resetEvents' 'end')? ('commands' 'end')? (ambiguity) (rule end)
+	 *     name=ID ('events' 'end')? ('resetEvents' 'end')? ('commands' 'end')? (ambiguity) states+=State
 	 *     resetEvents+=[Event|ID] 'end' ('commands' 'end')? (ambiguity) (rule end)
 	 *     resetEvents+=[Event|ID] 'end' ('commands' 'end')? (ambiguity) states+=State
 	 */
-	protected void emit_Statemachine___ConstantsKeyword_4_0_EndKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Statemachine___ConstantsKeyword_5_0_EndKeyword_5_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -124,8 +129,13 @@ public class StatemachineSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) ('resetEvents' 'end')? ('commands' 'end')? 'constants' constants+=Constant
 	 *     (rule start) (ambiguity) ('resetEvents' 'end')? ('commands' 'end')? ('constants' 'end')? (rule start)
 	 *     (rule start) (ambiguity) ('resetEvents' 'end')? ('commands' 'end')? ('constants' 'end')? states+=State
+	 *     name=ID (ambiguity) 'resetEvents' resetEvents+=[Event|ID]
+	 *     name=ID (ambiguity) ('resetEvents' 'end')? 'commands' commands+=Command
+	 *     name=ID (ambiguity) ('resetEvents' 'end')? ('commands' 'end')? 'constants' constants+=Constant
+	 *     name=ID (ambiguity) ('resetEvents' 'end')? ('commands' 'end')? ('constants' 'end')? (rule end)
+	 *     name=ID (ambiguity) ('resetEvents' 'end')? ('commands' 'end')? ('constants' 'end')? states+=State
 	 */
-	protected void emit_Statemachine___EventsKeyword_1_0_EndKeyword_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Statemachine___EventsKeyword_2_0_EndKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -142,8 +152,12 @@ public class StatemachineSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     events+=Event 'end' (ambiguity) ('commands' 'end')? 'constants' constants+=Constant
 	 *     events+=Event 'end' (ambiguity) ('commands' 'end')? ('constants' 'end')? (rule end)
 	 *     events+=Event 'end' (ambiguity) ('commands' 'end')? ('constants' 'end')? states+=State
+	 *     name=ID ('events' 'end')? (ambiguity) 'commands' commands+=Command
+	 *     name=ID ('events' 'end')? (ambiguity) ('commands' 'end')? 'constants' constants+=Constant
+	 *     name=ID ('events' 'end')? (ambiguity) ('commands' 'end')? ('constants' 'end')? (rule end)
+	 *     name=ID ('events' 'end')? (ambiguity) ('commands' 'end')? ('constants' 'end')? states+=State
 	 */
-	protected void emit_Statemachine___ResetEventsKeyword_2_0_EndKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Statemachine___ResetEventsKeyword_3_0_EndKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
