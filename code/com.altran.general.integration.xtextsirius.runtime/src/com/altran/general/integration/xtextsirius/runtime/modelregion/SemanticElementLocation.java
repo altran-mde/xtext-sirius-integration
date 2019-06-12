@@ -36,25 +36,25 @@ import org.eclipse.jdt.annotation.Nullable;
  *
  */
 public class SemanticElementLocation {
-
+	
 	@Nullable
 	private String parentUriFragment;
 	@Nullable
 	private EStructuralFeature containingFeature;
 	@Nullable
 	private Integer index;
-
+	
 	public SemanticElementLocation(final @NonNull EObject semanticElement) {
 		storeLocation(semanticElement);
 	}
-
+	
 	public SemanticElementLocation(
 			final @NonNull String parentUriFragment,
 			final @NonNull EStructuralFeature containingFeature) {
 		this.parentUriFragment = parentUriFragment;
 		this.containingFeature = containingFeature;
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	private void storeLocation(final @NonNull EObject semanticElement) {
 		final Resource resource = semanticElement.eResource();
@@ -72,7 +72,7 @@ public class SemanticElementLocation {
 			this.containingFeature = null;
 		}
 	}
-
+	
 	public Object resolve(final @NonNull Resource resource) {
 		final EStructuralFeature feature = this.containingFeature;
 		if (feature != null && this.parentUriFragment != null) {
@@ -84,6 +84,8 @@ public class SemanticElementLocation {
 				return containingElement;
 			}
 		}
-		throw new IllegalStateException("cannot resolve EObject without container");
+
+		// it must be the root element
+		return resource.getContents().get(0);
 	}
 }
