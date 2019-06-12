@@ -42,8 +42,6 @@ import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.google.common.collect.Lists;
 
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
-	private IModelAdjuster modelAdjuster;
-	
 	private @Nullable SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;
 	
@@ -202,10 +200,6 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		return !EcoreUtil.UnresolvedProxyCrossReferencer.find(eObject).isEmpty();
 	}
 	
-	private boolean isValueFeatureDefined() {
-		return getModelEntryPoint().hasValueFeature();
-	}
-	
 	private void removeAllIgnoredFeatureAdapters() {
 		if (getSemanticElement() == null) {
 			return;
@@ -221,15 +215,8 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				overlayer.getTextRegion().getLength());
 	}
 	
-	private void initModelAdjuster() {
-		if (this.modelAdjuster != null) {
-			return;
-		}
-		
-		this.modelAdjuster = determineModelAdjuster();
-	}
-	
-	private @NonNull IModelAdjuster determineModelAdjuster() {
+	@Override
+	protected @NonNull IModelAdjuster determineModelAdjuster() {
 		final EObject semanticElement = getSemanticElement();
 		final EObject fallbackContainer = getFallbackContainer();
 		
@@ -254,11 +241,6 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		} else {
 			return new FallbackModelAdjuster();
 		}
-	}
-	
-	private @NonNull IModelAdjuster getModelAdjuster() {
-		initModelAdjuster();
-		return this.modelAdjuster;
 	}
 	
 	private @Nullable SemanticElementLocation getSemanticElementLocation() {

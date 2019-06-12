@@ -16,6 +16,9 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusValueDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.ElementFeatureModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.IModelAdjuster;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
 
@@ -54,9 +57,9 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 	public Object commit(final @NonNull EObject target) {
 		assertState();
 		
-		final EStructuralFeature valueFeature = this.minModelAdjuster.getStructuralFeature(getModelEntryPoint());
+		final EStructuralFeature valueFeature = getModelAdjuster().getStructuralFeature(getModelEntryPoint());
 		final ModelEntryPoint targetMep = new ModelEntryPoint(target, getValueFeatureName());
-		final EObject adjustedTarget = this.minModelAdjuster.getClosestElement(targetMep);
+		final EObject adjustedTarget = getModelAdjuster().getClosestElement(targetMep);
 		
 		final String editedText = getCallback().callbackGetText();
 		
@@ -78,5 +81,18 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 	@Override
 	public IXtextSiriusValueDescriptor getDescriptor() {
 		return (IXtextSiriusValueDescriptor) super.getDescriptor();
+	}
+	
+	@Override
+	protected @NonNull IModelAdjuster determineModelAdjuster() {
+		if (!isValueFeatureDefined()) {
+			throw new IllegalStateException("valueFeature required");
+		}
+		
+		if (getSemanticElement() == null) {
+			return new MinimalModelAdjuster();
+		} else {
+			return new ElementFeatureModelAdjuster();
+		}
 	}
 }

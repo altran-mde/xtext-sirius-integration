@@ -1,3 +1,12 @@
+/**
+ * Copyright (C) 2019 Altran Netherlands B.V.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package com.altran.general.integration.xtextsirius.test.editor.value;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
@@ -207,12 +216,16 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
         Assert.assertEquals(_builder.toString(), expectedText, text);
       }
     });
-    String _featureName = this.getFeatureName();
-    final ModelEntryPoint mep = new ModelEntryPoint(null, container, _featureName);
+    final ModelEntryPoint mep = this.createModelEntryPoint(container);
     editor.setModelEntryPoint(mep);
     editor.initValue(initialValue);
     final Object result = editor.commit(container);
     Assert.assertEquals(expectedResult, result);
+  }
+  
+  protected ModelEntryPoint createModelEntryPoint(final EObject container) {
+    String _featureName = this.getFeatureName();
+    return new ModelEntryPoint(null, container, _featureName);
   }
   
   @Override

@@ -1,3 +1,12 @@
+/**
+ * Copyright (C) 2019 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package com.altran.general.integration.xtextsirius.test.editor.value
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
@@ -217,7 +226,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 			}
 		}
 
-		val mep = new ModelEntryPoint(null, container, featureName)
+		val mep = createModelEntryPoint(container)
 		editor.modelEntryPoint = mep
 
 		editor.initValue(initialValue)
@@ -225,6 +234,10 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 		val result = editor.commit(container)
 
 		assertEquals(expectedResult, result)
+	}
+	
+	protected def ModelEntryPoint createModelEntryPoint(EObject container) {
+		new ModelEntryPoint(null, container, featureName)
 	}
 
 	override protected getFeatureName() {

@@ -18,6 +18,7 @@ import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.decider.IEditingDecider;
 import com.altran.general.integration.xtextsirius.runtime.editor.decider.NullNoOpBlankDeletionEditingDecider;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.IModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
@@ -34,6 +35,8 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	protected final MinimalModelAdjuster minModelAdjuster = new MinimalModelAdjuster();
 	
 	private C callback;
+	
+	private IModelAdjuster modelAdjuster;
 	
 	private @NonNull IEditingDecider editingDecider = new NullNoOpBlankDeletionEditingDecider();
 	
@@ -85,6 +88,10 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		return getModelEntryPoint().getValueFeatureName();
 	}
 	
+	protected boolean isValueFeatureDefined() {
+		return getModelEntryPoint().hasValueFeature();
+	}
+	
 	protected void assertState() {
 		Assert.isNotNull(getDescriptor(), "Descriptor is null");
 		Assert.isNotNull(getInjector(), "Injector is null");
@@ -99,9 +106,12 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	}
 	
 	protected @NonNull String interpret(final @NonNull String expression) {
-		final EObject self = getSemanticElement();
+		final EObject self = getModelAdjuster().getSemanticElement(getModelEntryPoint());
 		if (self != null) {
-			return EvaluateHelper.getInstance().evaluateString(expression, self);
+			final String result = EvaluateHelper.getInstance().evaluateString(expression, self);
+			if (result != null) {
+				return result;
+			}
 		}
 		
 		return "";
@@ -130,4 +140,19 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	protected boolean isDeletion(final @Nullable String editedText) {
 		return getEditingDecider().isDeletion(editedText, this);
 	}
+	
+	protected @NonNull IModelAdjuster getModelAdjuster() {
+		initModelAdjuster();
+		return this.modelAdjuster;
+	}
+	
+	protected void initModelAdjuster() {
+		if (this.modelAdjuster != null) {
+			return;
+		}
+		
+		this.modelAdjuster = determineModelAdjuster();
+	}
+	
+	protected abstract @NonNull IModelAdjuster determineModelAdjuster();
 }
