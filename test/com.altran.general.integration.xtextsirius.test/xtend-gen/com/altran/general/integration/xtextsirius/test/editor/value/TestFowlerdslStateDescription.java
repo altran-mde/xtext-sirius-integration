@@ -41,13 +41,13 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   }
   
   @Test
-  public void initEdit() {
+  public void existingInitEdit() {
     this.assertEdit(
       IterableExtensions.<State>head(this.model.getStates()), 
       "<p>T", 
       "<p>T", 
-      "<p>This is a <b>desch</b>kriptschion</p>\n", 
-      "<p>This is a <b>desch</b>kriptschion</p>\n");
+      "<p>T", 
+      "<p>T");
   }
   
   @Test
@@ -66,6 +66,126 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
       IterableExtensions.<State>head(this.model.getStates()), 
       null, 
       "<p>This is a deschkriptschion</p>\n", 
+      "", 
+      null);
+  }
+  
+  @Test
+  public void nullEdit() {
+    this.assertEdit(
+      this.model.getStates().get(1), 
+      null, 
+      "", 
+      "<p>This is a <b>desch</b>kriptschion</p>\n", 
+      "<p>This is a <b>desch</b>kriptschion</p>\n");
+  }
+  
+  @Test
+  public void nullInitEdit() {
+    this.assertEdit(
+      this.model.getStates().get(1), 
+      "<p>T", 
+      "<p>T", 
+      "<p>T", 
+      "<p>T");
+  }
+  
+  @Test
+  public void nullNoOp() {
+    this.assertEdit(
+      this.model.getStates().get(1), 
+      null, 
+      "", 
+      null, 
+      null);
+  }
+  
+  @Test
+  public void nullDelete() {
+    this.assertEdit(
+      this.model.getStates().get(1), 
+      null, 
+      "", 
+      "", 
+      null);
+  }
+  
+  @Test
+  public void emptyEdit() {
+    this.assertEdit(
+      this.model.getStates().get(2), 
+      null, 
+      "", 
+      "<p>This is a <b>desch</b>kriptschion</p>\n", 
+      "<p>This is a <b>desch</b>kriptschion</p>\n");
+  }
+  
+  @Test
+  public void emptyInitEdit() {
+    this.assertEdit(
+      this.model.getStates().get(2), 
+      "<p>T", 
+      "<p>T", 
+      "<p>T", 
+      "<p>T");
+  }
+  
+  @Test
+  public void emptyNoOp() {
+    this.assertEdit(
+      this.model.getStates().get(2), 
+      null, 
+      "", 
+      null, 
+      "");
+  }
+  
+  @Test
+  public void emptyDelete() {
+    this.assertEdit(
+      this.model.getStates().get(2), 
+      null, 
+      "", 
+      "", 
+      null);
+  }
+  
+  @Test
+  public void blankEdit() {
+    this.assertEdit(
+      IterableExtensions.<State>last(this.model.getStates()), 
+      null, 
+      "  ", 
+      "<p>This is a <b>desch</b>kriptschion</p>\n", 
+      "<p>This is a <b>desch</b>kriptschion</p>\n");
+  }
+  
+  @Test
+  public void blankInitEdit() {
+    this.assertEdit(
+      IterableExtensions.<State>last(this.model.getStates()), 
+      "<p>T", 
+      "<p>T", 
+      "<p>T", 
+      "<p>T");
+  }
+  
+  @Test
+  public void blankNoOp() {
+    this.assertEdit(
+      IterableExtensions.<State>last(this.model.getStates()), 
+      null, 
+      "  ", 
+      null, 
+      "  ");
+  }
+  
+  @Test
+  public void blankDelete() {
+    this.assertEdit(
+      IterableExtensions.<State>last(this.model.getStates()), 
+      null, 
+      "  ", 
       "", 
       null);
   }

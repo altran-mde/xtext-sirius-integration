@@ -37,13 +37,13 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 	}
 
 	@Test
-	def void initEdit() {
+	def void existingInitEdit() {
 		assertEdit(
 			model.states.head,
 			"<p>T",
 			"<p>T",
-			"<p>This is a <b>desch</b>kriptschion</p>\n",
-			"<p>This is a <b>desch</b>kriptschion</p>\n"
+			"<p>T",
+			"<p>T"
 		)
 	}
 
@@ -64,6 +64,138 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 			model.states.head,
 			null,
 			"<p>This is a deschkriptschion</p>\n",
+			"",
+			null
+		)
+	}
+
+	@Test
+	def void nullEdit() {
+		assertEdit(
+			model.states.get(1),
+			null,
+			"",
+			"<p>This is a <b>desch</b>kriptschion</p>\n",
+			"<p>This is a <b>desch</b>kriptschion</p>\n"
+		)
+	}
+
+	@Test
+	def void nullInitEdit() {
+		assertEdit(
+			model.states.get(1),
+			"<p>T",
+			"<p>T",
+			"<p>T",
+			"<p>T"
+		)
+	}
+
+	@Test
+	def void nullNoOp() {
+		assertEdit(
+			model.states.get(1),
+			null,
+			"",
+			null,
+			null
+		)
+	}
+
+	@Test
+	def void nullDelete() {
+		assertEdit(
+			model.states.get(1),
+			null,
+			"",
+			"",
+			null
+		)
+	}
+
+	@Test
+	def void emptyEdit() {
+		assertEdit(
+			model.states.get(2),
+			null,
+			"",
+			"<p>This is a <b>desch</b>kriptschion</p>\n",
+			"<p>This is a <b>desch</b>kriptschion</p>\n"
+		)
+	}
+
+	@Test
+	def void emptyInitEdit() {
+		assertEdit(
+			model.states.get(2),
+			"<p>T",
+			"<p>T",
+			"<p>T",
+			"<p>T"
+		)
+	}
+
+	@Test
+	def void emptyNoOp() {
+		assertEdit(
+			model.states.get(2),
+			null,
+			"",
+			null,
+			""
+		)
+	}
+
+	@Test
+	def void emptyDelete() {
+		assertEdit(
+			model.states.get(2),
+			null,
+			"",
+			"",
+			null
+		)
+	}
+
+	@Test
+	def void blankEdit() {
+		assertEdit(
+			model.states.last,
+			null,
+			"  ",
+			"<p>This is a <b>desch</b>kriptschion</p>\n",
+			"<p>This is a <b>desch</b>kriptschion</p>\n"
+		)
+	}
+
+	@Test
+	def void blankInitEdit() {
+		assertEdit(
+			model.states.last,
+			"<p>T",
+			"<p>T",
+			"<p>T",
+			"<p>T"
+		)
+	}
+
+	@Test
+	def void blankNoOp() {
+		assertEdit(
+			model.states.last,
+			null,
+			"  ",
+			null,
+			"  "
+		)
+	}
+
+	@Test
+	def void blankDelete() {
+		assertEdit(
+			model.states.last,
+			null,
+			"  ",
 			"",
 			null
 		)
