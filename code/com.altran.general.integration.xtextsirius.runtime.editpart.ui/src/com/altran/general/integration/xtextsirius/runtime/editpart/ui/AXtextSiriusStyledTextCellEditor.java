@@ -22,15 +22,18 @@ import org.eclipse.sirius.viewpoint.description.tool.InitialOperation;
 import org.eclipse.sirius.viewpoint.description.tool.ModelOperation;
 import org.eclipse.sirius.viewpoint.description.tool.SetValue;
 import org.eclipse.swt.SWT;
+import org.eclipse.ui.statushandlers.StatusManager;
 import org.eclipse.xtext.resource.XtextResource;
 import org.yakindu.base.xtext.utils.gmf.viewers.XtextStyledTextCellEditorEx;
 import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx
@@ -60,7 +63,12 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	}
 
 	public @Nullable Object commit(final @NonNull EObject representationTarget) {
-		return getEditor().commit(representationTarget);
+		try {
+			return getEditor().commit(representationTarget);
+		} catch (final AXtextSiriusIssueException e) {
+			StatusManager.getManager().handle(e.toStatus(), StatusManager.SHOW);
+			return null;
+		}
 	}
 
 	@Override
@@ -76,14 +84,9 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		getXtextAdapter().resetVisibleRegion();
 		setVisibleRegion(offset, length);
 		final ModelEntryPoint mep = getModelEntryPoint();
-		final EObject element = mep.getSemanticElement();
+		final EObject element = new MinimalModelAdjuster().getClosestElement(mep);
 		final XtextResource fakeResource = getXtextAdapter().getFakeResourceContext().getFakeResource();
-		if (element != null) {
-			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
-		} else {
-			final EObject fallback = mep.getFallbackContainer();
-			FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, fallback.eResource().getURI());
-		}
+		FakeResourceUtil.getInstance().updateFakeResourceUri(fakeResource, element.eResource().getURI());
 		
 		getXtextAdapter().getFakeResourceContext().updateFakeResourceContext(createXtextFakeContextResourcesProvider());
 
@@ -113,7 +116,6 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 
 	@Override
 	protected void doSetValue(final Object value) {
-		// getEditor().setValueFeatureName(getValueFeatureName());
 		getEditor().initValue(value);
 	}
 
@@ -172,14 +174,6 @@ implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 		return getEditor().getModelEntryPoint();
 	}
 	
-	// public @Nullable EObject getSemanticElement() {
-	// return getEditor().getSemanticElement();
-	// }
-	//
-	// protected EObject getFallbackContainer() {
-	// return getEditor().getFallbackContainer();
-	// }
-	//
 	protected void resetDirty() {
 		this.modificationStamp = retrieveModificationStamp();
 	}

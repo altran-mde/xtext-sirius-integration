@@ -28,7 +28,7 @@ class TestCanBeHandledByGetRegionForFeature extends AModelRegionEditorPreparer {
 			throw new UnsupportedOperationException("TODO: auto-generated method stub")
 		}
 		
-		override public assertNoContainment(EStructuralFeature feat) {
+		override assertNoContainment(EStructuralFeature feat) {
 			super.assertNoContainment(feat)
 		}
 		

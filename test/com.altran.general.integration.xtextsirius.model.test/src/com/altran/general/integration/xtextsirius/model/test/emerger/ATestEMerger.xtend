@@ -30,11 +30,11 @@ abstract class ATestEMerger<T extends IElement<?>> {
 		new EMerger(createDescriptor, existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
-	public def createDescriptor() {
+	def createDescriptor() {
 		createDescriptor(emptySet, emptySet)
 	}
 	
-	public def createDescriptor(Set<String> editableFeaturesSet, Set<String> ignoredNestedFeaturesSet) {
+	def createDescriptor(Set<String> editableFeaturesSet, Set<String> ignoredNestedFeaturesSet) {
 		new IXtextSiriusModelDescriptor() {
 			
 			override getEditableFeatures() {
@@ -67,7 +67,7 @@ abstract class ATestEMerger<T extends IElement<?>> {
 		}
 	}
 
-	public def T newElement(int id, String attrValue) {
+	def T newElement(int id, String attrValue) {
 		createRootElement => [
 			changeableAttr = attrValue
 		]

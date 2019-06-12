@@ -11,7 +11,21 @@ Require-Bundle: org.eclipse.ui,
  com.altran.general.integration.xtextsirius.runtime,
  org.eclipse.xtext.example.fowlerdsl.inlineedit,
  org.eclipse.xtext.example.fowlerdsl,
- org.eclipse.jdt.annotation;bundle-version="2"
-Export-Package: com.altran.general.integration.xtextsirius.test
+ org.eclipse.jdt.annotation;bundle-version="2",
+ org.espilce.commons.emf.testsupport,
+ com.altran.general.integration.xtextsirius.model.diagram,
+ com.altran.general.integration.xtextsirius.model.eef,
+ org.apache.commons.lang
+Export-Package: com.altran.general.integration.xtextsirius.test,
+ com.altran.general.integration.xtextsirius.test.integration,
+ com.altran.general.integration.xtextsirius.test.internal;x-internal:=true,
+ com.altran.general.integration.xtextsirius.test.util,
+ com.altran.general.integration.xtextsirius.test.util.fakeresourceutil,
+ com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer,
+ com.altran.general.integration.xtextsirius.test.util.parentmap,
+ com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer,
+ com.altran.general.integration.xtextsirius.test.util.semanticregionnavigator,
+ com.altran.general.integration.xtextsirius.test.util.styledtextutil,
+ com.altran.general.integration.xtextsirius.test.integration
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

@@ -30,7 +30,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 	protected T existing
 	protected T edited
 	protected Set<EStructuralFeature> untouchedFeatures
-	private ATestEMerger<T> test
+	ATestEMerger<T> test
 	
 	new(ATestEMerger<T> test) {
 		this.test = test

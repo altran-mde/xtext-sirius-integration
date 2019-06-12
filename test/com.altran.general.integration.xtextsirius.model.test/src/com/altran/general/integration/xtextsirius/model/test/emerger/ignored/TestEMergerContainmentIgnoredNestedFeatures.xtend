@@ -23,7 +23,7 @@ import org.junit.Test
 import static org.junit.Assert.*
 
 class TestEMergerContainmentIgnoredNestedFeatures extends ATestEMergerContainment<Element> {
-	private int i = 100
+	int i = 100
 	protected Element existing
 	protected Set<String> nestedFeaturesToIgnore = XtextSiriusTestPackage.Literals::ELEMENT.EAllStructuralFeatures
 			.map[feature | 

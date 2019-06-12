@@ -1,10 +1,17 @@
-package com.altran.general.integration.xtextsirius.ui.test.integration;
+/**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ * 
+ * SPDX-License-Identifier: EPL-2.0
+ */
+package com.altran.general.integration.xtextsirius.test.integration;
 
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusValueEditorCallback;
-import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
-import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.google.inject.Injector;
 import java.util.Collections;
@@ -13,17 +20,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.nodemodel.INode;
-import org.eclipse.xtext.nodemodel.SyntaxErrorMessage;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.StringInputStream;
+import org.eclipse.xtext.util.TextRegion;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
+import org.junit.Assert;
 
 @SuppressWarnings("all")
 public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
@@ -31,6 +36,8 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   
   @Accessors
   protected EObject testSemanticElement;
+  
+  private String newContent;
   
   public TestXtextSiriusEditorCallbackAdapter(final Injector injector, final EObject model) {
     try {
@@ -50,11 +57,18 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   public void callbackInitText(final String initialText, final int offset, final int length) {
     this.updateEditedText(initialText);
     final EObject element = this.getTestSemanticElement();
+    Assert.assertNotNull("testSemanticElement is null", element);
     FakeResourceUtil.getInstance().updateFakeResourceUri(this.fakeResource, element.eResource().getURI());
+  }
+  
+  @Override
+  public String callbackGetText() {
+    return this.newContent;
   }
   
   public void updateEditedText(final String newContent) {
     try {
+      this.newContent = newContent;
       String _elvis = null;
       if (newContent != null) {
         _elvis = newContent;
@@ -79,17 +93,8 @@ public abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiri
   }
   
   @Override
-  public XtextSiriusSyntaxErrorException handleSyntaxErrors(final IParseResult parseResult) {
-    final Function1<INode, SyntaxErrorMessage> _function = (INode it) -> {
-      return it.getSyntaxErrorMessage();
-    };
-    Iterable<SyntaxErrorMessage> _map = IterableExtensions.<INode, SyntaxErrorMessage>map(parseResult.getSyntaxErrors(), _function);
-    throw new AssertionError(_map);
-  }
-  
-  @Override
-  public XtextSiriusErrorException handleUnresolvableProxies() {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  public TextRegion callbackGetVisibleRegion() {
+    return new TextRegion(0, 0);
   }
   
   @Pure

@@ -49,19 +49,6 @@ implements IXtextSiriusEditpartDescriptor {
 		return this.editPart;
 	}
 
-	// public @NonNull EStructuralFeature getValueFeature(final
-	// IXtextSiriusAwareLabelEditPart editPart) {
-	// final EObject semanticElement =
-	// EditPartHelper.getInstance().getSemanticElement(editPart);
-	// if (semanticElement != null) {
-	// return
-	// semanticElement.eClass().getEStructuralFeature(getValueFeatureName(editPart));
-	// }
-	//
-	// throw new IllegalStateException("Cannot directEdit a non-existing
-	// semanticElement");
-	// }
-
 	public @NonNull String getValueFeatureName(final IXtextSiriusAwareLabelEditPart editPart) {
 		final EObject decorator = editPart.resolveSemanticElement();
 		if (decorator instanceof DDiagramElement) {

@@ -15,14 +15,24 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
 
-public class NullNoOpBlankDeletionEditingDecider extends AEditingDecider {
-	@Override
-	public boolean isNoOp(final @Nullable String text, final @NonNull AXtextSiriusEditor<?> xtextSiriusEditor) {
-		return text == null || StringUtils.equals(getInitialText(), text);
-	}
+public abstract class AEditingDecider implements IEditingDecider {
+	private @Nullable String initialText;
 	
 	@Override
-	public boolean isDeletion(final @Nullable String text, final @NonNull AXtextSiriusEditor<?> xtextSiriusEditor) {
-		return StringUtils.isBlank(text);
+	public @Nullable String initializeText(final @Nullable Object initialValue, final @Nullable String initialText,
+			final @NonNull AXtextSiriusEditor<?> xtextSiriusEditor) {
+		this.initialText = initialText;
+
+		if (StringUtils.isBlank(initialText)) {
+			return null;
+		} else {
+			return initialText;
+		}
 	}
+	
+	protected @Nullable String getInitialText() {
+		return this.initialText;
+	}
+	
+	
 }

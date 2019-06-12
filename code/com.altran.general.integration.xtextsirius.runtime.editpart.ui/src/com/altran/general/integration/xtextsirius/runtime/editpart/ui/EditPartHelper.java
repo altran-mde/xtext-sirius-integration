@@ -25,7 +25,7 @@ import org.eclipse.sirius.viewpoint.DMappingBased;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
 /**
  * We had to move some code here because we need to adhere to several lines of

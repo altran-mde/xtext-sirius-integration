@@ -1,4 +1,13 @@
-package com.altran.general.integration.xtextsirius.ui.test.integration
+/**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
+package com.altran.general.integration.xtextsirius.test.integration
 
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusEditorCallback
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback
@@ -10,15 +19,19 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
-import org.eclipse.xtext.parser.IParseResult
 import org.eclipse.xtext.resource.IResourceFactory
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.util.StringInputStream
+import org.junit.Assert
+import org.eclipse.xtext.util.TextRegion
 
 abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEditorCallback, IXtextSiriusModelEditorCallback, IXtextSiriusValueEditorCallback {
 	protected val XtextResource fakeResource
+	
 	@Accessors
 	protected var EObject testSemanticElement
+	
+	String newContent
 	
 	new(Injector injector, EObject model) {
 		val uri = model.eResource.URI
@@ -31,12 +44,16 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 	override callbackInitText(String initialText, int offset, int length) {
 		updateEditedText(initialText)
 		val element = getTestSemanticElement()
-//		if (element !== null) {
-			FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
-//		}
+		Assert.assertNotNull("testSemanticElement is null", element)
+		FakeResourceUtil::instance.updateFakeResourceUri(fakeResource, element.eResource().getURI())
+	}
+	
+	override callbackGetText() {
+		newContent
 	}
 	
 	def updateEditedText(String newContent) {
+		this.newContent = newContent
 		fakeResource.reparse(newContent ?: "")
 		fakeResource.relink
 	}
@@ -46,11 +63,7 @@ abstract class TestXtextSiriusEditorCallbackAdapter implements IXtextSiriusEdito
 		fakeResource.parseResult
 	}
 	
-	override handleSyntaxErrors(IParseResult parseResult) {
-		throw new AssertionError(parseResult.syntaxErrors.map[it.syntaxErrorMessage])
-	}
-	
-	override handleUnresolvableProxies() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	override callbackGetVisibleRegion() {
+		new TextRegion(0, 0)
 	}
 }

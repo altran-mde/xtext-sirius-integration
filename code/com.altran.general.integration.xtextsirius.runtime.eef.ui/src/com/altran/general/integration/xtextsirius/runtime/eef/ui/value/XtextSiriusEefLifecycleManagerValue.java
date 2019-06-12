@@ -19,9 +19,9 @@ import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import org.eclipse.swt.widgets.Composite;
 
 import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription;
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusValueDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusValueEditorCallback;
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusValueEditor;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEefLifecycleManager;
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusWidget;

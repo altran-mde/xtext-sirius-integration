@@ -9,6 +9,7 @@
  */
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer
 import org.eclipse.xtext.util.TextRegion
 import org.junit.Test
@@ -26,7 +27,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineDescriptor, event)
+		val preparer = createPreparer(multilineDescriptor, event)
 
 		assertEquals('''
 			events
@@ -53,7 +54,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineDescriptor, event)
+		val preparer = createPreparer(multilineDescriptor, event)
 
 		assertEquals('''
 			events
@@ -84,7 +85,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineDescriptor, event)
+		val preparer = createPreparer(multilineDescriptor, event)
 
 		assertEquals('''
 			events
@@ -116,7 +117,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name"}), event)
 
 		assertEquals('''
 			events
@@ -143,7 +144,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name"}), event)
 
 		assertEquals('''
 			events
@@ -170,7 +171,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name", "code"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name", "code"}), event)
 
 		assertEquals('''
 			events
@@ -197,7 +198,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name", "code"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name", "code"}), event)
 
 		assertEquals('''
 			events
@@ -224,7 +225,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name", "guard"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name", "guard"}), event)
 
 		assertEquals('''
 			events
@@ -251,7 +252,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name", "guard"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name", "guard"}), event)
 
 		assertEquals('''
 			events
@@ -279,7 +280,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name", "code"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name", "code"}), event)
 
 		assertEquals('''
 			events
@@ -306,7 +307,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name", "code", "guard"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name", "code", "guard"}), event)
 
 		assertEquals('''
 			events
@@ -333,7 +334,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"guard"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"guard"}), event)
 
 		assertEquals('''
 			events
@@ -360,7 +361,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"guard"}), null, event, statemachinePackage.event_Guard)
+		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"guard"}), new ModelEntryPoint(null, event, statemachinePackage.event_Guard))
 
 		assertEquals('''
 			events
@@ -390,7 +391,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(descriptor, event)
+		val preparer = createPreparer(descriptor, event)
 
 		assertEquals('''
 			events
@@ -419,7 +420,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(editableFeatureDescriptor(#{"name", "guard"}), event)
+		val preparer = createPreparer(editableFeatureDescriptor(#{"name", "guard"}), event)
 
 		assertEquals('''
 			events
@@ -449,7 +450,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineDescriptor, event)
+		val preparer = createPreparer(multilineDescriptor, event)
 
 		assertEquals('''
 			events
@@ -481,7 +482,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"name", "guard"}), event)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"name", "guard"}), event)
 
 		assertEquals('''
 			events
@@ -515,7 +516,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 		val state = model.states.get(0)
 		val transition = state.transitions.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"event", "guard"}), transition)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"event", "guard"}), transition)
 
 		assertEquals('''
 			events
@@ -551,7 +552,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 		val state = model.states.get(0)
 		val transition = state.transitions.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"event", "guard"}), transition)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"event", "guard"}), transition)
 
 		assertEquals('''
 			events
@@ -582,7 +583,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"code", "name"}), cmd)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"code", "name"}), cmd)
 
 		assertEquals('''
 			commands
@@ -609,7 +610,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"code", "name"}), cmd)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"code", "name"}), cmd)
 
 		assertEquals('''
 			commands
@@ -636,7 +637,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"guard", "name"}), cmd)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"guard", "name"}), cmd)
 
 		assertEquals('''
 			commands
@@ -663,7 +664,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(0)
 
-		val preparer = new ModelRegionEditorPreparer(multilineEditableFeatureDescriptor(#{"guard"}), cmd)
+		val preparer = createPreparer(multilineEditableFeatureDescriptor(#{"guard"}), cmd)
 
 		assertEquals('''
 			commands

@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.yakindu.base.xtext.utils.gmf.directedit.IXtextAwareEditPart;
 import org.yakindu.base.xtext.utils.gmf.directedit.XtextDirectEditManager;
 
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusDescribable;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 
@@ -68,17 +68,6 @@ public abstract class XtextSiriusDirectEditManager extends XtextDirectEditManage
 		}
 
 	}
-
-	// protected void setSemanticElement(final @Nullable EObject element, final
-	// @NonNull EObject fallbackContainer) {
-	// final AXtextSiriusStyledTextCellEditor cellEditor = getCellEditor();
-	// if (cellEditor != null) {
-	// cellEditor.setSemanticElement(element);
-	// if (element == null) {
-	// cellEditor.setFallbackContainer(fallbackContainer);
-	// }
-	// }
-	// }
 
 	@Override
 	protected IXtextSiriusAwareLabelEditPart getEditPart() {

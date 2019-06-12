@@ -9,7 +9,7 @@
  */
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
-import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
@@ -46,8 +46,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineDescriptor = this.multilineDescriptor();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineDescriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -94,8 +93,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineDescriptor = this.multilineDescriptor();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineDescriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -150,8 +148,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineDescriptor = this.multilineDescriptor();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineDescriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -207,8 +204,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -255,8 +251,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -303,8 +298,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -351,8 +345,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -399,8 +392,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -447,8 +439,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -496,8 +487,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -544,8 +534,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -592,8 +581,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -643,7 +631,8 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Event event = model.getEvents().get(1);
     AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineDescriptor = this.multilineDescriptor();
     EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineDescriptor, null, event, _event_Guard);
+    ModelEntryPoint _modelEntryPoint = new ModelEntryPoint(null, event, _event_Guard);
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineDescriptor, _modelEntryPoint);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -712,8 +701,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_descriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.descriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -783,8 +771,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _editableFeatureDescriptor = this.editableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_editableFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.editableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -852,8 +839,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineDescriptor = this.multilineDescriptor();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineDescriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -930,8 +916,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineSelectedFeatureDescriptor = this.multilineSelectedFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineSelectedFeatureDescriptor, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineSelectedFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -1012,8 +997,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final State state = model.getStates().get(0);
     final Transition transition = state.getTransitions().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, transition);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard"))), transition);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -1117,8 +1101,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final State state = model.getStates().get(0);
     final Transition transition = state.getTransitions().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, transition);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard"))), transition);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -1208,8 +1191,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, cmd);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name"))), cmd);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -1278,8 +1260,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, cmd);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name"))), cmd);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -1349,8 +1330,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(2);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard", "name")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, cmd);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard", "name"))), cmd);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -1419,8 +1399,7 @@ public class TestApiMultiEntries extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(1);
-    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")));
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, cmd);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard"))), cmd);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();

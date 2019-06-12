@@ -1,7 +1,19 @@
+/**
+ * Copyright (C) 2018 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package com.altran.general.integration.xtextsirius.ui.test.integration
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor
+import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdsl
+import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusEditorCallbackAdapter
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event
@@ -66,14 +78,13 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		val descriptor = eventDescriptor()
 		val elementToEdit = model.events.last
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
 			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
 				
-				override callbackSetValue(Object value, int offset, int length) {
+				override callbackInitText(String value, int offset, int length) {
 					assertEquals(29, offset)
 					assertEquals(9, length)
 					
-					super.callbackInitValue(value, offset, length)
+					super.callbackInitText(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -82,7 +93,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = ""
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, "")
 		editor.initValue("eventX 33")
 		val result = editor.commit(elementToEdit) as Event
 		assertModelEquals(createEvent => [
@@ -105,14 +116,13 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		val descriptor = eventDescriptor()
 		val elementToEdit = model.events.head
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
 			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
 				
-				override callbackSetValue(Object value, int offset, int length) {
+				override callbackInitText(String value, int offset, int length) {
 					assertEquals(29, offset)
 					assertEquals(9, length)
 					
-					super.callbackInitValue(value, offset, length)
+					super.callbackInitText(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -121,7 +131,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = "guard"
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, "guard")
 		editor.initValue("2")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result.events.head
@@ -145,14 +155,13 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		val descriptor = eventDescriptor()
 		val elementToEdit = model.events.last
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
 			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
 				
-				override callbackSetValue(Object value, int offset, int length) {
+				override callbackInitText(String value, int offset, int length) {
 					assertEquals(37, offset)
 					assertEquals(0, length)
 					
-					super.callbackInitValue(value, offset, length)
+					super.callbackInitText(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -161,7 +170,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = "guard"
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, "guard")
 		editor.initValue("")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result.events.last
@@ -185,14 +194,13 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		val descriptor = eventDescriptor()
 		val elementToEdit = model
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
 			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
 				
-				override callbackSetValue(Object value, int offset, int length) {
+				override callbackInitText(String value, int offset, int length) {
 					assertEquals(10, offset)
 					assertEquals(30, length)
 					
-					super.callbackInitValue(value, offset, length)
+					super.callbackInitText(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -201,7 +209,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = "events"
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, "events")
 		editor.initValue("event 1 [ .. 22 ] event2 2")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result
@@ -220,14 +228,13 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		model.events.clear()
 		val elementToEdit = model
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
 			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
 				
-				override callbackSetValue(Object value, int offset, int length) {
+				override callbackInitText(String value, int offset, int length) {
 					assertEquals(10, offset)
 					assertEquals(0, length)
 					
-					super.callbackInitValue(value, offset, length)
+					super.callbackInitText(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -236,7 +243,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = "events"
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, "events")
 		editor.initValue("event 1 [ .. 22 ] event2 2")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result
@@ -254,14 +261,13 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		val descriptor = eventDescriptor()
 		val elementToEdit = model.events.head.guard
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
 			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
 				
-				override callbackSetValue(Object value, int offset, int length) {
+				override callbackInitText(String value, int offset, int length) {
 					assertEquals(20, offset)
 					assertEquals(9, length)
 					
-					super.callbackInitValue(value, offset, length)
+					super.callbackInitText(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -270,7 +276,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = ""
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, "")
 		editor.initValue("2")
 		val result = editor.commit(elementToEdit) as Statemachine
 		val valueToCommit = result.events.head
@@ -295,16 +301,14 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		val container = model.events.last 
 		val elementToEdit = container.guard
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			fallbackContainer = container
-			semanticElement = elementToEdit
 			
 			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
 				
-				override callbackSetValue(Object value, int offset, int length) {
+				override callbackInitText(String value, int offset, int length) {
 					assertEquals(37, offset)
 					assertEquals(0, length)
 					
-					super.callbackInitValue(value, offset, length)
+					super.callbackInitText(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -313,7 +317,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = ""
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, container, "")
 		editor.initValue("")
 		val result = editor.commit(container) as Statemachine
 		val valueToCommit = result.events.last
@@ -338,15 +342,14 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		val elementToEdit = model.events.head
 		
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
 			callback = new TestXtextSiriusEditorCallbackAdapter(inlineInjector, model) {
-				override callbackSetValue(Object value, int offset, int length) {
+				override callbackInitText(String value, int offset, int length) {
 					val newContent = value.toString
 					assertEquals(modelInlineText.toString.replace("events\n event", "events\n \nevent"), newContent)
 					assertEquals(10, offset)
 					assertEquals(17, length)
 					
-					super.callbackInitValue(value, offset, length)
+					super.callbackInitText(value, offset, length)
 				}
 				
 				override getTestSemanticElement() {
@@ -356,7 +359,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = elementToEdit.eContainingFeature.name
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, elementToEdit.eContainingFeature.name)
 		editor.initValue("")
 		val result = editor.commit(elementToEdit.eContainer) as Statemachine
 		val valueToCommit = result.events.head
@@ -380,7 +383,6 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 		val elementToEdit = model.events.head
 		
 		val editor = new XtextSiriusModelEditor(descriptor) => [
-			semanticElement = elementToEdit
 			callback = new TestXtextSiriusEditorCallbackAdapter(injector, model) {
 				
 				override getXtextParseResult() {
@@ -395,7 +397,7 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			}
 		]
 		
-		editor.valueFeatureName = ""
+		editor.modelEntryPoint = new ModelEntryPoint(elementToEdit, "")
 		editor.initValue("")
 		val valueToCommit = editor.commit(elementToEdit) as EObject
 		assertModelEquals(createEvent => [

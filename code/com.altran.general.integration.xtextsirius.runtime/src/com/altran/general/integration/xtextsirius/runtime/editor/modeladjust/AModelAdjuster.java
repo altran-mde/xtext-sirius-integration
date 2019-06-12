@@ -1,10 +1,20 @@
+/**
+ * Copyright (C) 2019 Altran Netherlands B.V.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package com.altran.general.integration.xtextsirius.runtime.editor.modeladjust;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 
-import com.altran.general.integration.xtextsirius.runtime.editor.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 
 public abstract class AModelAdjuster implements IModelAdjuster {
@@ -18,6 +28,17 @@ public abstract class AModelAdjuster implements IModelAdjuster {
 		}
 	}
 
+	@Override
+	public @NonNull ModelEntryPoint adjust(@NonNull final ModelEntryPoint modelEntryPoint) {
+		if (modelEntryPoint.hasValueFeature()) {
+			final EStructuralFeature structuralFeature = getStructuralFeature(modelEntryPoint);
+			return new ModelEntryPoint(getSemanticElement(modelEntryPoint), getFallbackContainer(modelEntryPoint),
+					structuralFeature);
+		}
+
+		return new ModelEntryPoint(getSemanticElement(modelEntryPoint), getFallbackContainer(modelEntryPoint));
+	}
+	
 	protected @NonNull EObject getAssuredFallbackContainer(final @NonNull ModelEntryPoint modelEntryPoint) {
 		final EObject fallbackContainer = modelEntryPoint.getFallbackContainer();
 		if (fallbackContainer != null) {
@@ -32,10 +53,28 @@ public abstract class AModelAdjuster implements IModelAdjuster {
 		}
 	}
 	
+	protected @Nullable EObject getElementInFallbackFeature(final @NonNull ModelEntryPoint modelEntryPoint) {
+		final Object featureValue = getAssuredFallbackContainer(modelEntryPoint)
+				.eGet(getFeatureInFallback(modelEntryPoint));
+		if (featureValue == null || featureValue instanceof EObject) {
+			return (EObject) featureValue;
+		} else {
+			throw new IllegalStateException("featureValue no EObject");
+		}
+	}
+
 	protected @NonNull EStructuralFeature getFeatureInFallback(final @NonNull ModelEntryPoint modelEntryPoint) {
 		final String valueFeatureName = modelEntryPoint.getValueFeatureName();
 		if (valueFeatureName != null) {
-			return getAssuredFallbackContainer(modelEntryPoint).eClass().getEStructuralFeature(valueFeatureName);
+			final EObject fallbackContainer = getAssuredFallbackContainer(modelEntryPoint);
+			final EStructuralFeature structuralFeature = fallbackContainer.eClass()
+					.getEStructuralFeature(valueFeatureName);
+			if (structuralFeature != null) {
+				return structuralFeature;
+			} else {
+				throw new IllegalStateException(
+						"No structuralFeature " + valueFeatureName + " in " + fallbackContainer);
+			}
 		} else {
 			throw new IllegalStateException("No valueFeatureName");
 		}

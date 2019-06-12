@@ -19,7 +19,9 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.util.TextRegion;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionCalculator;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
@@ -31,12 +33,13 @@ class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 			final EObject semanticElement,
 			final EObject parentSemanticElement,
 			final EStructuralFeature semanticElementFeature) {
-		super(descriptor, semanticElement, parentSemanticElement, semanticElementFeature);
+		super(descriptor, new MinimalModelAdjuster()
+				.adjust(new ModelEntryPoint(semanticElement, parentSemanticElement, semanticElementFeature)));
 	}
 	
 	public AccessibleModelRegionEditorPreparer(final IXtextSiriusModelDescriptor descriptor,
 			final EObject semanticElement) {
-		super(descriptor, semanticElement);
+		super(descriptor, new MinimalModelAdjuster().adjust(new ModelEntryPoint(semanticElement)));
 	}
 	
 	public TextRegion calculateRegionForFeatures(final EObject semanticElement) {
