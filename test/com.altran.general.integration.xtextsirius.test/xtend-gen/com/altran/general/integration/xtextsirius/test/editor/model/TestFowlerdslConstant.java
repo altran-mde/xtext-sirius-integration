@@ -7,9 +7,9 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
-import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined;
+import com.altran.general.integration.xtextsirius.test.editor.model.ATestFowlerdslModel;
 import java.util.Collections;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.IntLiteral;
@@ -19,7 +19,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestFowlerdslConstant extends ATestFowlerdslCombined {
+public class TestFowlerdslConstant extends ATestFowlerdslModel {
   @Test
   public void unchanged() {
     Constant _createConstant = this.statemachineFactory.createConstant();

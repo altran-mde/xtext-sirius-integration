@@ -7,52 +7,18 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration
+package com.altran.general.integration.xtextsirius.test.editor.model
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster
+import com.altran.general.integration.xtextsirius.test.editor.ATestFowlerdsl
 import java.util.List
 import org.eclipse.emf.ecore.EObject
-import org.espilce.commons.lang.StringUtils2
 
 import static org.espilce.commons.emf.testsupport.AssertEmf.*
 
-abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
-	
-	protected override modelText() {
-		StringUtils2::normalizeNewline(
-		'''
-			events
-			 eventSD 2 [ c2 .. c1 ]
-			 event2 3 [ 2 ]
-			 event4 3 [ c1 ]
-			 event3 4 
-			end
-			
-			commands
-			 cmd0 23
-			 cmd1 42
-			end
-			
-			constants
-			 c1 23
-			 c2 42
-			end
-			
-			state A 
-				description "<p>This is a deschkriptschion</p>\n"
-				event2 => A
-				event2 => B
-			end
-			
-			state B
-			
-			end
-		''')
-	}
-	
-	protected def String getFeatureName()
+abstract class ATestFowlerdslModel extends ATestFowlerdsl {
 	
 	protected def void assertEdit(EObject elementToEdit, String expectedText, String newText, Object expectedResultElement) {
 		assertEdit(elementToEdit, elementToEdit, getFeatureName(), expectedText, newText, expectedResultElement)

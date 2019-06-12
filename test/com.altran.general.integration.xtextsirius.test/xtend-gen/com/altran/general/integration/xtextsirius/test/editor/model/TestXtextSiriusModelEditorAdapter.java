@@ -7,14 +7,14 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusModelEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
-import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusEditorCallbackAdapter;
+import com.altran.general.integration.xtextsirius.test.editor.model.TestXtextSiriusEditorCallbackAdapter;
 
 @SuppressWarnings("all")
 public class TestXtextSiriusModelEditorAdapter extends XtextSiriusModelEditor {

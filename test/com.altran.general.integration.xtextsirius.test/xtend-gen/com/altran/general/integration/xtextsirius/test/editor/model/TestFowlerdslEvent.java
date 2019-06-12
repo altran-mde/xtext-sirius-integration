@@ -7,9 +7,9 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
-import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined;
+import com.altran.general.integration.xtextsirius.test.editor.model.ATestFowlerdslModel;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ConstantRef;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
@@ -22,7 +22,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestFowlerdslEvent extends ATestFowlerdslCombined {
+public class TestFowlerdslEvent extends ATestFowlerdslModel {
   @Test
   public void unchanged() {
     Event _last = IterableExtensions.<Event>last(this.model.getEvents());

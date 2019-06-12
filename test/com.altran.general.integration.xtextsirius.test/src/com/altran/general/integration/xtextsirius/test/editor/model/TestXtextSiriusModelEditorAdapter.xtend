@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor

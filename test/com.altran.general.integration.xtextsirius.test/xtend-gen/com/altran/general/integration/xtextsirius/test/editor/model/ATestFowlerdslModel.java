@@ -7,90 +7,22 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
-import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdsl;
-import com.altran.general.integration.xtextsirius.test.integration.AssertingXtextSiriusEditorCallback;
-import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusModelEditorAdapter;
+import com.altran.general.integration.xtextsirius.test.editor.ATestFowlerdsl;
+import com.altran.general.integration.xtextsirius.test.editor.model.AssertingXtextSiriusEditorCallback;
+import com.altran.general.integration.xtextsirius.test.editor.model.TestXtextSiriusModelEditorAdapter;
 import com.google.inject.Injector;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.espilce.commons.emf.testsupport.AssertEmf;
-import org.espilce.commons.lang.StringUtils2;
 
 @SuppressWarnings("all")
-public abstract class ATestFowlerdslCombined extends ATestFowlerdsl {
-  @Override
-  protected String modelText() {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("events");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("eventSD 2 [ c2 .. c1 ]");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("event2 3 [ 2 ]");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("event4 3 [ c1 ]");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("event3 4 ");
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("commands");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("cmd0 23");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("cmd1 42");
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("constants");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("c1 23");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("c2 42");
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("state A ");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("description \"<p>This is a deschkriptschion</p>\\n\"");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("event2 => A");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("event2 => B");
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("state B");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("end");
-    _builder.newLine();
-    return StringUtils2.normalizeNewline(_builder.toString());
-  }
-  
-  protected abstract String getFeatureName();
-  
+public abstract class ATestFowlerdslModel extends ATestFowlerdsl {
   protected void assertEdit(final EObject elementToEdit, final String expectedText, final String newText, final Object expectedResultElement) {
     this.assertEdit(elementToEdit, elementToEdit, this.getFeatureName(), expectedText, newText, expectedResultElement);
   }

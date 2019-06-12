@@ -9,12 +9,12 @@
  */
 package com.altran.general.integration.xtextsirius.ui.test.integration
 
-import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined
+import com.altran.general.integration.xtextsirius.test.editor.model.ATestFowlerdslModel
 import org.junit.Ignore
 import org.junit.Test
 
 @Ignore("Probably wrong expectation: containing event instead of guard")
-class TestFowlerdslEventGuardInvalid extends ATestFowlerdslCombined {
+class TestFowlerdslEventGuardInvalid extends ATestFowlerdslModel {
 	@Test
 	def void emptyUnchanged() {
 		assertEdit(

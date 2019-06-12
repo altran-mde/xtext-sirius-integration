@@ -7,11 +7,11 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration
+package com.altran.general.integration.xtextsirius.test.editor.model
 
 import org.junit.Test
 
-class TestFowlerdslEvent extends ATestFowlerdslCombined {
+class TestFowlerdslEvent extends ATestFowlerdslModel {
 	@Test
 	def void unchanged() {
 		assertEdit(

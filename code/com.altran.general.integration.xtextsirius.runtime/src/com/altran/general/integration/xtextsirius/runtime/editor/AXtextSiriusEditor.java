@@ -9,10 +9,8 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
@@ -22,7 +20,6 @@ import com.altran.general.integration.xtextsirius.runtime.editor.decider.IEditin
 import com.altran.general.integration.xtextsirius.runtime.editor.decider.NullNoOpBlankDeletionEditingDecider;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
-import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 import com.altran.general.integration.xtextsirius.runtime.util.EvaluateHelper;
 import com.google.inject.Injector;
 
@@ -32,9 +29,10 @@ import com.google.inject.Injector;
  * @param <C>
  */
 public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
-	private final MinimalModelAdjuster minModelAdjuster = new MinimalModelAdjuster();
-	
 	private final IXtextSiriusDescriptor descriptor;
+	
+	protected final MinimalModelAdjuster minModelAdjuster = new MinimalModelAdjuster();
+	
 	private C callback;
 	
 	private @NonNull IEditingDecider editingDecider = new NullNoOpBlankDeletionEditingDecider();
@@ -98,57 +96,6 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	
 	protected void updateCallbackInitText(final @Nullable String value, final int offset, final int length) {
 		getCallback().callbackInitText(value, offset, length);
-	}
-	
-	@Deprecated
-	protected @Nullable EStructuralFeature convertValueFeature(final @Nullable String featureName) {
-		return convertValueFeature(getSemanticElement(), featureName);
-	}
-	
-	@Deprecated
-	protected @Nullable EStructuralFeature convertValueFeature(final @Nullable EObject element,
-			final @Nullable String featureName) {
-		if (element != null) {
-			if (StringUtils.isNotBlank(featureName)) {
-				final EStructuralFeature result = element.eClass().getEStructuralFeature(featureName);
-				if (result != null) {
-					return result;
-				}
-			}
-			return element.eContainingFeature();
-		} else {
-			final EObject parent = getFallbackContainer();
-			if (StringUtils.isNotBlank(featureName)) {
-				return parent.eClass().getEStructuralFeature(featureName);
-			}
-		}
-		
-		return null;
-	}
-	
-	@Deprecated
-	protected @NonNull EStructuralFeature enforceValueFeature(final @NonNull EObject fallback,
-			final @Nullable String featureName) {
-		final EStructuralFeature converted = convertValueFeature(featureName);
-		if (converted != null) {
-			return converted;
-		}
-		
-		final EStructuralFeature fallbackFeature = convertValueFeature(fallback, featureName);
-		if (fallbackFeature != null) {
-			return fallbackFeature;
-		}
-		
-		throw new IllegalArgumentException("Cannot find valueFeature " + featureName + " for " + fallback);
-	}
-	
-	@Deprecated
-	protected @NonNull EObject adjustTarget(final @NonNull EObject target, final @Nullable String valueFeatureName) {
-		if (StringUtils.isBlank(valueFeatureName) || target.eClass().getEStructuralFeature(valueFeatureName) == null) {
-			return EcoreNavigationUtil.eContainerIfExists(target);
-		}
-		
-		return target;
 	}
 	
 	protected @NonNull String interpret(final @NonNull String expression) {

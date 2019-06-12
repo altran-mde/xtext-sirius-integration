@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusValueDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
@@ -22,22 +23,24 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 	public XtextSiriusValueEditor(final IXtextSiriusValueDescriptor descriptor) {
 		super(descriptor);
 	}
-
+	
 	@Override
 	protected @Nullable Object retrieveValueToCommit() throws AXtextSiriusIssueException {
 		return getCallback().callbackGetText();
 	}
-
+	
 	@Override
 	public void initValue(final @Nullable Object initialValue) {
+		assertState();
+		
 		if (initialValue == null || !(initialValue instanceof String)) {
 			return;
 		}
-
+		
 		final StringBuffer text = new StringBuffer((String) initialValue);
 		final int length = text.length();
 		StyledTextUtil.getInstance().removeNewlinesIfSingleLine(text, 0, length, isMultiLine());
-
+		
 		final String prefixText = interpret(getDescriptor().getPrefixTextExpression());
 		final String suffixText = interpret(getDescriptor().getSuffixTextExpression());
 		final String editablePart = StyledTextUtil.getInstance().guessNewline(text.toString()) + text;
@@ -46,16 +49,32 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 		final String completeText = prefixText + editablePart + suffixText;
 		updateCallbackInitText(completeText, offset, length);
 	}
-
+	
 	@Override
 	public Object commit(final @NonNull EObject target) {
-		final EStructuralFeature valueFeature = enforceValueFeature(target, getValueFeatureName());
-		final EObject adjustedTarget = adjustTarget(target, getValueFeatureName());
-		final Object valueToCommit = retrieveValueToCommit();
+		assertState();
+		
+		final EStructuralFeature valueFeature = this.minModelAdjuster.getStructuralFeature(getModelEntryPoint());
+		final ModelEntryPoint targetMep = new ModelEntryPoint(target, getValueFeatureName());
+		final EObject adjustedTarget = this.minModelAdjuster.getClosestElement(targetMep);
+		
+		final String editedText = getCallback().callbackGetText();
+		
+		if (isNoOp(editedText)) {
+			return adjustedTarget.eGet(valueFeature);
+		}
+		
+		final Object valueToCommit;
+		if (isDeletion(editedText)) {
+			valueToCommit = null;
+		} else {
+			valueToCommit = retrieveValueToCommit();
+		}
+		
 		adjustedTarget.eSet(valueFeature, valueToCommit);
 		return valueToCommit;
 	}
-
+	
 	@Override
 	public IXtextSiriusValueDescriptor getDescriptor() {
 		return (IXtextSiriusValueDescriptor) super.getDescriptor();

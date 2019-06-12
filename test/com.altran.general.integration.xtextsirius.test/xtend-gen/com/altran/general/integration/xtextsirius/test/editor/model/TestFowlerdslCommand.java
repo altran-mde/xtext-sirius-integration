@@ -7,9 +7,9 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
-import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined;
+import com.altran.general.integration.xtextsirius.test.editor.model.ATestFowlerdslModel;
 import java.util.Collections;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -18,7 +18,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestFowlerdslCommand extends ATestFowlerdslCombined {
+public class TestFowlerdslCommand extends ATestFowlerdslModel {
   @Test
   public void unchanged() {
     Command _createCommand = this.statemachineFactory.createCommand();
