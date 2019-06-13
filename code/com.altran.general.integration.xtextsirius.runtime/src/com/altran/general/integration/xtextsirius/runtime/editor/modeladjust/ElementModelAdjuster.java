@@ -12,7 +12,6 @@ package com.altran.general.integration.xtextsirius.runtime.editor.modeladjust;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
@@ -23,9 +22,9 @@ public class ElementModelAdjuster extends AModelAdjuster {
 		final EObject semanticElement = modelEntryPoint.getSemanticElement();
 		if (semanticElement != null) {
 			return semanticElement;
-		} else {
-			throw new IllegalStateException("No SemanticElement");
 		}
+		
+		throw new IllegalStateException("No SemanticElement");
 	}
 	
 	@Override
@@ -36,10 +35,5 @@ public class ElementModelAdjuster extends AModelAdjuster {
 	@Override
 	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint) {
 		return getSemanticElement(modelEntryPoint).eContainingFeature();
-	}
-
-	@Override
-	public @Nullable Object getValue(final @NonNull ModelEntryPoint modelEntryPoint) {
-		return modelEntryPoint.getSemanticElement();
 	}
 }

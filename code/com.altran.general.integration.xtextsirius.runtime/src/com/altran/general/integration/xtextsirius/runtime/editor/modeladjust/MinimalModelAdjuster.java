@@ -41,9 +41,4 @@ public class MinimalModelAdjuster extends AModelAdjuster {
 		
 		throw new IllegalStateException("no valueFeature");
 	}
-	
-	@Override
-	public @Nullable Object getValue(final @NonNull ModelEntryPoint modelEntryPoint) {
-		return modelEntryPoint.getSemanticElement();
-	}
 }

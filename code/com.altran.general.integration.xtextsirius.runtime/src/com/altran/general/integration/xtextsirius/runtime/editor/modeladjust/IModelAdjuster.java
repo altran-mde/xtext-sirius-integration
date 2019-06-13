@@ -18,15 +18,12 @@ import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
 public interface IModelAdjuster {
 	public @Nullable EObject getSemanticElement(final @NonNull ModelEntryPoint modelEntryPoint);
-
+	
 	public @NonNull EObject getFallbackContainer(final @NonNull ModelEntryPoint modelEntryPoint);
 	
 	public @NonNull EObject getClosestElement(final @NonNull ModelEntryPoint modelEntryPoint);
-
+	
 	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint);
 	
-	@Deprecated
-	public @Nullable Object getValue(final @NonNull ModelEntryPoint modelEntryPoint);
-
 	public @NonNull ModelEntryPoint adjust(final @NonNull ModelEntryPoint modelEntryPoint);
 }
