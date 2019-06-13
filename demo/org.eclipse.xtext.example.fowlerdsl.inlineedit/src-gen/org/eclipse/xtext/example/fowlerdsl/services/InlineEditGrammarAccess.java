@@ -212,8 +212,8 @@ public class InlineEditGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Statemachine:
-	//	{Statemachine} ('events' events+=Event* 'end')? ('resetEvents' resetEvents+=[Event]* 'end')? ('commands'
-	//	commands+=Command* 'end')? ('constants' constants+=Constant* 'end')? states+=State*;
+	//	{Statemachine} ('name' name=ID)? ('events' events+=Event* 'end')? ('resetEvents' resetEvents+=[Event]* 'end')?
+	//	('commands' commands+=Command* 'end')? ('constants' constants+=Constant* 'end')? states+=State*;
 	public StatemachineGrammarAccess.StatemachineElements getStatemachineAccess() {
 		return gaStatemachine.getStatemachineAccess();
 	}

@@ -4,6 +4,7 @@ generate statemachine "http://www.eclipse.org/xtext/example/fowlerdsl/Statemachi
 
 Statemachine :
      {Statemachine}
+	('name' name=ID)?
 	('events' 
 		events+=Event*
 	'end')?

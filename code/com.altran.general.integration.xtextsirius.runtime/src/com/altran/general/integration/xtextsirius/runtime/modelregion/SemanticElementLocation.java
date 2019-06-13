@@ -36,35 +36,28 @@ import org.eclipse.jdt.annotation.Nullable;
  *
  */
 public class SemanticElementLocation {
-
-	@Nullable
-	private String uriFragment;
+	
 	@Nullable
 	private String parentUriFragment;
 	@Nullable
 	private EStructuralFeature containingFeature;
 	@Nullable
 	private Integer index;
-
+	
 	public SemanticElementLocation(final @NonNull EObject semanticElement) {
 		storeLocation(semanticElement);
 	}
-
+	
 	public SemanticElementLocation(
-			final @Nullable String uriFragment,
 			final @NonNull String parentUriFragment,
-			final @NonNull EStructuralFeature containingFeature,
-			final @Nullable Integer index) {
-		this.uriFragment = uriFragment;
+			final @NonNull EStructuralFeature containingFeature) {
 		this.parentUriFragment = parentUriFragment;
 		this.containingFeature = containingFeature;
-		this.index = index;
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	private void storeLocation(final @NonNull EObject semanticElement) {
 		final Resource resource = semanticElement.eResource();
-		this.uriFragment = resource.getURIFragment(semanticElement);
 		final EObject parent = semanticElement.eContainer();
 		if (parent != null) {
 			this.parentUriFragment = resource.getURIFragment(parent);
@@ -79,27 +72,20 @@ public class SemanticElementLocation {
 			this.containingFeature = null;
 		}
 	}
-
+	
 	public Object resolve(final @NonNull Resource resource) {
-		if (this.uriFragment != null) {
-			final EObject result = resource.getEObject(this.uriFragment);
-			if (result != null) {
-				return result;
-			}
-		}
-
 		final EStructuralFeature feature = this.containingFeature;
 		if (feature != null && this.parentUriFragment != null) {
 			final Object containingElement = resource.getEObject(this.parentUriFragment)
 					.eGet(feature);
-			return containingElement;
-			// TODO: check if needed or remove
-			// if (feature.isMany() && this.index != null) {
-			// return ((EList<EObject>) containingElement).get(this.index);
-			// } else {
-			// return (EObject) containingElement;
-			// }
+			if (feature.isMany() && this.index != null) {
+				return ((EList<EObject>) containingElement).get(this.index);
+			} else {
+				return containingElement;
+			}
 		}
-		throw new IllegalStateException("cannot resolve EObject without container");
+
+		// it must be the root element
+		return resource.getContents().get(0);
 	}
 }

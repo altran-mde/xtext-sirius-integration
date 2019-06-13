@@ -135,7 +135,7 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			throws AXtextSiriusIssueException {
 		final Object valueToCommit;
 		if (isDeletion(text)) {
-			if (valueFeature.isMany()) {
+			if (null != valueFeature && valueFeature.isMany()) {
 				valueToCommit = ECollections.emptyEList();
 			} else {
 				valueToCommit = null;
