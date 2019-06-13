@@ -12,7 +12,6 @@ package com.altran.general.integration.xtextsirius.runtime.editor.modeladjust;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
@@ -36,10 +35,5 @@ public class LevelModelAdjuster extends AModelAdjuster {
 	@Override
 	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint) {
 		return getFeatureInFallback(modelEntryPoint);
-	}
-	
-	@Override
-	public @Nullable Object getValue(final @NonNull ModelEntryPoint modelEntryPoint) {
-		return getAssuredFallbackContainer(modelEntryPoint).eGet(getFeatureInFallback(modelEntryPoint));
 	}
 }
