@@ -24,12 +24,12 @@ public class ModelEntryPoint {
 	public ModelEntryPoint() {
 		this(null, null, null, null);
 	}
-
+	
 	public ModelEntryPoint(
 			final @NonNull EObject semanticElement) {
 		this(semanticElement, null, null, null);
 	}
-
+	
 	public ModelEntryPoint(
 			final @NonNull EObject semanticElement,
 			final @Nullable String valueFeatureName) {
@@ -41,7 +41,7 @@ public class ModelEntryPoint {
 			final @Nullable EObject fallbackContainer) {
 		this(semanticElement, fallbackContainer, null, null);
 	}
-
+	
 	public ModelEntryPoint(
 			final @Nullable EObject semanticElement,
 			final @Nullable EObject fallbackContainer,
@@ -66,7 +66,7 @@ public class ModelEntryPoint {
 		this.valueFeatureName = valueFeatureName;
 		this.valueFeature = valueFeature;
 	}
-
+	
 	public @Nullable EObject getSemanticElement() {
 		return this.semanticElement;
 	}
@@ -101,5 +101,12 @@ public class ModelEntryPoint {
 	
 	public boolean hasValueFeature() {
 		return getValueFeature() != null || StringUtils.isNotBlank(getValueFeatureName());
+	}
+	
+	@Override
+	public String toString() {
+		return "ModelEntryPoint [semanticElement=" + this.semanticElement + ", fallbackContainer="
+				+ this.fallbackContainer
+				+ ", valueFeatureName=" + this.valueFeatureName + ", valueFeature=" + this.valueFeature + "]";
 	}
 }

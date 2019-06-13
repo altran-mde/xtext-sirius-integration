@@ -7,9 +7,9 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
-import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined;
+import com.altran.general.integration.xtextsirius.test.editor.model.ATestFowlerdslModel;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -19,7 +19,7 @@ import org.espilce.commons.lang.StringUtils2;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestFowlerdslRoot extends ATestFowlerdslCombined {
+public class TestFowlerdslRoot extends ATestFowlerdslModel {
   @Override
   protected String modelText() {
     StringConcatenation _builder = new StringConcatenation();

@@ -7,12 +7,12 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration
+package com.altran.general.integration.xtextsirius.test.editor.model
 
 import org.junit.Test
 import org.espilce.commons.lang.StringUtils2
 
-class TestFowlerdslRoot extends ATestFowlerdslCombined {
+class TestFowlerdslRoot extends ATestFowlerdslModel {
 	
 	protected override modelText() {
 		StringUtils2::normalizeNewline(

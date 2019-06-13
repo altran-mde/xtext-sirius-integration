@@ -1,13 +1,13 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- *
+ * 
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- *
+ * 
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration
+package com.altran.general.integration.xtextsirius.test.editor.model
 
 import com.google.inject.Injector
 import org.apache.commons.lang.StringUtils
@@ -30,7 +30,7 @@ class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAd
 	}
 
 	override callbackInitText(String initialValue, int offset, int length) {
-		val text = (initialValue as String).substring(offset, offset + length)
+		val text = initialValue.substring(offset, offset + length)
 		this.initialValue = initialValue
 		this.offset = offset;
 		this.length = length;

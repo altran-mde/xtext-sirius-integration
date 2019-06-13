@@ -12,8 +12,8 @@ package com.altran.general.integration.xtextsirius.ui.test.integration
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor
-import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdsl
-import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusEditorCallbackAdapter
+import com.altran.general.integration.xtextsirius.test.editor.ATestFowlerdsl
+import com.altran.general.integration.xtextsirius.test.editor.model.TestXtextSiriusEditorCallbackAdapter
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event
@@ -425,5 +425,9 @@ class TestFowlerdslIntegration extends ATestFowlerdsl {
 			ignoredNestedFeatures += "guard.min"
 			selectedFeatures += "Event.name"
 		])
+	}
+	
+	override protected getFeatureName() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 }

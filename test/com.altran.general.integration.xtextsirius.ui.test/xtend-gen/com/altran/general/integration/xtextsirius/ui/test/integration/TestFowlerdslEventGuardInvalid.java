@@ -9,7 +9,7 @@
  */
 package com.altran.general.integration.xtextsirius.ui.test.integration;
 
-import com.altran.general.integration.xtextsirius.test.integration.ATestFowlerdslCombined;
+import com.altran.general.integration.xtextsirius.test.editor.model.ATestFowlerdslModel;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Constant;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ConstantRef;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event;
@@ -23,7 +23,7 @@ import org.junit.Test;
 
 @Ignore("Probably wrong expectation: containing event instead of guard")
 @SuppressWarnings("all")
-public class TestFowlerdslEventGuardInvalid extends ATestFowlerdslCombined {
+public class TestFowlerdslEventGuardInvalid extends ATestFowlerdslModel {
   @Test
   public void emptyUnchanged() {
     Event _last = IterableExtensions.<Event>last(this.model.getEvents());
