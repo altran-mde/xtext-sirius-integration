@@ -7,25 +7,26 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster
 
-class TestXtextSiriusModelEditor extends XtextSiriusModelEditor {
+class TestXtextSiriusModelEditorAdapter extends XtextSiriusModelEditor {
 	
 	new(IXtextSiriusModelDescriptor descriptor) {
 		super(descriptor)
 	}
 	
 	override setModelEntryPoint(ModelEntryPoint modelEntryPoint) {
-		if (this.callback !== null) {
-			(this.callback as TestXtextSiriusEditorCallbackAdapter).testSemanticElement = new MinimalModelAdjuster().getClosestElement(modelEntryPoint)
+		val callback = this.callback
+		if (callback instanceof TestXtextSiriusEditorCallbackAdapter) {
+			callback.testSemanticElement = new MinimalModelAdjuster().getClosestElement(modelEntryPoint)
 		}
 
-		super.modelEntryPoint = modelEntryPoint
+		super.setModelEntryPoint(modelEntryPoint)
 	}
 }
 

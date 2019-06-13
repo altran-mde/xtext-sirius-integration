@@ -11,8 +11,8 @@ package com.altran.general.integration.xtextsirius.runtime.editor;
 
 import java.util.ArrayList;
 
-import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.util.ECollections;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -35,150 +35,171 @@ import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusS
 import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureAdapter;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.TextOverlayer;
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.google.common.collect.Lists;
 
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
-	private IModelAdjuster modelAdjuster;
-
 	private @Nullable SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;
-
+	
 	public XtextSiriusModelEditor(final @NonNull IXtextSiriusModelDescriptor descriptor) {
 		super(descriptor);
 	}
-
+	
 	@Override
 	public void initValue(final @Nullable Object initialValue) {
 		assertState();
-
+		
 		final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(getDescriptor(),
 				getModelAdjuster().adjust(getModelEntryPoint()));
-
-		String text = preparer.getText();
-		TextRegion textRegion = preparer.getTextRegion();
-
-		final int textOffset = textRegion.getOffset();
-		final int textLength = textRegion.getLength();
-		final int textEndOffset = textOffset + textLength;
-
-		final String initialText = text.substring(textOffset, textEndOffset);
-
-		final @Nullable String textValue = initializeText(initialValue, initialText);
-
-		if (textValue != null) {
-			text = StringUtils.overlay(text, textValue, textOffset, textEndOffset);
-			textRegion = new TextRegion(textOffset, textValue.length());
-		}
-
-		updateCallbackInitText(text, textOffset, textLength);
-
+		
+		final TextOverlayer overlayer = new TextOverlayer(this, preparer, initialValue);
+		
+		updateCallbackInitText(overlayer);
+		
 		this.semanticElementLocation = preparer.getSemanticElementLocation();
 		this.selectedRegion = preparer.getSelectedRegion();
 	}
-
+	
 	@Override
 	public Object commit(final @NonNull EObject target) {
 		try {
 			assertState();
 			
-			EObject result = target;
 			final String text = getCallback().callbackGetText();
 			final FeatureAdjuster featureAdjuster = new FeatureAdjuster(getModelEntryPoint());
 			
 			if (isNoOp(text)) {
-				return featureAdjuster.getValue(result);
+				return featureAdjuster.getValue(target);
 			}
 			
 			final EStructuralFeature valueFeature = getModelAdjuster().getStructuralFeature(getModelEntryPoint());
-
-			final Object valueToCommit;
-			if (isDeletion(text)) {
-				if (valueFeature.isMany()) {
-					valueToCommit = ECollections.emptyEList();
-				} else {
-					valueToCommit = null;
+			
+			final Object valueToCommit = adjustValueToCommitForDeletion(text, valueFeature);
+			
+			if (!(valueToCommit instanceof EObject)) {
+				if (!isValueFeatureDefined()) {
+					return target;
 				}
-			} else {
-				valueToCommit = getValueToCommit();
 			}
 			
 			final EObject adjustedTarget = featureAdjuster.getTarget(target);
 			final EMerger<EObject> merger = new EMerger<>(getDescriptor(), adjustedTarget,
 					EcoreUtil.getURI(adjustedTarget));
-
-			if (!isValueFeatureDefined() && valueToCommit instanceof EObject) {
-				result = merger.merge((EObject) valueToCommit);
+			
+			if (valueToCommit instanceof EObject && !isValueFeatureDefined()) {
+				final EObject result = merger.merge((EObject) valueToCommit);
 				EcoreUtil.resolveAll(result);
 				return result;
-			} else if (isValueFeatureDefined()) {
-				result = merger.merge(valueToCommit, valueFeature);
-				EcoreUtil.resolveAll(result);
-				return result.eGet(valueFeature);
 			}
 			
-			return result;
+			final EObject result = merger.merge(valueToCommit, valueFeature);
+			EcoreUtil.resolveAll(result);
+			return result.eGet(valueFeature);
+			
 		} finally {
 			removeAllIgnoredFeatureAdapters();
 		}
 	}
-
+	
 	@Override
-	protected @Nullable Object getValueToCommit() throws AXtextSiriusIssueException {
+	protected @Nullable Object retrieveValueToCommit() throws AXtextSiriusIssueException {
 		final SemanticElementLocation location = getSemanticElementLocation();
 		if (location == null) {
 			return null;
 		}
-
+		
 		final IParseResult parseResult = getCallback().getXtextParseResult();
 		if (parseResult.hasSyntaxErrors()) {
-			final ArrayList<INode> syntaxErrors = Lists.newArrayList(parseResult.getSyntaxErrors());
-			final String text = getCallback().callbackGetText();
-			final TextRegion visibleRegion = getCallback().callbackGetVisibleRegion();
-			throw new XtextSiriusSyntaxErrorException(text, visibleRegion, syntaxErrors);
+			throw createSyntaxErrorException(parseResult);
 		}
-
+		
 		final Object result = location.resolve(parseResult.getRootASTElement().eResource());
 		if (result == null) {
 			return null;
 		}
-
+		
 		if (result instanceof EObject) {
-			final EObject element = (EObject) result;
-			if (containsUnresolvableProxies(element)) {
-				throw new XtextSiriusErrorException("Entered text contains unresolvable references",
-						getCallback().callbackGetText());
-			}
-
-			final EObject origElement = getModelAdjuster().getClosestElement(getModelEntryPoint());
-			final ModelEntryPoint mep = new ModelEntryPoint(element, null, getValueFeatureName());
-			final EObject closestElement = getModelAdjuster().getClosestElement(mep);
-			return FakeResourceUtil.getInstance().proxify(closestElement, EcoreUtil.getURI(origElement));
-			// TODO: proxify EObjects in List
+			return proxifyValueToCommit((EObject) result);
+		} else if (result instanceof EList<?>) {
+			return proxifyElistToCommit(result);
 		}
-
+		
 		return result;
 	}
-
+	
+	private Object adjustValueToCommitForDeletion(final String text, final EStructuralFeature valueFeature)
+			throws AXtextSiriusIssueException {
+		final Object valueToCommit;
+		if (isDeletion(text)) {
+			if (valueFeature.isMany()) {
+				valueToCommit = ECollections.emptyEList();
+			} else {
+				valueToCommit = null;
+			}
+		} else {
+			valueToCommit = retrieveValueToCommit();
+		}
+		return valueToCommit;
+	}
+	
+	private Object proxifyElistToCommit(final Object result) {
+		@SuppressWarnings("unchecked")
+		final EList<EObject> eList = (EList<EObject>) result;
+		final ArrayList<EObject> copy = new ArrayList<>(eList);
+		for (int i = 0; i < copy.size(); i++) {
+			final Object entry = eList.get(i);
+			if (entry instanceof EObject) {
+				// TODO: check if this actually works
+				eList.set(i, proxifyResult((EObject) entry));
+			}
+		}
+		return eList;
+	}
+	
+	private XtextSiriusErrorException createUnresolvableProxiesException(final @NonNull EObject element) {
+		return new XtextSiriusErrorException("Entered text contains unresolvable references",
+				getCallback().callbackGetText());
+	}
+	
+	private Object proxifyValueToCommit(final EObject element) {
+		if (containsUnresolvableProxies(element)) {
+			throw createUnresolvableProxiesException(element);
+		}
+		
+		final ModelEntryPoint mep = new ModelEntryPoint(element, null, getValueFeatureName());
+		final EObject closestElement = getModelAdjuster().getClosestElement(mep);
+		return proxifyResult(closestElement);
+	}
+	
+	private <P extends EObject> P proxifyResult(final P closestElement) {
+		final EObject origElement = getModelAdjuster().getClosestElement(getModelEntryPoint());
+		return FakeResourceUtil.getInstance().proxify(closestElement, EcoreUtil.getURI(origElement));
+	}
+	
+	private XtextSiriusSyntaxErrorException createSyntaxErrorException(final IParseResult parseResult) {
+		final ArrayList<INode> syntaxErrors = Lists.newArrayList(parseResult.getSyntaxErrors());
+		final String text = getCallback().callbackGetText();
+		final TextRegion visibleRegion = getCallback().callbackGetVisibleRegion();
+		return new XtextSiriusSyntaxErrorException(text, visibleRegion, syntaxErrors);
+	}
+	
 	public @Nullable TextRegion getSelectedRegion() {
 		return this.selectedRegion;
 	}
-
+	
 	@Override
 	public IXtextSiriusModelDescriptor getDescriptor() {
 		return (IXtextSiriusModelDescriptor) super.getDescriptor();
 	}
-
+	
 	private boolean containsUnresolvableProxies(final @NonNull EObject eObject) {
 		return !EcoreUtil.UnresolvedProxyCrossReferencer.find(eObject).isEmpty();
 	}
 	
-	private boolean isValueFeatureDefined() {
-		return getModelEntryPoint().hasValueFeature();
-	}
-
 	private void removeAllIgnoredFeatureAdapters() {
 		if (getSemanticElement() == null) {
 			return;
@@ -188,16 +209,14 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		rootContainer.eAllContents()
 				.forEachRemaining(eObject -> eObject.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance));
 	}
-
-	private void initModelAdjuster() {
-		if (this.modelAdjuster != null) {
-			return;
-		}
-
-		this.modelAdjuster = determineModelAdjuster();
+	
+	private void updateCallbackInitText(final TextOverlayer overlayer) {
+		updateCallbackInitText(overlayer.getText(), overlayer.getTextRegion().getOffset(),
+				overlayer.getTextRegion().getLength());
 	}
-
-	private @NonNull IModelAdjuster determineModelAdjuster() {
+	
+	@Override
+	protected @NonNull IModelAdjuster determineModelAdjuster() {
 		final EObject semanticElement = getSemanticElement();
 		final EObject fallbackContainer = getFallbackContainer();
 		
@@ -213,21 +232,15 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 				
 				return new FeatureNullModelAdjuster();
 			}
-
-			// FIXME: Real Exception
-			throw new RuntimeException("nix gut");
+			
+			throw new IllegalStateException("Could not determine modelAdjuster: " + getModelEntryPoint());
 		}
-
+		
 		if (semanticElement != null) {
 			return new ElementModelAdjuster();
 		} else {
 			return new FallbackModelAdjuster();
 		}
-	}
-
-	private @NonNull IModelAdjuster getModelAdjuster() {
-		initModelAdjuster();
-		return this.modelAdjuster;
 	}
 	
 	private @Nullable SemanticElementLocation getSemanticElementLocation() {

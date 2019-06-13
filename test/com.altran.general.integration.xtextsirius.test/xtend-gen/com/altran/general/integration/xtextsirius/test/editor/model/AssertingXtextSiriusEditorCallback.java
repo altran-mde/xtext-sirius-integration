@@ -7,9 +7,9 @@
  * 
  * SPDX-License-Identifier: EPL-2.0
  */
-package com.altran.general.integration.xtextsirius.test.integration;
+package com.altran.general.integration.xtextsirius.test.editor.model;
 
-import com.altran.general.integration.xtextsirius.test.integration.TestXtextSiriusEditorCallbackAdapter;
+import com.altran.general.integration.xtextsirius.test.editor.model.TestXtextSiriusEditorCallbackAdapter;
 import com.google.inject.Injector;
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
@@ -37,7 +37,7 @@ public class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCal
   
   @Override
   public void callbackInitText(final String initialValue, final int offset, final int length) {
-    final String text = ((String) initialValue).substring(offset, (offset + length));
+    final String text = initialValue.substring(offset, (offset + length));
     this.initialValue = initialValue;
     this.offset = offset;
     this.length = length;
