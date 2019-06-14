@@ -1,62 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde?><!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl --><target name="Xtext/Sirius Integration Target" sequenceNumber="1546599986">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="Xtext/Sirius Integration Target" sequenceNumber="1560504067">
   <locations>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-      <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.6.0.v20180527-1213"/>
-      <unit id="org.eclipse.jdt.feature.group" version="3.14.0.v20180611-0500"/>
-      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.14.0.v20180523-0937"/>
-      <unit id="org.eclipse.platform.feature.group" version="4.8.0.v20180611-0656"/>
-      <repository location="http://download.eclipse.org/releases/photon"/>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.10.0.v20190401-0856"/>
+      <unit id="org.eclipse.jdt.feature.group" version="3.18.0.v20190531-0245"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.18.0.v20190528-0716"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.12.0.v20190531-0648"/>
+      <repository location="https://download.eclipse.org/releases/2019-06/"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-      <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
-      <unit id="com.google.guava.source" version="21.0.0.v20170206-1425"/>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="com.google.guava" version="27.1.0.v20190517-1946"/>
+      <unit id="com.google.guava.source" version="27.1.0.v20190517-1946"/>
       <unit id="com.google.inject" version="3.0.0.v201605172100"/>
       <unit id="com.google.inject.source" version="3.0.0.v201605172100"/>
       <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
       <unit id="org.apache.commons.lang3.source" version="3.1.0.v201403281430"/>
-      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository"/>
+      <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository/"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-      <unit id="org.yakindu.base.xtext.utils.gmf.feature.group" version="3.4.3.201811121440"/>
-      <unit id="org.yakindu.base.xtext.utils.jface.feature.group" version="3.4.3.201811121440"/>
-      <repository location="http://updates.yakindu.com/statecharts/releases/"/>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="org.yakindu.base.xtext.utils.gmf.feature.group" version="3.5.4.201905141300"/>
+      <unit id="org.yakindu.base.xtext.utils.jface.feature.group" version="3.5.4.201905141300"/>
+      <repository location="https://updates.yakindu.com/statecharts/releases/"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.doc.feature.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.interpreter.feature.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.acceleo.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.aql.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ide.eef.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ide.xtext.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.runtime.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.samples.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.samples.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.tests.support.feature.group" version="6.0.2.201809251458"/>
-      <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="6.0.2.201809251458"/>
-      <repository location="http://download.eclipse.org/sirius/updates/releases/6.0.2/photon"/>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.doc.feature.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.interpreter.feature.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.aql.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.runtime.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.samples.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.samples.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.tests.support.feature.group" version="6.2.1.201906121203"/>
+      <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="6.2.1.201906121203"/>
+      <repository location="https://download.eclipse.org/sirius/updates/releases/6.2.1/2019-06/"/>
     </location>
   </locations>
 </target>
