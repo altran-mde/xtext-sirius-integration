@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram-xtext="http://altran.com/general/integration/xtextsirius/model/diagram/1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-xtext="http://altran.com/general/integration/xtextsirius/model/properties/1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:viewpoint-xtext="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0" name="classes" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram-xtext="http://altran.com/general/integration/xtextsirius/model/diagram/1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-xtext="http://altran.com/general/integration/xtextsirius/model/properties/1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:viewpoint-xtext="http://altran.com/general/integration/xtextsirius/model/viewpoint/1.0" name="classes" version="12.0.0.201704030900">
   <ownedViewpoints name="MyViewpoint" modelFileExtension="*.classes">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ClassModel" domainClass="classes::ClassModel" enablePopupBars="true">
       <metamodel href="../../com.example.classes/model/generated/Classes.ecore#/"/>
@@ -7,9 +7,15 @@
         <edgeMappings name="Association" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@toolSections.0/@ownedTools[name='editAssociation']" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@containerMappings[name='Class']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="classes::Association" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription labelSize="12" labelExpression="aql:self.source.name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
             <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.name + ' [' + self.lowerBound + '..' + self.upperBound + ']'">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
+            <endLabelStyleDescription labelSize="12" labelExpression="aql:self.target.name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
           </style>
         </edgeMappings>
         <containerMappings name="Class" domainClass="classes::Class" childrenPresentation="List">
@@ -62,6 +68,18 @@
             <editableFeatures>Association.lowerBound</editableFeatures>
             <editableFeatures>Association.upperBound</editableFeatures>
             <selectedFeatures>Association.name</selectedFeatures>
+          </ownedTools>
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="editAssociationSource" injectorId="com.example.classes.design.InlineClassesLanguageInjectorId"  edgeLabelMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@edgeMappings[name='Association']/@style/@beginLabelStyleDescription">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue"/>
+            </initialOperation>
+            <editableFeatures>Association.source</editableFeatures>
+          </ownedTools>
+          <ownedTools xsi:type="viewpoint-xtext:XtextEdgeLabelDirectEditModelDescription" name="editAssociationTarget" injectorId="com.example.classes.design.InlineClassesLanguageInjectorId"  edgeLabelMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ClassModel']/@defaultLayer/@edgeMappings[name='Association']/@style/@endLabelStyleDescription">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:SetValue"/>
+            </initialOperation>
+            <editableFeatures>Association.target</editableFeatures>
           </ownedTools>
         </toolSections>
       </defaultLayer>
