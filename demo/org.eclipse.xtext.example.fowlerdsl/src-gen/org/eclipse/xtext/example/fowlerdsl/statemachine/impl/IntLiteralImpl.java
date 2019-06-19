@@ -157,20 +157,15 @@ public class IntLiteralImpl extends ValueImpl implements IntLiteral
   }
 
   /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
+   * @generated NOT
    */
   @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
+	public String toString() {
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
+		return Integer.toString(this.value);
   }
 
 } //IntLiteralImpl

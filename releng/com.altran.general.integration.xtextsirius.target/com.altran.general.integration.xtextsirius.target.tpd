@@ -6,14 +6,14 @@ with configurePhase source requirements
 //	
 //}
 
-location "http://download.eclipse.org/releases/photon" {
+location "https://download.eclipse.org/releases/2019-06/201906191000/" {
 	org.eclipse.emf.ecore.xcore.sdk.feature.group
 	org.eclipse.jdt.feature.group
 	org.eclipse.xtext.sdk.feature.group
 	org.eclipse.platform.feature.group
 }
 
-location "http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository" {
+location "https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository/" {
 	com.google.guava
 	com.google.guava.source
 	com.google.inject
@@ -22,12 +22,12 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2018060614512
 	org.apache.commons.lang3.source
 }
 
-location "http://updates.yakindu.com/statecharts/releases/" {
+location "https://updates.yakindu.com/statecharts/releases/" {
 	org.yakindu.base.xtext.utils.gmf.feature.group
 	org.yakindu.base.xtext.utils.jface.feature.group
 }
 
-location "http://download.eclipse.org/sirius/updates/releases/6.0.2/photon" {
+location "https://download.eclipse.org/sirius/updates/releases/6.2.1/2019-06/" {
 	org.eclipse.sirius.doc.feature.feature.group
 	org.eclipse.sirius.doc.feature.source.feature.group
 	org.eclipse.sirius.interpreter.feature.feature.group
