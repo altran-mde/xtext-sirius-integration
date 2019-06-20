@@ -55,37 +55,43 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 		final String value = (String) request.getCellEditor().getValue();
 		((IXtextAwareEditPart) getHost()).setLabelText(value);
 	}
-	
+
 	@Override
 	protected Command getDirectEditCommand(final DirectEditRequest edit) {
 		final CellEditor cellEditor = edit.getCellEditor();
-		
-		if (cellEditor.isDirty()) {
-			if (cellEditor instanceof AXtextSiriusStyledTextCellEditor) {
-				final DRepresentationElement representationElement = extractRepresentationElement();
-				
-				try {
-					final AXtextSiriusStyledTextCellEditor xtextSiriusCellEditor = (AXtextSiriusStyledTextCellEditor) cellEditor;
-					final TransactionalEditingDomain editingDomain = TransactionUtil
-							.getEditingDomain(representationElement.getTarget());
-					
-					final SiriusCommand siriusCommand = new SiriusCommand(editingDomain);
-					final ReplaceValueTask task = new ReplaceValueTask(representationElement,
-							representationTarget -> xtextSiriusCellEditor.commit(representationTarget));
-					addChildTasks(representationElement, editingDomain, task);
 
-					siriusCommand.getTasks().add(task);
-					
-					return new ICommandProxy(new GMFCommandWrapper(editingDomain, siriusCommand));
-				} catch (final AXtextSiriusIssueException ex) {
-					StatusManager.getManager().handle(ex.toStatus(), StatusManager.SHOW);
-				}
-			}
+		if (!cellEditor.isDirty()) {
+			return null;
 		}
-		
-		return null;
+
+		if (!(cellEditor instanceof AXtextSiriusStyledTextCellEditor)) {
+			return null;
+		}
+
+		final DRepresentationElement representationElement = extractRepresentationElement();
+		if (representationElement == null) {
+			return null;
+		}
+
+		try {
+			final AXtextSiriusStyledTextCellEditor xtextSiriusCellEditor = (AXtextSiriusStyledTextCellEditor) cellEditor;
+			final TransactionalEditingDomain editingDomain = TransactionUtil
+					.getEditingDomain(representationElement.getTarget());
+
+			final SiriusCommand siriusCommand = new SiriusCommand(editingDomain);
+			final ReplaceValueTask task = new ReplaceValueTask(representationElement,
+					representationTarget -> xtextSiriusCellEditor.commit(representationTarget));
+			addChildTasks(representationElement, editingDomain, task);
+			
+			siriusCommand.getTasks().add(task);
+
+			return new ICommandProxy(new GMFCommandWrapper(editingDomain, siriusCommand));
+		} catch (final AXtextSiriusIssueException ex) {
+			StatusManager.getManager().handle(ex.toStatus(), StatusManager.SHOW);
+			return null;
+		}
 	}
-	
+
 	/**
 	 * This is a pretty hacky way to simulate the same behavior as
 	 * {@link org.eclipse.sirius.business.internal.helper.task.ExecuteToolOperationTask#createChildrenTasks(ICommandTask, ContainerModelOperation, CommandContext)}.
@@ -109,7 +115,7 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 			// uiCallback);
 		}
 	}
-
+	
 	protected EObject extractContextEObject(final ReplaceValueParameter replaceValueParameter,
 			final EObject elementToEdit) {
 		final URI originalUri = replaceValueParameter.getOriginalUri();
@@ -121,10 +127,10 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 			newValue = elementToEdit.eGet(replaceValueParameter.getFeature());
 		}
 		final EObject contextEObject = newValue instanceof EObject ? (EObject) newValue : elementToEdit;
-
+		
 		return contextEObject;
 	}
-	
+
 	private void createChildTasks(final ICommandTask parent, final ContainerModelOperation op,
 			final CommandContext context, final Session session, final ModelAccessor modelAccessor,
 			final EMFCommandFactoryUI uiCallback) {
@@ -137,7 +143,7 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 			}
 		}
 	}
-	
+
 	// TODO: check if needed or remove
 	// protected ReplaceValueParameter extractReplaceValueParameter(
 	// final AXtextSiriusStyledTextCellEditor cellEditor,
@@ -175,7 +181,7 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 	//
 	// return null;
 	// }
-	
+
 	private @Nullable DRepresentationElement extractRepresentationElement() {
 		final EditPart host = getHost();
 		if (host instanceof IXtextSiriusAwareLabelEditPart) {
@@ -187,10 +193,10 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	private @Nullable SetValue extractSetValue(final @Nullable DRepresentationElement representationElement) {
 		if (representationElement != null) {
 			final RepresentationElementMapping mapping = representationElement.getMapping();
@@ -207,8 +213,8 @@ public class XtextSiriusDirectEditPolicy extends LabelDirectEditPolicy {
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 }

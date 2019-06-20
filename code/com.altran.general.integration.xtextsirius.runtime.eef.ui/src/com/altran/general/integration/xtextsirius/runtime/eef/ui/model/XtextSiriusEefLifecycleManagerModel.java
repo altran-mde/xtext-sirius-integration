@@ -20,6 +20,7 @@ import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.xtext.parser.IParseResult;
+import org.eclipse.xtext.ui.editor.XtextSourceViewer;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.TextRegion;
 
@@ -32,8 +33,8 @@ import com.altran.general.integration.xtextsirius.runtime.eef.ui.AXtextSiriusEef
 import com.altran.general.integration.xtextsirius.runtime.eef.ui.XtextSiriusWidget;
 
 public class XtextSiriusEefLifecycleManagerModel
-extends AXtextSiriusEefLifecycleManager<IXtextSiriusModelEditorCallback, XtextSiriusModelEditor>
-implements IXtextSiriusModelEditorCallback {
+		extends AXtextSiriusEefLifecycleManager<IXtextSiriusModelEditorCallback, XtextSiriusModelEditor>
+		implements IXtextSiriusModelEditorCallback {
 	public XtextSiriusEefLifecycleManagerModel(
 			final @NonNull IXtextSiriusModelDescriptor descriptor,
 			final @NonNull IEefXtextDescription controlDescription,
@@ -52,16 +53,25 @@ implements IXtextSiriusModelEditorCallback {
 	@Override
 	public IParseResult getXtextParseResult() {
 		final XtextDocument document = getWidget().getDocument();
+		if (document == null) {
+			throw new IllegalStateException("No document available");
+		}
+		
 		return document.readOnly(state -> state.getParseResult());
 	}
-
+	
 	@Override
 	public @NonNull TextRegion callbackGetVisibleRegion() {
-		final IRegion visibleRegionJFace = getWidget().getViewer().getVisibleRegion();
+		final XtextSourceViewer viewer = getWidget().getViewer();
+		if (viewer == null) {
+			throw new IllegalStateException("No viewer available");
+		}
+		
+		final IRegion visibleRegionJFace = viewer.getVisibleRegion();
 		final TextRegion visibleRegion = new TextRegion(visibleRegionJFace.getOffset(), visibleRegionJFace.getLength());
 		return visibleRegion;
 	}
-
+	
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {
@@ -72,14 +82,14 @@ implements IXtextSiriusModelEditorCallback {
 			if (newValue instanceof EObject) {
 				final EObject semanticElement = (EObject) newValue;
 				modelEntryPoint = new ModelEntryPoint(semanticElement, self, getValueFeature());
-
+				
 				resourceUri = semanticElement.eResource().getURI();
 			} else {
 				if (self == null) {
 					throw new IllegalStateException("Cannot dermine self EObject");
 				}
 				modelEntryPoint = new ModelEntryPoint(null, self, getValueFeature());
-
+				
 				resourceUri = self.eResource().getURI();
 			}
 			

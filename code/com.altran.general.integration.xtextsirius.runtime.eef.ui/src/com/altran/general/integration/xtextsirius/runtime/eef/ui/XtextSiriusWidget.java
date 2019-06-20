@@ -33,34 +33,34 @@ public class XtextSiriusWidget {
 	private final EmbeddedEditor embeddedEditor;
 	private final EmbeddedEditorModelAccess editorAccess;
 	private final XtextSiriusEditedResourceProvider editedResourceProvider;
-
+	
 	@Inject
 	private EmbeddedEditorFactory embeddedEditorFactory;
-
+	
 	private long modificationStamp = IDocumentExtension4.UNKNOWN_MODIFICATION_STAMP;
-
+	
 	public XtextSiriusWidget(final @NonNull Composite parent, final @NonNull Injector injector) {
 		injector.injectMembers(this);
-
+		
 		this.editedResourceProvider = new XtextSiriusEditedResourceProvider(injector);
 		this.embeddedEditor = this.embeddedEditorFactory.newEditor(this.getEditedResourceProvider())
 				.withParent(parent);
 		this.editorAccess = this.getEmbeddedEditor().createPartialEditor(true);
 	}
-
+	
 	public @Nullable Control getControl() {
 		if (this.getEmbeddedEditor() != null) {
 			return this.getEmbeddedEditor().getViewer().getControl();
 		}
-
+		
 		return null;
 	}
-
+	
 	public @Nullable StyledText getTextWidget() {
 		if (this.getEmbeddedEditor() != null) {
 			return this.getEmbeddedEditor().getViewer().getTextWidget();
 		}
-
+		
 		return null;
 	}
 	
@@ -68,26 +68,27 @@ public class XtextSiriusWidget {
 		if (this.getEmbeddedEditor() != null) {
 			return this.getEmbeddedEditor().getViewer();
 		}
-
+		
 		return null;
 	}
-
+	
 	public @Nullable XtextDocument getDocument() {
 		if (this.getEmbeddedEditor() != null) {
 			return this.getEmbeddedEditor().getDocument();
 		}
-
+		
 		return null;
 	}
-
+	
 	public void cleanup() {
 		if (this.getEmbeddedEditor() != null) {
 			this.getEmbeddedEditor().getDocument().set("");
 		}
 	}
-
+	
 	public void update(final @NonNull String completeText, final @NonNull TextRegion textRegion) {
-		if (getDocument().get().equals(completeText)) {
+		final XtextDocument document = getDocument();
+		if (document != null && document.get().equals(completeText)) {
 			final IRegion visibleRegion = getEmbeddedEditor().getViewer().getVisibleRegion();
 			if (visibleRegion.getOffset() == textRegion.getOffset()
 					&& visibleRegion.getLength() == textRegion.getLength()) {
@@ -97,36 +98,36 @@ public class XtextSiriusWidget {
 		this.getEditorAccess().updateModel(completeText, state -> textRegion);
 		resetDirty();
 	}
-
+	
 	protected void resetDirty() {
 		this.modificationStamp = retrieveModificationStamp();
 	}
-
+	
 	protected long retrieveModificationStamp() {
 		return this.getEmbeddedEditor().getDocument().getModificationStamp();
 	}
-
+	
 	public boolean isDirty() {
 		return this.modificationStamp != retrieveModificationStamp();
 	}
-
+	
 	public void updateUri(final @NonNull URI resourceUri) {
 		this.getEmbeddedEditor().getDocument()
 		.modify(res -> {
 			FakeResourceUtil.getInstance().updateFakeResourceUri(res, resourceUri);
 			return null;
 		});
-
+		
 	}
-
+	
 	protected EmbeddedEditor getEmbeddedEditor() {
 		return this.embeddedEditor;
 	}
-
+	
 	protected EmbeddedEditorModelAccess getEditorAccess() {
 		return this.editorAccess;
 	}
-
+	
 	protected XtextSiriusEditedResourceProvider getEditedResourceProvider() {
 		return this.editedResourceProvider;
 	}
