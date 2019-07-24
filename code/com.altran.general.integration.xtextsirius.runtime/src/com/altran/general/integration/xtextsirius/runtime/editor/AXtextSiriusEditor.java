@@ -129,6 +129,10 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		return this.callback;
 	}
 	
+	protected boolean isCancelOnValidationError() {
+		return getDescriptor().isCancelOnValidationError();
+	}
+	
 	protected @Nullable String initializeText(final @Nullable Object initialValue, final @Nullable String textValue) {
 		return getEditingDecider().initializeText(initialValue, textValue, this);
 	}

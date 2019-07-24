@@ -23,9 +23,11 @@ import com.google.inject.Injector;
  * to avoid stale EMF resources, memory leaks, and issues with EMF transactions.
  */
 public interface IXtextSiriusDescriptor {
-
+	
 	public @NonNull Injector getInjector();
-
+	
 	boolean isMultiLine();
-
+	
+	boolean isCancelOnValidationError();
+	
 }

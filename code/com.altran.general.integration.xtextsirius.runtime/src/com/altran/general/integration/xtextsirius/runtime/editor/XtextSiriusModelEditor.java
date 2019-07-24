@@ -11,10 +11,13 @@ package com.altran.general.integration.xtextsirius.runtime.editor;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
@@ -32,6 +35,7 @@ import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.IMo
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusErrorException;
 import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusSyntaxErrorException;
+import com.altran.general.integration.xtextsirius.runtime.exception.XtextSiriusValidationErrorException;
 import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureAdapter;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
@@ -74,6 +78,32 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 			
 			if (isNoOp(text)) {
 				return featureAdjuster.getValue(target);
+			}
+			
+			if (isCancelOnValidationError()) {
+				final Object valueToCommit = retrieveValueToCommit();
+				
+				final Diagnostic diagnostic;
+				if (valueToCommit instanceof EObject) {
+					diagnostic = Diagnostician.INSTANCE.validate((EObject) valueToCommit);
+				} else if (valueToCommit instanceof EList<?>) {
+					@SuppressWarnings("unchecked")
+					final EList<EObject> values = (EList<EObject>) valueToCommit;
+					final BasicDiagnostic diagnosticChain = new BasicDiagnostic();
+					for (final EObject e : values) {
+						Diagnostician.INSTANCE.validate(e, diagnosticChain);
+					}
+					diagnostic = diagnosticChain;
+				} else {
+					diagnostic = null;
+				}
+				
+				if (diagnostic != null) {
+					if (diagnostic.getSeverity() >= Diagnostic.ERROR) {
+						final TextRegion visibleRegion = getCallback().callbackGetVisibleRegion();
+						throw new XtextSiriusValidationErrorException(text, visibleRegion, diagnostic);
+					}
+				}
 			}
 			
 			final EStructuralFeature valueFeature = getModelAdjuster().getStructuralFeature(getModelEntryPoint());
