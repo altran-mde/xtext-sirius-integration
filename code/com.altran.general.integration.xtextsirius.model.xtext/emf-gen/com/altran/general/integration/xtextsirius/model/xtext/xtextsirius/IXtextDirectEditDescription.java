@@ -44,7 +44,7 @@ public interface IXtextDirectEditDescription extends IXtextDescription {
 	 */
 	@Override
 	boolean isMultiLine();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription#isMultiLine
@@ -57,5 +57,5 @@ public interface IXtextDirectEditDescription extends IXtextDescription {
 	 * @generated
 	 */
 	void setMultiLine(boolean value);
-
+	
 } // IXtextDirectEditDescription

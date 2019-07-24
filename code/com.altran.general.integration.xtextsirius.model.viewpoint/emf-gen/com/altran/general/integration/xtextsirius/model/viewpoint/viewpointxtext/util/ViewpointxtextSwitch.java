@@ -52,7 +52,7 @@ public class ViewpointxtextSwitch<T> {
 	 * @generated
 	 */
 	protected static ViewpointxtextPackage modelPackage;
-
+	
 	/**
 	 * Creates an instance of the switch. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -64,7 +64,7 @@ public class ViewpointxtextSwitch<T> {
 			modelPackage = ViewpointxtextPackage.eINSTANCE;
 		}
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -77,7 +77,7 @@ public class ViewpointxtextSwitch<T> {
 	public T doSwitch(final EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -95,7 +95,7 @@ public class ViewpointxtextSwitch<T> {
 			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -219,7 +219,7 @@ public class ViewpointxtextSwitch<T> {
 				return defaultCase(theEObject);
 		}
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Edge Label Direct Edit Description</em>'. <!-- begin-user-doc
@@ -236,7 +236,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseIXtextEdgeLabelDirectEditDescription(final IXtextEdgeLabelDirectEditDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Edge Label Direct Edit Model Description</em>'. <!--
@@ -253,7 +253,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseXtextEdgeLabelDirectEditModelDescription(final XtextEdgeLabelDirectEditModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Edge Label Direct Edit Value Description</em>'. <!--
@@ -270,7 +270,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseXtextEdgeLabelDirectEditValueDescription(final XtextEdgeLabelDirectEditValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
@@ -287,7 +287,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseIXtextDescription(final IXtextDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
@@ -304,7 +304,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Documented Element</em>'. <!-- begin-user-doc --> This
@@ -321,7 +321,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseDocumentedElement(final DocumentedElement object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Identified Element</em>'. <!-- begin-user-doc --> This
@@ -338,7 +338,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseIdentifiedElement(final IdentifiedElement object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Entry</em>'. <!-- begin-user-doc --> This implementation returns
@@ -355,7 +355,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseToolEntry(final ToolEntry object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Abstract Tool Description</em>'. <!-- begin-user-doc --> This
@@ -372,7 +372,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseAbstractToolDescription(final AbstractToolDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Mapping Based Tool Description</em>'. <!-- begin-user-doc --> This
@@ -389,7 +389,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseMappingBasedToolDescription(final MappingBasedToolDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Direct Edit Label</em>'. <!-- begin-user-doc --> This implementation
@@ -406,7 +406,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseDirectEditLabel(final DirectEditLabel object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>AXtext Direct Edit Label</em>'. <!-- begin-user-doc --> This
@@ -423,7 +423,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseAXtextDirectEditLabel(final AXtextDirectEditLabel object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
@@ -440,7 +440,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseIXtextModelDescription(final IXtextModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
@@ -457,7 +457,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
@@ -474,7 +474,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseXtextDirectEditModelDescription(final XtextDirectEditModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
@@ -491,7 +491,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseIXtextValueDescription(final IXtextValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
@@ -508,7 +508,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
@@ -525,7 +525,7 @@ public class ViewpointxtextSwitch<T> {
 	public T caseXtextDirectEditValueDescription(final XtextDirectEditValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
@@ -542,5 +542,5 @@ public class ViewpointxtextSwitch<T> {
 	public T defaultCase(final EObject object) {
 		return null;
 	}
-
+	
 } // ViewpointxtextSwitch

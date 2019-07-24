@@ -52,7 +52,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected EList<String> editableFeatures;
-
+	
 	/**
 	 * The cached value of the '{@link #getIgnoredNestedFeatures() <em>Ignored
 	 * Nested Features</em>}' attribute list. <!-- begin-user-doc --> <!--
@@ -63,7 +63,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected EList<String> ignoredNestedFeatures;
-
+	
 	/**
 	 * The default value of the '{@link #getPrefixTerminalsExpression()
 	 * <em>Prefix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected static final String PREFIX_TERMINALS_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getPrefixTerminalsExpression()
 	 * <em>Prefix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -85,7 +85,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected String prefixTerminalsExpression = PREFIX_TERMINALS_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * The default value of the '{@link #getSuffixTerminalsExpression()
 	 * <em>Suffix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -96,7 +96,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected static final String SUFFIX_TERMINALS_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getSuffixTerminalsExpression()
 	 * <em>Suffix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -107,7 +107,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected String suffixTerminalsExpression = SUFFIX_TERMINALS_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -116,7 +116,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	protected EefXtextSingleLineModelDescriptionImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -126,7 +126,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	protected EClass eStaticClass() {
 		return EefxtextPackage.Literals.EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -140,7 +140,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		}
 		return this.editableFeatures;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -154,7 +154,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		}
 		return this.ignoredNestedFeatures;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -164,7 +164,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	public String getPrefixTerminalsExpression() {
 		return this.prefixTerminalsExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -180,7 +180,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 					oldPrefixTerminalsExpression, this.prefixTerminalsExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -190,7 +190,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 	public String getSuffixTerminalsExpression() {
 		return this.suffixTerminalsExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -206,7 +206,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 					oldSuffixTerminalsExpression, this.suffixTerminalsExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -226,7 +226,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -253,7 +253,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		}
 		super.eSet(featureID, newValue);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -277,7 +277,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		}
 		super.eUnset(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -299,7 +299,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -323,7 +323,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -347,7 +347,7 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -358,8 +358,8 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		if (eIsProxy()) {
 			return super.toString();
 		}
-
-		final StringBuffer result = new StringBuffer(super.toString());
+		
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (editableFeatures: ");
 		result.append(this.editableFeatures);
 		result.append(", ignoredNestedFeatures: ");
@@ -371,5 +371,5 @@ public class EefXtextSingleLineModelDescriptionImpl extends IEefXtextDescription
 		result.append(')');
 		return result.toString();
 	}
-
+	
 } // EefXtextSingleLineModelDescriptionImpl

@@ -43,7 +43,7 @@ public class XtextsiriusSwitch<T> {
 	 * @generated
 	 */
 	protected static XtextsiriusPackage modelPackage;
-
+	
 	/**
 	 * Creates an instance of the switch. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -55,7 +55,7 @@ public class XtextsiriusSwitch<T> {
 			modelPackage = XtextsiriusPackage.eINSTANCE;
 		}
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -68,7 +68,7 @@ public class XtextsiriusSwitch<T> {
 	public T doSwitch(final EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -86,7 +86,7 @@ public class XtextsiriusSwitch<T> {
 			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -222,7 +222,7 @@ public class XtextsiriusSwitch<T> {
 				return defaultCase(theEObject);
 		}
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
@@ -239,7 +239,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextDescription(final IXtextDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
@@ -256,7 +256,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextModelDescription(final IXtextModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
@@ -273,7 +273,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextValueDescription(final IXtextValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Description</em>'. <!-- begin-user-doc --> This
@@ -290,7 +290,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextPropertyDescription(final IXtextPropertyDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Direct Edit Description</em>'. <!-- begin-user-doc --> This
@@ -307,7 +307,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Direct Edit Model Description</em>'. <!-- begin-user-doc -->
@@ -324,7 +324,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Direct Edit Value Description</em>'. <!-- begin-user-doc -->
@@ -341,7 +341,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Model Description</em>'. <!-- begin-user-doc -->
@@ -358,7 +358,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Value Description</em>'. <!-- begin-user-doc -->
@@ -375,7 +375,7 @@ public class XtextsiriusSwitch<T> {
 	public T caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
@@ -392,5 +392,5 @@ public class XtextsiriusSwitch<T> {
 	public T defaultCase(final EObject object) {
 		return null;
 	}
-
+	
 } // XtextsiriusSwitch

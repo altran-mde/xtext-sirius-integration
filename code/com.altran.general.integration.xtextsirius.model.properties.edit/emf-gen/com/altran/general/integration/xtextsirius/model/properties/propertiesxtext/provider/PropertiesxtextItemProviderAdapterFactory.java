@@ -62,7 +62,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
-
+	
 	/**
 	 * This is used to implement
 	 * {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
@@ -71,7 +71,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
-
+	
 	/**
 	 * This helps manage the child creation extenders. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,7 +80,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	 */
 	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
 			PropertiesxtextEditPlugin.INSTANCE, PropertiesxtextPackage.eNS_URI);
-
+	
 	/**
 	 * This keeps track of all the supported types checked by
 	 * {@link #isFactoryForType isFactoryForType}. <!-- begin-user-doc --> <!--
@@ -89,7 +89,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	 * @generated
 	 */
 	protected Collection<Object> supportedTypes = new ArrayList<>();
-
+	
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -103,7 +103,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 		this.supportedTypes.add(IItemLabelProvider.class);
 		this.supportedTypes.add(IItemPropertySource.class);
 	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all
 	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription}
@@ -112,7 +112,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	 * @generated
 	 */
 	protected XtextSingleLineModelDescriptionItemProvider xtextSingleLineModelDescriptionItemProvider;
-
+	
 	/**
 	 * This creates an adapter for a
 	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription}.
@@ -125,10 +125,10 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 		if (this.xtextSingleLineModelDescriptionItemProvider == null) {
 			this.xtextSingleLineModelDescriptionItemProvider = new XtextSingleLineModelDescriptionItemProvider(this);
 		}
-
+		
 		return this.xtextSingleLineModelDescriptionItemProvider;
 	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all
 	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription}
@@ -137,7 +137,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	 * @generated
 	 */
 	protected XtextMultiLineModelDescriptionItemProvider xtextMultiLineModelDescriptionItemProvider;
-
+	
 	/**
 	 * This creates an adapter for a
 	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription}.
@@ -150,10 +150,10 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 		if (this.xtextMultiLineModelDescriptionItemProvider == null) {
 			this.xtextMultiLineModelDescriptionItemProvider = new XtextMultiLineModelDescriptionItemProvider(this);
 		}
-
+		
 		return this.xtextMultiLineModelDescriptionItemProvider;
 	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all
 	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription}
@@ -162,7 +162,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	 * @generated
 	 */
 	protected XtextSingleLineValueDescriptionItemProvider xtextSingleLineValueDescriptionItemProvider;
-
+	
 	/**
 	 * This creates an adapter for a
 	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription}.
@@ -175,10 +175,10 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 		if (this.xtextSingleLineValueDescriptionItemProvider == null) {
 			this.xtextSingleLineValueDescriptionItemProvider = new XtextSingleLineValueDescriptionItemProvider(this);
 		}
-
+		
 		return this.xtextSingleLineValueDescriptionItemProvider;
 	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all
 	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription}
@@ -187,7 +187,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	 * @generated
 	 */
 	protected XtextMultiLineValueDescriptionItemProvider xtextMultiLineValueDescriptionItemProvider;
-
+	
 	/**
 	 * This creates an adapter for a
 	 * {@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription}.
@@ -200,10 +200,10 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 		if (this.xtextMultiLineValueDescriptionItemProvider == null) {
 			this.xtextMultiLineValueDescriptionItemProvider = new XtextMultiLineValueDescriptionItemProvider(this);
 		}
-
+		
 		return this.xtextMultiLineValueDescriptionItemProvider;
 	}
-
+	
 	/**
 	 * This returns the root adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -214,7 +214,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
 	}
-
+	
 	/**
 	 * This sets the composed adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -225,7 +225,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -235,7 +235,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public boolean isFactoryForType(final Object type) {
 		return this.supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
-
+	
 	/**
 	 * This implementation substitutes the factory itself as the key for the
 	 * adapter. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -246,7 +246,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public Adapter adapt(final Notifier notifier, final Object type) {
 		return super.adapt(notifier, this);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -260,10 +260,10 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 				return adapter;
 			}
 		}
-
+		
 		return null;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -272,7 +272,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public List<IChildCreationExtender> getChildCreationExtenders() {
 		return this.childCreationExtenderManager.getChildCreationExtenders();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -282,7 +282,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
 		return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -292,7 +292,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public ResourceLocator getResourceLocator() {
 		return this.childCreationExtenderManager;
 	}
-
+	
 	/**
 	 * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -302,7 +302,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public void addListener(final INotifyChangedListener notifyChangedListener) {
 		this.changeNotifier.addListener(notifyChangedListener);
 	}
-
+	
 	/**
 	 * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -312,7 +312,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	public void removeListener(final INotifyChangedListener notifyChangedListener) {
 		this.changeNotifier.removeListener(notifyChangedListener);
 	}
-
+	
 	/**
 	 * This delegates to {@link #changeNotifier} and to
 	 * {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!-- end-user-doc
@@ -323,12 +323,12 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 	@Override
 	public void fireNotifyChanged(final Notification notification) {
 		this.changeNotifier.fireNotifyChanged(notification);
-
+		
 		if (this.parentAdapterFactory != null) {
 			this.parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
-
+	
 	/**
 	 * This disposes all of the item providers created by this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -350,7 +350,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 			this.xtextMultiLineValueDescriptionItemProvider.dispose();
 		}
 	}
-
+	
 	/**
 	 * A child creation extender for the {@link PropertiesPackage}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -372,7 +372,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 			 * @generated
 			 */
 			protected List<Object> newChildDescriptors;
-
+			
 			/**
 			 * The domain in which to create the children. <!-- begin-user-doc
 			 * --> <!-- end-user-doc -->
@@ -380,7 +380,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 			 * @generated
 			 */
 			protected EditingDomain editingDomain;
-
+			
 			/**
 			 * Creates the a switch for populating child descriptors in the
 			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -391,7 +391,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 				this.newChildDescriptors = newChildDescriptors;
 				this.editingDomain = editingDomain;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -402,22 +402,22 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 				this.newChildDescriptors
 						.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_GROUP_DESCRIPTION__CONTROLS,
 								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineModelDescription()));
-
+				
 				this.newChildDescriptors
 						.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_GROUP_DESCRIPTION__CONTROLS,
 								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineModelDescription()));
-
+				
 				this.newChildDescriptors
 						.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_GROUP_DESCRIPTION__CONTROLS,
 								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineValueDescription()));
-
+				
 				this.newChildDescriptors
 						.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_GROUP_DESCRIPTION__CONTROLS,
 								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -428,22 +428,22 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 				this.newChildDescriptors
 						.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_CONTAINER_DESCRIPTION__CONTROLS,
 								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineModelDescription()));
-
+				
 				this.newChildDescriptors
 						.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_CONTAINER_DESCRIPTION__CONTROLS,
 								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineModelDescription()));
-
+				
 				this.newChildDescriptors
 						.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_CONTAINER_DESCRIPTION__CONTROLS,
 								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineValueDescription()));
-
+				
 				this.newChildDescriptors
 						.add(createChildParameter(PropertiesPackage.Literals.ABSTRACT_CONTAINER_DESCRIPTION__CONTROLS,
 								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -454,22 +454,22 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 				this.newChildDescriptors.add(
 						createChildParameter(PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET,
 								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineModelDescription()));
-
+				
 				this.newChildDescriptors.add(
 						createChildParameter(PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET,
 								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineModelDescription()));
-
+				
 				this.newChildDescriptors.add(
 						createChildParameter(PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET,
 								PropertiesxtextFactory.eINSTANCE.createXtextSingleLineValueDescription()));
-
+				
 				this.newChildDescriptors.add(
 						createChildParameter(PropertiesPackage.Literals.ABSTRACT_DYNAMIC_MAPPING_IF_DESCRIPTION__WIDGET,
 								PropertiesxtextFactory.eINSTANCE.createXtextMultiLineValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -478,9 +478,9 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 			protected CommandParameter createChildParameter(final Object feature, final Object child) {
 				return new CommandParameter(null, feature, child);
 			}
-
+			
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -492,7 +492,7 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
 			return result;
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -503,5 +503,5 @@ public class PropertiesxtextItemProviderAdapterFactory extends PropertiesxtextAd
 			return PropertiesxtextEditPlugin.INSTANCE;
 		}
 	}
-
+	
 }

@@ -44,7 +44,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -55,7 +55,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -66,7 +66,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -77,7 +77,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 	 * @ordered
 	 */
 	protected String suffixTextExpression = SUFFIX_TEXT_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -86,7 +86,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 	protected EefXtextSingleLineValueDescriptionImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -96,7 +96,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 	protected EClass eStaticClass() {
 		return EefxtextPackage.Literals.EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -106,7 +106,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 	public String getPrefixTextExpression() {
 		return this.prefixTextExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -122,7 +122,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 					oldPrefixTextExpression, this.prefixTextExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -132,7 +132,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 	public String getSuffixTextExpression() {
 		return this.suffixTextExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -148,7 +148,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 					oldSuffixTextExpression, this.suffixTextExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -164,7 +164,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -182,7 +182,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 		}
 		super.eSet(featureID, newValue);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -200,7 +200,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 		}
 		super.eUnset(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -218,7 +218,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -238,7 +238,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -258,7 +258,7 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -269,8 +269,8 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 		if (eIsProxy()) {
 			return super.toString();
 		}
-
-		final StringBuffer result = new StringBuffer(super.toString());
+		
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (prefixTextExpression: ");
 		result.append(this.prefixTextExpression);
 		result.append(", suffixTextExpression: ");
@@ -278,5 +278,5 @@ public class EefXtextSingleLineValueDescriptionImpl extends IEefXtextDescription
 		result.append(')');
 		return result.toString();
 	}
-
+	
 } // EefXtextSingleLineValueDescriptionImpl

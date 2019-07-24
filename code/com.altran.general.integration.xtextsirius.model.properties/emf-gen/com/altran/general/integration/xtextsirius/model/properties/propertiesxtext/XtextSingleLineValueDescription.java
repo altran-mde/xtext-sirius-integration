@@ -33,5 +33,5 @@ public interface XtextSingleLineValueDescription extends TextDescription, IXtext
 	 */
 	@Override
 	boolean isMultiLine();
-
+	
 } // XtextSingleLineValueDescription

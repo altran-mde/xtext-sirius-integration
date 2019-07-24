@@ -47,7 +47,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 		}
 		return new EefxtextFactoryImpl();
 	}
-
+	
 	/**
 	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -57,7 +57,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 	public EefxtextFactoryImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -78,7 +78,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -89,7 +89,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 		final EefXtextSingleLineModelDescriptionImpl eefXtextSingleLineModelDescription = new EefXtextSingleLineModelDescriptionImpl();
 		return eefXtextSingleLineModelDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -100,7 +100,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 		final EefXtextMultiLineModelDescriptionImpl eefXtextMultiLineModelDescription = new EefXtextMultiLineModelDescriptionImpl();
 		return eefXtextMultiLineModelDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -111,7 +111,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 		final EefXtextSingleLineValueDescriptionImpl eefXtextSingleLineValueDescription = new EefXtextSingleLineValueDescriptionImpl();
 		return eefXtextSingleLineValueDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -122,7 +122,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 		final EefXtextMultiLineValueDescriptionImpl eefXtextMultiLineValueDescription = new EefXtextMultiLineValueDescriptionImpl();
 		return eefXtextMultiLineValueDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -132,7 +132,7 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 	public EefxtextPackage getEefxtextPackage() {
 		return (EefxtextPackage) getEPackage();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -143,5 +143,5 @@ public class EefxtextFactoryImpl extends EFactoryImpl implements EefxtextFactory
 	public static EefxtextPackage getPackage() {
 		return EefxtextPackage.eINSTANCE;
 	}
-
+	
 } // EefxtextFactoryImpl

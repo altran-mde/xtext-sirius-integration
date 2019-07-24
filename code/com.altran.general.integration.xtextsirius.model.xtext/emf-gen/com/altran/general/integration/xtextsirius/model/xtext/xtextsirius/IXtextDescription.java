@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
  * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#isCancelOnValidationError
+ * <em>Cancel On Validation Error</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage#getIXtextDescription()
@@ -44,7 +46,7 @@ public interface IXtextDescription extends EObject {
 	 * @generated
 	 */
 	String getInjectorId();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
@@ -57,7 +59,7 @@ public interface IXtextDescription extends EObject {
 	 * @generated
 	 */
 	void setInjectorId(String value);
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -65,5 +67,32 @@ public interface IXtextDescription extends EObject {
 	 * @generated
 	 */
 	boolean isMultiLine();
-
+	
+	/**
+	 * Returns the value of the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. The default value is <code>"false"</code>. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Cancel On Validation Error</em>' attribute.
+	 * @see #setCancelOnValidationError(boolean)
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.XtextsiriusPackage#getIXtextDescription_CancelOnValidationError()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isCancelOnValidationError();
+	
+	/**
+	 * Sets the value of the
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#isCancelOnValidationError
+	 * <em>Cancel On Validation Error</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Cancel On Validation Error</em>'
+	 *            attribute.
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 */
+	void setCancelOnValidationError(boolean value);
+	
 } // IXtextDescription

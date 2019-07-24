@@ -34,6 +34,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#isCancelOnValidationError
+ * <em>Cancel On Validation Error</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#isMultiLine
  * <em>Multi Line</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditModelDescriptionImpl#getEditableFeatures
@@ -61,7 +63,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected static final String INJECTOR_ID_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -71,7 +73,29 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
-
+	
+	/**
+	 * The default value of the '{@link #isCancelOnValidationError() <em>Cancel
+	 * On Validation Error</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CANCEL_ON_VALIDATION_ERROR_EDEFAULT = false;
+	
+	/**
+	 * The cached value of the '{@link #isCancelOnValidationError() <em>Cancel
+	 * On Validation Error</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean cancelOnValidationError = CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+	
 	/**
 	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -81,7 +105,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected static final boolean MULTI_LINE_EDEFAULT = false;
-
+	
 	/**
 	 * The cached value of the '{@link #isMultiLine() <em>Multi Line</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -91,7 +115,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected boolean multiLine = MULTI_LINE_EDEFAULT;
-
+	
 	/**
 	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
 	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -102,7 +126,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected EList<String> editableFeatures;
-
+	
 	/**
 	 * The cached value of the '{@link #getIgnoredNestedFeatures() <em>Ignored
 	 * Nested Features</em>}' attribute list. <!-- begin-user-doc --> <!--
@@ -113,7 +137,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected EList<String> ignoredNestedFeatures;
-
+	
 	/**
 	 * The default value of the '{@link #getPrefixTerminalsExpression()
 	 * <em>Prefix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -124,7 +148,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected static final String PREFIX_TERMINALS_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getPrefixTerminalsExpression()
 	 * <em>Prefix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -135,7 +159,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected String prefixTerminalsExpression = PREFIX_TERMINALS_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * The default value of the '{@link #getSuffixTerminalsExpression()
 	 * <em>Suffix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -146,7 +170,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected static final String SUFFIX_TERMINALS_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getSuffixTerminalsExpression()
 	 * <em>Suffix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -157,7 +181,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected String suffixTerminalsExpression = SUFFIX_TERMINALS_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * The cached value of the '{@link #getSelectedFeatures() <em>Selected
 	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -168,7 +192,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected EList<String> selectedFeatures;
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -177,7 +201,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	protected XtextDirectEditModelDescriptionImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -187,7 +211,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	protected EClass eStaticClass() {
 		return DiagramxtextPackage.Literals.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -197,7 +221,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	public String getInjectorId() {
 		return this.injectorId;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -213,7 +237,33 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 					this.injectorId));
 		}
 	}
-
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isCancelOnValidationError() {
+		return this.cancelOnValidationError;
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setCancelOnValidationError(final boolean newCancelOnValidationError) {
+		final boolean oldCancelOnValidationError = this.cancelOnValidationError;
+		this.cancelOnValidationError = newCancelOnValidationError;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR,
+					oldCancelOnValidationError, this.cancelOnValidationError));
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -223,7 +273,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -238,7 +288,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 					DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE, oldMultiLine, this.multiLine));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -252,7 +302,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		return this.editableFeatures;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -266,7 +316,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		return this.ignoredNestedFeatures;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -276,7 +326,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	public String getPrefixTerminalsExpression() {
 		return this.prefixTerminalsExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -292,7 +342,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 					oldPrefixTerminalsExpression, this.prefixTerminalsExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -302,7 +352,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 	public String getSuffixTerminalsExpression() {
 		return this.suffixTerminalsExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -318,7 +368,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 					oldSuffixTerminalsExpression, this.suffixTerminalsExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -332,7 +382,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		return this.selectedFeatures;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -343,6 +393,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		switch (featureID) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 				return getInjectorId();
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				return isCancelOnValidationError();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 				return isMultiLine();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
@@ -358,7 +410,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -370,6 +422,9 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		switch (featureID) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId((String) newValue);
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				setCancelOnValidationError((Boolean) newValue);
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 				setMultiLine((Boolean) newValue);
@@ -395,7 +450,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		super.eSet(featureID, newValue);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -406,6 +461,9 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		switch (featureID) {
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId(INJECTOR_ID_EDEFAULT);
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				setCancelOnValidationError(CANCEL_ON_VALIDATION_ERROR_EDEFAULT);
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 				setMultiLine(MULTI_LINE_EDEFAULT);
@@ -428,7 +486,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		super.eUnset(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -440,6 +498,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				return this.cancelOnValidationError != CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE:
 				return this.multiLine != MULTI_LINE_EDEFAULT;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES:
@@ -457,7 +517,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -469,6 +529,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			switch (derivedFeatureID) {
 				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
+				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 				default:
 					return -1;
 			}
@@ -505,7 +567,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -517,6 +579,8 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 			switch (baseFeatureID) {
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 				default:
 					return -1;
 			}
@@ -553,7 +617,7 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -564,10 +628,12 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		if (eIsProxy()) {
 			return super.toString();
 		}
-
-		final StringBuffer result = new StringBuffer(super.toString());
+		
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
+		result.append(", cancelOnValidationError: ");
+		result.append(this.cancelOnValidationError);
 		result.append(", multiLine: ");
 		result.append(this.multiLine);
 		result.append(", editableFeatures: ");
@@ -583,5 +649,5 @@ public class XtextDirectEditModelDescriptionImpl extends AXtextDirectEditLabelIm
 		result.append(')');
 		return result.toString();
 	}
-
+	
 } // XtextDirectEditModelDescriptionImpl
