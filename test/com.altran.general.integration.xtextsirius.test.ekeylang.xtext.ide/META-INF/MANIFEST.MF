@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.test.ekeylang.xtext.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: com.altran.general.integration.xtextsirius.test.ekeylang.xtext.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.altran.general.integration.xtextsirius.test.ekeylang.xtext.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.altran.general.integration.xtextsirius.test.ekeylang.xtext,
+ com.altran.general.integration.xtextsirius.test.ekeylang,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.altran.general.integration.xtextsirius.test.ide.contentassist.antlr.internal,
+ com.altran.general.integration.xtextsirius.test.ide.contentassist.antlr
