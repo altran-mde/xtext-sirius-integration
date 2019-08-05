@@ -76,6 +76,10 @@ abstract class ATestXtextSiriusModel<M extends EObject> {
 		
 		val commitTarget = new MinimalModelAdjuster().getClosestElement(mep)
 		val result = editor.commit(commitTarget)
+		analyzeResult(expectedResultElement, result)
+	}
+	
+	protected def void analyzeResult(Object expectedResultElement, Object result) {
 		if (expectedResultElement instanceof EObject) {
 			assertModelEquals(expectedResultElement, result as EObject)
 		} else if (expectedResultElement instanceof List) {

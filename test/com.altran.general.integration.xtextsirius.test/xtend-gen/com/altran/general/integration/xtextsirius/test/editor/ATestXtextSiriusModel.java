@@ -93,6 +93,10 @@ public abstract class ATestXtextSiriusModel<M extends EObject> {
     editor.initValue(elementToEdit);
     final EObject commitTarget = new MinimalModelAdjuster().getClosestElement(mep);
     final Object result = editor.commit(commitTarget);
+    this.analyzeResult(expectedResultElement, result);
+  }
+  
+  protected void analyzeResult(final Object expectedResultElement, final Object result) {
     if ((expectedResultElement instanceof EObject)) {
       AssertEmf.assertModelEquals(((EObject)expectedResultElement), ((EObject) result));
     } else {
