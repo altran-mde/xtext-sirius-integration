@@ -14,7 +14,7 @@ import org.junit.Test
 class TestFowlerdslEvent extends ATestFowlerdslModel {
 	@Test
 	def void unchanged() {
-		assertEdit(
+		assertModelEdit(
 			model.events.last,
 			"event3 4",
 			null,
@@ -27,7 +27,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeCode() {
-		assertEdit(
+		assertModelEdit(
 			model.events.last,
 			"event3 4",
 			"event3 5",
@@ -40,7 +40,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeName() {
-		assertEdit(
+		assertModelEdit(
 			model.events.last,
 			"event3 4",
 			"eventX 4",
@@ -53,7 +53,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeNameAndCode() {
-		assertEdit(
+		assertModelEdit(
 			model.events.last,
 			"event3 4",
 			"eventX 5",
@@ -66,7 +66,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void empty() {
-		assertEdit(
+		assertModelEdit(
 			model.events.last,
 			"event3 4",
 			"",
@@ -76,7 +76,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void unchangedGuard() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"event2 3 [ 2 ]",
 			null,
@@ -92,7 +92,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeNameGuard() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"event2 3 [ 2 ]",
 			"eventX 3 [ 2 ]",
@@ -108,7 +108,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeGuard() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"event2 3 [ 2 ]",
 			"event2 3 [ 3 ]",
@@ -124,7 +124,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void removeGuard() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"event2 3 [ 2 ]",
 			"event2 3",
@@ -137,7 +137,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeGuardRef() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"event2 3 [ 2 ]",
 			"event2 3 [ c1 ]",
@@ -153,7 +153,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeGuardDoubleRef() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"event2 3 [ 2 ]",
 			"event2 3 [c1..c2]",
@@ -170,7 +170,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void unchangedRangeGuard() {
-		assertEdit(
+		assertModelEdit(
 			model.events.head,
 			"eventSD 2 [ c2 .. c1 ]",
 			null,
@@ -187,7 +187,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void removeRangeGuard() {
-		assertEdit(
+		assertModelEdit(
 			model.events.head,
 			"eventSD 2 [ c2 .. c1 ]",
 			"eventSD 2",
@@ -200,7 +200,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeRangeGuardToMin() {
-		assertEdit(
+		assertModelEdit(
 			model.events.head,
 			"eventSD 2 [ c2 .. c1 ]",
 			"eventSD 2 [c2]",
@@ -216,7 +216,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeRangeGuardToMax() {
-		assertEdit(
+		assertModelEdit(
 			model.events.head,
 			"eventSD 2 [ c2 .. c1 ]",
 			"eventSD 2 [c1]",
@@ -232,7 +232,7 @@ class TestFowlerdslEvent extends ATestFowlerdslModel {
 
 	@Test
 	def void changeRangeGuard() {
-		assertEdit(
+		assertModelEdit(
 			model.events.head,
 			"eventSD 2 [ c2 .. c1 ]",
 			"eventSD 2 [ c2 .. 5 ]",

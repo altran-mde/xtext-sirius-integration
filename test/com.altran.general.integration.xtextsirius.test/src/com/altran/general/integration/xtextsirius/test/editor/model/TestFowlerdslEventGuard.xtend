@@ -14,7 +14,7 @@ import org.junit.Test
 class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 	@Test
 	def void emptyUnchanged() {
-		assertEdit(
+		assertModelEdit(
 			model.events.last,
 			"",
 			null,
@@ -24,7 +24,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 
 	@Test
 	def void emptyAdd() {
-		assertEdit(
+		assertModelEdit(
 			model.events.last,
 			"",
 			"5",
@@ -36,7 +36,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 
 	@Test
 	def void existingUnchanged() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"2",
 			null,
@@ -48,7 +48,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 
 	@Test
 	def void existingEmpty() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"2",
 			"",
@@ -58,7 +58,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 
 	@Test
 	def void existingChange() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(1),
 			"2",
 			"5",
@@ -70,7 +70,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 
 	@Test
 	def void emptyAddRef() {
-		assertEdit(
+		assertModelEdit(
 			model.events.last,
 			"",
 			"c2",
@@ -82,7 +82,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 
 	@Test
 	def void refUnchanged() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(2),
 			"c1",
 			null,
@@ -94,7 +94,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 
 	@Test
 	def void refEmpty() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(2),
 			"c1",
 			"",
@@ -104,7 +104,7 @@ class TestFowlerdslEventGuard extends ATestFowlerdslModel {
 
 	@Test
 	def void refChange() {
-		assertEdit(
+		assertModelEdit(
 			model.events.get(2),
 			"c1",
 			"c2",

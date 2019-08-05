@@ -25,7 +25,7 @@ import org.junit.Test;
 public class TestFowlerdslEventGuardSelf extends ATestFowlerdslModel {
   @Test
   public void emptyUnchanged() {
-    this.assertEdit(
+    this.assertModelEdit(
       IterableExtensions.<Event>last(this.model.getEvents()).getGuard(), 
       IterableExtensions.<Event>last(this.model.getEvents()), 
       "", 
@@ -47,7 +47,7 @@ public class TestFowlerdslEventGuardSelf extends ATestFowlerdslModel {
       it.setCond(_doubleArrow);
     };
     ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
-    this.assertEdit(_guard, _last, 
+    this.assertModelEdit(_guard, _last, 
       "", 
       "5", _doubleArrow);
   }
@@ -66,14 +66,14 @@ public class TestFowlerdslEventGuardSelf extends ATestFowlerdslModel {
       it.setCond(_doubleArrow);
     };
     ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
-    this.assertEdit(_guard, _get, 
+    this.assertModelEdit(_guard, _get, 
       "2", 
       null, _doubleArrow);
   }
   
   @Test
   public void existingEmpty() {
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getEvents().get(1).getGuard(), 
       this.model.getEvents().get(1), 
       "2", 
@@ -95,7 +95,7 @@ public class TestFowlerdslEventGuardSelf extends ATestFowlerdslModel {
       it.setCond(_doubleArrow);
     };
     ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
-    this.assertEdit(_guard, _get, 
+    this.assertModelEdit(_guard, _get, 
       "2", 
       "5", _doubleArrow);
   }
@@ -114,7 +114,7 @@ public class TestFowlerdslEventGuardSelf extends ATestFowlerdslModel {
       it.setCond(_doubleArrow);
     };
     ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
-    this.assertEdit(_guard, _last, 
+    this.assertModelEdit(_guard, _last, 
       "", 
       "c2", _doubleArrow);
   }
@@ -133,14 +133,14 @@ public class TestFowlerdslEventGuardSelf extends ATestFowlerdslModel {
       it.setCond(_doubleArrow);
     };
     ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
-    this.assertEdit(_guard, _get, 
+    this.assertModelEdit(_guard, _get, 
       "c1", 
       null, _doubleArrow);
   }
   
   @Test
   public void refEmpty() {
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getEvents().get(2).getGuard(), 
       this.model.getEvents().get(2), 
       "c1", 
@@ -162,7 +162,7 @@ public class TestFowlerdslEventGuardSelf extends ATestFowlerdslModel {
       it.setCond(_doubleArrow);
     };
     ValueGuard _doubleArrow = ObjectExtensions.<ValueGuard>operator_doubleArrow(_createValueGuard, _function);
-    this.assertEdit(_guard, _get, 
+    this.assertModelEdit(_guard, _get, 
       "c1", 
       "c2", _doubleArrow);
   }

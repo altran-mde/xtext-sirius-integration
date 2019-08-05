@@ -32,7 +32,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setCode(4);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_last, 
+    this.assertModelEdit(_last, 
       "event3 4", 
       null, _doubleArrow);
   }
@@ -46,7 +46,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setCode(5);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_last, 
+    this.assertModelEdit(_last, 
       "event3 4", 
       "event3 5", _doubleArrow);
   }
@@ -60,7 +60,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setCode(4);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_last, 
+    this.assertModelEdit(_last, 
       "event3 4", 
       "eventX 4", _doubleArrow);
   }
@@ -74,14 +74,14 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setCode(5);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_last, 
+    this.assertModelEdit(_last, 
       "event3 4", 
       "eventX 5", _doubleArrow);
   }
   
   @Test
   public void empty() {
-    this.assertEdit(
+    this.assertModelEdit(
       IterableExtensions.<Event>last(this.model.getEvents()), 
       "event3 4", 
       "", 
@@ -108,7 +108,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_get, 
+    this.assertModelEdit(_get, 
       "event2 3 [ 2 ]", 
       null, _doubleArrow);
   }
@@ -133,7 +133,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_get, 
+    this.assertModelEdit(_get, 
       "event2 3 [ 2 ]", 
       "eventX 3 [ 2 ]", _doubleArrow);
   }
@@ -158,7 +158,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_get, 
+    this.assertModelEdit(_get, 
       "event2 3 [ 2 ]", 
       "event2 3 [ 3 ]", _doubleArrow);
   }
@@ -172,7 +172,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setCode(3);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_get, 
+    this.assertModelEdit(_get, 
       "event2 3 [ 2 ]", 
       "event2 3", _doubleArrow);
   }
@@ -197,7 +197,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_get, 
+    this.assertModelEdit(_get, 
       "event2 3 [ 2 ]", 
       "event2 3 [ c1 ]", _doubleArrow);
   }
@@ -228,7 +228,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_get, 
+    this.assertModelEdit(_get, 
       "event2 3 [ 2 ]", 
       "event2 3 [c1..c2]", _doubleArrow);
   }
@@ -259,7 +259,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_head, 
+    this.assertModelEdit(_head, 
       "eventSD 2 [ c2 .. c1 ]", 
       null, _doubleArrow);
   }
@@ -273,7 +273,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setCode(2);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_head, 
+    this.assertModelEdit(_head, 
       "eventSD 2 [ c2 .. c1 ]", 
       "eventSD 2", _doubleArrow);
   }
@@ -298,7 +298,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_head, 
+    this.assertModelEdit(_head, 
       "eventSD 2 [ c2 .. c1 ]", 
       "eventSD 2 [c2]", _doubleArrow);
   }
@@ -323,7 +323,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_head, 
+    this.assertModelEdit(_head, 
       "eventSD 2 [ c2 .. c1 ]", 
       "eventSD 2 [c1]", _doubleArrow);
   }
@@ -354,7 +354,7 @@ public class TestFowlerdslEvent extends ATestFowlerdslModel {
       it.setGuard(_doubleArrow);
     };
     Event _doubleArrow = ObjectExtensions.<Event>operator_doubleArrow(_createEvent, _function);
-    this.assertEdit(_head, 
+    this.assertModelEdit(_head, 
       "eventSD 2 [ c2 .. c1 ]", 
       "eventSD 2 [ c2 .. 5 ]", _doubleArrow);
   }

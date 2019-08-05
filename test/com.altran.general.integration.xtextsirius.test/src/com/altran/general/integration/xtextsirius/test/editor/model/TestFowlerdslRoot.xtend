@@ -23,7 +23,7 @@ class TestFowlerdslRoot extends ATestFowlerdslModel {
 	
 	@Test
 	def void unchanged() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			null,
 			"name statemachine1",
@@ -36,7 +36,7 @@ class TestFowlerdslRoot extends ATestFowlerdslModel {
 	
 	@Test
 	def void empty() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			null,
 			"name statemachine1",
@@ -47,7 +47,7 @@ class TestFowlerdslRoot extends ATestFowlerdslModel {
 	
 	@Test
 	def void change() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			null,
 			"name statemachine1",

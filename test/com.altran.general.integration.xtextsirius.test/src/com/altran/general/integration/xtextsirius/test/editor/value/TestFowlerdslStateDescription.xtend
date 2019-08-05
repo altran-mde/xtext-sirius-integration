@@ -30,13 +30,13 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 		htmlInjector = new HtmlLangStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
 
-	protected def createDescriptor() {
+	protected def createValueDescriptor() {
 		new XtextSiriusValueDescriptor(htmlInjector, createXtextDirectEditValueDescription)
 	}
 
 	@Test
 	def void existingEdit() {
-		assertEdit(
+		assertValueEdit(
 			model.states.head,
 			null,
 			"<p>This is a deschkriptschion</p>\n",
@@ -47,7 +47,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void existingInitEdit() {
-		assertEdit(
+		assertValueEdit(
 			model.states.head,
 			"<p>T",
 			"<p>T",
@@ -58,7 +58,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void existingNoOp() {
-		assertEdit(
+		assertValueEdit(
 			model.states.head,
 			null,
 			"<p>This is a deschkriptschion</p>\n",
@@ -69,7 +69,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void existingDelete() {
-		assertEdit(
+		assertValueEdit(
 			model.states.head,
 			null,
 			"<p>This is a deschkriptschion</p>\n",
@@ -80,7 +80,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void nullEdit() {
-		assertEdit(
+		assertValueEdit(
 			model.states.get(1),
 			null,
 			"",
@@ -91,7 +91,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void nullInitEdit() {
-		assertEdit(
+		assertValueEdit(
 			model.states.get(1),
 			"<p>T",
 			"<p>T",
@@ -102,7 +102,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void nullNoOp() {
-		assertEdit(
+		assertValueEdit(
 			model.states.get(1),
 			null,
 			"",
@@ -113,7 +113,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void nullDelete() {
-		assertEdit(
+		assertValueEdit(
 			model.states.get(1),
 			null,
 			"",
@@ -124,7 +124,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void emptyEdit() {
-		assertEdit(
+		assertValueEdit(
 			model.states.get(2),
 			null,
 			"",
@@ -135,7 +135,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void emptyInitEdit() {
-		assertEdit(
+		assertValueEdit(
 			model.states.get(2),
 			"<p>T",
 			"<p>T",
@@ -146,7 +146,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void emptyNoOp() {
-		assertEdit(
+		assertValueEdit(
 			model.states.get(2),
 			null,
 			"",
@@ -157,7 +157,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void emptyDelete() {
-		assertEdit(
+		assertValueEdit(
 			model.states.get(2),
 			null,
 			"",
@@ -168,7 +168,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void blankEdit() {
-		assertEdit(
+		assertValueEdit(
 			model.states.last,
 			null,
 			"  ",
@@ -179,7 +179,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void blankInitEdit() {
-		assertEdit(
+		assertValueEdit(
 			model.states.last,
 			"<p>T",
 			"<p>T",
@@ -190,7 +190,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void blankNoOp() {
-		assertEdit(
+		assertValueEdit(
 			model.states.last,
 			null,
 			"  ",
@@ -201,7 +201,7 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 
 	@Test
 	def void blankDelete() {
-		assertEdit(
+		assertValueEdit(
 			model.states.last,
 			null,
 			"  ",
@@ -210,9 +210,9 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 		)
 	}
 
-	protected def void assertEdit(EObject container, String initialValue, String expectedText, String changedText,
+	protected def void assertValueEdit(EObject container, String initialValue, String expectedText, String changedText,
 		String expectedResult) {
-		val descriptor = createDescriptor()
+		val descriptor = createValueDescriptor()
 		val editor = new XtextSiriusValueEditor(descriptor)
 
 		editor.callback = new IXtextSiriusValueEditorCallback() {
@@ -243,4 +243,9 @@ class TestFowlerdslStateDescription extends ATestFowlerdsl {
 	override protected getFeatureName() {
 		"description"
 	}
+	
+	override protected createModelDescriptor() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
 }

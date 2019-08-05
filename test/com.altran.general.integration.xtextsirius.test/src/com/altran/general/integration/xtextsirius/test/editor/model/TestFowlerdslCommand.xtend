@@ -14,7 +14,7 @@ import org.junit.Test
 class TestFowlerdslCommand extends ATestFowlerdslModel {
 	@Test
 	def void unchanged() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -34,7 +34,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void empty() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -45,7 +45,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void changeFirst() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -65,7 +65,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void changeBoth() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -85,7 +85,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void removeLast() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -101,7 +101,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void removeFirst() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -117,7 +117,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void replace() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -133,7 +133,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void replaceMove() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -153,7 +153,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void insertFirst() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
@@ -177,7 +177,7 @@ class TestFowlerdslCommand extends ATestFowlerdslModel {
 	
 	@Test
 	def void insertLast() {
-		assertEdit(
+		assertModelEdit(
 			model.commands,
 			model,
 			"cmd0 23  cmd1 42",
