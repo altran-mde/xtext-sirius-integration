@@ -3,17 +3,16 @@ package com.altran.general.integration.xtextsirius.test.reflang
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.test.editor.ATestXtextSiriusModel
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.Container
-import com.altran.general.integration.xtextsirius.test.reflang.refLang.Leaf
+import com.altran.general.integration.xtextsirius.test.reflang.refLang.IContainerContent
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangFactory
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangPackage
 import com.google.inject.Injector
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer
 import org.junit.BeforeClass
 import org.junit.Test
 
 import static org.junit.Assert.*
-import org.eclipse.emf.ecore.util.EcoreUtil
-import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer
-import org.eclipse.emf.ecore.EObject
 
 class TestRefLang extends ATestXtextSiriusModel<Container>{
 	extension RefLangFactory = RefLangFactory::eINSTANCE
@@ -58,8 +57,10 @@ class TestRefLang extends ATestXtextSiriusModel<Container>{
 		1 -> A / G
 		
 		// 8
-		I
-		1 -> A / B
+		I {
+			J L
+		}
+		1 -> A / B -> J
 		2 -> B / A
 	'''
 	
@@ -135,12 +136,41 @@ class TestRefLang extends ATestXtextSiriusModel<Container>{
 		)
 	}
 	
+	@Test
+	def void mixedRef() {
+		val sub = createLeaf => [ name = "K"]
+		val sub2 = createLeaf => [ name = "L"]
+		val expected = createSubContainer => [
+			name = "I"
+			subContents += sub
+			subContents += sub2
+			references += createReference => [ 
+				target = sub
+				target2 = B
+			]
+			references += createReference => [ target = sub2 ]
+			references2 += createReference => [ 
+				target = C
+				target2 = A
+			]
+		]
+		expected.references2 += createReference => [ target = expected ]
+
+		assertModelEdit(
+			I,
+			model,
+			"I { 	J L } 1 -> A / B -> J 2 -> B / A",
+			"I { K L } 1 -> K / B -> L 2 -> C / A -> I",
+			expected
+		)
+	}
+	
 	override protected analyzeResult(Object expectedResultElement, Object result) {
 		super.analyzeResult(expectedResultElement, result)
 		
-		assertTrue(result instanceof Leaf)
+		assertTrue(result instanceof IContainerContent)
 		
-		val leaf = result as Leaf
+		val leaf = result as IContainerContent
 		
 		CrossReferencer::find(#{leaf}).forEach[k, v|
 			v.forEach[
