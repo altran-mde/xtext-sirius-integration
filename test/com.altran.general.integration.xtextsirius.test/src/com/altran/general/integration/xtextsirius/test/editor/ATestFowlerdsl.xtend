@@ -9,7 +9,6 @@
  */
 package com.altran.general.integration.xtextsirius.test.editor
 
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory
 import com.altran.general.integration.xtextsirius.test.FowlerdslEnvironment
 import com.altran.general.integration.xtextsirius.test.InlineFowlerdslEnvironment
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine
@@ -17,7 +16,6 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachineFactory
 import org.junit.BeforeClass
 
 abstract class ATestFowlerdsl extends ATestXtextSiriusModel<Statemachine> {
-	protected extension DiagramxtextFactory diagramFactory = DiagramxtextFactory::eINSTANCE
 	protected extension StatemachineFactory statemachineFactory = StatemachineFactory::eINSTANCE
 	
 	@BeforeClass

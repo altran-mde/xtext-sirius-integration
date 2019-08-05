@@ -1,5 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.editor;
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory;
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
@@ -21,6 +22,9 @@ import org.junit.Before;
 
 @SuppressWarnings("all")
 public abstract class ATestXtextSiriusModel<M extends EObject> {
+  @Extension
+  protected DiagramxtextFactory diagramFactory = DiagramxtextFactory.eINSTANCE;
+  
   @Extension
   protected AModelLoader modelLoader = new AModelLoader() {
     @Override
@@ -55,6 +59,8 @@ public abstract class ATestXtextSiriusModel<M extends EObject> {
   
   protected abstract String getFeatureName();
   
+  protected abstract IXtextSiriusModelDescriptor createModelDescriptor();
+  
   protected M parseModel() {
     final EObject result = this.modelLoader.parseModel(StringUtils2.normalizeNewline(this.modelText().toString()), this.resourceName());
     EcoreUtil.resolveAll(result);
@@ -73,7 +79,8 @@ public abstract class ATestXtextSiriusModel<M extends EObject> {
     final IXtextSiriusModelDescriptor descriptor = this.createModelDescriptor();
     final TestXtextSiriusModelEditorAdapter editor = new TestXtextSiriusModelEditorAdapter(descriptor);
     Injector _injector = this.getInjector();
-    AssertingXtextSiriusEditorCallback callback = new AssertingXtextSiriusEditorCallback(_injector, this.model, newText, expectedText);
+    String _normalizeNewline = StringUtils2.normalizeNewline(expectedText);
+    AssertingXtextSiriusEditorCallback callback = new AssertingXtextSiriusEditorCallback(_injector, this.model, newText, _normalizeNewline);
     editor.setCallback(callback);
     EObject _xifexpression = null;
     if ((elementToEdit instanceof EObject)) {
@@ -94,6 +101,4 @@ public abstract class ATestXtextSiriusModel<M extends EObject> {
       }
     }
   }
-  
-  protected abstract IXtextSiriusModelDescriptor createModelDescriptor();
 }

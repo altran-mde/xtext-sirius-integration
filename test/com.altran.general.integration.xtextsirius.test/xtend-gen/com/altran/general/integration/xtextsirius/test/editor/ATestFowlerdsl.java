@@ -9,7 +9,6 @@
  */
 package com.altran.general.integration.xtextsirius.test.editor;
 
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory;
 import com.altran.general.integration.xtextsirius.test.FowlerdslEnvironment;
 import com.altran.general.integration.xtextsirius.test.InlineFowlerdslEnvironment;
 import com.altran.general.integration.xtextsirius.test.editor.ATestXtextSiriusModel;
@@ -22,9 +21,6 @@ import org.junit.BeforeClass;
 
 @SuppressWarnings("all")
 public abstract class ATestFowlerdsl extends ATestXtextSiriusModel<Statemachine> {
-  @Extension
-  protected DiagramxtextFactory diagramFactory = DiagramxtextFactory.eINSTANCE;
-  
   @Extension
   protected StatemachineFactory statemachineFactory = StatemachineFactory.eINSTANCE;
   

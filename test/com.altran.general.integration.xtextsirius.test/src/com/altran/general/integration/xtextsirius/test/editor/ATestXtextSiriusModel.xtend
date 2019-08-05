@@ -1,5 +1,6 @@
 package com.altran.general.integration.xtextsirius.test.editor
 
+import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster
@@ -18,6 +19,7 @@ import org.junit.Before
 import static org.espilce.commons.emf.testsupport.AssertEmf.*
 
 abstract class ATestXtextSiriusModel<M extends EObject> {
+	protected extension DiagramxtextFactory diagramFactory = DiagramxtextFactory::eINSTANCE
 	
 	protected extension AModelLoader modelLoader = new AModelLoader() {
 		override provideResourceSet() {
@@ -45,6 +47,8 @@ abstract class ATestXtextSiriusModel<M extends EObject> {
 
 	protected def String getFeatureName()
 	
+	protected def IXtextSiriusModelDescriptor createModelDescriptor()
+
 	protected def M parseModel() {
 		val result = StringUtils2::normalizeNewline(modelText.toString).parseModel(resourceName())
 		EcoreUtil::resolveAll(result)
@@ -63,7 +67,7 @@ abstract class ATestXtextSiriusModel<M extends EObject> {
 		val descriptor = createModelDescriptor()
 		val editor = new TestXtextSiriusModelEditorAdapter(descriptor)
 		
-		var callback = new AssertingXtextSiriusEditorCallback(injector, model, newText, expectedText)
+		var callback = new AssertingXtextSiriusEditorCallback(injector, model, newText, StringUtils2::normalizeNewline(expectedText))
 		editor.callback = callback
 		
 		val mep = new ModelEntryPoint(if (elementToEdit instanceof EObject) elementToEdit else null, fallbackContainer, valueFeatureName)
@@ -78,6 +82,4 @@ abstract class ATestXtextSiriusModel<M extends EObject> {
 			assertModelEquals(expectedResultElement, result as List<EObject>)
 		}
 	}
-
-	protected def IXtextSiriusModelDescriptor createModelDescriptor()
 }
