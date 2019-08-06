@@ -4,6 +4,7 @@
 package com.example.formatting2;
 
 import com.example.classes.Association;
+import com.example.classes.Attribute;
 import com.example.classes.ClassModel;
 import com.example.classes.ClassesPackage;
 import com.example.classes.Constant;
@@ -16,8 +17,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.formatting2.IHiddenRegionFormatter;
+import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("access")
@@ -55,6 +58,25 @@ public class ClassesFormatter extends AbstractFormatter2 {
       it.setNewLines(2);
     };
     document.prepend(this.textRegionExtensions.regionFor(clazz).keyword("class"), _function);
+    final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    document.append(this.textRegionExtensions.regionFor(clazz).keyword("{"), _function_1);
+    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    document.prepend(this.textRegionExtensions.regionFor(clazz).keyword("}"), _function_2);
+    final Procedure1<IHiddenRegionFormatter> _function_3 = (IHiddenRegionFormatter it) -> {
+      it.indent();
+    };
+    document.<ISemanticRegion, ISemanticRegion>interior(Pair.<ISemanticRegion, ISemanticRegion>of(this.textRegionExtensions.regionFor(clazz).keyword("{"), this.textRegionExtensions.regionFor(clazz).keyword("}")), _function_3);
+  }
+  
+  protected void _format(final Attribute attr, @Extension final IFormattableDocument document) {
+    final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+      it.newLine();
+    };
+    document.prepend(this.textRegionExtensions.regionFor(attr).feature(this._classesPackage.getAttribute_Visibility()), _function);
   }
   
   public void format(final Object assoc, final IFormattableDocument document) {
@@ -63,6 +85,9 @@ public class ClassesFormatter extends AbstractFormatter2 {
       return;
     } else if (assoc instanceof Association) {
       _format((Association)assoc, document);
+      return;
+    } else if (assoc instanceof Attribute) {
+      _format((Attribute)assoc, document);
       return;
     } else if (assoc instanceof com.example.classes.Class) {
       _format((com.example.classes.Class)assoc, document);

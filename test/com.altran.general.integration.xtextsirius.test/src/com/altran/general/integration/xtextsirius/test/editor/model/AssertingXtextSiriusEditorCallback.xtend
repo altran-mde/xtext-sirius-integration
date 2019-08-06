@@ -14,6 +14,7 @@ import org.apache.commons.lang.StringUtils
 import org.eclipse.emf.ecore.EObject
 
 import static org.junit.Assert.*
+import org.espilce.commons.lang.StringUtils2
 
 class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAdapter {
 	val String newText
@@ -34,7 +35,7 @@ class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAd
 		this.initialValue = initialValue
 		this.offset = offset;
 		this.length = length;
-		assertEquals('''doesn't match''', expectedText, text)
+		assertEquals('''doesn't match''', expectedText, StringUtils2::normalizeNewline(text))
 		super.callbackInitText(initialValue, offset, length)
 	}
 

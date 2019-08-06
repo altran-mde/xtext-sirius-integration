@@ -276,12 +276,13 @@ public class ModelRegionEditorPreparer {
 	private Provider<TextRegionAccessBuilder> textRegionBuilderProvider;
 	
 	private final IXtextSiriusModelDescriptor descriptor;
-	private final @Nullable EObject semanticElement;
-	private final @NonNull EObject parentSemanticElement;
 	private final EStructuralFeature valueFeature;
 	
 	private final Set<@NonNull EStructuralFeature> definedEditableFeatures = Sets.newLinkedHashSet();
 	private final Set<@NonNull EStructuralFeature> definedSelectedFeatures = Sets.newLinkedHashSet();
+	
+	private @Nullable EObject semanticElement;
+	private @NonNull EObject parentSemanticElement;
 	
 	private boolean prepared;
 	
@@ -382,15 +383,17 @@ public class ModelRegionEditorPreparer {
 			return;
 		}
 		
-		final EObject rootContainer = EcoreUtil.getRootContainer(getParent());
-		this.rootRegion = new ModelRegionSerializer(this).serialize(rootContainer);
+		final EObject preRootContainer = EcoreUtil.getRootContainer(getParent());
+		final ITextRegionAccess preRootRegion = new ModelRegionSerializer(this).serialize(preRootContainer);
 		
-		// formatIfPossible(rootContainer);
-		
-		if (getAllText() == null) {
-			this.allText = new StringBuffer(getRootRegion().regionForDocument().getText());
-			this.originalText = this.allText.toString();
+		EObject rootContainer = formatIfPossible(preRootContainer, preRootRegion);
+		if (rootContainer == null) {
+			rootContainer = preRootContainer;
+			this.rootRegion = preRootRegion;
 		}
+		
+		this.allText = new StringBuffer(getRootRegion().regionForDocument().getText());
+		this.originalText = getAllText().toString();
 		
 		final EObject element = getSemanticElement();
 		
@@ -426,32 +429,62 @@ public class ModelRegionEditorPreparer {
 		this.prepared = true;
 	}
 	
-	// TODO: Not used -- remove?
-	protected void formatIfPossible(final EObject rootContainer) {
-		if (this.requestProvider != null && this.formatterProvider != null && this.xtextResourceFactory != null
-				&& this.textRegionBuilderProvider != null && this.parentSemanticElement.eResource() != null) {
-			this.allText = new StringBuffer();
-			final FormatterRequest request = this.requestProvider.get();
-			request.setAllowIdentityEdits(false);
-			request.setFormatUndefinedHiddenRegionsOnly(false);
-			if (this.preferencesProvider != null) {
-				request.setPreferences(TypedPreferenceValues
-						.castOrWrap(this.preferencesProvider.getPreferenceValues(rootContainer.eResource())));
-			}
-			request.setTextRegionAccess(getRootRegion());
-			request.setExceptionHandler(ExceptionAcceptor.IGNORING);
-			final IFormatter2 formatter = this.formatterProvider.get();
-			final List<ITextReplacement> replacements = formatter.format(request);
-			try {
-				getRootRegion().getRewriter().renderToAppendable(replacements, getAllText());
-				final XtextResource resource = (XtextResource) this.xtextResourceFactory
-						.createResource(this.parentSemanticElement.eResource().getURI());
-				resource.load(new StringInputStream(getAllText().toString()), Collections.emptyMap());
-				this.rootRegion = this.textRegionBuilderProvider.get().forNodeModel(resource).create();
-			} catch (final IOException e) {
-				this.allText = null;
-			}
+	protected @Nullable EObject formatIfPossible(final EObject rootContainer, final ITextRegionAccess preRootRegion) {
+		if (this.requestProvider == null ||
+				this.formatterProvider == null ||
+				this.xtextResourceFactory == null ||
+				this.textRegionBuilderProvider == null ||
+				this.parentSemanticElement.eResource() == null) {
+			return null;
 		}
+		
+		final List<ITextReplacement> replacements = setupFormatter(rootContainer, preRootRegion);
+		try {
+			final XtextResource resource = applyFormat(replacements, preRootRegion, new StringBuffer());
+			
+			if (this.semanticElement != null) {
+				this.semanticElement = findCorresponding(resource, this.semanticElement);
+			}
+			this.parentSemanticElement = findCorresponding(resource, this.parentSemanticElement);
+			
+			if (!resource.getContents().isEmpty()) {
+				return resource.getContents().iterator().next();
+			}
+		} catch (final IOException e) {
+			// fall-through
+		}
+		
+		this.rootRegion = null;
+		return null;
+	}
+	
+	private List<ITextReplacement> setupFormatter(final EObject rootContainer, final ITextRegionAccess preRootRegion) {
+		final FormatterRequest request = this.requestProvider.get();
+		request.setAllowIdentityEdits(false);
+		request.setFormatUndefinedHiddenRegionsOnly(false);
+		if (this.preferencesProvider != null) {
+			request.setPreferences(TypedPreferenceValues
+					.castOrWrap(this.preferencesProvider.getPreferenceValues(rootContainer.eResource())));
+		}
+		request.setTextRegionAccess(preRootRegion);
+		request.setExceptionHandler(ExceptionAcceptor.IGNORING);
+		final IFormatter2 formatter = this.formatterProvider.get();
+		final List<ITextReplacement> replacements = formatter.format(request);
+		return replacements;
+	}
+	
+	private XtextResource applyFormat(final List<ITextReplacement> replacements, final ITextRegionAccess preRootRegion,
+			final StringBuffer allText) throws IOException {
+		preRootRegion.getRewriter().renderToAppendable(replacements, allText);
+		final XtextResource resource = (XtextResource) this.xtextResourceFactory
+				.createResource(this.parentSemanticElement.eResource().getURI());
+		resource.load(new StringInputStream(allText.toString()), Collections.emptyMap());
+		this.rootRegion = this.textRegionBuilderProvider.get().forNodeModel(resource).create();
+		return resource;
+	}
+	
+	private EObject findCorresponding(final XtextResource resource, final EObject element) {
+		return resource.getEObject(EcoreUtil.getURI(element).fragment());
 	}
 	
 	/**

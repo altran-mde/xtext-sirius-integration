@@ -28,7 +28,9 @@ class TestFormattedEditor extends ATestXtextSiriusModel<ClassModel> {
 			model.content.get(1),
 			model,
 			'''
-				class B { + attr : integer [2 ..5]}''',
+				class B {
+					+ attr : integer [2 ..5]
+				}''',
 			null,
 			createClass => [
 				name = "B"
@@ -49,7 +51,9 @@ class TestFormattedEditor extends ATestXtextSiriusModel<ClassModel> {
 			model.content.get(1),
 			model,
 			'''
-				class B { + attr : integer [2 ..5]}''',
+				class B {
+					+ attr : integer [2 ..5]
+				}''',
 			'''
 				class B {
 					+ attr: integer [2..5]
@@ -73,7 +77,9 @@ class TestFormattedEditor extends ATestXtextSiriusModel<ClassModel> {
 			model.content.get(1),
 			model,
 			'''
-				class B { + attr : integer [2 ..5]}''',
+				class B {
+					+ attr : integer [2 ..5]
+				}''',
 			'''
 				class B {
 					+ attr2: string [2 .. 4]

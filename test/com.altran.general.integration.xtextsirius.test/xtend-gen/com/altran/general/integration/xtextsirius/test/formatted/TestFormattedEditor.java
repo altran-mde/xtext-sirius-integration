@@ -38,7 +38,12 @@ public class TestFormattedEditor extends ATestXtextSiriusModel<ClassModel> {
   public void noEdit() {
     Content _get = this.model.getContent().get(1);
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("class B { + attr : integer [2 ..5]}");
+    _builder.append("class B {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("+ attr : integer [2 ..5]");
+    _builder.newLine();
+    _builder.append("}");
     com.example.classes.Class _createClass = this._classesFactory.createClass();
     final Procedure1<com.example.classes.Class> _function = (com.example.classes.Class it) -> {
       it.setName("B");
@@ -74,7 +79,12 @@ public class TestFormattedEditor extends ATestXtextSiriusModel<ClassModel> {
   public void pseudoEdit() {
     Content _get = this.model.getContent().get(1);
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("class B { + attr : integer [2 ..5]}");
+    _builder.append("class B {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("+ attr : integer [2 ..5]");
+    _builder.newLine();
+    _builder.append("}");
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("class B {");
     _builder_1.newLine();
@@ -116,7 +126,12 @@ public class TestFormattedEditor extends ATestXtextSiriusModel<ClassModel> {
   public void edit() {
     Content _get = this.model.getContent().get(1);
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("class B { + attr : integer [2 ..5]}");
+    _builder.append("class B {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("+ attr : integer [2 ..5]");
+    _builder.newLine();
+    _builder.append("}");
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("class B {");
     _builder_1.newLine();
