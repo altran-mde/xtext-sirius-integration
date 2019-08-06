@@ -15,18 +15,14 @@ class EKeyLangFormatter extends AbstractFormatter2 {
 	@Inject extension EKeyLangGrammarAccess
 
 	def dispatch void format(Container container, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (iContainerContent : container.contents) {
 			iContainerContent.format
 		}
 	}
 
 	def dispatch void format(Group group, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (leaf : group.leafs) {
 			leaf.format
 		}
 	}
-	
-	// TODO: implement for Single
 }
