@@ -11,6 +11,7 @@ package com.altran.general.integration.xtextsirius.test.editor.value;
 
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription;
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusValueDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.editor.IXtextSiriusValueEditorCallback;
 import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusValueEditor;
@@ -34,14 +35,14 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
     TestFowlerdslStateDescription.htmlInjector = new HtmlLangStandaloneSetup().createInjectorAndDoEMFRegistration();
   }
   
-  protected XtextSiriusValueDescriptor createDescriptor() {
+  protected XtextSiriusValueDescriptor createValueDescriptor() {
     XtextDirectEditValueDescription _createXtextDirectEditValueDescription = this.diagramFactory.createXtextDirectEditValueDescription();
     return new XtextSiriusValueDescriptor(TestFowlerdslStateDescription.htmlInjector, _createXtextDirectEditValueDescription);
   }
   
   @Test
   public void existingEdit() {
-    this.assertEdit(
+    this.assertValueEdit(
       IterableExtensions.<State>head(this.model.getStates()), 
       null, 
       "<p>This is a deschkriptschion</p>\n", 
@@ -51,7 +52,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void existingInitEdit() {
-    this.assertEdit(
+    this.assertValueEdit(
       IterableExtensions.<State>head(this.model.getStates()), 
       "<p>T", 
       "<p>T", 
@@ -61,7 +62,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void existingNoOp() {
-    this.assertEdit(
+    this.assertValueEdit(
       IterableExtensions.<State>head(this.model.getStates()), 
       null, 
       "<p>This is a deschkriptschion</p>\n", 
@@ -71,7 +72,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void existingDelete() {
-    this.assertEdit(
+    this.assertValueEdit(
       IterableExtensions.<State>head(this.model.getStates()), 
       null, 
       "<p>This is a deschkriptschion</p>\n", 
@@ -81,7 +82,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void nullEdit() {
-    this.assertEdit(
+    this.assertValueEdit(
       this.model.getStates().get(1), 
       null, 
       "", 
@@ -91,7 +92,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void nullInitEdit() {
-    this.assertEdit(
+    this.assertValueEdit(
       this.model.getStates().get(1), 
       "<p>T", 
       "<p>T", 
@@ -101,7 +102,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void nullNoOp() {
-    this.assertEdit(
+    this.assertValueEdit(
       this.model.getStates().get(1), 
       null, 
       "", 
@@ -111,7 +112,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void nullDelete() {
-    this.assertEdit(
+    this.assertValueEdit(
       this.model.getStates().get(1), 
       null, 
       "", 
@@ -121,7 +122,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void emptyEdit() {
-    this.assertEdit(
+    this.assertValueEdit(
       this.model.getStates().get(2), 
       null, 
       "", 
@@ -131,7 +132,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void emptyInitEdit() {
-    this.assertEdit(
+    this.assertValueEdit(
       this.model.getStates().get(2), 
       "<p>T", 
       "<p>T", 
@@ -141,7 +142,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void emptyNoOp() {
-    this.assertEdit(
+    this.assertValueEdit(
       this.model.getStates().get(2), 
       null, 
       "", 
@@ -151,7 +152,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void emptyDelete() {
-    this.assertEdit(
+    this.assertValueEdit(
       this.model.getStates().get(2), 
       null, 
       "", 
@@ -161,7 +162,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void blankEdit() {
-    this.assertEdit(
+    this.assertValueEdit(
       IterableExtensions.<State>last(this.model.getStates()), 
       null, 
       "  ", 
@@ -171,7 +172,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void blankInitEdit() {
-    this.assertEdit(
+    this.assertValueEdit(
       IterableExtensions.<State>last(this.model.getStates()), 
       "<p>T", 
       "<p>T", 
@@ -181,7 +182,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void blankNoOp() {
-    this.assertEdit(
+    this.assertValueEdit(
       IterableExtensions.<State>last(this.model.getStates()), 
       null, 
       "  ", 
@@ -191,7 +192,7 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   
   @Test
   public void blankDelete() {
-    this.assertEdit(
+    this.assertValueEdit(
       IterableExtensions.<State>last(this.model.getStates()), 
       null, 
       "  ", 
@@ -199,8 +200,8 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
       null);
   }
   
-  protected void assertEdit(final EObject container, final String initialValue, final String expectedText, final String changedText, final String expectedResult) {
-    final XtextSiriusValueDescriptor descriptor = this.createDescriptor();
+  protected void assertValueEdit(final EObject container, final String initialValue, final String expectedText, final String changedText, final String expectedResult) {
+    final XtextSiriusValueDescriptor descriptor = this.createValueDescriptor();
     final XtextSiriusValueEditor editor = new XtextSiriusValueEditor(descriptor);
     editor.setCallback(new IXtextSiriusValueEditorCallback() {
       @Override
@@ -231,5 +232,10 @@ public class TestFowlerdslStateDescription extends ATestFowlerdsl {
   @Override
   protected String getFeatureName() {
     return "description";
+  }
+  
+  @Override
+  protected IXtextSiriusModelDescriptor createModelDescriptor() {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
   }
 }

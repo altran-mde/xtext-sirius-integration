@@ -38,21 +38,21 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	 * @generated
 	 */
 	private EClass aXtextDirectEditLabelEClass = null;
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private EClass xtextDirectEditModelDescriptionEClass = null;
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private EClass xtextDirectEditValueDescriptionEClass = null;
-
+	
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
@@ -71,14 +71,14 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	private DiagramxtextPackageImpl() {
 		super(eNS_URI, DiagramxtextFactory.eINSTANCE);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
-
+	
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model,
 	 * and for any others upon which it depends.
@@ -98,35 +98,35 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		if (isInited) {
 			return (DiagramxtextPackage) EPackage.Registry.INSTANCE.getEPackage(DiagramxtextPackage.eNS_URI);
 		}
-
+		
 		// Obtain or create and register package
-		final DiagramxtextPackageImpl theDiagramxtextPackage = (DiagramxtextPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof DiagramxtextPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new DiagramxtextPackageImpl());
-
+		final Object registeredDiagramxtextPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		final DiagramxtextPackageImpl theDiagramxtextPackage = registeredDiagramxtextPackage instanceof DiagramxtextPackageImpl
+				? (DiagramxtextPackageImpl) registeredDiagramxtextPackage
+				: new DiagramxtextPackageImpl();
+		
 		isInited = true;
-
+		
 		// Initialize simple dependencies
 		ViewpointPackage.eINSTANCE.eClass();
 		DiagramPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
 		XtextsiriusPackage.eINSTANCE.eClass();
-
+		
 		// Create package meta-data objects
 		theDiagramxtextPackage.createPackageContents();
-
+		
 		// Initialize created meta-data
 		theDiagramxtextPackage.initializePackageContents();
-
+		
 		// Mark meta-data to indicate it can't be changed
 		theDiagramxtextPackage.freeze();
-
-
+		
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DiagramxtextPackage.eNS_URI, theDiagramxtextPackage);
 		return theDiagramxtextPackage;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -136,7 +136,7 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	public EClass getAXtextDirectEditLabel() {
 		return this.aXtextDirectEditLabelEClass;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -146,7 +146,7 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	public EClass getXtextDirectEditModelDescription() {
 		return this.xtextDirectEditModelDescriptionEClass;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -156,7 +156,7 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	public EClass getXtextDirectEditValueDescription() {
 		return this.xtextDirectEditValueDescriptionEClass;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -166,14 +166,14 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 	public DiagramxtextFactory getDiagramxtextFactory() {
 		return (DiagramxtextFactory) getEFactoryInstance();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
-
+	
 	/**
 	 * Creates the meta-model objects for the package. This method is guarded to
 	 * have no affect on any invocation but its first. <!-- begin-user-doc -->
@@ -186,22 +186,22 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 			return;
 		}
 		this.isCreated = true;
-
+		
 		// Create classes and their features
 		this.aXtextDirectEditLabelEClass = createEClass(AXTEXT_DIRECT_EDIT_LABEL);
-
+		
 		this.xtextDirectEditModelDescriptionEClass = createEClass(XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION);
-
+		
 		this.xtextDirectEditValueDescriptionEClass = createEClass(XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
-
+	
 	/**
 	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first. <!--
@@ -214,23 +214,23 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 			return;
 		}
 		this.isInitialized = true;
-
+		
 		// Initialize package
 		setName(eNAME);
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
-
+		
 		// Obtain other dependent packages
 		final ToolPackage theToolPackage = (ToolPackage) EPackage.Registry.INSTANCE.getEPackage(ToolPackage.eNS_URI);
 		final DescriptionPackage theDescriptionPackage = (DescriptionPackage) EPackage.Registry.INSTANCE
 				.getEPackage(DescriptionPackage.eNS_URI);
 		final XtextsiriusPackage theXtextsiriusPackage = (XtextsiriusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(XtextsiriusPackage.eNS_URI);
-
+		
 		// Create type parameters
-
+		
 		// Set bounds for type parameters
-
+		
 		// Add supertypes to classes
 		this.aXtextDirectEditLabelEClass.getESuperTypes().add(theToolPackage.getDirectEditLabel());
 		this.xtextDirectEditModelDescriptionEClass.getESuperTypes().add(getAXtextDirectEditLabel());
@@ -239,29 +239,29 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 		this.xtextDirectEditValueDescriptionEClass.getESuperTypes().add(getAXtextDirectEditLabel());
 		this.xtextDirectEditValueDescriptionEClass.getESuperTypes()
 				.add(theXtextsiriusPackage.getIXtextDirectEditValueDescription());
-
+		
 		// Initialize classes and features; add operations and parameters
 		initEClass(this.aXtextDirectEditLabelEClass, AXtextDirectEditLabel.class, "AXtextDirectEditLabel", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
+		
 		addEOperation(this.aXtextDirectEditLabelEClass, theDescriptionPackage.getDiagramElementMapping(), "getMapping",
 				0,
 				-1, !IS_UNIQUE, IS_ORDERED);
-
+		
 		initEClass(this.xtextDirectEditModelDescriptionEClass, XtextDirectEditModelDescription.class,
 				"XtextDirectEditModelDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
+		
 		initEClass(this.xtextDirectEditValueDescriptionEClass, XtextDirectEditValueDescription.class,
 				"XtextDirectEditValueDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
+		
 		// Create resource
 		createResource(eNS_URI);
-
+		
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
 		createGenModelAnnotations();
 	}
-
+	
 	/**
 	 * Initializes the annotations for
 	 * <b>http://www.eclipse.org/emf/2002/GenModel</b>. <!-- begin-user-doc -->
@@ -288,5 +288,5 @@ public class DiagramxtextPackageImpl extends EPackageImpl implements Diagramxtex
 						"image", "true"
 				});
 	}
-
+	
 } // DiagramxtextPackageImpl

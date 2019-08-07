@@ -46,7 +46,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 	 * @ordered
 	 */
 	protected EList<BasicLabelStyleDescription> edgeLabelMappings;
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -55,7 +55,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 	protected XtextEdgeLabelDirectEditValueDescriptionImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -65,7 +65,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 	protected EClass eStaticClass() {
 		return ViewpointxtextPackage.Literals.XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -80,7 +80,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 		}
 		return this.edgeLabelMappings;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -94,7 +94,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -111,7 +111,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 		}
 		super.eSet(featureID, newValue);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -126,7 +126,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 		}
 		super.eUnset(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -140,7 +140,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -158,7 +158,7 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -176,5 +176,5 @@ public class XtextEdgeLabelDirectEditValueDescriptionImpl extends XtextDirectEdi
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 } // XtextEdgeLabelDirectEditValueDescriptionImpl

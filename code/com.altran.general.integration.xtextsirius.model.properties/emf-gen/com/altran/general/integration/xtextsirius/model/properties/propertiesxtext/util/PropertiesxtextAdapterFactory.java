@@ -51,7 +51,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected static PropertiesxtextPackage modelPackage;
-
+	
 	/**
 	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -63,7 +63,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 			modelPackage = PropertiesxtextPackage.eINSTANCE;
 		}
 	}
-
+	
 	/**
 	 * Returns whether this factory is applicable for the type of the object.
 	 * <!-- begin-user-doc --> This implementation returns <code>true</code> if
@@ -83,7 +83,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 		return false;
 	}
-
+	
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -95,108 +95,108 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 		public Adapter caseXtextSingleLineModelDescription(final XtextSingleLineModelDescription object) {
 			return createXtextSingleLineModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseXtextMultiLineModelDescription(final XtextMultiLineModelDescription object) {
 			return createXtextMultiLineModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseXtextSingleLineValueDescription(final XtextSingleLineValueDescription object) {
 			return createXtextSingleLineValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseXtextMultiLineValueDescription(final XtextMultiLineValueDescription object) {
 			return createXtextMultiLineValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIdentifiedElement(final IdentifiedElement object) {
 			return createIdentifiedElementAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseDocumentedElement(final DocumentedElement object) {
 			return createDocumentedElementAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseAbstractControlDescription(final AbstractControlDescription object) {
 			return createAbstractControlDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseAbstractWidgetDescription(final AbstractWidgetDescription object) {
 			return createAbstractWidgetDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseAbstractTextDescription(final AbstractTextDescription object) {
 			return createAbstractTextDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseControlDescription(final ControlDescription object) {
 			return createControlDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseWidgetDescription(final WidgetDescription object) {
 			return createWidgetDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseTextDescription(final TextDescription object) {
 			return createTextDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextDescription(final IXtextDescription object) {
 			return createIXtextDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextPropertyDescription(final IXtextPropertyDescription object) {
 			return createIXtextPropertyDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextModelDescription(final IXtextModelDescription object) {
 			return createIXtextModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
 			return createIXtextPropertyModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseAbstractTextAreaDescription(final AbstractTextAreaDescription object) {
 			return createAbstractTextAreaDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseTextAreaDescription(final TextAreaDescription object) {
 			return createTextAreaDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
 			return createIXtextPropertyValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter defaultCase(final EObject object) {
 			return createEObjectAdapter();
 		}
 	};
-
+	
 	/**
 	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,8 +210,8 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAdapter(final Notifier target) {
 		return this.modelSwitch.doSwitch((EObject) target);
 	}
-
-
+	
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription
@@ -227,7 +227,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createXtextSingleLineModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
@@ -243,7 +243,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createXtextMultiLineModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
@@ -259,7 +259,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createXtextSingleLineValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
@@ -275,7 +275,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createXtextMultiLineValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.viewpoint.description.IdentifiedElement
@@ -291,7 +291,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIdentifiedElementAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.viewpoint.description.DocumentedElement
@@ -307,7 +307,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createDocumentedElementAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.AbstractControlDescription
@@ -323,7 +323,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAbstractControlDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.AbstractWidgetDescription
@@ -339,7 +339,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAbstractWidgetDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.AbstractTextDescription
@@ -355,7 +355,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAbstractTextDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.ControlDescription <em>Control
@@ -371,7 +371,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createControlDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.WidgetDescription <em>Widget
@@ -387,7 +387,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createWidgetDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.TextDescription <em>Text
@@ -403,7 +403,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createTextDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
@@ -419,7 +419,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
@@ -435,7 +435,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextPropertyDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
@@ -451,7 +451,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
@@ -467,7 +467,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextPropertyModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.AbstractTextAreaDescription
@@ -483,7 +483,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAbstractTextAreaDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.properties.TextAreaDescription <em>Text Area
@@ -499,7 +499,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createTextAreaDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
@@ -515,7 +515,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
@@ -531,7 +531,7 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextPropertyValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This
 	 * default implementation returns null. <!-- end-user-doc -->
@@ -542,5 +542,5 @@ public class PropertiesxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEObjectAdapter() {
 		return null;
 	}
-
+	
 } // PropertiesxtextAdapterFactory

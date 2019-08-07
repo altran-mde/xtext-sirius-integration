@@ -35,6 +35,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#isCancelOnValidationError
+ * <em>Cancel On Validation Error</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getIgnoredNestedFeatures
@@ -58,7 +60,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected static final String INJECTOR_ID_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -68,7 +70,29 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
-
+	
+	/**
+	 * The default value of the '{@link #isCancelOnValidationError() <em>Cancel
+	 * On Validation Error</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CANCEL_ON_VALIDATION_ERROR_EDEFAULT = false;
+	
+	/**
+	 * The cached value of the '{@link #isCancelOnValidationError() <em>Cancel
+	 * On Validation Error</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean cancelOnValidationError = CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+	
 	/**
 	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
 	 * Features</em>}' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -79,7 +103,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected EList<String> editableFeatures;
-
+	
 	/**
 	 * The cached value of the '{@link #getIgnoredNestedFeatures() <em>Ignored
 	 * Nested Features</em>}' attribute list. <!-- begin-user-doc --> <!--
@@ -90,7 +114,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected EList<String> ignoredNestedFeatures;
-
+	
 	/**
 	 * The default value of the '{@link #getPrefixTerminalsExpression()
 	 * <em>Prefix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -101,7 +125,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected static final String PREFIX_TERMINALS_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getPrefixTerminalsExpression()
 	 * <em>Prefix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -112,7 +136,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected String prefixTerminalsExpression = PREFIX_TERMINALS_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * The default value of the '{@link #getSuffixTerminalsExpression()
 	 * <em>Suffix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -123,7 +147,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected static final String SUFFIX_TERMINALS_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getSuffixTerminalsExpression()
 	 * <em>Suffix Terminals Expression</em>}' attribute. <!-- begin-user-doc -->
@@ -134,7 +158,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected String suffixTerminalsExpression = SUFFIX_TERMINALS_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -143,7 +167,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	protected XtextSingleLineModelDescriptionImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -153,7 +177,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	protected EClass eStaticClass() {
 		return PropertiesxtextPackage.Literals.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -163,7 +187,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	public String getInjectorId() {
 		return this.injectorId;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -179,7 +203,33 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 					this.injectorId));
 		}
 	}
-
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isCancelOnValidationError() {
+		return this.cancelOnValidationError;
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setCancelOnValidationError(final boolean newCancelOnValidationError) {
+		final boolean oldCancelOnValidationError = this.cancelOnValidationError;
+		this.cancelOnValidationError = newCancelOnValidationError;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR,
+					oldCancelOnValidationError, this.cancelOnValidationError));
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -193,7 +243,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		}
 		return this.editableFeatures;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -207,7 +257,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		}
 		return this.ignoredNestedFeatures;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -217,7 +267,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	public String getPrefixTerminalsExpression() {
 		return this.prefixTerminalsExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -233,7 +283,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 					oldPrefixTerminalsExpression, this.prefixTerminalsExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -243,7 +293,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	public String getSuffixTerminalsExpression() {
 		return this.suffixTerminalsExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -259,7 +309,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 					oldSuffixTerminalsExpression, this.suffixTerminalsExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -269,7 +319,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	public boolean isMultiLine() {
 		return false;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -280,6 +330,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		switch (featureID) {
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				return getInjectorId();
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				return isCancelOnValidationError();
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return getEditableFeatures();
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
@@ -291,7 +343,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -303,6 +355,9 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		switch (featureID) {
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId((String) newValue);
+				return;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				setCancelOnValidationError((Boolean) newValue);
 				return;
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
@@ -321,7 +376,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		}
 		super.eSet(featureID, newValue);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -332,6 +387,9 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		switch (featureID) {
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				setInjectorId(INJECTOR_ID_EDEFAULT);
+				return;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				setCancelOnValidationError(CANCEL_ON_VALIDATION_ERROR_EDEFAULT);
 				return;
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
@@ -348,7 +406,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		}
 		super.eUnset(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -360,6 +418,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				return this.cancelOnValidationError != CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
@@ -373,7 +433,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -385,6 +445,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 			switch (derivedFeatureID) {
 				case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
+				case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 				default:
 					return -1;
 			}
@@ -417,7 +479,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -429,6 +491,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 			switch (baseFeatureID) {
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
 					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 				default:
 					return -1;
 			}
@@ -461,7 +525,7 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -472,10 +536,12 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		if (eIsProxy()) {
 			return super.toString();
 		}
-
-		final StringBuffer result = new StringBuffer(super.toString());
+		
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
+		result.append(", cancelOnValidationError: ");
+		result.append(this.cancelOnValidationError);
 		result.append(", editableFeatures: ");
 		result.append(this.editableFeatures);
 		result.append(", ignoredNestedFeatures: ");
@@ -487,5 +553,5 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		result.append(')');
 		return result.toString();
 	}
-
+	
 } // XtextSingleLineModelDescriptionImpl

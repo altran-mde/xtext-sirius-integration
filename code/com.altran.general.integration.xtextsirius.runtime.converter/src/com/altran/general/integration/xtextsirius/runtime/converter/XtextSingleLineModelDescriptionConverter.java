@@ -20,12 +20,12 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFac
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription;
 
 public class XtextSingleLineModelDescriptionConverter extends AXtextDescriptionConverter {
-
+	
 	@Override
 	public boolean canHandle(final EObject description) {
 		return description instanceof XtextSingleLineModelDescription;
 	}
-
+	
 	@Override
 	public EObject convert(final EObject description, final Map<String, Object> parameters,
 			final TransformationCache cache) {
@@ -49,6 +49,7 @@ public class XtextSingleLineModelDescriptionConverter extends AXtextDescriptionC
 			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
+			eefDescription.setCancelOnValidationError(propertyDescription.isCancelOnValidationError());
 			
 			eefDescription.setPrefixTerminalsExpression(propertyDescription.getPrefixTerminalsExpression());
 			eefDescription.setSuffixTerminalsExpression(propertyDescription.getSuffixTerminalsExpression());

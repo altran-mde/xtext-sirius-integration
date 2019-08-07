@@ -14,7 +14,7 @@ import org.junit.Test
 class TestFowlerdslConstant extends ATestFowlerdslModel {
 	@Test
 	def void unchanged() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			null,
@@ -33,7 +33,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void empty() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"",
@@ -44,7 +44,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void changeFirst() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"c1 22 c2 42",
@@ -63,7 +63,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void changeLast() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"c1 23 c2 43",
@@ -82,7 +82,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void removeFirst() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"c2 42",
@@ -97,7 +97,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void removeLast() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"c1 23",
@@ -112,7 +112,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void replace() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"c3 13",
@@ -127,7 +127,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void replaceMove() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"c3 13 c1 23",
@@ -146,7 +146,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void addFirst() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"c3 13 c1 23 c2 42",
@@ -169,7 +169,7 @@ class TestFowlerdslConstant extends ATestFowlerdslModel {
 	
 	@Test
 	def void addLast() {
-		assertEdit(
+		assertModelEdit(
 			model,
 			"c1 23  c2 42",
 			"c1 23 c2 42 c3 13",

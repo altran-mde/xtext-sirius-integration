@@ -35,21 +35,21 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	String eNAME = "xtextsirius";
-
+	
 	/**
 	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	String eNS_URI = "http://altran.com/general/integration/xtextsirius/model/xtext/1.0";
-
+	
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	String eNS_PREFIX = "xtext-sirius";
-
+	
 	/**
 	 * The singleton instance of the package. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -58,7 +58,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 */
 	XtextsiriusPackage eINSTANCE = com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusPackageImpl
 			.init();
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
@@ -70,7 +70,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_DESCRIPTION = 0;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -79,7 +79,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DESCRIPTION__INJECTOR_ID = 0;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = 1;
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Description</em>'
 	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -87,8 +96,8 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_DESCRIPTION_FEATURE_COUNT = 1;
-
+	int IXTEXT_DESCRIPTION_FEATURE_COUNT = 2;
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
@@ -100,7 +109,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_MODEL_DESCRIPTION = 1;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -109,7 +118,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_DESCRIPTION__INJECTOR_ID;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -118,7 +136,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
 	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -127,7 +145,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
-
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -136,7 +154,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 2;
-
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -145,7 +163,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 3;
-
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -154,7 +172,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 4;
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
@@ -166,7 +184,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_VALUE_DESCRIPTION = 2;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -175,7 +193,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_VALUE_DESCRIPTION__INJECTOR_ID = IXTEXT_DESCRIPTION__INJECTOR_ID;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -184,7 +211,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -193,7 +220,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
-
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Value
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -202,7 +229,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 2;
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
@@ -214,7 +241,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_PROPERTY_DESCRIPTION = 3;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -223,7 +250,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID = IXTEXT_DESCRIPTION__INJECTOR_ID;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Property
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -232,7 +268,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
@@ -244,7 +280,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_DIRECT_EDIT_DESCRIPTION = 4;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -253,7 +289,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID = IXTEXT_DESCRIPTION__INJECTOR_ID;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -262,7 +307,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE = IXTEXT_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Direct Edit
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -271,7 +316,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT = IXTEXT_DESCRIPTION_FEATURE_COUNT + 1;
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
@@ -283,7 +328,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION = 5;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -292,7 +337,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DIRECT_EDIT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -301,7 +355,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__MULTI_LINE = IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE;
-
+	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -310,7 +364,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
 	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -320,7 +374,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
 			+ 1;
-
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -330,7 +384,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
 			+ 2;
-
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -340,7 +394,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT
 			+ 3;
-
+	
 	/**
 	 * The feature id for the '<em><b>Selected Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -349,7 +403,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 4;
-
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Direct Edit Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -358,7 +412,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 5;
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
@@ -370,7 +424,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION = 6;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -379,7 +433,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID = IXTEXT_DIRECT_EDIT_DESCRIPTION__INJECTOR_ID;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DIRECT_EDIT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -388,7 +451,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE = IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE;
-
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -397,7 +460,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -406,7 +469,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 1;
-
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Direct Edit Value
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -415,7 +478,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_DIRECT_EDIT_DESCRIPTION_FEATURE_COUNT + 2;
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
@@ -427,7 +490,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION = 7;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -436,7 +499,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__INJECTOR_ID = IXTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -445,7 +517,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__EDITABLE_FEATURES = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
 	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -454,7 +526,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
-
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -463,7 +535,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
-
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -472,7 +544,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 3;
-
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Property Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -481,7 +553,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 4;
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
@@ -493,7 +565,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	int IXTEXT_PROPERTY_VALUE_DESCRIPTION = 8;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -502,7 +574,16 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__INJECTOR_ID = IXTEXT_PROPERTY_DESCRIPTION__INJECTOR_ID;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -511,7 +592,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -520,7 +601,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 1;
-
+	
 	/**
 	 * The number of structural features of the '<em>IXtext Property Value
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -529,8 +610,8 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_VALUE_DESCRIPTION_FEATURE_COUNT = IXTEXT_PROPERTY_DESCRIPTION_FEATURE_COUNT + 2;
-
-
+	
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
@@ -542,7 +623,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextDescription();
-
+	
 	/**
 	 * Returns the meta object for the attribute
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#getInjectorId
@@ -554,7 +635,21 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextDescription_InjectorId();
-
+	
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#isCancelOnValidationError
+	 * <em>Cancel On Validation Error</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Cancel On Validation
+	 *         Error</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#isCancelOnValidationError()
+	 * @see #getIXtextDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextDescription_CancelOnValidationError();
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
@@ -566,7 +661,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextModelDescription();
-
+	
 	/**
 	 * Returns the meta object for the attribute list
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getEditableFeatures
@@ -580,7 +675,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextModelDescription_EditableFeatures();
-
+	
 	/**
 	 * Returns the meta object for the attribute list
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getIgnoredNestedFeatures
@@ -594,7 +689,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextModelDescription_IgnoredNestedFeatures();
-
+	
 	/**
 	 * Returns the meta object for the attribute
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getPrefixTerminalsExpression
@@ -608,7 +703,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextModelDescription_PrefixTerminalsExpression();
-
+	
 	/**
 	 * Returns the meta object for the attribute
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getSuffixTerminalsExpression
@@ -622,7 +717,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextModelDescription_SuffixTerminalsExpression();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
@@ -634,7 +729,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextValueDescription();
-
+	
 	/**
 	 * Returns the meta object for the attribute
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription#getPrefixTextExpression
@@ -648,7 +743,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextValueDescription_PrefixTextExpression();
-
+	
 	/**
 	 * Returns the meta object for the attribute
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription#getSuffixTextExpression
@@ -662,7 +757,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextValueDescription_SuffixTextExpression();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
@@ -674,7 +769,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextPropertyDescription();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
@@ -687,7 +782,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextDirectEditDescription();
-
+	
 	/**
 	 * Returns the meta object for the attribute
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription#isMultiLine
@@ -699,7 +794,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextDirectEditDescription_MultiLine();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
@@ -712,7 +807,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextDirectEditModelDescription();
-
+	
 	/**
 	 * Returns the meta object for the attribute list
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription#getSelectedFeatures
@@ -726,7 +821,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextDirectEditModelDescription_SelectedFeatures();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
@@ -739,7 +834,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextDirectEditValueDescription();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
@@ -752,7 +847,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextPropertyModelDescription();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
@@ -765,7 +860,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIXtextPropertyValueDescription();
-
+	
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -774,7 +869,7 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	XtextsiriusFactory getXtextsiriusFactory();
-
+	
 	/**
 	 * <!-- begin-user-doc --> Defines literals for the meta objects that
 	 * represent
@@ -800,7 +895,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_DESCRIPTION = eINSTANCE.getIXtextDescription();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Injector Id</b></em>'
 		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -808,7 +903,17 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IXTEXT_DESCRIPTION__INJECTOR_ID = eINSTANCE.getIXtextDescription_InjectorId();
-
+		
+		/**
+		 * The meta object literal for the '<em><b>Cancel On Validation
+		 * Error</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = eINSTANCE
+				.getIXtextDescription_CancelOnValidationError();
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
@@ -820,7 +925,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_MODEL_DESCRIPTION = eINSTANCE.getIXtextModelDescription();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Editable Features</b></em>'
 		 * attribute list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -828,7 +933,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES = eINSTANCE.getIXtextModelDescription_EditableFeatures();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Ignored Nested
 		 * Features</b></em>' attribute list feature. <!-- begin-user-doc -->
@@ -838,7 +943,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 */
 		EAttribute IXTEXT_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = eINSTANCE
 				.getIXtextModelDescription_IgnoredNestedFeatures();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Prefix Terminals
 		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
@@ -848,7 +953,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 */
 		EAttribute IXTEXT_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = eINSTANCE
 				.getIXtextModelDescription_PrefixTerminalsExpression();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Suffix Terminals
 		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
@@ -858,7 +963,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 */
 		EAttribute IXTEXT_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = eINSTANCE
 				.getIXtextModelDescription_SuffixTerminalsExpression();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
@@ -870,7 +975,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_VALUE_DESCRIPTION = eINSTANCE.getIXtextValueDescription();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Prefix Text
 		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
@@ -880,7 +985,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 */
 		EAttribute IXTEXT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = eINSTANCE
 				.getIXtextValueDescription_PrefixTextExpression();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Suffix Text
 		 * Expression</b></em>' attribute feature. <!-- begin-user-doc --> <!--
@@ -890,7 +995,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 */
 		EAttribute IXTEXT_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = eINSTANCE
 				.getIXtextValueDescription_SuffixTextExpression();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
@@ -902,7 +1007,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_PROPERTY_DESCRIPTION = eINSTANCE.getIXtextPropertyDescription();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
@@ -914,7 +1019,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_DIRECT_EDIT_DESCRIPTION = eINSTANCE.getIXtextDirectEditDescription();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Multi Line</b></em>'
 		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -922,7 +1027,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IXTEXT_DIRECT_EDIT_DESCRIPTION__MULTI_LINE = eINSTANCE.getIXtextDirectEditDescription_MultiLine();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
@@ -934,7 +1039,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION = eINSTANCE.getIXtextDirectEditModelDescription();
-
+		
 		/**
 		 * The meta object literal for the '<em><b>Selected Features</b></em>'
 		 * attribute list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -943,7 +1048,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 */
 		EAttribute IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__SELECTED_FEATURES = eINSTANCE
 				.getIXtextDirectEditModelDescription_SelectedFeatures();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
@@ -955,7 +1060,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION = eINSTANCE.getIXtextDirectEditValueDescription();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
@@ -967,7 +1072,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_PROPERTY_MODEL_DESCRIPTION = eINSTANCE.getIXtextPropertyModelDescription();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
@@ -979,7 +1084,7 @@ public interface XtextsiriusPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IXTEXT_PROPERTY_VALUE_DESCRIPTION = eINSTANCE.getIXtextPropertyValueDescription();
-
+		
 	}
-
+	
 } // XtextsiriusPackage

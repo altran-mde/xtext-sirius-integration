@@ -29,16 +29,20 @@
       disposableProviderFactory="true" extensibleProviderFactory="true" childCreationExtenders="true"
       ecorePackage="propertiesxtext.ecore#/">
     <genClasses ecoreClass="propertiesxtext.ecore#//XtextSingleLineModelDescription">
-      <genOperations ecoreOperation="propertiesxtext.ecore#//XtextSingleLineModelDescription/isMultiLine"/>
+      <genOperations ecoreOperation="propertiesxtext.ecore#//XtextSingleLineModelDescription/isMultiLine"
+          body="return false;"/>
     </genClasses>
     <genClasses ecoreClass="propertiesxtext.ecore#//XtextMultiLineModelDescription">
-      <genOperations ecoreOperation="propertiesxtext.ecore#//XtextMultiLineModelDescription/isMultiLine"/>
+      <genOperations ecoreOperation="propertiesxtext.ecore#//XtextMultiLineModelDescription/isMultiLine"
+          body="return true;"/>
     </genClasses>
     <genClasses ecoreClass="propertiesxtext.ecore#//XtextSingleLineValueDescription">
-      <genOperations ecoreOperation="propertiesxtext.ecore#//XtextSingleLineValueDescription/isMultiLine"/>
+      <genOperations ecoreOperation="propertiesxtext.ecore#//XtextSingleLineValueDescription/isMultiLine"
+          body="return false;"/>
     </genClasses>
     <genClasses ecoreClass="propertiesxtext.ecore#//XtextMultiLineValueDescription">
-      <genOperations ecoreOperation="propertiesxtext.ecore#//XtextMultiLineValueDescription/isMultiLine"/>
+      <genOperations ecoreOperation="propertiesxtext.ecore#//XtextMultiLineValueDescription/isMultiLine"
+          body="return true;"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

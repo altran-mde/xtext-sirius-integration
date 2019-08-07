@@ -54,7 +54,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
-
+	
 	/**
 	 * This is used to implement
 	 * {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
@@ -63,7 +63,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
-
+	
 	/**
 	 * This helps manage the child creation extenders. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,7 +72,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 */
 	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
 			XtextsiriusEditPlugin.INSTANCE, XtextsiriusPackage.eNS_URI);
-
+	
 	/**
 	 * This keeps track of all the supported types checked by
 	 * {@link #isFactoryForType isFactoryForType}. <!-- begin-user-doc --> <!--
@@ -81,7 +81,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	 * @generated
 	 */
 	protected Collection<Object> supportedTypes = new ArrayList<>();
-
+	
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -95,7 +95,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 		this.supportedTypes.add(IItemLabelProvider.class);
 		this.supportedTypes.add(IItemPropertySource.class);
 	}
-
+	
 	/**
 	 * This returns the root adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -106,7 +106,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
 	}
-
+	
 	/**
 	 * This sets the composed adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -117,7 +117,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -127,7 +127,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public boolean isFactoryForType(final Object type) {
 		return this.supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
-
+	
 	/**
 	 * This implementation substitutes the factory itself as the key for the
 	 * adapter. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -138,7 +138,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public Adapter adapt(final Notifier notifier, final Object type) {
 		return super.adapt(notifier, this);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -152,10 +152,10 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 				return adapter;
 			}
 		}
-
+		
 		return null;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -164,7 +164,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public List<IChildCreationExtender> getChildCreationExtenders() {
 		return this.childCreationExtenderManager.getChildCreationExtenders();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -174,7 +174,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
 		return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -184,7 +184,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public ResourceLocator getResourceLocator() {
 		return this.childCreationExtenderManager;
 	}
-
+	
 	/**
 	 * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -194,7 +194,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public void addListener(final INotifyChangedListener notifyChangedListener) {
 		this.changeNotifier.addListener(notifyChangedListener);
 	}
-
+	
 	/**
 	 * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -204,7 +204,7 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	public void removeListener(final INotifyChangedListener notifyChangedListener) {
 		this.changeNotifier.removeListener(notifyChangedListener);
 	}
-
+	
 	/**
 	 * This delegates to {@link #changeNotifier} and to
 	 * {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!-- end-user-doc
@@ -215,12 +215,12 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	@Override
 	public void fireNotifyChanged(final Notification notification) {
 		this.changeNotifier.fireNotifyChanged(notification);
-
+		
 		if (this.parentAdapterFactory != null) {
 			this.parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
-
+	
 	/**
 	 * This disposes all of the item providers created by this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -230,5 +230,5 @@ public class XtextsiriusItemProviderAdapterFactory extends XtextsiriusAdapterFac
 	@Override
 	public void dispose() {
 	}
-
+	
 }

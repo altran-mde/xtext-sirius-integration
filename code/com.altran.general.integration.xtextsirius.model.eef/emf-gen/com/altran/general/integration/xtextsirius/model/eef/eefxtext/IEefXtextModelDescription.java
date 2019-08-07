@@ -50,7 +50,7 @@ public interface IEefXtextModelDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	EList<String> getEditableFeatures();
-
+	
 	/**
 	 * Returns the value of the '<em><b>Ignored Nested Features</b></em>'
 	 * attribute list. The list contents are of type {@link java.lang.String}.
@@ -68,7 +68,7 @@ public interface IEefXtextModelDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	EList<String> getIgnoredNestedFeatures();
-
+	
 	/**
 	 * Returns the value of the '<em><b>Prefix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc -->
@@ -86,7 +86,7 @@ public interface IEefXtextModelDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	String getPrefixTerminalsExpression();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getPrefixTerminalsExpression
@@ -100,7 +100,7 @@ public interface IEefXtextModelDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	void setPrefixTerminalsExpression(String value);
-
+	
 	/**
 	 * Returns the value of the '<em><b>Suffix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc -->
@@ -118,7 +118,7 @@ public interface IEefXtextModelDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	String getSuffixTerminalsExpression();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription#getSuffixTerminalsExpression
@@ -132,5 +132,5 @@ public interface IEefXtextModelDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	void setSuffixTerminalsExpression(String value);
-
+	
 } // IEefXtextModelDescription

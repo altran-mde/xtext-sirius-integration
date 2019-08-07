@@ -20,7 +20,7 @@
           </style>
         </containerMappings>
         <toolSections>
-          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="EditLeaf" injectorId="com.altran.general.integration.xtextsirius.test.ekeylang.xtext.ui.EKeyLangInjectorId"/>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="EditLeaf" injectorId="com.altran.general.integration.xtextsirius.test.ekeylang.xtext.ui.EKeyLangInjectorId" cancelOnValidationError="true"/>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>

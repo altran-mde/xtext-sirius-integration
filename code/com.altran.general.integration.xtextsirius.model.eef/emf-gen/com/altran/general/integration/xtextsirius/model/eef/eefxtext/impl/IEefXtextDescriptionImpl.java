@@ -28,6 +28,8 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDe
  * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isMultiLine
  * <em>Multi Line</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isCancelOnValidationError
+ * <em>Cancel On Validation Error</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,7 +44,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	 * @ordered
 	 */
 	protected static final String INJECTOR_ID_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -52,7 +54,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
-
+	
 	/**
 	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -62,7 +64,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	 * @ordered
 	 */
 	protected static final boolean MULTI_LINE_EDEFAULT = false;
-
+	
 	/**
 	 * The cached value of the '{@link #isMultiLine() <em>Multi Line</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -72,7 +74,29 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	 * @ordered
 	 */
 	protected boolean multiLine = MULTI_LINE_EDEFAULT;
-
+	
+	/**
+	 * The default value of the '{@link #isCancelOnValidationError() <em>Cancel
+	 * On Validation Error</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CANCEL_ON_VALIDATION_ERROR_EDEFAULT = false;
+	
+	/**
+	 * The cached value of the '{@link #isCancelOnValidationError() <em>Cancel
+	 * On Validation Error</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean cancelOnValidationError = CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -81,7 +105,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	protected IEefXtextDescriptionImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -91,7 +115,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	protected EClass eStaticClass() {
 		return EefxtextPackage.Literals.IEEF_XTEXT_DESCRIPTION;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -101,7 +125,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	public String getInjectorId() {
 		return this.injectorId;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -116,7 +140,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 					oldInjectorId, this.injectorId));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -126,7 +150,7 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -141,7 +165,33 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 					oldMultiLine, this.multiLine));
 		}
 	}
-
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isCancelOnValidationError() {
+		return this.cancelOnValidationError;
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setCancelOnValidationError(final boolean newCancelOnValidationError) {
+		final boolean oldCancelOnValidationError = this.cancelOnValidationError;
+		this.cancelOnValidationError = newCancelOnValidationError;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR, oldCancelOnValidationError,
+					this.cancelOnValidationError));
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -154,10 +204,12 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 				return getInjectorId();
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
 				return isMultiLine();
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				return isCancelOnValidationError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -172,10 +224,13 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
 				setMultiLine((Boolean) newValue);
 				return;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				setCancelOnValidationError((Boolean) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -190,10 +245,13 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
 				setMultiLine(MULTI_LINE_EDEFAULT);
 				return;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				setCancelOnValidationError(CANCEL_ON_VALIDATION_ERROR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -207,10 +265,12 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__MULTI_LINE:
 				return this.multiLine != MULTI_LINE_EDEFAULT;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				return this.cancelOnValidationError != CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -221,14 +281,16 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 		if (eIsProxy()) {
 			return super.toString();
 		}
-
-		final StringBuffer result = new StringBuffer(super.toString());
+		
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
 		result.append(", multiLine: ");
 		result.append(this.multiLine);
+		result.append(", cancelOnValidationError: ");
+		result.append(this.cancelOnValidationError);
 		result.append(')');
 		return result.toString();
 	}
-
+	
 } // IEefXtextDescriptionImpl

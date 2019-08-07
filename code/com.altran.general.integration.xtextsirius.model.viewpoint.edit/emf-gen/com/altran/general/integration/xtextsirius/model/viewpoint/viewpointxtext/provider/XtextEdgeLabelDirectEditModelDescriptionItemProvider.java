@@ -39,7 +39,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider extends XtextD
 	public XtextEdgeLabelDirectEditModelDescriptionItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-
+	
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -50,12 +50,12 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider extends XtextD
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
 		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-
+			
 			addEdgeLabelMappingsPropertyDescriptor(object);
 		}
 		return this.itemPropertyDescriptors;
 	}
-
+	
 	/**
 	 * This adds a property descriptor for the Edge Label Mappings feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -79,7 +79,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider extends XtextD
 						null,
 						null));
 	}
-
+	
 	/**
 	 * This returns XtextEdgeLabelDirectEditModelDescription.gif. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -91,7 +91,7 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider extends XtextD
 		return overlayImage(object,
 				getResourceLocator().getImage("full/obj16/XtextEdgeLabelDirectEditModelDescription"));
 	}
-
+	
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -104,8 +104,8 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider extends XtextD
 		return label == null || label.length() == 0 ? getString("_UI_XtextEdgeLabelDirectEditModelDescription_type")
 				: getString("_UI_XtextEdgeLabelDirectEditModelDescription_type") + " " + label;
 	}
-
-
+	
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which
@@ -117,9 +117,8 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider extends XtextD
 	@Override
 	public void notifyChanged(final Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
-
+	
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
@@ -131,5 +130,5 @@ public class XtextEdgeLabelDirectEditModelDescriptionItemProvider extends XtextD
 	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-
+	
 }

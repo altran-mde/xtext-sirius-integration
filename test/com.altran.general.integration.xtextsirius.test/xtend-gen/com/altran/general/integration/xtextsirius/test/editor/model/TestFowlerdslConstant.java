@@ -44,7 +44,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow_1);
     };
     Constant _doubleArrow_1 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_1, _function_1);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       null, 
@@ -53,7 +53,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
   
   @Test
   public void empty() {
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "", 
@@ -84,7 +84,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow_1);
     };
     Constant _doubleArrow_1 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_1, _function_1);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "c1 22 c2 42", 
@@ -115,7 +115,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow_1);
     };
     Constant _doubleArrow_1 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_1, _function_1);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "c1 23 c2 43", 
@@ -135,7 +135,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow);
     };
     Constant _doubleArrow = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant, _function);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "c2 42", 
@@ -155,7 +155,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow);
     };
     Constant _doubleArrow = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant, _function);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "c1 23", 
@@ -175,7 +175,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow);
     };
     Constant _doubleArrow = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant, _function);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "c3 13", 
@@ -206,7 +206,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow_1);
     };
     Constant _doubleArrow_1 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_1, _function_1);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "c3 13 c1 23", 
@@ -248,7 +248,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow_2);
     };
     Constant _doubleArrow_2 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_2, _function_2);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "c3 13 c1 23 c2 42", 
@@ -290,7 +290,7 @@ public class TestFowlerdslConstant extends ATestFowlerdslModel {
       it.setValue(_doubleArrow_2);
     };
     Constant _doubleArrow_2 = ObjectExtensions.<Constant>operator_doubleArrow(_createConstant_2, _function_2);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       "c1 23  c2 42", 
       "c1 23 c2 42 c3 13", 

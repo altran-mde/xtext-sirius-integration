@@ -9,42 +9,20 @@
  */
 package com.altran.general.integration.xtextsirius.test.editor;
 
-import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.DiagramxtextFactory;
 import com.altran.general.integration.xtextsirius.test.FowlerdslEnvironment;
 import com.altran.general.integration.xtextsirius.test.InlineFowlerdslEnvironment;
+import com.altran.general.integration.xtextsirius.test.editor.ATestXtextSiriusModel;
 import com.google.inject.Injector;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.StatemachineFactory;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.espilce.commons.emf.testsupport.AModelLoader;
-import org.espilce.commons.lang.StringUtils2;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.BeforeClass;
 
 @SuppressWarnings("all")
-public abstract class ATestFowlerdsl {
-  @Extension
-  protected AModelLoader modelLoader = new AModelLoader() {
-    @Override
-    public ResourceSet provideResourceSet() {
-      return new ResourceSetImpl();
-    }
-  };
-  
-  @Extension
-  protected DiagramxtextFactory diagramFactory = DiagramxtextFactory.eINSTANCE;
-  
+public abstract class ATestFowlerdsl extends ATestXtextSiriusModel<Statemachine> {
   @Extension
   protected StatemachineFactory statemachineFactory = StatemachineFactory.eINSTANCE;
-  
-  protected Statemachine model;
   
   @BeforeClass
   public static void loadFowlerdsl() {
@@ -52,23 +30,8 @@ public abstract class ATestFowlerdsl {
     InlineFowlerdslEnvironment.getInstance();
   }
   
-  @Before
-  public void loadModel() {
-    this.model = this.parseModel();
-  }
-  
-  @After
-  public void unloadModel() {
-    Resource _eResource = null;
-    if (this.model!=null) {
-      _eResource=this.model.eResource();
-    }
-    if (_eResource!=null) {
-      _eResource.unload();
-    }
-  }
-  
-  protected String modelText() {
+  @Override
+  protected CharSequence modelText() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("events");
     _builder.newLine();
@@ -144,18 +107,15 @@ public abstract class ATestFowlerdsl {
     _builder.newLine();
     _builder.append("end");
     _builder.newLine();
-    return StringUtils2.normalizeNewline(_builder.toString());
+    return _builder;
   }
   
-  protected abstract String getFeatureName();
-  
-  protected Statemachine parseModel() {
-    EObject _parseModel = this.modelLoader.parseModel(this.modelText(), "test.statemachine");
-    final Statemachine result = ((Statemachine) _parseModel);
-    EcoreUtil.resolveAll(result);
-    return result;
+  @Override
+  protected String resourceName() {
+    return "test.statemachine";
   }
   
+  @Override
   protected Injector getInjector() {
     return FowlerdslEnvironment.getInstance().getInjector();
   }

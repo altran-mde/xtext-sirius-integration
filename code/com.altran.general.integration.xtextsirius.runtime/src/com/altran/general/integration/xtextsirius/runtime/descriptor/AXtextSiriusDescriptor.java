@@ -18,25 +18,33 @@ import com.google.inject.Injector;
 public abstract class AXtextSiriusDescriptor implements IXtextSiriusDescriptor {
 	private final Injector injector;
 	private final boolean multiLine;
-
+	private final boolean cancelOnValidationError;
+	
 	public AXtextSiriusDescriptor(final @NonNull Injector injector, final @NonNull IXtextDescription description) {
 		this.injector = injector;
 		this.multiLine = description.isMultiLine();
+		this.cancelOnValidationError = description.isCancelOnValidationError();
 	}
-
+	
 	public AXtextSiriusDescriptor(final @NonNull Injector injector,
 			final @NonNull IEefXtextDescription description) {
 		this.injector = injector;
 		this.multiLine = description.isMultiLine();
+		this.cancelOnValidationError = description.isCancelOnValidationError();
 	}
-
+	
 	@Override
 	public @NonNull Injector getInjector() {
 		return this.injector;
 	}
-
+	
 	@Override
 	public boolean isMultiLine() {
 		return this.multiLine;
+	}
+	
+	@Override
+	public boolean isCancelOnValidationError() {
+		return this.cancelOnValidationError;
 	}
 }

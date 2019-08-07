@@ -65,7 +65,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
-
+	
 	/**
 	 * This is used to implement
 	 * {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
@@ -74,7 +74,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
-
+	
 	/**
 	 * This helps manage the child creation extenders. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,7 +83,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	 */
 	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
 			DiagramxtextEditPlugin.INSTANCE, DiagramxtextPackage.eNS_URI);
-
+	
 	/**
 	 * This keeps track of all the supported types checked by
 	 * {@link #isFactoryForType isFactoryForType}. <!-- begin-user-doc --> <!--
@@ -92,7 +92,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	 * @generated
 	 */
 	protected Collection<Object> supportedTypes = new ArrayList<>();
-
+	
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -106,7 +106,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 		this.supportedTypes.add(IItemLabelProvider.class);
 		this.supportedTypes.add(IItemPropertySource.class);
 	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all
 	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription}
@@ -115,7 +115,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	 * @generated
 	 */
 	protected XtextDirectEditModelDescriptionItemProvider xtextDirectEditModelDescriptionItemProvider;
-
+	
 	/**
 	 * This creates an adapter for a
 	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription}.
@@ -128,10 +128,10 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 		if (this.xtextDirectEditModelDescriptionItemProvider == null) {
 			this.xtextDirectEditModelDescriptionItemProvider = new XtextDirectEditModelDescriptionItemProvider(this);
 		}
-
+		
 		return this.xtextDirectEditModelDescriptionItemProvider;
 	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all
 	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription}
@@ -140,7 +140,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	 * @generated
 	 */
 	protected XtextDirectEditValueDescriptionItemProvider xtextDirectEditValueDescriptionItemProvider;
-
+	
 	/**
 	 * This creates an adapter for a
 	 * {@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription}.
@@ -153,10 +153,10 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 		if (this.xtextDirectEditValueDescriptionItemProvider == null) {
 			this.xtextDirectEditValueDescriptionItemProvider = new XtextDirectEditValueDescriptionItemProvider(this);
 		}
-
+		
 		return this.xtextDirectEditValueDescriptionItemProvider;
 	}
-
+	
 	/**
 	 * This returns the root adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -167,7 +167,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
 	}
-
+	
 	/**
 	 * This sets the composed adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -178,7 +178,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -188,7 +188,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public boolean isFactoryForType(final Object type) {
 		return this.supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
-
+	
 	/**
 	 * This implementation substitutes the factory itself as the key for the
 	 * adapter. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -199,7 +199,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public Adapter adapt(final Notifier notifier, final Object type) {
 		return super.adapt(notifier, this);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -213,10 +213,10 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 				return adapter;
 			}
 		}
-
+		
 		return null;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -225,7 +225,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public List<IChildCreationExtender> getChildCreationExtenders() {
 		return this.childCreationExtenderManager.getChildCreationExtenders();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -235,7 +235,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
 		return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -245,7 +245,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public ResourceLocator getResourceLocator() {
 		return this.childCreationExtenderManager;
 	}
-
+	
 	/**
 	 * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -255,7 +255,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public void addListener(final INotifyChangedListener notifyChangedListener) {
 		this.changeNotifier.addListener(notifyChangedListener);
 	}
-
+	
 	/**
 	 * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -265,7 +265,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	public void removeListener(final INotifyChangedListener notifyChangedListener) {
 		this.changeNotifier.removeListener(notifyChangedListener);
 	}
-
+	
 	/**
 	 * This delegates to {@link #changeNotifier} and to
 	 * {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!-- end-user-doc
@@ -276,12 +276,12 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 	@Override
 	public void fireNotifyChanged(final Notification notification) {
 		this.changeNotifier.fireNotifyChanged(notification);
-
+		
 		if (this.parentAdapterFactory != null) {
 			this.parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
-
+	
 	/**
 	 * This disposes all of the item providers created by this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -297,7 +297,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			this.xtextDirectEditValueDescriptionItemProvider.dispose();
 		}
 	}
-
+	
 	/**
 	 * A child creation extender for the {@link DescriptionPackage}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -319,7 +319,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			 * @generated
 			 */
 			protected List<Object> newChildDescriptors;
-
+			
 			/**
 			 * The domain in which to create the children. <!-- begin-user-doc
 			 * --> <!-- end-user-doc -->
@@ -327,7 +327,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			 * @generated
 			 */
 			protected EditingDomain editingDomain;
-
+			
 			/**
 			 * Creates the a switch for populating child descriptors in the
 			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -338,7 +338,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 				this.newChildDescriptors = newChildDescriptors;
 				this.editingDomain = editingDomain;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -349,14 +349,14 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 				this.newChildDescriptors
 						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
 								DiagramxtextFactory.eINSTANCE.createXtextDirectEditModelDescription()));
-
+				
 				this.newChildDescriptors
 						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
 								DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -365,9 +365,9 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			protected CommandParameter createChildParameter(final Object feature, final Object child) {
 				return new CommandParameter(null, feature, child);
 			}
-
+			
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -379,7 +379,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
 			return result;
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -390,7 +390,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			return DiagramxtextEditPlugin.INSTANCE;
 		}
 	}
-
+	
 	/**
 	 * A child creation extender for the {@link ToolPackage}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -412,7 +412,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			 * @generated
 			 */
 			protected List<Object> newChildDescriptors;
-
+			
 			/**
 			 * The domain in which to create the children. <!-- begin-user-doc
 			 * --> <!-- end-user-doc -->
@@ -420,7 +420,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			 * @generated
 			 */
 			protected EditingDomain editingDomain;
-
+			
 			/**
 			 * Creates the a switch for populating child descriptors in the
 			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -431,7 +431,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 				this.newChildDescriptors = newChildDescriptors;
 				this.editingDomain = editingDomain;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -441,13 +441,13 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			public Object caseToolSection(final ToolSection object) {
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_SECTION__OWNED_TOOLS,
 						DiagramxtextFactory.eINSTANCE.createXtextDirectEditModelDescription()));
-
+				
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_SECTION__OWNED_TOOLS,
 						DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -457,13 +457,13 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			public Object caseToolGroup(final ToolGroup object) {
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP__TOOLS,
 						DiagramxtextFactory.eINSTANCE.createXtextDirectEditModelDescription()));
-
+				
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP__TOOLS,
 						DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -473,13 +473,13 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			public Object caseToolGroupExtension(final ToolGroupExtension object) {
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
 						DiagramxtextFactory.eINSTANCE.createXtextDirectEditModelDescription()));
-
+				
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
 						DiagramxtextFactory.eINSTANCE.createXtextDirectEditValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -488,9 +488,9 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			protected CommandParameter createChildParameter(final Object feature, final Object child) {
 				return new CommandParameter(null, feature, child);
 			}
-
+			
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -502,7 +502,7 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
 			return result;
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -513,5 +513,5 @@ public class DiagramxtextItemProviderAdapterFactory extends DiagramxtextAdapterF
 			return DiagramxtextEditPlugin.INSTANCE;
 		}
 	}
-
+	
 }

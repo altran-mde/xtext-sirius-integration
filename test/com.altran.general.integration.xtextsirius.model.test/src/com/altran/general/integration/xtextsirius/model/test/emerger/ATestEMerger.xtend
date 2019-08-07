@@ -64,6 +64,11 @@ abstract class ATestEMerger<T extends IElement<?>> {
 			override getInjector() {
 				throw new IllegalStateException("Didn't expect this call")
 			}
+			
+			override isCancelOnValidationError() {
+				false
+			}
+			
 		}
 	}
 

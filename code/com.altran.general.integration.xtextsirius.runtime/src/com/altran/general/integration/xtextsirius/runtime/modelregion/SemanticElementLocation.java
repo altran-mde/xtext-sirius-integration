@@ -78,13 +78,17 @@ public class SemanticElementLocation {
 		if (feature != null && this.parentUriFragment != null) {
 			final Object containingElement = resource.getEObject(this.parentUriFragment)
 					.eGet(feature);
-			if (feature.isMany() && this.index != null) {
-				return ((EList<EObject>) containingElement).get(this.index);
-			} else {
-				return containingElement;
+			if (feature.isMany()) {
+				@SuppressWarnings("unchecked")
+				final EList<EObject> containingList = (EList<EObject>) containingElement;
+				if (this.index != null) {
+					return containingList.get(this.index);
+				}
 			}
+			
+			return containingElement;
 		}
-
+		
 		// it must be the root element
 		return resource.getContents().get(0);
 	}

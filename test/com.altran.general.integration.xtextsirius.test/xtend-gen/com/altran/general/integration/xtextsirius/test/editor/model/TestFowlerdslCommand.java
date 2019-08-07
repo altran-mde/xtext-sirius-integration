@@ -33,7 +33,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(42);
     };
     Command _doubleArrow_1 = ObjectExtensions.<Command>operator_doubleArrow(_createCommand_1, _function_1);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -43,7 +43,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
   
   @Test
   public void empty() {
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -65,7 +65,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(42);
     };
     Command _doubleArrow_1 = ObjectExtensions.<Command>operator_doubleArrow(_createCommand_1, _function_1);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -87,7 +87,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(43);
     };
     Command _doubleArrow_1 = ObjectExtensions.<Command>operator_doubleArrow(_createCommand_1, _function_1);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -103,7 +103,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(23);
     };
     Command _doubleArrow = ObjectExtensions.<Command>operator_doubleArrow(_createCommand, _function);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -119,7 +119,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(42);
     };
     Command _doubleArrow = ObjectExtensions.<Command>operator_doubleArrow(_createCommand, _function);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -135,7 +135,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(13);
     };
     Command _doubleArrow = ObjectExtensions.<Command>operator_doubleArrow(_createCommand, _function);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -157,7 +157,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(23);
     };
     Command _doubleArrow_1 = ObjectExtensions.<Command>operator_doubleArrow(_createCommand_1, _function_1);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -185,7 +185,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(42);
     };
     Command _doubleArrow_2 = ObjectExtensions.<Command>operator_doubleArrow(_createCommand_2, _function_2);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 
@@ -213,7 +213,7 @@ public class TestFowlerdslCommand extends ATestFowlerdslModel {
       it.setCode(13);
     };
     Command _doubleArrow_2 = ObjectExtensions.<Command>operator_doubleArrow(_createCommand_2, _function_2);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model.getCommands(), 
       this.model, 
       "cmd0 23  cmd1 42", 

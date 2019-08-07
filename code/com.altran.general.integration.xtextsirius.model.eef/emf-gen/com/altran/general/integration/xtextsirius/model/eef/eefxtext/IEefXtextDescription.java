@@ -23,6 +23,8 @@ import org.eclipse.eef.EEFTextDescription;
  * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
  * <em>Multi Line</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isCancelOnValidationError
+ * <em>Cancel On Validation Error</em>}</li>
  * </ul>
  *
  * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage#getIEefXtextDescription()
@@ -46,7 +48,7 @@ public interface IEefXtextDescription extends EEFTextDescription {
 	 * @generated
 	 */
 	String getInjectorId();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#getInjectorId
@@ -59,7 +61,7 @@ public interface IEefXtextDescription extends EEFTextDescription {
 	 * @generated
 	 */
 	void setInjectorId(String value);
-
+	
 	/**
 	 * Returns the value of the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc -->
@@ -76,7 +78,7 @@ public interface IEefXtextDescription extends EEFTextDescription {
 	 * @generated
 	 */
 	boolean isMultiLine();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isMultiLine
@@ -89,5 +91,31 @@ public interface IEefXtextDescription extends EEFTextDescription {
 	 * @generated
 	 */
 	void setMultiLine(boolean value);
-
+	
+	/**
+	 * Returns the value of the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Cancel On Validation Error</em>' attribute.
+	 * @see #setCancelOnValidationError(boolean)
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextPackage#getIEefXtextDescription_CancelOnValidationError()
+	 * @model unique="false"
+	 * @generated
+	 */
+	boolean isCancelOnValidationError();
+	
+	/**
+	 * Sets the value of the
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isCancelOnValidationError
+	 * <em>Cancel On Validation Error</em>}' attribute. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Cancel On Validation Error</em>'
+	 *            attribute.
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 */
+	void setCancelOnValidationError(boolean value);
+	
 } // IEefXtextDescription

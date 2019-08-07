@@ -21,7 +21,7 @@ import org.junit.Test;
 @SuppressWarnings("all")
 public class TestFowlerdslRoot extends ATestFowlerdslModel {
   @Override
-  protected String modelText() {
+  protected CharSequence modelText() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("name statemachine1");
     _builder.newLine();
@@ -35,7 +35,7 @@ public class TestFowlerdslRoot extends ATestFowlerdslModel {
       it.setName("statemachine1");
     };
     Statemachine _doubleArrow = ObjectExtensions.<Statemachine>operator_doubleArrow(_createStatemachine, _function);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       null, 
       "name statemachine1", 
@@ -47,7 +47,7 @@ public class TestFowlerdslRoot extends ATestFowlerdslModel {
     final Function1<Object, Object> _function = (Object it) -> {
       return null;
     };
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       null, 
       "name statemachine1", 
@@ -61,7 +61,7 @@ public class TestFowlerdslRoot extends ATestFowlerdslModel {
       it.setName("statemachine2");
     };
     Statemachine _doubleArrow = ObjectExtensions.<Statemachine>operator_doubleArrow(_createStatemachine, _function);
-    this.assertEdit(
+    this.assertModelEdit(
       this.model, 
       null, 
       "name statemachine1", 

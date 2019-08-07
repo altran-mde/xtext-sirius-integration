@@ -27,7 +27,7 @@ public interface DiagramxtextFactory extends EFactory {
 	 */
 	DiagramxtextFactory eINSTANCE = com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.DiagramxtextFactoryImpl
 			.init();
-
+	
 	/**
 	 * Returns a new object of class '<em>Xtext Direct Edit Model
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -37,7 +37,7 @@ public interface DiagramxtextFactory extends EFactory {
 	 * @generated
 	 */
 	XtextDirectEditModelDescription createXtextDirectEditModelDescription();
-
+	
 	/**
 	 * Returns a new object of class '<em>Xtext Direct Edit Value
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -47,7 +47,7 @@ public interface DiagramxtextFactory extends EFactory {
 	 * @generated
 	 */
 	XtextDirectEditValueDescription createXtextDirectEditValueDescription();
-
+	
 	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,5 +56,5 @@ public interface DiagramxtextFactory extends EFactory {
 	 * @generated
 	 */
 	DiagramxtextPackage getDiagramxtextPackage();
-
+	
 } // DiagramxtextFactory

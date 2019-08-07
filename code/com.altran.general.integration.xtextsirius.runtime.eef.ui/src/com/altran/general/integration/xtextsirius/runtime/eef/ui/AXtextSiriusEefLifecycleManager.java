@@ -54,7 +54,6 @@ implements IXtextSiriusEditorCallback {
 	private XtextSiriusWidget widget;
 	private Consumer<Object> newValueConsumer;
 	private boolean enabled;
-
 	
 	@SuppressWarnings("unchecked")
 	public AXtextSiriusEefLifecycleManager(
@@ -70,24 +69,28 @@ implements IXtextSiriusEditorCallback {
 		editor.setCallback((C) this);
 		this.controlDescription = controlDescription;
 	}
-
+	
 	protected abstract XtextSiriusWidget createXtextSiriusWidget(final Composite parent);
+	
 	protected abstract Consumer<Object> createNewValueConsumer();
 	
+	@SuppressWarnings("null")
 	@Override
 	public void refresh() {
 		super.refresh();
 		getController().refresh();
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public void aboutToBeShown() {
 		super.aboutToBeShown();
-
+		
 		this.newValueConsumer = createNewValueConsumer();
 		getController().onNewValue(this.newValueConsumer);
 	}
-
+	
+	@SuppressWarnings("null")
 	@Override
 	public void aboutToBeHidden() {
 		if (getWidget().isDirty()) {
@@ -130,7 +133,7 @@ implements IXtextSiriusEditorCallback {
 		
 		return null;
 	}
-
+	
 	public XtextSiriusWidget getWidget() {
 		return this.widget;
 	}
@@ -139,7 +142,7 @@ implements IXtextSiriusEditorCallback {
 	protected void createMainControl(final Composite parent, final IEEFFormContainer formContainer) {
 		this.widget = createXtextSiriusWidget(parent);
 		applyGridData(getWidget().getControl());
-
+		
 		this.controller = new XtextSiriusController(getWidgetDescription(), getVariableManager(), getInterpreter(),
 				getContextAdapter());
 	}
@@ -176,11 +179,11 @@ implements IXtextSiriusEditorCallback {
 	protected @NonNull EditingContextAdapter getContextAdapter() {
 		return this.editingContextAdapter;
 	}
-
+	
 	protected @NonNull IVariableManager getVariableManager() {
 		return this.variableManager;
 	}
-
+	
 	protected @NonNull IInterpreter getInterpreter() {
 		return this.interpreter;
 	}
@@ -207,12 +210,16 @@ implements IXtextSiriusEditorCallback {
 	protected void commit() {
 		final IStatus status = getContextAdapter().performModelChange(() -> {
 			try {
+				final EObject self = getSelf();
+				if (self == null) {
+					throw new IllegalStateException("Cannot get reference to self");
+				}
 				final String editExpression = getWidgetDescription().getEditExpression();
 				final EAttribute eAttribute = EefPackage.Literals.EEF_TEXT_DESCRIPTION__EDIT_EXPRESSION;
 				
 				final Map<String, Object> variables = Maps.newLinkedHashMap();
 				variables.putAll(getVariableManager().getVariables());
-				final Object newValue = getEditor().commit(getSelf());
+				final Object newValue = getEditor().commit(self);
 				variables.put(EEFExpressionUtils.EEFText.NEW_VALUE, newValue);
 				
 				EvalFactory.of(getInterpreter(), variables).logIfBlank(eAttribute).call(editExpression);
@@ -220,7 +227,7 @@ implements IXtextSiriusEditorCallback {
 				StatusManager.getManager().handle(e.toStatus(), StatusManager.SHOW);
 			}
 		});
-
+		
 		if (!status.isOK()) {
 			XtextSiriusRuntimeEefUiPlugin.getDefault().getLog().log(status);
 		}
@@ -246,7 +253,7 @@ implements IXtextSiriusEditorCallback {
 	protected E getEditor() {
 		return this.editor;
 	}
-
+	
 	protected Injector getInjector() {
 		return this.injector;
 	}
