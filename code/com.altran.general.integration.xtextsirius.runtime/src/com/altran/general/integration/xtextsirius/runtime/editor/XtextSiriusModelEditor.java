@@ -183,7 +183,6 @@ public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModel
 		for (int i = 0; i < copy.size(); i++) {
 			final Object entry = eList.get(i);
 			if (entry instanceof EObject) {
-				// TODO: check if this actually works
 				eList.set(i, proxifyResult((EObject) entry));
 			}
 		}

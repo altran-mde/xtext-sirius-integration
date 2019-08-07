@@ -3,153 +3,23 @@ package com.altran.general.integration.xtextsirius.test.reflang;
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor;
-import com.altran.general.integration.xtextsirius.test.editor.ATestXtextSiriusModel;
-import com.altran.general.integration.xtextsirius.test.reflang.RefLangStandaloneSetup;
-import com.altran.general.integration.xtextsirius.test.reflang.refLang.Container;
+import com.altran.general.integration.xtextsirius.test.reflang.ATestRefLang;
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.IContainerContent;
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.Leaf;
-import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangFactory;
-import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangPackage;
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.Reference;
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.SubContainer;
 import com.google.inject.Injector;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-public class TestRefLang extends ATestXtextSiriusModel<Container> {
-  @Extension
-  private RefLangFactory _refLangFactory = RefLangFactory.eINSTANCE;
-  
-  private static Injector injector;
-  
-  @BeforeClass
-  public static void loadEKeyDsl() {
-    RefLangPackage.eINSTANCE.getNsPrefix();
-    TestRefLang.injector = new RefLangStandaloneSetup().createInjectorAndDoEMFRegistration();
-  }
-  
-  @Override
-  protected CharSequence modelText() {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("// 0");
-    _builder.newLine();
-    _builder.append("A");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("// 1");
-    _builder.newLine();
-    _builder.append("B");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("// 2");
-    _builder.newLine();
-    _builder.append("C");
-    _builder.newLine();
-    _builder.append("1 -> A");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("// 3");
-    _builder.newLine();
-    _builder.append("D");
-    _builder.newLine();
-    _builder.append("1 -> A / B");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("// 4");
-    _builder.newLine();
-    _builder.append("E");
-    _builder.newLine();
-    _builder.append("1 -> A / B -> B / A");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("// 5");
-    _builder.newLine();
-    _builder.append("F");
-    _builder.newLine();
-    _builder.append("1 -> A -> A / A");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("// 6");
-    _builder.newLine();
-    _builder.append("G");
-    _builder.newLine();
-    _builder.append("1 -> G");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("// 7");
-    _builder.newLine();
-    _builder.append("H");
-    _builder.newLine();
-    _builder.append("1 -> A / G");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("// 8");
-    _builder.newLine();
-    _builder.append("I {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("J L");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("1 -> A / B -> J");
-    _builder.newLine();
-    _builder.append("2 -> B / A");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public IContainerContent A() {
-    return this.model.getContents().get(0);
-  }
-  
-  public IContainerContent B() {
-    return this.model.getContents().get(1);
-  }
-  
-  public IContainerContent C() {
-    return this.model.getContents().get(2);
-  }
-  
-  public IContainerContent D() {
-    return this.model.getContents().get(3);
-  }
-  
-  public IContainerContent E() {
-    return this.model.getContents().get(4);
-  }
-  
-  public IContainerContent F() {
-    return this.model.getContents().get(5);
-  }
-  
-  public IContainerContent G() {
-    return this.model.getContents().get(6);
-  }
-  
-  public IContainerContent H() {
-    return this.model.getContents().get(7);
-  }
-  
-  public IContainerContent I() {
-    return this.model.getContents().get(8);
-  }
-  
+public class TestRefLang extends ATestRefLang {
   @Test
   public void noEdit() {
     IContainerContent _E = this.E();
@@ -303,32 +173,43 @@ public class TestRefLang extends ATestXtextSiriusModel<Container> {
       "I { K L } 1 -> K / B -> L 2 -> C / A -> I", expected);
   }
   
-  @Override
-  protected void analyzeResult(final Object expectedResultElement, final Object result) {
-    super.analyzeResult(expectedResultElement, result);
-    Assert.assertTrue((result instanceof IContainerContent));
-    final IContainerContent leaf = ((IContainerContent) result);
-    final BiConsumer<EObject, Collection<EStructuralFeature.Setting>> _function = (EObject k, Collection<EStructuralFeature.Setting> v) -> {
-      final Consumer<EStructuralFeature.Setting> _function_1 = (EStructuralFeature.Setting it) -> {
-        final Object tgt = it.get(false);
-        if ((tgt instanceof EObject)) {
-          Assert.assertFalse(((EObject)tgt).eIsProxy());
-          Assert.assertEquals(this.model.eResource(), ((EObject)tgt).eResource());
-        }
+  @Test
+  public void editRefList() {
+    Leaf _createLeaf = this._refLangFactory.createLeaf();
+    final Procedure1<Leaf> _function = (Leaf it) -> {
+      it.setName("K");
+      EList<Reference> _references = it.getReferences();
+      Reference _createReference = this._refLangFactory.createReference();
+      final Procedure1<Reference> _function_1 = (Reference it_1) -> {
+        it_1.setTarget(this.A());
       };
-      v.forEach(_function_1);
+      Reference _doubleArrow = ObjectExtensions.<Reference>operator_doubleArrow(_createReference, _function_1);
+      _references.add(_doubleArrow);
     };
-    EcoreUtil.CrossReferencer.find(Collections.<Object>unmodifiableSet(CollectionLiterals.<Object>newHashSet(leaf))).forEach(_function);
-  }
-  
-  @Override
-  protected String resourceName() {
-    return "test.reflang";
-  }
-  
-  @Override
-  protected Injector getInjector() {
-    return TestRefLang.injector;
+    Leaf _doubleArrow = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf, _function);
+    Leaf _createLeaf_1 = this._refLangFactory.createLeaf();
+    final Procedure1<Leaf> _function_1 = (Leaf it) -> {
+      it.setName("L");
+    };
+    Leaf _doubleArrow_1 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_1, _function_1);
+    Leaf _createLeaf_2 = this._refLangFactory.createLeaf();
+    final Procedure1<Leaf> _function_2 = (Leaf it) -> {
+      it.setName("M");
+      EList<Reference> _references = it.getReferences();
+      Reference _createReference = this._refLangFactory.createReference();
+      final Procedure1<Reference> _function_3 = (Reference it_1) -> {
+        it_1.setTarget(this.B());
+      };
+      Reference _doubleArrow_2 = ObjectExtensions.<Reference>operator_doubleArrow(_createReference, _function_3);
+      _references.add(_doubleArrow_2);
+    };
+    Leaf _doubleArrow_2 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_2, _function_2);
+    final List<Leaf> expected = Collections.<Leaf>unmodifiableList(CollectionLiterals.<Leaf>newArrayList(_doubleArrow, _doubleArrow_1, _doubleArrow_2));
+    this.assertModelEdit(
+      this.I().getSubContents(), 
+      this.I(), 
+      "J L", 
+      "K 1 -> A L M 1 -> B", expected);
   }
   
   @Override
@@ -338,12 +219,19 @@ public class TestRefLang extends ATestXtextSiriusModel<Container> {
   
   @Override
   protected IXtextSiriusModelDescriptor createModelDescriptor() {
+    Injector _injector = this.getInjector();
     XtextDirectEditModelDescription _createXtextDirectEditModelDescription = this.diagramFactory.createXtextDirectEditModelDescription();
     final Procedure1<XtextDirectEditModelDescription> _function = (XtextDirectEditModelDescription it) -> {
       EList<String> _ignoredNestedFeatures = it.getIgnoredNestedFeatures();
       _ignoredNestedFeatures.add("references.target2");
     };
     XtextDirectEditModelDescription _doubleArrow = ObjectExtensions.<XtextDirectEditModelDescription>operator_doubleArrow(_createXtextDirectEditModelDescription, _function);
-    return new XtextSiriusModelDescriptor(TestRefLang.injector, _doubleArrow);
+    return new XtextSiriusModelDescriptor(_injector, _doubleArrow);
+  }
+  
+  @Override
+  protected void analyzeResult(final Object expectedResultElement, final Object result) {
+    super.analyzeResult(expectedResultElement, result);
+    Assert.assertTrue((result instanceof IContainerContent));
   }
 }

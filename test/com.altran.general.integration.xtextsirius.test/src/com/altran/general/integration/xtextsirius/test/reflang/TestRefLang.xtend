@@ -1,79 +1,12 @@
 package com.altran.general.integration.xtextsirius.test.reflang
 
 import com.altran.general.integration.xtextsirius.runtime.descriptor.XtextSiriusModelDescriptor
-import com.altran.general.integration.xtextsirius.test.editor.ATestXtextSiriusModel
-import com.altran.general.integration.xtextsirius.test.reflang.refLang.Container
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.IContainerContent
-import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangFactory
-import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangPackage
-import com.google.inject.Injector
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer
-import org.junit.BeforeClass
 import org.junit.Test
 
 import static org.junit.Assert.*
 
-class TestRefLang extends ATestXtextSiriusModel<Container>{
-	extension RefLangFactory = RefLangFactory::eINSTANCE
-	
-	static Injector injector
-	
-	@BeforeClass
-	static def void loadEKeyDsl() {
-		RefLangPackage::eINSTANCE.nsPrefix
-		injector = new RefLangStandaloneSetup().createInjectorAndDoEMFRegistration()
-	}
-	
-	override protected modelText() '''
-		// 0
-		A
-		
-		// 1
-		B
-		
-		// 2
-		C
-		1 -> A
-		
-		// 3
-		D
-		1 -> A / B
-		
-		// 4
-		E
-		1 -> A / B -> B / A
-		
-		// 5
-		F
-		1 -> A -> A / A
-		
-		// 6
-		G
-		1 -> G
-		
-		// 7
-		H
-		1 -> A / G
-		
-		// 8
-		I {
-			J L
-		}
-		1 -> A / B -> J
-		2 -> B / A
-	'''
-	
-	def A() {model.contents.get(0)}
-	def B() {model.contents.get(1)}
-	def C() {model.contents.get(2)}
-	def D() {model.contents.get(3)}
-	def E() {model.contents.get(4)}
-	def F() {model.contents.get(5)}
-	def G() {model.contents.get(6)}
-	def H() {model.contents.get(7)}
-	def I() {model.contents.get(8)}
-	
+class TestRefLang extends ATestRefLang {
 	@Test
 	def void noEdit() {
 		assertModelEdit(
@@ -165,31 +98,27 @@ class TestRefLang extends ATestXtextSiriusModel<Container>{
 		)
 	}
 	
-	override protected analyzeResult(Object expectedResultElement, Object result) {
-		super.analyzeResult(expectedResultElement, result)
-		
-		assertTrue(result instanceof IContainerContent)
-		
-		val leaf = result as IContainerContent
-		
-		CrossReferencer::find(#{leaf}).forEach[k, v|
-			v.forEach[
-				val tgt = get(false)
-				if (tgt instanceof EObject) {
-					assertFalse(tgt.eIsProxy)
-					assertEquals(model.eResource, tgt.eResource)
-				}
+	@Test
+	def void editRefList() {
+		val expected = #[
+			createLeaf => [ 
+				name = "K"
+				references += createReference => [ target = A ]
+			],
+			createLeaf => [ name = "L" ],
+			createLeaf => [
+				name = "M"
+				references += createReference => [ target = B ]
 			]
-			
 		]
-	}
-		
-	override protected resourceName() {
-		"test.reflang"
-	}
-	
-	override protected getInjector() {
-		injector
+
+		assertModelEdit(
+			I.subContents,
+			I,
+			"J L",
+			"K 1 -> A L M 1 -> B",
+			expected
+		)
 	}
 	
 	override protected getFeatureName() {
@@ -201,4 +130,11 @@ class TestRefLang extends ATestXtextSiriusModel<Container>{
  			ignoredNestedFeatures += "references.target2"
  		])
 	}
+
+	override protected analyzeResult(Object expectedResultElement, Object result) {
+		super.analyzeResult(expectedResultElement, result)
+		
+		assertTrue(result instanceof IContainerContent)
+	}
+		
 }
