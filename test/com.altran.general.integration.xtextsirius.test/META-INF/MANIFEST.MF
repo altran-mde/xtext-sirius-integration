@@ -19,7 +19,8 @@ Require-Bundle: org.eclipse.ui,
  org.apache.commons.lang,
  com.altran.general.integration.xtextsirius.test.ekeylang,
  com.altran.general.integration.xtextsirius.test.ekeylang.xtext,
- com.altran.general.integration.xtextsirius.test.reflang.RefLang
+ com.altran.general.integration.xtextsirius.test.reflang.RefLang,
+ com.example.classes
 Export-Package: com.altran.general.integration.xtextsirius.test,
  com.altran.general.integration.xtextsirius.test.editor,
  com.altran.general.integration.xtextsirius.test.editor.model,

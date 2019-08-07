@@ -15,6 +15,7 @@ import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.parser.IParseResult;
+import org.espilce.commons.lang.StringUtils2;
 import org.junit.Assert;
 
 @SuppressWarnings("all")
@@ -43,7 +44,7 @@ public class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCal
     this.length = length;
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("doesn\'t match");
-    Assert.assertEquals(_builder.toString(), this.expectedText, text);
+    Assert.assertEquals(_builder.toString(), this.expectedText, StringUtils2.normalizeNewline(text));
     super.callbackInitText(initialValue, offset, length);
   }
   
