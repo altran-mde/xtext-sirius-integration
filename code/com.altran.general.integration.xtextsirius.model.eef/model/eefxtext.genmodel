@@ -27,6 +27,7 @@
     <genClasses image="false" ecoreClass="eefxtext.ecore#//IEefXtextDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextDescription/injectorId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextDescription/multiLine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextDescription/cancelOnValidationError"/>
     </genClasses>
     <genClasses image="false" ecoreClass="eefxtext.ecore#//IEefXtextModelDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eefxtext.ecore#//IEefXtextModelDescription/editableFeatures"/>

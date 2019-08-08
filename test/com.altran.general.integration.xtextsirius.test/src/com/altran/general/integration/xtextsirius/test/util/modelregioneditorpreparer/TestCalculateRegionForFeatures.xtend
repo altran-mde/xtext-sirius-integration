@@ -23,7 +23,7 @@ class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
+		val preparer = new AccessibleModelRegionEditorPreparer(descriptor, event)
 
 		preparer.definedFeatures = emptySet
 
@@ -36,7 +36,7 @@ class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
+		val preparer = new AccessibleModelRegionEditorPreparer(descriptor, event)
 
 		val rootRegion = getRootRegion(event)
 		preparer.rootRegion = rootRegion
@@ -59,7 +59,7 @@ class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(2)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
+		val preparer = new AccessibleModelRegionEditorPreparer(descriptor, event)
 
 		val rootRegion = getRootRegion(event)
 		preparer.rootRegion = rootRegion
@@ -82,7 +82,7 @@ class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(2)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
+		val preparer = new AccessibleModelRegionEditorPreparer(descriptor, event)
 
 		val rootRegion = getRootRegion(event)
 		preparer.rootRegion = rootRegion
@@ -107,7 +107,7 @@ class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
 
 		val cmd = model.commands.get(1)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, cmd)
+		val preparer = new AccessibleModelRegionEditorPreparer(descriptor, cmd)
 
 		val rootRegion = getRootRegion(cmd)
 		preparer.rootRegion = rootRegion

@@ -1,0 +1,34 @@
+grammar com.altran.general.integration.xtextsirius.test.EKeyLang with org.eclipse.xtext.common.Terminals
+
+import "http://altran.com/general/integration/xtextsirius/test/EKeyLang" 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Container returns Container:
+	{Container}
+	'Container'	name=ID
+	contents+=IContainerContent*
+;
+
+IContainerContent returns IContainerContent:
+	Group | Single;
+
+
+Group returns Group:
+	{Group}
+	name=ID
+	'{'
+		leafs+=Leaf*
+	'}'
+;
+
+Single returns Single:
+	{Single}
+	name=ID
+	(
+		':' leaf=Leaf
+	)?
+;
+
+Leaf returns Leaf:
+	name=ID number=INT
+;

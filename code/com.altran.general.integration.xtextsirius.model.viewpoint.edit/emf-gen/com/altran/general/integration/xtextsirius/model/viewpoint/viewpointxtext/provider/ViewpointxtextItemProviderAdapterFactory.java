@@ -65,7 +65,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
-
+	
 	/**
 	 * This is used to implement
 	 * {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
@@ -74,7 +74,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
-
+	
 	/**
 	 * This helps manage the child creation extenders. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,7 +83,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 */
 	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
 			ViewpointxtextEditPlugin.INSTANCE, ViewpointxtextPackage.eNS_URI);
-
+	
 	/**
 	 * This keeps track of all the supported types checked by
 	 * {@link #isFactoryForType isFactoryForType}. <!-- begin-user-doc --> <!--
@@ -92,7 +92,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	protected Collection<Object> supportedTypes = new ArrayList<>();
-
+	
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -106,7 +106,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 		this.supportedTypes.add(IItemLabelProvider.class);
 		this.supportedTypes.add(IItemPropertySource.class);
 	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all
 	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription}
@@ -115,7 +115,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	protected XtextEdgeLabelDirectEditModelDescriptionItemProvider xtextEdgeLabelDirectEditModelDescriptionItemProvider;
-
+	
 	/**
 	 * This creates an adapter for a
 	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription}.
@@ -129,10 +129,10 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			this.xtextEdgeLabelDirectEditModelDescriptionItemProvider = new XtextEdgeLabelDirectEditModelDescriptionItemProvider(
 					this);
 		}
-
+		
 		return this.xtextEdgeLabelDirectEditModelDescriptionItemProvider;
 	}
-
+	
 	/**
 	 * This keeps track of the one adapter used for all
 	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription}
@@ -141,7 +141,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	 * @generated
 	 */
 	protected XtextEdgeLabelDirectEditValueDescriptionItemProvider xtextEdgeLabelDirectEditValueDescriptionItemProvider;
-
+	
 	/**
 	 * This creates an adapter for a
 	 * {@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription}.
@@ -155,10 +155,10 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			this.xtextEdgeLabelDirectEditValueDescriptionItemProvider = new XtextEdgeLabelDirectEditValueDescriptionItemProvider(
 					this);
 		}
-
+		
 		return this.xtextEdgeLabelDirectEditValueDescriptionItemProvider;
 	}
-
+	
 	/**
 	 * This returns the root adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -169,7 +169,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
 	}
-
+	
 	/**
 	 * This sets the composed adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -180,7 +180,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -190,7 +190,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public boolean isFactoryForType(final Object type) {
 		return this.supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
-
+	
 	/**
 	 * This implementation substitutes the factory itself as the key for the
 	 * adapter. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -201,7 +201,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public Adapter adapt(final Notifier notifier, final Object type) {
 		return super.adapt(notifier, this);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -215,10 +215,10 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 				return adapter;
 			}
 		}
-
+		
 		return null;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -227,7 +227,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public List<IChildCreationExtender> getChildCreationExtenders() {
 		return this.childCreationExtenderManager.getChildCreationExtenders();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -237,7 +237,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
 		return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -247,7 +247,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public ResourceLocator getResourceLocator() {
 		return this.childCreationExtenderManager;
 	}
-
+	
 	/**
 	 * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -257,7 +257,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public void addListener(final INotifyChangedListener notifyChangedListener) {
 		this.changeNotifier.addListener(notifyChangedListener);
 	}
-
+	
 	/**
 	 * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -267,7 +267,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	public void removeListener(final INotifyChangedListener notifyChangedListener) {
 		this.changeNotifier.removeListener(notifyChangedListener);
 	}
-
+	
 	/**
 	 * This delegates to {@link #changeNotifier} and to
 	 * {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!-- end-user-doc
@@ -278,12 +278,12 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 	@Override
 	public void fireNotifyChanged(final Notification notification) {
 		this.changeNotifier.fireNotifyChanged(notification);
-
+		
 		if (this.parentAdapterFactory != null) {
 			this.parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
-
+	
 	/**
 	 * This disposes all of the item providers created by this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -299,7 +299,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			this.xtextEdgeLabelDirectEditValueDescriptionItemProvider.dispose();
 		}
 	}
-
+	
 	/**
 	 * A child creation extender for the {@link ToolPackage}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -321,7 +321,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * @generated
 			 */
 			protected List<Object> newChildDescriptors;
-
+			
 			/**
 			 * The domain in which to create the children. <!-- begin-user-doc
 			 * --> <!-- end-user-doc -->
@@ -329,7 +329,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * @generated
 			 */
 			protected EditingDomain editingDomain;
-
+			
 			/**
 			 * Creates the a switch for populating child descriptors in the
 			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -340,7 +340,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 				this.newChildDescriptors = newChildDescriptors;
 				this.editingDomain = editingDomain;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -350,13 +350,13 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			public Object caseToolSection(final ToolSection object) {
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_SECTION__OWNED_TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
-
+				
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_SECTION__OWNED_TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -366,13 +366,13 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			public Object caseToolGroup(final ToolGroup object) {
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP__TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
-
+				
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP__TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -382,13 +382,13 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			public Object caseToolGroupExtension(final ToolGroupExtension object) {
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
-
+				
 				this.newChildDescriptors.add(createChildParameter(ToolPackage.Literals.TOOL_GROUP_EXTENSION__TOOLS,
 						ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -397,9 +397,9 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			protected CommandParameter createChildParameter(final Object feature, final Object child) {
 				return new CommandParameter(null, feature, child);
 			}
-
+			
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -411,7 +411,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
 			return result;
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -422,7 +422,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			return ViewpointxtextEditPlugin.INSTANCE;
 		}
 	}
-
+	
 	/**
 	 * A child creation extender for the {@link DescriptionPackage}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -444,7 +444,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * @generated
 			 */
 			protected List<Object> newChildDescriptors;
-
+			
 			/**
 			 * The domain in which to create the children. <!-- begin-user-doc
 			 * --> <!-- end-user-doc -->
@@ -452,7 +452,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			 * @generated
 			 */
 			protected EditingDomain editingDomain;
-
+			
 			/**
 			 * Creates the a switch for populating child descriptors in the
 			 * given domain. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -463,7 +463,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 				this.newChildDescriptors = newChildDescriptors;
 				this.editingDomain = editingDomain;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -474,14 +474,14 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 				this.newChildDescriptors
 						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
 								ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditModelDescription()));
-
+				
 				this.newChildDescriptors
 						.add(createChildParameter(DescriptionPackage.Literals.ENVIRONMENT__DEFAULT_TOOLS,
 								ViewpointxtextFactory.eINSTANCE.createXtextEdgeLabelDirectEditValueDescription()));
-
+				
 				return null;
 			}
-
+			
 			/**
 			 * <!-- begin-user-doc --> <!-- end-user-doc -->
 			 * 
@@ -490,9 +490,9 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			protected CommandParameter createChildParameter(final Object feature, final Object child) {
 				return new CommandParameter(null, feature, child);
 			}
-
+			
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -504,7 +504,7 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
 			return result;
 		}
-
+		
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -515,5 +515,5 @@ public class ViewpointxtextItemProviderAdapterFactory extends ViewpointxtextAdap
 			return ViewpointxtextEditPlugin.INSTANCE;
 		}
 	}
-
+	
 }

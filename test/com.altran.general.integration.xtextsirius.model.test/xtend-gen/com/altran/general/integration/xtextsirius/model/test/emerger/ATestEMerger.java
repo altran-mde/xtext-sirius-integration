@@ -13,7 +13,9 @@ import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Ele
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestFactory;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
+import com.google.inject.Injector;
 import java.util.Set;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -31,17 +33,63 @@ public abstract class ATestEMerger<T extends IElement<?>> {
   protected XtextSiriusTestFactory xtextSiriusTestFactory = XtextSiriusTestFactory.eINSTANCE;
   
   protected EMerger<T> createEMerger(final T existing, final T edited) {
-    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    IXtextSiriusModelDescriptor _createDescriptor = this.createDescriptor();
     URI _createURI = URI.createURI("resourceName.xmi#/42");
-    return new EMerger<T>(existing, _emptySet, _emptySet_1, _createURI);
+    return new EMerger<T>(_createDescriptor, existing, _createURI);
   }
   
   protected EMerger<T> createEMerger(final T existing, final EStructuralFeature feature) {
-    Set<String> _emptySet = CollectionLiterals.<String>emptySet();
-    Set<String> _emptySet_1 = CollectionLiterals.<String>emptySet();
+    IXtextSiriusModelDescriptor _createDescriptor = this.createDescriptor();
     URI _createURI = URI.createURI("resourceName.xmi#/42");
-    return new EMerger<T>(existing, _emptySet, _emptySet_1, _createURI);
+    return new EMerger<T>(_createDescriptor, existing, _createURI);
+  }
+  
+  public IXtextSiriusModelDescriptor createDescriptor() {
+    return this.createDescriptor(CollectionLiterals.<String>emptySet(), CollectionLiterals.<String>emptySet());
+  }
+  
+  public IXtextSiriusModelDescriptor createDescriptor(final Set<String> editableFeaturesSet, final Set<String> ignoredNestedFeaturesSet) {
+    return new IXtextSiriusModelDescriptor() {
+      @Override
+      public Set<String> getEditableFeatures() {
+        return editableFeaturesSet;
+      }
+      
+      @Override
+      public Set<String> getIgnoredNestedFeatures() {
+        return ignoredNestedFeaturesSet;
+      }
+      
+      @Override
+      public String getPrefixTerminalsExpression() {
+        return null;
+      }
+      
+      @Override
+      public Set<String> getSelectedFeatures() {
+        return CollectionLiterals.<String>emptySet();
+      }
+      
+      @Override
+      public String getSuffixTerminalsExpression() {
+        return null;
+      }
+      
+      @Override
+      public boolean isMultiLine() {
+        return false;
+      }
+      
+      @Override
+      public Injector getInjector() {
+        throw new IllegalStateException("Didn\'t expect this call");
+      }
+      
+      @Override
+      public boolean isCancelOnValidationError() {
+        return false;
+      }
+    };
   }
   
   public T newElement(final int id, final String attrValue) {

@@ -48,5 +48,5 @@ public interface IXtextEdgeLabelDirectEditDescription extends IXtextDirectEditDe
 	 * @generated
 	 */
 	EList<BasicLabelStyleDescription> getEdgeLabelMappings();
-
+	
 } // IXtextEdgeLabelDirectEditDescription

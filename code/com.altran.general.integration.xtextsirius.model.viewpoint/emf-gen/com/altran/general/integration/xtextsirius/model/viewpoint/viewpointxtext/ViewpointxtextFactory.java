@@ -27,7 +27,7 @@ public interface ViewpointxtextFactory extends EFactory {
 	 */
 	ViewpointxtextFactory eINSTANCE = com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.impl.ViewpointxtextFactoryImpl
 			.init();
-
+	
 	/**
 	 * Returns a new object of class '<em>Xtext Edge Label Direct Edit Model
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -37,7 +37,7 @@ public interface ViewpointxtextFactory extends EFactory {
 	 * @generated
 	 */
 	XtextEdgeLabelDirectEditModelDescription createXtextEdgeLabelDirectEditModelDescription();
-
+	
 	/**
 	 * Returns a new object of class '<em>Xtext Edge Label Direct Edit Value
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -47,7 +47,7 @@ public interface ViewpointxtextFactory extends EFactory {
 	 * @generated
 	 */
 	XtextEdgeLabelDirectEditValueDescription createXtextEdgeLabelDirectEditValueDescription();
-
+	
 	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,5 +56,5 @@ public interface ViewpointxtextFactory extends EFactory {
 	 * @generated
 	 */
 	ViewpointxtextPackage getViewpointxtextPackage();
-
+	
 } // ViewpointxtextFactory

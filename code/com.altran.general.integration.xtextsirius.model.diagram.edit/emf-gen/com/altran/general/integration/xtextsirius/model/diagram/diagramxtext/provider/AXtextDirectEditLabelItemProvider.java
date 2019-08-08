@@ -39,7 +39,7 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	public AXtextDirectEditLabelItemProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-
+	
 	/**
 	 * This returns the property descriptors for the adapted class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -50,11 +50,11 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
 		if (this.itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
-
+			
 		}
 		return this.itemPropertyDescriptors;
 	}
-
+	
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -67,8 +67,8 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 		return label == null || label.length() == 0 ? getString("_UI_AXtextDirectEditLabel_type")
 				: getString("_UI_AXtextDirectEditLabel_type") + " " + label;
 	}
-
-
+	
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to
 	 * update any cached children and by creating a viewer notification, which
@@ -80,9 +80,8 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	@Override
 	public void notifyChanged(final Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
-
+	
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing the children that can be created under this object. <!--
@@ -94,7 +93,7 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
-
+	
 	/**
 	 * Return the resource locator for this item provider's resources. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -105,5 +104,5 @@ public class AXtextDirectEditLabelItemProvider extends DirectEditLabelItemProvid
 	public ResourceLocator getResourceLocator() {
 		return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
 	}
-
+	
 }

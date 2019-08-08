@@ -54,7 +54,7 @@ public class PropertiesxtextSwitch<T> {
 	 * @generated
 	 */
 	protected static PropertiesxtextPackage modelPackage;
-
+	
 	/**
 	 * Creates an instance of the switch. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -66,7 +66,7 @@ public class PropertiesxtextSwitch<T> {
 			modelPackage = PropertiesxtextPackage.eINSTANCE;
 		}
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -79,7 +79,7 @@ public class PropertiesxtextSwitch<T> {
 	public T doSwitch(final EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -97,7 +97,7 @@ public class PropertiesxtextSwitch<T> {
 			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -289,7 +289,7 @@ public class PropertiesxtextSwitch<T> {
 				return defaultCase(theEObject);
 		}
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Single Line Model Description</em>'. <!-- begin-user-doc -->
@@ -306,7 +306,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseXtextSingleLineModelDescription(final XtextSingleLineModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Multi Line Model Description</em>'. <!-- begin-user-doc -->
@@ -323,7 +323,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseXtextMultiLineModelDescription(final XtextMultiLineModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Single Line Value Description</em>'. <!-- begin-user-doc -->
@@ -340,7 +340,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseXtextSingleLineValueDescription(final XtextSingleLineValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Xtext Multi Line Value Description</em>'. <!-- begin-user-doc -->
@@ -357,7 +357,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseXtextMultiLineValueDescription(final XtextMultiLineValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Identified Element</em>'. <!-- begin-user-doc --> This
@@ -374,7 +374,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseIdentifiedElement(final IdentifiedElement object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Documented Element</em>'. <!-- begin-user-doc --> This
@@ -391,7 +391,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseDocumentedElement(final DocumentedElement object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Abstract Control Description</em>'. <!-- begin-user-doc --> This
@@ -408,7 +408,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseAbstractControlDescription(final AbstractControlDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Abstract Widget Description</em>'. <!-- begin-user-doc --> This
@@ -425,7 +425,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseAbstractWidgetDescription(final AbstractWidgetDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Abstract Text Description</em>'. <!-- begin-user-doc --> This
@@ -442,7 +442,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseAbstractTextDescription(final AbstractTextDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Control Description</em>'. <!-- begin-user-doc --> This
@@ -459,7 +459,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseControlDescription(final ControlDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Widget Description</em>'. <!-- begin-user-doc --> This
@@ -476,7 +476,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseWidgetDescription(final WidgetDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Text
 	 * Description</em>'. <!-- begin-user-doc --> This implementation returns
@@ -493,7 +493,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseTextDescription(final TextDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Description</em>'. <!-- begin-user-doc --> This
@@ -510,7 +510,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseIXtextDescription(final IXtextDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Description</em>'. <!-- begin-user-doc --> This
@@ -527,7 +527,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseIXtextPropertyDescription(final IXtextPropertyDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Model Description</em>'. <!-- begin-user-doc --> This
@@ -544,7 +544,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseIXtextModelDescription(final IXtextModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Model Description</em>'. <!-- begin-user-doc -->
@@ -561,7 +561,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>Abstract Text Area Description</em>'. <!-- begin-user-doc --> This
@@ -578,7 +578,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseAbstractTextAreaDescription(final AbstractTextAreaDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Text
 	 * Area Description</em>'. <!-- begin-user-doc --> This implementation
@@ -595,7 +595,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseTextAreaDescription(final TextAreaDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Value Description</em>'. <!-- begin-user-doc --> This
@@ -612,7 +612,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseIXtextValueDescription(final IXtextValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>IXtext Property Value Description</em>'. <!-- begin-user-doc -->
@@ -629,7 +629,7 @@ public class PropertiesxtextSwitch<T> {
 	public T caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
@@ -646,5 +646,5 @@ public class PropertiesxtextSwitch<T> {
 	public T defaultCase(final EObject object) {
 		return null;
 	}
-
+	
 } // PropertiesxtextSwitch

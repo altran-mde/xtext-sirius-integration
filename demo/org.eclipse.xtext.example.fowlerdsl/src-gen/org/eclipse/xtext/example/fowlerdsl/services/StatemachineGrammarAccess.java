@@ -23,109 +23,125 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cStatemachineAction_0 = (Action)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cEventsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cEventsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cEventsEventParserRuleCall_1_1_0 = (RuleCall)cEventsAssignment_1_1.eContents().get(0);
-		private final Keyword cEndKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Keyword cNameKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cResetEventsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cResetEventsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cResetEventsEventCrossReference_2_1_0 = (CrossReference)cResetEventsAssignment_2_1.eContents().get(0);
-		private final RuleCall cResetEventsEventIDTerminalRuleCall_2_1_0_1 = (RuleCall)cResetEventsEventCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cEventsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cEventsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cEventsEventParserRuleCall_2_1_0 = (RuleCall)cEventsAssignment_2_1.eContents().get(0);
 		private final Keyword cEndKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommandsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cCommandsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cCommandsCommandParserRuleCall_3_1_0 = (RuleCall)cCommandsAssignment_3_1.eContents().get(0);
+		private final Keyword cResetEventsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cResetEventsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cResetEventsEventCrossReference_3_1_0 = (CrossReference)cResetEventsAssignment_3_1.eContents().get(0);
+		private final RuleCall cResetEventsEventIDTerminalRuleCall_3_1_0_1 = (RuleCall)cResetEventsEventCrossReference_3_1_0.eContents().get(1);
 		private final Keyword cEndKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cConstantsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cConstantsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cConstantsConstantParserRuleCall_4_1_0 = (RuleCall)cConstantsAssignment_4_1.eContents().get(0);
+		private final Keyword cCommandsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cCommandsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cCommandsCommandParserRuleCall_4_1_0 = (RuleCall)cCommandsAssignment_4_1.eContents().get(0);
 		private final Keyword cEndKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Assignment cStatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStatesStateParserRuleCall_5_0 = (RuleCall)cStatesAssignment_5.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cConstantsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cConstantsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cConstantsConstantParserRuleCall_5_1_0 = (RuleCall)cConstantsAssignment_5_1.eContents().get(0);
+		private final Keyword cEndKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Assignment cStatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cStatesStateParserRuleCall_6_0 = (RuleCall)cStatesAssignment_6.eContents().get(0);
 		
 		//Statemachine:
-		//	{Statemachine} ('events' events+=Event+ 'end')? ('resetEvents' resetEvents+=[Event]+ 'end')? ('commands'
-		//	commands+=Command+ 'end')? ('constants' constants+=Constant+ 'end')? states+=State*;
+		//	{Statemachine} ('name' name=ID)? ('events' events+=Event* 'end')? ('resetEvents' resetEvents+=[Event]* 'end')?
+		//	('commands' commands+=Command* 'end')? ('constants' constants+=Constant* 'end')? states+=State*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Statemachine} ('events' events+=Event+ 'end')? ('resetEvents' resetEvents+=[Event]+ 'end')? ('commands'
-		//commands+=Command+ 'end')? ('constants' constants+=Constant+ 'end')? states+=State*
+		//{Statemachine} ('name' name=ID)? ('events' events+=Event* 'end')? ('resetEvents' resetEvents+=[Event]* 'end')?
+		//('commands' commands+=Command* 'end')? ('constants' constants+=Constant* 'end')? states+=State*
 		public Group getGroup() { return cGroup; }
 
 		//{Statemachine}
 		public Action getStatemachineAction_0() { return cStatemachineAction_0; }
 
-		//('events' events+=Event+ 'end')?
+		//('name' name=ID)?
 		public Group getGroup_1() { return cGroup_1; }
 
-		//'events'
-		public Keyword getEventsKeyword_1_0() { return cEventsKeyword_1_0; }
+		//'name'
+		public Keyword getNameKeyword_1_0() { return cNameKeyword_1_0; }
 
-		//events+=Event+
-		public Assignment getEventsAssignment_1_1() { return cEventsAssignment_1_1; }
-
-		//Event
-		public RuleCall getEventsEventParserRuleCall_1_1_0() { return cEventsEventParserRuleCall_1_1_0; }
-
-		//'end'
-		public Keyword getEndKeyword_1_2() { return cEndKeyword_1_2; }
-
-		//('resetEvents' resetEvents+=[Event]+ 'end')?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//'resetEvents'
-		public Keyword getResetEventsKeyword_2_0() { return cResetEventsKeyword_2_0; }
-
-		//resetEvents+=[Event]+
-		public Assignment getResetEventsAssignment_2_1() { return cResetEventsAssignment_2_1; }
-
-		//[Event]
-		public CrossReference getResetEventsEventCrossReference_2_1_0() { return cResetEventsEventCrossReference_2_1_0; }
+		//name=ID
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
 
 		//ID
-		public RuleCall getResetEventsEventIDTerminalRuleCall_2_1_0_1() { return cResetEventsEventIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+
+		//('events' events+=Event* 'end')?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//'events'
+		public Keyword getEventsKeyword_2_0() { return cEventsKeyword_2_0; }
+
+		//events+=Event*
+		public Assignment getEventsAssignment_2_1() { return cEventsAssignment_2_1; }
+
+		//Event
+		public RuleCall getEventsEventParserRuleCall_2_1_0() { return cEventsEventParserRuleCall_2_1_0; }
 
 		//'end'
 		public Keyword getEndKeyword_2_2() { return cEndKeyword_2_2; }
 
-		//('commands' commands+=Command+ 'end')?
+		//('resetEvents' resetEvents+=[Event]* 'end')?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//'commands'
-		public Keyword getCommandsKeyword_3_0() { return cCommandsKeyword_3_0; }
+		//'resetEvents'
+		public Keyword getResetEventsKeyword_3_0() { return cResetEventsKeyword_3_0; }
 
-		//commands+=Command+
-		public Assignment getCommandsAssignment_3_1() { return cCommandsAssignment_3_1; }
+		//resetEvents+=[Event]*
+		public Assignment getResetEventsAssignment_3_1() { return cResetEventsAssignment_3_1; }
 
-		//Command
-		public RuleCall getCommandsCommandParserRuleCall_3_1_0() { return cCommandsCommandParserRuleCall_3_1_0; }
+		//[Event]
+		public CrossReference getResetEventsEventCrossReference_3_1_0() { return cResetEventsEventCrossReference_3_1_0; }
+
+		//ID
+		public RuleCall getResetEventsEventIDTerminalRuleCall_3_1_0_1() { return cResetEventsEventIDTerminalRuleCall_3_1_0_1; }
 
 		//'end'
 		public Keyword getEndKeyword_3_2() { return cEndKeyword_3_2; }
 
-		//('constants' constants+=Constant+ 'end')?
+		//('commands' commands+=Command* 'end')?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//'constants'
-		public Keyword getConstantsKeyword_4_0() { return cConstantsKeyword_4_0; }
+		//'commands'
+		public Keyword getCommandsKeyword_4_0() { return cCommandsKeyword_4_0; }
 
-		//constants+=Constant+
-		public Assignment getConstantsAssignment_4_1() { return cConstantsAssignment_4_1; }
+		//commands+=Command*
+		public Assignment getCommandsAssignment_4_1() { return cCommandsAssignment_4_1; }
 
-		//Constant
-		public RuleCall getConstantsConstantParserRuleCall_4_1_0() { return cConstantsConstantParserRuleCall_4_1_0; }
+		//Command
+		public RuleCall getCommandsCommandParserRuleCall_4_1_0() { return cCommandsCommandParserRuleCall_4_1_0; }
 
 		//'end'
 		public Keyword getEndKeyword_4_2() { return cEndKeyword_4_2; }
 
+		//('constants' constants+=Constant* 'end')?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//'constants'
+		public Keyword getConstantsKeyword_5_0() { return cConstantsKeyword_5_0; }
+
+		//constants+=Constant*
+		public Assignment getConstantsAssignment_5_1() { return cConstantsAssignment_5_1; }
+
+		//Constant
+		public RuleCall getConstantsConstantParserRuleCall_5_1_0() { return cConstantsConstantParserRuleCall_5_1_0; }
+
+		//'end'
+		public Keyword getEndKeyword_5_2() { return cEndKeyword_5_2; }
+
 		//states+=State*
-		public Assignment getStatesAssignment_5() { return cStatesAssignment_5; }
+		public Assignment getStatesAssignment_6() { return cStatesAssignment_6; }
 
 		//State
-		public RuleCall getStatesStateParserRuleCall_5_0() { return cStatesStateParserRuleCall_5_0; }
+		public RuleCall getStatesStateParserRuleCall_6_0() { return cStatesStateParserRuleCall_6_0; }
 	}
 
 	public class EventElements extends AbstractParserRuleElementFinder {
@@ -629,8 +645,8 @@ public class StatemachineGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Statemachine:
-	//	{Statemachine} ('events' events+=Event+ 'end')? ('resetEvents' resetEvents+=[Event]+ 'end')? ('commands'
-	//	commands+=Command+ 'end')? ('constants' constants+=Constant+ 'end')? states+=State*;
+	//	{Statemachine} ('name' name=ID)? ('events' events+=Event* 'end')? ('resetEvents' resetEvents+=[Event]* 'end')?
+	//	('commands' commands+=Command* 'end')? ('constants' constants+=Constant* 'end')? states+=State*;
 	public StatemachineElements getStatemachineAccess() {
 		return pStatemachine;
 	}

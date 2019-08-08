@@ -76,6 +76,15 @@
 			</propertySection>
 			
 			<propertySection
+				afterSection="properties.section.xtextDirectEditDescription.multiLine"
+				class="com.altran.general.integration.xtextsirius.editor.ui.internal.cancelvalidationerror.XtextDescriptionCancelOnValidationErrorPropertySection"
+				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.cancelvalidationerror.XtextDescriptionCancelOnValidationErrorFilter"
+				id="properties.section.xtextDirectEditDescription.cancelOnValidationError"
+				tab="viewpoint.tab.general">
+					<input type="com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription"/>
+			</propertySection>
+			
+			<propertySection
 				afterSection="properties.section.xtextDescription.injectorId"
 				class="com.altran.general.integration.xtextsirius.editor.ui.internal.edgelabelmappings.XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection"
 				filter="com.altran.general.integration.xtextsirius.editor.ui.internal.edgelabelmappings.XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsFilter"

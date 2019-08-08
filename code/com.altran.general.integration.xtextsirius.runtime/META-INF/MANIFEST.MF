@@ -12,17 +12,24 @@ Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport
  org.eclipse.sirius.common,
  org.eclipse.sirius.diagram,
  org.eclipse.sirius.ecore.extender,
+ org.eclipse.sirius.ext.base,
  com.google.guava,
- com.altran.general.integration.google.guava.patch,
  org.eclipse.xtext,
- org.eclipse.jface.text
+ com.altran.general.integration.xtextsirius.model.xtext,
+ com.altran.general.integration.xtextsirius.model.eef
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.altran.general.integration.xtextsirius.runtime,
+ com.altran.general.integration.xtextsirius.runtime.descriptor,
+ com.altran.general.integration.xtextsirius.runtime.editor,
+ com.altran.general.integration.xtextsirius.runtime.editor.decider,
+ com.altran.general.integration.xtextsirius.runtime.editor.modeladjust,
  com.altran.general.integration.xtextsirius.runtime.exception,
+ com.altran.general.integration.xtextsirius.runtime.ignoredfeature,
+ com.altran.general.integration.xtextsirius.runtime.internal;x-internal:=true,
+ com.altran.general.integration.xtextsirius.runtime.modelregion,
  com.altran.general.integration.xtextsirius.runtime.resource,
  com.altran.general.integration.xtextsirius.runtime.serializer,
  com.altran.general.integration.xtextsirius.runtime.task,
  com.altran.general.integration.xtextsirius.runtime.util,
- com.altran.general.integration.xtextsirius.runtime.ignoredfeature,
- com.altran.general.integration.xtextsirius.runtime.modelregion
+ com.altran.general.integration.xtextsirius.runtime.validator

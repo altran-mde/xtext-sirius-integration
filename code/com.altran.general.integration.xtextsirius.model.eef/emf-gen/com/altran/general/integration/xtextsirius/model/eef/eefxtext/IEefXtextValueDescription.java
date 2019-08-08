@@ -45,7 +45,7 @@ public interface IEefXtextValueDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	String getPrefixTextExpression();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getPrefixTextExpression
@@ -59,7 +59,7 @@ public interface IEefXtextValueDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	void setPrefixTextExpression(String value);
-
+	
 	/**
 	 * Returns the value of the '<em><b>Suffix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc -->
@@ -76,7 +76,7 @@ public interface IEefXtextValueDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	String getSuffixTextExpression();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription#getSuffixTextExpression
@@ -90,5 +90,5 @@ public interface IEefXtextValueDescription extends IEefXtextDescription {
 	 * @generated
 	 */
 	void setSuffixTextExpression(String value);
-
+	
 } // IEefXtextValueDescription

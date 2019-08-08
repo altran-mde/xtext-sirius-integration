@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.modelregion;
@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 /**
  * Stores the location of an {@link EObject} in a robust way.
@@ -36,50 +37,59 @@ import org.eclipse.jdt.annotation.NonNull;
  */
 public class SemanticElementLocation {
 	
-	private String uriFragment;
+	@Nullable
 	private String parentUriFragment;
+	@Nullable
 	private EStructuralFeature containingFeature;
-	private int index;
+	@Nullable
+	private Integer index;
 	
 	public SemanticElementLocation(final @NonNull EObject semanticElement) {
 		storeLocation(semanticElement);
 	}
 	
 	public SemanticElementLocation(
-			final @NonNull String uriFragment,
 			final @NonNull String parentUriFragment,
-			final @NonNull EStructuralFeature containingFeature,
-			final int index) {
-		this.uriFragment = uriFragment;
+			final @NonNull EStructuralFeature containingFeature) {
 		this.parentUriFragment = parentUriFragment;
 		this.containingFeature = containingFeature;
-		this.index = index;
 	}
 	
 	@SuppressWarnings("unchecked")
 	private void storeLocation(final @NonNull EObject semanticElement) {
 		final Resource resource = semanticElement.eResource();
-		this.uriFragment = resource.getURIFragment(semanticElement);
-		this.parentUriFragment = resource.getURIFragment(semanticElement.eContainer());
-		this.containingFeature = semanticElement.eContainingFeature();
-		if (this.containingFeature.isMany()) {
-			this.index = ((EList<EObject>) semanticElement.eContainer()
-					.eGet(this.containingFeature)).indexOf(semanticElement);
+		final EObject parent = semanticElement.eContainer();
+		if (parent != null) {
+			this.parentUriFragment = resource.getURIFragment(parent);
+			final EStructuralFeature eContainingFeature = semanticElement.eContainingFeature();
+			this.containingFeature = eContainingFeature;
+			if (eContainingFeature.isMany()) {
+				this.index = ((EList<EObject>) parent
+						.eGet(this.containingFeature)).indexOf(semanticElement);
+			}
+		} else {
+			this.parentUriFragment = null;
+			this.containingFeature = null;
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
-	public EObject resolve(final @NonNull Resource resource) {
-		final EObject result = resource.getEObject(this.uriFragment);
-		if (result != null) {
-			return result;
+	public Object resolve(final @NonNull Resource resource) {
+		final EStructuralFeature feature = this.containingFeature;
+		if (feature != null && this.parentUriFragment != null) {
+			final Object containingElement = resource.getEObject(this.parentUriFragment)
+					.eGet(feature);
+			if (feature.isMany()) {
+				@SuppressWarnings("unchecked")
+				final EList<EObject> containingList = (EList<EObject>) containingElement;
+				if (this.index != null) {
+					return containingList.get(this.index);
+				}
+			}
+			
+			return containingElement;
 		}
 		
-		final Object containingElement = resource.getEObject(this.parentUriFragment).eGet(this.containingFeature);
-		if (this.containingFeature.isMany()) {
-			return ((EList<EObject>) containingElement).get(this.index);
-		} else {
-			return (EObject) containingElement;
-		}
+		// it must be the root element
+		return resource.getContents().get(0);
 	}
 }

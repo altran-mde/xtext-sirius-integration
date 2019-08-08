@@ -79,7 +79,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected static final String CHANGEABLE_ATTR_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableAttr() <em>Changeable Attr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,7 +89,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected String changeableAttr = CHANGEABLE_ATTR_EDEFAULT;
-	
+
 	/**
 	 * The default value of the '{@link #getUnchangeableAttr() <em>Unchangeable Attr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -99,7 +99,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected static final int UNCHANGEABLE_ATTR_EDEFAULT = 0;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableAttr() <em>Unchangeable Attr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -109,7 +109,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected int unchangeableAttr = UNCHANGEABLE_ATTR_EDEFAULT;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableListAttr() <em>Changeable List Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -119,7 +119,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<String> changeableListAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableListAttr() <em>Unchangeable List Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -129,7 +129,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<Boolean> unchangeableListAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableSetAttr() <em>Changeable Set Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -139,7 +139,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<Integer> changeableSetAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableSetAttr() <em>Unchangeable Set Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -149,7 +149,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<Integer> unchangeableSetAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableBagAttr() <em>Changeable Bag Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -159,7 +159,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<Double> changeableBagAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableBagAttr() <em>Unchangeable Bag Attr</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -169,7 +169,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<Double> unchangeableBagAttr;
-	
+
 	/**
 	 * The cached value of the '{@link #getContainedSingle() <em>Contained Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -179,7 +179,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected IContainedElement containedSingle;
-	
+
 	/**
 	 * The cached value of the '{@link #getContainedMulti() <em>Contained Multi</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -189,7 +189,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<IContainedElement> containedMulti;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableRef() <em>Changeable Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -199,7 +199,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected KeyElement changeableRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableRef() <em>Unchangeable Ref</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -209,7 +209,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected KeyElement unchangeableRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableListRef() <em>Changeable List Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -219,7 +219,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> changeableListRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableListRef() <em>Unchangeable List Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -229,7 +229,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> unchangeableListRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableSetRef() <em>Changeable Set Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -239,7 +239,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> changeableSetRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableSetRef() <em>Unchangeable Set Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -249,7 +249,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> unchangeableSetRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableBagRef() <em>Changeable Bag Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -259,7 +259,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> changeableBagRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableBagRef() <em>Unchangeable Bag Ref</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -269,7 +269,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> unchangeableBagRef;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableUniqueListCont() <em>Changeable Unique List Cont</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -279,7 +279,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> changeableUniqueListCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableUniqueListCont() <em>Unchangeable Unique List Cont</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -289,7 +289,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> unchangeableUniqueListCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableSetCont() <em>Changeable Set Cont</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -299,7 +299,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> changeableSetCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getChangeableCont() <em>Changeable Cont</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -309,7 +309,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected KeyElement changeableCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableCont() <em>Unchangeable Cont</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -319,7 +319,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected KeyElement unchangeableCont;
-	
+
 	/**
 	 * The cached value of the '{@link #getUnchangeableSetCont() <em>Unchangeable Set Cont</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -329,7 +329,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected EList<KeyElement> unchangeableSetCont;
-	
+
 	/**
 	 * The default value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -339,7 +339,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected static final String KEY_ID_EDEFAULT = null;
-	
+
 	/**
 	 * The cached value of the '{@link #getKeyId() <em>Key Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -349,7 +349,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	 * @ordered
 	 */
 	protected String keyId = KEY_ID_EDEFAULT;
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,7 +358,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	protected KeyElementImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,7 +368,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	protected EClass eStaticClass() {
 		return XtextSiriusTestPackage.Literals.KEY_ELEMENT;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,7 +377,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public String getChangeableAttr() {
 		return changeableAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,7 +390,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR,
 					oldChangeableAttr, changeableAttr));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -399,7 +399,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public int getUnchangeableAttr() {
 		return unchangeableAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,7 +412,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableListAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,7 +425,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableListAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -438,7 +438,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableSetAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -451,7 +451,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableSetAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -464,7 +464,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableBagAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -477,7 +477,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableBagAttr;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,7 +486,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public IContainedElement getContainedSingle() {
 		return containedSingle;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -505,7 +505,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -527,7 +527,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE,
 					newContainedSingle, newContainedSingle));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -540,7 +540,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return containedMulti;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -558,7 +558,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -567,7 +567,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public KeyElement basicGetChangeableRef() {
 		return changeableRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -580,7 +580,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF,
 					oldChangeableRef, changeableRef));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -598,7 +598,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,7 +607,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public KeyElement basicGetUnchangeableRef() {
 		return unchangeableRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -620,7 +620,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableListRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -633,7 +633,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableListRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -646,7 +646,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableSetRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,7 +659,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableSetRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -672,7 +672,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableBagRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -685,7 +685,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableBagRef;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -698,7 +698,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableUniqueListCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -711,7 +711,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableUniqueListCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -724,7 +724,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return changeableSetCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -733,7 +733,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public KeyElement getChangeableCont() {
 		return changeableCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -752,7 +752,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -774,7 +774,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT,
 					newChangeableCont, newChangeableCont));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -783,7 +783,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public KeyElement getUnchangeableCont() {
 		return unchangeableCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -802,7 +802,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -815,7 +815,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		}
 		return unchangeableSetCont;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -824,7 +824,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public String getKeyId() {
 		return keyId;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -837,7 +837,7 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 			eNotify(new ENotificationImpl(this, Notification.SET, XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID, oldKeyId,
 					keyId));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,26 +846,26 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
-				return basicSetContainedSingle(null, msgs);
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
-				return ((InternalEList<?>) getContainedMulti()).basicRemove(otherEnd, msgs);
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				return ((InternalEList<?>) getChangeableUniqueListCont()).basicRemove(otherEnd, msgs);
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
-				return ((InternalEList<?>) getUnchangeableUniqueListCont()).basicRemove(otherEnd, msgs);
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
-				return ((InternalEList<?>) getChangeableSetCont()).basicRemove(otherEnd, msgs);
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
-				return basicSetChangeableCont(null, msgs);
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_CONT:
-				return basicSetUnchangeableCont(null, msgs);
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_CONT:
-				return ((InternalEList<?>) getUnchangeableSetCont()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+			return basicSetContainedSingle(null, msgs);
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+			return ((InternalEList<?>) getContainedMulti()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			return ((InternalEList<?>) getChangeableUniqueListCont()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
+			return ((InternalEList<?>) getUnchangeableUniqueListCont()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
+			return ((InternalEList<?>) getChangeableSetCont()).basicRemove(otherEnd, msgs);
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
+			return basicSetChangeableCont(null, msgs);
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_CONT:
+			return basicSetUnchangeableCont(null, msgs);
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_CONT:
+			return ((InternalEList<?>) getUnchangeableSetCont()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -874,64 +874,64 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR:
-				return getChangeableAttr();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_ATTR:
-				return getUnchangeableAttr();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_ATTR:
-				return getChangeableListAttr();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_LIST_ATTR:
-				return getUnchangeableListAttr();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_ATTR:
-				return getChangeableSetAttr();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_ATTR:
-				return getUnchangeableSetAttr();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
-				return getChangeableBagAttr();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_ATTR:
-				return getUnchangeableBagAttr();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
-				return getContainedSingle();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
-				return getContainedMulti();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
-				if (resolve)
-					return getChangeableRef();
-				return basicGetChangeableRef();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_REF:
-				if (resolve)
-					return getUnchangeableRef();
-				return basicGetUnchangeableRef();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_REF:
-				return getChangeableListRef();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_LIST_REF:
-				return getUnchangeableListRef();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_REF:
-				return getChangeableSetRef();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_REF:
-				return getUnchangeableSetRef();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_REF:
-				return getChangeableBagRef();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_REF:
-				return getUnchangeableBagRef();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				return getChangeableUniqueListCont();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
-				return getUnchangeableUniqueListCont();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
-				return getChangeableSetCont();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
-				return getChangeableCont();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_CONT:
-				return getUnchangeableCont();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_CONT:
-				return getUnchangeableSetCont();
-			case XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID:
-				return getKeyId();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR:
+			return getChangeableAttr();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_ATTR:
+			return getUnchangeableAttr();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_ATTR:
+			return getChangeableListAttr();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_LIST_ATTR:
+			return getUnchangeableListAttr();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_ATTR:
+			return getChangeableSetAttr();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_ATTR:
+			return getUnchangeableSetAttr();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
+			return getChangeableBagAttr();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_ATTR:
+			return getUnchangeableBagAttr();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+			return getContainedSingle();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+			return getContainedMulti();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
+			if (resolve)
+				return getChangeableRef();
+			return basicGetChangeableRef();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_REF:
+			if (resolve)
+				return getUnchangeableRef();
+			return basicGetUnchangeableRef();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_REF:
+			return getChangeableListRef();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_LIST_REF:
+			return getUnchangeableListRef();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_REF:
+			return getChangeableSetRef();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_REF:
+			return getUnchangeableSetRef();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_REF:
+			return getChangeableBagRef();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_REF:
+			return getUnchangeableBagRef();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			return getChangeableUniqueListCont();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
+			return getUnchangeableUniqueListCont();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
+			return getChangeableSetCont();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
+			return getChangeableCont();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_CONT:
+			return getUnchangeableCont();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_CONT:
+			return getUnchangeableSetCont();
+		case XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID:
+			return getKeyId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -941,61 +941,61 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR:
-				setChangeableAttr((String) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_ATTR:
-				getChangeableListAttr().clear();
-				getChangeableListAttr().addAll((Collection<? extends String>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_ATTR:
-				getChangeableSetAttr().clear();
-				getChangeableSetAttr().addAll((Collection<? extends Integer>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
-				getChangeableBagAttr().clear();
-				getChangeableBagAttr().addAll((Collection<? extends Double>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
-				setContainedSingle((IContainedElement) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
-				getContainedMulti().clear();
-				getContainedMulti().addAll((Collection<? extends IContainedElement>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
-				setChangeableRef((KeyElement) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_REF:
-				getChangeableListRef().clear();
-				getChangeableListRef().addAll((Collection<? extends KeyElement>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_REF:
-				getChangeableSetRef().clear();
-				getChangeableSetRef().addAll((Collection<? extends KeyElement>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_REF:
-				getChangeableBagRef().clear();
-				getChangeableBagRef().addAll((Collection<? extends KeyElement>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				getChangeableUniqueListCont().clear();
-				getChangeableUniqueListCont().addAll((Collection<? extends KeyElement>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
-				getChangeableSetCont().clear();
-				getChangeableSetCont().addAll((Collection<? extends KeyElement>) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
-				setChangeableCont((KeyElement) newValue);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID:
-				setKeyId((String) newValue);
-				return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR:
+			setChangeableAttr((String) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_ATTR:
+			getChangeableListAttr().clear();
+			getChangeableListAttr().addAll((Collection<? extends String>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_ATTR:
+			getChangeableSetAttr().clear();
+			getChangeableSetAttr().addAll((Collection<? extends Integer>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
+			getChangeableBagAttr().clear();
+			getChangeableBagAttr().addAll((Collection<? extends Double>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+			setContainedSingle((IContainedElement) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+			getContainedMulti().clear();
+			getContainedMulti().addAll((Collection<? extends IContainedElement>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
+			setChangeableRef((KeyElement) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_REF:
+			getChangeableListRef().clear();
+			getChangeableListRef().addAll((Collection<? extends KeyElement>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_REF:
+			getChangeableSetRef().clear();
+			getChangeableSetRef().addAll((Collection<? extends KeyElement>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_REF:
+			getChangeableBagRef().clear();
+			getChangeableBagRef().addAll((Collection<? extends KeyElement>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			getChangeableUniqueListCont().clear();
+			getChangeableUniqueListCont().addAll((Collection<? extends KeyElement>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
+			getChangeableSetCont().clear();
+			getChangeableSetCont().addAll((Collection<? extends KeyElement>) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
+			setChangeableCont((KeyElement) newValue);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID:
+			setKeyId((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1004,52 +1004,52 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR:
-				setChangeableAttr(CHANGEABLE_ATTR_EDEFAULT);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_ATTR:
-				getChangeableListAttr().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_ATTR:
-				getChangeableSetAttr().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
-				getChangeableBagAttr().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
-				setContainedSingle((IContainedElement) null);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
-				getContainedMulti().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
-				setChangeableRef((KeyElement) null);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_REF:
-				getChangeableListRef().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_REF:
-				getChangeableSetRef().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_REF:
-				getChangeableBagRef().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				getChangeableUniqueListCont().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
-				getChangeableSetCont().clear();
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
-				setChangeableCont((KeyElement) null);
-				return;
-			case XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID:
-				setKeyId(KEY_ID_EDEFAULT);
-				return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR:
+			setChangeableAttr(CHANGEABLE_ATTR_EDEFAULT);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_ATTR:
+			getChangeableListAttr().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_ATTR:
+			getChangeableSetAttr().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
+			getChangeableBagAttr().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+			setContainedSingle((IContainedElement) null);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+			getContainedMulti().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
+			setChangeableRef((KeyElement) null);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_REF:
+			getChangeableListRef().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_REF:
+			getChangeableSetRef().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_REF:
+			getChangeableBagRef().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			getChangeableUniqueListCont().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
+			getChangeableSetCont().clear();
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
+			setChangeableCont((KeyElement) null);
+			return;
+		case XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID:
+			setKeyId(KEY_ID_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1058,61 +1058,61 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR:
-				return CHANGEABLE_ATTR_EDEFAULT == null ? changeableAttr != null
-						: !CHANGEABLE_ATTR_EDEFAULT.equals(changeableAttr);
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_ATTR:
-				return unchangeableAttr != UNCHANGEABLE_ATTR_EDEFAULT;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_ATTR:
-				return changeableListAttr != null && !changeableListAttr.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_LIST_ATTR:
-				return unchangeableListAttr != null && !unchangeableListAttr.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_ATTR:
-				return changeableSetAttr != null && !changeableSetAttr.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_ATTR:
-				return unchangeableSetAttr != null && !unchangeableSetAttr.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
-				return changeableBagAttr != null && !changeableBagAttr.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_ATTR:
-				return unchangeableBagAttr != null && !unchangeableBagAttr.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
-				return containedSingle != null;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
-				return containedMulti != null && !containedMulti.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
-				return changeableRef != null;
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_REF:
-				return unchangeableRef != null;
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_REF:
-				return changeableListRef != null && !changeableListRef.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_LIST_REF:
-				return unchangeableListRef != null && !unchangeableListRef.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_REF:
-				return changeableSetRef != null && !changeableSetRef.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_REF:
-				return unchangeableSetRef != null && !unchangeableSetRef.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_REF:
-				return changeableBagRef != null && !changeableBagRef.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_REF:
-				return unchangeableBagRef != null && !unchangeableBagRef.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
-				return changeableUniqueListCont != null && !changeableUniqueListCont.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
-				return unchangeableUniqueListCont != null && !unchangeableUniqueListCont.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
-				return changeableSetCont != null && !changeableSetCont.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
-				return changeableCont != null;
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_CONT:
-				return unchangeableCont != null;
-			case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_CONT:
-				return unchangeableSetCont != null && !unchangeableSetCont.isEmpty();
-			case XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID:
-				return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_ATTR:
+			return CHANGEABLE_ATTR_EDEFAULT == null ? changeableAttr != null
+					: !CHANGEABLE_ATTR_EDEFAULT.equals(changeableAttr);
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_ATTR:
+			return unchangeableAttr != UNCHANGEABLE_ATTR_EDEFAULT;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_ATTR:
+			return changeableListAttr != null && !changeableListAttr.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_LIST_ATTR:
+			return unchangeableListAttr != null && !unchangeableListAttr.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_ATTR:
+			return changeableSetAttr != null && !changeableSetAttr.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_ATTR:
+			return unchangeableSetAttr != null && !unchangeableSetAttr.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_ATTR:
+			return changeableBagAttr != null && !changeableBagAttr.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_ATTR:
+			return unchangeableBagAttr != null && !unchangeableBagAttr.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_SINGLE:
+			return containedSingle != null;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CONTAINED_MULTI:
+			return containedMulti != null && !containedMulti.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_REF:
+			return changeableRef != null;
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_REF:
+			return unchangeableRef != null;
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_LIST_REF:
+			return changeableListRef != null && !changeableListRef.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_LIST_REF:
+			return unchangeableListRef != null && !unchangeableListRef.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_REF:
+			return changeableSetRef != null && !changeableSetRef.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_REF:
+			return unchangeableSetRef != null && !unchangeableSetRef.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_BAG_REF:
+			return changeableBagRef != null && !changeableBagRef.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_BAG_REF:
+			return unchangeableBagRef != null && !unchangeableBagRef.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_UNIQUE_LIST_CONT:
+			return changeableUniqueListCont != null && !changeableUniqueListCont.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_UNIQUE_LIST_CONT:
+			return unchangeableUniqueListCont != null && !unchangeableUniqueListCont.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_SET_CONT:
+			return changeableSetCont != null && !changeableSetCont.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__CHANGEABLE_CONT:
+			return changeableCont != null;
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_CONT:
+			return unchangeableCont != null;
+		case XtextSiriusTestPackage.KEY_ELEMENT__UNCHANGEABLE_SET_CONT:
+			return unchangeableSetCont != null && !unchangeableSetCont.isEmpty();
+		case XtextSiriusTestPackage.KEY_ELEMENT__KEY_ID:
+			return KEY_ID_EDEFAULT == null ? keyId != null : !KEY_ID_EDEFAULT.equals(keyId);
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1122,8 +1122,8 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 	public String toString() {
 		if (eIsProxy())
 			return super.toString();
-		
-		StringBuffer result = new StringBuffer(super.toString());
+
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (changeableAttr: ");
 		result.append(changeableAttr);
 		result.append(", unchangeableAttr: ");
@@ -1145,5 +1145,5 @@ public class KeyElementImpl extends MinimalEObjectImpl.Container implements KeyE
 		result.append(')');
 		return result.toString();
 	}
-	
+
 } //KeyElementImpl

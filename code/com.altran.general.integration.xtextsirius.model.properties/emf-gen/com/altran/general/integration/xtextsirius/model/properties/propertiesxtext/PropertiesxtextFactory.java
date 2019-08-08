@@ -27,7 +27,7 @@ public interface PropertiesxtextFactory extends EFactory {
 	 */
 	PropertiesxtextFactory eINSTANCE = com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextFactoryImpl
 			.init();
-
+	
 	/**
 	 * Returns a new object of class '<em>Xtext Single Line Model
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -37,7 +37,7 @@ public interface PropertiesxtextFactory extends EFactory {
 	 * @generated
 	 */
 	XtextSingleLineModelDescription createXtextSingleLineModelDescription();
-
+	
 	/**
 	 * Returns a new object of class '<em>Xtext Multi Line Model
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -47,7 +47,7 @@ public interface PropertiesxtextFactory extends EFactory {
 	 * @generated
 	 */
 	XtextMultiLineModelDescription createXtextMultiLineModelDescription();
-
+	
 	/**
 	 * Returns a new object of class '<em>Xtext Single Line Value
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -57,7 +57,7 @@ public interface PropertiesxtextFactory extends EFactory {
 	 * @generated
 	 */
 	XtextSingleLineValueDescription createXtextSingleLineValueDescription();
-
+	
 	/**
 	 * Returns a new object of class '<em>Xtext Multi Line Value
 	 * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -67,7 +67,7 @@ public interface PropertiesxtextFactory extends EFactory {
 	 * @generated
 	 */
 	XtextMultiLineValueDescription createXtextMultiLineValueDescription();
-
+	
 	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,5 +76,5 @@ public interface PropertiesxtextFactory extends EFactory {
 	 * @generated
 	 */
 	PropertiesxtextPackage getPropertiesxtextPackage();
-
+	
 } // PropertiesxtextFactory

@@ -27,7 +27,7 @@ public interface XtextsiriusFactory extends EFactory {
 	 */
 	XtextsiriusFactory eINSTANCE = com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl.XtextsiriusFactoryImpl
 			.init();
-
+	
 	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,5 +36,5 @@ public interface XtextsiriusFactory extends EFactory {
 	 * @generated
 	 */
 	XtextsiriusPackage getXtextsiriusPackage();
-
+	
 } // XtextsiriusFactory

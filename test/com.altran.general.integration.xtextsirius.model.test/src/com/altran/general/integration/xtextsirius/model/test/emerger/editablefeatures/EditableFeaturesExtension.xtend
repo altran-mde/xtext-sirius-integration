@@ -30,7 +30,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 	protected T existing
 	protected T edited
 	protected Set<EStructuralFeature> untouchedFeatures
-	private ATestEMerger<T> test
+	ATestEMerger<T> test
 	
 	new(ATestEMerger<T> test) {
 		this.test = test
@@ -38,7 +38,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 
 	def createEMerger(T existing, T edited) {
 		createEMerger(existing, edited, edited.eClass.EAllStructuralFeatures
-			.filter[edited.eIsSet(it)]
+			.filter[!isDerived && edited.eIsSet(it)]
 			.map[name]
 			.toSet
 		)
@@ -54,7 +54,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 
-		new EMerger(existing, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(editableFeatures, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	def createEMerger(T existing, EStructuralFeature feature) {
@@ -66,7 +66,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 		
-		new EMerger(existing, #{feature.name}, emptySet, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(#{feature.name}, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	def createEMerger(T existing, EStructuralFeature feature, Set<String> editableFeatures) {
@@ -78,7 +78,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 		
-		new EMerger(existing, editableFeatures, emptySet, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(editableFeatures, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
 	}
 	
 	def void checkUntouchedFeatures() {
@@ -129,24 +129,24 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 		}
 	}
 
-	protected def createAttributeValue(EAttribute feature) {
-		if (feature.isMany) {
-			switch (feature.EType) {
-				case EcorePackage.Literals::ESTRING:
-					#["aaa", "bbb"]
-				case EcorePackage.Literals::EINT:
-					#[23, 42]
-				case EcorePackage.Literals::EDOUBLE:
-					#[2.71, 3.14]
-			}
-		} else {
-			EcoreUtil.createFromString(feature.EType as EDataType, switch (feature.EType) {
-				case EcorePackage.Literals::ESTRING: "aaa"
-				case EcorePackage.Literals::EINT: "23"
-				case EcorePackage.Literals::EDOUBLE: "2.71"
-			})
-		}
-	}
+    protected def createAttributeValue(EAttribute feature) {
+        if (feature.isMany) {
+            switch (feature.EType) {
+                case EcorePackage$Literals::ESTRING:
+                    #["aaa", "bbb"]
+                case EcorePackage$Literals::EINT:
+                    #[23, 42]
+                case EcorePackage$Literals::EDOUBLE:
+                    #[2.71, 3.14]
+            }
+        } else {
+            EcoreUtil.createFromString(feature.EType as EDataType, switch (feature.EType) {
+                case EcorePackage$Literals::ESTRING: "aaa"
+                case EcorePackage$Literals::EINT: "23"
+                case EcorePackage$Literals::EDOUBLE: "2.71"
+            })
+        }
+    }
 
 	protected def createReferenceValue(EReference feature, AtomicInteger integer) {
 		var i = integer.get

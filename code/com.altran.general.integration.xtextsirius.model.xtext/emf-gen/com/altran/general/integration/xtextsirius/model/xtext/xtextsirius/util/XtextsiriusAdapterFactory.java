@@ -40,7 +40,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected static XtextsiriusPackage modelPackage;
-
+	
 	/**
 	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -52,7 +52,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 			modelPackage = XtextsiriusPackage.eINSTANCE;
 		}
 	}
-
+	
 	/**
 	 * Returns whether this factory is applicable for the type of the object.
 	 * <!-- begin-user-doc --> This implementation returns <code>true</code> if
@@ -72,7 +72,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 		}
 		return false;
 	}
-
+	
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -84,53 +84,53 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 		public Adapter caseIXtextDescription(final IXtextDescription object) {
 			return createIXtextDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextModelDescription(final IXtextModelDescription object) {
 			return createIXtextModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextPropertyDescription(final IXtextPropertyDescription object) {
 			return createIXtextPropertyDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
 			return createIXtextDirectEditDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
 			return createIXtextDirectEditModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
 			return createIXtextDirectEditValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextPropertyModelDescription(final IXtextPropertyModelDescription object) {
 			return createIXtextPropertyModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextPropertyValueDescription(final IXtextPropertyValueDescription object) {
 			return createIXtextPropertyValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter defaultCase(final EObject object) {
 			return createEObjectAdapter();
 		}
 	};
-
+	
 	/**
 	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,8 +144,8 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAdapter(final Notifier target) {
 		return this.modelSwitch.doSwitch((EObject) target);
 	}
-
-
+	
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
@@ -161,7 +161,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
@@ -177,7 +177,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
@@ -193,7 +193,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyDescription
@@ -209,7 +209,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextPropertyDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
@@ -225,7 +225,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDirectEditDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
@@ -241,7 +241,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDirectEditModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
@@ -257,7 +257,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDirectEditValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyModelDescription
@@ -273,7 +273,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextPropertyModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextPropertyValueDescription
@@ -289,7 +289,7 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextPropertyValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This
 	 * default implementation returns null. <!-- end-user-doc -->
@@ -300,5 +300,5 @@ public class XtextsiriusAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEObjectAdapter() {
 		return null;
 	}
-
+	
 } // XtextsiriusAdapterFactory

@@ -29,6 +29,7 @@
       ecorePackage="xtextsirius.ecore#/">
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextDescription/injectorId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xtextsirius.ecore#//IXtextDescription/cancelOnValidationError"/>
       <genOperations ecoreOperation="xtextsirius.ecore#//IXtextDescription/isMultiLine"/>
     </genClasses>
     <genClasses image="false" ecoreClass="xtextsirius.ecore#//IXtextModelDescription">

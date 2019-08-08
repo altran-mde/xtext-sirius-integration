@@ -245,13 +245,16 @@ public class ConstantImpl extends MinimalEObjectImpl.Container implements Consta
     return super.eIsSet(featureID);
   }
 
-	@Override
+ /**
+  * @generated NOT
+  */
+  @Override
 	public String toString() {
 		if (eIsProxy()) {
 			return super.toString();
 		}
 
 		return this.name;
-	}
+  }
 
 } //ConstantImpl

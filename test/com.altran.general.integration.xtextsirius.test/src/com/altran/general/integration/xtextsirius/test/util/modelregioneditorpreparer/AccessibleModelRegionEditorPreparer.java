@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
@@ -19,21 +19,27 @@ import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.util.TextRegion;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionCalculator;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.SemanticElementLocation;
-import com.google.inject.Injector;
 
 class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 
-	public AccessibleModelRegionEditorPreparer(final Injector injector, final EObject semanticElement,
+	public AccessibleModelRegionEditorPreparer(
+			final IXtextSiriusModelDescriptor descriptor,
+			final EObject semanticElement,
 			final EObject parentSemanticElement,
 			final EStructuralFeature semanticElementFeature) {
-		super(injector, semanticElement, parentSemanticElement, semanticElementFeature);
+		super(descriptor, new MinimalModelAdjuster()
+				.adjust(new ModelEntryPoint(semanticElement, parentSemanticElement, semanticElementFeature)));
 	}
 	
-	public AccessibleModelRegionEditorPreparer(final Injector injector, final EObject semanticElement) {
-		super(injector, semanticElement);
+	public AccessibleModelRegionEditorPreparer(final IXtextSiriusModelDescriptor descriptor,
+			final EObject semanticElement) {
+		super(descriptor, new MinimalModelAdjuster().adjust(new ModelEntryPoint(semanticElement)));
 	}
 	
 	public TextRegion calculateRegionForFeatures(final EObject semanticElement) {
@@ -86,7 +92,7 @@ class AccessibleModelRegionEditorPreparer extends ModelRegionEditorPreparer {
 	public void setAllText(final @NonNull StringBuffer text) {
 		this.allText = text;
 	}
-	
+
 	@Override
 	public boolean isPrepared() {
 		return super.isPrepared();

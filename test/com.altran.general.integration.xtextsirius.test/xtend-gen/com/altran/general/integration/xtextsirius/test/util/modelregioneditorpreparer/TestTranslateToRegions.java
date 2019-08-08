@@ -9,10 +9,10 @@
  */
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
-import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.Set;
 import org.eclipse.emf.ecore.EAttribute;
@@ -37,8 +37,8 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
   public void emptyFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, event);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     final Set<ISemanticRegion> regions = preparer.translateToRegions(CollectionLiterals.<EStructuralFeature>emptySet(), eventRegion, event, rootRegion);
@@ -49,8 +49,8 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
   public void oneDefinedFeature() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, event);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EAttribute _event_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name();
@@ -68,8 +68,8 @@ public class TestTranslateToRegions extends AModelRegionEditorPreparer {
   public void someDefinedFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(2);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, event);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
     EAttribute _event_Name = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Name();

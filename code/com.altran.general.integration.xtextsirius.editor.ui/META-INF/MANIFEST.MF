@@ -7,7 +7,6 @@ Bundle-Activator: com.altran.general.integration.xtextsirius.editor.ui.internal.
 Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.lang,
  com.google.guava,
- com.altran.general.integration.google.guava.patch,
  org.eclipse.xtext,
  org.eclipse.ui.views.properties.tabbed,
  org.eclipse.emf.edit.ui,

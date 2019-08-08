@@ -27,7 +27,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
-        <containerMappings name="CommandsContainer" semanticCandidatesExpression="var:self" domainClass="statemachine.Statemachine" childrenPresentation="List">
+        <containerMappings name="CommandsContainer" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CommandsEdit']" semanticCandidatesExpression="var:self" domainClass="statemachine.Statemachine" childrenPresentation="List">
           <subNodeMappings name="CommandNode" semanticCandidatesExpression="feature:commands" domainClass="statemachine.Command">
             <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -58,6 +58,21 @@
             </style>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="ConstantsContainer" labelDirectEdit="//@ownedViewpoints[name='Statemachine']/@ownedRepresentations[name='Statemachine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ConstantsEdit']" semanticCandidatesExpression="var:self" domainClass="statemachine::Statemachine" childrenPresentation="List">
+          <subNodeMappings name="ConstantNode" semanticCandidatesExpression="feature:constants" domainClass="Constant">
+            <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="Constants">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -97,6 +112,17 @@
           <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="ThingEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId" multiLine="true">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="ConstantsEdit" inputLabelExpression="var:self" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId" multiLine="true" prefixTerminalsExpression="constants" suffixTerminalsExpression="end">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" valueExpression="var:newValue"/>
+            </initialOperation>
+            <editableFeatures>Statemachine.constants</editableFeatures>
+          </ownedTools>
+          <ownedTools xsi:type="diagram-xtext:XtextDirectEditModelDescription" name="CommandsEdit" inputLabelExpression="feature:commands" injectorId="org.eclipse.xtext.example.fowlerdsl.viewpoint.fowlerdslInjectorId" multiLine="true" prefixTerminalsExpression="commands" suffixTerminalsExpression="end">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="commands" valueExpression="var:newValue"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

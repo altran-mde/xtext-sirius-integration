@@ -169,6 +169,9 @@ public class ConstantRefImpl extends ValueImpl implements ConstantRef
     return super.eIsSet(featureID);
   }
 
+  /**
+   * @generated NOT
+   */
 	@Override
 	public String toString() {
 		if (eIsProxy()) {

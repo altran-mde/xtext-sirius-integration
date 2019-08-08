@@ -17,13 +17,13 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeNameEditPart;
 
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.EditPartHelper;
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiriusAwareLabelEditPart;
-import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.AXtextSiriusDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor.IXtextSiriusEditpartDescriptor;
 
 @SuppressWarnings("restriction")
 public class XtextSiriusNodeNameEditPart extends DNodeNameEditPart implements IXtextSiriusAwareLabelEditPart {
-	private final @NonNull AXtextSiriusDescriptor descriptor;
+	private final @NonNull IXtextSiriusEditpartDescriptor descriptor;
 	
-	public XtextSiriusNodeNameEditPart(final @NonNull View view, final @NonNull AXtextSiriusDescriptor descriptor) {
+	public XtextSiriusNodeNameEditPart(final @NonNull View view, final @NonNull IXtextSiriusEditpartDescriptor descriptor) {
 		super(view);
 		this.descriptor = descriptor;
 	}
@@ -55,7 +55,7 @@ public class XtextSiriusNodeNameEditPart extends DNodeNameEditPart implements IX
 	}
 	
 	@Override
-	public @NonNull AXtextSiriusDescriptor getDescriptor() {
+	public @NonNull IXtextSiriusEditpartDescriptor getDescriptor() {
 		return this.descriptor;
 	}
 }

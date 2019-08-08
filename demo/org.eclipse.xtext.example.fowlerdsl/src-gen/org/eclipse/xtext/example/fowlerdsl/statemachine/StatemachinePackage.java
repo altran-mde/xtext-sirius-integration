@@ -67,13 +67,22 @@ public interface StatemachinePackage extends EPackage
   int STATEMACHINE = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMACHINE__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Events</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMACHINE__EVENTS = 0;
+  int STATEMACHINE__EVENTS = 1;
 
   /**
    * The feature id for the '<em><b>Reset Events</b></em>' reference list.
@@ -82,7 +91,7 @@ public interface StatemachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMACHINE__RESET_EVENTS = 1;
+  int STATEMACHINE__RESET_EVENTS = 2;
 
   /**
    * The feature id for the '<em><b>Commands</b></em>' containment reference list.
@@ -91,7 +100,7 @@ public interface StatemachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMACHINE__COMMANDS = 2;
+  int STATEMACHINE__COMMANDS = 3;
 
   /**
    * The feature id for the '<em><b>Constants</b></em>' containment reference list.
@@ -100,7 +109,7 @@ public interface StatemachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMACHINE__CONSTANTS = 3;
+  int STATEMACHINE__CONSTANTS = 4;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -109,7 +118,7 @@ public interface StatemachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMACHINE__STATES = 4;
+  int STATEMACHINE__STATES = 5;
 
   /**
    * The number of structural features of the '<em>Statemachine</em>' class.
@@ -118,7 +127,7 @@ public interface StatemachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMACHINE_FEATURE_COUNT = 5;
+  int STATEMACHINE_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.impl.EventImpl <em>Event</em>}' class.
@@ -565,6 +574,17 @@ public interface StatemachinePackage extends EPackage
    * @generated
    */
   EClass getStatemachine();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getName()
+   * @see #getStatemachine()
+   * @generated
+   */
+  EAttribute getStatemachine_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine#getEvents <em>Events</em>}'.
@@ -1026,6 +1046,14 @@ public interface StatemachinePackage extends EPackage
      * @generated
      */
     EClass STATEMACHINE = eINSTANCE.getStatemachine();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATEMACHINE__NAME = eINSTANCE.getStatemachine_Name();
 
     /**
      * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.

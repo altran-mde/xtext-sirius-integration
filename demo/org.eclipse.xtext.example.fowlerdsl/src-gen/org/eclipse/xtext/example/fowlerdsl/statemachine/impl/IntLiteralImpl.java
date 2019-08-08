@@ -156,6 +156,9 @@ public class IntLiteralImpl extends ValueImpl implements IntLiteral
     return super.eIsSet(featureID);
   }
 
+  /**
+   * @generated NOT
+   */
   @Override
 	public String toString() {
 		if (eIsProxy()) {

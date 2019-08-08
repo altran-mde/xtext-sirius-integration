@@ -43,7 +43,7 @@ public interface IContainedElement extends EObject {
 	 * @generated
 	 */
 	String getAttrA();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement#getAttrA <em>Attr A</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,5 +53,5 @@ public interface IContainedElement extends EObject {
 	 * @generated
 	 */
 	void setAttrA(String value);
-	
+
 } // IContainedElement
