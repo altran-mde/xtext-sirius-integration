@@ -9,10 +9,31 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
+/**
+ * Externally required interaction of {@link AXtextSiriusEditor}.
+ */
 public interface IXtextSiriusEditorCallback {
-	public void callbackInitText(final @Nullable String initialValue, int offset, int length);
-
+	/**
+	 * Sets the initial text in the user-visible UI element.
+	 * 
+	 * @param initialValue
+	 *            The initial text, if available.
+	 * @param offset
+	 *            Offset of the visible text within {@code initialValue}.
+	 * @param length
+	 *            Length of the visible text within {@code initialValue}.
+	 */
+	public void callbackInitText(final @NonNull String initialValue, int offset, int length);
+	
+	/**
+	 * Requests the text as entered by the user, including non-visible parts
+	 * (i.e. outside the visible region).
+	 * 
+	 * @return Text as entered by the user, or {@code null} if no text is
+	 *         available.
+	 */
 	public @Nullable String callbackGetText();
 }

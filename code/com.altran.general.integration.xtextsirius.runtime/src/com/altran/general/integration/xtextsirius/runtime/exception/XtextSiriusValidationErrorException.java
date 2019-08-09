@@ -17,6 +17,9 @@ import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.util.TextRegion;
 
+/**
+ * Reports validation error(s) inside the user's entry.
+ */
 public class XtextSiriusValidationErrorException extends AXtextSiriusErrorContentException {
 	
 	private static final long serialVersionUID = 2778272824632490474L;

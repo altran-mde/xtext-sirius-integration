@@ -14,6 +14,9 @@ import org.eclipse.core.runtime.Status;
 
 import com.altran.general.integration.xtextsirius.runtime.internal.XtextSiriusRuntimePlugin;
 
+/**
+ * Any Xtext/Sirius Integration issue related to the entered text.
+ */
 public abstract class AXtextSiriusIssueException extends RuntimeException {
 	private static final long serialVersionUID = -8032537508345508604L;
 	
@@ -27,7 +30,7 @@ public abstract class AXtextSiriusIssueException extends RuntimeException {
 	public String getEditText() {
 		return this.editText;
 	}
-
+	
 	public IStatus toStatus() {
 		return new Status(IStatus.ERROR, XtextSiriusRuntimePlugin.PLUGIN_ID, getEditText(), this);
 	}

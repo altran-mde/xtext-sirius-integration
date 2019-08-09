@@ -45,6 +45,14 @@ import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUt
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 import com.google.common.collect.Lists;
 
+/**
+ * Central entry point for model-based Xtext/Sirius Integration edits.
+ * 
+ * <p>
+ * <i>Model-based</i> refers to edited element is part of the model itself. The
+ * opposite is {@linkplain XtextSiriusValueEditor <i>value-based}, where the
+ * edited element being stored in an EAttribute.
+ */
 public class XtextSiriusModelEditor extends AXtextSiriusEditor<IXtextSiriusModelEditorCallback> {
 	private @Nullable SemanticElementLocation semanticElementLocation;
 	private @Nullable TextRegion selectedRegion;

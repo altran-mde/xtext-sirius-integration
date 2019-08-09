@@ -12,6 +12,14 @@ package com.altran.general.integration.xtextsirius.runtime.ignoredfeature;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.jdt.annotation.NonNull;
 
+import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
+import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionSerializer;
+
+/**
+ * {@link ModelRegionSerializer} attaches this adapter to each model element
+ * that should be ignored during merging. Removed afterwards by
+ * {@link XtextSiriusModelEditor#removeAllIgnoredFeatureAdapters()}.
+ */
 public class IgnoredFeatureAdapter extends AdapterImpl {
 	private final String featureName;
 	

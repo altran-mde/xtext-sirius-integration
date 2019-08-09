@@ -14,6 +14,9 @@ import static java.lang.Math.min;
 
 import org.apache.commons.lang.StringUtils;
 
+/**
+ * One error message inside {@link AXtextSiriusErrorContentException}.
+ */
 public class ErrorMessage implements Comparable<ErrorMessage> {
 	private final String message;
 	private final int totalOffset;

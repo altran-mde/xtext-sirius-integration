@@ -15,12 +15,16 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
 
+/**
+ * Treats {@code null}, a text only consisting of whitespace, or the same text
+ * as initially as no-op; treats {@code null} as deletion.
+ */
 public class BlankNoOpNullDeletionEditingDecider extends AEditingDecider {
 	@Override
 	public boolean isNoOp(final @Nullable String text, final @NonNull AXtextSiriusEditor<?> xtextSiriusEditor) {
 		return StringUtils.isBlank(text) || StringUtils.equals(getInitialText(), text);
 	}
-
+	
 	@Override
 	public boolean isDeletion(final @Nullable String text, final @NonNull AXtextSiriusEditor<?> xtextSiriusEditor) {
 		return text == null;

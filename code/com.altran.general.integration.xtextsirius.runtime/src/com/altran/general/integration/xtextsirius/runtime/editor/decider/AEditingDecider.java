@@ -19,10 +19,10 @@ public abstract class AEditingDecider implements IEditingDecider {
 	private @Nullable String initialText;
 	
 	@Override
-	public @Nullable String initializeText(final @Nullable Object initialValue, final @Nullable String initialText,
+	public @Nullable String initializeText(final @Nullable Object initialValue, final @NonNull String initialText,
 			final @NonNull AXtextSiriusEditor<?> xtextSiriusEditor) {
 		this.initialText = initialText;
-
+		
 		if (StringUtils.isBlank(initialText)) {
 			return null;
 		} else {

@@ -54,6 +54,11 @@ import com.google.inject.Provider;
  *
  * <ul>
  * <li>Serializing the current model state (independent of persistence)</li>
+ * <li>Attaching
+ * {@link com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureAdapter
+ * IgnoredFeatureAdapters}</li>
+ * <li>Formatting the serialized version if the language provides a
+ * formatter</li>
  * <li>Moving the text of the target to the beginning of a line (as
  * StyledTextEditor can only show subparts of the document starting at a new
  * line)</li>
@@ -86,176 +91,9 @@ import com.google.inject.Provider;
  * text, therefore we can test it during language development.</li>
  * </ul>
  *
- *
- * @author nstotz
- *
  */
 @SuppressWarnings("restriction")
 public class ModelRegionEditorPreparer {
-	
-	/*
-	 * @formatter:off
-	Examples for technical understanding
-
-	Grammar (partial):
-		Event:
-			name=ID code=INT? ('[' guard=Guard ']')?
-		;
-
-		Guard:
-			ValueGuard | RangeGuard
-		;
-
-		ValueGuard:
-			cond=Value
-		;
-
-		RangeGuard:
-			min=Value '..' max=Value
-		;
-
-		Value:
-			ConstantRef | IntLiteral
-		;
-
-		ConstantRef:
-			constant=[Constant]
-		;
-
-		IntLiteral:
-			value=INT
-		;
-
-		Constant:
-			name=ID value=Value
-		;
-
-
-	GrammarModel (partial):
-		ParserRule name=Event
-			alternatives=Group elements=
-				Assignment feature=name
-					terminal=RuleCall rule=ID
-				Assignment feature=code
-					terminal=RuleCall rule=INT
-				Group elements=
-					Keyword value=[
-					Assignment feature=guard
-						terminal=RuleCall rule=Guard
-					Keyword value=]
-
-		ParserRule name=Guard
-			alternatives=Alternatives elements=
-				RuleCall rule=ValueGuard
-				RuleCall rule=RangeGuard
-
-		ParserRule name=ValueGuard
-			alternatives=Assignment feature=cond
-				terminal=RuleCall rule=Value
-
-		ParserRule name=Value
-			alternatives=Alternatives elements=
-				RuleCall rule=ConstantRef
-				RuleCall rule=IntLiteral
-
-		ParserRule name=ConstantRef
-			alternatives=Assignment feature=constant
-				terminal=CrossReference type=Constant
-					terminal=RuleCall rule=ID
-
-		ParserRule name=IntLiteral
-			alternatives=Assignment feature=value
-				terminal=RuleCall rule=INT
-
-		ParserRule name=Constant
-			alternatives=Group elements=
-				Assignment feature=name
-					terminal=RuleCall rule=ID
-				Assignment feature=value
-					terminal=RuleCall rule=Value
-
-
-	ParentMap (partial):
-		<<element>>={<<allParentElements>>}
-
-		Event={Event}
-		Event.group[0]={Event}
-		Event.group[1]={Event}
-		Event.group[2]={Event}
-		Event.group[0].terminal={Event.group[0]}
-		Event.group[1].terminal={Event.group[1]}
-		Event.group[2].group[0]={Event.group[2]}
-		Event.group[2].group[1]={Event.group[2]}
-		Event.group[2].group[2]={Event.group[2]}
-		Event.group[2].group[1].terminal={Event.group[2].group[1]}
-		Guard={Event.group[2].group[1].terminal}
-		Guard.alternatives[0]={Guard}
-		Guard.alternatives[1]={Guard}
-		ValueGuard={Guard.alternatives[0]}
-		ValueGuard.assignment={ValueGuard}
-		ValueGuard.assignment.terminal={ValueGuard.assignment}
-		Constant.group[0]={Constant}
-		Constant.group[0].terminal={Constant.group[0]}
-		Constant.group[1]={Constant}
-		Constant.group[1].terminal={Constant.group[1]}
-		Value={ValueGuard.assigment.terminal, Constant.group[1].terminal}
-		Value.alternatives[0]={Value}
-		Value.alternatives[1]={Value}
-		ConstantRef={Value.alternatives[0]}
-		ConstantRef.assignment={ConstantRef}
-		ConstantRef.assignment.terminal={ConstantRef.assignment}
-		IntLiteral={Value.alternatives[1]}
-		IntLiteral.assignment={IntLiteral}
-		IntLiteral.assignment.terminal={IntLiteral.assignment}
-		ID={Event.group[0].terminal, Constant.group[0].terminal, ConstantRef.assignment.terminal}
-		INT={Event.group[1].terminal, IntLiteral.assignment.terminal}
-
-
-	Model (partial):
-		events
-			event0 1 [pi..1]
-			event1 [42]
-			event3
-		end
-
-		constants
-			pi 314
-		end
-
-	ParserModel (partial):
-		(A) SemanticRegion offset=28 length=13
-			grammarElement=RuleCall rule=Event
-			semanticElement=event1
-			semanticRegions=
-				(B) SemanticRegion offset=28 length=6
-					grammarElement=RuleCall(Event.group[0].terminal)
-					semanticElement=event1
-					nextSemanticRegion
-						--> (C)
-				(C) SemanticRegion offset=35 length=1
-					grammarElement=RuleCall(Event.group[1].terminal)
-					semanticElement=event1
-					nextSemanticRegion
-						--> (D)
-				(D) SemanticRegion offset=37 length=1
-					grammarElement=Keyword(Event.group[2].group[0])
-					semanticElement=event140 length=1
-					nextSemanticRegion
-						--> (F)
-				(E) SemanticRegion offset=40 length=1
-					grammarElement=Keyword(Event.group[2].group[2])
-					semanticElement=event1
-
-		(contained somewhere else)
-		(F) SemanticRegion offset=38 length=2
-			grammarElement=RuleCall(IntLiteral.assignment.terminal)
-			semanticElement=IntLiteral(42)
-			nextSemanticRegion
-				--> (E)
-
-	 * @formatter:on
-	 */
-	
 	@Inject
 	private ISerializer serializer;
 	
@@ -289,7 +127,6 @@ public class ModelRegionEditorPreparer {
 	private TextRegion textRegion;
 	private TextRegion selectedRegion;
 	private SemanticElementLocation semanticElementLocation;
-	private String originalText;
 	
 	// protected for testing purposes
 	protected ITextRegionAccess rootRegion;
@@ -327,6 +164,11 @@ public class ModelRegionEditorPreparer {
 		return this.textRegion;
 	}
 	
+	/**
+	 * Returns the subpart of the text that should be selected.
+	 *
+	 * @return The subpart of the text that should be selected.
+	 */
 	public @NonNull TextRegion getSelectedRegion() {
 		prepare();
 		return this.selectedRegion;
@@ -365,11 +207,6 @@ public class ModelRegionEditorPreparer {
 				getTextRegion().getOffset() + getTextRegion().getLength());
 	}
 	
-	public @NonNull String getOriginalText() {
-		prepare();
-		return this.originalText;
-	}
-	
 	protected TextRegion getTextRegionInternal() {
 		return this.textRegion;
 	}
@@ -386,6 +223,8 @@ public class ModelRegionEditorPreparer {
 		final EObject preRootContainer = EcoreUtil.getRootContainer(getParent());
 		final ITextRegionAccess preRootRegion = new ModelRegionSerializer(this).serialize(preRootContainer);
 		
+		// TODO: The ModelRegionSerializer attaches the IgnoredFeatureAdapters.
+		// Do we still have them if formatting works?
 		EObject rootContainer = formatIfPossible(preRootContainer, preRootRegion);
 		if (rootContainer == null) {
 			rootContainer = preRootContainer;
@@ -393,7 +232,6 @@ public class ModelRegionEditorPreparer {
 		}
 		
 		this.allText = new StringBuffer(getRootRegion().regionForDocument().getText());
-		this.originalText = getAllText().toString();
 		
 		final EObject element = getSemanticElement();
 		
@@ -401,18 +239,15 @@ public class ModelRegionEditorPreparer {
 			this.semanticElementLocation = new SemanticElementLocation(element);
 			this.semanticRegion = getRootRegion().regionForEObject(element);
 			
-			this.textRegion = new ModelRegionCalculator(this).calculateFeatureRegion(element, getEditableFeatures(),
-					getDefinedEditableFeatures(), true);
-			this.selectedRegion = new ModelRegionCalculator(this).calculateFeatureRegion(element, getSelectedFeatures(),
-					getDefinedSelectedFeatures(), false);
+			this.textRegion = calculateEditableRegionElement(element);
+			
+			this.selectedRegion = calculateSelectedRegionElement(element);
 		} else {
 			this.semanticElementLocation = constructXtextFragmentSchemeBasedLocation();
 			this.semanticRegion = getRootRegion().regionForEObject(getParent());
 			final Object value = getParent().eGet(getSemanticElementFeature());
 			if (value != null) {
-				this.textRegion = new ModelRegionCalculator(this).calculateFeatureRegion(getParent(),
-						Collections.singleton(getSemanticElementFeature().getName()),
-						Sets.newHashSet(getSemanticElementFeature()), false);
+				this.textRegion = calculateEditableRegionFeature();
 			} else {
 				this.textRegion = new RequiredGrammarTerminalsPresentEnsurer(getParent(), getSemanticElementFeature(),
 						getRootRegion(), getAllText()).ensure();
@@ -427,6 +262,28 @@ public class ModelRegionEditorPreparer {
 		StyledTextUtil.getInstance().removeNewlinesIfSingleLine(getAllText(), getTextRegionInternal(), isMultiLine());
 		
 		this.prepared = true;
+	}
+	
+	private @NonNull TextRegion calculateEditableRegionElement(final EObject element) {
+		final ModelRegionCalculator editableRegionCalculator = new ModelRegionCalculator(this);
+		final TextRegion result = editableRegionCalculator.calculateFeatureRegion(element, getEditableFeatures(), true);
+		getDefinedEditableFeatures().addAll(editableRegionCalculator.getDefinedFeatures());
+		return result;
+	}
+	
+	private @NonNull TextRegion calculateSelectedRegionElement(final EObject element) {
+		final ModelRegionCalculator selectedRegionCalculator = new ModelRegionCalculator(this);
+		final TextRegion result = selectedRegionCalculator.calculateFeatureRegion(element, getSelectedFeatures(),
+				false);
+		getDefinedSelectedFeatures().addAll(selectedRegionCalculator.getDefinedFeatures());
+		return result;
+	}
+	
+	private @NonNull TextRegion calculateEditableRegionFeature() {
+		final ModelRegionCalculator editableRegionCalculator = new ModelRegionCalculator(this,
+				Collections.singleton(getSemanticElementFeature()));
+		return editableRegionCalculator.calculateFeatureRegion(getParent(),
+				Collections.singleton(getSemanticElementFeature().getName()), false);
 	}
 	
 	protected @Nullable EObject formatIfPossible(final EObject rootContainer, final ITextRegionAccess preRootRegion) {

@@ -15,6 +15,11 @@ import org.eclipse.jdt.annotation.NonNull;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
+/**
+ * Returns, and requires a {@linkplain ModelEntryPoint#getSemanticElement()
+ * semantic element} and a {@linkplain ModelEntryPoint#getValueFeatureName()
+ * value feature} contained in the semantic element.
+ */
 public class ElementFeatureModelAdjuster extends AModelAdjuster {
 	
 	@Override

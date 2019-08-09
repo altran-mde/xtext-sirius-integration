@@ -9,9 +9,12 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.exception;
 
+/**
+ * Thrown if Xtext/Sirius Integration cannot complete.
+ */
 public class XtextSiriusErrorException extends AXtextSiriusIssueException {
 	private static final long serialVersionUID = -8700540650952694796L;
-
+	
 	public XtextSiriusErrorException(final String message, final String editText) {
 		super(message, editText);
 	}
