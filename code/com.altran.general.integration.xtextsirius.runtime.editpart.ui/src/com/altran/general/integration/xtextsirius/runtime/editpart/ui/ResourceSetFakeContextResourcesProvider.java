@@ -29,6 +29,9 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 
+/**
+ * Clones all member resources of the Sirius session into the fake context.
+ */
 public class ResourceSetFakeContextResourcesProvider implements IXtextFakeContextResourcesProvider {
 	private final AXtextSiriusStyledTextCellEditor xtextSiriusStyledTextCellEditor;
 

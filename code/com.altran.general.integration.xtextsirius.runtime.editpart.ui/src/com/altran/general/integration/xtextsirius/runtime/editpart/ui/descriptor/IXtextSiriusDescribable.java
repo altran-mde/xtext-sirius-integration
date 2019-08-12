@@ -11,6 +11,9 @@ package com.altran.general.integration.xtextsirius.runtime.editpart.ui.descripto
 
 import org.eclipse.jdt.annotation.NonNull;
 
+/**
+ * Anything that can provide an {@link IXtextSiriusEditpartDescriptor}.
+ */
 public interface IXtextSiriusDescribable {
 	public @NonNull IXtextSiriusEditpartDescriptor getDescriptor();
 }

@@ -104,6 +104,9 @@ import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
 public class XtextSiriusEditPartProvider extends AbstractEditPartProvider {
+	/**
+	 * Maps visual ids to specific Xtext/Sirius enabled subclasses.
+	 */
 	// @formatter:off
 	private static final Map<Integer, BiFunction<@NonNull View, @NonNull IXtextSiriusEditpartDescriptor, @NonNull IGraphicalEditPart>> EDIT_PARTS =
 			ImmutableMap.<Integer, BiFunction<@NonNull View, @NonNull IXtextSiriusEditpartDescriptor, @NonNull IGraphicalEditPart>>builder()

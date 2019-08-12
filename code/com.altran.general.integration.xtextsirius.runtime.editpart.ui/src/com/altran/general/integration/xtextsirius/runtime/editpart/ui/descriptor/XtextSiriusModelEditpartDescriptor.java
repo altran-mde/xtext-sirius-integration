@@ -19,6 +19,9 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriu
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.model.XtextSiriusDirectEditManagerModel;
 import com.google.inject.Injector;
 
+/**
+ * Extends {@link XtextSiriusModelDescriptor} with Sirius runtime information.
+ */
 public class XtextSiriusModelEditpartDescriptor extends XtextSiriusModelDescriptor
 implements IXtextSiriusEditpartDescriptor {
 	
