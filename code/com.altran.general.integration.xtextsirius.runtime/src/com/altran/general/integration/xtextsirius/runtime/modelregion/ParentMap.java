@@ -26,6 +26,10 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Streams;
 
+/**
+ * An inverted grammar tree. Allows us to find all calls to a specfic grammar
+ * rule in the current grammar.
+ */
 public class ParentMap {
 	protected final Multimap<@NonNull AbstractElement, @NonNull AbstractElement> map = LinkedHashMultimap.create();
 	private final AbstractElement parent;

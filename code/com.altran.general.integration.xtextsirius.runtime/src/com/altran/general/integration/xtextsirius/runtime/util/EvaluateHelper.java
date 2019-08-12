@@ -16,22 +16,25 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.interpreter.CompoundInterpreter;
 import org.eclipse.sirius.common.tools.api.interpreter.EvaluationException;
 
+/**
+ * Easy access to Sirius' interpreters.
+ */
 public class EvaluateHelper {
-
+	
 	private static EvaluateHelper instance;
-
+	
 	protected EvaluateHelper() {
-
+		
 	}
-
+	
 	public static @NonNull EvaluateHelper getInstance() {
 		if (instance == null) {
 			instance = new EvaluateHelper();
 		}
-
+		
 		return instance;
 	}
-
+	
 	public @NonNull String evaluateString(final @NonNull String expression, final @NonNull EObject semanticObject) {
 		try {
 			final Session session = SessionManager.INSTANCE.getSession(semanticObject);

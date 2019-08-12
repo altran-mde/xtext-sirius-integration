@@ -8,6 +8,7 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.xtext.formatting2.regionaccess.IEObjectRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
+import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionCalculator;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
@@ -48,5 +49,12 @@ public class AccessibleModelRegionCalculator extends ModelRegionCalculator {
 			final @NonNull EObject semanticElement,
 			final @NonNull ITextRegionAccess rootRegion) {
 		return super.translateToRegions(semanticRegion, semanticElement, rootRegion);
+	}
+
+	@Override
+	public @NonNull TextRegion calculateRegionForFeatures(
+			final @NonNull EObject semanticElement,
+			final boolean addRequiredTerminals) {
+		return super.calculateRegionForFeatures(semanticElement, addRequiredTerminals);
 	}
 }

@@ -36,7 +36,10 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Streams;
 
-// TODO: Resume docs
+/**
+ * Determines which parts of the input text is part of the relevant model
+ * element, and adds terminals if required for editing sub-features.
+ */
 @SuppressWarnings("restriction")
 public class ModelRegionCalculator {
 	private final ModelRegionEditorPreparer preparer;
@@ -83,7 +86,7 @@ public class ModelRegionCalculator {
 		return this.definedFeatures;
 	}
 	
-	public @NonNull TextRegion calculateRegionForFeatures(
+	protected @NonNull TextRegion calculateRegionForFeatures(
 			final @NonNull EObject semanticElement,
 			final boolean addRequiredTerminals) {
 		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(this.preparer.getSemanticRegion(),
