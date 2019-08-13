@@ -161,7 +161,6 @@ public class InlineEditRuntimeModule extends org.eclipse.xtext.example.fowlerdsl
 ----
 
 
-
 [[constrainGlobalScope]]
 === Constrain the Global Scope to all Ecore Resources from the Sirius Session
 
@@ -183,5 +182,12 @@ CAUTION: This copies the contents of all Ecore resources from a Sirius session w
 Depending on the number and size of the resources, the processing and memory performance might be significant.
 
 
+[[duplicateEKeyValidator]]
+=== More Detailed Validation of Duplicate EKeys
+
+EMF's default validator `EObjectValidator` raises an issue if a list contains more than one element with the same _EKey_.
+However, the error message is not always helpful, and it's assigned to the complete container.
+
+We provide an additional validator `com.altran.general.integration.xtextsirius.runtime.validator.DuplicateEKeyValidatorFast` to fix the described limitations.
 
 
