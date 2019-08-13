@@ -4,8 +4,8 @@
       label="Xtext / Sirius Integration Runtime Feature"
       version="0.23.1.qualifier"
       provider-name="Altran Netherlands B.V."
-      license-feature="com.altran.general.integration.xtextsirius.license"
-      license-feature-version="0.9.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="2.0.1.qualifier">
 
    <description>
       Xtext / Sirius Integration run-time Feature
@@ -48,9 +48,9 @@
       <import plugin="org.eclipse.eef.common.ui"/>
       <import plugin="org.eclipse.eef.ide.ui"/>
       <import plugin="org.eclipse.sirius.common.interpreter"/>
-      <import plugin="org.eclipse.sirius.properties" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.properties.core" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties.core" version="6.0.0" match="greaterOrEqual"/>
       <import plugin="org.antlr.runtime" version="3.2.0" match="compatible"/>
       <import plugin="org.antlr.runtime" version="4.3.0" match="compatible"/>
       <import plugin="org.apache.batik.css" version="1.10.0" match="compatible"/>

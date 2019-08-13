@@ -4,8 +4,8 @@
       label="Xtext / Sirius Integration Feature"
       version="0.15.1.qualifier"
       provider-name="Altran Netherlands B.V."
-      license-feature="com.altran.general.integration.xtextsirius.license"
-      license-feature-version="0.9.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="2.0.1.qualifier">
 
    <description>
       Xtext / Sirius Integration design-time Feature
@@ -33,7 +33,7 @@
 
    <requires>
       <import plugin="org.apache.commons.lang"/>
-      <import plugin="com.google.guava" version="15.0.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava" version="21.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
@@ -43,13 +43,13 @@
       <import plugin="org.eclipse.ui.views.properties.tabbed"/>
       <import plugin="org.eclipse.eef"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
-      <import plugin="org.eclipse.sirius" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.ui" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.ui" version="6.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.sirius.diagram"/>
       <import plugin="org.eclipse.sirius.diagram.ui"/>
       <import plugin="org.eclipse.sirius.editor"/>
-      <import plugin="org.eclipse.sirius.properties" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.properties.edit" version="5.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties.edit" version="6.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
