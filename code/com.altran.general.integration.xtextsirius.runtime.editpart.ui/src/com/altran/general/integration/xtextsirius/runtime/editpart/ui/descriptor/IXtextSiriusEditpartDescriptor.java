@@ -8,6 +8,9 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.IXtextSiri
 import com.altran.general.integration.xtextsirius.runtime.editpart.ui.XtextSiriusDirectEditManager;
 
 
+/**
+ * Extends {@link IXtextSiriusDescriptor} with Sirius runtime information.
+ */
 public interface IXtextSiriusEditpartDescriptor extends IXtextSiriusDescriptor {
 
 	public @NonNull XtextSiriusDirectEditManager createDirectEditManager(

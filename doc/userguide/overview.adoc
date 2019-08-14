@@ -31,10 +31,14 @@ An editor can display
 * either single-line contents (<<singleLine-multiLine, singleLine>>),
 * or multi-line contents (<<singleLine-multiLine, multiLine>>).
 
+For all editors, we can set:
+
+* whether validation errors should be allowed (<<cancelOnValidationError, cancelOnValidationError>>)
+
 For all editors, we need to provide
 
 * An injector to access the Xtext language to use (<<injector, injector>>).
-	
+
 
 All of this can be summarized in one table:
 
@@ -65,7 +69,8 @@ All of this can be summarized in one table:
 2+| _<<editableFeatures, editableFeatures>>, +
  <<ignoredNestedFeatures, ignoredNestedFeatures>> +
  <<selectedFeatures, selectedFeatures>>_
-| *for all:* _<<injector, injector>>_
+| *for all:* _<<injector, injector>>_ +
+ _<<cancelOnValidationError, cancelOnValidationError>>_
 |====
 
 

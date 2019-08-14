@@ -19,10 +19,14 @@ import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.Feature
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
+/**
+ * Applies changes to an EObject or one of its features. Tries not to change
+ * Java object identities.
+ */
 public class ReplaceValueTask extends AbstractCommandTask {
 	private final DRepresentationElement representationElement;
 	private final Function<EObject, Object> committer;
-
+	
 	public ReplaceValueTask(final @NonNull DRepresentationElement representationElement,
 			final @NonNull Function<EObject, Object> committer) {
 		this.representationElement = representationElement;

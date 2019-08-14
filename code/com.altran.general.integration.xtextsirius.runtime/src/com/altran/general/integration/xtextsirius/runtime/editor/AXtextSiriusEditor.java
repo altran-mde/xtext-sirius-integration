@@ -28,6 +28,7 @@ import com.google.inject.Injector;
  * Takes care of all Xtext/Sirius Integration magic.
  *
  * @param <C>
+ *            Callback fitting to this editor.
  */
 public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 	private final IXtextSiriusDescriptor descriptor;
@@ -46,9 +47,22 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		this.descriptor = descriptor;
 	}
 	
+	/**
+	 * Sets up internal state and propagates {@code initialValue} to the
+	 * user-visible UI element.
+	 */
 	public abstract void initValue(final @Nullable Object initialValue);
 	
-	public abstract Object commit(final @NonNull EObject target) throws AXtextSiriusIssueException;
+	/**
+	 * Retrieves user's changes from the UI element and commits them to
+	 * {@code target}.
+	 * 
+	 * @param target
+	 *            The element to commit the change to.
+	 * @return The changed element. Might be different from {@code target}.
+	 * @throws AXtextSiriusIssueException
+	 */
+	public abstract @Nullable Object commit(final @NonNull EObject target) throws AXtextSiriusIssueException;
 	
 	protected abstract @Nullable Object retrieveValueToCommit() throws AXtextSiriusIssueException;
 	
@@ -101,7 +115,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		Assert.isNotNull(getEditingDecider(), "EditingDecider is null");
 	}
 	
-	protected void updateCallbackInitText(final @Nullable String value, final int offset, final int length) {
+	protected void updateCallbackInitText(final @NonNull String value, final int offset, final int length) {
 		getCallback().callbackInitText(value, offset, length);
 	}
 	
@@ -133,7 +147,7 @@ public abstract class AXtextSiriusEditor<C extends IXtextSiriusEditorCallback> {
 		return getDescriptor().isCancelOnValidationError();
 	}
 	
-	protected @Nullable String initializeText(final @Nullable Object initialValue, final @Nullable String textValue) {
+	protected @Nullable String initializeText(final @Nullable Object initialValue, final @NonNull String textValue) {
 		return getEditingDecider().initializeText(initialValue, textValue, this);
 	}
 	

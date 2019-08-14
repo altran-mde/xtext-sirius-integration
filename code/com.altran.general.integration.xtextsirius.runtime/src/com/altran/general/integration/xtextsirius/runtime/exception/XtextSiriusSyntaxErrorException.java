@@ -15,6 +15,9 @@ import java.util.stream.Stream;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.util.TextRegion;
 
+/**
+ * Reports syntax error(s) inside the user's entry.
+ */
 public class XtextSiriusSyntaxErrorException extends AXtextSiriusErrorContentException {
 	private static final long serialVersionUID = 7187667853765899743L;
 	

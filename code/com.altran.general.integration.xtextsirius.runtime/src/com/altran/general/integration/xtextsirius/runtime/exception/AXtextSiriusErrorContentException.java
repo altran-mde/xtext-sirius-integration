@@ -19,6 +19,9 @@ import org.eclipse.xtext.util.TextRegion;
 
 import com.altran.general.integration.xtextsirius.runtime.internal.XtextSiriusRuntimePlugin;
 
+/**
+ * Reports the edited text and the location of the error(s).
+ */
 public abstract class AXtextSiriusErrorContentException extends XtextSiriusErrorException {
 	private static final long serialVersionUID = 4375669064609239168L;
 	

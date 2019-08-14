@@ -9,5 +9,8 @@
  */
 package com.altran.general.integration.xtextsirius.runtime.editor;
 
+/**
+ * Externally required interaction of {@link XtextSiriusValueEditor}.
+ */
 public interface IXtextSiriusValueEditorCallback extends IXtextSiriusEditorCallback {
 }

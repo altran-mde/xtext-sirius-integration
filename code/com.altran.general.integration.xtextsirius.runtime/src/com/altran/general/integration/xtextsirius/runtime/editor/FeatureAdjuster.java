@@ -19,40 +19,34 @@ import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.IMo
 import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.LevelModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 
+/**
+ * Decides the way how to retrieve the containing feature based on which
+ * information ins available in the {@link #targetModelEntryPoint}. Uses this
+ * information to get the {@linkplain #getTarget(EObject) target EObject} or
+ * {@linkplain #getValue(EObject) target value}.
+ * 
+ */
 public class FeatureAdjuster {
 	private final IModelAdjuster modelAdjuster = new LevelModelAdjuster();
 	private final @NonNull ModelEntryPoint targetModelEntryPoint;
-
+	
 	public FeatureAdjuster(final @NonNull ModelEntryPoint targetModelEntryPoint) {
 		this.targetModelEntryPoint = targetModelEntryPoint;
 	}
 	
 	public @NonNull EObject getTarget(final @NonNull EObject target) {
-
+		
 		if (!this.targetModelEntryPoint.hasValueFeature()) {
 			return target;
 		}
-
+		
 		final EObject closestElement = this.modelAdjuster.getClosestElement(this.targetModelEntryPoint);
-
+		
 		if (EcoreNavigationUtil.hasFeature(closestElement, this.targetModelEntryPoint.getValueFeatureName())) {
 			return target;
 		} else {
 			return EcoreNavigationUtil.eContainerIfExists(closestElement);
 		}
-	}
-
-	public @Nullable EStructuralFeature getStructuralFeature(final EObject base) {
-		if (!this.targetModelEntryPoint.hasValueFeature()) {
-			return null;
-		}
-		
-		final EObject closestElement = this.modelAdjuster.getClosestElement(this.targetModelEntryPoint);
-
-		final EStructuralFeature feature = closestElement.eClass()
-				.getEStructuralFeature(this.targetModelEntryPoint.getValueFeatureName());
-		
-		return feature;
 	}
 	
 	public @Nullable Object getValue(final @NonNull EObject base) {
@@ -61,12 +55,25 @@ public class FeatureAdjuster {
 		}
 		
 		final EStructuralFeature feature = getStructuralFeature(base);
-
+		
 		if (feature == null) {
 			return base;
 		}
-
+		
 		final Object value = base.eGet(feature);
 		return value;
+	}
+	
+	private @Nullable EStructuralFeature getStructuralFeature(final EObject base) {
+		if (!this.targetModelEntryPoint.hasValueFeature()) {
+			return null;
+		}
+		
+		final EObject closestElement = this.modelAdjuster.getClosestElement(this.targetModelEntryPoint);
+		
+		final EStructuralFeature feature = closestElement.eClass()
+				.getEStructuralFeature(this.targetModelEntryPoint.getValueFeatureName());
+		
+		return feature;
 	}
 }

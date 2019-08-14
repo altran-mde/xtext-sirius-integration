@@ -25,10 +25,12 @@ newline::
 	Platform-dependent invisible character(s) denoting the end of one line of text and the start of a new line of text.
 	
 multi-line::
-	Text entry field that shows (potentially) more than one line, and allows the add and remove newlines. Opposite of single-line.
+	Text entry field that shows (potentially) more than one line, and allows adding and removing newlines.
+	Opposite of single-line.
 	
 single-line::
-	Text entry field that shows only one line, and does not allow to add a newline. Opposite of multi-line.
+	Text entry field that shows only one line, and does not allow to add a newline.
+	Opposite of multi-line.
 	
 injector::
 	Google Guice injector completely configured for an Xtext language.

@@ -25,6 +25,10 @@ import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.Ignored
 import com.altran.general.integration.xtextsirius.runtime.util.FeaturePathUtil;
 import com.google.common.collect.Streams;
 
+/**
+ * Adds {@link IgnoredFeatureAdapter}s where required and serializes a model
+ * into text.
+ */
 @SuppressWarnings("restriction")
 public class ModelRegionSerializer {
 	private final ModelRegionEditorPreparer preparer;
@@ -32,7 +36,7 @@ public class ModelRegionSerializer {
 	public ModelRegionSerializer(final ModelRegionEditorPreparer preparer) {
 		this.preparer = preparer;
 	}
-
+	
 	public ITextRegionAccess serialize(final @NonNull EObject rootContainer) {
 		markIgnoredFeatures(rootContainer);
 		return this.preparer.getSerializer().serializeToRegions(rootContainer);

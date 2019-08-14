@@ -15,6 +15,12 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
+/**
+ * Data class for the starting point of an XSI edit within the model.
+ * 
+ * This class makes no assumptions about which part of the starting point are
+ * available.
+ */
 public class ModelEntryPoint {
 	private @Nullable EObject semanticElement;
 	private @Nullable EObject fallbackContainer;

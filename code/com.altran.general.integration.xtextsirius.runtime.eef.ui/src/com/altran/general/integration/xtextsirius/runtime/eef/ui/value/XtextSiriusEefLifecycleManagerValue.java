@@ -13,7 +13,6 @@ import java.util.function.Consumer;
 
 import org.eclipse.eef.core.api.EditingContextAdapter;
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 import org.eclipse.swt.widgets.Composite;
@@ -39,11 +38,6 @@ implements IXtextSiriusValueEditorCallback {
 				contextAdapter);
 	}
 	
-	@Override
-	public @Nullable String callbackGetText() {
-		return super.callbackGetText();
-	}
-
 	@Override
 	protected Consumer<Object> createNewValueConsumer() {
 		return (newValue) -> {

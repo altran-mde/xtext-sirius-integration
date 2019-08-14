@@ -33,20 +33,31 @@ import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Sets;
 import com.google.common.collect.Streams;
 
+/**
+ * Determines which parts of the input text is part of the relevant model
+ * element, and adds terminals if required for editing sub-features.
+ */
 @SuppressWarnings("restriction")
 public class ModelRegionCalculator {
 	private final ModelRegionEditorPreparer preparer;
+	private final Set<@NonNull EStructuralFeature> definedFeatures = Sets.newLinkedHashSet();
 	
 	public ModelRegionCalculator(final ModelRegionEditorPreparer preparer) {
 		this.preparer = preparer;
 	}
-
-	public TextRegion calculateFeatureRegion(
+	
+	public ModelRegionCalculator(final ModelRegionEditorPreparer preparer,
+			final @NonNull Set<@NonNull EStructuralFeature> initiallyDefinedFeatures) {
+		this(preparer);
+		this.definedFeatures.addAll(initiallyDefinedFeatures);
+	}
+	
+	public @NonNull TextRegion calculateFeatureRegion(
 			final @NonNull EObject element,
 			final @NonNull Set<@NonNull String> featureNames,
-			final @NonNull Set<@NonNull EStructuralFeature> features,
 			final boolean addRequiredTerminals) {
 		TextRegion result;
 		
@@ -55,12 +66,10 @@ public class ModelRegionCalculator {
 					this.preparer.getSemanticRegion().getLength());
 		} else {
 			final @NonNull Set<@NonNull EStructuralFeature> resolvedFeatures = resolveFeatures(element, featureNames);
-			final @NonNull Set<@NonNull EStructuralFeature> definedFeatures = resolveDefinedFeatures(element,
-					resolvedFeatures);
-			features.addAll(definedFeatures);
+			getDefinedFeatures().addAll(resolveDefinedFeatures(element, resolvedFeatures));
 			
-			if (!definedFeatures.isEmpty()) {
-				result = calculateRegionForFeatures(element, definedFeatures, addRequiredTerminals);
+			if (!getDefinedFeatures().isEmpty()) {
+				result = calculateRegionForFeatures(element, addRequiredTerminals);
 			} else if (addRequiredTerminals) {
 				result = new RequiredGrammarTerminalsPresentEnsurer(element,
 						resolvedFeatures.iterator().next(), this.preparer.getRootRegion(), this.preparer.getAllText())
@@ -73,13 +82,14 @@ public class ModelRegionCalculator {
 		return result;
 	}
 	
-	@NonNull
-	public TextRegion calculateRegionForFeatures(
+	public @NonNull Set<@NonNull EStructuralFeature> getDefinedFeatures() {
+		return this.definedFeatures;
+	}
+	
+	protected @NonNull TextRegion calculateRegionForFeatures(
 			final @NonNull EObject semanticElement,
-			final @NonNull Set<@NonNull EStructuralFeature> definedFeatures,
 			final boolean addRequiredTerminals) {
-		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(definedFeatures,
-				this.preparer.getSemanticRegion(),
+		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(this.preparer.getSemanticRegion(),
 				semanticElement, this.preparer.getRootRegion());
 		
 		ISemanticRegion firstRegion = SemanticRegionNavigator.getInstance().selectFirstmostRegion(featureRegions);
@@ -119,7 +129,7 @@ public class ModelRegionCalculator {
 		
 		// this logic is really only trial&error, don't try to find a deeper
 		// meaning
-
+		
 		final ISemanticRegion nextSemanticRegion = extender.apply(region);
 		if (nextSemanticRegion != null && nextSemanticRegion.getGrammarElement() instanceof Keyword) {
 			
@@ -159,13 +169,13 @@ public class ModelRegionCalculator {
 			final @NonNull String pattern,
 			final @NonNull Function<ISemanticRegion, ISemanticRegion> extender) {
 		ISemanticRegion result = region;
-
+		
 		final StringBuilder remainingPattern = new StringBuilder(pattern);
-
+		
 		ISemanticRegion nextSemanticRegion = extender.apply(region);
 		while (remainingPattern.length() > 0 && nextSemanticRegion != null
 				&& nextSemanticRegion.getGrammarElement() instanceof Keyword) {
-
+			
 			final String keyword = ((Keyword) nextSemanticRegion.getGrammarElement()).getValue();
 			final int keywordLength = keyword.length();
 			if ((remainingPattern.length() >= keywordLength
@@ -175,10 +185,10 @@ public class ModelRegionCalculator {
 			} else {
 				break;
 			}
-
+			
 			nextSemanticRegion = extender.apply(result);
 		}
-
+		
 		return result;
 	}
 	
@@ -187,13 +197,11 @@ public class ModelRegionCalculator {
 	 * Collects all SemanticRegions covering {@code features} within
 	 * {@code semanticElement} / {@code semanticRegion}.
 	 */
-	@NonNull
-	public Set<@NonNull ISemanticRegion> translateToRegions(
-			final @NonNull Set<@NonNull EStructuralFeature> features,
+	protected @NonNull Set<@NonNull ISemanticRegion> translateToRegions(
 			final @NonNull IEObjectRegion semanticRegion,
 			final @NonNull EObject semanticElement,
 			final @NonNull ITextRegionAccess rootRegion) {
-		return features.stream()
+		return getDefinedFeatures().stream()
 				.flatMap(feature -> {
 					if (canBeHandledByGetRegionForFeature(feature)) {
 						return Stream.of(semanticRegion.getRegionFor().feature(feature));
@@ -220,13 +228,12 @@ public class ModelRegionCalculator {
 	 * {@link org.eclipse.xtext.formatting2.regionaccess.internal.AbstractSemanticRegionsFinder#assertNoContainment(EStructuralFeature)}
 	 * .
 	 */
-	public boolean canBeHandledByGetRegionForFeature(final @NonNull EStructuralFeature feature) {
+	protected boolean canBeHandledByGetRegionForFeature(final @NonNull EStructuralFeature feature) {
 		return feature instanceof EAttribute
 				|| (feature instanceof EReference && !((EReference) feature).isContainment());
 	}
 	
-	@NonNull
-	public Set<@NonNull EStructuralFeature> resolveDefinedFeatures(
+	protected @NonNull Set<@NonNull EStructuralFeature> resolveDefinedFeatures(
 			final @NonNull EObject semanticElement,
 			final @NonNull Set<@NonNull EStructuralFeature> features) {
 		final @NonNull Set<@NonNull EStructuralFeature> definedFeatures = features.stream()
@@ -245,15 +252,14 @@ public class ModelRegionCalculator {
 		
 		return resolveFeatures(semanticElement, this.preparer.getEditableFeatures());
 	}
-
-	public @NonNull Set<@NonNull EStructuralFeature> resolveFeatures(final @NonNull EObject semanticElement,
+	
+	protected @NonNull Set<@NonNull EStructuralFeature> resolveFeatures(final @NonNull EObject semanticElement,
 			@NonNull final Set<@NonNull String> featureNames) {
 		final EClass eClass = semanticElement.eClass();
-
+		
 		return featureNames.stream()
 				.map(ef -> eClass.getEStructuralFeature(ef))
 				.filter(Objects::nonNull)
 				.collect(Collectors.toSet());
 	}
-	
 }

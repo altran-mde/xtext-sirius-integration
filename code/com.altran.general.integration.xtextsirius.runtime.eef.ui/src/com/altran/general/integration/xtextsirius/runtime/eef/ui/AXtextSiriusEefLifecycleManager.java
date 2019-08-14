@@ -43,6 +43,10 @@ import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSirius
 import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 
+/**
+ * Connects between {@linkplain AbstractEEFWidgetLifecycleManager Sirius
+ * properties} and {@linkplain AXtextSiriusEditor Xtext/Sirius integration}.
+ */
 public abstract class AXtextSiriusEefLifecycleManager<C extends IXtextSiriusEditorCallback, E extends AXtextSiriusEditor<C>>
 extends AbstractEEFWidgetLifecycleManager
 implements IXtextSiriusEditorCallback {

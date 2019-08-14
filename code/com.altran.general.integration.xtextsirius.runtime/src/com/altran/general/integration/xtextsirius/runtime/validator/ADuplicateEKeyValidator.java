@@ -21,6 +21,15 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
 
+/**
+ * Marks duplicate {@linkplain org.eclipse.emf.ecore.EReference#getEKeys()
+ * EKeys} as an error on the eContainer. Binds the error to the appropriate
+ * feature and index. Provides more sensible error messages than the
+ * {@linkplain org.eclipse.emf.ecore.util.EObjectValidator#validate_EveryKeyUnique(EObject, org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+ * default implementation}. Specifically, this class provides object indices in
+ * the list instead of URIs, as the URIs usually contain the EKey, thus are not
+ * unique.
+ */
 public abstract class ADuplicateEKeyValidator extends AbstractDeclarativeValidator {
 	public static final String DUPLICATE_EKEY = "duplicateEKey";
 	

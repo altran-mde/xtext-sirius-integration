@@ -13,6 +13,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
 
+/**
+ * Registers {@link ADuplicateEKeyValidator} to be checked
+ * {@link CheckType#FAST}.
+ */
 public class DuplicateEKeyValidatorFast extends ADuplicateEKeyValidator {
 	
 	@Override

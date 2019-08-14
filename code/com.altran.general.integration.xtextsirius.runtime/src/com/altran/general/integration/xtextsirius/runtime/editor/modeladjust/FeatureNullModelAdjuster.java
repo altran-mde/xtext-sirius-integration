@@ -16,6 +16,12 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
+/**
+ * Requires a {@linkplain ModelEntryPoint#getValueFeatureName() value feature}.
+ * Uses this feature inside the
+ * {@linkplain ModelEntryPoint#getFallbackContainer() fallback container} as
+ * feature, and never returns a semantic element.
+ */
 public class FeatureNullModelAdjuster extends AModelAdjuster {
 	
 	@Override

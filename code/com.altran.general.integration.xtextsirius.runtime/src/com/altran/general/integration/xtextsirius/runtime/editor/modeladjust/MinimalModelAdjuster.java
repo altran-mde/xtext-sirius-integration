@@ -16,6 +16,10 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
+/**
+ * Applies no actual adjustment, only reconstructs missing elements on a
+ * best-effort basis.
+ */
 public class MinimalModelAdjuster extends AModelAdjuster {
 	
 	@Override

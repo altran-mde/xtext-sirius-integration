@@ -22,6 +22,14 @@ import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.Min
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.StyledTextUtil;
 
+/**
+ * Central entry point for value-based Xtext/Sirius Integration edits.
+ * 
+ * <p>
+ * <i>Value-based</i> refers to the edited element being stored in an
+ * EAttribute. The opposite is {@linkplain XtextSiriusModelEditor
+ * <i>model-based}, where the edited element is part of the model itself.
+ */
 public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValueEditorCallback> {
 	public XtextSiriusValueEditor(final IXtextSiriusValueDescriptor descriptor) {
 		super(descriptor);
@@ -46,7 +54,8 @@ public class XtextSiriusValueEditor extends AXtextSiriusEditor<IXtextSiriusValue
 		
 		final String prefixText = interpret(getDescriptor().getPrefixTextExpression());
 		final String suffixText = interpret(getDescriptor().getSuffixTextExpression());
-		final String editablePart = StyledTextUtil.getInstance().guessNewline(text.toString()) + text;
+		final String editablePart = initializeText(initialValue,
+				StyledTextUtil.getInstance().guessNewline(text.toString()) + text);
 		
 		final int offset = prefixText.length() + 1;
 		final String completeText = prefixText + editablePart + suffixText;

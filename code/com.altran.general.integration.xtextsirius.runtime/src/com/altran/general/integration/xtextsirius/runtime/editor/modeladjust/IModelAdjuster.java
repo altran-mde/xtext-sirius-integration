@@ -16,14 +16,42 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 
+/**
+ * Abstracts different strategies to process {@link ModelEntryPoint}s.
+ * 
+ * <p>
+ * All methods may throw an {@link IllegalStateException} if the request cannot
+ * be fulfilled.
+ * </p>
+ */
 public interface IModelAdjuster {
-	public @Nullable EObject getSemanticElement(final @NonNull ModelEntryPoint modelEntryPoint);
+	/**
+	 * Returns the edited element, if any.
+	 */
+	public @Nullable EObject getSemanticElement(final @NonNull ModelEntryPoint modelEntryPoint)
+			throws IllegalStateException;
 	
-	public @NonNull EObject getFallbackContainer(final @NonNull ModelEntryPoint modelEntryPoint);
+	/**
+	 * Returns the container of the edited element.
+	 */
+	public @NonNull EObject getFallbackContainer(final @NonNull ModelEntryPoint modelEntryPoint)
+			throws IllegalStateException;
 	
-	public @NonNull EObject getClosestElement(final @NonNull ModelEntryPoint modelEntryPoint);
+	/**
+	 * Returns the closest element to the edited element.
+	 */
+	public @NonNull EObject getClosestElement(final @NonNull ModelEntryPoint modelEntryPoint)
+			throws IllegalStateException;
 	
-	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint);
+	/**
+	 * Returns the feature of the edited element.
+	 */
+	public @NonNull EStructuralFeature getStructuralFeature(final @NonNull ModelEntryPoint modelEntryPoint)
+			throws IllegalStateException;
 	
-	public @NonNull ModelEntryPoint adjust(final @NonNull ModelEntryPoint modelEntryPoint);
+	/**
+	 * Creates a new {@link ModelEntryPoint} containing all the adjustments of
+	 * this model adjuster.
+	 */
+	public @NonNull ModelEntryPoint adjust(final @NonNull ModelEntryPoint modelEntryPoint) throws IllegalStateException;
 }

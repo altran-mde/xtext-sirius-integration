@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.serializer.sequencer.LegacyTransientValueService;
 
+/**
+ * Teaches Xtext to ignore missing entries for ignored features.
+ */
 @SuppressWarnings("restriction")
 public class IgnoredFeatureTransientValueService extends LegacyTransientValueService {
 	@Override
@@ -47,7 +50,7 @@ public class IgnoredFeatureTransientValueService extends LegacyTransientValueSer
 		if (semanticObject == null || feature == null) {
 			return false;
 		}
-
+		
 		return semanticObject.eAdapters().stream()
 				.filter(IgnoredFeatureAdapter.class::isInstance)
 				.map(IgnoredFeatureAdapter.class::cast)

@@ -13,8 +13,22 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.util.TextRegion;
 
+/**
+ * Externally required interaction of {@link XtextSiriusModelEditor}.
+ */
 public interface IXtextSiriusModelEditorCallback extends IXtextSiriusEditorCallback {
+	/**
+	 * Requests the parse result of the complete text, including non-visible
+	 * parts (i.e. outside the visible region).
+	 * 
+	 * @return Parse result of the complete text.
+	 */
 	public @NonNull IParseResult getXtextParseResult();
 	
+	/**
+	 * Requests the region of the text visible to the user.
+	 * 
+	 * @return Region of the text visible to the user.
+	 */
 	public @NonNull TextRegion callbackGetVisibleRegion();
 }

@@ -36,6 +36,11 @@ import com.altran.general.integration.xtextsirius.runtime.editpart.ui.descriptor
 import com.altran.general.integration.xtextsirius.runtime.exception.AXtextSiriusIssueException;
 import com.altran.general.integration.xtextsirius.runtime.util.FakeResourceUtil;
 
+/**
+ * Connects between {@linkplain XtextStyledTextCellEditorEx Yakindu Statecharts
+ * GMF editors}, {@linkplain DRepresentationElement Sirius diagram}, and
+ * {@linkplain AXtextSiriusEditor Xtext/Sirius integration}.
+ */
 public abstract class AXtextSiriusStyledTextCellEditor extends XtextStyledTextCellEditorEx
 implements IXtextSiriusDescribable, IXtextSiriusEditorCallback {
 	private final IXtextSiriusEditpartDescriptor descriptor;

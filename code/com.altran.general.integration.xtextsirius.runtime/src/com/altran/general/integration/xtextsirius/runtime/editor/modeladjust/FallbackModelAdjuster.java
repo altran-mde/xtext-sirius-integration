@@ -16,6 +16,11 @@ import org.eclipse.jdt.annotation.NonNull;
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.util.EcoreNavigationUtil;
 
+/**
+ * Uses the {@linkplain ModelEntryPoint#getFallbackContainer() fallback
+ * container} as semantic element. Based on this result, returns the result's
+ * parent as fallback container, and the feature containing the result.
+ */
 public class FallbackModelAdjuster extends AModelAdjuster {
 	
 	@Override

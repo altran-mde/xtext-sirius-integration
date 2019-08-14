@@ -14,17 +14,22 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.util.TextRegion;
 
-import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
+import com.altran.general.integration.xtextsirius.runtime.editor.XtextSiriusModelEditor;
 
+/**
+ * Replaces the visible text in the serialized model with initial text, if any.
+ * Example: User starts direct edit action by typing text (i.e. not pressing F2
+ * or double-clicking).
+ */
 public class TextOverlayer {
-	private final @NonNull AXtextSiriusEditor<?> xtextSiriusEditor;
+	private final @NonNull XtextSiriusModelEditor xtextSiriusEditor;
 	private final @NonNull ModelRegionEditorPreparer preparer;
 	private final @Nullable Object initialValue;
 	
 	private String text;
 	private TextRegion textRegion;
 	
-	public TextOverlayer(final @NonNull AXtextSiriusEditor<?> xtextSiriusEditor,
+	public TextOverlayer(final @NonNull XtextSiriusModelEditor xtextSiriusEditor,
 			final @NonNull ModelRegionEditorPreparer preparer, final @Nullable Object initialValue) {
 		this.xtextSiriusEditor = xtextSiriusEditor;
 		this.preparer = preparer;
@@ -63,7 +68,7 @@ public class TextOverlayer {
 		}
 	}
 	
-	protected @Nullable String initializeText(final @Nullable Object initialValue, final @Nullable String textValue) {
+	protected @Nullable String initializeText(final @Nullable Object initialValue, final @NonNull String textValue) {
 		return this.xtextSiriusEditor.getEditingDecider().initializeText(initialValue, textValue,
 				this.xtextSiriusEditor);
 	}

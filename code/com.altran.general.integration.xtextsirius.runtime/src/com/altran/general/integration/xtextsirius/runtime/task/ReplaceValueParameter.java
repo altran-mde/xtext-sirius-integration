@@ -22,6 +22,9 @@ import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 
+/**
+ * Parameter for {@link ReplaceValueTask}.
+ */
 public class ReplaceValueParameter {
 	private final IXtextSiriusDescriptor descriptor;
 	private final EObject elementToEdit;
@@ -80,7 +83,7 @@ public class ReplaceValueParameter {
 	public @Nullable URI getOriginalUri() {
 		return this.originalUri;
 	}
-
+	
 	protected IXtextSiriusDescriptor getDescriptor() {
 		return this.descriptor;
 	}
