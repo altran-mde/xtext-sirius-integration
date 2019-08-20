@@ -11,10 +11,10 @@ package com.altran.general.integration.xtextsirius.runtime.util;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -367,7 +367,8 @@ import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.Ignored
  * <td>*</td>
  * <td>multi</td>
  * <td>*</td>
- * <td>toplevel: replace all<br/>
+ * <td>TODO: Not correct anymore (see comments in implementation) toplevel:
+ * replace all<br/>
  * other: foreach <i>newElement</i>:: exists: merge, other: add</td>
  * </tr>
  * </tbody>
@@ -429,15 +430,17 @@ public class EMerger<T extends EObject> {
 	public @NonNull T merge(final @Nullable Object newValue, final @NonNull EStructuralFeature feature) {
 		final Object oldValue = this.existing.eGet(feature);
 		
-		if (feature.isMany()
-				&& feature instanceof EReference
-				&& ((EReference) feature).isContainment()
-				&& newValue instanceof Collection) {
-			validateNewValue(feature, newValue);
-			this.existing.eSet(feature, newValue);
-		} else {
-			mergeFeatureValueRecursive(feature, "", this.existing, null, oldValue, newValue);
-		}
+		// TODO: With the change in #mergeContainmentRecursive(), this block is
+		// not required any more.
+		// if (feature.isMany()
+		// && feature instanceof EReference
+		// && ((EReference) feature).isContainment()
+		// && newValue instanceof Collection) {
+		// validateNewValue(feature, newValue);
+		// this.existing.eSet(feature, newValue);
+		// } else {
+		mergeFeatureValueRecursive(feature, "", this.existing, this.existing, oldValue, newValue);
+		// }
 		
 		return this.existing;
 	}
@@ -548,21 +551,27 @@ public class EMerger<T extends EObject> {
 		}
 		
 		if (feature.isMany()) {
-			final @NonNull Collection<@NonNull EObject> oldValues = ((@NonNull Collection<@NonNull EObject>) oldValueOrCreated);
+			final @NonNull EList<@NonNull EObject> oldValues = ((@NonNull EList<@NonNull EObject>) oldValueOrCreated);
 			if (newValue instanceof Collection) {
-				// TODO: check the next line, this breaks TestRefLang
-				exist.eSet(feature, newValue);
 				final Collection<@NonNull EObject> values = (Collection<@NonNull EObject>) newValue;
+				int index = 0;
 				for (final EObject newValue1 : values) {
-					mergeOrAdd(oldValues, newValue1, uri, (c, nEl) -> {
+					mergeOrAdd(oldValues, newValue1, index, uri, (c, nEl) -> {
 						final EObject newEObject = EcoreUtil.create(nEl.eClass());
 						oldValues.add(newEObject);
 						mergeAllContainmentFeaturesRecursive(prefix, newEObject, nEl);
 					}, (exst, nEl) -> mergeAllContainmentFeaturesRecursive(prefix, exst, nEl));
+					index++;
+				}
+				// TODO: We trim the existing list to the new list size. Is this
+				// correct? It violates the merge rules described in class
+				// javadoc (last line in containment table)
+				while (oldValues.size() > values.size()) {
+					oldValues.remove(oldValues.size() - 1);
 				}
 			} else if (newValue instanceof EObject) {
 				final EObject newElement = (EObject) newValue;
-				final EObject existing = findMember(oldValues, newElement, uri);
+				final EObject existing = findMember(oldValues, newElement, -1, uri);
 				
 				if (existing == null) {
 					final EObject newEObject = EcoreUtil.create(newElement.eClass());
@@ -613,10 +622,10 @@ public class EMerger<T extends EObject> {
 		if (newValue instanceof Collection) {
 			exist.eSet(feature, newValue);
 		} else if (newValue instanceof EObject) {
-			if (oldValue instanceof List) {
-				final List<@NonNull EObject> oldValues = ((List<@NonNull EObject>) oldValue);
+			if (oldValue instanceof EList) {
+				final EList<@NonNull EObject> oldValues = ((EList<@NonNull EObject>) oldValue);
 				
-				mergeOrAdd(oldValues, (EObject) newValue, uri,
+				mergeOrAdd(oldValues, (EObject) newValue, -1, uri,
 						(exVals, nEl) -> exVals.add(nEl),
 						(ex, nEl) -> EcoreUtil.replace(exist, feature, ex, nEl));
 			} else {
@@ -638,14 +647,14 @@ public class EMerger<T extends EObject> {
 			final @Nullable Object oldValue,
 			final @Nullable Object newValue) {
 		if (newValue instanceof Collection) {
-			final @NonNull List<@NonNull Object> oldValues = (@NonNull List<@NonNull Object>) oldValue;
+			final @NonNull EList<@NonNull Object> oldValues = (@NonNull EList<@NonNull Object>) oldValue;
 			
 			for (final Object newVal : (Collection<@NonNull Object>) newValue) {
 				mergeSingleEAttribute(oldValues, newVal);
 			}
 		} else if (newValue != null) {
-			if (oldValue instanceof List) {
-				mergeSingleEAttribute(((List<@NonNull Object>) oldValue), newValue);
+			if (oldValue instanceof EList) {
+				mergeSingleEAttribute(((EList<@NonNull Object>) oldValue), newValue);
 			} else {
 				exist.eSet(feature, newValue);
 			}
@@ -659,7 +668,7 @@ public class EMerger<T extends EObject> {
 	}
 	
 	protected <E> void mergeSingleEAttribute(
-			final @NonNull List<@NonNull E> oldValues,
+			final @NonNull EList<@NonNull E> oldValues,
 			final @NonNull E newVal) {
 		final int index = oldValues.indexOf(newVal);
 		if (index >= 0) {
@@ -702,14 +711,15 @@ public class EMerger<T extends EObject> {
 	}
 	
 	protected <E extends EObject> void mergeOrAdd(
-			final Collection<@NonNull E> existingValues,
+			final EList<@NonNull E> existingValues,
 			final E newValue,
+			final int index,
 			final URI originalParentUri,
-			final BiConsumer<@NonNull Collection<@NonNull E>, @NonNull E> adder,
+			final BiConsumer<@NonNull EList<@NonNull E>, @NonNull E> adder,
 			final BiConsumer<@NonNull E, @NonNull E> merger) {
 		final URI originalUri = mergeUri(originalParentUri, newValue);
 		
-		final E existing = findMember(existingValues, newValue, originalUri);
+		final E existing = findMember(existingValues, newValue, index, originalUri);
 		
 		if (existing == null) {
 			adder.accept(existingValues, newValue);
@@ -718,14 +728,16 @@ public class EMerger<T extends EObject> {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	protected <E extends EObject> @Nullable E findMember(
-			final @NonNull Collection<@NonNull E> collection,
+			final @NonNull EList<@NonNull E> list,
 			final @NonNull E element,
+			final int index,
 			final @Nullable URI originalUri) {
 		final String elementId = EcoreUtil.getID(element);
 		if (elementId != null) {
 			@SuppressWarnings("null")
-			final E existing = collection.stream()
+			final E existing = list.stream()
 					.filter(e -> elementId.equals(EcoreUtil.getID(e)))
 					.findAny()
 					.orElse(null);
@@ -736,7 +748,7 @@ public class EMerger<T extends EObject> {
 			final String originalFragment = originalUri != null ? originalUri.fragment() : "";
 			
 			@SuppressWarnings("null")
-			final E existing = collection.stream()
+			final E existing = list.stream()
 					.filter(e -> {
 						final String fragment = EcoreUtil.getURI(e).fragment();
 						return elementFragment.equals(fragment) || originalFragment.equals(fragment);
@@ -744,7 +756,17 @@ public class EMerger<T extends EObject> {
 					.findAny()
 					.orElse(null);
 			
-			return existing;
+			if (existing != null) {
+				return existing;
+			}
+			
+			// TODO: Fallback to index-based lookup seems not safe in all cases,
+			// reconsider
+			if (index >= 0 && index < list.size()) {
+				return list.get(index);
+			}
+			
+			return null;
 		}
 	}
 	
