@@ -34,9 +34,7 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cContentsIContainerContentParserRuleCall_3_0 = (RuleCall)cContentsAssignment_3.eContents().get(0);
 		
 		//Container:
-		//	{Container}
-		//	'Container' name=ID
-		//	contents+=IContainerContent*;
+		//	{Container} 'Container' name=ID contents+=IContainerContent*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Container} 'Container' name=ID contents+=IContainerContent*
@@ -64,20 +62,20 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cGroupParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSingleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLeafParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//IContainerContent:
-		//	Group | Single;
+		//	Group | Leaf;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Group | Single
+		//Group | Leaf
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Group
 		public RuleCall getGroupParserRuleCall_0() { return cGroupParserRuleCall_0; }
 		
-		//Single
-		public RuleCall getSingleParserRuleCall_1() { return cSingleParserRuleCall_1; }
+		//Leaf
+		public RuleCall getLeafParserRuleCall_1() { return cLeafParserRuleCall_1; }
 	}
 	public class GroupElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.altran.general.integration.xtextsirius.test.EKeyLang.Group");
@@ -87,17 +85,14 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cLeafsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLeafsLeafParserRuleCall_3_0 = (RuleCall)cLeafsAssignment_3.eContents().get(0);
+		private final RuleCall cLeafsIContainerContentParserRuleCall_3_0 = (RuleCall)cLeafsAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Group:
-		//	{Group} name=ID
-		//	'{'
-		//	leafs+=Leaf*
-		//	'}';
+		//	{Group} name=ID '{' leafs+=IContainerContent* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Group} name=ID '{' leafs+=Leaf* '}'
+		//{Group} name=ID '{' leafs+=IContainerContent* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Group}
@@ -112,53 +107,14 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//leafs+=Leaf*
+		//leafs+=IContainerContent*
 		public Assignment getLeafsAssignment_3() { return cLeafsAssignment_3; }
 		
-		//Leaf
-		public RuleCall getLeafsLeafParserRuleCall_3_0() { return cLeafsLeafParserRuleCall_3_0; }
+		//IContainerContent
+		public RuleCall getLeafsIContainerContentParserRuleCall_3_0() { return cLeafsIContainerContentParserRuleCall_3_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class SingleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.altran.general.integration.xtextsirius.test.EKeyLang.Single");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSingleAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cLeafAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cLeafLeafParserRuleCall_2_1_0 = (RuleCall)cLeafAssignment_2_1.eContents().get(0);
-		
-		//Single:
-		//	{Single} name=ID (':' leaf=Leaf)?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{Single} name=ID (':' leaf=Leaf)?
-		public Group getGroup() { return cGroup; }
-		
-		//{Single}
-		public Action getSingleAction_0() { return cSingleAction_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//(':' leaf=Leaf)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//':'
-		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
-		
-		//leaf=Leaf
-		public Assignment getLeafAssignment_2_1() { return cLeafAssignment_2_1; }
-		
-		//Leaf
-		public RuleCall getLeafLeafParserRuleCall_2_1_0() { return cLeafLeafParserRuleCall_2_1_0; }
 	}
 	public class LeafElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf");
@@ -192,7 +148,6 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 	private final ContainerElements pContainer;
 	private final IContainerContentElements pIContainerContent;
 	private final GroupElements pGroup;
-	private final SingleElements pSingle;
 	private final LeafElements pLeaf;
 	
 	private final Grammar grammar;
@@ -207,7 +162,6 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 		this.pContainer = new ContainerElements();
 		this.pIContainerContent = new IContainerContentElements();
 		this.pGroup = new GroupElements();
-		this.pSingle = new SingleElements();
 		this.pLeaf = new LeafElements();
 	}
 	
@@ -239,9 +193,7 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Container:
-	//	{Container}
-	//	'Container' name=ID
-	//	contents+=IContainerContent*;
+	//	{Container} 'Container' name=ID contents+=IContainerContent*;
 	public ContainerElements getContainerAccess() {
 		return pContainer;
 	}
@@ -251,7 +203,7 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IContainerContent:
-	//	Group | Single;
+	//	Group | Leaf;
 	public IContainerContentElements getIContainerContentAccess() {
 		return pIContainerContent;
 	}
@@ -261,26 +213,13 @@ public class EKeyLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Group:
-	//	{Group} name=ID
-	//	'{'
-	//	leafs+=Leaf*
-	//	'}';
+	//	{Group} name=ID '{' leafs+=IContainerContent* '}';
 	public GroupElements getGroupAccess() {
 		return pGroup;
 	}
 	
 	public ParserRule getGroupRule() {
 		return getGroupAccess().getRule();
-	}
-	
-	//Single:
-	//	{Single} name=ID (':' leaf=Leaf)?;
-	public SingleElements getSingleAccess() {
-		return pSingle;
-	}
-	
-	public ParserRule getSingleRule() {
-		return getSingleAccess().getRule();
 	}
 	
 	//Leaf:

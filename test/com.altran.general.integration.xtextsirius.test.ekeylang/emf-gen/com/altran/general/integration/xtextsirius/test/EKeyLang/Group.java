@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Group extends ANamedElement, IContainerContent {
 	/**
 	 * Returns the value of the '<em><b>Leafs</b></em>' containment reference list.
-	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf}.
+	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Leafs</em>' containment reference list.
@@ -31,6 +31,6 @@ public interface Group extends ANamedElement, IContainerContent {
 	 * @model containment="true" keys="name"
 	 * @generated
 	 */
-	EList<Leaf> getLeafs();
+	EList<IContainerContent> getLeafs();
 	
 } // Group

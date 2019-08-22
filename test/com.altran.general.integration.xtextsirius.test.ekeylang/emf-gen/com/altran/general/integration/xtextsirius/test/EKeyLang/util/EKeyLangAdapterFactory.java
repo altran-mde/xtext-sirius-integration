@@ -92,11 +92,6 @@ public class EKeyLangAdapterFactory extends AdapterFactoryImpl {
 		}
 		
 		@Override
-		public Adapter caseSingle(Single object) {
-			return createSingleAdapter();
-		}
-		
-		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -183,20 +178,6 @@ public class EKeyLangAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLeafAdapter() {
-		return null;
-	}
-	
-	/**
-	 * Creates a new adapter for an object of class '{@link com.altran.general.integration.xtextsirius.test.EKeyLang.Single <em>Single</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.altran.general.integration.xtextsirius.test.EKeyLang.Single
-	 * @generated
-	 */
-	public Adapter createSingleAdapter() {
 		return null;
 	}
 	

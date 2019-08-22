@@ -153,11 +153,11 @@ ruleIContainerContent returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getIContainerContentAccess().getSingleParserRuleCall_1());
+			newCompositeNode(grammarAccess.getIContainerContentAccess().getLeafParserRuleCall_1());
 		}
-		this_Single_1=ruleSingle
+		this_Leaf_1=ruleLeaf
 		{
-			$current = $this_Single_1.current;
+			$current = $this_Leaf_1.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -211,9 +211,9 @@ ruleGroup returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGroupAccess().getLeafsLeafParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getGroupAccess().getLeafsIContainerContentParserRuleCall_3_0());
 				}
-				lv_leafs_3_0=ruleLeaf
+				lv_leafs_3_0=ruleIContainerContent
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGroupRule());
@@ -222,7 +222,7 @@ ruleGroup returns [EObject current=null]
 						$current,
 						"leafs",
 						lv_leafs_3_0,
-						"com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf");
+						"com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -231,75 +231,6 @@ ruleGroup returns [EObject current=null]
 		{
 			newLeafNode(otherlv_4, grammarAccess.getGroupAccess().getRightCurlyBracketKeyword_4());
 		}
-	)
-;
-
-// Entry rule entryRuleSingle
-entryRuleSingle returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSingleRule()); }
-	iv_ruleSingle=ruleSingle
-	{ $current=$iv_ruleSingle.current; }
-	EOF;
-
-// Rule Single
-ruleSingle returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getSingleAccess().getSingleAction_0(),
-					$current);
-			}
-		)
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getSingleAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSingleRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			otherlv_2=':'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getSingleAccess().getColonKeyword_2_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSingleAccess().getLeafLeafParserRuleCall_2_1_0());
-					}
-					lv_leaf_3_0=ruleLeaf
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSingleRule());
-						}
-						set(
-							$current,
-							"leaf",
-							lv_leaf_3_0,
-							"com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
 	)
 ;
 

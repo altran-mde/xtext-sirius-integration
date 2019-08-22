@@ -8,8 +8,6 @@ import com.altran.general.integration.xtextsirius.test.EKeyLang.EKeyLangPackage;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Group;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf;
-import com.altran.general.integration.xtextsirius.test.EKeyLang.Single;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -58,13 +56,6 @@ public class EKeyLangPackageImpl extends EPackageImpl implements EKeyLangPackage
 	 * @generated
 	 */
 	private EClass leafEClass = null;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass singleEClass = null;
 	
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -226,26 +217,6 @@ public class EKeyLangPackageImpl extends EPackageImpl implements EKeyLangPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getSingle() {
-		return singleEClass;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSingle_Leaf() {
-		return (EReference) singleEClass.getEStructuralFeatures().get(0);
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EKeyLangFactory getEKeyLangFactory() {
 		return (EKeyLangFactory) getEFactoryInstance();
 	}
@@ -283,9 +254,6 @@ public class EKeyLangPackageImpl extends EPackageImpl implements EKeyLangPackage
 		
 		leafEClass = createEClass(LEAF);
 		createEAttribute(leafEClass, LEAF__NUMBER);
-		
-		singleEClass = createEClass(SINGLE);
-		createEReference(singleEClass, SINGLE__LEAF);
 	}
 	
 	/**
@@ -318,11 +286,11 @@ public class EKeyLangPackageImpl extends EPackageImpl implements EKeyLangPackage
 		
 		// Add supertypes to classes
 		containerEClass.getESuperTypes().add(this.getANamedElement());
+		iContainerContentEClass.getESuperTypes().add(this.getANamedElement());
 		groupEClass.getESuperTypes().add(this.getANamedElement());
 		groupEClass.getESuperTypes().add(this.getIContainerContent());
 		leafEClass.getESuperTypes().add(this.getANamedElement());
-		singleEClass.getESuperTypes().add(this.getANamedElement());
-		singleEClass.getESuperTypes().add(this.getIContainerContent());
+		leafEClass.getESuperTypes().add(this.getIContainerContent());
 		
 		// Initialize classes, features, and operations; add parameters
 		initEClass(containerEClass, com.altran.general.integration.xtextsirius.test.EKeyLang.Container.class,
@@ -340,20 +308,14 @@ public class EKeyLangPackageImpl extends EPackageImpl implements EKeyLangPackage
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGroup_Leafs(), this.getLeaf(), null, "leafs", null, 0, -1, Group.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getGroup_Leafs(), this.getIContainerContent(), null, "leafs", null, 0, -1, Group.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getGroup_Leafs().getEKeys().add(this.getANamedElement_Name());
 		
 		initEClass(leafEClass, Leaf.class, "Leaf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLeaf_Number(), ecorePackage.getEInt(), "number", null, 0, 1, Leaf.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		
-		initEClass(singleEClass, Single.class, "Single", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSingle_Leaf(), this.getLeaf(), null, "leaf", null, 0, 1, Single.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		getSingle_Leaf().getEKeys().add(this.getANamedElement_Name());
 		
 		// Create resource
 		createResource(eNS_URI);

@@ -10,23 +10,15 @@ Container returns Container:
 ;
 
 IContainerContent returns IContainerContent:
-	Group | Single;
+	Group | Leaf;
 
 
 Group returns Group:
 	{Group}
 	name=ID
 	'{'
-		leafs+=Leaf*
+		leafs+=IContainerContent*
 	'}'
-;
-
-Single returns Single:
-	{Single}
-	name=ID
-	(
-		':' leaf=Leaf
-	)?
 ;
 
 Leaf returns Leaf:

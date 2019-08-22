@@ -116,6 +116,7 @@ import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.Ignored
  * from the position.
  * </p>
  * </li>
+ * <li><i>index</i>, if available.</li>
  * </ul>
  * </li>
  * </ul>
@@ -367,9 +368,7 @@ import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.Ignored
  * <td>*</td>
  * <td>multi</td>
  * <td>*</td>
- * <td>TODO: Not correct anymore (see comments in implementation) toplevel:
- * replace all<br/>
- * other: foreach <i>newElement</i>:: exists: merge, other: add</td>
+ * <td>foreach <i>newElement</i>:: exists: merge, other: add</td>
  * </tr>
  * </tbody>
  * </table>
@@ -430,17 +429,7 @@ public class EMerger<T extends EObject> {
 	public @NonNull T merge(final @Nullable Object newValue, final @NonNull EStructuralFeature feature) {
 		final Object oldValue = this.existing.eGet(feature);
 		
-		// TODO: With the change in #mergeContainmentRecursive(), this block is
-		// not required any more.
-		// if (feature.isMany()
-		// && feature instanceof EReference
-		// && ((EReference) feature).isContainment()
-		// && newValue instanceof Collection) {
-		// validateNewValue(feature, newValue);
-		// this.existing.eSet(feature, newValue);
-		// } else {
 		mergeFeatureValueRecursive(feature, "", this.existing, this.existing, oldValue, newValue);
-		// }
 		
 		return this.existing;
 	}
@@ -554,19 +543,19 @@ public class EMerger<T extends EObject> {
 			final @NonNull EList<@NonNull EObject> oldValues = ((@NonNull EList<@NonNull EObject>) oldValueOrCreated);
 			if (newValue instanceof Collection) {
 				final Collection<@NonNull EObject> values = (Collection<@NonNull EObject>) newValue;
+				final int newValuesSize = values.size();
+				
 				int index = 0;
 				for (final EObject newValue1 : values) {
-					mergeOrAdd(oldValues, newValue1, index, uri, (c, nEl) -> {
+					mergeOrAdd(oldValues, newValue1, index, uri, (exst, nEl) -> {
 						final EObject newEObject = EcoreUtil.create(nEl.eClass());
-						oldValues.add(newEObject);
+						exst.add(newEObject);
 						mergeAllContainmentFeaturesRecursive(prefix, newEObject, nEl);
 					}, (exst, nEl) -> mergeAllContainmentFeaturesRecursive(prefix, exst, nEl));
 					index++;
 				}
-				// TODO: We trim the existing list to the new list size. Is this
-				// correct? It violates the merge rules described in class
-				// javadoc (last line in containment table)
-				while (oldValues.size() > values.size()) {
+				
+				while (oldValues.size() > newValuesSize) {
 					oldValues.remove(oldValues.size() - 1);
 				}
 			} else if (newValue instanceof EObject) {
@@ -760,8 +749,6 @@ public class EMerger<T extends EObject> {
 				return existing;
 			}
 			
-			// TODO: Fallback to index-based lookup seems not safe in all cases,
-			// reconsider
 			if (index >= 0 && index < list.size()) {
 				return list.get(index);
 			}
