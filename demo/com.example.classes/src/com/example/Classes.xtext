@@ -30,6 +30,7 @@ Association:
 Class:
 	Description?
 	'class' name=ID '{'
+		subClasses+=Class*
 		attributes+=Attribute*	
 	'}'
 ;

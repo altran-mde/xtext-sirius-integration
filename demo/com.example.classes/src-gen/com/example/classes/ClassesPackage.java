@@ -253,13 +253,22 @@ public interface ClassesPackage extends EPackage
   int CLASS__NAME = CONTENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Sub Classes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__SUB_CLASSES = CONTENT_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__ATTRIBUTES = CONTENT_FEATURE_COUNT + 2;
+  int CLASS__ATTRIBUTES = CONTENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Class</em>' class.
@@ -268,7 +277,7 @@ public interface ClassesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 3;
+  int CLASS_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link com.example.classes.impl.DescriptionImpl <em>Description</em>}' class.
@@ -711,6 +720,17 @@ public interface ClassesPackage extends EPackage
   EAttribute getClass_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.example.classes.Class#getSubClasses <em>Sub Classes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Sub Classes</em>'.
+   * @see com.example.classes.Class#getSubClasses()
+   * @see #getClass_()
+   * @generated
+   */
+  EReference getClass_SubClasses();
+
+  /**
    * Returns the meta object for the containment reference list '{@link com.example.classes.Class#getAttributes <em>Attributes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1074,6 +1094,14 @@ public interface ClassesPackage extends EPackage
      * @generated
      */
     EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Sub Classes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS__SUB_CLASSES = eINSTANCE.getClass_SubClasses();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.

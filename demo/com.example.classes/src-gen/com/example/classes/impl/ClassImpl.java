@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.example.classes.impl.ClassImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.example.classes.impl.ClassImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.example.classes.impl.ClassImpl#getSubClasses <em>Sub Classes</em>}</li>
  *   <li>{@link com.example.classes.impl.ClassImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -78,6 +79,16 @@ public class ClassImpl extends ContentImpl implements com.example.classes.Class
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSubClasses() <em>Sub Classes</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSubClasses()
+   * @generated
+   * @ordered
+   */
+  protected EList<com.example.classes.Class> subClasses;
 
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -166,6 +177,21 @@ public class ClassImpl extends ContentImpl implements com.example.classes.Class
    * @generated
    */
   @Override
+  public EList<com.example.classes.Class> getSubClasses()
+  {
+    if (subClasses == null)
+    {
+      subClasses = new EObjectContainmentEList<com.example.classes.Class>(com.example.classes.Class.class, this, ClassesPackage.CLASS__SUB_CLASSES);
+    }
+    return subClasses;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Attribute> getAttributes()
   {
     if (attributes == null)
@@ -185,6 +211,8 @@ public class ClassImpl extends ContentImpl implements com.example.classes.Class
   {
     switch (featureID)
     {
+      case ClassesPackage.CLASS__SUB_CLASSES:
+        return ((InternalEList<?>)getSubClasses()).basicRemove(otherEnd, msgs);
       case ClassesPackage.CLASS__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
     }
@@ -205,6 +233,8 @@ public class ClassImpl extends ContentImpl implements com.example.classes.Class
         return getDescription();
       case ClassesPackage.CLASS__NAME:
         return getName();
+      case ClassesPackage.CLASS__SUB_CLASSES:
+        return getSubClasses();
       case ClassesPackage.CLASS__ATTRIBUTES:
         return getAttributes();
     }
@@ -227,6 +257,10 @@ public class ClassImpl extends ContentImpl implements com.example.classes.Class
         return;
       case ClassesPackage.CLASS__NAME:
         setName((String)newValue);
+        return;
+      case ClassesPackage.CLASS__SUB_CLASSES:
+        getSubClasses().clear();
+        getSubClasses().addAll((Collection<? extends com.example.classes.Class>)newValue);
         return;
       case ClassesPackage.CLASS__ATTRIBUTES:
         getAttributes().clear();
@@ -252,6 +286,9 @@ public class ClassImpl extends ContentImpl implements com.example.classes.Class
       case ClassesPackage.CLASS__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case ClassesPackage.CLASS__SUB_CLASSES:
+        getSubClasses().clear();
+        return;
       case ClassesPackage.CLASS__ATTRIBUTES:
         getAttributes().clear();
         return;
@@ -273,6 +310,8 @@ public class ClassImpl extends ContentImpl implements com.example.classes.Class
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case ClassesPackage.CLASS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ClassesPackage.CLASS__SUB_CLASSES:
+        return subClasses != null && !subClasses.isEmpty();
       case ClassesPackage.CLASS__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
     }

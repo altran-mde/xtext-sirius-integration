@@ -11,7 +11,7 @@ package com.altran.general.integration.xtextsirius.test.editor.model
 
 import org.junit.Test
 
-class TestFowlerdslState extends ATestFowlerdslModel {
+class TestFowlerdslStateFeature extends ATestFowlerdslModel {
     
     protected override modelText() '''
         state A things t1 1 t2 2 t4 4 end
@@ -21,24 +21,22 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void unchanged() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
+            "t1 1 t2 2 t4 4",
             null,
-            createState => [
-                name = 'A'
-                things += createThing => [
+            #[
+                createThing => [
                     name = 't1'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 1]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't2'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 2]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't4'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 4]
@@ -52,8 +50,7 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void empty() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
+            "t1 1 t2 2 t4 4",
             null,
             null
         )
@@ -63,55 +60,22 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void changeFirst() {
 		assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t3 3 t2 2 t4 4 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
+            "t1 1 t2 2 t4 4",
+            "t3 3 t2 2 t4 4",
+            #[
+                createThing => [
                     name = 't3'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 3]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't2'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 2]
                     ]   
-                ]
-                things += createThing => [
-                    name = 't4'
-                    guard = createValueGuard => [
-                        cond = createIntLiteral => [value = 4]
-                    ]   
-                ]
-            ]
-        )
-	}
-	
-	@Test
-	def void changeMiddle() {
-		assertModelEdit(
-            model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t1 1 t3 3 t4 4 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
-                    name = 't1'
-                    guard = createValueGuard => [
-                        cond = createIntLiteral => [value = 1]
-                    ]   
-                ]
-                things += createThing => [
-                    name = 't3'
-                    guard = createValueGuard => [
-                        cond = createIntLiteral => [value = 3]
-                    ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't4'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 4]
@@ -125,24 +89,22 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void changeBoth() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t2 2 t3 3 t4 4 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
+            "t1 1 t2 2 t4 4",
+            "t2 2 t3 3 t4 4",
+            #[
+                createThing => [
                     name = 't2'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 2]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't3'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 3]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't4'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 4]
@@ -156,18 +118,16 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void removeLast() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t1 1 t2 2 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
+            "t1 1 t2 2 t4 4",
+            "t1 1 t2 2",
+            #[
+                createThing => [
                     name = 't1'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 1]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't2'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 2]
@@ -181,18 +141,16 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void removeFirst() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t2 2 t4 4 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
+            "t1 1 t2 2 t4 4",
+            "t2 2 t4 4",
+            #[
+                createThing => [
                     name = 't2'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 2]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't4'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 4]
@@ -206,12 +164,10 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void replace() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t3 3 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
+            "t1 1 t2 2 t4 4",
+            "t3 3",
+            #[
+                createThing => [
                     name = 't3'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 3]
@@ -225,18 +181,16 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void replaceMove() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t3 3 t1 1 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
+            "t1 1 t2 2 t4 4",
+            "t3 3 t1 1",
+            #[
+                createThing => [
                     name = 't3'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 3]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't1'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 1]
@@ -250,30 +204,28 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void insertFirst() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t3 3 t1 1 t2 2 t4 4 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
+            "t1 1 t2 2 t4 4",
+            "t3 3 t1 1 t2 2 t4 4",
+            #[
+                createThing => [
                     name = 't3'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 3]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't1'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 1]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't2'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 2]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't4'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 4]
@@ -287,30 +239,28 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	def void insertLast() {
         assertModelEdit(
             model.states.last,
-            model,
-            "state A things t1 1 t2 2 t4 4 end",
-            "state A things t1 1 t2 2 t4 4 t3 3 end",
-            createState => [
-                name = 'A'
-                things += createThing => [
+            "t1 1 t2 2 t4 4",
+            "t1 1 t2 2 t4 4 t3 3",
+            #[
+                createThing => [
                     name = 't1'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 1]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't2'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 2]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't4'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 4]
                     ]   
-                ]
-                things += createThing => [
+                ],
+                createThing => [
                     name = 't3'
                     guard = createValueGuard => [
                         cond = createIntLiteral => [value = 3]
@@ -321,7 +271,7 @@ class TestFowlerdslState extends ATestFowlerdslModel {
 	}
 	
 	override protected getFeatureName() {
-		""
+		"things"
 	}
 	
 }
