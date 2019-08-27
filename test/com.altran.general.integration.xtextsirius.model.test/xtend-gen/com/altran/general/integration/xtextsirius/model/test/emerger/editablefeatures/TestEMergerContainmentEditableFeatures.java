@@ -18,6 +18,7 @@ import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.After;
@@ -100,5 +101,35 @@ public class TestEMergerContainmentEditableFeatures extends TestEMergerContainme
     Assert.assertEquals("aanswer", result.getChangeableCont().getChangeableAttr());
     Assert.assertTrue(result.getChangeableCont().getChangeableListAttr().contains("aaa"));
     Assert.assertTrue(result.getChangeableCont().getChangeableListAttr().contains("bbb"));
+  }
+  
+  @Test
+  @Override
+  public void set_listPartiallyExisting() {
+    Element _createRootElement = this.createRootElement();
+    final Procedure1<Element> _function = (Element it) -> {
+      EList<Element> _changeableUniqueListCont = it.getChangeableUniqueListCont();
+      Element _newEdited = this.newEdited(3, "3");
+      _changeableUniqueListCont.add(_newEdited);
+    };
+    final Element edited = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
+    this.newEdited(99, "99");
+    Element _createRootElement_1 = this.createRootElement();
+    final Procedure1<Element> _function_1 = (Element it) -> {
+      EList<Element> _changeableUniqueListCont = it.getChangeableUniqueListCont();
+      Element _newExisting = this.newExisting(1, "1");
+      Element _newExisting_1 = this.newExisting(2, "2");
+      Element _newExisting_2 = this.newExisting(31, "31");
+      Element _newExisting_3 = this.newExisting(1, "1");
+      Element _newExisting_4 = this.newExisting(2, "2");
+      Iterables.<Element>addAll(_changeableUniqueListCont, Collections.<Element>unmodifiableList(CollectionLiterals.<Element>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
+    };
+    final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
+    Element _head = IterableExtensions.<Element>head(edited.getChangeableUniqueListCont());
+    Element _newEdited = this.newEdited(2, "2");
+    final Element result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(Collections.<Element>unmodifiableSet(CollectionLiterals.<Element>newHashSet(_head, _newEdited)), this.changeableUniqueListContFeature());
+    Assert.assertEquals(2, result.getChangeableUniqueListCont().size());
+    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a3"));
+    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a2"));
   }
 }
