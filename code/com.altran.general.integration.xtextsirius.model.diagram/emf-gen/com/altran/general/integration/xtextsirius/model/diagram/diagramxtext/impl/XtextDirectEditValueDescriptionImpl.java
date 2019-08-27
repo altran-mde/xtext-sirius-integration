@@ -32,6 +32,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#isCancelOnValidationError
  * <em>Cancel On Validation Error</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#isEnableFormatter
+ * <em>Enable Formatter</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#isMultiLine
  * <em>Multi Line</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.impl.XtextDirectEditValueDescriptionImpl#getPrefixTextExpression
@@ -85,6 +87,26 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @ordered
 	 */
 	protected boolean cancelOnValidationError = CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+	
+	/**
+	 * The default value of the '{@link #isEnableFormatter() <em>Enable
+	 * Formatter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEnableFormatter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLE_FORMATTER_EDEFAULT = true;
+	
+	/**
+	 * The cached value of the '{@link #isEnableFormatter() <em>Enable
+	 * Formatter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEnableFormatter()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean enableFormatter = ENABLE_FORMATTER_EDEFAULT;
 	
 	/**
 	 * The default value of the '{@link #isMultiLine() <em>Multi Line</em>}'
@@ -227,6 +249,32 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 	 * @generated
 	 */
 	@Override
+	public boolean isEnableFormatter() {
+		return this.enableFormatter;
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setEnableFormatter(final boolean newEnableFormatter) {
+		final boolean oldEnableFormatter = this.enableFormatter;
+		this.enableFormatter = newEnableFormatter;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER, oldEnableFormatter,
+					this.enableFormatter));
+		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public boolean isMultiLine() {
 		return this.multiLine;
 	}
@@ -310,6 +358,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 				return getInjectorId();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				return isCancelOnValidationError();
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+				return isEnableFormatter();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
 				return isMultiLine();
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
@@ -333,6 +383,9 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				setCancelOnValidationError((Boolean) newValue);
+				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+				setEnableFormatter((Boolean) newValue);
 				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
 				setMultiLine((Boolean) newValue);
@@ -361,6 +414,9 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				setCancelOnValidationError(CANCEL_ON_VALIDATION_ERROR_EDEFAULT);
 				return;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+				setEnableFormatter(ENABLE_FORMATTER_EDEFAULT);
+				return;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
 				setMultiLine(MULTI_LINE_EDEFAULT);
 				return;
@@ -387,6 +443,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				return this.cancelOnValidationError != CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+				return this.enableFormatter != ENABLE_FORMATTER_EDEFAULT;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__MULTI_LINE:
 				return this.multiLine != MULTI_LINE_EDEFAULT;
 			case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
@@ -412,6 +470,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
 				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+				case DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__ENABLE_FORMATTER;
 				default:
 					return -1;
 			}
@@ -456,6 +516,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__INJECTOR_ID;
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__ENABLE_FORMATTER:
+					return DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER;
 				default:
 					return -1;
 			}
@@ -503,6 +565,8 @@ public class XtextDirectEditValueDescriptionImpl extends AXtextDirectEditLabelIm
 		result.append(this.injectorId);
 		result.append(", cancelOnValidationError: ");
 		result.append(this.cancelOnValidationError);
+		result.append(", enableFormatter: ");
+		result.append(this.enableFormatter);
 		result.append(", multiLine: ");
 		result.append(this.multiLine);
 		result.append(", prefixTextExpression: ");

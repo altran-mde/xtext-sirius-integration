@@ -19,11 +19,13 @@ public abstract class AXtextSiriusDescriptor implements IXtextSiriusDescriptor {
 	private final Injector injector;
 	private final boolean multiLine;
 	private final boolean cancelOnValidationError;
+	private final boolean enableFormatter;
 	
 	public AXtextSiriusDescriptor(final @NonNull Injector injector, final @NonNull IXtextDescription description) {
 		this.injector = injector;
 		this.multiLine = description.isMultiLine();
 		this.cancelOnValidationError = description.isCancelOnValidationError();
+		this.enableFormatter = description.isEnableFormatter();
 	}
 	
 	public AXtextSiriusDescriptor(final @NonNull Injector injector,
@@ -31,6 +33,7 @@ public abstract class AXtextSiriusDescriptor implements IXtextSiriusDescriptor {
 		this.injector = injector;
 		this.multiLine = description.isMultiLine();
 		this.cancelOnValidationError = description.isCancelOnValidationError();
+		this.enableFormatter = description.isEnableFormatter();
 	}
 	
 	@Override
@@ -46,5 +49,10 @@ public abstract class AXtextSiriusDescriptor implements IXtextSiriusDescriptor {
 	@Override
 	public boolean isCancelOnValidationError() {
 		return this.cancelOnValidationError;
+	}
+	
+	@Override
+	public boolean isEnableFormatter() {
+		return this.enableFormatter;
 	}
 }

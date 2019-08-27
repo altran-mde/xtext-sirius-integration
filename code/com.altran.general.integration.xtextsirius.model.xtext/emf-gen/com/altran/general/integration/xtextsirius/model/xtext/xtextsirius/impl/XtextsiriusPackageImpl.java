@@ -204,6 +204,16 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIXtextDescription_EnableFormatter() {
+		return (EAttribute) this.iXtextDescriptionEClass.getEStructuralFeatures().get(2);
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getIXtextModelDescription() {
 		return this.iXtextModelDescriptionEClass;
 	}
@@ -392,6 +402,7 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		this.iXtextDescriptionEClass = createEClass(IXTEXT_DESCRIPTION);
 		createEAttribute(this.iXtextDescriptionEClass, IXTEXT_DESCRIPTION__INJECTOR_ID);
 		createEAttribute(this.iXtextDescriptionEClass, IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR);
+		createEAttribute(this.iXtextDescriptionEClass, IXTEXT_DESCRIPTION__ENABLE_FORMATTER);
 		
 		this.iXtextModelDescriptionEClass = createEClass(IXTEXT_MODEL_DESCRIPTION);
 		createEAttribute(this.iXtextModelDescriptionEClass, IXTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
@@ -476,6 +487,9 @@ public class XtextsiriusPackageImpl extends EPackageImpl implements XtextsiriusP
 		initEAttribute(getIXtextDescription_CancelOnValidationError(), theEcorePackage.getEBoolean(),
 				"cancelOnValidationError", "false", 0, 1, IXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIXtextDescription_EnableFormatter(), theEcorePackage.getEBoolean(), "enableFormatter", "true",
+				0, 1, IXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		
 		addEOperation(this.iXtextDescriptionEClass, theEcorePackage.getEBoolean(), "isMultiLine", 0, 1, !IS_UNIQUE,
 				IS_ORDERED);

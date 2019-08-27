@@ -30,4 +30,5 @@ public interface IXtextSiriusDescriptor {
 	
 	boolean isCancelOnValidationError();
 	
+	boolean isEnableFormatter();
 }

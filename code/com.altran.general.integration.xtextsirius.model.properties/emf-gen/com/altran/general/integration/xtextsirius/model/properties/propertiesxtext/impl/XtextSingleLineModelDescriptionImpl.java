@@ -37,6 +37,8 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <em>Injector Id</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#isCancelOnValidationError
  * <em>Cancel On Validation Error</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#isEnableFormatter
+ * <em>Enable Formatter</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getEditableFeatures
  * <em>Editable Features</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl#getIgnoredNestedFeatures
@@ -92,6 +94,26 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @ordered
 	 */
 	protected boolean cancelOnValidationError = CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+	
+	/**
+	 * The default value of the '{@link #isEnableFormatter() <em>Enable
+	 * Formatter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEnableFormatter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLE_FORMATTER_EDEFAULT = true;
+	
+	/**
+	 * The cached value of the '{@link #isEnableFormatter() <em>Enable
+	 * Formatter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEnableFormatter()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean enableFormatter = ENABLE_FORMATTER_EDEFAULT;
 	
 	/**
 	 * The cached value of the '{@link #getEditableFeatures() <em>Editable
@@ -236,6 +258,32 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 	 * @generated
 	 */
 	@Override
+	public boolean isEnableFormatter() {
+		return this.enableFormatter;
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setEnableFormatter(final boolean newEnableFormatter) {
+		final boolean oldEnableFormatter = this.enableFormatter;
+		this.enableFormatter = newEnableFormatter;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER, oldEnableFormatter,
+					this.enableFormatter));
+		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EList<String> getEditableFeatures() {
 		if (this.editableFeatures == null) {
 			this.editableFeatures = new EDataTypeEList<>(String.class, this,
@@ -332,6 +380,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 				return getInjectorId();
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				return isCancelOnValidationError();
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER:
+				return isEnableFormatter();
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return getEditableFeatures();
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
@@ -358,6 +408,9 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 				return;
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				setCancelOnValidationError((Boolean) newValue);
+				return;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER:
+				setEnableFormatter((Boolean) newValue);
 				return;
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
@@ -391,6 +444,9 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				setCancelOnValidationError(CANCEL_ON_VALIDATION_ERROR_EDEFAULT);
 				return;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER:
+				setEnableFormatter(ENABLE_FORMATTER_EDEFAULT);
+				return;
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				getEditableFeatures().clear();
 				return;
@@ -420,6 +476,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				return this.cancelOnValidationError != CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER:
+				return this.enableFormatter != ENABLE_FORMATTER_EDEFAULT;
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES:
 				return this.editableFeatures != null && !this.editableFeatures.isEmpty();
 			case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES:
@@ -447,6 +505,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
 				case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+				case PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__ENABLE_FORMATTER;
 				default:
 					return -1;
 			}
@@ -493,6 +553,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID;
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__ENABLE_FORMATTER:
+					return PropertiesxtextPackage.XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER;
 				default:
 					return -1;
 			}
@@ -542,6 +604,8 @@ public class XtextSingleLineModelDescriptionImpl extends TextDescriptionImpl
 		result.append(this.injectorId);
 		result.append(", cancelOnValidationError: ");
 		result.append(this.cancelOnValidationError);
+		result.append(", enableFormatter: ");
+		result.append(this.enableFormatter);
 		result.append(", editableFeatures: ");
 		result.append(this.editableFeatures);
 		result.append(", ignoredNestedFeatures: ");

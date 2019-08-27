@@ -50,6 +50,7 @@ public class XtextMultiLineValueDescriptionConverter extends AXtextDescriptionCo
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
 			eefDescription.setCancelOnValidationError(propertyDescription.isCancelOnValidationError());
+			eefDescription.setEnableFormatter(propertyDescription.isEnableFormatter());
 			
 			eefDescription.setPrefixTextExpression(propertyDescription.getPrefixTextExpression());
 			eefDescription.setSuffixTextExpression(propertyDescription.getSuffixTextExpression());

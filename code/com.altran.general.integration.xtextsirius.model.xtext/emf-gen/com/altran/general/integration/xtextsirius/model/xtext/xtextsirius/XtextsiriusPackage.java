@@ -90,13 +90,22 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = 1;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DESCRIPTION__ENABLE_FORMATTER = 2;
+	
+	/**
 	 * The number of structural features of the '<em>IXtext Description</em>'
 	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IXTEXT_DESCRIPTION_FEATURE_COUNT = 2;
+	int IXTEXT_DESCRIPTION_FEATURE_COUNT = 3;
 	
 	/**
 	 * The meta object id for the
@@ -127,6 +136,15 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_MODEL_DESCRIPTION__ENABLE_FORMATTER = IXTEXT_DESCRIPTION__ENABLE_FORMATTER;
 	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -204,6 +222,15 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_VALUE_DESCRIPTION__ENABLE_FORMATTER = IXTEXT_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -261,6 +288,15 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_DESCRIPTION__ENABLE_FORMATTER = IXTEXT_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The number of structural features of the '<em>IXtext Property
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -298,6 +334,15 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_DESCRIPTION__ENABLE_FORMATTER = IXTEXT_DESCRIPTION__ENABLE_FORMATTER;
 	
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
@@ -346,6 +391,15 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DIRECT_EDIT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__ENABLE_FORMATTER = IXTEXT_DIRECT_EDIT_DESCRIPTION__ENABLE_FORMATTER;
 	
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
@@ -444,6 +498,15 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_DIRECT_EDIT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER = IXTEXT_DIRECT_EDIT_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -508,6 +571,15 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @ordered
 	 */
 	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_MODEL_DESCRIPTION__ENABLE_FORMATTER = IXTEXT_PROPERTY_DESCRIPTION__ENABLE_FORMATTER;
 	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -585,6 +657,15 @@ public interface XtextsiriusPackage extends EPackage {
 	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IXTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_PROPERTY_VALUE_DESCRIPTION__ENABLE_FORMATTER = IXTEXT_PROPERTY_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -649,6 +730,19 @@ public interface XtextsiriusPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIXtextDescription_CancelOnValidationError();
+	
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#isEnableFormatter
+	 * <em>Enable Formatter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the meta object for the attribute '<em>Enable Formatter</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription#isEnableFormatter()
+	 * @see #getIXtextDescription()
+	 * @generated
+	 */
+	EAttribute getIXtextDescription_EnableFormatter();
 	
 	/**
 	 * Returns the meta object for class
@@ -913,6 +1007,14 @@ public interface XtextsiriusPackage extends EPackage {
 		 */
 		EAttribute IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = eINSTANCE
 				.getIXtextDescription_CancelOnValidationError();
+		
+		/**
+		 * The meta object literal for the '<em><b>Enable Formatter</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IXTEXT_DESCRIPTION__ENABLE_FORMATTER = eINSTANCE.getIXtextDescription_EnableFormatter();
 		
 		/**
 		 * The meta object literal for the

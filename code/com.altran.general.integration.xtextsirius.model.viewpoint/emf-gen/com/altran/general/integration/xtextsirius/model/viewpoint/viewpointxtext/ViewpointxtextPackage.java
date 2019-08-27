@@ -93,6 +93,15 @@ public interface ViewpointxtextPackage extends EPackage {
 	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IXTEXT_EDGE_LABEL_DIRECT_EDIT_DESCRIPTION__ENABLE_FORMATTER = XtextsiriusPackage.IXTEXT_DIRECT_EDIT_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -250,6 +259,15 @@ public interface ViewpointxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_MODEL_DESCRIPTION__ENABLE_FORMATTER = DiagramxtextPackage.XTEXT_DIRECT_EDIT_MODEL_DESCRIPTION__ENABLE_FORMATTER;
 	
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--
@@ -454,6 +472,15 @@ public interface ViewpointxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_EDGE_LABEL_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER = DiagramxtextPackage.XTEXT_DIRECT_EDIT_VALUE_DESCRIPTION__ENABLE_FORMATTER;
 	
 	/**
 	 * The feature id for the '<em><b>Multi Line</b></em>' attribute. <!--

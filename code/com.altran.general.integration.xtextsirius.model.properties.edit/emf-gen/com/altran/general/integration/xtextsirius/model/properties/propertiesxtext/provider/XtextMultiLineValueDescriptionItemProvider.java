@@ -56,6 +56,7 @@ public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescript
 			
 			addInjectorIdPropertyDescriptor(object);
 			addCancelOnValidationErrorPropertyDescriptor(object);
+			addEnableFormatterPropertyDescriptor(object);
 			addPrefixTextExpressionPropertyDescriptor(object);
 			addSuffixTextExpressionPropertyDescriptor(object);
 		}
@@ -100,6 +101,29 @@ public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescript
 						getString("_UI_PropertyDescriptor_description",
 								"_UI_IXtextDescription_cancelOnValidationError_feature", "_UI_IXtextDescription_type"),
 						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR,
+						true,
+						false,
+						false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+						null,
+						null));
+	}
+	
+	/**
+	 * This adds a property descriptor for the Enable Formatter feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addEnableFormatterPropertyDescriptor(final Object object) {
+		this.itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_IXtextDescription_enableFormatter_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IXtextDescription_enableFormatter_feature",
+								"_UI_IXtextDescription_type"),
+						XtextsiriusPackage.Literals.IXTEXT_DESCRIPTION__ENABLE_FORMATTER,
 						true,
 						false,
 						false,
@@ -192,6 +216,7 @@ public class XtextMultiLineValueDescriptionItemProvider extends TextAreaDescript
 		switch (notification.getFeatureID(XtextMultiLineValueDescription.class)) {
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER:
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
