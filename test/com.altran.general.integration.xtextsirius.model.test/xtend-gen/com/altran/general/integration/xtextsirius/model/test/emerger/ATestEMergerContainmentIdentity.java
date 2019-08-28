@@ -51,34 +51,6 @@ public abstract class ATestEMergerContainmentIdentity<T extends IElement<T>> ext
   
   @Test
   @Override
-  public void set_setNew() {
-    T _createRootElement = this.createRootElement();
-    final Procedure1<T> _function = (T it) -> {
-      EList<T> _changeableSetCont = it.getChangeableSetCont();
-      T _newEdited = this.newEdited(3, "3");
-      T _newEdited_1 = this.newEdited(2, "2");
-      Iterables.<T>addAll(_changeableSetCont, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newEdited, _newEdited_1)));
-    };
-    final T edited = ObjectExtensions.<T>operator_doubleArrow(_createRootElement, _function);
-    T _createRootElement_1 = this.createRootElement();
-    final Procedure1<T> _function_1 = (T it) -> {
-      EList<T> _changeableSetCont = it.getChangeableSetCont();
-      T _newExisting = this.newExisting(1, "1");
-      T _newExisting_1 = this.newExisting(31, "31");
-      T _newExisting_2 = this.newExisting(1, "1");
-      Iterables.<T>addAll(_changeableSetCont, Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_newExisting, _newExisting_1, _newExisting_2)));
-    };
-    final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
-    final T result = this.createEMerger(existing, edited).merge(edited);
-    Assert.assertEquals(5, result.getChangeableSetCont().size());
-    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q1"));
-    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q31"));
-    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a3"));
-    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a2"));
-  }
-  
-  @Test
-  @Override
   public void set_setExisting() {
     T _createRootElement = this.createRootElement();
     final Procedure1<T> _function = (T it) -> {
@@ -100,11 +72,9 @@ public abstract class ATestEMergerContainmentIdentity<T extends IElement<T>> ext
     };
     final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
     final T result = this.createEMerger(existing, edited).merge(edited);
-    Assert.assertEquals(6, result.getChangeableSetCont().size());
-    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q1"));
+    Assert.assertEquals(2, result.getChangeableSetCont().size());
     Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a2"));
-    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q31"));
-    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a3"));
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q1"));
   }
   
   @Test
@@ -128,12 +98,9 @@ public abstract class ATestEMergerContainmentIdentity<T extends IElement<T>> ext
     };
     final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
     final T result = this.createEMerger(existing, edited).merge(edited);
-    Assert.assertEquals(5, result.getChangeableUniqueListCont().size());
+    Assert.assertEquals(2, result.getChangeableUniqueListCont().size());
     Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(0).getChangeableAttr());
     Assert.assertEquals("q31", result.getChangeableUniqueListCont().get(1).getChangeableAttr());
-    Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(2).getChangeableAttr());
-    Assert.assertEquals("a3", result.getChangeableUniqueListCont().get(3).getChangeableAttr());
-    Assert.assertEquals("a2", result.getChangeableUniqueListCont().get(4).getChangeableAttr());
   }
   
   @Test
@@ -159,13 +126,9 @@ public abstract class ATestEMergerContainmentIdentity<T extends IElement<T>> ext
     };
     final T existing = ObjectExtensions.<T>operator_doubleArrow(_createRootElement_1, _function_1);
     final T result = this.createEMerger(existing, edited).merge(edited);
-    Assert.assertEquals(6, result.getChangeableUniqueListCont().size());
+    Assert.assertEquals(2, result.getChangeableUniqueListCont().size());
     Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(0).getChangeableAttr());
     Assert.assertEquals("a2", result.getChangeableUniqueListCont().get(1).getChangeableAttr());
-    Assert.assertEquals("q31", result.getChangeableUniqueListCont().get(2).getChangeableAttr());
-    Assert.assertEquals("q1", result.getChangeableUniqueListCont().get(3).getChangeableAttr());
-    Assert.assertEquals("q2", result.getChangeableUniqueListCont().get(4).getChangeableAttr());
-    Assert.assertEquals("a3", result.getChangeableUniqueListCont().get(5).getChangeableAttr());
   }
   
   @Test

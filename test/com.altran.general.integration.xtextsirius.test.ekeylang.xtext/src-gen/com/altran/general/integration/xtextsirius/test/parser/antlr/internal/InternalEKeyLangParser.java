@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Container'", "'{'", "'}'", "':'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Container'", "'{'", "'}'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
@@ -33,7 +33,6 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
     public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
-    public static final int T__14=14;
     public static final int EOF=-1;
 
     // delegates
@@ -280,34 +279,34 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIContainerContent"
-    // InternalEKeyLang.g:138:1: ruleIContainerContent returns [EObject current=null] : (this_Group_0= ruleGroup | this_Single_1= ruleSingle ) ;
+    // InternalEKeyLang.g:138:1: ruleIContainerContent returns [EObject current=null] : (this_Group_0= ruleGroup | this_Leaf_1= ruleLeaf ) ;
     public final EObject ruleIContainerContent() throws RecognitionException {
         EObject current = null;
 
         EObject this_Group_0 = null;
 
-        EObject this_Single_1 = null;
+        EObject this_Leaf_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalEKeyLang.g:144:2: ( (this_Group_0= ruleGroup | this_Single_1= ruleSingle ) )
-            // InternalEKeyLang.g:145:2: (this_Group_0= ruleGroup | this_Single_1= ruleSingle )
+            // InternalEKeyLang.g:144:2: ( (this_Group_0= ruleGroup | this_Leaf_1= ruleLeaf ) )
+            // InternalEKeyLang.g:145:2: (this_Group_0= ruleGroup | this_Leaf_1= ruleLeaf )
             {
-            // InternalEKeyLang.g:145:2: (this_Group_0= ruleGroup | this_Single_1= ruleSingle )
+            // InternalEKeyLang.g:145:2: (this_Group_0= ruleGroup | this_Leaf_1= ruleLeaf )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
             if ( (LA2_0==RULE_ID) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( (LA2_1==12) ) {
-                    alt2=1;
-                }
-                else if ( (LA2_1==EOF||LA2_1==RULE_ID||LA2_1==14) ) {
+                if ( (LA2_1==RULE_INT) ) {
                     alt2=2;
+                }
+                else if ( (LA2_1==12) ) {
+                    alt2=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -342,18 +341,18 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalEKeyLang.g:155:3: this_Single_1= ruleSingle
+                    // InternalEKeyLang.g:155:3: this_Leaf_1= ruleLeaf
                     {
 
-                    			newCompositeNode(grammarAccess.getIContainerContentAccess().getSingleParserRuleCall_1());
+                    			newCompositeNode(grammarAccess.getIContainerContentAccess().getLeafParserRuleCall_1());
                     		
                     pushFollow(FOLLOW_2);
-                    this_Single_1=ruleSingle();
+                    this_Leaf_1=ruleLeaf();
 
                     state._fsp--;
 
 
-                    			current = this_Single_1;
+                    			current = this_Leaf_1;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -418,7 +417,7 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGroup"
-    // InternalEKeyLang.g:174:1: ruleGroup returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleLeaf ) )* otherlv_4= '}' ) ;
+    // InternalEKeyLang.g:174:1: ruleGroup returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleIContainerContent ) )* otherlv_4= '}' ) ;
     public final EObject ruleGroup() throws RecognitionException {
         EObject current = null;
 
@@ -432,11 +431,11 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEKeyLang.g:180:2: ( ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleLeaf ) )* otherlv_4= '}' ) )
-            // InternalEKeyLang.g:181:2: ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleLeaf ) )* otherlv_4= '}' )
+            // InternalEKeyLang.g:180:2: ( ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleIContainerContent ) )* otherlv_4= '}' ) )
+            // InternalEKeyLang.g:181:2: ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleIContainerContent ) )* otherlv_4= '}' )
             {
-            // InternalEKeyLang.g:181:2: ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleLeaf ) )* otherlv_4= '}' )
-            // InternalEKeyLang.g:182:3: () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleLeaf ) )* otherlv_4= '}'
+            // InternalEKeyLang.g:181:2: ( () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleIContainerContent ) )* otherlv_4= '}' )
+            // InternalEKeyLang.g:182:3: () ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_leafs_3_0= ruleIContainerContent ) )* otherlv_4= '}'
             {
             // InternalEKeyLang.g:182:3: ()
             // InternalEKeyLang.g:183:4: 
@@ -479,7 +478,7 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getGroupAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalEKeyLang.g:211:3: ( (lv_leafs_3_0= ruleLeaf ) )*
+            // InternalEKeyLang.g:211:3: ( (lv_leafs_3_0= ruleIContainerContent ) )*
             loop3:
             do {
                 int alt3=2;
@@ -492,16 +491,16 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalEKeyLang.g:212:4: (lv_leafs_3_0= ruleLeaf )
+            	    // InternalEKeyLang.g:212:4: (lv_leafs_3_0= ruleIContainerContent )
             	    {
-            	    // InternalEKeyLang.g:212:4: (lv_leafs_3_0= ruleLeaf )
-            	    // InternalEKeyLang.g:213:5: lv_leafs_3_0= ruleLeaf
+            	    // InternalEKeyLang.g:212:4: (lv_leafs_3_0= ruleIContainerContent )
+            	    // InternalEKeyLang.g:213:5: lv_leafs_3_0= ruleIContainerContent
             	    {
 
-            	    					newCompositeNode(grammarAccess.getGroupAccess().getLeafsLeafParserRuleCall_3_0());
+            	    					newCompositeNode(grammarAccess.getGroupAccess().getLeafsIContainerContentParserRuleCall_3_0());
             	    				
             	    pushFollow(FOLLOW_6);
-            	    lv_leafs_3_0=ruleLeaf();
+            	    lv_leafs_3_0=ruleIContainerContent();
 
             	    state._fsp--;
 
@@ -513,7 +512,7 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
             	    						current,
             	    						"leafs",
             	    						lv_leafs_3_0,
-            	    						"com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf");
+            	    						"com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -554,175 +553,8 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleGroup"
 
 
-    // $ANTLR start "entryRuleSingle"
-    // InternalEKeyLang.g:238:1: entryRuleSingle returns [EObject current=null] : iv_ruleSingle= ruleSingle EOF ;
-    public final EObject entryRuleSingle() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSingle = null;
-
-
-        try {
-            // InternalEKeyLang.g:238:47: (iv_ruleSingle= ruleSingle EOF )
-            // InternalEKeyLang.g:239:2: iv_ruleSingle= ruleSingle EOF
-            {
-             newCompositeNode(grammarAccess.getSingleRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleSingle=ruleSingle();
-
-            state._fsp--;
-
-             current =iv_ruleSingle; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSingle"
-
-
-    // $ANTLR start "ruleSingle"
-    // InternalEKeyLang.g:245:1: ruleSingle returns [EObject current=null] : ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (lv_leaf_3_0= ruleLeaf ) ) )? ) ;
-    public final EObject ruleSingle() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
-        EObject lv_leaf_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalEKeyLang.g:251:2: ( ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (lv_leaf_3_0= ruleLeaf ) ) )? ) )
-            // InternalEKeyLang.g:252:2: ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (lv_leaf_3_0= ruleLeaf ) ) )? )
-            {
-            // InternalEKeyLang.g:252:2: ( () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (lv_leaf_3_0= ruleLeaf ) ) )? )
-            // InternalEKeyLang.g:253:3: () ( (lv_name_1_0= RULE_ID ) ) (otherlv_2= ':' ( (lv_leaf_3_0= ruleLeaf ) ) )?
-            {
-            // InternalEKeyLang.g:253:3: ()
-            // InternalEKeyLang.g:254:4: 
-            {
-
-            				current = forceCreateModelElement(
-            					grammarAccess.getSingleAccess().getSingleAction_0(),
-            					current);
-            			
-
-            }
-
-            // InternalEKeyLang.g:260:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalEKeyLang.g:261:4: (lv_name_1_0= RULE_ID )
-            {
-            // InternalEKeyLang.g:261:4: (lv_name_1_0= RULE_ID )
-            // InternalEKeyLang.g:262:5: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_7); 
-
-            					newLeafNode(lv_name_1_0, grammarAccess.getSingleAccess().getNameIDTerminalRuleCall_1_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getSingleRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"name",
-            						lv_name_1_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
-            				
-
-            }
-
-
-            }
-
-            // InternalEKeyLang.g:278:3: (otherlv_2= ':' ( (lv_leaf_3_0= ruleLeaf ) ) )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( (LA4_0==14) ) {
-                alt4=1;
-            }
-            switch (alt4) {
-                case 1 :
-                    // InternalEKeyLang.g:279:4: otherlv_2= ':' ( (lv_leaf_3_0= ruleLeaf ) )
-                    {
-                    otherlv_2=(Token)match(input,14,FOLLOW_3); 
-
-                    				newLeafNode(otherlv_2, grammarAccess.getSingleAccess().getColonKeyword_2_0());
-                    			
-                    // InternalEKeyLang.g:283:4: ( (lv_leaf_3_0= ruleLeaf ) )
-                    // InternalEKeyLang.g:284:5: (lv_leaf_3_0= ruleLeaf )
-                    {
-                    // InternalEKeyLang.g:284:5: (lv_leaf_3_0= ruleLeaf )
-                    // InternalEKeyLang.g:285:6: lv_leaf_3_0= ruleLeaf
-                    {
-
-                    						newCompositeNode(grammarAccess.getSingleAccess().getLeafLeafParserRuleCall_2_1_0());
-                    					
-                    pushFollow(FOLLOW_2);
-                    lv_leaf_3_0=ruleLeaf();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSingleRule());
-                    						}
-                    						set(
-                    							current,
-                    							"leaf",
-                    							lv_leaf_3_0,
-                    							"com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleSingle"
-
-
     // $ANTLR start "entryRuleLeaf"
-    // InternalEKeyLang.g:307:1: entryRuleLeaf returns [EObject current=null] : iv_ruleLeaf= ruleLeaf EOF ;
+    // InternalEKeyLang.g:238:1: entryRuleLeaf returns [EObject current=null] : iv_ruleLeaf= ruleLeaf EOF ;
     public final EObject entryRuleLeaf() throws RecognitionException {
         EObject current = null;
 
@@ -730,8 +562,8 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalEKeyLang.g:307:45: (iv_ruleLeaf= ruleLeaf EOF )
-            // InternalEKeyLang.g:308:2: iv_ruleLeaf= ruleLeaf EOF
+            // InternalEKeyLang.g:238:45: (iv_ruleLeaf= ruleLeaf EOF )
+            // InternalEKeyLang.g:239:2: iv_ruleLeaf= ruleLeaf EOF
             {
              newCompositeNode(grammarAccess.getLeafRule()); 
             pushFollow(FOLLOW_1);
@@ -758,7 +590,7 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLeaf"
-    // InternalEKeyLang.g:314:1: ruleLeaf returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) ) ) ;
+    // InternalEKeyLang.g:245:1: ruleLeaf returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) ) ) ;
     public final EObject ruleLeaf() throws RecognitionException {
         EObject current = null;
 
@@ -769,19 +601,19 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalEKeyLang.g:320:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) ) ) )
-            // InternalEKeyLang.g:321:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) ) )
+            // InternalEKeyLang.g:251:2: ( ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) ) ) )
+            // InternalEKeyLang.g:252:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) ) )
             {
-            // InternalEKeyLang.g:321:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) ) )
-            // InternalEKeyLang.g:322:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) )
+            // InternalEKeyLang.g:252:2: ( ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) ) )
+            // InternalEKeyLang.g:253:3: ( (lv_name_0_0= RULE_ID ) ) ( (lv_number_1_0= RULE_INT ) )
             {
-            // InternalEKeyLang.g:322:3: ( (lv_name_0_0= RULE_ID ) )
-            // InternalEKeyLang.g:323:4: (lv_name_0_0= RULE_ID )
+            // InternalEKeyLang.g:253:3: ( (lv_name_0_0= RULE_ID ) )
+            // InternalEKeyLang.g:254:4: (lv_name_0_0= RULE_ID )
             {
-            // InternalEKeyLang.g:323:4: (lv_name_0_0= RULE_ID )
-            // InternalEKeyLang.g:324:5: lv_name_0_0= RULE_ID
+            // InternalEKeyLang.g:254:4: (lv_name_0_0= RULE_ID )
+            // InternalEKeyLang.g:255:5: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_8); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_7); 
 
             					newLeafNode(lv_name_0_0, grammarAccess.getLeafAccess().getNameIDTerminalRuleCall_0_0());
             				
@@ -801,11 +633,11 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalEKeyLang.g:340:3: ( (lv_number_1_0= RULE_INT ) )
-            // InternalEKeyLang.g:341:4: (lv_number_1_0= RULE_INT )
+            // InternalEKeyLang.g:271:3: ( (lv_number_1_0= RULE_INT ) )
+            // InternalEKeyLang.g:272:4: (lv_number_1_0= RULE_INT )
             {
-            // InternalEKeyLang.g:341:4: (lv_number_1_0= RULE_INT )
-            // InternalEKeyLang.g:342:5: lv_number_1_0= RULE_INT
+            // InternalEKeyLang.g:272:4: (lv_number_1_0= RULE_INT )
+            // InternalEKeyLang.g:273:5: lv_number_1_0= RULE_INT
             {
             lv_number_1_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -859,7 +691,6 @@ public class InternalEKeyLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000012L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
 
 }

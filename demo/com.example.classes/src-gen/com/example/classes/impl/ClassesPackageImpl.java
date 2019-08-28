@@ -372,9 +372,20 @@ public class ClassesPackageImpl extends EPackageImpl implements ClassesPackage
    * @generated
    */
   @Override
-  public EReference getClass_Attributes()
+  public EReference getClass_SubClasses()
   {
     return (EReference)classEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getClass_Attributes()
+  {
+    return (EReference)classEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -646,6 +657,7 @@ public class ClassesPackageImpl extends EPackageImpl implements ClassesPackage
 
     classEClass = createEClass(CLASS);
     createEAttribute(classEClass, CLASS__NAME);
+    createEReference(classEClass, CLASS__SUB_CLASSES);
     createEReference(classEClass, CLASS__ATTRIBUTES);
 
     attributeEClass = createEClass(ATTRIBUTE);
@@ -743,6 +755,7 @@ public class ClassesPackageImpl extends EPackageImpl implements ClassesPackage
 
     initEClass(classEClass, com.example.classes.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, com.example.classes.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_SubClasses(), this.getClass_(), null, "subClasses", null, 0, -1, com.example.classes.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, com.example.classes.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

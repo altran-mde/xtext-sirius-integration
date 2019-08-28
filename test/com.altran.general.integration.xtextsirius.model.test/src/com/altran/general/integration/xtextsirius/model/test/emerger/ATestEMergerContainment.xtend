@@ -112,10 +112,9 @@ abstract class ATestEMergerContainment<T extends IElement<T>> extends ATestEMerg
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(3, result.changeableSetCont.size)
+		assertEquals(2, result.changeableSetCont.size)
 		assertTrue(result.changeableSetCont.valueExists("a3"))
 		assertTrue(result.changeableSetCont.valueExists("a2"))
-		assertTrue(result.changeableSetCont.valueExists("q1"))
 	}
 	
 	@Test
@@ -129,12 +128,9 @@ abstract class ATestEMergerContainment<T extends IElement<T>> extends ATestEMerg
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(5, result.changeableSetCont.size)
+		assertEquals(2, result.changeableSetCont.size)
 		assertTrue(result.changeableSetCont.valueExists("a3"))
 		assertTrue(result.changeableSetCont.valueExists("a2"))
-		assertTrue(result.changeableSetCont.valueExists("q1"))
-		assertTrue(result.changeableSetCont.valueExists("q31"))
-		assertTrue(result.changeableSetCont.valueExists("q2"))
 	}
 	
 	@Test
@@ -148,10 +144,9 @@ abstract class ATestEMergerContainment<T extends IElement<T>> extends ATestEMerg
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(3, result.changeableUniqueListCont.size)
+		assertEquals(2, result.changeableUniqueListCont.size)
 		assertEquals("a3", result.changeableUniqueListCont.get(0).changeableAttr)
 		assertEquals("a2", result.changeableUniqueListCont.get(1).changeableAttr)
-		assertEquals("q1", result.changeableUniqueListCont.get(2).changeableAttr)
 	}
 	
 	@Test
@@ -165,11 +160,8 @@ abstract class ATestEMergerContainment<T extends IElement<T>> extends ATestEMerg
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(5, result.changeableUniqueListCont.size)
+		assertEquals(2, result.changeableUniqueListCont.size)
 		assertEquals("a3", result.changeableUniqueListCont.get(0).changeableAttr)
 		assertEquals("a2", result.changeableUniqueListCont.get(1).changeableAttr)
-		assertEquals("q31", result.changeableUniqueListCont.get(2).changeableAttr)
-		assertEquals("q1", result.changeableUniqueListCont.get(3).changeableAttr)
-		assertEquals("q2", result.changeableUniqueListCont.get(4).changeableAttr)
 	}
 }

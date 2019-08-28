@@ -151,13 +151,22 @@ public interface EKeyLangPackage extends EPackage {
 	int ICONTAINER_CONTENT = 1;
 	
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ICONTAINER_CONTENT__NAME = ANAMED_ELEMENT__NAME;
+	
+	/**
 	 * The number of structural features of the '<em>IContainer Content</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICONTAINER_CONTENT_FEATURE_COUNT = 0;
+	int ICONTAINER_CONTENT_FEATURE_COUNT = ANAMED_ELEMENT_FEATURE_COUNT + 0;
 	
 	/**
 	 * The number of operations of the '<em>IContainer Content</em>' class.
@@ -166,7 +175,7 @@ public interface EKeyLangPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICONTAINER_CONTENT_OPERATION_COUNT = 0;
+	int ICONTAINER_CONTENT_OPERATION_COUNT = ANAMED_ELEMENT_OPERATION_COUNT + 0;
 	
 	/**
 	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.test.EKeyLang.impl.GroupImpl <em>Group</em>}' class.
@@ -261,53 +270,6 @@ public interface EKeyLangPackage extends EPackage {
 	int LEAF_OPERATION_COUNT = ANAMED_ELEMENT_OPERATION_COUNT + 0;
 	
 	/**
-	 * The meta object id for the '{@link com.altran.general.integration.xtextsirius.test.EKeyLang.impl.SingleImpl <em>Single</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.altran.general.integration.xtextsirius.test.EKeyLang.impl.SingleImpl
-	 * @see com.altran.general.integration.xtextsirius.test.EKeyLang.impl.EKeyLangPackageImpl#getSingle()
-	 * @generated
-	 */
-	int SINGLE = 5;
-	
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE__NAME = ANAMED_ELEMENT__NAME;
-	
-	/**
-	 * The feature id for the '<em><b>Leaf</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE__LEAF = ANAMED_ELEMENT_FEATURE_COUNT + 0;
-	
-	/**
-	 * The number of structural features of the '<em>Single</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_FEATURE_COUNT = ANAMED_ELEMENT_FEATURE_COUNT + 1;
-	
-	/**
-	 * The number of operations of the '<em>Single</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_OPERATION_COUNT = ANAMED_ELEMENT_OPERATION_COUNT + 0;
-	
-	
-	/**
 	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.test.EKeyLang.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,27 +362,6 @@ public interface EKeyLangPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLeaf_Number();
-	
-	/**
-	 * Returns the meta object for class '{@link com.altran.general.integration.xtextsirius.test.EKeyLang.Single <em>Single</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Single</em>'.
-	 * @see com.altran.general.integration.xtextsirius.test.EKeyLang.Single
-	 * @generated
-	 */
-	EClass getSingle();
-	
-	/**
-	 * Returns the meta object for the containment reference '{@link com.altran.general.integration.xtextsirius.test.EKeyLang.Single#getLeaf <em>Leaf</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Leaf</em>'.
-	 * @see com.altran.general.integration.xtextsirius.test.EKeyLang.Single#getLeaf()
-	 * @see #getSingle()
-	 * @generated
-	 */
-	EReference getSingle_Leaf();
 	
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -526,24 +467,6 @@ public interface EKeyLangPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LEAF__NUMBER = eINSTANCE.getLeaf_Number();
-		
-		/**
-		 * The meta object literal for the '{@link com.altran.general.integration.xtextsirius.test.EKeyLang.impl.SingleImpl <em>Single</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.altran.general.integration.xtextsirius.test.EKeyLang.impl.SingleImpl
-		 * @see com.altran.general.integration.xtextsirius.test.EKeyLang.impl.EKeyLangPackageImpl#getSingle()
-		 * @generated
-		 */
-		EClass SINGLE = eINSTANCE.getSingle();
-		
-		/**
-		 * The meta object literal for the '<em><b>Leaf</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SINGLE__LEAF = eINSTANCE.getSingle_Leaf();
 		
 	}
 	

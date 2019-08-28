@@ -7,7 +7,6 @@ import com.altran.general.integration.xtextsirius.test.EKeyLang.Container;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.EKeyLangPackage;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Group;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf;
-import com.altran.general.integration.xtextsirius.test.EKeyLang.Single;
 import com.altran.general.integration.xtextsirius.test.services.EKeyLangGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Set;
@@ -44,9 +43,6 @@ public class EKeyLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case EKeyLangPackage.LEAF:
 				sequence_Leaf(context, (Leaf) semanticObject); 
 				return; 
-			case EKeyLangPackage.SINGLE:
-				sequence_Single(context, (Single) semanticObject); 
-				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -70,7 +66,7 @@ public class EKeyLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Group returns Group
 	 *
 	 * Constraint:
-	 *     (name=ID leafs+=Leaf*)
+	 *     (name=ID leafs+=IContainerContent*)
 	 */
 	protected void sequence_Group(ISerializationContext context, Group semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -79,6 +75,7 @@ public class EKeyLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     IContainerContent returns Leaf
 	 *     Leaf returns Leaf
 	 *
 	 * Constraint:
@@ -95,19 +92,6 @@ public class EKeyLangSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		feeder.accept(grammarAccess.getLeafAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getLeafAccess().getNumberINTTerminalRuleCall_1_0(), semanticObject.getNumber());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     IContainerContent returns Single
-	 *     Single returns Single
-	 *
-	 * Constraint:
-	 *     (name=ID leaf=Leaf?)
-	 */
-	protected void sequence_Single(ISerializationContext context, Single semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

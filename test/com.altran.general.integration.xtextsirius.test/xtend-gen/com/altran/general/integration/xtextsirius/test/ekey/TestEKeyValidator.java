@@ -28,35 +28,35 @@ public class TestEKeyValidator extends ATestValidator {
   public void testBuiltInValidator() {
     Group _createGroup = this._eKeyLangFactory.createGroup();
     final Procedure1<Group> _function = (Group it) -> {
-      EList<Leaf> _leafs = it.getLeafs();
+      EList<IContainerContent> _leafs = it.getLeafs();
       Leaf _createLeaf = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_1 = (Leaf it_1) -> {
         it_1.setName("A");
       };
       Leaf _doubleArrow = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf, _function_1);
       _leafs.add(_doubleArrow);
-      EList<Leaf> _leafs_1 = it.getLeafs();
+      EList<IContainerContent> _leafs_1 = it.getLeafs();
       Leaf _createLeaf_1 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_2 = (Leaf it_1) -> {
         it_1.setName("B");
       };
       Leaf _doubleArrow_1 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_1, _function_2);
       _leafs_1.add(_doubleArrow_1);
-      EList<Leaf> _leafs_2 = it.getLeafs();
+      EList<IContainerContent> _leafs_2 = it.getLeafs();
       Leaf _createLeaf_2 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_3 = (Leaf it_1) -> {
         it_1.setName("C");
       };
       Leaf _doubleArrow_2 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_2, _function_3);
       _leafs_2.add(_doubleArrow_2);
-      EList<Leaf> _leafs_3 = it.getLeafs();
+      EList<IContainerContent> _leafs_3 = it.getLeafs();
       Leaf _createLeaf_3 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_4 = (Leaf it_1) -> {
         it_1.setName("B");
       };
       Leaf _doubleArrow_3 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_3, _function_4);
       _leafs_3.add(_doubleArrow_3);
-      EList<Leaf> _leafs_4 = it.getLeafs();
+      EList<IContainerContent> _leafs_4 = it.getLeafs();
       Leaf _createLeaf_4 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_5 = (Leaf it_1) -> {
         it_1.setName("B");
@@ -73,7 +73,7 @@ public class TestEKeyValidator extends ATestValidator {
     final Container container = ObjectExtensions.<Container>operator_doubleArrow(_createContainer, _function_1);
     this.validateModel(container);
     this.assertErrorPresent(group, this._eKeyLangPackage.getGroup_Leafs(), null);
-    final Consumer<Leaf> _function_2 = (Leaf it) -> {
+    final Consumer<IContainerContent> _function_2 = (IContainerContent it) -> {
       this.assertNoErrors(it);
     };
     group.getLeafs().forEach(_function_2);
@@ -83,35 +83,35 @@ public class TestEKeyValidator extends ATestValidator {
   public void testCustomValidatorFast() {
     Group _createGroup = this._eKeyLangFactory.createGroup();
     final Procedure1<Group> _function = (Group it) -> {
-      EList<Leaf> _leafs = it.getLeafs();
+      EList<IContainerContent> _leafs = it.getLeafs();
       Leaf _createLeaf = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_1 = (Leaf it_1) -> {
         it_1.setName("A");
       };
       Leaf _doubleArrow = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf, _function_1);
       _leafs.add(_doubleArrow);
-      EList<Leaf> _leafs_1 = it.getLeafs();
+      EList<IContainerContent> _leafs_1 = it.getLeafs();
       Leaf _createLeaf_1 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_2 = (Leaf it_1) -> {
         it_1.setName("B");
       };
       Leaf _doubleArrow_1 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_1, _function_2);
       _leafs_1.add(_doubleArrow_1);
-      EList<Leaf> _leafs_2 = it.getLeafs();
+      EList<IContainerContent> _leafs_2 = it.getLeafs();
       Leaf _createLeaf_2 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_3 = (Leaf it_1) -> {
         it_1.setName("C");
       };
       Leaf _doubleArrow_2 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_2, _function_3);
       _leafs_2.add(_doubleArrow_2);
-      EList<Leaf> _leafs_3 = it.getLeafs();
+      EList<IContainerContent> _leafs_3 = it.getLeafs();
       Leaf _createLeaf_3 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_4 = (Leaf it_1) -> {
         it_1.setName("B");
       };
       Leaf _doubleArrow_3 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_3, _function_4);
       _leafs_3.add(_doubleArrow_3);
-      EList<Leaf> _leafs_4 = it.getLeafs();
+      EList<IContainerContent> _leafs_4 = it.getLeafs();
       Leaf _createLeaf_4 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_5 = (Leaf it_1) -> {
         it_1.setName("B");
@@ -139,35 +139,35 @@ public class TestEKeyValidator extends ATestValidator {
   public void testCustomValidatorNormal() {
     Group _createGroup = this._eKeyLangFactory.createGroup();
     final Procedure1<Group> _function = (Group it) -> {
-      EList<Leaf> _leafs = it.getLeafs();
+      EList<IContainerContent> _leafs = it.getLeafs();
       Leaf _createLeaf = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_1 = (Leaf it_1) -> {
         it_1.setName("A");
       };
       Leaf _doubleArrow = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf, _function_1);
       _leafs.add(_doubleArrow);
-      EList<Leaf> _leafs_1 = it.getLeafs();
+      EList<IContainerContent> _leafs_1 = it.getLeafs();
       Leaf _createLeaf_1 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_2 = (Leaf it_1) -> {
         it_1.setName("B");
       };
       Leaf _doubleArrow_1 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_1, _function_2);
       _leafs_1.add(_doubleArrow_1);
-      EList<Leaf> _leafs_2 = it.getLeafs();
+      EList<IContainerContent> _leafs_2 = it.getLeafs();
       Leaf _createLeaf_2 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_3 = (Leaf it_1) -> {
         it_1.setName("C");
       };
       Leaf _doubleArrow_2 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_2, _function_3);
       _leafs_2.add(_doubleArrow_2);
-      EList<Leaf> _leafs_3 = it.getLeafs();
+      EList<IContainerContent> _leafs_3 = it.getLeafs();
       Leaf _createLeaf_3 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_4 = (Leaf it_1) -> {
         it_1.setName("B");
       };
       Leaf _doubleArrow_3 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_3, _function_4);
       _leafs_3.add(_doubleArrow_3);
-      EList<Leaf> _leafs_4 = it.getLeafs();
+      EList<IContainerContent> _leafs_4 = it.getLeafs();
       Leaf _createLeaf_4 = this._eKeyLangFactory.createLeaf();
       final Procedure1<Leaf> _function_5 = (Leaf it_1) -> {
         it_1.setName("B");

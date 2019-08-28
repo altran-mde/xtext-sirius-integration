@@ -6,7 +6,6 @@ package com.altran.general.integration.xtextsirius.test.formatting2;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Container;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Group;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent;
-import com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf;
 import com.altran.general.integration.xtextsirius.test.services.EKeyLangGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Arrays;
@@ -31,34 +30,34 @@ public class EKeyLangFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final Group group, @Extension final IFormattableDocument document) {
-    EList<Leaf> _leafs = group.getLeafs();
-    for (final Leaf leaf : _leafs) {
-      document.<Leaf>format(leaf);
+    EList<IContainerContent> _leafs = group.getLeafs();
+    for (final IContainerContent leaf : _leafs) {
+      document.<IContainerContent>format(leaf);
     }
   }
   
-  public void format(final Object container, final IFormattableDocument document) {
-    if (container instanceof XtextResource) {
-      _format((XtextResource)container, document);
+  public void format(final Object group, final IFormattableDocument document) {
+    if (group instanceof Group) {
+      _format((Group)group, document);
       return;
-    } else if (container instanceof Container) {
-      _format((Container)container, document);
+    } else if (group instanceof XtextResource) {
+      _format((XtextResource)group, document);
       return;
-    } else if (container instanceof Group) {
-      _format((Group)container, document);
+    } else if (group instanceof Container) {
+      _format((Container)group, document);
       return;
-    } else if (container instanceof EObject) {
-      _format((EObject)container, document);
+    } else if (group instanceof EObject) {
+      _format((EObject)group, document);
       return;
-    } else if (container == null) {
+    } else if (group == null) {
       _format((Void)null, document);
       return;
-    } else if (container != null) {
-      _format(container, document);
+    } else if (group != null) {
+      _format(group, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(container, document).toString());
+        Arrays.<Object>asList(group, document).toString());
     }
   }
 }

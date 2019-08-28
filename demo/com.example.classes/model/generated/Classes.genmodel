@@ -28,6 +28,7 @@
     </genClasses>
     <genClasses ecoreClass="Classes.ecore#//Class">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Classes.ecore#//Class/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Classes.ecore#//Class/subClasses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Classes.ecore#//Class/attributes"/>
     </genClasses>
     <genClasses ecoreClass="Classes.ecore#//Attribute">

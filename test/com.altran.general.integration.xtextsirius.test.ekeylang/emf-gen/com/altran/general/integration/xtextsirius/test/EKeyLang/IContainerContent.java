@@ -2,8 +2,6 @@
  */
 package com.altran.general.integration.xtextsirius.test.EKeyLang;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IContainer Content</b></em>'.
@@ -14,5 +12,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface IContainerContent extends EObject {
+public interface IContainerContent extends ANamedElement {
 } // IContainerContent

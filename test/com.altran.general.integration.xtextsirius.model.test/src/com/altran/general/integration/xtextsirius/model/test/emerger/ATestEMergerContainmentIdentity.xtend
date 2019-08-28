@@ -34,24 +34,6 @@ abstract class ATestEMergerContainmentIdentity<T extends IElement<T>> extends AT
 	}
 	
 	@Test
-	override void set_setNew() {
-		val edited = createRootElement => [
-			changeableSetCont += #[newEdited(3, "3"), newEdited(2, "2")]
-		]
-		
-		val existing = createRootElement => [
-			changeableSetCont += #[newExisting(1, "1"), newExisting(31, "31"), newExisting(1, "1")]
-		]
-		
-		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(5, result.changeableSetCont.size)
-		assertTrue(result.changeableSetCont.valueExists("q1"))
-		assertTrue(result.changeableSetCont.valueExists("q31"))
-		assertTrue(result.changeableSetCont.valueExists("a3"))
-		assertTrue(result.changeableSetCont.valueExists("a2"))
-	}
-	
-	@Test
 	override void set_setExisting() {
 		val edited = createRootElement => [
 			changeableSetCont += #[newEdited(3, "3"), newEdited(2, "2")]
@@ -62,11 +44,9 @@ abstract class ATestEMergerContainmentIdentity<T extends IElement<T>> extends AT
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(6, result.changeableSetCont.size)
-		assertTrue(result.changeableSetCont.valueExists("q1"))
+		assertEquals(2, result.changeableSetCont.size)
 		assertTrue(result.changeableSetCont.valueExists("a2"))
-		assertTrue(result.changeableSetCont.valueExists("q31"))
-		assertTrue(result.changeableSetCont.valueExists("a3"))
+		assertTrue(result.changeableSetCont.valueExists("q1"))
 	}
 	
 	@Test
@@ -80,12 +60,9 @@ abstract class ATestEMergerContainmentIdentity<T extends IElement<T>> extends AT
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(5, result.changeableUniqueListCont.size)
+		assertEquals(2, result.changeableUniqueListCont.size)
 		assertEquals("q1", result.changeableUniqueListCont.get(0).changeableAttr)
 		assertEquals("q31", result.changeableUniqueListCont.get(1).changeableAttr)
-		assertEquals("q1", result.changeableUniqueListCont.get(2).changeableAttr)
-		assertEquals("a3", result.changeableUniqueListCont.get(3).changeableAttr)
-		assertEquals("a2", result.changeableUniqueListCont.get(4).changeableAttr)
 	}
 	
 	@Test
@@ -99,13 +76,9 @@ abstract class ATestEMergerContainmentIdentity<T extends IElement<T>> extends AT
 		]
 		
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(6, result.changeableUniqueListCont.size)
+		assertEquals(2, result.changeableUniqueListCont.size)
 		assertEquals("q1", result.changeableUniqueListCont.get(0).changeableAttr)
 		assertEquals("a2", result.changeableUniqueListCont.get(1).changeableAttr)
-		assertEquals("q31", result.changeableUniqueListCont.get(2).changeableAttr)
-		assertEquals("q1", result.changeableUniqueListCont.get(3).changeableAttr)
-		assertEquals("q2", result.changeableUniqueListCont.get(4).changeableAttr)
-		assertEquals("a3", result.changeableUniqueListCont.get(5).changeableAttr)
 	}
 
 	@Test

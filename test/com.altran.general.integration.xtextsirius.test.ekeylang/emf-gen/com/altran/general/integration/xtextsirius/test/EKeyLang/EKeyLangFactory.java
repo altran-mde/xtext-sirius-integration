@@ -50,15 +50,6 @@ public interface EKeyLangFactory extends EFactory {
 	Leaf createLeaf();
 	
 	/**
-	 * Returns a new object of class '<em>Single</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Single</em>'.
-	 * @generated
-	 */
-	Single createSingle();
-	
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

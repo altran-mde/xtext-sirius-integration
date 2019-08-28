@@ -19,7 +19,7 @@ package com.altran.general.integration.xtextsirius.test.EKeyLang;
  * @model
  * @generated
  */
-public interface Leaf extends ANamedElement {
+public interface Leaf extends ANamedElement, IContainerContent {
 	
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' attribute.

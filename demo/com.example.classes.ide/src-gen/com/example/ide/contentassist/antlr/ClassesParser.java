@@ -51,7 +51,8 @@ public class ClassesParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAssociationAccess().getLowerBoundAssignment_7(), "rule__Association__LowerBoundAssignment_7");
 			builder.put(grammarAccess.getAssociationAccess().getUpperBoundAssignment_9(), "rule__Association__UpperBoundAssignment_9");
 			builder.put(grammarAccess.getClassAccess().getNameAssignment_2(), "rule__Class__NameAssignment_2");
-			builder.put(grammarAccess.getClassAccess().getAttributesAssignment_4(), "rule__Class__AttributesAssignment_4");
+			builder.put(grammarAccess.getClassAccess().getSubClassesAssignment_4(), "rule__Class__SubClassesAssignment_4");
+			builder.put(grammarAccess.getClassAccess().getAttributesAssignment_5(), "rule__Class__AttributesAssignment_5");
 			builder.put(grammarAccess.getAttributeAccess().getVisibilityAssignment_1(), "rule__Attribute__VisibilityAssignment_1");
 			builder.put(grammarAccess.getAttributeAccess().getNameAssignment_2(), "rule__Attribute__NameAssignment_2");
 			builder.put(grammarAccess.getAttributeAccess().getTypeAssignment_4(), "rule__Attribute__TypeAssignment_4");

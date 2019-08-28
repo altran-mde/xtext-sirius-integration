@@ -34,15 +34,11 @@ public class EKeyLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIContainerContentAccess().getAlternatives(), "rule__IContainerContent__Alternatives");
 			builder.put(grammarAccess.getContainerAccess().getGroup(), "rule__Container__Group__0");
 			builder.put(grammarAccess.getGroupAccess().getGroup(), "rule__Group__Group__0");
-			builder.put(grammarAccess.getSingleAccess().getGroup(), "rule__Single__Group__0");
-			builder.put(grammarAccess.getSingleAccess().getGroup_2(), "rule__Single__Group_2__0");
 			builder.put(grammarAccess.getLeafAccess().getGroup(), "rule__Leaf__Group__0");
 			builder.put(grammarAccess.getContainerAccess().getNameAssignment_2(), "rule__Container__NameAssignment_2");
 			builder.put(grammarAccess.getContainerAccess().getContentsAssignment_3(), "rule__Container__ContentsAssignment_3");
 			builder.put(grammarAccess.getGroupAccess().getNameAssignment_1(), "rule__Group__NameAssignment_1");
 			builder.put(grammarAccess.getGroupAccess().getLeafsAssignment_3(), "rule__Group__LeafsAssignment_3");
-			builder.put(grammarAccess.getSingleAccess().getNameAssignment_1(), "rule__Single__NameAssignment_1");
-			builder.put(grammarAccess.getSingleAccess().getLeafAssignment_2_1(), "rule__Single__LeafAssignment_2_1");
 			builder.put(grammarAccess.getLeafAccess().getNameAssignment_0(), "rule__Leaf__NameAssignment_0");
 			builder.put(grammarAccess.getLeafAccess().getNumberAssignment_1(), "rule__Leaf__NumberAssignment_1");
 		}

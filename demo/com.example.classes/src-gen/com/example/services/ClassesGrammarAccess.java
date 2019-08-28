@@ -204,18 +204,21 @@ public class ClassesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cAttributesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cAttributesAttributeParserRuleCall_4_0 = (RuleCall)cAttributesAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cSubClassesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSubClassesClassParserRuleCall_4_0 = (RuleCall)cSubClassesAssignment_4.eContents().get(0);
+		private final Assignment cAttributesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cAttributesAttributeParserRuleCall_5_0 = (RuleCall)cAttributesAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Class:
 		//	Description?
 		//	'class' name=ID '{'
+		//	subClasses+=Class*
 		//	attributes+=Attribute*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Description? 'class' name=ID '{' attributes+=Attribute* '}'
+		//Description? 'class' name=ID '{' subClasses+=Class* attributes+=Attribute* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//Description?
@@ -233,14 +236,20 @@ public class ClassesGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
+		//subClasses+=Class*
+		public Assignment getSubClassesAssignment_4() { return cSubClassesAssignment_4; }
+		
+		//Class
+		public RuleCall getSubClassesClassParserRuleCall_4_0() { return cSubClassesClassParserRuleCall_4_0; }
+		
 		//attributes+=Attribute*
-		public Assignment getAttributesAssignment_4() { return cAttributesAssignment_4; }
+		public Assignment getAttributesAssignment_5() { return cAttributesAssignment_5; }
 		
 		//Attribute
-		public RuleCall getAttributesAttributeParserRuleCall_4_0() { return cAttributesAttributeParserRuleCall_4_0; }
+		public RuleCall getAttributesAttributeParserRuleCall_5_0() { return cAttributesAttributeParserRuleCall_5_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class AttributeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.example.Classes.Attribute");
@@ -670,6 +679,7 @@ public class ClassesGrammarAccess extends AbstractGrammarElementFinder {
 	//Class:
 	//	Description?
 	//	'class' name=ID '{'
+	//	subClasses+=Class*
 	//	attributes+=Attribute*
 	//	'}';
 	public ClassElements getClassAccess() {

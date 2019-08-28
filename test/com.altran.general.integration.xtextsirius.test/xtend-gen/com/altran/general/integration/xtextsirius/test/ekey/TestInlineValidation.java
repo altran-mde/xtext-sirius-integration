@@ -9,6 +9,7 @@ import com.altran.general.integration.xtextsirius.test.EKeyLang.Container;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.EKeyLangFactory;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.EKeyLangPackage;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Group;
+import com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf;
 import com.altran.general.integration.xtextsirius.test.EKeyLangStandaloneSetup;
 import com.altran.general.integration.xtextsirius.test.editor.ATestXtextSiriusModel;
@@ -41,7 +42,7 @@ public class TestInlineValidation extends ATestXtextSiriusModel<Container> {
   @Test
   public void validEdit() {
     final Group group = IterableExtensions.<Group>head(Iterables.<Group>filter(this.model.getContents(), Group.class));
-    EList<Leaf> _leafs = group.getLeafs();
+    EList<IContainerContent> _leafs = group.getLeafs();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("b 2");
     _builder.newLine();
@@ -54,7 +55,13 @@ public class TestInlineValidation extends ATestXtextSiriusModel<Container> {
     _builder_1.append("b 22");
     _builder_1.newLine();
     _builder_1.append("\t");
-    _builder_1.append("e 44");
+    _builder_1.append("e {");
+    _builder_1.newLine();
+    _builder_1.append("\t\t");
+    _builder_1.append("x 123");
+    _builder_1.newLine();
+    _builder_1.append("\t");
+    _builder_1.append("}");
     _builder_1.newLine();
     _builder_1.append("\t");
     _builder_1.append("d 08155");
@@ -64,26 +71,33 @@ public class TestInlineValidation extends ATestXtextSiriusModel<Container> {
       it.setNumber(22);
     };
     Leaf _doubleArrow = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf, _function);
-    Leaf _createLeaf_1 = this._eKeyLangFactory.createLeaf();
-    final Procedure1<Leaf> _function_1 = (Leaf it) -> {
+    Group _createGroup = this._eKeyLangFactory.createGroup();
+    final Procedure1<Group> _function_1 = (Group it) -> {
       it.setName("e");
-      it.setNumber(44);
+      EList<IContainerContent> _leafs_1 = it.getLeafs();
+      Leaf _createLeaf_1 = this._eKeyLangFactory.createLeaf();
+      final Procedure1<Leaf> _function_2 = (Leaf it_1) -> {
+        it_1.setName("x");
+        it_1.setNumber(123);
+      };
+      Leaf _doubleArrow_1 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_1, _function_2);
+      _leafs_1.add(_doubleArrow_1);
     };
-    Leaf _doubleArrow_1 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_1, _function_1);
-    Leaf _createLeaf_2 = this._eKeyLangFactory.createLeaf();
+    Group _doubleArrow_1 = ObjectExtensions.<Group>operator_doubleArrow(_createGroup, _function_1);
+    Leaf _createLeaf_1 = this._eKeyLangFactory.createLeaf();
     final Procedure1<Leaf> _function_2 = (Leaf it) -> {
       it.setName("d");
       it.setNumber(8155);
     };
-    Leaf _doubleArrow_2 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_2, _function_2);
+    Leaf _doubleArrow_2 = ObjectExtensions.<Leaf>operator_doubleArrow(_createLeaf_1, _function_2);
     this.assertModelEdit(_leafs, group, _builder.toString(), _builder_1.toString(), 
-      Collections.<Leaf>unmodifiableList(CollectionLiterals.<Leaf>newArrayList(_doubleArrow, _doubleArrow_1, _doubleArrow_2)));
+      Collections.<IContainerContent>unmodifiableList(CollectionLiterals.<IContainerContent>newArrayList(_doubleArrow, _doubleArrow_1, _doubleArrow_2)));
   }
   
   @Test(expected = XtextSiriusValidationErrorException.class)
   public void invalidEdit() {
     final Group group = IterableExtensions.<Group>head(Iterables.<Group>filter(this.model.getContents(), Group.class));
-    EList<Leaf> _leafs = group.getLeafs();
+    EList<IContainerContent> _leafs = group.getLeafs();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("b 2");
     _builder.newLine();
@@ -107,7 +121,7 @@ public class TestInlineValidation extends ATestXtextSiriusModel<Container> {
   @Test(expected = XtextSiriusSyntaxErrorException.class)
   public void syntaxErrorEdit() {
     final Group group = IterableExtensions.<Group>head(Iterables.<Group>filter(this.model.getContents(), Group.class));
-    EList<Leaf> _leafs = group.getLeafs();
+    EList<IContainerContent> _leafs = group.getLeafs();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("b 2");
     _builder.newLine();

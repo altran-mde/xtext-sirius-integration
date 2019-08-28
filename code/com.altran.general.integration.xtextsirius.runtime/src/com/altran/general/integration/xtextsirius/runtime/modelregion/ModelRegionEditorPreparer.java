@@ -223,8 +223,6 @@ public class ModelRegionEditorPreparer {
 		final EObject preRootContainer = EcoreUtil.getRootContainer(getParent());
 		final ITextRegionAccess preRootRegion = new ModelRegionSerializer(this).serialize(preRootContainer);
 		
-		// TODO: The ModelRegionSerializer attaches the IgnoredFeatureAdapters.
-		// Do we still have them if formatting works?
 		EObject rootContainer = formatIfPossible(preRootContainer, preRootRegion);
 		if (rootContainer == null) {
 			rootContainer = preRootContainer;

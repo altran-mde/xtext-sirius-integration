@@ -79,6 +79,8 @@ public class EKeyLangSwitch<T> extends Switch<T> {
 				IContainerContent iContainerContent = (IContainerContent) theEObject;
 				T result = caseIContainerContent(iContainerContent);
 				if (result == null)
+					result = caseANamedElement(iContainerContent);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -93,9 +95,9 @@ public class EKeyLangSwitch<T> extends Switch<T> {
 				Group group = (Group) theEObject;
 				T result = caseGroup(group);
 				if (result == null)
-					result = caseANamedElement(group);
-				if (result == null)
 					result = caseIContainerContent(group);
+				if (result == null)
+					result = caseANamedElement(group);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -104,18 +106,9 @@ public class EKeyLangSwitch<T> extends Switch<T> {
 				Leaf leaf = (Leaf) theEObject;
 				T result = caseLeaf(leaf);
 				if (result == null)
+					result = caseIContainerContent(leaf);
+				if (result == null)
 					result = caseANamedElement(leaf);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case EKeyLangPackage.SINGLE: {
-				Single single = (Single) theEObject;
-				T result = caseSingle(single);
-				if (result == null)
-					result = caseANamedElement(single);
-				if (result == null)
-					result = caseIContainerContent(single);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -197,21 +190,6 @@ public class EKeyLangSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLeaf(Leaf object) {
-		return null;
-	}
-	
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Single</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Single</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSingle(Single object) {
 		return null;
 	}
 	

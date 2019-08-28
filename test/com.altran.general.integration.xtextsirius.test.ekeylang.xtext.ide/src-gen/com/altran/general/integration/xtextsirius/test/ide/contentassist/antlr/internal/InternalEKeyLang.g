@@ -124,31 +124,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleSingle
-entryRuleSingle
-:
-{ before(grammarAccess.getSingleRule()); }
-	 ruleSingle
-{ after(grammarAccess.getSingleRule()); } 
-	 EOF 
-;
-
-// Rule Single
-ruleSingle 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getSingleAccess().getGroup()); }
-		(rule__Single__Group__0)
-		{ after(grammarAccess.getSingleAccess().getGroup()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Entry rule entryRuleLeaf
 entryRuleLeaf
 :
@@ -186,9 +161,9 @@ rule__IContainerContent__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getIContainerContentAccess().getSingleParserRuleCall_1()); }
-		ruleSingle
-		{ after(grammarAccess.getIContainerContentAccess().getSingleParserRuleCall_1()); }
+		{ before(grammarAccess.getIContainerContentAccess().getLeafParserRuleCall_1()); }
+		ruleLeaf
+		{ after(grammarAccess.getIContainerContentAccess().getLeafParserRuleCall_1()); }
 	)
 ;
 finally {
@@ -438,141 +413,6 @@ finally {
 }
 
 
-rule__Single__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Single__Group__0__Impl
-	rule__Single__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSingleAccess().getSingleAction_0()); }
-	()
-	{ after(grammarAccess.getSingleAccess().getSingleAction_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Single__Group__1__Impl
-	rule__Single__Group__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSingleAccess().getNameAssignment_1()); }
-	(rule__Single__NameAssignment_1)
-	{ after(grammarAccess.getSingleAccess().getNameAssignment_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__Group__2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Single__Group__2__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__Group__2__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSingleAccess().getGroup_2()); }
-	(rule__Single__Group_2__0)?
-	{ after(grammarAccess.getSingleAccess().getGroup_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Single__Group_2__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Single__Group_2__0__Impl
-	rule__Single__Group_2__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__Group_2__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSingleAccess().getColonKeyword_2_0()); }
-	':'
-	{ after(grammarAccess.getSingleAccess().getColonKeyword_2_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__Group_2__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Single__Group_2__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__Group_2__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getSingleAccess().getLeafAssignment_2_1()); }
-	(rule__Single__LeafAssignment_2_1)
-	{ after(grammarAccess.getSingleAccess().getLeafAssignment_2_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 rule__Leaf__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -678,39 +518,9 @@ rule__Group__LeafsAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getGroupAccess().getLeafsLeafParserRuleCall_3_0()); }
-		ruleLeaf
-		{ after(grammarAccess.getGroupAccess().getLeafsLeafParserRuleCall_3_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__NameAssignment_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getSingleAccess().getNameIDTerminalRuleCall_1_0()); }
-		RULE_ID
-		{ after(grammarAccess.getSingleAccess().getNameIDTerminalRuleCall_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Single__LeafAssignment_2_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getSingleAccess().getLeafLeafParserRuleCall_2_1_0()); }
-		ruleLeaf
-		{ after(grammarAccess.getSingleAccess().getLeafLeafParserRuleCall_2_1_0()); }
+		{ before(grammarAccess.getGroupAccess().getLeafsIContainerContentParserRuleCall_3_0()); }
+		ruleIContainerContent
+		{ after(grammarAccess.getGroupAccess().getLeafsIContainerContentParserRuleCall_3_0()); }
 	)
 ;
 finally {

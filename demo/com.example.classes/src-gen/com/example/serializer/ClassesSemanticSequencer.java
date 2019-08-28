@@ -151,7 +151,7 @@ public class ClassesSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Class returns Class
 	 *
 	 * Constraint:
-	 *     (description=DESCRIPTION_TEXT? name=ID attributes+=Attribute*)
+	 *     (description=DESCRIPTION_TEXT? name=ID subClasses+=Class* attributes+=Attribute*)
 	 */
 	protected void sequence_Class_Description(ISerializationContext context, com.example.classes.Class semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

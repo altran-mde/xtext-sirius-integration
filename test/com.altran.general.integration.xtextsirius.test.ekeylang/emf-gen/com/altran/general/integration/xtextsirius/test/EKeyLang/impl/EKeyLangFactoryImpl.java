@@ -62,8 +62,6 @@ public class EKeyLangFactoryImpl extends EFactoryImpl implements EKeyLangFactory
 				return createGroup();
 			case EKeyLangPackage.LEAF:
 				return createLeaf();
-			case EKeyLangPackage.SINGLE:
-				return createSingle();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -100,17 +98,6 @@ public class EKeyLangFactoryImpl extends EFactoryImpl implements EKeyLangFactory
 	public Leaf createLeaf() {
 		LeafImpl leaf = new LeafImpl();
 		return leaf;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Single createSingle() {
-		SingleImpl single = new SingleImpl();
-		return single;
 	}
 	
 	/**

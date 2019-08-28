@@ -37,16 +37,21 @@ class TestInlineValidation extends ATestXtextSiriusModel<Container> {
 					d 0815''',
 			'''
 				b 22
-					e 44
+					e {
+						x 123
+					}
 					d 08155''',
 			#[
 				createLeaf => [
 					name = "b"
 					number = 22
 				],
-				createLeaf => [
+				createGroup => [
 					name = "e"
-					number = 44
+					leafs += createLeaf => [
+						name = "x"
+						number = 123
+					]
 				],
 				createLeaf => [
 					name = "d"

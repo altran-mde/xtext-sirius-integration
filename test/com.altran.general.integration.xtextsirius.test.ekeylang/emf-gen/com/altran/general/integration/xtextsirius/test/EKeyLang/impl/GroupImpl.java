@@ -4,8 +4,7 @@ package com.altran.general.integration.xtextsirius.test.EKeyLang.impl;
 
 import com.altran.general.integration.xtextsirius.test.EKeyLang.EKeyLangPackage;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Group;
-import com.altran.general.integration.xtextsirius.test.EKeyLang.Leaf;
-
+import com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -40,7 +39,7 @@ public class GroupImpl extends ANamedElementImpl implements Group {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Leaf> leafs;
+	protected EList<IContainerContent> leafs;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,9 +66,10 @@ public class GroupImpl extends ANamedElementImpl implements Group {
 	 * @generated
 	 */
 	@Override
-	public EList<Leaf> getLeafs() {
+	public EList<IContainerContent> getLeafs() {
 		if (leafs == null) {
-			leafs = new EObjectContainmentEList<Leaf>(Leaf.class, this, EKeyLangPackage.GROUP__LEAFS);
+			leafs = new EObjectContainmentEList<IContainerContent>(IContainerContent.class, this,
+					EKeyLangPackage.GROUP__LEAFS);
 		}
 		return leafs;
 	}
@@ -113,7 +113,7 @@ public class GroupImpl extends ANamedElementImpl implements Group {
 		switch (featureID) {
 			case EKeyLangPackage.GROUP__LEAFS:
 				getLeafs().clear();
-				getLeafs().addAll((Collection<? extends Leaf>) newValue);
+				getLeafs().addAll((Collection<? extends IContainerContent>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

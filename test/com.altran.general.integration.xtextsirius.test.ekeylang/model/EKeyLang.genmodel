@@ -23,8 +23,5 @@
     <genClasses ecoreClass="EKeyLang.ecore#//Leaf">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EKeyLang.ecore#//Leaf/number"/>
     </genClasses>
-    <genClasses ecoreClass="EKeyLang.ecore#//Single">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EKeyLang.ecore#//Single/leaf"/>
-    </genClasses>
   </genPackages>
 </genmodel:GenModel>

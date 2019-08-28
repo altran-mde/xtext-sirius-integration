@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.example.classes.Class#getName <em>Name</em>}</li>
+ *   <li>{@link com.example.classes.Class#getSubClasses <em>Sub Classes</em>}</li>
  *   <li>{@link com.example.classes.Class#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -45,6 +46,18 @@ public interface Class extends Content, Description
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Sub Classes</b></em>' containment reference list.
+   * The list contents are of type {@link com.example.classes.Class}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sub Classes</em>' containment reference list.
+   * @see com.example.classes.ClassesPackage#getClass_SubClasses()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Class> getSubClasses();
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
