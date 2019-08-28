@@ -190,13 +190,22 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 2;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+	
+	/**
 	 * The number of structural features of the '<em>IEef Xtext
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+	int IEEF_XTEXT_DESCRIPTION_FEATURE_COUNT = EefPackage.EEF_TEXT_DESCRIPTION_FEATURE_COUNT + 4;
 	
 	/**
 	 * The meta object id for the
@@ -326,6 +335,15 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int IEEF_XTEXT_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_MODEL_DESCRIPTION__ENABLE_FORMATTER = IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER;
 	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -502,6 +520,15 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_VALUE_DESCRIPTION__ENABLE_FORMATTER = IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -658,6 +685,15 @@ public interface EefxtextPackage extends EPackage {
 	int IEEF_XTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IEEF_XTEXT_PROPERTY_DESCRIPTION__ENABLE_FORMATTER = IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The number of structural features of the '<em>IEef Xtext Property
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -794,6 +830,15 @@ public interface EefxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IEEF_XTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER = IEEF_XTEXT_PROPERTY_DESCRIPTION__ENABLE_FORMATTER;
 	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
@@ -973,6 +1018,15 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IEEF_XTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER = IEEF_XTEXT_PROPERTY_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1150,6 +1204,15 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IEEF_XTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER = IEEF_XTEXT_PROPERTY_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1308,6 +1371,15 @@ public interface EefxtextPackage extends EPackage {
 	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = IEEF_XTEXT_PROPERTY_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EEF_XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER = IEEF_XTEXT_PROPERTY_DESCRIPTION__ENABLE_FORMATTER;
+	
+	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1386,6 +1458,19 @@ public interface EefxtextPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIEefXtextDescription_CancelOnValidationError();
+	
+	/**
+	 * Returns the meta object for the attribute
+	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isEnableFormatter
+	 * <em>Enable Formatter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @return the meta object for the attribute '<em>Enable Formatter</em>'.
+	 * @see com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription#isEnableFormatter()
+	 * @see #getIEefXtextDescription()
+	 * @generated
+	 */
+	EAttribute getIEefXtextDescription_EnableFormatter();
 	
 	/**
 	 * Returns the meta object for class
@@ -1622,6 +1707,14 @@ public interface EefxtextPackage extends EPackage {
 		 */
 		EAttribute IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = eINSTANCE
 				.getIEefXtextDescription_CancelOnValidationError();
+		
+		/**
+		 * The meta object literal for the '<em><b>Enable Formatter</b></em>'
+		 * attribute feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER = eINSTANCE.getIEefXtextDescription_EnableFormatter();
 		
 		/**
 		 * The meta object literal for the

@@ -50,6 +50,7 @@ public class XtextSingleLineModelDescriptionConverter extends AXtextDescriptionC
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
 			eefDescription.setCancelOnValidationError(propertyDescription.isCancelOnValidationError());
+			eefDescription.setEnableFormatter(propertyDescription.isEnableFormatter());
 			
 			eefDescription.setPrefixTerminalsExpression(propertyDescription.getPrefixTerminalsExpression());
 			eefDescription.setSuffixTerminalsExpression(propertyDescription.getSuffixTerminalsExpression());

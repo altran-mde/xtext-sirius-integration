@@ -30,6 +30,8 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDe
  * <em>Multi Line</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isCancelOnValidationError
  * <em>Cancel On Validation Error</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl.IEefXtextDescriptionImpl#isEnableFormatter
+ * <em>Enable Formatter</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +98,26 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	 * @ordered
 	 */
 	protected boolean cancelOnValidationError = CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+	
+	/**
+	 * The default value of the '{@link #isEnableFormatter() <em>Enable
+	 * Formatter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEnableFormatter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLE_FORMATTER_EDEFAULT = true;
+	
+	/**
+	 * The cached value of the '{@link #isEnableFormatter() <em>Enable
+	 * Formatter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEnableFormatter()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean enableFormatter = ENABLE_FORMATTER_EDEFAULT;
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -198,6 +220,32 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 	 * @generated
 	 */
 	@Override
+	public boolean isEnableFormatter() {
+		return this.enableFormatter;
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setEnableFormatter(final boolean newEnableFormatter) {
+		final boolean oldEnableFormatter = this.enableFormatter;
+		this.enableFormatter = newEnableFormatter;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					EefxtextPackage.IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER, oldEnableFormatter,
+					this.enableFormatter));
+		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__INJECTOR_ID:
@@ -206,6 +254,8 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 				return isMultiLine();
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				return isCancelOnValidationError();
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER:
+				return isEnableFormatter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -226,6 +276,9 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 				return;
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				setCancelOnValidationError((Boolean) newValue);
+				return;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER:
+				setEnableFormatter((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -248,6 +301,9 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				setCancelOnValidationError(CANCEL_ON_VALIDATION_ERROR_EDEFAULT);
 				return;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER:
+				setEnableFormatter(ENABLE_FORMATTER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -267,6 +323,8 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 				return this.multiLine != MULTI_LINE_EDEFAULT;
 			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
 				return this.cancelOnValidationError != CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+			case EefxtextPackage.IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER:
+				return this.enableFormatter != ENABLE_FORMATTER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -289,6 +347,8 @@ public abstract class IEefXtextDescriptionImpl extends EEFTextDescriptionImpl im
 		result.append(this.multiLine);
 		result.append(", cancelOnValidationError: ");
 		result.append(this.cancelOnValidationError);
+		result.append(", enableFormatter: ");
+		result.append(this.enableFormatter);
 		result.append(')');
 		return result.toString();
 	}

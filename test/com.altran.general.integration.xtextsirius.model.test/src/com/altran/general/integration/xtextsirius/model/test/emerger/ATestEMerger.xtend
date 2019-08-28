@@ -69,6 +69,10 @@ abstract class ATestEMerger<T extends IElement<?>> {
 				false
 			}
 			
+			override isEnableFormatter() {
+				true
+			}
+			
 		}
 	}
 

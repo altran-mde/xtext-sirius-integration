@@ -285,7 +285,8 @@ public class ModelRegionEditorPreparer {
 	}
 	
 	protected @Nullable EObject formatIfPossible(final EObject rootContainer, final ITextRegionAccess preRootRegion) {
-		if (this.requestProvider == null ||
+		if (!getDescriptor().isEnableFormatter() ||
+				this.requestProvider == null ||
 				this.formatterProvider == null ||
 				this.xtextResourceFactory == null ||
 				this.textRegionBuilderProvider == null ||

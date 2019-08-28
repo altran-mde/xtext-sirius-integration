@@ -89,6 +89,11 @@ public abstract class ATestEMerger<T extends IElement<?>> {
       public boolean isCancelOnValidationError() {
         return false;
       }
+      
+      @Override
+      public boolean isEnableFormatter() {
+        return true;
+      }
     };
   }
   

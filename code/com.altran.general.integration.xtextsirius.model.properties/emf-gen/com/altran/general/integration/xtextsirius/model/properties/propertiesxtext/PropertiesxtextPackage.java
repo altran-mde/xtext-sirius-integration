@@ -200,13 +200,22 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 1;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	
+	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 3;
 	
 	/**
 	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
@@ -216,7 +225,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 3;
+			+ 4;
 	
 	/**
 	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
@@ -226,7 +235,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 4;
+			+ 5;
 	
 	/**
 	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
@@ -236,7 +245,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 5;
+			+ 6;
 	
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Model
@@ -245,7 +254,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 6;
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 7;
 	
 	/**
 	 * The meta object id for the
@@ -397,6 +406,16 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 1;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+	
+	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -404,7 +423,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 2;
+			+ 3;
 	
 	/**
 	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
@@ -414,7 +433,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 3;
+			+ 4;
 	
 	/**
 	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
@@ -424,7 +443,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 4;
+			+ 5;
 	
 	/**
 	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
@@ -434,7 +453,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 5;
+			+ 6;
 	
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Model
@@ -443,7 +462,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 6;
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 7;
 	
 	/**
 	 * The meta object id for the
@@ -586,6 +605,15 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 1;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	
+	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -593,7 +621,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 2;
+			+ 3;
 	
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -603,7 +631,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 3;
+			+ 4;
 	
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Value
@@ -612,7 +640,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 4;
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 5;
 	
 	/**
 	 * The meta object id for the
@@ -764,6 +792,16 @@ public interface PropertiesxtextPackage extends EPackage {
 			+ 1;
 	
 	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+	
+	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -771,7 +809,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 2;
+			+ 3;
 	
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
@@ -781,7 +819,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 3;
+			+ 4;
 	
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Value
@@ -790,7 +828,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 4;
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 5;
 	
 	
 	/**

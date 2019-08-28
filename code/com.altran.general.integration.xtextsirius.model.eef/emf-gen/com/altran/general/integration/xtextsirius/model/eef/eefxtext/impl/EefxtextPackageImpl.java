@@ -208,6 +208,16 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIEefXtextDescription_EnableFormatter() {
+		return (EAttribute) this.iEefXtextDescriptionEClass.getEStructuralFeatures().get(3);
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getIEefXtextModelDescription() {
 		return this.iEefXtextModelDescriptionEClass;
 	}
@@ -367,6 +377,7 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__INJECTOR_ID);
 		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__MULTI_LINE);
 		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR);
+		createEAttribute(this.iEefXtextDescriptionEClass, IEEF_XTEXT_DESCRIPTION__ENABLE_FORMATTER);
 		
 		this.iEefXtextModelDescriptionEClass = createEClass(IEEF_XTEXT_MODEL_DESCRIPTION);
 		createEAttribute(this.iEefXtextModelDescriptionEClass, IEEF_XTEXT_MODEL_DESCRIPTION__EDITABLE_FEATURES);
@@ -451,6 +462,9 @@ public class EefxtextPackageImpl extends EPackageImpl implements EefxtextPackage
 		initEAttribute(getIEefXtextDescription_CancelOnValidationError(), theEcorePackage.getEBoolean(),
 				"cancelOnValidationError", null, 0, 1, IEefXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIEefXtextDescription_EnableFormatter(), theEcorePackage.getEBoolean(), "enableFormatter",
+				"true", 0, 1, IEefXtextDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		
 		initEClass(this.iEefXtextModelDescriptionEClass, IEefXtextModelDescription.class, "IEefXtextModelDescription",
 				IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
