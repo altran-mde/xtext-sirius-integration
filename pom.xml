@@ -11,6 +11,7 @@
 		<tycho.version>1.4.0</tycho.version>
 		<xtend.version>2.17.0</xtend.version>
 		<xtext.version>2.17.0</xtext.version>
+		<xtextVersion>${xtext.version}</xtextVersion>
 		<build.helper.maven.version>3.0.0</build.helper.maven.version>
 		<maven.clean.version>3.1.0</maven.clean.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,7 +22,8 @@
 	<modules>
 		<module>code</module>
 		<module>releng</module>
-		<!--module>test</module-->
+		<module>test</module>
+		<module>demo</module>
 	</modules>
 
 	<build>

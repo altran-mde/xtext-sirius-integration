@@ -128,8 +128,9 @@ public class TestEMergerContainmentEditableFeatures extends TestEMergerContainme
     Element _head = IterableExtensions.<Element>head(edited.getChangeableUniqueListCont());
     Element _newEdited = this.newEdited(2, "2");
     final Element result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(Collections.<Element>unmodifiableSet(CollectionLiterals.<Element>newHashSet(_head, _newEdited)), this.changeableUniqueListContFeature());
-    Assert.assertEquals(2, result.getChangeableUniqueListCont().size());
-    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a3"));
-    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a2"));
+    final EList<Element> list = result.getChangeableUniqueListCont();
+    Assert.assertEquals(2, list.size());
+    Assert.assertTrue(this.renderList(list), this.valueExists(list, "a3"));
+    Assert.assertTrue(this.renderList(list), this.valueExists(list, "a2"));
   }
 }

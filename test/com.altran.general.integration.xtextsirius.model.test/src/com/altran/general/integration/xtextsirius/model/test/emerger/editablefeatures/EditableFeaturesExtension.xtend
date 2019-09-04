@@ -54,7 +54,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 
-		new EMerger(test.createDescriptor(editableFeatures, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(editableFeatures, emptySet), existing, URI.createURI(resourceName))
 	}
 	
 	def createEMerger(T existing, EStructuralFeature feature) {
@@ -66,8 +66,12 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 		
-		new EMerger(test.createDescriptor(#{feature.name}, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(#{feature.name}, emptySet), existing, URI.createURI(resourceName))
 	}
+	
+	protected def String resourceName()
+		'''resourceName.xmi'''
+	
 	
 	def createEMerger(T existing, EStructuralFeature feature, Set<String> editableFeatures) {
 		this.existing = existing
@@ -78,7 +82,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 		
-		new EMerger(test.createDescriptor(editableFeatures, emptySet), existing, URI.createURI("resourceName.xmi#/42"))
+		new EMerger(test.createDescriptor(editableFeatures, emptySet), existing, URI.createURI(resourceName))
 	}
 	
 	def void checkUntouchedFeatures() {
@@ -132,18 +136,18 @@ class EditableFeaturesExtension<T extends IElement<?>> {
     protected def createAttributeValue(EAttribute feature) {
         if (feature.isMany) {
             switch (feature.EType) {
-                case EcorePackage$Literals::ESTRING:
+                case EcorePackage.Literals::ESTRING:
                     #["aaa", "bbb"]
-                case EcorePackage$Literals::EINT:
+                case EcorePackage.Literals::EINT:
                     #[23, 42]
-                case EcorePackage$Literals::EDOUBLE:
+                case EcorePackage.Literals::EDOUBLE:
                     #[2.71, 3.14]
             }
         } else {
             EcoreUtil.createFromString(feature.EType as EDataType, switch (feature.EType) {
-                case EcorePackage$Literals::ESTRING: "aaa"
-                case EcorePackage$Literals::EINT: "23"
-                case EcorePackage$Literals::EDOUBLE: "2.71"
+                case EcorePackage.Literals::ESTRING: "aaa"
+                case EcorePackage.Literals::EINT: "23"
+                case EcorePackage.Literals::EDOUBLE: "2.71"
             })
         }
     }

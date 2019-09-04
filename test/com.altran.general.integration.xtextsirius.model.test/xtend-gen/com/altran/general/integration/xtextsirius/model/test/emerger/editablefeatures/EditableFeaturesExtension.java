@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -76,7 +77,7 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
       };
       this.untouchedFeatures.forEach(_function_2);
       IXtextSiriusModelDescriptor _createDescriptor = this.test.createDescriptor(editableFeatures, CollectionLiterals.<String>emptySet());
-      URI _createURI = URI.createURI("resourceName.xmi#/42");
+      URI _createURI = URI.createURI(this.resourceName());
       _xblockexpression = new EMerger<T>(_createDescriptor, existing, _createURI);
     }
     return _xblockexpression;
@@ -99,10 +100,16 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
       this.untouchedFeatures.forEach(_function_2);
       String _name = feature.getName();
       IXtextSiriusModelDescriptor _createDescriptor = this.test.createDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet(_name)), CollectionLiterals.<String>emptySet());
-      URI _createURI = URI.createURI("resourceName.xmi#/42");
+      URI _createURI = URI.createURI(this.resourceName());
       _xblockexpression = new EMerger<T>(_createDescriptor, existing, _createURI);
     }
     return _xblockexpression;
+  }
+  
+  protected String resourceName() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("resourceName.xmi");
+    return _builder.toString();
   }
   
   public EMerger<T> createEMerger(final T existing, final EStructuralFeature feature, final Set<String> editableFeatures) {
@@ -122,7 +129,7 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
       };
       this.untouchedFeatures.forEach(_function_2);
       IXtextSiriusModelDescriptor _createDescriptor = this.test.createDescriptor(editableFeatures, CollectionLiterals.<String>emptySet());
-      URI _createURI = URI.createURI("resourceName.xmi#/42");
+      URI _createURI = URI.createURI(this.resourceName());
       _xblockexpression = new EMerger<T>(_createDescriptor, existing, _createURI);
     }
     return _xblockexpression;

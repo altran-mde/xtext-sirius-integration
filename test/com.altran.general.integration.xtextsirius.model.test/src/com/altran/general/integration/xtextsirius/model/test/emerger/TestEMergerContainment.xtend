@@ -33,9 +33,10 @@ class TestEMergerContainment extends ATestEMergerContainmentMixed<Element> {
 		]
 		
 		val result = createEMerger(existing, changeableUniqueListContFeature).merge(#{edited.changeableUniqueListCont.head, newEdited(2, "2")}, changeableUniqueListContFeature)
-		assertEquals(2, result.changeableUniqueListCont.size)
-		assertTrue(result.changeableUniqueListCont.valueExists("a3"))
-		assertTrue(result.changeableUniqueListCont.valueExists("a2"))
+		val list = result.changeableUniqueListCont
+		assertEquals(2, list.size)
+		assertTrue(list.renderList, list.valueExists("a3"))
+		assertTrue(list.renderList, list.valueExists("a2"))
 	}
 
 	@Test
