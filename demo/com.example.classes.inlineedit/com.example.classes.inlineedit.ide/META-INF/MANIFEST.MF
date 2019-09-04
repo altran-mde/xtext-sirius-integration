@@ -13,3 +13,4 @@ Require-Bundle: com.example.classes.inlineedit,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.example.classes.ide.contentassist.antlr,
  com.example.classes.ide.contentassist.antlr.internal
+Automatic-Module-Name: com.example.classes.inlineedit.ide

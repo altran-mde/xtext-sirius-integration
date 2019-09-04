@@ -1,17 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Xtext / Sirius Integration VSP Converter Extension
+Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime.converter;singleton:=true
-Bundle-Version: 0.9.0.qualifier
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.runtime.converter
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.converter.internal.RuntimeConverterActivator
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore,
- com.altran.general.integration.xtextsirius.model.properties,
- com.altran.general.integration.xtextsirius.model.eef,
- org.eclipse.sirius.properties,
- org.eclipse.sirius.properties.core
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: com.altran.general.integration.xtextsirius.runtime.converter
-Import-Package: com.altran.general.integration.xtextsirius.model.properties.propertiesxtext
-Bundle-Vendor: Altran Netherlands B.V.
+Export-Package: com.altran.general.integration.xtextsirius.runtime.converter,
+ com.altran.general.integration.xtextsirius.runtime.converter.internal;x-internal:=true
+Require-Bundle: org.eclipse.core.runtime;bundle-version=3.14.0,
+ org.eclipse.emf.ecore;bundle-version=2.17.0,
+ org.eclipse.sirius.properties;bundle-version=6.0.0,
+ org.eclipse.sirius.properties.core;bundle-version=6.0.0,
+ com.altran.general.integration.xtextsirius.model.properties;bundle-version=1.0.0,
+ com.altran.general.integration.xtextsirius.model.eef;bundle-version=1.0.0

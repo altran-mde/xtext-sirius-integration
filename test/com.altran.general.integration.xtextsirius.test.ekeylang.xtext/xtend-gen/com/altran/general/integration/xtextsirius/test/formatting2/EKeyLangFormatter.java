@@ -6,8 +6,6 @@ package com.altran.general.integration.xtextsirius.test.formatting2;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Container;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Group;
 import com.altran.general.integration.xtextsirius.test.EKeyLang.IContainerContent;
-import com.altran.general.integration.xtextsirius.test.services.EKeyLangGrammarAccess;
-import com.google.inject.Inject;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -18,10 +16,6 @@ import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
 public class EKeyLangFormatter extends AbstractFormatter2 {
-  @Inject
-  @Extension
-  private EKeyLangGrammarAccess _eKeyLangGrammarAccess;
-  
   protected void _format(final Container container, @Extension final IFormattableDocument document) {
     EList<IContainerContent> _contents = container.getContents();
     for (final IContainerContent iContainerContent : _contents) {

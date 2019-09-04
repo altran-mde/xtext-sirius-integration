@@ -26,3 +26,4 @@ Export-Package: nl.altran.example.xtext.html.parser.antlr,
  nl.altran.example.xtext.html.validation,
  nl.altran.example.xtext.html.htmlLang.util
 Import-Package: org.apache.log4j
+Automatic-Module-Name: nl.altran.example.xtext.html

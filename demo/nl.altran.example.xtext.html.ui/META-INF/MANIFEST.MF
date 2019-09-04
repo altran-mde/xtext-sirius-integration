@@ -23,3 +23,4 @@ Export-Package: nl.altran.example.xtext.html.ui.quickfix,
  nl.altran.example.xtext.html.ui.contentassist,
  nl.altran.example.xtext.html.ui.internal
 Bundle-Activator: nl.altran.example.xtext.html.ui.internal.HtmlActivator
+Automatic-Module-Name: nl.altran.example.xtext.html.ui

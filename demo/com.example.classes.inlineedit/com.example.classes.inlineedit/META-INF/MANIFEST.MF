@@ -23,3 +23,4 @@ Export-Package: com.example.classes.services,
  com.example.classes.parser.antlr,
  com.example.classes.validation
 Import-Package: org.apache.log4j
+Automatic-Module-Name: com.example.classes.inlineedit

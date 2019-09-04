@@ -1,15 +1,18 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Xtext / Sirius Integration VSP Extension Registration
+Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.dialect.ui;singleton:=true
-Bundle-Version: 0.9.1.qualifier
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.dialect.ui
 Bundle-Activator: com.altran.general.integration.xtextsirius.dialect.ui.internal.XtextSiriusDialectUiPlugin
-Bundle-Vendor: Altran Netherlands B.V.
-Require-Bundle: org.eclipse.sirius.diagram.ui,
- org.eclipse.gmf.runtime.diagram.ui,
- com.altran.general.integration.xtextsirius.model.viewpoint,
- com.altran.general.integration.xtextsirius.model.diagram,
- com.google.guava,
- org.eclipse.sirius.editor
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.altran.general.integration.xtextsirius.dialect.ui.internal;x-internal:=true
+Require-Bundle: com.google.guava;bundle-version=27.0.0,
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version=1.8.0,
+ org.eclipse.sirius.diagram.ui;bundle-version=6.0.0,
+ org.eclipse.sirius.editor;bundle-version=6.0.0,
+ com.altran.general.integration.xtextsirius.model.viewpoint;bundle-version=1.0.0,
+ com.altran.general.integration.xtextsirius.model.diagram;bundle-version=1.0.0

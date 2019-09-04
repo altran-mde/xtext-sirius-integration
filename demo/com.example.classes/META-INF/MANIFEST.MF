@@ -29,3 +29,4 @@ Export-Package: com.example.parser.antlr.internal,
  com.example.parser.antlr,
  com.example.formatting2
 Import-Package: org.apache.log4j
+Automatic-Module-Name: com.example.classes

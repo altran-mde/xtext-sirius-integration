@@ -2,7 +2,7 @@
 <feature
       id="com.altran.general.integration.xtextsirius.runtime.feature"
       label="Xtext / Sirius Integration Runtime Feature"
-      version="0.23.1.qualifier"
+      version="1.0.0.qualifier"
       provider-name="Altran Netherlands B.V."
       license-feature="org.eclipse.license"
       license-feature-version="2.0.2">

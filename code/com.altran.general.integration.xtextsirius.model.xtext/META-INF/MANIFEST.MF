@@ -1,16 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.model.xtext;singleton:=true
-Bundle-Version: 0.12.0.qualifier
-Bundle-ClassPath: .
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.model.xtext
+Bundle-Name: %pluginName
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: .
 Export-Package: com.altran.general.integration.xtextsirius.model.xtext.xtextsirius,
  com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.impl,
  com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.util
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
-Eclipse-LazyStart: true
-Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime;bundle-version=3.14.0,
+ org.eclipse.emf.ecore;bundle-version=2.17.0;visibility:=reexport

@@ -35,3 +35,4 @@ Export-Package: com.altran.general.integration.xtextsirius.test,
  com.altran.general.integration.xtextsirius.test.util.styledtextutil
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.test

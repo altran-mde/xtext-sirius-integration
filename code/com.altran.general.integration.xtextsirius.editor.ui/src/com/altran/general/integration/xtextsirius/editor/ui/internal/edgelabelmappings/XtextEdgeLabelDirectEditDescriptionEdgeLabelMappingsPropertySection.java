@@ -73,7 +73,7 @@ extends AbstractEditorDialogWithListPropertySection {
 	 * handleFeatureModified(List)
 	 */
 	@Override
-	protected void handleFeatureModified(final @SuppressWarnings("rawtypes") List result) {
+	protected void handleFeatureModified(final List result) {
 		final boolean equals = isEqual(result);
 
 		if (!equals) {

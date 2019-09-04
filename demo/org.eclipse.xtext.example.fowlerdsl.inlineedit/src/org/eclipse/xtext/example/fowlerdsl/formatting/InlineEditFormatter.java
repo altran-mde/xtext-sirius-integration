@@ -3,10 +3,8 @@
  */
 package org.eclipse.xtext.example.fowlerdsl.formatting;
 
-import com.google.inject.Inject;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
-import org.eclipse.xtext.example.fowlerdsl.services.InlineEditGrammarAccess;
 
 /**
  * This class contains custom formatting declarations.
@@ -18,11 +16,11 @@ import org.eclipse.xtext.example.fowlerdsl.services.InlineEditGrammarAccess;
  */
 public class InlineEditFormatter extends AbstractDeclarativeFormatter {
 	
-	@Inject
-	private InlineEditGrammarAccess grammarAccess; 
+	// @Inject
+	// private InlineEditGrammarAccess grammarAccess;
 	
 	@Override
-	protected void configureFormatting(FormattingConfig c) {
+	protected void configureFormatting(final FormattingConfig c) {
 // It's usually a good idea to activate the following three statements.
 // They will add and preserve newlines around comments
 //		c.setLinewrap(0, 1, 2).before(grammarAccess.getSL_COMMENTRule());

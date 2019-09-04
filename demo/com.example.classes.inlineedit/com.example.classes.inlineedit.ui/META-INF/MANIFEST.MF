@@ -25,3 +25,4 @@ Export-Package: com.example.classes.ui.quickfix,
  com.example.classes.ui.contentassist,
  com.example.classes.inlineedit.ui.internal
 Bundle-Activator: com.example.classes.inlineedit.ui.internal.InlineeditActivator
+Automatic-Module-Name: com.example.classes.inlineedit.ui
