@@ -13,6 +13,7 @@ import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IEl
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerger
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger
+import com.google.common.collect.ImmutableSet
 import java.util.List
 import java.util.Set
 import java.util.concurrent.atomic.AtomicInteger
@@ -66,7 +67,7 @@ class EditableFeaturesExtension<T extends IElement<?>> {
 			.toSet
 		this.untouchedFeatures.forEach[fillFeature(it)]
 		
-		new EMerger(test.createDescriptor(#{feature.name}, emptySet), existing, URI.createURI(resourceName))
+		new EMerger(test.createDescriptor(ImmutableSet::of(feature.name), emptySet), existing, URI.createURI(resourceName))
 	}
 	
 	protected def String resourceName()

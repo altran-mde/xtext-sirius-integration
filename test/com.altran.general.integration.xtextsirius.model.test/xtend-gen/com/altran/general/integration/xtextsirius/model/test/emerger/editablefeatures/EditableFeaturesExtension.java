@@ -15,6 +15,7 @@ import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerge
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableSet;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -98,8 +99,7 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
         this.fillFeature(it);
       };
       this.untouchedFeatures.forEach(_function_2);
-      String _name = feature.getName();
-      IXtextSiriusModelDescriptor _createDescriptor = this.test.createDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet(_name)), CollectionLiterals.<String>emptySet());
+      IXtextSiriusModelDescriptor _createDescriptor = this.test.createDescriptor(ImmutableSet.<String>of(feature.getName()), CollectionLiterals.<String>emptySet());
       URI _createURI = URI.createURI(this.resourceName());
       _xblockexpression = new EMerger<T>(_createDescriptor, existing, _createURI);
     }

@@ -10,6 +10,7 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
+import com.google.common.collect.ImmutableSet
 import org.junit.Test
 
 import static org.junit.Assert.*
@@ -32,7 +33,7 @@ class TestEMergerContainment extends ATestEMergerContainmentMixed<Element> {
 			changeableUniqueListCont += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
 		
-		val result = createEMerger(existing, changeableUniqueListContFeature).merge(#{edited.changeableUniqueListCont.head, newEdited(2, "2")}, changeableUniqueListContFeature)
+		val result = createEMerger(existing, changeableUniqueListContFeature).merge(ImmutableSet::of(edited.changeableUniqueListCont.head, newEdited(2, "2")), changeableUniqueListContFeature)
 		val list = result.changeableUniqueListCont
 		assertEquals(2, list.size)
 		assertTrue(list.renderList, list.valueExists("a3"))
