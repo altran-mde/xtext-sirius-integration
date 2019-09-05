@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: nl.altran.example.xtext.html
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: nl.altran.example.xtext.html; singleton:=true
+Bundle-SymbolicName: nl.altran.example.xtext.html;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.equinox.common;bundle-version="3.5.0",

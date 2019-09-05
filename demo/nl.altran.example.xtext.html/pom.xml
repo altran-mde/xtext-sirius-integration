@@ -5,7 +5,7 @@
         <artifactId>com.altran.general.integration.xtextsirius.demo</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-	<artifactId>nl.altran.examples.xtext.html</artifactId>
+	<artifactId>nl.altran.example.xtext.html</artifactId>
 	
 	<!-- Override version if needed -->
 	<version>1.0.0-SNAPSHOT</version>
