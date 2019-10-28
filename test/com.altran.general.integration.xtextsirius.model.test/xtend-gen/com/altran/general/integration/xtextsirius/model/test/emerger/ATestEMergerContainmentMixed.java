@@ -296,7 +296,7 @@ public abstract class ATestEMergerContainmentMixed<T extends IElement<T>> extend
     final T result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(Collections.<T>unmodifiableSet(CollectionLiterals.<T>newHashSet(_head, _newEdited)), this.changeableUniqueListContFeature());
     Assert.assertEquals(2, result.getChangeableUniqueListCont().size());
     Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a3"));
-    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a2"));
+    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "q2"));
   }
   
   @Test
@@ -340,8 +340,8 @@ public abstract class ATestEMergerContainmentMixed<T extends IElement<T>> extend
     T _newEdited = this.newEdited(2, "2");
     final T result = this.createEMerger(existing, this.changeableSetContFeature()).merge(Collections.<T>unmodifiableList(CollectionLiterals.<T>newArrayList(_head, _newEdited)), this.changeableSetContFeature());
     Assert.assertEquals(2, result.getChangeableSetCont().size());
+    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "q1"));
     Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a2"));
-    Assert.assertTrue(this.valueExists(result.getChangeableSetCont(), "a3"));
   }
   
   protected EReference changeableSetContFeature() {

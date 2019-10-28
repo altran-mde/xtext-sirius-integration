@@ -1,14 +1,15 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.modelregion;
 
+import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
@@ -32,34 +33,43 @@ import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.util.TextRegion;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.patch.Streams;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Streams;
 
+/**
+ * Determines which parts of the input text is part of the relevant model
+ * element, and adds terminals if required for editing sub-features.
+ */
 @SuppressWarnings("restriction")
 public class ModelRegionCalculator {
 	private final ModelRegionEditorPreparer preparer;
-
+	private final Set<@NonNull EStructuralFeature> definedFeatures = Sets.newLinkedHashSet();
+	
 	public ModelRegionCalculator(final ModelRegionEditorPreparer preparer) {
 		this.preparer = preparer;
 	}
 	
-	public TextRegion calculateFeatureRegion(
+	public ModelRegionCalculator(final ModelRegionEditorPreparer preparer,
+			final @NonNull Set<@NonNull EStructuralFeature> initiallyDefinedFeatures) {
+		this(preparer);
+		this.definedFeatures.addAll(initiallyDefinedFeatures);
+	}
+	
+	public @NonNull TextRegion calculateFeatureRegion(
 			final @NonNull EObject element,
 			final @NonNull Set<@NonNull String> featureNames,
-			final @NonNull Set<@NonNull EStructuralFeature> features,
 			final boolean addRequiredTerminals) {
 		TextRegion result;
-
+		
 		if (featureNames.isEmpty()) {
 			result = new TextRegion(this.preparer.getSemanticRegion().getOffset(),
 					this.preparer.getSemanticRegion().getLength());
 		} else {
 			final @NonNull Set<@NonNull EStructuralFeature> resolvedFeatures = resolveFeatures(element, featureNames);
-			final @NonNull Set<@NonNull EStructuralFeature> definedFeatures = resolveDefinedFeatures(element,
-					resolvedFeatures);
-			features.addAll(definedFeatures);
-
-			if (!definedFeatures.isEmpty()) {
-				result = calculateRegionForFeatures(element, definedFeatures, addRequiredTerminals);
+			getDefinedFeatures().addAll(resolveDefinedFeatures(element, resolvedFeatures));
+			
+			if (!getDefinedFeatures().isEmpty()) {
+				result = calculateRegionForFeatures(element, addRequiredTerminals);
 			} else if (addRequiredTerminals) {
 				result = new RequiredGrammarTerminalsPresentEnsurer(element,
 						resolvedFeatures.iterator().next(), this.preparer.getRootRegion(), this.preparer.getAllText())
@@ -68,19 +78,20 @@ public class ModelRegionCalculator {
 				result = new TextRegion(this.preparer.getSemanticRegion().getOffset(), 0);
 			}
 		}
-
+		
 		return result;
 	}
-
-	@NonNull
-	public TextRegion calculateRegionForFeatures(
+	
+	public @NonNull Set<@NonNull EStructuralFeature> getDefinedFeatures() {
+		return this.definedFeatures;
+	}
+	
+	protected @NonNull TextRegion calculateRegionForFeatures(
 			final @NonNull EObject semanticElement,
-			final @NonNull Set<@NonNull EStructuralFeature> definedFeatures,
 			final boolean addRequiredTerminals) {
-		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(definedFeatures,
-				this.preparer.getSemanticRegion(),
+		final Set<@NonNull ISemanticRegion> featureRegions = translateToRegions(this.preparer.getSemanticRegion(),
 				semanticElement, this.preparer.getRootRegion());
-
+		
 		ISemanticRegion firstRegion = SemanticRegionNavigator.getInstance().selectFirstmostRegion(featureRegions);
 		if (addRequiredTerminals) {
 			final String pattern = this.preparer.getPrefixText();
@@ -92,7 +103,7 @@ public class ModelRegionCalculator {
 			}
 		}
 		final int startOffset = firstRegion.getOffset();
-
+		
 		ISemanticRegion endRegion = SemanticRegionNavigator.getInstance().selectLastmostRegion(featureRegions);
 		if (addRequiredTerminals) {
 			final String pattern = this.preparer.getSuffixText();
@@ -103,10 +114,10 @@ public class ModelRegionCalculator {
 			}
 		}
 		final int endOffset = endRegion.getEndOffset();
-
+		
 		return new TextRegion(startOffset, endOffset - startOffset);
 	}
-
+	
 	/**
 	 * Returns the SemanticRegion of existing terminals that are attached to the
 	 * semantic contents of {@code region}, if any; otherwise, returns
@@ -115,34 +126,34 @@ public class ModelRegionCalculator {
 	protected ISemanticRegion extendHeuristiclyByAttachedTerminals(final @NonNull ISemanticRegion region,
 			final @NonNull Function<ISemanticRegion, ISemanticRegion> extender) {
 		ISemanticRegion result = region;
-
+		
 		// this logic is really only trial&error, don't try to find a deeper
 		// meaning
 		
 		final ISemanticRegion nextSemanticRegion = extender.apply(region);
 		if (nextSemanticRegion != null && nextSemanticRegion.getGrammarElement() instanceof Keyword) {
-
+			
 			ISemanticRegion ongoingSemanticRegion = nextSemanticRegion;
 			for (;;) {
 				final ISemanticRegion next = extender.apply(ongoingSemanticRegion);
 				if (next == null) {
 					break;
 				}
-
+				
 				ongoingSemanticRegion = next;
-
+				
 				if (!(next.getGrammarElement() instanceof Keyword)) {
 					break;
 				}
 			}
-
+			
 			if (ongoingSemanticRegion != null) {
 				final Group group = GrammarUtil.containingGroup(nextSemanticRegion.getGrammarElement());
-
+				
 				if (group != null) {
-
+					
 					final ParentMap parentMap = new ParentMap(group, group);
-
+					
 					if (!parentMap.containsGrammarElementDeep(
 							(AbstractElement) ongoingSemanticRegion.getGrammarElement(),
 							ImmutableList.of(group))) {
@@ -153,7 +164,7 @@ public class ModelRegionCalculator {
 		}
 		return result;
 	}
-
+	
 	protected ISemanticRegion extendPatternBasedByAttachedTerminals(final @NonNull ISemanticRegion region,
 			final @NonNull String pattern,
 			final @NonNull Function<ISemanticRegion, ISemanticRegion> extender) {
@@ -180,19 +191,17 @@ public class ModelRegionCalculator {
 		
 		return result;
 	}
-
-
+	
+	
 	/**
 	 * Collects all SemanticRegions covering {@code features} within
 	 * {@code semanticElement} / {@code semanticRegion}.
 	 */
-	@NonNull
-	public Set<@NonNull ISemanticRegion> translateToRegions(
-			final @NonNull Set<@NonNull EStructuralFeature> features,
+	protected @NonNull Set<@NonNull ISemanticRegion> translateToRegions(
 			final @NonNull IEObjectRegion semanticRegion,
 			final @NonNull EObject semanticElement,
 			final @NonNull ITextRegionAccess rootRegion) {
-		return features.stream()
+		return getDefinedFeatures().stream()
 				.flatMap(feature -> {
 					if (canBeHandledByGetRegionForFeature(feature)) {
 						return Stream.of(semanticRegion.getRegionFor().feature(feature));
@@ -200,6 +209,12 @@ public class ModelRegionCalculator {
 						final Object child = semanticElement.eGet(feature);
 						if (child instanceof EObject) {
 							return Streams.stream(rootRegion.regionForEObject((EObject) child).getAllSemanticRegions());
+						} else if (child instanceof Collection) {
+							return ((Collection<?>) child).stream()
+									.filter(EObject.class::isInstance)
+									.map(EObject.class::cast)
+									.flatMap(e -> Streams
+											.stream(rootRegion.regionForEObject(e).getAllSemanticRegions()));
 						} else {
 							return Stream.of();
 						}
@@ -207,19 +222,18 @@ public class ModelRegionCalculator {
 				})
 				.collect(Collectors.toSet());
 	}
-
+	
 	/**
 	 * Inverted version of
 	 * {@link org.eclipse.xtext.formatting2.regionaccess.internal.AbstractSemanticRegionsFinder#assertNoContainment(EStructuralFeature)}
 	 * .
 	 */
-	public boolean canBeHandledByGetRegionForFeature(final @NonNull EStructuralFeature feature) {
+	protected boolean canBeHandledByGetRegionForFeature(final @NonNull EStructuralFeature feature) {
 		return feature instanceof EAttribute
 				|| (feature instanceof EReference && !((EReference) feature).isContainment());
 	}
-
-	@NonNull
-	public Set<@NonNull EStructuralFeature> resolveDefinedFeatures(
+	
+	protected @NonNull Set<@NonNull EStructuralFeature> resolveDefinedFeatures(
 			final @NonNull EObject semanticElement,
 			final @NonNull Set<@NonNull EStructuralFeature> features) {
 		final @NonNull Set<@NonNull EStructuralFeature> definedFeatures = features.stream()
@@ -227,7 +241,7 @@ public class ModelRegionCalculator {
 				.collect(Collectors.toSet());
 		return definedFeatures;
 	}
-
+	
 	/**
 	 * Converts all <i>editableFeatures</i> (defined as string) into
 	 * {@link EStructuralFeature}s, iff defined for
@@ -235,11 +249,11 @@ public class ModelRegionCalculator {
 	 */
 	protected @NonNull Set<@NonNull EStructuralFeature> resolveEditableFeatures(
 			final @NonNull EObject semanticElement) {
-
+		
 		return resolveFeatures(semanticElement, this.preparer.getEditableFeatures());
 	}
 	
-	public @NonNull Set<@NonNull EStructuralFeature> resolveFeatures(final @NonNull EObject semanticElement,
+	protected @NonNull Set<@NonNull EStructuralFeature> resolveFeatures(final @NonNull EObject semanticElement,
 			@NonNull final Set<@NonNull String> featureNames) {
 		final EClass eClass = semanticElement.eClass();
 		
@@ -248,5 +262,4 @@ public class ModelRegionCalculator {
 				.filter(Objects::nonNull)
 				.collect(Collectors.toSet());
 	}
-
 }

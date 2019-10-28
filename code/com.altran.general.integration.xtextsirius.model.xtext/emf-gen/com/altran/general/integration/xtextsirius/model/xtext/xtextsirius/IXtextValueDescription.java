@@ -45,7 +45,7 @@ public interface IXtextValueDescription extends IXtextDescription {
 	 * @generated
 	 */
 	String getPrefixTextExpression();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription#getPrefixTextExpression
@@ -59,7 +59,7 @@ public interface IXtextValueDescription extends IXtextDescription {
 	 * @generated
 	 */
 	void setPrefixTextExpression(String value);
-
+	
 	/**
 	 * Returns the value of the '<em><b>Suffix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc -->
@@ -76,7 +76,7 @@ public interface IXtextValueDescription extends IXtextDescription {
 	 * @generated
 	 */
 	String getSuffixTextExpression();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription#getSuffixTextExpression
@@ -90,5 +90,5 @@ public interface IXtextValueDescription extends IXtextDescription {
 	 * @generated
 	 */
 	void setSuffixTextExpression(String value);
-
+	
 } // IXtextValueDescription

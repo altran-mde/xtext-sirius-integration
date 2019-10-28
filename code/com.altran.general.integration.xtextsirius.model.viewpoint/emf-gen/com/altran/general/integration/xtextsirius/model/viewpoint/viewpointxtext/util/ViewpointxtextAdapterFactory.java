@@ -49,7 +49,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected static ViewpointxtextPackage modelPackage;
-
+	
 	/**
 	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -61,7 +61,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 			modelPackage = ViewpointxtextPackage.eINSTANCE;
 		}
 	}
-
+	
 	/**
 	 * Returns whether this factory is applicable for the type of the object.
 	 * <!-- begin-user-doc --> This implementation returns <code>true</code> if
@@ -81,7 +81,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 		return false;
 	}
-
+	
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -93,100 +93,100 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 		public Adapter caseIXtextEdgeLabelDirectEditDescription(final IXtextEdgeLabelDirectEditDescription object) {
 			return createIXtextEdgeLabelDirectEditDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseXtextEdgeLabelDirectEditModelDescription(
 				final XtextEdgeLabelDirectEditModelDescription object) {
 			return createXtextEdgeLabelDirectEditModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseXtextEdgeLabelDirectEditValueDescription(
 				final XtextEdgeLabelDirectEditValueDescription object) {
 			return createXtextEdgeLabelDirectEditValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextDescription(final IXtextDescription object) {
 			return createIXtextDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextDirectEditDescription(final IXtextDirectEditDescription object) {
 			return createIXtextDirectEditDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseDocumentedElement(final DocumentedElement object) {
 			return createDocumentedElementAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIdentifiedElement(final IdentifiedElement object) {
 			return createIdentifiedElementAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseToolEntry(final ToolEntry object) {
 			return createToolEntryAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseAbstractToolDescription(final AbstractToolDescription object) {
 			return createAbstractToolDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseMappingBasedToolDescription(final MappingBasedToolDescription object) {
 			return createMappingBasedToolDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseDirectEditLabel(final DirectEditLabel object) {
 			return createDirectEditLabelAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseAXtextDirectEditLabel(final AXtextDirectEditLabel object) {
 			return createAXtextDirectEditLabelAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextModelDescription(final IXtextModelDescription object) {
 			return createIXtextModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextDirectEditModelDescription(final IXtextDirectEditModelDescription object) {
 			return createIXtextDirectEditModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseXtextDirectEditModelDescription(final XtextDirectEditModelDescription object) {
 			return createXtextDirectEditModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextValueDescription(final IXtextValueDescription object) {
 			return createIXtextValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIXtextDirectEditValueDescription(final IXtextDirectEditValueDescription object) {
 			return createIXtextDirectEditValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseXtextDirectEditValueDescription(final XtextDirectEditValueDescription object) {
 			return createXtextDirectEditValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter defaultCase(final EObject object) {
 			return createEObjectAdapter();
 		}
 	};
-
+	
 	/**
 	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,8 +200,8 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAdapter(final Notifier target) {
 		return this.modelSwitch.doSwitch((EObject) target);
 	}
-
-
+	
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription
@@ -217,7 +217,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextEdgeLabelDirectEditDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditModelDescription
@@ -233,7 +233,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createXtextEdgeLabelDirectEditModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.XtextEdgeLabelDirectEditValueDescription
@@ -249,7 +249,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createXtextEdgeLabelDirectEditValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDescription
@@ -265,7 +265,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditDescription
@@ -281,7 +281,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDirectEditDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.viewpoint.description.DocumentedElement
@@ -297,7 +297,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createDocumentedElementAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.viewpoint.description.IdentifiedElement
@@ -313,7 +313,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIdentifiedElementAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.viewpoint.description.tool.ToolEntry
@@ -329,7 +329,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createToolEntryAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription
@@ -345,7 +345,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAbstractToolDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.viewpoint.description.tool.MappingBasedToolDescription
@@ -361,7 +361,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createMappingBasedToolDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.sirius.diagram.description.tool.DirectEditLabel
@@ -377,7 +377,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createDirectEditLabelAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel
@@ -393,7 +393,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAXtextDirectEditLabelAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription
@@ -409,7 +409,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditModelDescription
@@ -425,7 +425,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDirectEditModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditModelDescription
@@ -441,7 +441,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createXtextDirectEditModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextValueDescription
@@ -457,7 +457,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextDirectEditValueDescription
@@ -473,7 +473,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIXtextDirectEditValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.XtextDirectEditValueDescription
@@ -489,7 +489,7 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createXtextDirectEditValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This
 	 * default implementation returns null. <!-- end-user-doc -->
@@ -500,5 +500,5 @@ public class ViewpointxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEObjectAdapter() {
 		return null;
 	}
-
+	
 } // ViewpointxtextAdapterFactory

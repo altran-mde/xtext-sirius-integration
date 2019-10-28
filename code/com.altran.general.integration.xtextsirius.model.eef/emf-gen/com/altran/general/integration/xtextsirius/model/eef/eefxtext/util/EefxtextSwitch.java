@@ -45,7 +45,7 @@ public class EefxtextSwitch<T> {
 	 * @generated
 	 */
 	protected static EefxtextPackage modelPackage;
-
+	
 	/**
 	 * Creates an instance of the switch. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -57,7 +57,7 @@ public class EefxtextSwitch<T> {
 			modelPackage = EefxtextPackage.eINSTANCE;
 		}
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -70,7 +70,7 @@ public class EefxtextSwitch<T> {
 	public T doSwitch(final EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -88,7 +88,7 @@ public class EefxtextSwitch<T> {
 			return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
-
+	
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns
 	 * a non null result; it yields that result. <!-- begin-user-doc --> <!--
@@ -285,7 +285,7 @@ public class EefxtextSwitch<T> {
 				return defaultCase(theEObject);
 		}
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IEef
 	 * Xtext Description</em>'. <!-- begin-user-doc --> This implementation
@@ -302,7 +302,7 @@ public class EefxtextSwitch<T> {
 	public T caseIEefXtextDescription(final IEefXtextDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IEef
 	 * Xtext Model Description</em>'. <!-- begin-user-doc --> This
@@ -319,7 +319,7 @@ public class EefxtextSwitch<T> {
 	public T caseIEefXtextModelDescription(final IEefXtextModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IEef
 	 * Xtext Value Description</em>'. <!-- begin-user-doc --> This
@@ -336,7 +336,7 @@ public class EefxtextSwitch<T> {
 	public T caseIEefXtextValueDescription(final IEefXtextValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>IEef
 	 * Xtext Property Description</em>'. <!-- begin-user-doc --> This
@@ -353,7 +353,7 @@ public class EefxtextSwitch<T> {
 	public T caseIEefXtextPropertyDescription(final IEefXtextPropertyDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Eef
 	 * Xtext Single Line Model Description</em>'. <!-- begin-user-doc --> This
@@ -370,7 +370,7 @@ public class EefxtextSwitch<T> {
 	public T caseEefXtextSingleLineModelDescription(final EefXtextSingleLineModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Eef
 	 * Xtext Multi Line Model Description</em>'. <!-- begin-user-doc --> This
@@ -387,7 +387,7 @@ public class EefxtextSwitch<T> {
 	public T caseEefXtextMultiLineModelDescription(final EefXtextMultiLineModelDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Eef
 	 * Xtext Single Line Value Description</em>'. <!-- begin-user-doc --> This
@@ -404,7 +404,7 @@ public class EefxtextSwitch<T> {
 	public T caseEefXtextSingleLineValueDescription(final EefXtextSingleLineValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Eef
 	 * Xtext Multi Line Value Description</em>'. <!-- begin-user-doc --> This
@@ -421,7 +421,7 @@ public class EefxtextSwitch<T> {
 	public T caseEefXtextMultiLineValueDescription(final EefXtextMultiLineValueDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EEF
 	 * Control Description</em>'. <!-- begin-user-doc --> This implementation
@@ -438,7 +438,7 @@ public class EefxtextSwitch<T> {
 	public T caseEEFControlDescription(final EEFControlDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EEF
 	 * Widget Description</em>'. <!-- begin-user-doc --> This implementation
@@ -455,7 +455,7 @@ public class EefxtextSwitch<T> {
 	public T caseEEFWidgetDescription(final EEFWidgetDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EEF
 	 * Text Description</em>'. <!-- begin-user-doc --> This implementation
@@ -472,7 +472,7 @@ public class EefxtextSwitch<T> {
 	public T caseEEFTextDescription(final EEFTextDescription object) {
 		return null;
 	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of
 	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns
@@ -489,5 +489,5 @@ public class EefxtextSwitch<T> {
 	public T defaultCase(final EObject object) {
 		return null;
 	}
-
+	
 } // EefxtextSwitch

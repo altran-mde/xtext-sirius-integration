@@ -20,7 +20,7 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFac
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription;
 
 public class XtextMultiLineModelDescriptionConverter extends AXtextDescriptionConverter {
-
+	
 	@Override
 	public boolean canHandle(final EObject description) {
 		return description instanceof XtextMultiLineModelDescription;
@@ -31,7 +31,7 @@ public class XtextMultiLineModelDescriptionConverter extends AXtextDescriptionCo
 			final TransformationCache cache) {
 		if (description instanceof XtextMultiLineModelDescription) {
 			final XtextMultiLineModelDescription propertyDescription = (XtextMultiLineModelDescription) description;
-
+			
 			final EefXtextMultiLineModelDescription eefDescription = EefxtextFactory.eINSTANCE
 					.createEefXtextMultiLineModelDescription();
 			
@@ -39,26 +39,28 @@ public class XtextMultiLineModelDescriptionConverter extends AXtextDescriptionCo
 			eefDescription.setHelpExpression(propertyDescription.getHelpExpression());
 			eefDescription.setIsEnabledExpression(propertyDescription.getIsEnabledExpression());
 			eefDescription.setLabelExpression(propertyDescription.getLabelExpression());
-
+			
 			eefDescription.setValueExpression(propertyDescription.getValueExpression());
-
+			
 			final InitialOperation initialOperation = propertyDescription.getInitialOperation();
 			eefDescription.setEditExpression(getExpressionForOperation(initialOperation));
-
+			
 			eefDescription.setLineCount(propertyDescription.getLineCount());
-
+			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
-
+			eefDescription.setCancelOnValidationError(propertyDescription.isCancelOnValidationError());
+			eefDescription.setEnableFormatter(propertyDescription.isEnableFormatter());
+			
 			eefDescription.setPrefixTerminalsExpression(propertyDescription.getPrefixTerminalsExpression());
 			eefDescription.setSuffixTerminalsExpression(propertyDescription.getSuffixTerminalsExpression());
 			
 			eefDescription.getEditableFeatures().addAll(propertyDescription.getEditableFeatures());
-
+			
 			// Let's not forget to populate the cache for the other converters
 			// or link resolvers
 			cache.put(propertyDescription, eefDescription);
-
+			
 			return eefDescription;
 		}
 		return null;

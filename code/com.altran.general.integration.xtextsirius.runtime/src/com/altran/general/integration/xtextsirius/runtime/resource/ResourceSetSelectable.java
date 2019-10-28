@@ -17,6 +17,10 @@ import org.eclipse.xtext.resource.ISelectable;
 
 import com.google.common.collect.Iterables;
 
+/**
+ * Provides {@link IEObjectDescription}s for all contents of a
+ * {@link org.eclipse.emf.ecore.resource.ResourceSet ResourceSet}.
+ */
 public class ResourceSetSelectable implements ISelectable {
 	private final Iterable<ISelectable> allResourceDescription;
 	

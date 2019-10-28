@@ -1,19 +1,20 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.util;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -24,6 +25,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusDescriptor;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.IgnoredFeatureAdapter;
 
 /**
@@ -113,6 +116,7 @@ import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.Ignored
  * from the position.
  * </p>
  * </li>
+ * <li><i>index</i>, if available.</li>
  * </ul>
  * </li>
  * </ul>
@@ -364,8 +368,7 @@ import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.Ignored
  * <td>*</td>
  * <td>multi</td>
  * <td>*</td>
- * <td>toplevel: replace all<br/>
- * other: foreach <i>newElement</i>:: exists: merge, other: add</td>
+ * <td>foreach <i>newElement</i>:: exists: merge, other: add</td>
  * </tr>
  * </tbody>
  * </table>
@@ -374,19 +377,16 @@ import com.altran.general.integration.xtextsirius.runtime.ignoredfeature.Ignored
  *            Type of EObject to merge.
  */
 public class EMerger<T extends EObject> {
+	private final @NonNull IXtextSiriusDescriptor descriptor;
 	private final @NonNull T existing;
-	private final Set<@NonNull String> featuresToReplace;
-	private final Set<@NonNull String> nestedFeaturesToIgnore;
 	private @Nullable final URI originalUri;
 	
 	public EMerger(
+			final @NonNull IXtextSiriusDescriptor descriptor,
 			final @NonNull T existing,
-			final @NonNull Set<@NonNull String> featuresToReplace,
-			final @NonNull Set<@NonNull String> nestedFeaturesToIgnore,
 			final @Nullable URI originalUri) {
+		this.descriptor = descriptor;
 		this.existing = existing;
-		this.featuresToReplace = featuresToReplace;
-		this.nestedFeaturesToIgnore = nestedFeaturesToIgnore;
 		this.originalUri = originalUri;
 	}
 	
@@ -429,22 +429,19 @@ public class EMerger<T extends EObject> {
 	public @NonNull T merge(final @Nullable Object newValue, final @NonNull EStructuralFeature feature) {
 		final Object oldValue = this.existing.eGet(feature);
 		
-		if (feature.isMany()
-				&& feature instanceof EReference
-				&& ((EReference) feature).isContainment()
-				&& newValue instanceof Collection) {
-			validateNewValue(feature, newValue);
-			this.existing.eSet(feature, newValue);
-		} else {
-			mergeFeatureValueRecursive(feature, "", this.existing, null, oldValue, newValue);
-		}
+		mergeFeatureValueRecursive(feature, "", this.existing, this.existing, oldValue, newValue);
 		
 		return this.existing;
 	}
 	
 	protected boolean validateFirstLevelFeature(final EStructuralFeature feature) {
-		return feature.isChangeable() && this.featuresToReplace.isEmpty()
-				|| this.featuresToReplace.contains(feature.getName());
+		Set<String> featuresToReplace = Collections.emptySet();
+		final IXtextSiriusDescriptor desc = getDescriptor();
+		if (desc instanceof IXtextSiriusModelDescriptor) {
+			featuresToReplace = ((IXtextSiriusModelDescriptor) desc).getEditableFeatures();
+		}
+		return feature.isChangeable() && featuresToReplace.isEmpty()
+				|| featuresToReplace.contains(feature.getName());
 	}
 	
 	protected void validateNewValue(final EStructuralFeature feature, final Object newValue) {
@@ -470,6 +467,9 @@ public class EMerger<T extends EObject> {
 			final @NonNull String prefix,
 			final @NonNull EObject exist,
 			final @NonNull EObject newEl) {
+		if (feature.isDerived()) {
+			return;
+		}
 		
 		final String featurePath = FeaturePathUtil.getInstance().concatFeaturePath(prefix, feature);
 		
@@ -511,7 +511,9 @@ public class EMerger<T extends EObject> {
 			final @NonNull EStructuralFeature feature,
 			final @NonNull String prefix,
 			final @NonNull EObject exist) {
-		if (this.nestedFeaturesToIgnore.contains(prefix)) {
+		final IXtextSiriusDescriptor desc = getDescriptor();
+		if (desc instanceof IXtextSiriusModelDescriptor
+				&& ((IXtextSiriusModelDescriptor) desc).getIgnoredNestedFeatures().contains(prefix)) {
 			exist.eAdapters().removeIf(IgnoredFeatureAdapter.class::isInstance);
 			return true;
 		}
@@ -538,19 +540,27 @@ public class EMerger<T extends EObject> {
 		}
 		
 		if (feature.isMany()) {
-			final @NonNull Collection<@NonNull EObject> oldValues = ((@NonNull Collection<@NonNull EObject>) oldValueOrCreated);
+			final @NonNull EList<@NonNull EObject> oldValues = ((@NonNull EList<@NonNull EObject>) oldValueOrCreated);
 			if (newValue instanceof Collection) {
 				final Collection<@NonNull EObject> values = (Collection<@NonNull EObject>) newValue;
+				final int newValuesSize = values.size();
+				
+				int index = 0;
 				for (final EObject newValue1 : values) {
-					mergeOrAdd(oldValues, newValue1, uri, (c, nEl) -> {
+					mergeOrAdd(oldValues, newValue1, index, uri, (exst, nEl) -> {
 						final EObject newEObject = EcoreUtil.create(nEl.eClass());
-						oldValues.add(newEObject);
+						exst.add(newEObject);
 						mergeAllContainmentFeaturesRecursive(prefix, newEObject, nEl);
 					}, (exst, nEl) -> mergeAllContainmentFeaturesRecursive(prefix, exst, nEl));
+					index++;
+				}
+				
+				while (oldValues.size() > newValuesSize) {
+					oldValues.remove(oldValues.size() - 1);
 				}
 			} else if (newValue instanceof EObject) {
 				final EObject newElement = (EObject) newValue;
-				final EObject existing = findMember(oldValues, newElement, uri);
+				final EObject existing = findMember(oldValues, newElement, -1, uri);
 				
 				if (existing == null) {
 					final EObject newEObject = EcoreUtil.create(newElement.eClass());
@@ -601,10 +611,10 @@ public class EMerger<T extends EObject> {
 		if (newValue instanceof Collection) {
 			exist.eSet(feature, newValue);
 		} else if (newValue instanceof EObject) {
-			if (oldValue instanceof List) {
-				final List<@NonNull EObject> oldValues = ((List<@NonNull EObject>) oldValue);
+			if (oldValue instanceof EList) {
+				final EList<@NonNull EObject> oldValues = ((EList<@NonNull EObject>) oldValue);
 				
-				mergeOrAdd(oldValues, (EObject) newValue, uri,
+				mergeOrAdd(oldValues, (EObject) newValue, -1, uri,
 						(exVals, nEl) -> exVals.add(nEl),
 						(ex, nEl) -> EcoreUtil.replace(exist, feature, ex, nEl));
 			} else {
@@ -626,14 +636,14 @@ public class EMerger<T extends EObject> {
 			final @Nullable Object oldValue,
 			final @Nullable Object newValue) {
 		if (newValue instanceof Collection) {
-			final @NonNull List<@NonNull Object> oldValues = (@NonNull List<@NonNull Object>) oldValue;
+			final @NonNull EList<@NonNull Object> oldValues = (@NonNull EList<@NonNull Object>) oldValue;
 			
 			for (final Object newVal : (Collection<@NonNull Object>) newValue) {
 				mergeSingleEAttribute(oldValues, newVal);
 			}
 		} else if (newValue != null) {
-			if (oldValue instanceof List) {
-				mergeSingleEAttribute(((List<@NonNull Object>) oldValue), newValue);
+			if (oldValue instanceof EList) {
+				mergeSingleEAttribute(((EList<@NonNull Object>) oldValue), newValue);
 			} else {
 				exist.eSet(feature, newValue);
 			}
@@ -647,7 +657,7 @@ public class EMerger<T extends EObject> {
 	}
 	
 	protected <E> void mergeSingleEAttribute(
-			final @NonNull List<@NonNull E> oldValues,
+			final @NonNull EList<@NonNull E> oldValues,
 			final @NonNull E newVal) {
 		final int index = oldValues.indexOf(newVal);
 		if (index >= 0) {
@@ -690,14 +700,15 @@ public class EMerger<T extends EObject> {
 	}
 	
 	protected <E extends EObject> void mergeOrAdd(
-			final Collection<@NonNull E> existingValues,
+			final EList<@NonNull E> existingValues,
 			final E newValue,
+			final int index,
 			final URI originalParentUri,
-			final BiConsumer<@NonNull Collection<@NonNull E>, @NonNull E> adder,
+			final BiConsumer<@NonNull EList<@NonNull E>, @NonNull E> adder,
 			final BiConsumer<@NonNull E, @NonNull E> merger) {
 		final URI originalUri = mergeUri(originalParentUri, newValue);
 		
-		final E existing = findMember(existingValues, newValue, originalUri);
+		final E existing = findMember(existingValues, newValue, index, originalUri);
 		
 		if (existing == null) {
 			adder.accept(existingValues, newValue);
@@ -706,14 +717,16 @@ public class EMerger<T extends EObject> {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	protected <E extends EObject> @Nullable E findMember(
-			final @NonNull Collection<@NonNull E> collection,
+			final @NonNull EList<@NonNull E> list,
 			final @NonNull E element,
+			final int index,
 			final @Nullable URI originalUri) {
 		final String elementId = EcoreUtil.getID(element);
 		if (elementId != null) {
 			@SuppressWarnings("null")
-			final E existing = collection.stream()
+			final E existing = list.stream()
 					.filter(e -> elementId.equals(EcoreUtil.getID(e)))
 					.findAny()
 					.orElse(null);
@@ -724,7 +737,7 @@ public class EMerger<T extends EObject> {
 			final String originalFragment = originalUri != null ? originalUri.fragment() : "";
 			
 			@SuppressWarnings("null")
-			final E existing = collection.stream()
+			final E existing = list.stream()
 					.filter(e -> {
 						final String fragment = EcoreUtil.getURI(e).fragment();
 						return elementFragment.equals(fragment) || originalFragment.equals(fragment);
@@ -732,7 +745,19 @@ public class EMerger<T extends EObject> {
 					.findAny()
 					.orElse(null);
 			
-			return existing;
+			if (existing != null) {
+				return existing;
+			}
+			
+			if (index >= 0 && index < list.size()) {
+				return list.get(index);
+			}
+			
+			return null;
 		}
+	}
+	
+	public IXtextSiriusDescriptor getDescriptor() {
+		return this.descriptor;
 	}
 }

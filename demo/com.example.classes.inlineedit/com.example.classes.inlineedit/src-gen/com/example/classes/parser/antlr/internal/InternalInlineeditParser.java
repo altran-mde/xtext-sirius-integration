@@ -624,11 +624,6 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
             case RULE_DESCRIPTION_TEXT:
                 {
                 switch ( input.LA(2) ) {
-                case 17:
-                    {
-                    alt3=1;
-                    }
-                    break;
                 case 12:
                     {
                     alt3=3;
@@ -637,6 +632,11 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                 case 19:
                     {
                     alt3=2;
+                    }
+                    break;
+                case 17:
+                    {
+                    alt3=1;
                     }
                     break;
                 default:
@@ -962,28 +962,30 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClass"
-    // InternalInlineedit.g:389:1: ruleClass returns [EObject current=null] : ( (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_attributes_4_0= ruleAttribute ) )* otherlv_5= '}' ) ;
+    // InternalInlineedit.g:389:1: ruleClass returns [EObject current=null] : ( (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_subClasses_4_0= ruleClass ) )* ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= '}' ) ;
     public final EObject ruleClass() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         Token lv_name_2_0=null;
         Token otherlv_3=null;
-        Token otherlv_5=null;
+        Token otherlv_6=null;
         EObject this_Description_0 = null;
 
-        EObject lv_attributes_4_0 = null;
+        EObject lv_subClasses_4_0 = null;
+
+        EObject lv_attributes_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalInlineedit.g:395:2: ( ( (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_attributes_4_0= ruleAttribute ) )* otherlv_5= '}' ) )
-            // InternalInlineedit.g:396:2: ( (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_attributes_4_0= ruleAttribute ) )* otherlv_5= '}' )
+            // InternalInlineedit.g:395:2: ( ( (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_subClasses_4_0= ruleClass ) )* ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= '}' ) )
+            // InternalInlineedit.g:396:2: ( (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_subClasses_4_0= ruleClass ) )* ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= '}' )
             {
-            // InternalInlineedit.g:396:2: ( (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_attributes_4_0= ruleAttribute ) )* otherlv_5= '}' )
-            // InternalInlineedit.g:397:3: (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_attributes_4_0= ruleAttribute ) )* otherlv_5= '}'
+            // InternalInlineedit.g:396:2: ( (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_subClasses_4_0= ruleClass ) )* ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= '}' )
+            // InternalInlineedit.g:397:3: (this_Description_0= ruleDescription[$current] )? otherlv_1= 'class' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_subClasses_4_0= ruleClass ) )* ( (lv_attributes_5_0= ruleAttribute ) )* otherlv_6= '}'
             {
             // InternalInlineedit.g:397:3: (this_Description_0= ruleDescription[$current] )?
             int alt5=2;
@@ -1051,29 +1053,38 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getClassAccess().getLeftCurlyBracketKeyword_3());
             		
-            // InternalInlineedit.g:436:3: ( (lv_attributes_4_0= ruleAttribute ) )*
+            // InternalInlineedit.g:436:3: ( (lv_subClasses_4_0= ruleClass ) )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==RULE_DESCRIPTION_TEXT||(LA6_0>=25 && LA6_0<=30)) ) {
+                if ( (LA6_0==RULE_DESCRIPTION_TEXT) ) {
+                    int LA6_1 = input.LA(2);
+
+                    if ( (LA6_1==19) ) {
+                        alt6=1;
+                    }
+
+
+                }
+                else if ( (LA6_0==19) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalInlineedit.g:437:4: (lv_attributes_4_0= ruleAttribute )
+            	    // InternalInlineedit.g:437:4: (lv_subClasses_4_0= ruleClass )
             	    {
-            	    // InternalInlineedit.g:437:4: (lv_attributes_4_0= ruleAttribute )
-            	    // InternalInlineedit.g:438:5: lv_attributes_4_0= ruleAttribute
+            	    // InternalInlineedit.g:437:4: (lv_subClasses_4_0= ruleClass )
+            	    // InternalInlineedit.g:438:5: lv_subClasses_4_0= ruleClass
             	    {
 
-            	    					newCompositeNode(grammarAccess.getClassAccess().getAttributesAttributeParserRuleCall_4_0());
+            	    					newCompositeNode(grammarAccess.getClassAccess().getSubClassesClassParserRuleCall_4_0());
             	    				
             	    pushFollow(FOLLOW_15);
-            	    lv_attributes_4_0=ruleAttribute();
+            	    lv_subClasses_4_0=ruleClass();
 
             	    state._fsp--;
 
@@ -1083,9 +1094,9 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"attributes",
-            	    						lv_attributes_4_0,
-            	    						"com.example.Classes.Attribute");
+            	    						"subClasses",
+            	    						lv_subClasses_4_0,
+            	    						"com.example.Classes.Class");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -1100,9 +1111,58 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,21,FOLLOW_2); 
+            // InternalInlineedit.g:455:3: ( (lv_attributes_5_0= ruleAttribute ) )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-            			newLeafNode(otherlv_5, grammarAccess.getClassAccess().getRightCurlyBracketKeyword_5());
+                if ( (LA7_0==RULE_DESCRIPTION_TEXT||(LA7_0>=25 && LA7_0<=30)) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalInlineedit.g:456:4: (lv_attributes_5_0= ruleAttribute )
+            	    {
+            	    // InternalInlineedit.g:456:4: (lv_attributes_5_0= ruleAttribute )
+            	    // InternalInlineedit.g:457:5: lv_attributes_5_0= ruleAttribute
+            	    {
+
+            	    					newCompositeNode(grammarAccess.getClassAccess().getAttributesAttributeParserRuleCall_5_0());
+            	    				
+            	    pushFollow(FOLLOW_16);
+            	    lv_attributes_5_0=ruleAttribute();
+
+            	    state._fsp--;
+
+
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getClassRule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"attributes",
+            	    						lv_attributes_5_0,
+            	    						"com.example.Classes.Attribute");
+            	    					afterParserOrEnumRuleCall();
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+            otherlv_6=(Token)match(input,21,FOLLOW_2); 
+
+            			newLeafNode(otherlv_6, grammarAccess.getClassAccess().getRightCurlyBracketKeyword_6());
             		
 
             }
@@ -1127,7 +1187,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAttribute"
-    // InternalInlineedit.g:463:1: entryRuleAttribute returns [EObject current=null] : iv_ruleAttribute= ruleAttribute EOF ;
+    // InternalInlineedit.g:482:1: entryRuleAttribute returns [EObject current=null] : iv_ruleAttribute= ruleAttribute EOF ;
     public final EObject entryRuleAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -1135,8 +1195,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:463:50: (iv_ruleAttribute= ruleAttribute EOF )
-            // InternalInlineedit.g:464:2: iv_ruleAttribute= ruleAttribute EOF
+            // InternalInlineedit.g:482:50: (iv_ruleAttribute= ruleAttribute EOF )
+            // InternalInlineedit.g:483:2: iv_ruleAttribute= ruleAttribute EOF
             {
              newCompositeNode(grammarAccess.getAttributeRule()); 
             pushFollow(FOLLOW_1);
@@ -1163,7 +1223,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttribute"
-    // InternalInlineedit.g:470:1: ruleAttribute returns [EObject current=null] : ( (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']' ) ;
+    // InternalInlineedit.g:489:1: ruleAttribute returns [EObject current=null] : ( (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']' ) ;
     public final EObject ruleAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -1187,22 +1247,22 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:476:2: ( ( (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']' ) )
-            // InternalInlineedit.g:477:2: ( (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']' )
+            // InternalInlineedit.g:495:2: ( ( (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']' ) )
+            // InternalInlineedit.g:496:2: ( (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']' )
             {
-            // InternalInlineedit.g:477:2: ( (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']' )
-            // InternalInlineedit.g:478:3: (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']'
+            // InternalInlineedit.g:496:2: ( (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']' )
+            // InternalInlineedit.g:497:3: (this_Description_0= ruleDescription[$current] )? ( (lv_visibility_1_0= ruleVisibility ) ) ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (lv_type_4_0= ruleType ) ) otherlv_5= '[' ( (lv_lowerBound_6_0= ruleValue ) ) otherlv_7= '..' ( (lv_upperBound_8_0= ruleValue ) ) otherlv_9= ']'
             {
-            // InternalInlineedit.g:478:3: (this_Description_0= ruleDescription[$current] )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalInlineedit.g:497:3: (this_Description_0= ruleDescription[$current] )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==RULE_DESCRIPTION_TEXT) ) {
-                alt7=1;
+            if ( (LA8_0==RULE_DESCRIPTION_TEXT) ) {
+                alt8=1;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalInlineedit.g:479:4: this_Description_0= ruleDescription[$current]
+                    // InternalInlineedit.g:498:4: this_Description_0= ruleDescription[$current]
                     {
 
                     				if (current==null) {
@@ -1210,7 +1270,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     				}
                     				newCompositeNode(grammarAccess.getAttributeAccess().getDescriptionParserRuleCall_0());
                     			
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_17);
                     this_Description_0=ruleDescription(current);
 
                     state._fsp--;
@@ -1225,11 +1285,11 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalInlineedit.g:491:3: ( (lv_visibility_1_0= ruleVisibility ) )
-            // InternalInlineedit.g:492:4: (lv_visibility_1_0= ruleVisibility )
+            // InternalInlineedit.g:510:3: ( (lv_visibility_1_0= ruleVisibility ) )
+            // InternalInlineedit.g:511:4: (lv_visibility_1_0= ruleVisibility )
             {
-            // InternalInlineedit.g:492:4: (lv_visibility_1_0= ruleVisibility )
-            // InternalInlineedit.g:493:5: lv_visibility_1_0= ruleVisibility
+            // InternalInlineedit.g:511:4: (lv_visibility_1_0= ruleVisibility )
+            // InternalInlineedit.g:512:5: lv_visibility_1_0= ruleVisibility
             {
 
             					newCompositeNode(grammarAccess.getAttributeAccess().getVisibilityVisibilityEnumRuleCall_1_0());
@@ -1256,13 +1316,13 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalInlineedit.g:510:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalInlineedit.g:511:4: (lv_name_2_0= RULE_ID )
+            // InternalInlineedit.g:529:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalInlineedit.g:530:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalInlineedit.g:511:4: (lv_name_2_0= RULE_ID )
-            // InternalInlineedit.g:512:5: lv_name_2_0= RULE_ID
+            // InternalInlineedit.g:530:4: (lv_name_2_0= RULE_ID )
+            // InternalInlineedit.g:531:5: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_17); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
             					newLeafNode(lv_name_2_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_2_0());
             				
@@ -1282,15 +1342,15 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,22,FOLLOW_18); 
+            otherlv_3=(Token)match(input,22,FOLLOW_19); 
 
             			newLeafNode(otherlv_3, grammarAccess.getAttributeAccess().getColonKeyword_3());
             		
-            // InternalInlineedit.g:532:3: ( (lv_type_4_0= ruleType ) )
-            // InternalInlineedit.g:533:4: (lv_type_4_0= ruleType )
+            // InternalInlineedit.g:551:3: ( (lv_type_4_0= ruleType ) )
+            // InternalInlineedit.g:552:4: (lv_type_4_0= ruleType )
             {
-            // InternalInlineedit.g:533:4: (lv_type_4_0= ruleType )
-            // InternalInlineedit.g:534:5: lv_type_4_0= ruleType
+            // InternalInlineedit.g:552:4: (lv_type_4_0= ruleType )
+            // InternalInlineedit.g:553:5: lv_type_4_0= ruleType
             {
 
             					newCompositeNode(grammarAccess.getAttributeAccess().getTypeTypeParserRuleCall_4_0());
@@ -1321,11 +1381,11 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_5, grammarAccess.getAttributeAccess().getLeftSquareBracketKeyword_5());
             		
-            // InternalInlineedit.g:555:3: ( (lv_lowerBound_6_0= ruleValue ) )
-            // InternalInlineedit.g:556:4: (lv_lowerBound_6_0= ruleValue )
+            // InternalInlineedit.g:574:3: ( (lv_lowerBound_6_0= ruleValue ) )
+            // InternalInlineedit.g:575:4: (lv_lowerBound_6_0= ruleValue )
             {
-            // InternalInlineedit.g:556:4: (lv_lowerBound_6_0= ruleValue )
-            // InternalInlineedit.g:557:5: lv_lowerBound_6_0= ruleValue
+            // InternalInlineedit.g:575:4: (lv_lowerBound_6_0= ruleValue )
+            // InternalInlineedit.g:576:5: lv_lowerBound_6_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getAttributeAccess().getLowerBoundValueParserRuleCall_6_0());
@@ -1356,11 +1416,11 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_7, grammarAccess.getAttributeAccess().getFullStopFullStopKeyword_7());
             		
-            // InternalInlineedit.g:578:3: ( (lv_upperBound_8_0= ruleValue ) )
-            // InternalInlineedit.g:579:4: (lv_upperBound_8_0= ruleValue )
+            // InternalInlineedit.g:597:3: ( (lv_upperBound_8_0= ruleValue ) )
+            // InternalInlineedit.g:598:4: (lv_upperBound_8_0= ruleValue )
             {
-            // InternalInlineedit.g:579:4: (lv_upperBound_8_0= ruleValue )
-            // InternalInlineedit.g:580:5: lv_upperBound_8_0= ruleValue
+            // InternalInlineedit.g:598:4: (lv_upperBound_8_0= ruleValue )
+            // InternalInlineedit.g:599:5: lv_upperBound_8_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getAttributeAccess().getUpperBoundValueParserRuleCall_8_0());
@@ -1414,7 +1474,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleType"
-    // InternalInlineedit.g:605:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
+    // InternalInlineedit.g:624:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
     public final EObject entryRuleType() throws RecognitionException {
         EObject current = null;
 
@@ -1422,8 +1482,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:605:45: (iv_ruleType= ruleType EOF )
-            // InternalInlineedit.g:606:2: iv_ruleType= ruleType EOF
+            // InternalInlineedit.g:624:45: (iv_ruleType= ruleType EOF )
+            // InternalInlineedit.g:625:2: iv_ruleType= ruleType EOF
             {
              newCompositeNode(grammarAccess.getTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -1450,7 +1510,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleType"
-    // InternalInlineedit.g:612:1: ruleType returns [EObject current=null] : (this_BuiltInType_0= ruleBuiltInType | this_ClassRef_1= ruleClassRef ) ;
+    // InternalInlineedit.g:631:1: ruleType returns [EObject current=null] : (this_BuiltInType_0= ruleBuiltInType | this_ClassRef_1= ruleClassRef ) ;
     public final EObject ruleType() throws RecognitionException {
         EObject current = null;
 
@@ -1463,28 +1523,28 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:618:2: ( (this_BuiltInType_0= ruleBuiltInType | this_ClassRef_1= ruleClassRef ) )
-            // InternalInlineedit.g:619:2: (this_BuiltInType_0= ruleBuiltInType | this_ClassRef_1= ruleClassRef )
+            // InternalInlineedit.g:637:2: ( (this_BuiltInType_0= ruleBuiltInType | this_ClassRef_1= ruleClassRef ) )
+            // InternalInlineedit.g:638:2: (this_BuiltInType_0= ruleBuiltInType | this_ClassRef_1= ruleClassRef )
             {
-            // InternalInlineedit.g:619:2: (this_BuiltInType_0= ruleBuiltInType | this_ClassRef_1= ruleClassRef )
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalInlineedit.g:638:2: (this_BuiltInType_0= ruleBuiltInType | this_ClassRef_1= ruleClassRef )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( ((LA8_0>=23 && LA8_0<=24)) ) {
-                alt8=1;
+            if ( ((LA9_0>=23 && LA9_0<=24)) ) {
+                alt9=1;
             }
-            else if ( (LA8_0==RULE_ID) ) {
-                alt8=2;
+            else if ( (LA9_0==RULE_ID) ) {
+                alt9=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalInlineedit.g:620:3: this_BuiltInType_0= ruleBuiltInType
+                    // InternalInlineedit.g:639:3: this_BuiltInType_0= ruleBuiltInType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getBuiltInTypeParserRuleCall_0());
@@ -1502,7 +1562,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalInlineedit.g:629:3: this_ClassRef_1= ruleClassRef
+                    // InternalInlineedit.g:648:3: this_ClassRef_1= ruleClassRef
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getClassRefParserRuleCall_1());
@@ -1542,7 +1602,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBuiltInType"
-    // InternalInlineedit.g:641:1: entryRuleBuiltInType returns [EObject current=null] : iv_ruleBuiltInType= ruleBuiltInType EOF ;
+    // InternalInlineedit.g:660:1: entryRuleBuiltInType returns [EObject current=null] : iv_ruleBuiltInType= ruleBuiltInType EOF ;
     public final EObject entryRuleBuiltInType() throws RecognitionException {
         EObject current = null;
 
@@ -1550,8 +1610,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:641:52: (iv_ruleBuiltInType= ruleBuiltInType EOF )
-            // InternalInlineedit.g:642:2: iv_ruleBuiltInType= ruleBuiltInType EOF
+            // InternalInlineedit.g:660:52: (iv_ruleBuiltInType= ruleBuiltInType EOF )
+            // InternalInlineedit.g:661:2: iv_ruleBuiltInType= ruleBuiltInType EOF
             {
              newCompositeNode(grammarAccess.getBuiltInTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -1578,7 +1638,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBuiltInType"
-    // InternalInlineedit.g:648:1: ruleBuiltInType returns [EObject current=null] : (this_StringType_0= ruleStringType | this_IntegerType_1= ruleIntegerType ) ;
+    // InternalInlineedit.g:667:1: ruleBuiltInType returns [EObject current=null] : (this_StringType_0= ruleStringType | this_IntegerType_1= ruleIntegerType ) ;
     public final EObject ruleBuiltInType() throws RecognitionException {
         EObject current = null;
 
@@ -1591,28 +1651,28 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:654:2: ( (this_StringType_0= ruleStringType | this_IntegerType_1= ruleIntegerType ) )
-            // InternalInlineedit.g:655:2: (this_StringType_0= ruleStringType | this_IntegerType_1= ruleIntegerType )
+            // InternalInlineedit.g:673:2: ( (this_StringType_0= ruleStringType | this_IntegerType_1= ruleIntegerType ) )
+            // InternalInlineedit.g:674:2: (this_StringType_0= ruleStringType | this_IntegerType_1= ruleIntegerType )
             {
-            // InternalInlineedit.g:655:2: (this_StringType_0= ruleStringType | this_IntegerType_1= ruleIntegerType )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalInlineedit.g:674:2: (this_StringType_0= ruleStringType | this_IntegerType_1= ruleIntegerType )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==23) ) {
-                alt9=1;
+            if ( (LA10_0==23) ) {
+                alt10=1;
             }
-            else if ( (LA9_0==24) ) {
-                alt9=2;
+            else if ( (LA10_0==24) ) {
+                alt10=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalInlineedit.g:656:3: this_StringType_0= ruleStringType
+                    // InternalInlineedit.g:675:3: this_StringType_0= ruleStringType
                     {
 
                     			newCompositeNode(grammarAccess.getBuiltInTypeAccess().getStringTypeParserRuleCall_0());
@@ -1630,7 +1690,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalInlineedit.g:665:3: this_IntegerType_1= ruleIntegerType
+                    // InternalInlineedit.g:684:3: this_IntegerType_1= ruleIntegerType
                     {
 
                     			newCompositeNode(grammarAccess.getBuiltInTypeAccess().getIntegerTypeParserRuleCall_1());
@@ -1670,7 +1730,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringType"
-    // InternalInlineedit.g:677:1: entryRuleStringType returns [EObject current=null] : iv_ruleStringType= ruleStringType EOF ;
+    // InternalInlineedit.g:696:1: entryRuleStringType returns [EObject current=null] : iv_ruleStringType= ruleStringType EOF ;
     public final EObject entryRuleStringType() throws RecognitionException {
         EObject current = null;
 
@@ -1678,8 +1738,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:677:51: (iv_ruleStringType= ruleStringType EOF )
-            // InternalInlineedit.g:678:2: iv_ruleStringType= ruleStringType EOF
+            // InternalInlineedit.g:696:51: (iv_ruleStringType= ruleStringType EOF )
+            // InternalInlineedit.g:697:2: iv_ruleStringType= ruleStringType EOF
             {
              newCompositeNode(grammarAccess.getStringTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -1706,7 +1766,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringType"
-    // InternalInlineedit.g:684:1: ruleStringType returns [EObject current=null] : ( () otherlv_1= 'string' ) ;
+    // InternalInlineedit.g:703:1: ruleStringType returns [EObject current=null] : ( () otherlv_1= 'string' ) ;
     public final EObject ruleStringType() throws RecognitionException {
         EObject current = null;
 
@@ -1716,14 +1776,14 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:690:2: ( ( () otherlv_1= 'string' ) )
-            // InternalInlineedit.g:691:2: ( () otherlv_1= 'string' )
+            // InternalInlineedit.g:709:2: ( ( () otherlv_1= 'string' ) )
+            // InternalInlineedit.g:710:2: ( () otherlv_1= 'string' )
             {
-            // InternalInlineedit.g:691:2: ( () otherlv_1= 'string' )
-            // InternalInlineedit.g:692:3: () otherlv_1= 'string'
+            // InternalInlineedit.g:710:2: ( () otherlv_1= 'string' )
+            // InternalInlineedit.g:711:3: () otherlv_1= 'string'
             {
-            // InternalInlineedit.g:692:3: ()
-            // InternalInlineedit.g:693:4: 
+            // InternalInlineedit.g:711:3: ()
+            // InternalInlineedit.g:712:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1760,7 +1820,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIntegerType"
-    // InternalInlineedit.g:707:1: entryRuleIntegerType returns [EObject current=null] : iv_ruleIntegerType= ruleIntegerType EOF ;
+    // InternalInlineedit.g:726:1: entryRuleIntegerType returns [EObject current=null] : iv_ruleIntegerType= ruleIntegerType EOF ;
     public final EObject entryRuleIntegerType() throws RecognitionException {
         EObject current = null;
 
@@ -1768,8 +1828,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:707:52: (iv_ruleIntegerType= ruleIntegerType EOF )
-            // InternalInlineedit.g:708:2: iv_ruleIntegerType= ruleIntegerType EOF
+            // InternalInlineedit.g:726:52: (iv_ruleIntegerType= ruleIntegerType EOF )
+            // InternalInlineedit.g:727:2: iv_ruleIntegerType= ruleIntegerType EOF
             {
              newCompositeNode(grammarAccess.getIntegerTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -1796,7 +1856,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntegerType"
-    // InternalInlineedit.g:714:1: ruleIntegerType returns [EObject current=null] : ( () otherlv_1= 'integer' ) ;
+    // InternalInlineedit.g:733:1: ruleIntegerType returns [EObject current=null] : ( () otherlv_1= 'integer' ) ;
     public final EObject ruleIntegerType() throws RecognitionException {
         EObject current = null;
 
@@ -1806,14 +1866,14 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:720:2: ( ( () otherlv_1= 'integer' ) )
-            // InternalInlineedit.g:721:2: ( () otherlv_1= 'integer' )
+            // InternalInlineedit.g:739:2: ( ( () otherlv_1= 'integer' ) )
+            // InternalInlineedit.g:740:2: ( () otherlv_1= 'integer' )
             {
-            // InternalInlineedit.g:721:2: ( () otherlv_1= 'integer' )
-            // InternalInlineedit.g:722:3: () otherlv_1= 'integer'
+            // InternalInlineedit.g:740:2: ( () otherlv_1= 'integer' )
+            // InternalInlineedit.g:741:3: () otherlv_1= 'integer'
             {
-            // InternalInlineedit.g:722:3: ()
-            // InternalInlineedit.g:723:4: 
+            // InternalInlineedit.g:741:3: ()
+            // InternalInlineedit.g:742:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1850,7 +1910,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleClassRef"
-    // InternalInlineedit.g:737:1: entryRuleClassRef returns [EObject current=null] : iv_ruleClassRef= ruleClassRef EOF ;
+    // InternalInlineedit.g:756:1: entryRuleClassRef returns [EObject current=null] : iv_ruleClassRef= ruleClassRef EOF ;
     public final EObject entryRuleClassRef() throws RecognitionException {
         EObject current = null;
 
@@ -1858,8 +1918,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:737:49: (iv_ruleClassRef= ruleClassRef EOF )
-            // InternalInlineedit.g:738:2: iv_ruleClassRef= ruleClassRef EOF
+            // InternalInlineedit.g:756:49: (iv_ruleClassRef= ruleClassRef EOF )
+            // InternalInlineedit.g:757:2: iv_ruleClassRef= ruleClassRef EOF
             {
              newCompositeNode(grammarAccess.getClassRefRule()); 
             pushFollow(FOLLOW_1);
@@ -1886,7 +1946,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClassRef"
-    // InternalInlineedit.g:744:1: ruleClassRef returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // InternalInlineedit.g:763:1: ruleClassRef returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleClassRef() throws RecognitionException {
         EObject current = null;
 
@@ -1896,14 +1956,14 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:750:2: ( ( (otherlv_0= RULE_ID ) ) )
-            // InternalInlineedit.g:751:2: ( (otherlv_0= RULE_ID ) )
+            // InternalInlineedit.g:769:2: ( ( (otherlv_0= RULE_ID ) ) )
+            // InternalInlineedit.g:770:2: ( (otherlv_0= RULE_ID ) )
             {
-            // InternalInlineedit.g:751:2: ( (otherlv_0= RULE_ID ) )
-            // InternalInlineedit.g:752:3: (otherlv_0= RULE_ID )
+            // InternalInlineedit.g:770:2: ( (otherlv_0= RULE_ID ) )
+            // InternalInlineedit.g:771:3: (otherlv_0= RULE_ID )
             {
-            // InternalInlineedit.g:752:3: (otherlv_0= RULE_ID )
-            // InternalInlineedit.g:753:4: otherlv_0= RULE_ID
+            // InternalInlineedit.g:771:3: (otherlv_0= RULE_ID )
+            // InternalInlineedit.g:772:4: otherlv_0= RULE_ID
             {
 
             				if (current==null) {
@@ -1940,7 +2000,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValue"
-    // InternalInlineedit.g:767:1: entryRuleValue returns [EObject current=null] : iv_ruleValue= ruleValue EOF ;
+    // InternalInlineedit.g:786:1: entryRuleValue returns [EObject current=null] : iv_ruleValue= ruleValue EOF ;
     public final EObject entryRuleValue() throws RecognitionException {
         EObject current = null;
 
@@ -1948,8 +2008,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:767:46: (iv_ruleValue= ruleValue EOF )
-            // InternalInlineedit.g:768:2: iv_ruleValue= ruleValue EOF
+            // InternalInlineedit.g:786:46: (iv_ruleValue= ruleValue EOF )
+            // InternalInlineedit.g:787:2: iv_ruleValue= ruleValue EOF
             {
              newCompositeNode(grammarAccess.getValueRule()); 
             pushFollow(FOLLOW_1);
@@ -1976,7 +2036,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValue"
-    // InternalInlineedit.g:774:1: ruleValue returns [EObject current=null] : (this_IntegerLiteral_0= ruleIntegerLiteral | this_ConstantRef_1= ruleConstantRef ) ;
+    // InternalInlineedit.g:793:1: ruleValue returns [EObject current=null] : (this_IntegerLiteral_0= ruleIntegerLiteral | this_ConstantRef_1= ruleConstantRef ) ;
     public final EObject ruleValue() throws RecognitionException {
         EObject current = null;
 
@@ -1989,28 +2049,28 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:780:2: ( (this_IntegerLiteral_0= ruleIntegerLiteral | this_ConstantRef_1= ruleConstantRef ) )
-            // InternalInlineedit.g:781:2: (this_IntegerLiteral_0= ruleIntegerLiteral | this_ConstantRef_1= ruleConstantRef )
+            // InternalInlineedit.g:799:2: ( (this_IntegerLiteral_0= ruleIntegerLiteral | this_ConstantRef_1= ruleConstantRef ) )
+            // InternalInlineedit.g:800:2: (this_IntegerLiteral_0= ruleIntegerLiteral | this_ConstantRef_1= ruleConstantRef )
             {
-            // InternalInlineedit.g:781:2: (this_IntegerLiteral_0= ruleIntegerLiteral | this_ConstantRef_1= ruleConstantRef )
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalInlineedit.g:800:2: (this_IntegerLiteral_0= ruleIntegerLiteral | this_ConstantRef_1= ruleConstantRef )
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA10_0==RULE_INT) ) {
-                alt10=1;
+            if ( (LA11_0==RULE_INT) ) {
+                alt11=1;
             }
-            else if ( (LA10_0==RULE_ID) ) {
-                alt10=2;
+            else if ( (LA11_0==RULE_ID) ) {
+                alt11=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
-                    // InternalInlineedit.g:782:3: this_IntegerLiteral_0= ruleIntegerLiteral
+                    // InternalInlineedit.g:801:3: this_IntegerLiteral_0= ruleIntegerLiteral
                     {
 
                     			newCompositeNode(grammarAccess.getValueAccess().getIntegerLiteralParserRuleCall_0());
@@ -2028,7 +2088,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalInlineedit.g:791:3: this_ConstantRef_1= ruleConstantRef
+                    // InternalInlineedit.g:810:3: this_ConstantRef_1= ruleConstantRef
                     {
 
                     			newCompositeNode(grammarAccess.getValueAccess().getConstantRefParserRuleCall_1());
@@ -2068,7 +2128,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIntegerLiteral"
-    // InternalInlineedit.g:803:1: entryRuleIntegerLiteral returns [EObject current=null] : iv_ruleIntegerLiteral= ruleIntegerLiteral EOF ;
+    // InternalInlineedit.g:822:1: entryRuleIntegerLiteral returns [EObject current=null] : iv_ruleIntegerLiteral= ruleIntegerLiteral EOF ;
     public final EObject entryRuleIntegerLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2076,8 +2136,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:803:55: (iv_ruleIntegerLiteral= ruleIntegerLiteral EOF )
-            // InternalInlineedit.g:804:2: iv_ruleIntegerLiteral= ruleIntegerLiteral EOF
+            // InternalInlineedit.g:822:55: (iv_ruleIntegerLiteral= ruleIntegerLiteral EOF )
+            // InternalInlineedit.g:823:2: iv_ruleIntegerLiteral= ruleIntegerLiteral EOF
             {
              newCompositeNode(grammarAccess.getIntegerLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -2104,7 +2164,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntegerLiteral"
-    // InternalInlineedit.g:810:1: ruleIntegerLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
+    // InternalInlineedit.g:829:1: ruleIntegerLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
     public final EObject ruleIntegerLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -2114,14 +2174,14 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:816:2: ( ( (lv_value_0_0= RULE_INT ) ) )
-            // InternalInlineedit.g:817:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalInlineedit.g:835:2: ( ( (lv_value_0_0= RULE_INT ) ) )
+            // InternalInlineedit.g:836:2: ( (lv_value_0_0= RULE_INT ) )
             {
-            // InternalInlineedit.g:817:2: ( (lv_value_0_0= RULE_INT ) )
-            // InternalInlineedit.g:818:3: (lv_value_0_0= RULE_INT )
+            // InternalInlineedit.g:836:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalInlineedit.g:837:3: (lv_value_0_0= RULE_INT )
             {
-            // InternalInlineedit.g:818:3: (lv_value_0_0= RULE_INT )
-            // InternalInlineedit.g:819:4: lv_value_0_0= RULE_INT
+            // InternalInlineedit.g:837:3: (lv_value_0_0= RULE_INT )
+            // InternalInlineedit.g:838:4: lv_value_0_0= RULE_INT
             {
             lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -2163,7 +2223,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConstantRef"
-    // InternalInlineedit.g:838:1: entryRuleConstantRef returns [EObject current=null] : iv_ruleConstantRef= ruleConstantRef EOF ;
+    // InternalInlineedit.g:857:1: entryRuleConstantRef returns [EObject current=null] : iv_ruleConstantRef= ruleConstantRef EOF ;
     public final EObject entryRuleConstantRef() throws RecognitionException {
         EObject current = null;
 
@@ -2171,8 +2231,8 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalInlineedit.g:838:52: (iv_ruleConstantRef= ruleConstantRef EOF )
-            // InternalInlineedit.g:839:2: iv_ruleConstantRef= ruleConstantRef EOF
+            // InternalInlineedit.g:857:52: (iv_ruleConstantRef= ruleConstantRef EOF )
+            // InternalInlineedit.g:858:2: iv_ruleConstantRef= ruleConstantRef EOF
             {
              newCompositeNode(grammarAccess.getConstantRefRule()); 
             pushFollow(FOLLOW_1);
@@ -2199,7 +2259,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstantRef"
-    // InternalInlineedit.g:845:1: ruleConstantRef returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // InternalInlineedit.g:864:1: ruleConstantRef returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleConstantRef() throws RecognitionException {
         EObject current = null;
 
@@ -2209,14 +2269,14 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:851:2: ( ( (otherlv_0= RULE_ID ) ) )
-            // InternalInlineedit.g:852:2: ( (otherlv_0= RULE_ID ) )
+            // InternalInlineedit.g:870:2: ( ( (otherlv_0= RULE_ID ) ) )
+            // InternalInlineedit.g:871:2: ( (otherlv_0= RULE_ID ) )
             {
-            // InternalInlineedit.g:852:2: ( (otherlv_0= RULE_ID ) )
-            // InternalInlineedit.g:853:3: (otherlv_0= RULE_ID )
+            // InternalInlineedit.g:871:2: ( (otherlv_0= RULE_ID ) )
+            // InternalInlineedit.g:872:3: (otherlv_0= RULE_ID )
             {
-            // InternalInlineedit.g:853:3: (otherlv_0= RULE_ID )
-            // InternalInlineedit.g:854:4: otherlv_0= RULE_ID
+            // InternalInlineedit.g:872:3: (otherlv_0= RULE_ID )
+            // InternalInlineedit.g:873:4: otherlv_0= RULE_ID
             {
 
             				if (current==null) {
@@ -2253,7 +2313,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDescription"
-    // InternalInlineedit.g:869:1: ruleDescription[EObject in_current] returns [EObject current=in_current] : ( (lv_description_0_0= RULE_DESCRIPTION_TEXT ) ) ;
+    // InternalInlineedit.g:888:1: ruleDescription[EObject in_current] returns [EObject current=in_current] : ( (lv_description_0_0= RULE_DESCRIPTION_TEXT ) ) ;
     public final EObject ruleDescription(EObject in_current) throws RecognitionException {
         EObject current = in_current;
 
@@ -2263,14 +2323,14 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:875:2: ( ( (lv_description_0_0= RULE_DESCRIPTION_TEXT ) ) )
-            // InternalInlineedit.g:876:2: ( (lv_description_0_0= RULE_DESCRIPTION_TEXT ) )
+            // InternalInlineedit.g:894:2: ( ( (lv_description_0_0= RULE_DESCRIPTION_TEXT ) ) )
+            // InternalInlineedit.g:895:2: ( (lv_description_0_0= RULE_DESCRIPTION_TEXT ) )
             {
-            // InternalInlineedit.g:876:2: ( (lv_description_0_0= RULE_DESCRIPTION_TEXT ) )
-            // InternalInlineedit.g:877:3: (lv_description_0_0= RULE_DESCRIPTION_TEXT )
+            // InternalInlineedit.g:895:2: ( (lv_description_0_0= RULE_DESCRIPTION_TEXT ) )
+            // InternalInlineedit.g:896:3: (lv_description_0_0= RULE_DESCRIPTION_TEXT )
             {
-            // InternalInlineedit.g:877:3: (lv_description_0_0= RULE_DESCRIPTION_TEXT )
-            // InternalInlineedit.g:878:4: lv_description_0_0= RULE_DESCRIPTION_TEXT
+            // InternalInlineedit.g:896:3: (lv_description_0_0= RULE_DESCRIPTION_TEXT )
+            // InternalInlineedit.g:897:4: lv_description_0_0= RULE_DESCRIPTION_TEXT
             {
             lv_description_0_0=(Token)match(input,RULE_DESCRIPTION_TEXT,FOLLOW_2); 
 
@@ -2312,7 +2372,7 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVisibility"
-    // InternalInlineedit.g:897:1: ruleVisibility returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= '#' ) | (enumLiteral_3= 'protected' ) | (enumLiteral_4= '-' ) | (enumLiteral_5= 'private' ) ) ;
+    // InternalInlineedit.g:916:1: ruleVisibility returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= '#' ) | (enumLiteral_3= 'protected' ) | (enumLiteral_4= '-' ) | (enumLiteral_5= 'private' ) ) ;
     public final Enumerator ruleVisibility() throws RecognitionException {
         Enumerator current = null;
 
@@ -2327,55 +2387,55 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalInlineedit.g:903:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= '#' ) | (enumLiteral_3= 'protected' ) | (enumLiteral_4= '-' ) | (enumLiteral_5= 'private' ) ) )
-            // InternalInlineedit.g:904:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= '#' ) | (enumLiteral_3= 'protected' ) | (enumLiteral_4= '-' ) | (enumLiteral_5= 'private' ) )
+            // InternalInlineedit.g:922:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= '#' ) | (enumLiteral_3= 'protected' ) | (enumLiteral_4= '-' ) | (enumLiteral_5= 'private' ) ) )
+            // InternalInlineedit.g:923:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= '#' ) | (enumLiteral_3= 'protected' ) | (enumLiteral_4= '-' ) | (enumLiteral_5= 'private' ) )
             {
-            // InternalInlineedit.g:904:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= '#' ) | (enumLiteral_3= 'protected' ) | (enumLiteral_4= '-' ) | (enumLiteral_5= 'private' ) )
-            int alt11=6;
+            // InternalInlineedit.g:923:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= '#' ) | (enumLiteral_3= 'protected' ) | (enumLiteral_4= '-' ) | (enumLiteral_5= 'private' ) )
+            int alt12=6;
             switch ( input.LA(1) ) {
             case 25:
                 {
-                alt11=1;
+                alt12=1;
                 }
                 break;
             case 26:
                 {
-                alt11=2;
+                alt12=2;
                 }
                 break;
             case 27:
                 {
-                alt11=3;
+                alt12=3;
                 }
                 break;
             case 28:
                 {
-                alt11=4;
+                alt12=4;
                 }
                 break;
             case 29:
                 {
-                alt11=5;
+                alt12=5;
                 }
                 break;
             case 30:
                 {
-                alt11=6;
+                alt12=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalInlineedit.g:905:3: (enumLiteral_0= '+' )
+                    // InternalInlineedit.g:924:3: (enumLiteral_0= '+' )
                     {
-                    // InternalInlineedit.g:905:3: (enumLiteral_0= '+' )
-                    // InternalInlineedit.g:906:4: enumLiteral_0= '+'
+                    // InternalInlineedit.g:924:3: (enumLiteral_0= '+' )
+                    // InternalInlineedit.g:925:4: enumLiteral_0= '+'
                     {
                     enumLiteral_0=(Token)match(input,25,FOLLOW_2); 
 
@@ -2389,10 +2449,10 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalInlineedit.g:913:3: (enumLiteral_1= 'public' )
+                    // InternalInlineedit.g:932:3: (enumLiteral_1= 'public' )
                     {
-                    // InternalInlineedit.g:913:3: (enumLiteral_1= 'public' )
-                    // InternalInlineedit.g:914:4: enumLiteral_1= 'public'
+                    // InternalInlineedit.g:932:3: (enumLiteral_1= 'public' )
+                    // InternalInlineedit.g:933:4: enumLiteral_1= 'public'
                     {
                     enumLiteral_1=(Token)match(input,26,FOLLOW_2); 
 
@@ -2406,10 +2466,10 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalInlineedit.g:921:3: (enumLiteral_2= '#' )
+                    // InternalInlineedit.g:940:3: (enumLiteral_2= '#' )
                     {
-                    // InternalInlineedit.g:921:3: (enumLiteral_2= '#' )
-                    // InternalInlineedit.g:922:4: enumLiteral_2= '#'
+                    // InternalInlineedit.g:940:3: (enumLiteral_2= '#' )
+                    // InternalInlineedit.g:941:4: enumLiteral_2= '#'
                     {
                     enumLiteral_2=(Token)match(input,27,FOLLOW_2); 
 
@@ -2423,10 +2483,10 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalInlineedit.g:929:3: (enumLiteral_3= 'protected' )
+                    // InternalInlineedit.g:948:3: (enumLiteral_3= 'protected' )
                     {
-                    // InternalInlineedit.g:929:3: (enumLiteral_3= 'protected' )
-                    // InternalInlineedit.g:930:4: enumLiteral_3= 'protected'
+                    // InternalInlineedit.g:948:3: (enumLiteral_3= 'protected' )
+                    // InternalInlineedit.g:949:4: enumLiteral_3= 'protected'
                     {
                     enumLiteral_3=(Token)match(input,28,FOLLOW_2); 
 
@@ -2440,10 +2500,10 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalInlineedit.g:937:3: (enumLiteral_4= '-' )
+                    // InternalInlineedit.g:956:3: (enumLiteral_4= '-' )
                     {
-                    // InternalInlineedit.g:937:3: (enumLiteral_4= '-' )
-                    // InternalInlineedit.g:938:4: enumLiteral_4= '-'
+                    // InternalInlineedit.g:956:3: (enumLiteral_4= '-' )
+                    // InternalInlineedit.g:957:4: enumLiteral_4= '-'
                     {
                     enumLiteral_4=(Token)match(input,29,FOLLOW_2); 
 
@@ -2457,10 +2517,10 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalInlineedit.g:945:3: (enumLiteral_5= 'private' )
+                    // InternalInlineedit.g:964:3: (enumLiteral_5= 'private' )
                     {
-                    // InternalInlineedit.g:945:3: (enumLiteral_5= 'private' )
-                    // InternalInlineedit.g:946:4: enumLiteral_5= 'private'
+                    // InternalInlineedit.g:964:3: (enumLiteral_5= 'private' )
+                    // InternalInlineedit.g:965:4: enumLiteral_5= 'private'
                     {
                     enumLiteral_5=(Token)match(input,30,FOLLOW_2); 
 
@@ -2513,9 +2573,10 @@ public class InternalInlineeditParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000007E200040L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000000007E000040L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000001800010L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000007E280040L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000000007E200040L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x000000007E000040L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001800010L});
 
 }

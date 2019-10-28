@@ -31,6 +31,10 @@ import com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.Xtexts
  * <ul>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getInjectorId
  * <em>Injector Id</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#isCancelOnValidationError
+ * <em>Cancel On Validation Error</em>}</li>
+ * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#isEnableFormatter
+ * <em>Enable Formatter</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getPrefixTextExpression
  * <em>Prefix Text Expression</em>}</li>
  * <li>{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl#getSuffixTextExpression
@@ -50,7 +54,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * @ordered
 	 */
 	protected static final String INJECTOR_ID_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getInjectorId() <em>Injector Id</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -60,7 +64,49 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * @ordered
 	 */
 	protected String injectorId = INJECTOR_ID_EDEFAULT;
-
+	
+	/**
+	 * The default value of the '{@link #isCancelOnValidationError() <em>Cancel
+	 * On Validation Error</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CANCEL_ON_VALIDATION_ERROR_EDEFAULT = false;
+	
+	/**
+	 * The cached value of the '{@link #isCancelOnValidationError() <em>Cancel
+	 * On Validation Error</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isCancelOnValidationError()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean cancelOnValidationError = CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+	
+	/**
+	 * The default value of the '{@link #isEnableFormatter() <em>Enable
+	 * Formatter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEnableFormatter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLE_FORMATTER_EDEFAULT = true;
+	
+	/**
+	 * The cached value of the '{@link #isEnableFormatter() <em>Enable
+	 * Formatter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #isEnableFormatter()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean enableFormatter = ENABLE_FORMATTER_EDEFAULT;
+	
 	/**
 	 * The default value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -71,7 +117,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * @ordered
 	 */
 	protected static final String PREFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getPrefixTextExpression() <em>Prefix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -82,7 +128,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * @ordered
 	 */
 	protected String prefixTextExpression = PREFIX_TEXT_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * The default value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -93,7 +139,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * @ordered
 	 */
 	protected static final String SUFFIX_TEXT_EXPRESSION_EDEFAULT = null;
-
+	
 	/**
 	 * The cached value of the '{@link #getSuffixTextExpression() <em>Suffix
 	 * Text Expression</em>}' attribute. <!-- begin-user-doc --> <!--
@@ -104,7 +150,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	 * @ordered
 	 */
 	protected String suffixTextExpression = SUFFIX_TEXT_EXPRESSION_EDEFAULT;
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -113,7 +159,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected XtextMultiLineValueDescriptionImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -123,7 +169,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	protected EClass eStaticClass() {
 		return PropertiesxtextPackage.Literals.XTEXT_MULTI_LINE_VALUE_DESCRIPTION;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -133,7 +179,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	public String getInjectorId() {
 		return this.injectorId;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -149,7 +195,59 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 					this.injectorId));
 		}
 	}
-
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isCancelOnValidationError() {
+		return this.cancelOnValidationError;
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setCancelOnValidationError(final boolean newCancelOnValidationError) {
+		final boolean oldCancelOnValidationError = this.cancelOnValidationError;
+		this.cancelOnValidationError = newCancelOnValidationError;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR,
+					oldCancelOnValidationError, this.cancelOnValidationError));
+		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean isEnableFormatter() {
+		return this.enableFormatter;
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void setEnableFormatter(final boolean newEnableFormatter) {
+		final boolean oldEnableFormatter = this.enableFormatter;
+		this.enableFormatter = newEnableFormatter;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER, oldEnableFormatter,
+					this.enableFormatter));
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -159,7 +257,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	public String getPrefixTextExpression() {
 		return this.prefixTextExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -175,7 +273,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 					oldPrefixTextExpression, this.prefixTextExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -185,7 +283,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	public String getSuffixTextExpression() {
 		return this.suffixTextExpression;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -201,7 +299,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 					oldSuffixTextExpression, this.suffixTextExpression));
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -211,7 +309,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 	public boolean isMultiLine() {
 		return true;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -222,6 +320,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		switch (featureID) {
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
 				return getInjectorId();
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				return isCancelOnValidationError();
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+				return isEnableFormatter();
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				return getPrefixTextExpression();
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION:
@@ -229,7 +331,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -241,6 +343,12 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
 				setInjectorId((String) newValue);
 				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				setCancelOnValidationError((Boolean) newValue);
+				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+				setEnableFormatter((Boolean) newValue);
+				return;
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				setPrefixTextExpression((String) newValue);
 				return;
@@ -250,7 +358,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		super.eSet(featureID, newValue);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -262,6 +370,12 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
 				setInjectorId(INJECTOR_ID_EDEFAULT);
 				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				setCancelOnValidationError(CANCEL_ON_VALIDATION_ERROR_EDEFAULT);
+				return;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+				setEnableFormatter(ENABLE_FORMATTER_EDEFAULT);
+				return;
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				setPrefixTextExpression(PREFIX_TEXT_EXPRESSION_EDEFAULT);
 				return;
@@ -271,7 +385,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		super.eUnset(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -283,6 +397,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
 				return INJECTOR_ID_EDEFAULT == null ? this.injectorId != null
 						: !INJECTOR_ID_EDEFAULT.equals(this.injectorId);
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+				return this.cancelOnValidationError != CANCEL_ON_VALIDATION_ERROR_EDEFAULT;
+			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+				return this.enableFormatter != ENABLE_FORMATTER_EDEFAULT;
 			case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION:
 				return PREFIX_TEXT_EXPRESSION_EDEFAULT == null ? this.prefixTextExpression != null
 						: !PREFIX_TEXT_EXPRESSION_EDEFAULT.equals(this.prefixTextExpression);
@@ -292,7 +410,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		return super.eIsSet(featureID);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -304,6 +422,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 			switch (derivedFeatureID) {
 				case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID:
 					return XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID;
+				case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+				case PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER:
+					return XtextsiriusPackage.IXTEXT_DESCRIPTION__ENABLE_FORMATTER;
 				default:
 					return -1;
 			}
@@ -332,7 +454,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -344,6 +466,10 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 			switch (baseFeatureID) {
 				case XtextsiriusPackage.IXTEXT_DESCRIPTION__INJECTOR_ID:
 					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR:
+					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR;
+				case XtextsiriusPackage.IXTEXT_DESCRIPTION__ENABLE_FORMATTER:
+					return PropertiesxtextPackage.XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER;
 				default:
 					return -1;
 			}
@@ -372,7 +498,7 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -383,10 +509,14 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		if (eIsProxy()) {
 			return super.toString();
 		}
-
-		final StringBuffer result = new StringBuffer(super.toString());
+		
+		final StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (injectorId: ");
 		result.append(this.injectorId);
+		result.append(", cancelOnValidationError: ");
+		result.append(this.cancelOnValidationError);
+		result.append(", enableFormatter: ");
+		result.append(this.enableFormatter);
 		result.append(", prefixTextExpression: ");
 		result.append(this.prefixTextExpression);
 		result.append(", suffixTextExpression: ");
@@ -394,5 +524,5 @@ public class XtextMultiLineValueDescriptionImpl extends TextAreaDescriptionImpl
 		result.append(')');
 		return result.toString();
 	}
-
+	
 } // XtextMultiLineValueDescriptionImpl

@@ -20,7 +20,7 @@ import com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefxtextFac
 import com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription;
 
 public class XtextMultiLineValueDescriptionConverter extends AXtextDescriptionConverter {
-
+	
 	@Override
 	public boolean canHandle(final EObject description) {
 		return description instanceof XtextMultiLineValueDescription;
@@ -34,7 +34,7 @@ public class XtextMultiLineValueDescriptionConverter extends AXtextDescriptionCo
 			
 			final EefXtextMultiLineValueDescription eefDescription = EefxtextFactory.eINSTANCE
 					.createEefXtextMultiLineValueDescription();
-
+			
 			eefDescription.setIdentifier(propertyDescription.getName());
 			eefDescription.setHelpExpression(propertyDescription.getHelpExpression());
 			eefDescription.setIsEnabledExpression(propertyDescription.getIsEnabledExpression());
@@ -49,6 +49,8 @@ public class XtextMultiLineValueDescriptionConverter extends AXtextDescriptionCo
 			
 			eefDescription.setInjectorId(propertyDescription.getInjectorId());
 			eefDescription.setMultiLine(propertyDescription.isMultiLine());
+			eefDescription.setCancelOnValidationError(propertyDescription.isCancelOnValidationError());
+			eefDescription.setEnableFormatter(propertyDescription.isEnableFormatter());
 			
 			eefDescription.setPrefixTextExpression(propertyDescription.getPrefixTextExpression());
 			eefDescription.setSuffixTextExpression(propertyDescription.getSuffixTextExpression());

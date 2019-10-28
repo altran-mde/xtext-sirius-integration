@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.editpart.ui;
@@ -22,11 +22,16 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 import org.yakindu.base.xtext.utils.jface.viewers.context.IXtextFakeContextResourcesProvider;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
+import com.altran.general.integration.xtextsirius.runtime.editor.modeladjust.MinimalModelAdjuster;
 import com.altran.general.integration.xtextsirius.runtime.resource.XtextSiriusResourceSetGlobalScopeProvider;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 
+/**
+ * Clones all member resources of the Sirius session into the fake context.
+ */
 public class ResourceSetFakeContextResourcesProvider implements IXtextFakeContextResourcesProvider {
 	private final AXtextSiriusStyledTextCellEditor xtextSiriusStyledTextCellEditor;
 
@@ -42,15 +47,10 @@ public class ResourceSetFakeContextResourcesProvider implements IXtextFakeContex
 		if (!(this.globalScopeProvider instanceof XtextSiriusResourceSetGlobalScopeProvider)) {
 			return;
 		}
-
-		final EObject semanticElement = this.xtextSiriusStyledTextCellEditor.getSemanticElement();
-		final EObject container = semanticElement != null ? semanticElement
-				: this.xtextSiriusStyledTextCellEditor.getFallbackContainer();
 		
-		if (container == null) {
-			return;
-		}
-
+		final ModelEntryPoint mep = this.xtextSiriusStyledTextCellEditor.getModelEntryPoint();
+		final EObject container = new MinimalModelAdjuster().getClosestElement(mep);
+		
 		final Session session = SessionManager.INSTANCE.getSession(container);
 		if (session == null) {
 			return;

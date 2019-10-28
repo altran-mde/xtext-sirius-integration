@@ -58,5 +58,5 @@ public interface AXtextDirectEditLabel extends DirectEditLabel {
 	 */
 	@Override
 	EList<DiagramElementMapping> getMapping();
-
+	
 } // AXtextDirectEditLabel

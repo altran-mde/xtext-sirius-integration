@@ -45,7 +45,7 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 		}
 		return new ViewpointxtextFactoryImpl();
 	}
-
+	
 	/**
 	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -55,7 +55,7 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 	public ViewpointxtextFactoryImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -72,7 +72,7 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -83,7 +83,7 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 		final XtextEdgeLabelDirectEditModelDescriptionImpl xtextEdgeLabelDirectEditModelDescription = new XtextEdgeLabelDirectEditModelDescriptionImpl();
 		return xtextEdgeLabelDirectEditModelDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -94,7 +94,7 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 		final XtextEdgeLabelDirectEditValueDescriptionImpl xtextEdgeLabelDirectEditValueDescription = new XtextEdgeLabelDirectEditValueDescriptionImpl();
 		return xtextEdgeLabelDirectEditValueDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -104,7 +104,7 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 	public ViewpointxtextPackage getViewpointxtextPackage() {
 		return (ViewpointxtextPackage) getEPackage();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -115,5 +115,5 @@ public class ViewpointxtextFactoryImpl extends EFactoryImpl implements Viewpoint
 	public static ViewpointxtextPackage getPackage() {
 		return ViewpointxtextPackage.eINSTANCE;
 	}
-
+	
 } // ViewpointxtextFactoryImpl

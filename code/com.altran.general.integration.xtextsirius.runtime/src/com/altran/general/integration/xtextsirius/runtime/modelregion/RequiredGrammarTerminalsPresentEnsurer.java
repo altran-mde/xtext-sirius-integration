@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.runtime.modelregion;
@@ -191,7 +191,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 	
 	protected void validate() {
 		if (this.element.eIsSet(this.feature)) {
-			throw new IllegalStateException("Feature " + this.feature + " is set in " + this.element);
+			throw new IllegalStateException("Feature " + this.feature.getName() + " is set in " + this.element);
 		}
 		
 		this.elementRegion = this.rootRegion.regionForEObject(this.element);
@@ -206,7 +206,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		
 		if (this.containedElementPath.isEmpty()) {
 			throw new IllegalArgumentException(
-					"Cannot find grammar element for feature " + this.feature + " in " + this.element);
+					"Cannot find grammar element for feature " + this.feature.getName() + " in " + this.element);
 		}
 		
 		this.containedElement = Iterables.getLast(this.containedElementPath);
@@ -216,7 +216,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		
 		if (this.containingGroup == null) {
 			throw new IllegalArgumentException("Cannot find containing group for grammar element of feature "
-					+ this.feature + " in " + this.element);
+					+ this.feature.getName() + " in " + this.element);
 		}
 	}
 	
@@ -332,7 +332,7 @@ public class RequiredGrammarTerminalsPresentEnsurer {
 		final AbstractElement firstLeaf = leafs.stream()
 				.filter(e -> allParents.contains(e))
 				.findFirst()
-				.get();
+				.orElse(leafs.iterator().next());
 		
 		return firstLeaf;
 	}

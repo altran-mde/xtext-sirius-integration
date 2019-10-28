@@ -14,7 +14,10 @@
     <genClasses ecoreClass="XtextSiriusTest.ecore#//IdElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//IdElement/id"/>
     </genClasses>
-    <genClasses ecoreClass="XtextSiriusTest.ecore#//Element"/>
+    <genClasses ecoreClass="XtextSiriusTest.ecore#//Element">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//Element/derivedAttr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference XtextSiriusTest.ecore#//Element/derivedRef"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="XtextSiriusTest.ecore#//IElement">
       <genTypeParameters ecoreTypeParameter="XtextSiriusTest.ecore#//IElement/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextSiriusTest.ecore#//IElement/changeableAttr"/>

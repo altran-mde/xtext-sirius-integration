@@ -43,7 +43,7 @@ public class XtextsiriusFactoryImpl extends EFactoryImpl implements XtextsiriusF
 		}
 		return new XtextsiriusFactoryImpl();
 	}
-
+	
 	/**
 	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -53,7 +53,7 @@ public class XtextsiriusFactoryImpl extends EFactoryImpl implements XtextsiriusF
 	public XtextsiriusFactoryImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -66,7 +66,7 @@ public class XtextsiriusFactoryImpl extends EFactoryImpl implements XtextsiriusF
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -76,7 +76,7 @@ public class XtextsiriusFactoryImpl extends EFactoryImpl implements XtextsiriusF
 	public XtextsiriusPackage getXtextsiriusPackage() {
 		return (XtextsiriusPackage) getEPackage();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -87,5 +87,5 @@ public class XtextsiriusFactoryImpl extends EFactoryImpl implements XtextsiriusF
 	public static XtextsiriusPackage getPackage() {
 		return XtextsiriusPackage.eINSTANCE;
 	}
-
+	
 } // XtextsiriusFactoryImpl

@@ -190,6 +190,9 @@ public class ValueGuardImpl extends GuardImpl implements ValueGuard
     return super.eIsSet(featureID);
   }
 
+  /**
+   * @generated NOT
+   */
 	@Override
 	public String toString() {
 		if (eIsProxy()) {

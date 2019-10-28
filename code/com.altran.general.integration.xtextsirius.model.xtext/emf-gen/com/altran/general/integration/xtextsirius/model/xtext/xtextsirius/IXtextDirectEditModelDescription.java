@@ -44,5 +44,5 @@ public interface IXtextDirectEditModelDescription extends IXtextDirectEditDescri
 	 * @generated
 	 */
 	EList<String> getSelectedFeatures();
-
+	
 } // IXtextDirectEditModelDescription

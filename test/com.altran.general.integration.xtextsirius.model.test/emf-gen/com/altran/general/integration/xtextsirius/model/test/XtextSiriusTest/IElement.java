@@ -54,7 +54,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	String getChangeableAttr();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getChangeableAttr <em>Changeable Attr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -64,7 +64,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	void setChangeableAttr(String value);
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Attr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	int getUnchangeableAttr();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable List Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
@@ -95,7 +95,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<String> getChangeableListAttr();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable List Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Boolean}.
@@ -111,7 +111,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<Boolean> getUnchangeableListAttr();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Set Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Integer}.
@@ -127,7 +127,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<Integer> getChangeableSetAttr();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Set Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Integer}.
@@ -143,7 +143,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<Integer> getUnchangeableSetAttr();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Changeable Bag Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Double}.
@@ -159,7 +159,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<Double> getChangeableBagAttr();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Unchangeable Bag Attr</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Double}.
@@ -175,7 +175,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<Double> getUnchangeableBagAttr();
-	
+
 	/**
 	 * Returns the value of the '<em><b>Contained Single</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -191,7 +191,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	IContainedElement getContainedSingle();
-	
+
 	/**
 	 * Sets the value of the '{@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement#getContainedSingle <em>Contained Single</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -201,7 +201,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	void setContainedSingle(IContainedElement value);
-	
+
 	/**
 	 * Returns the value of the '<em><b>Contained Multi</b></em>' containment reference list.
 	 * The list contents are of type {@link com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IContainedElement}.
@@ -217,7 +217,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<IContainedElement> getContainedMulti();
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,7 +225,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	T getChangeableRef();
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,7 +233,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	void setChangeableRef(T ref);
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,7 +241,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<T> getChangeableListRef();
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,7 +249,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<T> getChangeableSetRef();
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,7 +257,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<T> getChangeableBagRef();
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,7 +265,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	T getChangeableCont();
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -273,7 +273,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	void setChangeableCont(T ref);
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -281,7 +281,7 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<T> getChangeableUniqueListCont();
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -289,5 +289,5 @@ public interface IElement<T extends IElement<?>> extends EObject {
 	 * @generated
 	 */
 	EList<T> getChangeableSetCont();
-	
+
 } // IElement

@@ -11,6 +11,27 @@ Require-Bundle: org.eclipse.ui,
  com.altran.general.integration.xtextsirius.runtime,
  org.eclipse.xtext.example.fowlerdsl.inlineedit,
  org.eclipse.xtext.example.fowlerdsl,
- org.eclipse.jdt.annotation;bundle-version="2"
+ nl.altran.example.xtext.html,
+ org.eclipse.jdt.annotation;bundle-version="2",
+ org.espilce.commons.emf.testsupport,
+ com.altran.general.integration.xtextsirius.model.diagram,
+ com.altran.general.integration.xtextsirius.model.eef,
+ org.apache.commons.lang,
+ com.altran.general.integration.xtextsirius.test.ekeylang,
+ com.altran.general.integration.xtextsirius.test.ekeylang.xtext,
+ com.altran.general.integration.xtextsirius.test.reflang.RefLang,
+ com.example.classes
+Export-Package: com.altran.general.integration.xtextsirius.test,
+ com.altran.general.integration.xtextsirius.test.editor,
+ com.altran.general.integration.xtextsirius.test.editor.model,
+ com.altran.general.integration.xtextsirius.test.editor.value,
+ com.altran.general.integration.xtextsirius.test.internal;x-internal:=true,
+ com.altran.general.integration.xtextsirius.test.util,
+ com.altran.general.integration.xtextsirius.test.util.fakeresourceutil,
+ com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer,
+ com.altran.general.integration.xtextsirius.test.util.parentmap,
+ com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer,
+ com.altran.general.integration.xtextsirius.test.util.semanticregionnavigator,
+ com.altran.general.integration.xtextsirius.test.util.styledtextutil
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

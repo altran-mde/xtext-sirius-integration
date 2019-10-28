@@ -1,10 +1,10 @@
 /**
  * Copyright (C) 2018 Altran Netherlands B.V.
- * 
+ *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
- * 
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package com.altran.general.integration.xtextsirius.editor.ui.internal.edgelabelmappings;
@@ -27,35 +27,35 @@ import org.eclipse.sirius.viewpoint.description.style.BasicLabelStyleDescription
 import com.altran.general.integration.xtextsirius.model.diagram.diagramxtext.AXtextDirectEditLabel;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.IXtextEdgeLabelDirectEditDescription;
 import com.altran.general.integration.xtextsirius.model.viewpoint.viewpointxtext.ViewpointxtextPackage;
-import com.google.common.collect.patch.Streams;
+import com.google.common.collect.Streams;
 
 public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
-		extends AbstractEditorDialogWithListPropertySection {
-	
+extends AbstractEditorDialogWithListPropertySection {
+
 	@Override
 	protected List<BasicLabelStyleDescription> getCurrentValue() {
 		return getDescription().getEdgeLabelMappings();
 	}
-	
+
 	protected IXtextEdgeLabelDirectEditDescription getDescription() {
 		return (IXtextEdgeLabelDirectEditDescription) this.eObject;
 	}
-	
+
 	@Override
 	protected boolean getSortChoice() {
 		return true;
 	}
-	
+
 	@Override
 	protected String getDefaultLabelText() {
 		return "Edge Label Mappings";
 	}
-	
+
 	@Override
 	protected String getLabelText() {
 		return super.getLabelText() + ":";
 	}
-	
+
 	@Override
 	protected List<BasicLabelStyleDescription> getChoiceOfValues() {
 		return ((AXtextDirectEditLabel) getDescription()).getMapping().stream()
@@ -64,7 +64,7 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 				.map(BasicLabelStyleDescription.class::cast)
 				.collect(Collectors.toList());
 	}
-	
+
 	/*
 	 * stolen and adapted from
 	 * org.eclipse.sirius.editor.properties.sections.tool.
@@ -75,7 +75,7 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 	@Override
 	protected void handleFeatureModified(final @SuppressWarnings("rawtypes") List result) {
 		final boolean equals = isEqual(result);
-		
+
 		if (!equals) {
 			final EditingDomain editingDomain = ((IEditingDomainProvider) getPart()).getEditingDomain();
 			if (this.eObjectList.size() == 1) {
@@ -87,7 +87,7 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 					}
 				}
 				editingDomain.getCommandStack().execute(compoundCommand);
-				
+
 				compoundCommand = new CompoundCommand();
 				if (result instanceof EList) {
 					for (final Object object : result) {
@@ -105,10 +105,10 @@ public class XtextEdgeLabelDirectEditDescriptionEdgeLabelMappingsPropertySection
 			}
 		}
 	}
-	
+
 	@Override
 	protected EReference getFeature() {
 		return ViewpointxtextPackage.eINSTANCE.getIXtextEdgeLabelDirectEditDescription_EdgeLabelMappings();
 	}
-	
+
 }

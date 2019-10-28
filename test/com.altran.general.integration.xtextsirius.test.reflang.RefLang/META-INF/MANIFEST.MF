@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.test.reflang.RefLang
+Bundle-ManifestVersion: 2
+Bundle-Name: com.altran.general.integration.xtextsirius.test.reflang.RefLang
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.altran.general.integration.xtextsirius.test.reflang.RefLang; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.altran.general.integration.xtextsirius.test.reflang,
+ com.altran.general.integration.xtextsirius.test.reflang.refLang,
+ com.altran.general.integration.xtextsirius.test.reflang.refLang.impl,
+ com.altran.general.integration.xtextsirius.test.reflang.services,
+ com.altran.general.integration.xtextsirius.test.reflang.generator,
+ com.altran.general.integration.xtextsirius.test.reflang.serializer,
+ com.altran.general.integration.xtextsirius.test.reflang.refLang.util,
+ com.altran.general.integration.xtextsirius.test.reflang.parser.antlr.internal,
+ com.altran.general.integration.xtextsirius.test.reflang.parser.antlr,
+ com.altran.general.integration.xtextsirius.test.reflang.validation,
+ com.altran.general.integration.xtextsirius.test.reflang.scoping
+Import-Package: org.apache.log4j

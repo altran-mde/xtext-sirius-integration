@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EKeyLang="http://altran.com/general/integration/xtextsirius/test/EKeyLang" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_cc9AgJNSEempIrVYR7igAg" selectedViews="_dlFGMJNSEempIrVYR7igAg" version="14.1.0.201810161215">
+    <semanticResources>test.ekeylang</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_dlFGMJNSEempIrVYR7igAg">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_eZtBEJNSEempIrVYR7igAg" name="new EKeyLangContainer" repPath="#_eYanoJNSEempIrVYR7igAg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']"/>
+        <target xmi:type="EKeyLang:Container" href="test.ekeylang#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_eYanoJNSEempIrVYR7igAg" name="new EKeyLangContainer">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_eZm6cJNSEempIrVYR7igAg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_eZm6cZNSEempIrVYR7igAg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_eaE0gJNSEempIrVYR7igAg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_eaE0gZNSEempIrVYR7igAg" type="Sirius" element="_eYanoJNSEempIrVYR7igAg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_eaXIYJNSEempIrVYR7igAg" type="2003" element="_eZHLMJNSEempIrVYR7igAg">
+          <children xmi:type="notation:Node" xmi:id="_eafrQJNSEempIrVYR7igAg" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_eahgcJNSEempIrVYR7igAg" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_uCwYkJNdEemEMNLMUBq1jQ" type="3010" element="_uBRx4JNdEemEMNLMUBq1jQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uCwYkZNdEemEMNLMUBq1jQ" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uCwYkpNdEemEMNLMUBq1jQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_8rEP4Ji6EemAB9leWaqgBA" type="3010" element="_8q4psJi6EemAB9leWaqgBA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_8rEP4Zi6EemAB9leWaqgBA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8rEP4pi6EemAB9leWaqgBA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_8rH6QJi6EemAB9leWaqgBA" type="3010" element="_8q6e4Ji6EemAB9leWaqgBA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_8rH6QZi6EemAB9leWaqgBA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8rH6Qpi6EemAB9leWaqgBA"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_eahgcZNSEempIrVYR7igAg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_eahgcpNSEempIrVYR7igAg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_eaXIYZNSEempIrVYR7igAg" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eaXIYpNSEempIrVYR7igAg" x="192" y="60" width="219"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_eaE0gpNSEempIrVYR7igAg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_eZHLMJNSEempIrVYR7igAg" name="group1">
+      <target xmi:type="EKeyLang:Group" href="test.ekeylang#//@contents.1"/>
+      <semanticElements xmi:type="EKeyLang:Group" href="test.ekeylang#//@contents.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_eZaGIJNSEempIrVYR7igAg" labelSize="12" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer/@containerMappings[name='GroupId']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer/@containerMappings[name='GroupId']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_uBRx4JNdEemEMNLMUBq1jQ" name="b 2" tooltipText="platform:/resource/com.altran.general.integration.xtextsirius.test.ekeylang.example/test.ekeylang#//@contents.1/@leafs[name='b']">
+        <target xmi:type="EKeyLang:Leaf" href="test.ekeylang#//@contents.1/@leafs[name='b']"/>
+        <semanticElements xmi:type="EKeyLang:Leaf" href="test.ekeylang#//@contents.1/@leafs[name='b']"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_uCmnkJNdEemEMNLMUBq1jQ" labelSize="12" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer/@containerMappings[name='GroupId']/@subNodeMappings[name='LeafId']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer/@containerMappings[name='GroupId']/@subNodeMappings[name='LeafId']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8q4psJi6EemAB9leWaqgBA" name="b 4" tooltipText="platform:/resource/com.altran.general.integration.xtextsirius.test.ekeylang.example/test.ekeylang#//@contents.1/@leafs[name='b']">
+        <target xmi:type="EKeyLang:Leaf" href="test.ekeylang#//@contents.1/@leafs[name='b']"/>
+        <semanticElements xmi:type="EKeyLang:Leaf" href="test.ekeylang#//@contents.1/@leafs[name='b']"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_8q5QwJi6EemAB9leWaqgBA" labelSize="12" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer/@containerMappings[name='GroupId']/@subNodeMappings[name='LeafId']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer/@containerMappings[name='GroupId']/@subNodeMappings[name='LeafId']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8q6e4Ji6EemAB9leWaqgBA" name="b 815" tooltipText="platform:/resource/com.altran.general.integration.xtextsirius.test.ekeylang.example/test.ekeylang#//@contents.1/@leafs[name='b']">
+        <target xmi:type="EKeyLang:Leaf" href="test.ekeylang#//@contents.1/@leafs[name='b']"/>
+        <semanticElements xmi:type="EKeyLang:Leaf" href="test.ekeylang#//@contents.1/@leafs[name='b']"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_8q7F8Ji6EemAB9leWaqgBA" labelSize="12" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer/@containerMappings[name='GroupId']/@subNodeMappings[name='LeafId']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer/@containerMappings[name='GroupId']/@subNodeMappings[name='LeafId']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_eYoDAJNSEempIrVYR7igAg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/com.altran.general.integration.xtextsirius.test.ekeylang.odesign/description/EKeyLang.odesign#//@ownedViewpoints[name='EKeyLang']/@ownedRepresentations[name='EKeyLangContainer']/@defaultLayer"/>
+    <target xmi:type="EKeyLang:Container" href="test.ekeylang#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

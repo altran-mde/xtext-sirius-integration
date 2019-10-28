@@ -24,7 +24,7 @@ class TestTranslateToRegions extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
+		val preparer = new AccessibleModelRegionEditorPreparer(descriptor, event)
 
 		val rootRegion = getRootRegion(event)
 
@@ -41,7 +41,7 @@ class TestTranslateToRegions extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(0)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
+		val preparer = new AccessibleModelRegionEditorPreparer(descriptor, event)
 
 		val rootRegion = getRootRegion(event)
 
@@ -63,7 +63,7 @@ class TestTranslateToRegions extends AModelRegionEditorPreparer {
 
 		val event = model.events.get(2)
 
-		val preparer = new AccessibleModelRegionEditorPreparer(injector, event)
+		val preparer = new AccessibleModelRegionEditorPreparer(descriptor, event)
 
 		val rootRegion = getRootRegion(event)
 

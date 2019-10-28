@@ -35,21 +35,21 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	String eNAME = "propertiesxtext";
-
+	
 	/**
 	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	String eNS_URI = "http://altran.com/general/integration/xtextsirius/model/properties/1.0";
-
+	
 	/**
 	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	String eNS_PREFIX = "properties-xtext";
-
+	
 	/**
 	 * The singleton instance of the package. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -58,7 +58,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 */
 	PropertiesxtextPackage eINSTANCE = com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.PropertiesxtextPackageImpl
 			.init();
-
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineModelDescriptionImpl
@@ -70,7 +70,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = 0;
-
+	
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -79,7 +79,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__NAME = PropertiesPackage.TEXT_DESCRIPTION__NAME;
-
+	
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -88,7 +88,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LABEL = PropertiesPackage.TEXT_DESCRIPTION__LABEL;
-
+	
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -97,7 +97,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__DOCUMENTATION = PropertiesPackage.TEXT_DESCRIPTION__DOCUMENTATION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -106,7 +106,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__LABEL_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -115,7 +115,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__HELP_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -124,7 +124,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -133,7 +133,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__VALUE_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
 	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -142,7 +142,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_DESCRIPTION__INITIAL_OPERATION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -151,7 +151,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__STYLE = PropertiesPackage.TEXT_DESCRIPTION__STYLE;
-
+	
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
 	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -160,7 +160,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES;
-
+	
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -169,7 +169,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_DESCRIPTION__EXTENDS;
-
+	
 	/**
 	 * The feature id for the '<em><b>Filter Conditional Styles From Extended
 	 * Text Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -179,7 +179,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -188,7 +188,26 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -196,8 +215,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 1;
-
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 3;
+	
 	/**
 	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
 	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -206,8 +225,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 2;
-
+			+ 4;
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -216,8 +235,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 3;
-
+			+ 5;
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -226,8 +245,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 4;
-
+			+ 6;
+	
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -235,8 +254,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 5;
-
+	int XTEXT_SINGLE_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 7;
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
@@ -248,7 +267,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION = 1;
-
+	
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -257,7 +276,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__NAME = PropertiesPackage.TEXT_AREA_DESCRIPTION__NAME;
-
+	
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -266,7 +285,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LABEL = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL;
-
+	
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -275,7 +294,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__DOCUMENTATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__DOCUMENTATION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -284,7 +303,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -293,7 +312,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__HELP_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -302,7 +321,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__IS_ENABLED_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -311,7 +330,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__LINE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION__LINE_COUNT;
-
+	
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -320,7 +339,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__VALUE_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
 	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -329,7 +348,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__INITIAL_OPERATION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -338,7 +357,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__STYLE = PropertiesPackage.TEXT_AREA_DESCRIPTION__STYLE;
-
+	
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
 	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -347,7 +366,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_AREA_DESCRIPTION__CONDITIONAL_STYLES;
-
+	
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -356,7 +375,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_AREA_DESCRIPTION__EXTENDS;
-
+	
 	/**
 	 * The feature id for the '<em><b>Filter Conditional Styles From Extended
 	 * Text Area Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -366,7 +385,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_AREA_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_AREA_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -375,7 +394,27 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__ENABLE_FORMATTER = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+	
 	/**
 	 * The feature id for the '<em><b>Editable Features</b></em>' attribute
 	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -384,8 +423,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__EDITABLE_FEATURES = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 1;
-
+			+ 3;
+	
 	/**
 	 * The feature id for the '<em><b>Ignored Nested Features</b></em>'
 	 * attribute list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -394,8 +433,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__IGNORED_NESTED_FEATURES = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 2;
-
+			+ 4;
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -404,8 +443,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__PREFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 3;
-
+			+ 5;
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -414,8 +453,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION__SUFFIX_TERMINALS_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 4;
-
+			+ 6;
+	
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Model
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -423,8 +462,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 5;
-
+	int XTEXT_MULTI_LINE_MODEL_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 7;
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
@@ -436,7 +475,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = 2;
-
+	
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -445,7 +484,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__NAME = PropertiesPackage.TEXT_DESCRIPTION__NAME;
-
+	
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -454,7 +493,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LABEL = PropertiesPackage.TEXT_DESCRIPTION__LABEL;
-
+	
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -463,7 +502,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.TEXT_DESCRIPTION__DOCUMENTATION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -472,7 +511,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__LABEL_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -481,7 +520,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__HELP_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -490,7 +529,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__IS_ENABLED_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -499,7 +538,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__VALUE_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
 	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -508,7 +547,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_DESCRIPTION__INITIAL_OPERATION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -517,7 +556,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__STYLE = PropertiesPackage.TEXT_DESCRIPTION__STYLE;
-
+	
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
 	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -526,7 +565,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_DESCRIPTION__CONDITIONAL_STYLES;
-
+	
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -535,7 +574,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_DESCRIPTION__EXTENDS;
-
+	
 	/**
 	 * The feature id for the '<em><b>Filter Conditional Styles From Extended
 	 * Text Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -545,7 +584,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -554,7 +593,26 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 2;
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -563,8 +621,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 1;
-
+			+ 3;
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -573,8 +631,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT
-			+ 2;
-
+			+ 4;
+	
 	/**
 	 * The number of structural features of the '<em>Xtext Single Line Value
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -582,8 +640,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 3;
-
+	int XTEXT_SINGLE_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_DESCRIPTION_FEATURE_COUNT + 5;
+	
 	/**
 	 * The meta object id for the
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
@@ -595,7 +653,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION = 3;
-
+	
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -604,7 +662,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__NAME = PropertiesPackage.TEXT_AREA_DESCRIPTION__NAME;
-
+	
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -613,7 +671,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LABEL = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL;
-
+	
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -622,7 +680,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__DOCUMENTATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__DOCUMENTATION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -631,7 +689,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LABEL_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__LABEL_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Help Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -640,7 +698,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__HELP_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__HELP_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Is Enabled Expression</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -649,7 +707,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__IS_ENABLED_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__IS_ENABLED_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Line Count</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -658,7 +716,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__LINE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION__LINE_COUNT;
-
+	
 	/**
 	 * The feature id for the '<em><b>Value Expression</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -667,7 +725,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__VALUE_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__VALUE_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Initial Operation</b></em>' containment
 	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -676,7 +734,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INITIAL_OPERATION = PropertiesPackage.TEXT_AREA_DESCRIPTION__INITIAL_OPERATION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Style</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -685,7 +743,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__STYLE = PropertiesPackage.TEXT_AREA_DESCRIPTION__STYLE;
-
+	
 	/**
 	 * The feature id for the '<em><b>Conditional Styles</b></em>' containment
 	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -694,7 +752,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CONDITIONAL_STYLES = PropertiesPackage.TEXT_AREA_DESCRIPTION__CONDITIONAL_STYLES;
-
+	
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -703,7 +761,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__EXTENDS = PropertiesPackage.TEXT_AREA_DESCRIPTION__EXTENDS;
-
+	
 	/**
 	 * The feature id for the '<em><b>Filter Conditional Styles From Extended
 	 * Text Area Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -713,7 +771,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_AREA_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION__FILTER_CONDITIONAL_STYLES_FROM_EXTENDED_TEXT_AREA_EXPRESSION;
-
+	
 	/**
 	 * The feature id for the '<em><b>Injector Id</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -722,7 +780,27 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__INJECTOR_ID = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 0;
-
+	
+	/**
+	 * The feature id for the '<em><b>Cancel On Validation Error</b></em>'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__CANCEL_ON_VALIDATION_ERROR = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 1;
+	
+	/**
+	 * The feature id for the '<em><b>Enable Formatter</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__ENABLE_FORMATTER = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
+			+ 2;
+	
 	/**
 	 * The feature id for the '<em><b>Prefix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -731,8 +809,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__PREFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 1;
-
+			+ 3;
+	
 	/**
 	 * The feature id for the '<em><b>Suffix Text Expression</b></em>'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -741,8 +819,8 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @ordered
 	 */
 	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION__SUFFIX_TEXT_EXPRESSION = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT
-			+ 2;
-
+			+ 4;
+	
 	/**
 	 * The number of structural features of the '<em>Xtext Multi Line Value
 	 * Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -750,9 +828,9 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 3;
-
-
+	int XTEXT_MULTI_LINE_VALUE_DESCRIPTION_FEATURE_COUNT = PropertiesPackage.TEXT_AREA_DESCRIPTION_FEATURE_COUNT + 5;
+	
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineModelDescription
@@ -765,7 +843,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXtextSingleLineModelDescription();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineModelDescription
@@ -778,7 +856,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXtextMultiLineModelDescription();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextSingleLineValueDescription
@@ -791,7 +869,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXtextSingleLineValueDescription();
-
+	
 	/**
 	 * Returns the meta object for class
 	 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.XtextMultiLineValueDescription
@@ -804,7 +882,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXtextMultiLineValueDescription();
-
+	
 	/**
 	 * Returns the factory that creates the instances of the model. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -813,7 +891,7 @@ public interface PropertiesxtextPackage extends EPackage {
 	 * @generated
 	 */
 	PropertiesxtextFactory getPropertiesxtextFactory();
-
+	
 	/**
 	 * <!-- begin-user-doc --> Defines literals for the meta objects that
 	 * represent
@@ -839,7 +917,7 @@ public interface PropertiesxtextPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XTEXT_SINGLE_LINE_MODEL_DESCRIPTION = eINSTANCE.getXtextSingleLineModelDescription();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineModelDescriptionImpl
@@ -851,7 +929,7 @@ public interface PropertiesxtextPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XTEXT_MULTI_LINE_MODEL_DESCRIPTION = eINSTANCE.getXtextMultiLineModelDescription();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextSingleLineValueDescriptionImpl
@@ -863,7 +941,7 @@ public interface PropertiesxtextPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XTEXT_SINGLE_LINE_VALUE_DESCRIPTION = eINSTANCE.getXtextSingleLineValueDescription();
-
+		
 		/**
 		 * The meta object literal for the
 		 * '{@link com.altran.general.integration.xtextsirius.model.properties.propertiesxtext.impl.XtextMultiLineValueDescriptionImpl
@@ -875,7 +953,7 @@ public interface PropertiesxtextPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XTEXT_MULTI_LINE_VALUE_DESCRIPTION = eINSTANCE.getXtextMultiLineValueDescription();
-
+		
 	}
-
+	
 } // PropertiesxtextPackage

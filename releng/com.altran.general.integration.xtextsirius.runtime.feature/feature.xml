@@ -2,10 +2,10 @@
 <feature
       id="com.altran.general.integration.xtextsirius.runtime.feature"
       label="Xtext / Sirius Integration Runtime Feature"
-      version="0.22.1.qualifier"
+      version="0.23.1.qualifier"
       provider-name="Altran Netherlands B.V."
-      license-feature="com.altran.general.integration.xtextsirius.license"
-      license-feature-version="0.9.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="2.0.2">
 
    <description>
       Xtext / Sirius Integration run-time Feature
@@ -28,29 +28,33 @@
    </url>
 
    <requires>
+      <import plugin="org.eclipse.jdt.annotation" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.lang"/>
-      <import plugin="com.google.guava" version="21.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.xtext"/>
-      <import plugin="org.eclipse.xtext.ui"/>
       <import plugin="org.eclipse.eef"/>
+      <import plugin="org.eclipse.sirius.common"/>
+      <import plugin="org.eclipse.sirius.diagram"/>
+      <import plugin="org.eclipse.sirius.ecore.extender"/>
+      <import plugin="org.eclipse.sirius.ext.base"/>
+      <import plugin="com.google.guava" version="21.0.0" match="compatible"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
+      <import plugin="org.yakindu.base.xtext.utils.jface"/>
+      <import plugin="org.yakindu.base.xtext.utils.gmf"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.sirius.diagram.ui"/>
       <import plugin="org.eclipse.eef.core"/>
       <import plugin="org.eclipse.eef.common.ui"/>
       <import plugin="org.eclipse.eef.ide.ui"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
-      <import plugin="org.eclipse.sirius" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.common"/>
       <import plugin="org.eclipse.sirius.common.interpreter"/>
-      <import plugin="org.eclipse.sirius.ext.base"/>
-      <import plugin="org.eclipse.sirius.ecore.extender"/>
-      <import plugin="org.eclipse.sirius.diagram"/>
-      <import plugin="org.eclipse.sirius.diagram.ui"/>
-      <import plugin="org.eclipse.sirius.properties" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.properties.core" version="5.0.0" match="greaterOrEqual"/>
-      <import plugin="org.yakindu.base.xtext.utils.jface"/>
-      <import plugin="org.yakindu.base.xtext.utils.gmf"/>
-      <import plugin="org.eclipse.jdt.annotation" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.properties.core" version="6.0.0" match="greaterOrEqual"/>
+      <import plugin="org.antlr.runtime" version="3.2.0" match="compatible"/>
+      <import plugin="org.antlr.runtime" version="4.3.0" match="compatible"/>
+      <import plugin="org.apache.batik.css" version="1.10.0" match="compatible"/>
+      <import plugin="org.apache.batik.css" version="1.6.0" match="compatible"/>
    </requires>
 
    <plugin
@@ -111,13 +115,6 @@
 
    <plugin
          id="com.altran.general.integration.xtextsirius.runtime.converter"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.altran.general.integration.google.guava.patch"
          download-size="0"
          install-size="0"
          version="0.0.0"

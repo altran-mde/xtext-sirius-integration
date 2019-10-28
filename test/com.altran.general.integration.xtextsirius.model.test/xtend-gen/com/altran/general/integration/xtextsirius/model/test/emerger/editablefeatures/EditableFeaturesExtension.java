@@ -12,6 +12,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.editablefe
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement;
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.XtextSiriusTestPackage;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerger;
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.google.common.base.Objects;
 import java.util.Collections;
@@ -49,7 +50,7 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
   
   public EMerger<T> createEMerger(final T existing, final T edited) {
     final Function1<EStructuralFeature, Boolean> _function = (EStructuralFeature it) -> {
-      return Boolean.valueOf(edited.eIsSet(it));
+      return Boolean.valueOf(((!it.isDerived()) && edited.eIsSet(it)));
     };
     final Function1<EStructuralFeature, String> _function_1 = (EStructuralFeature it) -> {
       return it.getName();
@@ -74,9 +75,9 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
         this.fillFeature(it);
       };
       this.untouchedFeatures.forEach(_function_2);
-      Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+      IXtextSiriusModelDescriptor _createDescriptor = this.test.createDescriptor(editableFeatures, CollectionLiterals.<String>emptySet());
       URI _createURI = URI.createURI("resourceName.xmi#/42");
-      _xblockexpression = new EMerger<T>(existing, editableFeatures, _emptySet, _createURI);
+      _xblockexpression = new EMerger<T>(_createDescriptor, existing, _createURI);
     }
     return _xblockexpression;
   }
@@ -97,9 +98,9 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
       };
       this.untouchedFeatures.forEach(_function_2);
       String _name = feature.getName();
-      Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+      IXtextSiriusModelDescriptor _createDescriptor = this.test.createDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet(_name)), CollectionLiterals.<String>emptySet());
       URI _createURI = URI.createURI("resourceName.xmi#/42");
-      _xblockexpression = new EMerger<T>(existing, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet(_name)), _emptySet, _createURI);
+      _xblockexpression = new EMerger<T>(_createDescriptor, existing, _createURI);
     }
     return _xblockexpression;
   }
@@ -120,9 +121,9 @@ public class EditableFeaturesExtension<T extends IElement<?>> {
         this.fillFeature(it);
       };
       this.untouchedFeatures.forEach(_function_2);
-      Set<String> _emptySet = CollectionLiterals.<String>emptySet();
+      IXtextSiriusModelDescriptor _createDescriptor = this.test.createDescriptor(editableFeatures, CollectionLiterals.<String>emptySet());
       URI _createURI = URI.createURI("resourceName.xmi#/42");
-      _xblockexpression = new EMerger<T>(existing, editableFeatures, _emptySet, _createURI);
+      _xblockexpression = new EMerger<T>(_createDescriptor, existing, _createURI);
     }
     return _xblockexpression;
   }

@@ -186,7 +186,7 @@ abstract class ATestEMergerContainmentMixed<T extends IElement<T>> extends ATest
 		val result = createEMerger(existing, changeableUniqueListContFeature).merge(#{edited.changeableUniqueListCont.head, newEdited(2, "2")}, changeableUniqueListContFeature)
 		assertEquals(2, result.changeableUniqueListCont.size)
 		assertTrue(result.changeableUniqueListCont.valueExists("a3"))
-		assertTrue(result.changeableUniqueListCont.valueExists("a2"))
+		assertTrue(result.changeableUniqueListCont.valueExists("q2"))
 	}
 
 	@Test
@@ -216,8 +216,8 @@ abstract class ATestEMergerContainmentMixed<T extends IElement<T>> extends ATest
 		
 		val result = createEMerger(existing, changeableSetContFeature).merge(#[edited.changeableSetCont.head, newEdited(2, "2")], changeableSetContFeature)
 		assertEquals(2, result.changeableSetCont.size)
+		assertTrue(result.changeableSetCont.valueExists("q1"))
 		assertTrue(result.changeableSetCont.valueExists("a2"))
-		assertTrue(result.changeableSetCont.valueExists("a3"))
 	}
 	
 	def protected changeableSetContFeature() {

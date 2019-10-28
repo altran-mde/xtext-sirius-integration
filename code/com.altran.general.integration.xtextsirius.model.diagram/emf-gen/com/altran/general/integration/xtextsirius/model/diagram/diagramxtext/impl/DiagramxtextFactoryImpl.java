@@ -45,7 +45,7 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 		}
 		return new DiagramxtextFactoryImpl();
 	}
-
+	
 	/**
 	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -55,7 +55,7 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 	public DiagramxtextFactoryImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -72,7 +72,7 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -83,7 +83,7 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 		final XtextDirectEditModelDescriptionImpl xtextDirectEditModelDescription = new XtextDirectEditModelDescriptionImpl();
 		return xtextDirectEditModelDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -94,7 +94,7 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 		final XtextDirectEditValueDescriptionImpl xtextDirectEditValueDescription = new XtextDirectEditValueDescriptionImpl();
 		return xtextDirectEditValueDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -104,7 +104,7 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 	public DiagramxtextPackage getDiagramxtextPackage() {
 		return (DiagramxtextPackage) getEPackage();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -115,5 +115,5 @@ public class DiagramxtextFactoryImpl extends EFactoryImpl implements Diagramxtex
 	public static DiagramxtextPackage getPackage() {
 		return DiagramxtextPackage.eINSTANCE;
 	}
-
+	
 } // DiagramxtextFactoryImpl

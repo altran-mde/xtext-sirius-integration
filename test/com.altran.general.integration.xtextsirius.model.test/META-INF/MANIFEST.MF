@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.model.test;singleton:=true
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.model.test
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
@@ -20,6 +21,7 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  com.altran.general.integration.xtextsirius.runtime,
  org.eclipse.emf.codegen.ecore,
  org.eclipse.emf.ecore.change,
- org.eclipse.emf.ecore.xmi
+ org.eclipse.emf.ecore.xmi,
+ com.google.inject
 Bundle-ActivationPolicy: lazy
 

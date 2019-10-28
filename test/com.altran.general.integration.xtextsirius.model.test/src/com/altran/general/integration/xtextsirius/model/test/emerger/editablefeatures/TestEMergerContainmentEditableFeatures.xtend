@@ -78,4 +78,24 @@ class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
 		assertTrue(result.changeableCont.changeableListAttr.contains("aaa"))
 		assertTrue(result.changeableCont.changeableListAttr.contains("bbb"))
 	}
+
+	@Test
+	override void set_listPartiallyExisting() {
+		val edited = createRootElement => [
+			changeableUniqueListCont += newEdited(3, "3")
+		]
+		
+		//dummy to create appropriate edited URIs
+		newEdited(99, "99")
+		
+		val existing = createRootElement => [
+			changeableUniqueListCont += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
+		]
+		
+		val result = createEMerger(existing, changeableUniqueListContFeature).merge(#{edited.changeableUniqueListCont.head, newEdited(2, "2")}, changeableUniqueListContFeature)
+		assertEquals(2, result.changeableUniqueListCont.size)
+		assertTrue(result.changeableUniqueListCont.valueExists("a3"))
+		assertTrue(result.changeableUniqueListCont.valueExists("a2"))
+	}
+
 }

@@ -42,7 +42,7 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 	protected AXtextDirectEditLabelImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -52,7 +52,7 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 	protected EClass eStaticClass() {
 		return DiagramxtextPackage.Literals.AXTEXT_DIRECT_EDIT_LABEL;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -82,5 +82,5 @@ public abstract class AXtextDirectEditLabelImpl extends DirectEditLabelImpl impl
 		}
 		return new BasicEList<>(diagramElementMappings);
 	}
-
+	
 } // AXtextDirectEditLabelImpl

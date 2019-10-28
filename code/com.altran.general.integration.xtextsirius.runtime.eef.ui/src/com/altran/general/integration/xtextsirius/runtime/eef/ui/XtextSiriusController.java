@@ -18,6 +18,12 @@ import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.sirius.common.interpreter.api.IInterpreter;
 import org.eclipse.sirius.common.interpreter.api.IVariableManager;
 
+import com.altran.general.integration.xtextsirius.runtime.editor.AXtextSiriusEditor;
+
+/**
+ * Connects between {@linkplain AbstractEEFWidgetController Sirius properties}
+ * and {@linkplain AXtextSiriusEditor Xtext/Sirius integration}.
+ */
 public class XtextSiriusController extends AbstractEEFWidgetController {
 	
 	private final EEFTextDescription controlDescription;

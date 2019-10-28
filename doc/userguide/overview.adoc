@@ -31,16 +31,22 @@ An editor can display
 * either single-line contents (<<singleLine-multiLine, singleLine>>),
 * or multi-line contents (<<singleLine-multiLine, multiLine>>).
 
+For all editors, we can set:
+
+* whether validation errors should be allowed (<<cancelOnValidationError, cancelOnValidationError>>)
+
+* whether an link:https://download.eclipse.org/modeling/tmf/xtext/javadoc/2.9/org/eclipse/xtext/formatting2/AbstractFormatter2.html[formatter] should be applied (<<enableFormatter, enableFormatter>>)   
+
 For all editors, we need to provide
 
 * An injector to access the Xtext language to use (<<injector, injector>>).
-	
+
 
 All of this can be summarized in one table:
 
 [options="autowidth"]
 |====
-|	^.<| *<<property, property>>*	2+^.<| *<<directEdit, directEdit>>*	| *add. info footnoteref:[info]*
+|	^.<| *<<property, property>>*	2+^.<| *<<directEdit, directEdit>>*	| *add. info footnote:info[]*
 
 .2+.^| *<<model, model>>*	
 | <<singleLine-multiLine, image:images/XtextSingleLineModelDescription.png[] singleLine>>	
@@ -60,12 +66,14 @@ All of this can be summarized in one table:
 | <<singleLine-multiLine, image:images/XtextMultiLineValueDescription.png[] multiLine>>	
 | <<singleLine-multiLine, image:images/XtextDirectEditValueDescription.png[] multiLine>>
 
-| *add. info footnoteref:[info]*	
+| *add. info footnote:info[]*	
 |  
 2+| _<<editableFeatures, editableFeatures>>, +
  <<ignoredNestedFeatures, ignoredNestedFeatures>> +
  <<selectedFeatures, selectedFeatures>>_
-| *for all:* _<<injector, injector>>_
+| *for all:* _<<injector, injector>>_ +
+ _<<cancelOnValidationError, cancelOnValidationError>>_ +
+ _<<enableFormatter, enableFormatter>>_
 |====
 
 

@@ -33,5 +33,5 @@ public interface XtextSingleLineModelDescription extends TextDescription, IXtext
 	 */
 	@Override
 	boolean isMultiLine();
-
+	
 } // XtextSingleLineModelDescription

@@ -404,7 +404,7 @@ public class TestEMergerChangeContainment extends ATestEMergerEReference<Element
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
     final Element result = this.createEMerger(existing, edited).merge(edited);
-    Assert.assertEquals(3, result.getContainedMulti().size());
+    Assert.assertEquals(2, result.getContainedMulti().size());
     final Function1<IContainedElement, Boolean> _function_2 = (IContainedElement it) -> {
       String _attrA = it.getAttrA();
       return Boolean.valueOf(Objects.equal(_attrA, "11a"));
@@ -415,10 +415,5 @@ public class TestEMergerChangeContainment extends ATestEMergerEReference<Element
       return Boolean.valueOf(Objects.equal(_attrA, "44a"));
     };
     Assert.assertTrue(IterableExtensions.<IContainedElement>exists(result.getContainedMulti(), _function_3));
-    final Function1<IContainedElement, Boolean> _function_4 = (IContainedElement it) -> {
-      String _attrA = it.getAttrA();
-      return Boolean.valueOf(Objects.equal(_attrA, "55a"));
-    };
-    Assert.assertTrue(IterableExtensions.<IContainedElement>exists(result.getContainedMulti(), _function_4));
   }
 }

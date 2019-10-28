@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.test.reflang.RefLang.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: com.altran.general.integration.xtextsirius.test.reflang.RefLang.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.altran.general.integration.xtextsirius.test.reflang.RefLang.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.altran.general.integration.xtextsirius.test.reflang.RefLang,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.altran.general.integration.xtextsirius.test.reflang.ide.contentassist.antlr.internal,
+ com.altran.general.integration.xtextsirius.test.reflang.ide.contentassist.antlr
+

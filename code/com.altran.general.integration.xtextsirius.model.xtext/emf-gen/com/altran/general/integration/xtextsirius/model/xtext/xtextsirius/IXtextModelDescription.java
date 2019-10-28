@@ -50,7 +50,7 @@ public interface IXtextModelDescription extends IXtextDescription {
 	 * @generated
 	 */
 	EList<String> getEditableFeatures();
-
+	
 	/**
 	 * Returns the value of the '<em><b>Ignored Nested Features</b></em>'
 	 * attribute list. The list contents are of type {@link java.lang.String}.
@@ -68,7 +68,7 @@ public interface IXtextModelDescription extends IXtextDescription {
 	 * @generated
 	 */
 	EList<String> getIgnoredNestedFeatures();
-
+	
 	/**
 	 * Returns the value of the '<em><b>Prefix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc -->
@@ -86,7 +86,7 @@ public interface IXtextModelDescription extends IXtextDescription {
 	 * @generated
 	 */
 	String getPrefixTerminalsExpression();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getPrefixTerminalsExpression
@@ -100,7 +100,7 @@ public interface IXtextModelDescription extends IXtextDescription {
 	 * @generated
 	 */
 	void setPrefixTerminalsExpression(String value);
-
+	
 	/**
 	 * Returns the value of the '<em><b>Suffix Terminals Expression</b></em>'
 	 * attribute. <!-- begin-user-doc -->
@@ -118,7 +118,7 @@ public interface IXtextModelDescription extends IXtextDescription {
 	 * @generated
 	 */
 	String getSuffixTerminalsExpression();
-
+	
 	/**
 	 * Sets the value of the
 	 * '{@link com.altran.general.integration.xtextsirius.model.xtext.xtextsirius.IXtextModelDescription#getSuffixTerminalsExpression
@@ -132,5 +132,5 @@ public interface IXtextModelDescription extends IXtextDescription {
 	 * @generated
 	 */
 	void setSuffixTerminalsExpression(String value);
-
+	
 } // IXtextModelDescription

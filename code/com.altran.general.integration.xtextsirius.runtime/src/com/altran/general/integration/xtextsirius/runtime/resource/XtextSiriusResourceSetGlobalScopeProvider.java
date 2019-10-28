@@ -25,6 +25,11 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 
+/**
+ * Provides all contents of a {@link ResourceSet} in global scope.
+ * 
+ * @see ResourceSetSelectable
+ */
 public class XtextSiriusResourceSetGlobalScopeProvider extends ResourceSetGlobalScopeProvider {
 	
 	@Inject
@@ -35,7 +40,7 @@ public class XtextSiriusResourceSetGlobalScopeProvider extends ResourceSetGlobal
 			final GlobalResourceDescriptionProvider resourceDecriptionProvider) {
 		this.resourceDecriptionProvider = resourceDecriptionProvider;
 	}
-
+	
 	@Override
 	protected IScope createScopeWithQualifiedNames(final IScope parent, final Resource resource,
 			final Predicate<IEObjectDescription> filter, final ResourceSet resourceSet, final EClass type,
@@ -44,7 +49,7 @@ public class XtextSiriusResourceSetGlobalScopeProvider extends ResourceSetGlobal
 				Iterables.transform(resourceSet.getResources(),
 						from -> this.resourceDecriptionProvider.getResourceDescription(from)),
 				Objects::nonNull);
-
+		
 		final ISelectable compound = new ResourceSetSelectable(resourceDescriptions);
 		return SelectableBasedScope.createScope(parent, compound, filter, type, ignoreCase);
 	}

@@ -42,7 +42,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected static EefxtextPackage modelPackage;
-
+	
 	/**
 	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -54,7 +54,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 			modelPackage = EefxtextPackage.eINSTANCE;
 		}
 	}
-
+	
 	/**
 	 * Returns whether this factory is applicable for the type of the object.
 	 * <!-- begin-user-doc --> This implementation returns <code>true</code> if
@@ -74,7 +74,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 		}
 		return false;
 	}
-
+	
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -86,63 +86,63 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 		public Adapter caseIEefXtextDescription(final IEefXtextDescription object) {
 			return createIEefXtextDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIEefXtextModelDescription(final IEefXtextModelDescription object) {
 			return createIEefXtextModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIEefXtextValueDescription(final IEefXtextValueDescription object) {
 			return createIEefXtextValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseIEefXtextPropertyDescription(final IEefXtextPropertyDescription object) {
 			return createIEefXtextPropertyDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseEefXtextSingleLineModelDescription(final EefXtextSingleLineModelDescription object) {
 			return createEefXtextSingleLineModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseEefXtextMultiLineModelDescription(final EefXtextMultiLineModelDescription object) {
 			return createEefXtextMultiLineModelDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseEefXtextSingleLineValueDescription(final EefXtextSingleLineValueDescription object) {
 			return createEefXtextSingleLineValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseEefXtextMultiLineValueDescription(final EefXtextMultiLineValueDescription object) {
 			return createEefXtextMultiLineValueDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseEEFControlDescription(final EEFControlDescription object) {
 			return createEEFControlDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseEEFWidgetDescription(final EEFWidgetDescription object) {
 			return createEEFWidgetDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter caseEEFTextDescription(final EEFTextDescription object) {
 			return createEEFTextDescriptionAdapter();
 		}
-
+		
 		@Override
 		public Adapter defaultCase(final EObject object) {
 			return createEObjectAdapter();
 		}
 	};
-
+	
 	/**
 	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,8 +156,8 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createAdapter(final Notifier target) {
 		return this.modelSwitch.doSwitch((EObject) target);
 	}
-
-
+	
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextDescription
@@ -173,7 +173,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIEefXtextDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextModelDescription
@@ -189,7 +189,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIEefXtextModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextValueDescription
@@ -205,7 +205,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIEefXtextValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.IEefXtextPropertyDescription
@@ -221,7 +221,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createIEefXtextPropertyDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineModelDescription
@@ -237,7 +237,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEefXtextSingleLineModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineModelDescription
@@ -253,7 +253,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEefXtextMultiLineModelDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextSingleLineValueDescription
@@ -269,7 +269,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEefXtextSingleLineValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link com.altran.general.integration.xtextsirius.model.eef.eefxtext.EefXtextMultiLineValueDescription
@@ -285,7 +285,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEefXtextMultiLineValueDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.eef.EEFControlDescription <em>EEF Control
@@ -301,7 +301,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEEFControlDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.eef.EEFWidgetDescription <em>EEF Widget
@@ -317,7 +317,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEEFWidgetDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for an object of class
 	 * '{@link org.eclipse.eef.EEFTextDescription <em>EEF Text
@@ -333,7 +333,7 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEEFTextDescriptionAdapter() {
 		return null;
 	}
-
+	
 	/**
 	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This
 	 * default implementation returns null. <!-- end-user-doc -->
@@ -344,5 +344,5 @@ public class EefxtextAdapterFactory extends AdapterFactoryImpl {
 	public Adapter createEObjectAdapter() {
 		return null;
 	}
-
+	
 } // EefxtextAdapterFactory

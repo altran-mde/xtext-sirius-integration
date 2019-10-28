@@ -47,7 +47,7 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 		}
 		return new PropertiesxtextFactoryImpl();
 	}
-
+	
 	/**
 	 * Creates an instance of the factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -57,7 +57,7 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 	public PropertiesxtextFactoryImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -78,7 +78,7 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -89,7 +89,7 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 		final XtextSingleLineModelDescriptionImpl xtextSingleLineModelDescription = new XtextSingleLineModelDescriptionImpl();
 		return xtextSingleLineModelDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -100,7 +100,7 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 		final XtextMultiLineModelDescriptionImpl xtextMultiLineModelDescription = new XtextMultiLineModelDescriptionImpl();
 		return xtextMultiLineModelDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -111,7 +111,7 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 		final XtextSingleLineValueDescriptionImpl xtextSingleLineValueDescription = new XtextSingleLineValueDescriptionImpl();
 		return xtextSingleLineValueDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -122,7 +122,7 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 		final XtextMultiLineValueDescriptionImpl xtextMultiLineValueDescription = new XtextMultiLineValueDescriptionImpl();
 		return xtextMultiLineValueDescription;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -132,7 +132,7 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 	public PropertiesxtextPackage getPropertiesxtextPackage() {
 		return (PropertiesxtextPackage) getEPackage();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -143,5 +143,5 @@ public class PropertiesxtextFactoryImpl extends EFactoryImpl implements Properti
 	public static PropertiesxtextPackage getPackage() {
 		return PropertiesxtextPackage.eINSTANCE;
 	}
-
+	
 } // PropertiesxtextFactoryImpl

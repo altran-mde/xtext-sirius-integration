@@ -9,10 +9,10 @@
  */
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
+import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint;
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
-import com.google.inject.Injector;
 import java.util.Collections;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -23,8 +23,6 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
 import org.eclipse.xtext.util.TextRegion;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.ObjectExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,12 +40,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineDescriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -82,12 +75,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineDescriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -130,12 +118,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineDescriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -179,13 +162,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -220,13 +197,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -261,13 +232,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -302,13 +267,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -343,13 +302,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -384,13 +337,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -426,13 +373,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -467,13 +408,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "code", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -508,13 +443,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -550,14 +479,10 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
+    AModelRegionEditorPreparer.XtextSiriusModelDescriptorAdapter _multilineEditableFeatureDescriptor = this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")));
     EReference _event_Guard = AFowlerdslDefaultModelTest.statemachineFactory.getStatemachinePackage().getEvent_Guard();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, null, event, _event_Guard);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    ModelEntryPoint _modelEntryPoint = new ModelEntryPoint(null, event, _event_Guard);
+    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_multilineEditableFeatureDescriptor, _modelEntryPoint);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -600,8 +525,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final ModelRegionEditorPreparer preparer = new ModelRegionEditorPreparer(_injector, event);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.descriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -640,12 +564,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.editableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -687,12 +606,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineDescriptor(), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -738,13 +652,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, event);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("name", "guard"))), event);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -792,13 +700,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final State state = model.getStates().get(0);
     final Transition transition = state.getTransitions().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, transition);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard"))), transition);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -850,13 +752,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final State state = model.getStates().get(0);
     final Transition transition = state.getTransitions().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, transition);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("event", "guard"))), transition);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("events");
     _builder_1.newLine();
@@ -899,13 +795,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, cmd);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name"))), cmd);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -940,13 +830,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, cmd);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("code", "name"))), cmd);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -982,13 +866,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, cmd);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard", "name")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard", "name"))), cmd);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();
@@ -1023,13 +901,7 @@ public class TestApiSingleEntry extends AModelRegionEditorPreparer {
     _builder.newLine();
     final Statemachine model = this.parseIntoResource(_builder.toString());
     final Command cmd = model.getCommands().get(0);
-    Injector _injector = this.getInjector();
-    ModelRegionEditorPreparer _modelRegionEditorPreparer = new ModelRegionEditorPreparer(_injector, cmd);
-    final Procedure1<ModelRegionEditorPreparer> _function = (ModelRegionEditorPreparer it) -> {
-      it.setMultiLine(true);
-      it.setEditableFeatures(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard")));
-    };
-    final ModelRegionEditorPreparer preparer = ObjectExtensions.<ModelRegionEditorPreparer>operator_doubleArrow(_modelRegionEditorPreparer, _function);
+    final ModelRegionEditorPreparer preparer = this.createPreparer(this.multilineEditableFeatureDescriptor(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("guard"))), cmd);
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("commands");
     _builder_1.newLine();

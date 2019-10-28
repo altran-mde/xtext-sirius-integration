@@ -259,9 +259,8 @@ class TestEMergerChangeContainment extends ATestEMergerEReference<Element> {
 		]
 
 		val result = createEMerger(existing, edited).merge(edited)
-		assertEquals(3, result.containedMulti.size)
+		assertEquals(2, result.containedMulti.size)
 		assertTrue(result.containedMulti.exists[attrA == "11a"])
 		assertTrue(result.containedMulti.exists[attrA == "44a"])
-		assertTrue(result.containedMulti.exists[attrA == "55a"])
 	}
 }

@@ -9,10 +9,10 @@
  */
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer;
 
+import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
-import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -36,8 +36,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
   public void emptyFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, event);
     preparer.setDefinedFeatures(CollectionLiterals.<EStructuralFeature>emptySet());
     preparer.calculateRegionForFeatures(event);
   }
@@ -46,8 +46,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
   public void oneDefinedFeature() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(0);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, event);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -64,8 +64,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
   public void oneDefinedFeatureLong() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(2);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, event);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -82,8 +82,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
   public void someDefinedFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Event event = model.getEvents().get(2);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, event);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, event);
     final ITextRegionAccess rootRegion = this.getRootRegion(event);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion eventRegion = rootRegion.regionForEObject(event);
@@ -103,8 +103,8 @@ public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
   public void allPrefixedFeatures() {
     final Statemachine model = this.getDefaultModel();
     final Command cmd = model.getCommands().get(1);
-    Injector _injector = this.getInjector();
-    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_injector, cmd);
+    IXtextSiriusModelDescriptor _descriptor = this.descriptor();
+    final AccessibleModelRegionEditorPreparer preparer = new AccessibleModelRegionEditorPreparer(_descriptor, cmd);
     final ITextRegionAccess rootRegion = this.getRootRegion(cmd);
     preparer.setRootRegion(rootRegion);
     final IEObjectRegion cmdRegion = rootRegion.regionForEObject(cmd);

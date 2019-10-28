@@ -33,5 +33,5 @@ public interface XtextMultiLineValueDescription extends TextAreaDescription, IXt
 	 */
 	@Override
 	boolean isMultiLine();
-
+	
 } // XtextMultiLineValueDescription

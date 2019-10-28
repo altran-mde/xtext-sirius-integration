@@ -14,6 +14,10 @@ import java.util.Set;
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
 
+/**
+ * Allows to walk along {@link ISemanticRegion}s forward (i.e. towards the end
+ * of the document) or backward (i.e. towards the beginning of the document).
+ */
 @SuppressWarnings("restriction")
 public class SemanticRegionNavigator {
 	private static SemanticRegionNavigator INSTANCE;
