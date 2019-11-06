@@ -62,7 +62,11 @@ public abstract class ATestXtextSiriusModel<M extends EObject> {
   protected abstract IXtextSiriusModelDescriptor createModelDescriptor();
   
   protected M parseModel() {
-    final EObject result = this.modelLoader.parseModel(StringUtils2.normalizeNewline(this.modelText().toString()), this.resourceName());
+    final String normalized = StringUtils2.normalizeNewline(this.modelText().toString());
+    if ((null == normalized)) {
+      return null;
+    }
+    final EObject result = this.modelLoader.parseModel(normalized, this.resourceName());
     EcoreUtil.resolveAll(result);
     return ((M) result);
   }

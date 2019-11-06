@@ -50,7 +50,11 @@ abstract class ATestXtextSiriusModel<M extends EObject> {
 	protected def IXtextSiriusModelDescriptor createModelDescriptor()
 
 	protected def M parseModel() {
-		val result = StringUtils2::normalizeNewline(modelText.toString).parseModel(resourceName())
+	    val normalized = StringUtils2::normalizeNewline(modelText.toString);
+	    if (null === normalized) {
+	        return null;
+	    } 
+		val result = normalized.parseModel(resourceName())
 		EcoreUtil::resolveAll(result)
 		return result as M
 	}
