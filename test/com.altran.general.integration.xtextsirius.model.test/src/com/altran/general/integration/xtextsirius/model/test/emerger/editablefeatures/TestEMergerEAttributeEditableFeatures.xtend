@@ -11,6 +11,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.editablefe
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerEAttribute
+import com.google.common.collect.ImmutableSet
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.junit.After
 import org.junit.Test
@@ -43,7 +44,7 @@ class TestEMergerEAttributeEditableFeatures extends TestEMergerEAttribute {
 			changeableAttr = null
 		]
 		
-		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableAttr"}).merge(edited)
+		val result = editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet::of("changeableAttr")).merge(edited)
 		assertNull(result.changeableAttr)
 	}
 	
@@ -57,7 +58,7 @@ class TestEMergerEAttributeEditableFeatures extends TestEMergerEAttribute {
 			changeableAttr = "Hello"
 		]
 		
-		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableAttr"}).merge(edited)
+		val result = editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet::of("changeableAttr")).merge(edited)
 		assertNull(result.changeableAttr)
 	}
 }

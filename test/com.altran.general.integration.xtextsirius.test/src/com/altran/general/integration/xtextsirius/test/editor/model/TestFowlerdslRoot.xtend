@@ -10,7 +10,7 @@
 package com.altran.general.integration.xtextsirius.test.editor.model
 
 import org.junit.Test
-import org.espilce.commons.lang.StringUtils2
+import org.espilce.commons.text.StringUtils2
 
 class TestFowlerdslRoot extends ATestFowlerdslModel {
 	

@@ -20,3 +20,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
 Export-Package: com.example.classes.design
+Automatic-Module-Name: com.example.classes.design

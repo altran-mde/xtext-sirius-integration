@@ -11,6 +11,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.id;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IdElement;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerContainmentIdentity;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
@@ -86,9 +87,7 @@ public class TestEMergerContainmentId extends ATestEMergerContainmentIdentity<Id
       Iterables.<IdElement>addAll(_changeableUniqueListCont, Collections.<IdElement>unmodifiableList(CollectionLiterals.<IdElement>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
     };
     final IdElement existing = ObjectExtensions.<IdElement>operator_doubleArrow(_createRootElement_1, _function_1);
-    IdElement _head = IterableExtensions.<IdElement>head(edited.getChangeableUniqueListCont());
-    IdElement _newEdited = this.newEdited(2, "2");
-    final IdElement result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(Collections.<IdElement>unmodifiableSet(CollectionLiterals.<IdElement>newHashSet(_head, _newEdited)), this.changeableUniqueListContFeature());
+    final IdElement result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(ImmutableSet.<IdElement>of(IterableExtensions.<IdElement>head(edited.getChangeableUniqueListCont()), this.newEdited(2, "2")), this.changeableUniqueListContFeature());
     Assert.assertEquals(2, result.getChangeableUniqueListCont().size());
     Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "q1"));
     Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a2"));

@@ -8,16 +8,28 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho.version>1.2.0</tycho.version>
-		<xtend.version>2.14.0</xtend.version>
-		<xtext.version>2.14.0</xtext.version>
-		<build.helper.maven.version>1.7</build.helper.maven.version>
-		<maven.clean.version>2.5</maven.clean.version>
-		<maven.acceleo.version>3.6.4</maven.acceleo.version>
+		<tycho-version>1.4.0</tycho-version>
+		<xtend.version>2.17.0</xtend.version>
+		<xtext.version>2.17.0</xtext.version>
+		<mwe2.launch.version>2.10.0</mwe2.launch.version>
+		<xtext-antlr-generator.version>[2.1.1, 3)</xtext-antlr-generator.version>
+		<build.helper.maven.version>3.0.0</build.helper.maven.version>
+		<maven.clean.version>3.1.0</maven.clean.version>
+		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+		<exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
+		<jgit-version>5.5.1.201910021850-r</jgit-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven-deploy-plugin.version>2.8.1</maven-deploy-plugin.version>
 		<maven.deploy.skip>true</maven.deploy.skip>
+		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
 	</properties>
+
+	<modules>
+		<module>code</module>
+		<module>releng</module>
+		<module>test</module>
+		<module>demo</module>
+	</modules>
+
 	<build>
 		<plugins>
 			<!-- TYCHO PLUGINS -->
@@ -32,6 +44,26 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-packaging-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-buildtimestamp-jgit</artifactId>
+						<version>${tycho-version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.jgit</groupId>
+						<artifactId>org.eclipse.jgit</artifactId>
+						<version>${jgit-version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<format>yyyyMMdd-HHmm</format>
+					<timestampProvider>jgit</timestampProvider>
+					<jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
@@ -72,6 +104,10 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-repository-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+			</plugin>
 		</plugins>
 
 		<pluginManagement>
@@ -80,35 +116,35 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-maven-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<extensions>true</extensions>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-packaging-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-source-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho.extras</groupId>
 					<artifactId>tycho-source-feature-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<!-- <executions> <execution> <id>source-feature</id> <phase>package</phase> 
 						<goals> <goal>source-feature</goal> </goals> </execution> </executions> -->
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-versions-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 				</plugin>
 				<!-- END OF PARENT PLUGINS -->
 
@@ -116,7 +152,7 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-compiler-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<configuration>
 						<compilerArgs>
 							<arg>-err:-nullAnnot,includeAssertNull,inheritNullAnnot,nonnullNotRepeated,null,nullAnnotConflict,nullAnnotRedundant,nullDereference,nullUncheckedConversion,syntacticAnalysis</arg>
@@ -162,38 +198,6 @@
 						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
 						<testOutputDirectory>${basedir}/xtend-gen</testOutputDirectory>
 					</configuration>
-					<!-- Workaround for https://github.com/eclipse/xtext/issues/1231 (remove 
-						this when that bug has been fixed) -->
-					<dependencies>
-						<dependency>
-							<groupId>org.eclipse.platform</groupId>
-							<artifactId>org.eclipse.equinox.common</artifactId>
-							<version>3.10.0</version>
-						</dependency>
-						<dependency>
-							<groupId>org.eclipse.jdt</groupId>
-							<artifactId>org.eclipse.jdt.core</artifactId>
-							<version>3.13.102</version>
-						</dependency>
-						<dependency>
-							<groupId>org.eclipse.jdt</groupId>
-							<artifactId>org.eclipse.jdt.compiler.apt</artifactId>
-							<version>1.3.110</version>
-						</dependency>
-						<dependency>
-							<groupId>org.eclipse.jdt</groupId>
-							<artifactId>org.eclipse.jdt.compiler.tool</artifactId>
-							<version>1.2.101</version>
-						</dependency>
-						<dependency>
-							<groupId>org.eclipse.emf</groupId>
-							<artifactId>org.eclipse.emf.codegen</artifactId>
-							<version>2.11.0</version>
-						</dependency>						
-					</dependencies>
-					<!-- End workaround for https://github.com/eclipse/xtext/issues/1231 
-						(remove this when that bug has been fixed -->
-
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -225,7 +229,7 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<executions>
 						<execution>
 							<id>attach-p2-metadata</id>
@@ -239,12 +243,41 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-repository-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<configuration>
 						<includeAllDependencies>true</includeAllDependencies>
 					</configuration>
 				</plugin>
 				<!-- END OF OTHER PLUGINS -->
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<dependency-resolution>
+							<optionalDependencies>ignore</optionalDependencies>
+						</dependency-resolution>
+						<target>
+							<artifact>
+								<groupId>com.altran</groupId>
+								<artifactId>com.altran.general.integration.xtextsirius.target</artifactId>
+								<version>1.0.0-SNAPSHOT</version>
+							</artifact>
+						</target>
+						<environments>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86_64</arch>
+							</environment>
+						</environments>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -263,58 +296,4 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	<profiles>
-		<profile>
-			<id>sirius5.oxygen</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<modules>
-				<module>code</module>
-				<module>releng</module>
-				<!--module>test</module -->
-			</modules>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>target-platform-configuration</artifactId>
-					</plugin>
-				</plugins>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<groupId>org.eclipse.tycho</groupId>
-							<artifactId>target-platform-configuration</artifactId>
-							<version>${tycho.version}</version>
-							<configuration>
-								<dependency-resolution>
-									<optionalDependencies>ignore</optionalDependencies>
-								</dependency-resolution>
-								<target>
-									<artifact>
-										<groupId>com.altran</groupId>
-										<artifactId>com.altran.general.integration.xtextsirius.target</artifactId>
-										<version>1.0.0-SNAPSHOT</version>
-									</artifact>
-								</target>
-								<environments>
-									<environment>
-										<os>linux</os>
-										<ws>gtk</ws>
-										<arch>x86_64</arch>
-									</environment>
-									<environment>
-										<os>win32</os>
-										<ws>win32</ws>
-										<arch>x86_64</arch>
-									</environment>
-								</environments>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-			</build>
-		</profile>
-	</profiles>
 </project>

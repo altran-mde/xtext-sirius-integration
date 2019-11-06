@@ -7,9 +7,9 @@ import com.altran.general.integration.xtextsirius.test.reflang.refLang.IContaine
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangFactory;
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangPackage;
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.SubContainer;
+import com.google.common.collect.ImmutableSet;
 import com.google.inject.Injector;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -160,7 +159,7 @@ public abstract class ATestRefLang extends ATestXtextSiriusModel<Container> {
     boolean _matched = false;
     if (result instanceof EObject) {
       _matched=true;
-      _switchResult = Collections.<EObject>unmodifiableSet(CollectionLiterals.<EObject>newHashSet(((EObject)result)));
+      _switchResult = ImmutableSet.<EObject>of(((EObject)result));
     }
     if (!_matched) {
       if (result instanceof List) {

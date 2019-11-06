@@ -10,6 +10,7 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.IElement
+import com.google.common.collect.ImmutableSet
 import org.junit.Test
 
 import static org.junit.Assert.*
@@ -386,7 +387,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 			changeableBagRef += #[]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(#{newEdited(3, "3.14"), newEdited(2, "2.71")}, AElement_ChangeableBagRef)
+		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(ImmutableSet::of(newEdited(3, "3.14"), newEdited(2, "2.71")), AElement_ChangeableBagRef)
 		assertEquals(2, result.changeableBagRef.size)
 		assertTrue(result.changeableBagRef.valueExists("a3.14"))
 		assertTrue(result.changeableBagRef.valueExists("a2.71"))
@@ -405,7 +406,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 			changeableBagRef += #[newExisting(1, "1.337"), newExisting(2, "2.71"), newExisting(31, "31.337"), newExisting(1, "1.337"), newExisting(2, "2.71")]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(#{edited.changeableBagRef.head, newEdited(2, "2.71")}, AElement_ChangeableBagRef)
+		val result = createEMerger(existing, AElement_ChangeableBagRef).merge(ImmutableSet::of(edited.changeableBagRef.head, newEdited(2, "2.71")), AElement_ChangeableBagRef)
 		assertEquals(2, result.changeableBagRef.size)
 		assertTrue(result.changeableBagRef.valueExists("a2.71"))
 		assertTrue(result.changeableBagRef.valueExists("a3.14"))
@@ -417,7 +418,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 			changeableListRef += #[]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableListRef).merge(#{newEdited(3, "3"), newEdited(2, "2")}, AElement_ChangeableListRef)
+		val result = createEMerger(existing, AElement_ChangeableListRef).merge(ImmutableSet::of(newEdited(3, "3"), newEdited(2, "2")), AElement_ChangeableListRef)
 		assertEquals(2, result.changeableListRef.size)
 		assertTrue(result.changeableListRef.valueExists("a3"))
 		assertTrue(result.changeableListRef.valueExists("a2"))
@@ -436,7 +437,7 @@ abstract class ATestEMergerCrossReference<T extends IElement<T>> extends ATestEM
 			changeableListRef += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
 		
-		val result = createEMerger(existing, AElement_ChangeableListRef).merge(#{edited.changeableListRef.head, newEdited(2, "2")}, AElement_ChangeableListRef)
+		val result = createEMerger(existing, AElement_ChangeableListRef).merge(ImmutableSet::of(edited.changeableListRef.head, newEdited(2, "2")), AElement_ChangeableListRef)
 		assertEquals(2, result.changeableListRef.size)
 		assertTrue(result.changeableListRef.valueExists("a3"))
 		assertTrue(result.changeableListRef.valueExists("a2"))

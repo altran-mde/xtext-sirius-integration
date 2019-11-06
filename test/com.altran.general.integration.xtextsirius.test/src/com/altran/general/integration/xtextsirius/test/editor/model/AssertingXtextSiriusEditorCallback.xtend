@@ -14,7 +14,7 @@ import org.apache.commons.lang.StringUtils
 import org.eclipse.emf.ecore.EObject
 
 import static org.junit.Assert.*
-import org.espilce.commons.lang.StringUtils2
+import org.espilce.commons.text.StringUtils2
 
 class AssertingXtextSiriusEditorCallback extends TestXtextSiriusEditorCallbackAdapter {
 	val String newText

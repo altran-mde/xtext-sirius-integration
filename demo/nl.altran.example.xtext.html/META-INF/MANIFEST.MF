@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: nl.altran.example.xtext.html
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: nl.altran.example.xtext.html; singleton:=true
+Bundle-SymbolicName: nl.altran.example.xtext.html;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.equinox.common;bundle-version="3.5.0",
@@ -26,3 +26,4 @@ Export-Package: nl.altran.example.xtext.html.parser.antlr,
  nl.altran.example.xtext.html.validation,
  nl.altran.example.xtext.html.htmlLang.util
 Import-Package: org.apache.log4j
+Automatic-Module-Name: nl.altran.example.xtext.html

@@ -13,9 +13,8 @@ import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Ele
 import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerCrossReference;
 import com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures.EditableFeaturesExtension;
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
-import java.util.Collections;
+import com.google.common.collect.ImmutableSet;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.After;
@@ -54,7 +53,7 @@ public class TestEMergerCrossReferenceEditableFeatures extends TestEMergerCrossR
       it.setChangeableRef(null);
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
-    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("changeableRef"))).merge(edited);
+    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet.<String>of("changeableRef")).merge(edited);
     Assert.assertNull(result.getChangeableRef());
   }
   
@@ -71,7 +70,7 @@ public class TestEMergerCrossReferenceEditableFeatures extends TestEMergerCrossR
       it.setChangeableRef(this.newExisting(1, ""));
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
-    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("changeableRef"))).merge(edited);
+    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet.<String>of("changeableRef")).merge(edited);
     Assert.assertNull(result.getChangeableRef());
   }
 }

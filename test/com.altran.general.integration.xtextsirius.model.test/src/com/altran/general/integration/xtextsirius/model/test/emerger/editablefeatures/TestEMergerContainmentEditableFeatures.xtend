@@ -11,6 +11,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.editablefe
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerContainment
+import com.google.common.collect.ImmutableSet
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.junit.After
 import org.junit.Test
@@ -43,7 +44,7 @@ class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
 			changeableCont = null
 		]
 		
-		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableCont"}).merge(edited)
+		val result = editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet::of("changeableCont")).merge(edited)
 		assertNull(result.changeableCont)
 	}
 	
@@ -57,7 +58,7 @@ class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
 			changeableCont = newExisting(1, "")
 		]
 		
-		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableCont"}).merge(edited)
+		val result = editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet::of("changeableCont")).merge(edited)
 		assertNull(result.changeableCont)
 	}
 	
@@ -92,10 +93,11 @@ class TestEMergerContainmentEditableFeatures extends TestEMergerContainment {
 			changeableUniqueListCont += #[newExisting(1, "1"), newExisting(2, "2"), newExisting(31, "31"), newExisting(1, "1"), newExisting(2, "2")]
 		]
 		
-		val result = createEMerger(existing, changeableUniqueListContFeature).merge(#{edited.changeableUniqueListCont.head, newEdited(2, "2")}, changeableUniqueListContFeature)
-		assertEquals(2, result.changeableUniqueListCont.size)
-		assertTrue(result.changeableUniqueListCont.valueExists("a3"))
-		assertTrue(result.changeableUniqueListCont.valueExists("a2"))
+		val result = createEMerger(existing, changeableUniqueListContFeature).merge(ImmutableSet::of(edited.changeableUniqueListCont.head, newEdited(2, "2")), changeableUniqueListContFeature)
+		val list = result.changeableUniqueListCont
+		assertEquals(2, list.size)
+		assertTrue(list.renderList, list.valueExists("a3"))
+		assertTrue(list.renderList, list.valueExists("a2"))
 	}
 
 }

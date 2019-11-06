@@ -10,6 +10,7 @@
 package com.altran.general.integration.xtextsirius.model.test.emerger
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
+import com.google.common.collect.ImmutableSet
 import org.junit.Test
 
 import static org.junit.Assert.*
@@ -377,7 +378,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 			changeableBagAttr += #[]
 		]
 		
-		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(#{3.14, 2.71}, IElement_ChangeableBagAttr)
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(ImmutableSet::of(3.14, 2.71), IElement_ChangeableBagAttr)
 		assertEquals(2, result.changeableBagAttr.size)
 		assertTrue(result.changeableBagAttr.contains(3.14))
 		assertTrue(result.changeableBagAttr.contains(2.71))
@@ -389,7 +390,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 			changeableBagAttr += #[1.337, 2.71, 31.337, 1.337, 2.71]
 		]
 		
-		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(#{3.14, 2.71}, IElement_ChangeableBagAttr)
+		val result = createEMerger(existing, IElement_ChangeableBagAttr).merge(ImmutableSet::of(3.14, 2.71), IElement_ChangeableBagAttr)
 		assertEquals(6, result.changeableBagAttr.size)
 		assertTrue(result.changeableBagAttr.contains(1.337))
 		assertTrue(result.changeableBagAttr.contains(2.71))
@@ -403,7 +404,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 			changeableListAttr += #[]
 		]
 		
-		val result = createEMerger(existing, IElement_ChangeableListAttr).merge(#{"3", "2"}, IElement_ChangeableListAttr)
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge(ImmutableSet::of("3", "2"), IElement_ChangeableListAttr)
 		assertEquals(2, result.changeableListAttr.size)
 		assertTrue(result.changeableListAttr.contains("3"))
 		assertTrue(result.changeableListAttr.contains("2"))
@@ -415,7 +416,7 @@ class TestEMergerEAttribute extends ATestEMerger<Element> {
 			changeableListAttr += #["1", "2", "31", "1", "2"]
 		]
 		
-		val result = createEMerger(existing, IElement_ChangeableListAttr).merge(#{"3", "2"}, IElement_ChangeableListAttr)
+		val result = createEMerger(existing, IElement_ChangeableListAttr).merge(ImmutableSet::of("3", "2"), IElement_ChangeableListAttr)
 		assertEquals(6, result.changeableListAttr.size)
 		assertEquals("1", result.changeableListAttr.get(0))
 		assertEquals("2", result.changeableListAttr.get(1))

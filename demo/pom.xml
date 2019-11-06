@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>com.altran</groupId>
+        <artifactId>com.altran.general.integration.xtextsirius</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+	<artifactId>com.altran.general.integration.xtextsirius.demo</artifactId>
+	
+	<!-- Override version if needed -->
+	<version>1.0.0-SNAPSHOT</version>
+	
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>com.example.classes</module>
+		<module>com.example.classes.inlineedit</module>
+		<module>nl.altran.example.xtext.html</module>
+		<module>org.eclipse.xtext.example.fowlerdsl</module>
+		<module>org.eclipse.xtext.example.fowlerdsl.ui</module>
+		<module>org.eclipse.xtext.example.fowlerdsl.inlineedit</module>
+		<module>org.eclipse.xtext.example.fowlerdsl.inlineedit.ui</module>
+	</modules>
+</project>

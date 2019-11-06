@@ -9,8 +9,6 @@ import com.example.classes.ClassModel;
 import com.example.classes.ClassesPackage;
 import com.example.classes.Constant;
 import com.example.classes.Content;
-import com.example.services.ClassesGrammarAccess;
-import com.google.inject.Inject;
 import java.util.Arrays;
 import java.util.function.Consumer;
 import org.eclipse.emf.ecore.EObject;
@@ -23,14 +21,10 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
-@SuppressWarnings("access")
+@SuppressWarnings("all")
 public class ClassesFormatter extends AbstractFormatter2 {
   @Extension
   private ClassesPackage _classesPackage = ClassesPackage.eINSTANCE;
-  
-  @Inject
-  @Extension
-  private ClassesGrammarAccess _classesGrammarAccess;
   
   protected void _format(final ClassModel classModel, @Extension final IFormattableDocument document) {
     final Consumer<Content> _function = (Content it) -> {

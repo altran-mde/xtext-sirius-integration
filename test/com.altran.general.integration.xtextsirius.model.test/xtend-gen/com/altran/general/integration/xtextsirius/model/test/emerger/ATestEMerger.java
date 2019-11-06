@@ -16,11 +16,14 @@ import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Xte
 import com.altran.general.integration.xtextsirius.runtime.descriptor.IXtextSiriusModelDescriptor;
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
 import com.google.inject.Injector;
+import java.util.Collection;
 import java.util.Set;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
@@ -108,5 +111,12 @@ public abstract class ATestEMerger<T extends IElement<?>> {
   protected T createRootElement() {
     Element _createElement = this.xtextSiriusTestFactory.createElement();
     return ((T) _createElement);
+  }
+  
+  protected String renderList(final Collection<? extends Element> seq) {
+    final Function1<Element, CharSequence> _function = (Element it) -> {
+      return it.getChangeableAttr();
+    };
+    return IterableExtensions.join(seq, "[", ", ", "]", _function);
   }
 }

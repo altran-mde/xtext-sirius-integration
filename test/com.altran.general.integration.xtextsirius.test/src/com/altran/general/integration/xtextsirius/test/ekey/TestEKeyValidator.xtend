@@ -4,7 +4,7 @@ import com.altran.general.integration.xtextsirius.runtime.validator.DuplicateEKe
 import com.altran.general.integration.xtextsirius.runtime.validator.DuplicateEKeyValidatorNormal
 import com.altran.general.integration.xtextsirius.test.EKeyLang.EKeyLangFactory
 import com.altran.general.integration.xtextsirius.test.EKeyLang.EKeyLangPackage
-import org.espilce.commons.emf.testsupport.ATestValidator
+import org.espilce.periksa.testsupport.ATestValidator
 import org.junit.Test
 
 class TestEKeyValidator extends ATestValidator {

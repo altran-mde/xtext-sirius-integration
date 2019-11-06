@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.espilce.commons.emf.testsupport.AModelLoader
-import org.espilce.commons.lang.StringUtils2
+import org.espilce.commons.text.StringUtils2
 import org.junit.After
 import org.junit.Before
 
@@ -50,7 +50,11 @@ abstract class ATestXtextSiriusModel<M extends EObject> {
 	protected def IXtextSiriusModelDescriptor createModelDescriptor()
 
 	protected def M parseModel() {
-		val result = StringUtils2::normalizeNewline(modelText.toString).parseModel(resourceName())
+	    val normalized = StringUtils2::normalizeNewline(modelText.toString);
+	    if (null === normalized) {
+	        return null;
+	    } 
+		val result = normalized.parseModel(resourceName())
 		EcoreUtil::resolveAll(result)
 		return result as M
 	}

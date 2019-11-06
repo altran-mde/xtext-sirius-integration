@@ -45,6 +45,7 @@ class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
 		
 		val event4 = model.events.get(4)
 		val constant = findFirstTargetOfType(event4, Constant)
+        assertNotNull(constant)
 		
 		assertEquals("constant3X", constant.name) 
 	}
@@ -58,7 +59,8 @@ class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
 		
 		val event4 = model.events.get(3)
 		val constant = findFirstTargetOfType(event4, Constant)
-		
+		assertNotNull(constant)
+        
 		assertNotEquals(event4.eResource, constant.eResource)
 	}
 	

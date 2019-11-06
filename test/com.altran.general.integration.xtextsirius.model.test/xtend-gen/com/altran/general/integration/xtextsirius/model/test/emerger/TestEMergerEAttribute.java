@@ -11,6 +11,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMerger;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
@@ -448,7 +449,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
       Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()));
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
-    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Collections.<Double>unmodifiableSet(CollectionLiterals.<Double>newHashSet(Double.valueOf(3.14), Double.valueOf(2.71))), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(ImmutableSet.<Double>of(Double.valueOf(3.14), Double.valueOf(2.71)), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
     Assert.assertEquals(2, result.getChangeableBagAttr().size());
     Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(3.14)));
     Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
@@ -462,7 +463,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
       Iterables.<Double>addAll(_changeableBagAttr, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(1.337), Double.valueOf(2.71), Double.valueOf(31.337), Double.valueOf(1.337), Double.valueOf(2.71))));
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
-    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(Collections.<Double>unmodifiableSet(CollectionLiterals.<Double>newHashSet(Double.valueOf(3.14), Double.valueOf(2.71))), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr()).merge(ImmutableSet.<Double>of(Double.valueOf(3.14), Double.valueOf(2.71)), this.xtextSiriusTestPackage.getIElement_ChangeableBagAttr());
     Assert.assertEquals(6, result.getChangeableBagAttr().size());
     Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(1.337)));
     Assert.assertTrue(result.getChangeableBagAttr().contains(Double.valueOf(2.71)));
@@ -478,7 +479,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
       Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList()));
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
-    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("3", "2")), this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge(ImmutableSet.<String>of("3", "2"), this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
     Assert.assertEquals(2, result.getChangeableListAttr().size());
     Assert.assertTrue(result.getChangeableListAttr().contains("3"));
     Assert.assertTrue(result.getChangeableListAttr().contains("2"));
@@ -492,7 +493,7 @@ public class TestEMergerEAttribute extends ATestEMerger<Element> {
       Iterables.<String>addAll(_changeableListAttr, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("1", "2", "31", "1", "2")));
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement, _function);
-    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge(Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("3", "2")), this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
+    final Element result = this.createEMerger(existing, this.xtextSiriusTestPackage.getIElement_ChangeableListAttr()).merge(ImmutableSet.<String>of("3", "2"), this.xtextSiriusTestPackage.getIElement_ChangeableListAttr());
     Assert.assertEquals(6, result.getChangeableListAttr().size());
     Assert.assertEquals("1", result.getChangeableListAttr().get(0));
     Assert.assertEquals("2", result.getChangeableListAttr().get(1));

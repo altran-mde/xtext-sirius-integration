@@ -1,18 +1,19 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.model.eef;singleton:=true
-Bundle-Version: 0.11.0.qualifier
-Bundle-ClassPath: .
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.model.eef
+Bundle-Name: %pluginName
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: .
 Export-Package: com.altran.general.integration.xtextsirius.model.eef.eefxtext,
  com.altran.general.integration.xtextsirius.model.eef.eefxtext.impl,
  com.altran.general.integration.xtextsirius.model.eef.eefxtext.util
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime;bundle-version=3.14.0,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.eef;visibility:=reexport,
- com.altran.general.integration.xtextsirius.model.xtext;visibility:=reexport
-Eclipse-LazyStart: true
-Bundle-ActivationPolicy: lazy
+ org.eclipse.eef;bundle-version=2.1.0;visibility:=reexport,
+ com.altran.general.integration.xtextsirius.model.xtext;bundle-version=1.0.0;visibility:=reexport

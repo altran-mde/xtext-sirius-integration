@@ -13,6 +13,7 @@ import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Ele
 import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerContainment;
 import com.altran.general.integration.xtextsirius.model.test.emerger.editablefeatures.EditableFeaturesExtension;
 import com.altran.general.integration.xtextsirius.runtime.util.EMerger;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
@@ -57,7 +58,7 @@ public class TestEMergerContainmentEditableFeatures extends TestEMergerContainme
       it.setChangeableCont(null);
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
-    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("changeableCont"))).merge(edited);
+    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet.<String>of("changeableCont")).merge(edited);
     Assert.assertNull(result.getChangeableCont());
   }
   
@@ -74,7 +75,7 @@ public class TestEMergerContainmentEditableFeatures extends TestEMergerContainme
       it.setChangeableCont(this.newExisting(1, ""));
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
-    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, Collections.<String>unmodifiableSet(CollectionLiterals.<String>newHashSet("changeableCont"))).merge(edited);
+    final Element result = this.editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet.<String>of("changeableCont")).merge(edited);
     Assert.assertNull(result.getChangeableCont());
   }
   
@@ -125,11 +126,10 @@ public class TestEMergerContainmentEditableFeatures extends TestEMergerContainme
       Iterables.<Element>addAll(_changeableUniqueListCont, Collections.<Element>unmodifiableList(CollectionLiterals.<Element>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
-    Element _head = IterableExtensions.<Element>head(edited.getChangeableUniqueListCont());
-    Element _newEdited = this.newEdited(2, "2");
-    final Element result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(Collections.<Element>unmodifiableSet(CollectionLiterals.<Element>newHashSet(_head, _newEdited)), this.changeableUniqueListContFeature());
-    Assert.assertEquals(2, result.getChangeableUniqueListCont().size());
-    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a3"));
-    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a2"));
+    final Element result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(ImmutableSet.<Element>of(IterableExtensions.<Element>head(edited.getChangeableUniqueListCont()), this.newEdited(2, "2")), this.changeableUniqueListContFeature());
+    final EList<Element> list = result.getChangeableUniqueListCont();
+    Assert.assertEquals(2, list.size());
+    Assert.assertTrue(this.renderList(list), this.valueExists(list, "a3"));
+    Assert.assertTrue(this.renderList(list), this.valueExists(list, "a2"));
   }
 }

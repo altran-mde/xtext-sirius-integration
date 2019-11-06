@@ -17,6 +17,8 @@ import com.altran.general.integration.xtextsirius.runtime.util.EMerger
 import java.util.Set
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EStructuralFeature
+import java.util.Collection
+import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 
 abstract class ATestEMerger<T extends IElement<?>> {
 	protected extension XtextSiriusTestPackage xtextSiriusTestPackage = XtextSiriusTestPackage::eINSTANCE
@@ -84,5 +86,9 @@ abstract class ATestEMerger<T extends IElement<?>> {
 	
 	protected def T createRootElement() {
 		createElement as T
+	}
+	
+	protected def renderList(Collection<? extends Element> seq) {
+		seq.join("[", ", ", "]")[changeableAttr]
 	}
 }

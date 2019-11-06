@@ -12,3 +12,4 @@ Require-Bundle: com.example.classes,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.example.ide.contentassist.antlr.internal,
  com.example.ide.contentassist.antlr
+Automatic-Module-Name: com.example.classes.ide
