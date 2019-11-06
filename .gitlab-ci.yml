@@ -1,31 +1,21 @@
 image: registry.manatree.io/rvanduijnhoven/maven-python-dockerimage
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-  SIRIUS_5: sirius5.oxygen
   ZIP_PATH: releng/com.altran.general.integration.xtextsirius.repository/target
 
 before_script:
-  - chmod -R +x ./scripts
+  - chmod -R +x ./releng/scripts
 
 stages:
   - build
-  - publish
 
-Sirius 5 Oxygen:
+Build maven projects:
   stage: build
   tags:
     - linux_docker
   script:
-    - ./scripts/build.py -br $CI_COMMIT_REF_NAME -bn $CI_JOB_ID -tp $SIRIUS_5
+    - ./releng/scripts/build.sh $CI_COMMIT_REF_NAME $CI_COMMIT_TAG
   artifacts:
     when: always
     paths:
       - $ZIP_PATH/*.zip
-
-publish:
-  stage: publish
-  tags:
-    - linux_docker
-  script:
-    - ./scripts/publish.py -tp $SIRIUS_5
-  allow_failure: true

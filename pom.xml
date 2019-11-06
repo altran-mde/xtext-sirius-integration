@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho.version>1.4.0</tycho.version>
+		<tycho-version>1.4.0</tycho-version>
 		<xtend.version>2.17.0</xtend.version>
 		<xtext.version>2.17.0</xtext.version>
 		<mwe2.launch.version>2.10.0</mwe2.launch.version>
@@ -116,35 +116,35 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-maven-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<extensions>true</extensions>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-packaging-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-source-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho.extras</groupId>
 					<artifactId>tycho-source-feature-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<!-- <executions> <execution> <id>source-feature</id> <phase>package</phase> 
 						<goals> <goal>source-feature</goal> </goals> </execution> </executions> -->
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-versions-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 				</plugin>
 				<!-- END OF PARENT PLUGINS -->
 
@@ -152,7 +152,7 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-compiler-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<configuration>
 						<compilerArgs>
 							<arg>-err:-nullAnnot,includeAssertNull,inheritNullAnnot,nonnullNotRepeated,null,nullAnnotConflict,nullAnnotRedundant,nullDereference,nullUncheckedConversion,syntacticAnalysis</arg>
@@ -229,7 +229,7 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<executions>
 						<execution>
 							<id>attach-p2-metadata</id>
@@ -243,7 +243,7 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-repository-plugin</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<configuration>
 						<includeAllDependencies>true</includeAllDependencies>
 					</configuration>
@@ -252,7 +252,7 @@
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>target-platform-configuration</artifactId>
-					<version>${tycho.version}</version>
+					<version>${tycho-version}</version>
 					<configuration>
 						<dependency-resolution>
 							<optionalDependencies>ignore</optionalDependencies>
