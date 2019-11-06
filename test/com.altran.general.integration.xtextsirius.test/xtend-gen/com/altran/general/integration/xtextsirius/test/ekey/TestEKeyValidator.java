@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
-import org.espilce.commons.emf.testsupport.ATestValidator;
+import org.espilce.periksa.testsupport.ATestValidator;
 import org.junit.Test;
 
 @SuppressWarnings("all")

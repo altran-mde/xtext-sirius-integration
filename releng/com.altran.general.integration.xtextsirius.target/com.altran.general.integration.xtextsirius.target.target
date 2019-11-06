@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Xtext/Sirius Integration Target" sequenceNumber="1573044370">
+<target name="Xtext/Sirius Integration Target" sequenceNumber="1573048006">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.7.0.v20180711-0440"/>
@@ -68,6 +68,10 @@
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.espilce.commons.emf.testsupport.feature.feature.group" version="0.3.0.20191030-1455"/>
       <repository id="nexus-p2" location="https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/espilce-commons/develop"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
+      <unit id="org.espilce.periksa.testsupport.feature.feature.group" version="0.1.0.20191106-1342"/>
+      <repository id="nexus-p2-2" location="https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/espilce-periksa/develop"/>
     </location>
   </locations>
 </target>

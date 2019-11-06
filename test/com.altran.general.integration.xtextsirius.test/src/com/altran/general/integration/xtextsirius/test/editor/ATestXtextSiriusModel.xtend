@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.espilce.commons.emf.testsupport.AModelLoader
-import org.espilce.commons.lang.StringUtils2
+import org.espilce.commons.text.StringUtils2
 import org.junit.After
 import org.junit.Before
 
