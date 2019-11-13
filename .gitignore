@@ -11,3 +11,4 @@ locations.properties
 /README.htm*
 __pycache__
 .asciidoctor/
+**/.polyglot.build.properties
