@@ -31,6 +31,19 @@
 				<version>${download-maven-plugin-version}</version>
 				<executions>
 					<execution>
+						<id>download-metadata-index</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>wget</goal>
+						</goals>
+						<configuration>
+						    <serverId>nexus-p2</serverId>
+							<url>${mde.p2-repos.url}/p2.index</url>
+							<unpack>false</unpack>
+							<outputDirectory>${project.build.directory}/downloaded-metadata</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
 						<id>download-metadata-artifacts</id>
 						<phase>prepare-package</phase>
 						<goals>
@@ -79,6 +92,7 @@
                 </source>
                 <destination>${project.build.directory}/repository</destination>
                 <mirrorMetadataOnly>true</mirrorMetadataOnly>
+                <keepNonXzIndexFiles>false</keepNonXzIndexFiles>
              </configuration>
           </plugin> 
 		</plugins>

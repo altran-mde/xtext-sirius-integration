@@ -19,7 +19,7 @@ else if [ "$targetBranch" == "develop" ]; then
 fi fi
 
 if [[ $profiles == *"publish"* ]]; then
-	if curl --output /dev/null --silent --head --fail "https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/xtext-sirius-integration/$updateSite/content.jar"; then
+	if curl --output /dev/null --silent --head --fail --user $ArtifactStoreUserName:$ArtifactStorePassword "https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/xtext-sirius-integration/$updateSite/content.jar"; then
 	    profiles+=",merge-existing-repository"
 fi fi
 
