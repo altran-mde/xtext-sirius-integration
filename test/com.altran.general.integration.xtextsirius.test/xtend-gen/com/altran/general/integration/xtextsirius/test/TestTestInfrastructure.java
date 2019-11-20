@@ -56,6 +56,7 @@ public class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
     final Statemachine model = this.getDefaultModel();
     final Event event4 = model.getEvents().get(4);
     final Constant constant = AXtextTest.<Constant>findFirstTargetOfType(event4, Constant.class);
+    Assert.assertNotNull(constant);
     Assert.assertEquals("constant3X", constant.getName());
   }
   
@@ -66,6 +67,7 @@ public class TestTestInfrastructure extends AFowlerdslDefaultModelTest {
     Assert.assertEquals(3, model.getConstants().size());
     final Event event4 = model.getEvents().get(3);
     final Constant constant = AXtextTest.<Constant>findFirstTargetOfType(event4, Constant.class);
+    Assert.assertNotNull(constant);
     Assert.assertNotEquals(event4.eResource(), constant.eResource());
   }
   

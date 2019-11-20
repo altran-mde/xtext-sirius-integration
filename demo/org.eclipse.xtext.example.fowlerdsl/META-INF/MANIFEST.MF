@@ -12,7 +12,7 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.common;bundle-version="2.10.1",
  org.antlr.runtime,
  org.eclipse.xtext.common.types,
- org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.objectweb.asm;resolution:=optional,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.equinox.common
 Import-Package: org.apache.log4j
@@ -28,4 +28,5 @@ Export-Package: org.eclipse.xtext.example.fowlerdsl,
  org.eclipse.xtext.example.fowlerdsl.validation,
  org.eclipse.xtext.example.fowlerdsl.scoping,
  org.eclipse.xtext.example.fowlerdsl.formatting
+Automatic-Module-Name: org.eclipse.xtext.example.fowlerdsl
 

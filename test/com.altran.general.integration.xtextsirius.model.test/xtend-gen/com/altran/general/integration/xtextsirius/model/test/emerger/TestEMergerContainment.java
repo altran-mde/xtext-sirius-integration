@@ -11,6 +11,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger;
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element;
 import com.altran.general.integration.xtextsirius.model.test.emerger.ATestEMergerContainmentMixed;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
@@ -51,12 +52,11 @@ public class TestEMergerContainment extends ATestEMergerContainmentMixed<Element
       Iterables.<Element>addAll(_changeableUniqueListCont, Collections.<Element>unmodifiableList(CollectionLiterals.<Element>newArrayList(_newExisting, _newExisting_1, _newExisting_2, _newExisting_3, _newExisting_4)));
     };
     final Element existing = ObjectExtensions.<Element>operator_doubleArrow(_createRootElement_1, _function_1);
-    Element _head = IterableExtensions.<Element>head(edited.getChangeableUniqueListCont());
-    Element _newEdited = this.newEdited(2, "2");
-    final Element result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(Collections.<Element>unmodifiableSet(CollectionLiterals.<Element>newHashSet(_head, _newEdited)), this.changeableUniqueListContFeature());
-    Assert.assertEquals(2, result.getChangeableUniqueListCont().size());
-    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a3"));
-    Assert.assertTrue(this.valueExists(result.getChangeableUniqueListCont(), "a2"));
+    final Element result = this.createEMerger(existing, this.changeableUniqueListContFeature()).merge(ImmutableSet.<Element>of(IterableExtensions.<Element>head(edited.getChangeableUniqueListCont()), this.newEdited(2, "2")), this.changeableUniqueListContFeature());
+    final EList<Element> list = result.getChangeableUniqueListCont();
+    Assert.assertEquals(2, list.size());
+    Assert.assertTrue(this.renderList(list), this.valueExists(list, "a3"));
+    Assert.assertTrue(this.renderList(list), this.valueExists(list, "a2"));
   }
   
   @Test

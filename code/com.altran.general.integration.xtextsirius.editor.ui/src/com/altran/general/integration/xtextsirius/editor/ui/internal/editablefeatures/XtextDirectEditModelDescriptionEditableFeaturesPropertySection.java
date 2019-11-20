@@ -59,7 +59,7 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 	}
 	
 	protected List<EClass> collectApplicableEClasses() {
-		final DirectEditLabel label = ((DirectEditLabel) this.eObject);
+		final DirectEditLabel label = (DirectEditLabel) this.eObject;
 		
 		return findEClassesByName(label.getMapping().stream()
 				.map(m -> {
@@ -125,7 +125,7 @@ public class XtextDirectEditModelDescriptionEditableFeaturesPropertySection
 	}
 	
 	@Override
-	protected void handleFeatureModified(final @SuppressWarnings("rawtypes") List result) {
+	protected void handleFeatureModified(final List result) {
 		final boolean equals = isEqual(result);
 		
 		if (!equals) {

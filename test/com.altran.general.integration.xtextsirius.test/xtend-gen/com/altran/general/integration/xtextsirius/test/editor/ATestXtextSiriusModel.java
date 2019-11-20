@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.espilce.commons.emf.testsupport.AModelLoader;
 import org.espilce.commons.emf.testsupport.AssertEmf;
-import org.espilce.commons.lang.StringUtils2;
+import org.espilce.commons.text.StringUtils2;
 import org.junit.After;
 import org.junit.Before;
 
@@ -62,7 +62,11 @@ public abstract class ATestXtextSiriusModel<M extends EObject> {
   protected abstract IXtextSiriusModelDescriptor createModelDescriptor();
   
   protected M parseModel() {
-    final EObject result = this.modelLoader.parseModel(StringUtils2.normalizeNewline(this.modelText().toString()), this.resourceName());
+    final String normalized = StringUtils2.normalizeNewline(this.modelText().toString());
+    if ((null == normalized)) {
+      return null;
+    }
+    final EObject result = this.modelLoader.parseModel(normalized, this.resourceName());
     EcoreUtil.resolveAll(result);
     return ((M) result);
   }

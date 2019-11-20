@@ -11,6 +11,7 @@ package com.altran.general.integration.xtextsirius.model.test.emerger.editablefe
 
 import com.altran.general.integration.xtextsirius.model.test.XtextSiriusTest.Element
 import com.altran.general.integration.xtextsirius.model.test.emerger.TestEMergerCrossReference
+import com.google.common.collect.ImmutableSet
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.junit.After
 import org.junit.Test
@@ -43,7 +44,7 @@ class TestEMergerCrossReferenceEditableFeatures extends TestEMergerCrossReferenc
 			changeableRef = null
 		]
 		
-		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableRef"}).merge(edited)
+		val result = editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet::of("changeableRef")).merge(edited)
 		assertNull(result.changeableRef)
 	}
 	
@@ -57,7 +58,7 @@ class TestEMergerCrossReferenceEditableFeatures extends TestEMergerCrossReferenc
 			changeableRef = newExisting(1, "")
 		]
 		
-		val result = editableFeaturesExtension.createEMerger(existing, edited, #{"changeableRef"}).merge(edited)
+		val result = editableFeaturesExtension.createEMerger(existing, edited, ImmutableSet::of("changeableRef")).merge(edited)
 		assertNull(result.changeableRef)
 	}
 }

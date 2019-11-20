@@ -15,7 +15,7 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
-import org.espilce.commons.lang.StringUtils2;
+import org.espilce.commons.text.StringUtils2;
 import org.junit.Test;
 
 @SuppressWarnings("all")

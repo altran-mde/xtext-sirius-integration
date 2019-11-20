@@ -15,7 +15,7 @@ import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.parser.IParseResult;
-import org.espilce.commons.lang.StringUtils2;
+import org.espilce.commons.text.StringUtils2;
 import org.junit.Assert;
 
 @SuppressWarnings("all")

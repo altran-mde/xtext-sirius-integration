@@ -5,14 +5,12 @@ package com.altran.general.integration.xtextsirius.test.formatting2
 
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Container
 import com.altran.general.integration.xtextsirius.test.EKeyLang.Group
-import com.altran.general.integration.xtextsirius.test.services.EKeyLangGrammarAccess
-import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 
 class EKeyLangFormatter extends AbstractFormatter2 {
 	
-	@Inject extension EKeyLangGrammarAccess
+//	@Inject extension EKeyLangGrammarAccess
 
 	def dispatch void format(Container container, extension IFormattableDocument document) {
 		for (iContainerContent : container.contents) {

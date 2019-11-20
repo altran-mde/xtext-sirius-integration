@@ -1,24 +1,14 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Xtext / Sirius Integration Core Runtime
+Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.altran.general.integration.xtextsirius.runtime;singleton:=true
-Bundle-Version: 0.18.0.qualifier
+Automatic-Module-Name: com.altran.general.integration.xtextsirius.runtime
 Bundle-Activator: com.altran.general.integration.xtextsirius.runtime.internal.XtextSiriusRuntimePlugin
-Bundle-Vendor: Altran Netherlands B.V.
-Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport,
- org.apache.commons.lang,
- org.eclipse.core.runtime,
- org.eclipse.eef,
- org.eclipse.sirius.common,
- org.eclipse.sirius.diagram,
- org.eclipse.sirius.ecore.extender,
- org.eclipse.sirius.ext.base,
- com.google.guava,
- org.eclipse.xtext,
- com.altran.general.integration.xtextsirius.model.xtext,
- com.altran.general.integration.xtextsirius.model.eef
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.altran.general.integration.xtextsirius.runtime,
  com.altran.general.integration.xtextsirius.runtime.descriptor,
  com.altran.general.integration.xtextsirius.runtime.editor,
@@ -33,3 +23,15 @@ Export-Package: com.altran.general.integration.xtextsirius.runtime,
  com.altran.general.integration.xtextsirius.runtime.task,
  com.altran.general.integration.xtextsirius.runtime.util,
  com.altran.general.integration.xtextsirius.runtime.validator
+Require-Bundle: org.eclipse.jdt.annotation;bundle-version=2;visibility:=reexport,
+ org.apache.commons.lang;bundle-version=2.6.0,
+ com.google.guava,
+ org.eclipse.core.runtime;bundle-version=2.14.0,
+ org.eclipse.xtext,
+ org.eclipse.eef;bundle-version=2.1.0,
+ org.eclipse.sirius.common;bundle-version=6.0.0,
+ org.eclipse.sirius.diagram;bundle-version=6.0.0,
+ org.eclipse.sirius.ecore.extender;bundle-version=6.0.0,
+ org.eclipse.sirius.ext.base;bundle-version=6.0.0,
+ com.altran.general.integration.xtextsirius.model.xtext;bundle-version=1.0.0,
+ com.altran.general.integration.xtextsirius.model.eef;bundle-version=1.0.0

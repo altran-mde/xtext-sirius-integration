@@ -9,11 +9,13 @@ InlineStatemachine returns Statemachine:
 	Statemachine
 ;
 
-//@Override 
+@Override 
 Transition returns Transition:
 	('[' guard=Guard ']')? event=[Event] '=>' state=[State]
 ;
 
+@Override 
 RangeGuard returns RangeGuard:
+	{RangeGuard}
 	min=Value? '..' max=Value?
 ;

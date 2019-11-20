@@ -5,13 +5,14 @@ import com.altran.general.integration.xtextsirius.test.reflang.refLang.Container
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangFactory
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangPackage
 import com.altran.general.integration.xtextsirius.test.reflang.refLang.SubContainer
+import com.google.common.collect.ImmutableSet
 import com.google.inject.Injector
+import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer
 import org.junit.BeforeClass
 
 import static org.junit.Assert.*
-import java.util.List
 
 abstract class ATestRefLang extends ATestXtextSiriusModel<Container> {
 	protected extension RefLangFactory = RefLangFactory::eINSTANCE
@@ -85,7 +86,7 @@ abstract class ATestRefLang extends ATestXtextSiriusModel<Container> {
 		super.analyzeResult(expectedResultElement, result)
 
 		val base = switch (result) {
-			EObject: #{result}
+			EObject: ImmutableSet::of(result)
 			List<EObject>: result
 		}
 			

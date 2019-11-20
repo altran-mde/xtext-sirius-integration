@@ -13,11 +13,10 @@ import org.eclipse.xtext.formatting2.IFormattableDocument
 import com.example.classes.Association
 import com.example.classes.Attribute
 
-@SuppressWarnings("access")
 class ClassesFormatter extends AbstractFormatter2 {
 	extension ClassesPackage = ClassesPackage::eINSTANCE
 	
-	@Inject extension ClassesGrammarAccess
+//	@Inject extension ClassesGrammarAccess
 
 	def dispatch void format(ClassModel classModel, extension IFormattableDocument document) {
 		classModel.content.forEach[format]
