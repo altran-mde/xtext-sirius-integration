@@ -68,10 +68,10 @@ location "https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/release
 	org.eclipse.sirius.tests.support.source.feature.group
 }
 
-location "https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/espilce-commons/develop" nexus-p2 {
+location "https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/espilce-commons/1.0" nexus-p2 {
     org.espilce.commons.emf.testsupport.feature.feature.group
 }
 
-location "https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/espilce-periksa/develop" nexus-p2-2 {
+location "https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/espilce-periksa/1.0" nexus-p2-2 {
     org.espilce.periksa.testsupport.feature.feature.group
 }
