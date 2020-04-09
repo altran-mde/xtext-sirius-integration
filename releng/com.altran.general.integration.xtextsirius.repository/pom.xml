@@ -1,23 +1,26 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>com.altran.general.integration.xtextsirius.repository</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>eclipse-repository</packaging>
+
+    <parent>
         <groupId>com.altran</groupId>
         <artifactId>com.altran.general.integration.xtextsirius.releng</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-	<artifactId>com.altran.general.integration.xtextsirius.repository</artifactId>
-	<packaging>eclipse-repository</packaging>
 
-	<properties>
-    	<maven.deploy.skip>false</maven.deploy.skip>
-		<download-maven-plugin-version>1.4.2</download-maven-plugin-version>
-    	<maven-upload-plugin>0.0.1</maven-upload-plugin>
-		<mde.nexus.url>https://nexus-p2.manatree.io/nexus</mde.nexus.url>
-		<mde.p2-repos.compressed.url>${mde.nexus.url}/service/local/repositories/MDEAssets/content-compressed/</mde.p2-repos.compressed.url>
-		<mde.p2-repos.url>${mde.nexus.url}/content/sites/MDEAssets/${mde.project.name}/${mde.updatesite}</mde.p2-repos.url>
-		<mde.project.name>xtext-sirius-integration</mde.project.name>
-		<mde.updatesite>develop</mde.updatesite>
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <exec-maven-plugin-version>1.2.1</exec-maven-plugin-version>
+        <maven-upload-plugin>0.0.1</maven-upload-plugin>
+        <mde.nexus.url>https://nexus-p2.manatree.io/nexus</mde.nexus.url>
+        <mde.p2-repos.compressed.url>${mde.nexus.url}/service/local/repositories/MDEAssets/content-compressed/</mde.p2-repos.compressed.url>
+        <mde.p2-repos.url>${mde.nexus.url}/content/sites/MDEAssets/${mde.project.name}/${mde.updatesite}/</mde.p2-repos.url>
+        <mde.project.name>xtext-sirius-integration</mde.project.name>
+        <mde.updatesite>develop</mde.updatesite>
     </properties>
     
   <profiles>  
@@ -25,52 +28,34 @@
       <id>merge-existing-repository</id>
       <build>
         <plugins>
-			<plugin>
-				<groupId>com.googlecode.maven-download-plugin</groupId>
-				<artifactId>download-maven-plugin</artifactId>
-				<version>${download-maven-plugin-version}</version>
-				<executions>
-					<execution>
-						<id>download-metadata-index</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>wget</goal>
-						</goals>
-						<configuration>
-						    <serverId>nexus-p2</serverId>
-							<url>${mde.p2-repos.url}/p2.index</url>
-							<unpack>false</unpack>
-							<outputDirectory>${project.build.directory}/downloaded-metadata</outputDirectory>
-						</configuration>
-					</execution>
-					<execution>
-						<id>download-metadata-artifacts</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>wget</goal>
-						</goals>
-						<configuration>
-						    <serverId>nexus-p2</serverId>
-							<url>${mde.p2-repos.url}/artifacts.xml.xz</url>
-							<unpack>false</unpack>
-							<outputDirectory>${project.build.directory}/downloaded-metadata</outputDirectory>
-						</configuration>
-					</execution>
-					<execution>
-						<id>download-metadata-content</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>wget</goal>
-						</goals>
-						<configuration>
-						    <serverId>nexus-p2</serverId>
-							<url>${mde.p2-repos.url}/content.xml.xz</url>
-							<unpack>false</unpack>
-							<outputDirectory>${project.build.directory}/downloaded-metadata</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>wget</executable>
+                    <arguments>
+                        <argument>-r</argument>
+                        <argument>-np</argument>
+                        <argument>-nH</argument>
+                        <argument>--cut-dirs=6</argument>
+                        <argument>--reject="index.html*"</argument>
+                        <argument>--http-user=${env.ArtifactStoreUserName}</argument>
+                        <argument>--http-password=${env.ArtifactStorePassword}</argument>
+                        <argument>--directory-prefix=${project.build.directory}/downloaded-repository</argument>
+                        <argument>${mde.p2-repos.url}</argument>
+                    </arguments>
+                    <successCodes>0,3</successCodes>
+                </configuration>
+            </plugin>
            <plugin>
              <groupId>org.eclipse.tycho.extras</groupId>
              <artifactId>tycho-p2-extras-plugin</artifactId>
@@ -86,17 +71,15 @@
              <configuration>
                 <source>
                      <repository>
-                       <url>${project.baseUri}/target/downloaded-metadata</url>
+                       <url>${project.build.directory}/downloaded-repository</url>
                        <layout>p2</layout>
                      </repository>
                 </source>
                 <destination>${project.build.directory}/repository</destination>
-                <mirrorMetadataOnly>true</mirrorMetadataOnly>
-                <keepNonXzIndexFiles>false</keepNonXzIndexFiles>
              </configuration>
           </plugin> 
-		</plugins>
-	  </build>
+        </plugins>
+      </build>
     </profile>
     <profile>
       <id>publish</id>
@@ -139,4 +122,5 @@
       </build>
     </profile>
   </profiles> 
+
 </project>
