@@ -15,6 +15,7 @@ import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpre
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AccessibleModelRegionEditorPreparer;
 import java.util.Collections;
 import java.util.Set;
+import org.apache.commons.lang.SystemUtils;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -29,10 +30,17 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.Assert;
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestTranslateToRegions extends AModelRegionEditorPreparer {
+  @Before
+  public void assumeWindows() {
+    Assume.assumeTrue("Test requires Windows OS", SystemUtils.IS_OS_WINDOWS);
+  }
+  
   @Test
   public void emptyFeatures() {
     final Statemachine model = this.getDefaultModel();

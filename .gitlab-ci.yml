@@ -1,21 +1,78 @@
-image: registry.manatree.io/rvanduijnhoven/maven-python-dockerimage
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-  ZIP_PATH: releng/com.altran.general.integration.xtextsirius.repository/target
-
-before_script:
-  - chmod -R +x ./releng/scripts
+# Copyright Altran Netherlands B.V
 
 stages:
   - build
+  - check
+  - test
+  - publish
+  - smoke
+  - acceptance
+  - performance
+  - manual
+  - release
 
-Build maven projects:
+variables:
+  REGISTRY_URL: registry.acidspace.nl
+  MAVEN_CONTAINER: acid/container/maven:0.20.0
+  
+  # Cache downloaded dependencies and plugins between builds
+  MAVEN_REPO: '.m2/repository'
+  MAVEN_OPTS: '-Dmaven.repo.local=$MAVEN_REPO -Xmx2048m'
+
+cache:
+  key: '$CI_JOB_NAME'
+  paths:
+    - '$MAVEN_REPO'
+
+mde-build:
+  image: ${REGISTRY_URL}/${MAVEN_CONTAINER}
   stage: build
   tags:
     - linux_docker
+  before_script:
+    - 'echo "${MAVEN_REPO}: found $(find $MAVEN_REPO -type f 2>/dev/null | wc -l) matching files"'
+    - 'chmod +x acidcli/mde-build.sh'
   script:
-    - ./releng/scripts/build.sh $CI_COMMIT_REF_NAME $CI_COMMIT_TAG
+    - './acidcli/mde-build.sh'
+  artifacts:
+    when: on_success
+    paths:
+      # MDE projects should register these locations as output in the acidcli
+      # These outputs should be used as input in other build stages
+      # P2 repository
+      - 'releng/*/target/repository/*'
+    expire_in: 1 week
+
+mde-unit-test:
+  image: ${REGISTRY_URL}/${MAVEN_CONTAINER}
+  stage: test
+  # Maven unit-test do not depend on build as they re-build the code, 
+  # so start asap, hence empty needs
+  needs: []
+  tags:
+    - linux_docker
+  before_script:
+    - 'chmod +x acidcli/mde-unit-test.sh'
+  script:
+    - './acidcli/mde-unit-test.sh'
   artifacts:
     when: always
-    paths:
-      - $ZIP_PATH/*.zip
+    reports:
+      junit: 'test/*/target/surefire-reports/*.xml'
+    expire_in: 4 weeks
+
+mde-release:
+  image: ${REGISTRY_URL}/${MAVEN_CONTAINER}
+  stage: release
+  # MDE release needs the artifacts from mde-build to be deployed
+  dependencies: [mde-build]
+  only:
+    - develop
+    - tags
+  tags:
+    - linux_docker
+  before_script:
+    - 'chmod +x acidcli/mde-release.sh'
+  script:
+    - './acidcli/mde-release.sh'
+   

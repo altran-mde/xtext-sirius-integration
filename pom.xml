@@ -168,15 +168,6 @@
 						</configuration>
 					</configuration>
 				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-deploy-plugin</artifactId>
-					<version>${maven-deploy-plugin.version}</version>
-					<configuration>
-						<skip>${maven.deploy.skip}</skip>
-					</configuration>
-				</plugin>
-
 				<!-- END OF DEFAULT PLUGINS -->
 
 				<!-- OTHER PLUGINS -->
@@ -281,19 +272,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<repositories>
-		<repository>
-			<id>nexus-p2</id>
-			<name>Altran Nexus-P2</name>
-			<url>https://nexus-p2.manatree.io/nexus/content/groups/nexus-p2-group/</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>warn</checksumPolicy>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 </project>

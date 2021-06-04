@@ -16,6 +16,7 @@ import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpre
 import java.util.Collections;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import org.apache.commons.lang.SystemUtils;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -28,10 +29,17 @@ import org.eclipse.xtext.util.TextRegion;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.Assert;
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestCalculateRegionForFeatures extends AModelRegionEditorPreparer {
+  @Before
+  public void assumeWindows() {
+    Assume.assumeTrue("Test requires Windows OS", SystemUtils.IS_OS_WINDOWS);
+  }
+  
   @Test(expected = NoSuchElementException.class)
   public void emptyFeatures() {
     final Statemachine model = this.getDefaultModel();
