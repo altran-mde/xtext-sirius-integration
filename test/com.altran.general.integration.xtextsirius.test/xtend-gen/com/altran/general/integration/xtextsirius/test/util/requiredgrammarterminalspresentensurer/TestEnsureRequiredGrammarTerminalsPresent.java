@@ -12,6 +12,7 @@ package com.altran.general.integration.xtextsirius.test.util.requiredgrammarterm
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.ARequiredGrammarTerminalsPresentEnsurer;
 import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.AccessibleRequiredGrammarTerminalsPresentEnsurer;
+import org.apache.commons.lang.SystemUtils;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -21,10 +22,17 @@ import org.eclipse.xtext.formatting2.regionaccess.ITextRegionAccess;
 import org.eclipse.xtext.util.TextRegion;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.Assert;
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestEnsureRequiredGrammarTerminalsPresent extends ARequiredGrammarTerminalsPresentEnsurer {
+  @Before
+  public void assumeWindows() {
+    Assume.assumeTrue("Test requires Windows OS", SystemUtils.IS_OS_WINDOWS);
+  }
+  
   @Test(expected = IllegalStateException.class)
   public void alreadySet() {
     StringConcatenation _builder = new StringConcatenation();
@@ -79,6 +87,7 @@ public class TestEnsureRequiredGrammarTerminalsPresent extends ARequiredGrammarT
   
   @Test
   public void inBetweenNoTerminals() {
+    Assume.assumeTrue("Test requires Windows OS", SystemUtils.IS_OS_WINDOWS);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("events");
     _builder.newLine();

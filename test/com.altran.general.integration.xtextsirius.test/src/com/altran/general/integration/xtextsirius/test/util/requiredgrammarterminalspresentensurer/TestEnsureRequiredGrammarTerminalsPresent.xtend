@@ -9,11 +9,20 @@
  */
 package com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer
 
+import org.apache.commons.lang.SystemUtils
+import org.junit.Assume
+import org.junit.Before
 import org.junit.Test
 
 import static org.junit.Assert.*
 
 class TestEnsureRequiredGrammarTerminalsPresent extends ARequiredGrammarTerminalsPresentEnsurer {
+    @Before
+    def void assumeWindows() {
+        // Platform specific test due to line separator
+        Assume::assumeTrue('Test requires Windows OS', SystemUtils::IS_OS_WINDOWS)
+    }
+    
 	@Test(expected=IllegalStateException)
 	def void alreadySet() {
 		val text = '''
@@ -75,6 +84,9 @@ class TestEnsureRequiredGrammarTerminalsPresent extends ARequiredGrammarTerminal
 
 	@Test
 	def void inBetweenNoTerminals() {
+        // Platform specific test due to line separator
+        Assume::assumeTrue('Test requires Windows OS', SystemUtils::IS_OS_WINDOWS)
+
 		val text = '''
 			events
 				event1 [123]

@@ -10,14 +10,23 @@
 package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer
 
 import java.util.Set
+import org.apache.commons.lang.SystemUtils
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.xtext.example.fowlerdsl.statemachine.ConstantRef
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Event
+import org.junit.Assume
+import org.junit.Before
 import org.junit.Test
 
 import static org.junit.Assert.*
 
 class TestTranslateToRegions extends AModelRegionEditorPreparer {
+    @Before
+    def void assumeWindows() {
+        // Platform specific test due to line separator
+        Assume::assumeTrue('Test requires Windows OS', SystemUtils::IS_OS_WINDOWS)
+    }
+    
 	@Test
 	def emptyFeatures() {
 		val model = defaultModel

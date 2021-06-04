@@ -11,12 +11,21 @@ package com.altran.general.integration.xtextsirius.test.util.modelregioneditorpr
 
 import com.altran.general.integration.xtextsirius.runtime.ModelEntryPoint
 import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegionEditorPreparer
+import org.apache.commons.lang.SystemUtils
 import org.eclipse.xtext.util.TextRegion
+import org.junit.Assume
 import org.junit.Test
 
 import static org.junit.Assert.*
+import org.junit.Before
 
 class TestApiSingleEntry extends AModelRegionEditorPreparer {
+    @Before
+    def void assumeWindows() {
+        // Platform specific test due to line separator
+        Assume::assumeTrue('Test requires Windows OS', SystemUtils::IS_OS_WINDOWS)
+    }
+    
 	@Test
 	def eventOnlyName() {
 		val model = parseIntoResource('''
@@ -351,7 +360,7 @@ class TestApiSingleEntry extends AModelRegionEditorPreparer {
 		assertSame(event, preparer.semanticElementLocation.resolve(model.eResource))
 	}
 
-	@Test
+	@Test()
 	def guard_self() {
 		val model = parseIntoResource('''
 			events

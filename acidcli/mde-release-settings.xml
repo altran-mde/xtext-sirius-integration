@@ -1,0 +1,36 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0
+                      http://maven.apache.org/xsd/settings-1.1.0.xsd">
+  <servers>
+    <!-- Deployment credentials -->
+    <server>
+      <id>acidspace-repository-manager</id>
+      <configuration>
+        <timeout>10000</timeout>
+      </configuration>
+      <username>${env.TECHNICAL_USER}</username>
+      <password>${env.TECHNICAL_PASSWORD}</password>
+    </server>
+    
+    <!-- Maven mirrors -->
+    <server>
+      <id>acidspace-maven-central</id>
+      <configuration>
+        <timeout>10000</timeout>
+      </configuration>
+      <username>${env.TECHNICAL_USER}</username>
+      <password>${env.TECHNICAL_PASSWORD}</password>
+    </server>
+  </servers>
+  
+  <mirrors>
+    <!-- Maven mirrors -->
+    <mirror>
+      <id>acidspace-maven-central</id>
+      <name>ACIDSpace Maven Central</name>
+      <url>https://nexus.acidspace.nl/repository/acidspace-central</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>
