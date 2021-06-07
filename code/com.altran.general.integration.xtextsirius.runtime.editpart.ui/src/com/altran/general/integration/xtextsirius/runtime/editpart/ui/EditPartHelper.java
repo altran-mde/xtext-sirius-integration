@@ -96,9 +96,13 @@ public class EditPartHelper {
 					if (editPart.isActive()) {
 						if (theRequest.getExtendedData()
 								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
-							final Character initialChar = (Character) theRequest.getExtendedData()
-									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
-							manager.show(initialChar);
+							// TODO: When passing initialChar the text changes
+							// to the complete model
+							// final Character initialChar = (Character)
+							// theRequest.getExtendedData()
+							// .get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+							// manager.show(initialChar);
+							manager.show();
 						} else {
 							manager.show();
 						}
