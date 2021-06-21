@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.altran.com/general/integration/xtextsirius/test/reflang/RefLang"
+			class = "com.altran.general.integration.xtextsirius.test.reflang.refLang.RefLangPackage"
+			genModel = "model/generated/RefLang.genmodel" />
+	</extension>
+</plugin>

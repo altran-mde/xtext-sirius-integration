@@ -19,6 +19,7 @@ import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import com.google.inject.Binder;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.MembersInjector;
 import com.google.inject.Module;
 import com.google.inject.Provider;
 
@@ -48,6 +49,9 @@ public class XtextEditorSwtStyleOverridingModule implements Module {
 					@Override
 					public EmbeddedEditorFactory.Builder get() {
 						final EmbeddedEditorFactory.Builder result = new EmbeddedEditorFactory.Builder() {
+							@Inject
+							private MembersInjector<XtextSourceViewer> membersInjector;
+							
 							@Override
 							public EmbeddedEditor withParent(final Composite parent) {
 								this.sourceViewerFactory = new XtextSourceViewer.DefaultFactory() {
@@ -56,11 +60,13 @@ public class XtextEditorSwtStyleOverridingModule implements Module {
 											final IVerticalRuler ruler,
 											final IOverviewRuler overviewRuler,
 											final boolean showsAnnotationOverview, final int styles) {
-										return super.createSourceViewer(parent, ruler, overviewRuler,
-												showsAnnotationOverview,
+										final XtextSourceViewer result = new XtextSourceViewer(parent, ruler,
+												overviewRuler, showsAnnotationOverview,
 												// this is the reason for all
 												// the effort of this class
 												XtextEditorSwtStyleOverridingModule.this.style);
+										membersInjector.injectMembers(result);
+										return result;
 									}
 								};
 								return super.withParent(parent);

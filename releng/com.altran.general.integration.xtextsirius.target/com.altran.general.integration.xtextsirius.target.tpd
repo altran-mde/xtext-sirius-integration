@@ -6,14 +6,14 @@ with configurePhase source requirements
 //	
 //}
 
-location "https://ftp.snt.utwente.nl/pub/software/eclipse/releases/2018-09/" {
+location "https://ftp.snt.utwente.nl/pub/software/eclipse/releases/2020-06/" {
 	org.eclipse.emf.ecore.xcore.sdk.feature.group
 	org.eclipse.jdt.feature.group
 	org.eclipse.xtext.sdk.feature.group
 	org.eclipse.platform.feature.group
 }
 
-location "https://ftp.snt.utwente.nl/pub/software/eclipse/tools/orbit/downloads/drops/R20180905201904/repository/" {
+location "https://ftp.snt.utwente.nl/pub/software/eclipse/tools/orbit/downloads/2020-06/" {
 	com.google.guava
 	com.google.guava.source
 	com.google.inject
@@ -26,12 +26,12 @@ location "https://ftp.snt.utwente.nl/pub/software/eclipse/cbi/updates/license/" 
 	org.eclipse.license.feature.group [2.0.1,2.1.0)
 }
 
-location "https://updates.yakindu.com/statecharts/releases/3.5.8" {
+location "https://updates.yakindu.com/statecharts/releases/3.5.13" {
 	org.yakindu.base.xtext.utils.gmf.feature.group
 	org.yakindu.base.xtext.utils.jface.feature.group
 }
 
-location "https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.2.0/2018-09/" {
+location "https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.5.0/2020-06/" {
 	org.eclipse.sirius.doc.feature.feature.group
 	org.eclipse.sirius.doc.feature.source.feature.group
 	org.eclipse.sirius.interpreter.feature.feature.group

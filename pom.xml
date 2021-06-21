@@ -9,9 +9,9 @@
 
 	<properties>
 		<tycho-version>1.4.0</tycho-version>
-		<xtend.version>2.17.0</xtend.version>
-		<xtext.version>2.17.0</xtext.version>
-		<mwe2.launch.version>2.10.0</mwe2.launch.version>
+		<xtend.version>2.22.0</xtend.version>
+		<xtext.version>2.22.0</xtext.version>
+		<mwe2.launch.version>2.11.3</mwe2.launch.version>
 		<xtext-antlr-generator.version>[2.1.1, 3)</xtext-antlr-generator.version>
 		<build.helper.maven.version>3.0.0</build.helper.maven.version>
 		<maven.clean.version>3.1.0</maven.clean.version>
