@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Xtext/Sirius Integration Target" sequenceNumber="1623938211">
+<target name="Xtext/Sirius Integration Target" sequenceNumber="1636015312">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.14.0.v20200424-0456"/>
@@ -29,41 +29,41 @@
       <repository location="https://updates.yakindu.com/statecharts/releases/3.5.13"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
-      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.doc.feature.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.interpreter.feature.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.acceleo.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.aql.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ide.eef.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ide.xtext.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.runtime.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.samples.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.samples.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.tests.support.feature.group" version="6.5.0.202105071936"/>
-      <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="6.5.0.202105071936"/>
-      <repository location="https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.5.0/2020-06/"/>
+      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.doc.feature.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.interpreter.feature.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.interpreter.feature.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.properties.feature.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.aql.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.samples.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.samples.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.aql.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.specifier.properties.feature.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.tests.support.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="6.5.1.202106111115"/>
+      <repository location="https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.5.1/2020-06/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.espilce.commons.emf.testsupport.feature.feature.group" version="0.3.0.20200422-0807"/>
