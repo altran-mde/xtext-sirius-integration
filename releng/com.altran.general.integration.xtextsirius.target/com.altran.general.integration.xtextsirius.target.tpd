@@ -31,7 +31,7 @@ location "https://updates.yakindu.com/statecharts/releases/3.5.13" {
 	org.yakindu.base.xtext.utils.jface.feature.group
 }
 
-location "https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.5.0/2020-06/" {
+location "https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.5.1/2020-06/" {
 	org.eclipse.sirius.doc.feature.feature.group
 	org.eclipse.sirius.doc.feature.source.feature.group
 	org.eclipse.sirius.interpreter.feature.feature.group
