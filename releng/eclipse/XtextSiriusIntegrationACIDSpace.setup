@@ -23,7 +23,7 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="oomph.setup.file.path"
-      value="XtextSiriusIntegrationACIDSpace.setup"/>
+      value="releng/eclipse/XtextSiriusIntegrationACIDSpace.setup"/>
   <setupTask
       xsi:type="setup.p2:P2Task">
     <requirement
