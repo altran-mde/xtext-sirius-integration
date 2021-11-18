@@ -1,14 +1,43 @@
-/local-maven-repository/
+# Compiled class file
+*.class
+
+# Compiled xtend file
+*.xtendbin
+*._trace
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Eclipse bin directories
 bin/
+bin-test/
+
+# Maven build directories
 build/
 target/
-.gradle/
-*._trace
-*.xtendbin
-org.eclipse.buildship.core.prefs
-.DS_Store
-locations.properties
-/README.htm*
-__pycache__
-.asciidoctor/
-**/.polyglot.build.properties
+
+# Maven Pomless generated files
+.polyglot.*
+.META-INF_MANIFEST.MF
+feature.xml.takari_issue_192
+pom.tycho
+
+# Git merge files
+*.orig
