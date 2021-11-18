@@ -454,7 +454,7 @@
         <requirement
             name="org.sonatype.m2e.buildhelper.feature.feature.group"/>
         <repository
-            url="https://download.eclipse.org/technology/m2e/releases/"/>
+            url="https://download.eclipse.org/technology/m2e/releases/latest/"/>
         <repository
             url="https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.9.0/N/LATEST/"/>
         <repository
