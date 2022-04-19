@@ -11,7 +11,7 @@ stages:
 
 variables:
   REGISTRY_URL: registry.acidspace.nl
-  MAVEN_CONTAINER: acid/container/maven:0.36.0
+  MAVEN_CONTAINER: acid/container/maven:3.0.0
   
   # Cache downloaded dependencies and plugins between builds
   MAVEN_REPO: '.m2/repository'
