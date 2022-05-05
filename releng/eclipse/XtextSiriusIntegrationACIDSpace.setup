@@ -19,21 +19,34 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="gitlab.acidspace.nl.project"
-      value="mde-assets/xtext-sirius-integration"/>
+      value="ec-mde/xtext-sirius-integration"/>
   <setupTask
       xsi:type="setup:VariableTask"
       name="oomph.setup.file.path"
       value="releng/eclipse/XtextSiriusIntegrationACIDSpace.setup"/>
   <setupTask
-      xsi:type="setup.p2:P2Task">
+      xsi:type="setup.p2:P2Task"
+      label="EMF Development">
     <requirement
         name="org.eclipse.pde.feature.group"/>
     <requirement
+        name="org.eclipse.e4.core.tools.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.emf.ecoretools.design.feature.group"/>
+    <requirement
         name="org.eclipse.emf.sdk.feature.group"/>
     <requirement
-        name="org.eclipse.xtext.sdk.feature.group"/>
+        name="org.eclipse.xsd.sdk.feature.group"/>
     <requirement
         name="org.eclipse.oomph.setup.workingsets.feature.group"/>
+    <repository
+        url="https://nexus.acidspace.nl/repository/eclipse.org-releases-2020-06-202006171000"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Project Specific Development">
+    <requirement
+        name="org.eclipse.xtext.sdk.feature.group"/>
   </setupTask>
   <setupTask
       xsi:type="setup.workingsets:WorkingSetTask">
@@ -49,7 +62,7 @@
             nature="org.eclipse.pde.PluginNature"/>
         <operand
             xsi:type="workingsets:ExclusionPredicate"
-            excludedWorkingSet="//@setupTasks.3/@workingSets[name='${scope.project.label}%20-%20Tests']"/>
+            excludedWorkingSet="//@setupTasks.4/@workingSets[name='${scope.project.label}%20-%20Tests']"/>
       </predicate>
     </workingSet>
     <workingSet
@@ -94,7 +107,7 @@
             project="com.altran.general.integration.xtextsirius"/>
         <operand
             xsi:type="workingsets:ExclusionPredicate"
-            excludedWorkingSet="//@setupTasks.3/@workingSets[name='${scope.project.label}%20-%20Features'] //@setupTasks.3/@workingSets[name='${scope.project.label}%20-%20Plug-ins'] //@setupTasks.3/@workingSets[name='${scope.project.label}%20-%20Tests']"/>
+            excludedWorkingSet="//@setupTasks.4/@workingSets[name='${scope.project.label}%20-%20Features'] //@setupTasks.4/@workingSets[name='${scope.project.label}%20-%20Plug-ins'] //@setupTasks.4/@workingSets[name='${scope.project.label}%20-%20Tests']"/>
       </predicate>
     </workingSet>
   </setupTask>
@@ -124,11 +137,11 @@
           name="de.jcup.asciidoctoreditor.feature.group"
           optional="true"/>
       <repository
-          url="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"/>
+          url="https://nexus.acidspace.nl/repository/github.io-update-site-eclipse-bash-editor-update-site/"/>
       <repository
-          url="https://de-jcup.github.io/update-site-eclipse-yaml-editor/update-site/"/>
+          url="https://nexus.acidspace.nl/repository/github.io-update-site-eclipse-yaml-editor-update-site/"/>
       <repository
-          url="https://de-jcup.github.io/update-site-eclipse-asciidoctor-editor/update-site/"/>
+          url="https://nexus.acidspace.nl/repository/github.io-update-site-eclipse-asciidoctor-editor-update-site/"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -288,7 +301,8 @@
           name="org.eclipse.core.runtime">
         <setupTask
             xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.core.runtime/line.separator"/>
+            key="/instance/org.eclipse.core.runtime/line.separator"
+            value="&#xA;"/>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -379,14 +393,14 @@
     </setupTask>
     <setupTask
         xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.gitlab.acidspace.nl.master"
+        option="-Doomph.redirection.gitlab.acidspace.nl.branch.master"
         value="=https://gitlab.acidspace.nl/${gitlab.acidspace.nl.project}/-/raw/master/${oomph.setup.file.path}->${git.clone.location|uri}/${oomph.setup.file.path}"
         vm="true">
       <description>Set an Oomph redirection system property to redirect the logical location of this setup to its physical location in the Git clone.</description>
     </setupTask>
     <setupTask
         xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.gitlab.acidspace.nl.develop"
+        option="-Doomph.redirection.gitlab.acidspace.nl.branch.develop"
         value="=https://gitlab.acidspace.nl/${gitlab.acidspace.nl.project}/-/raw/develop/${oomph.setup.file.path}->${git.clone.location|uri}/${oomph.setup.file.path}"
         vm="true">
       <description>Set an Oomph redirection system property to redirect the logical location of this setup to its physical location in the Git clone.</description>
@@ -454,11 +468,11 @@
         <requirement
             name="org.sonatype.m2e.buildhelper.feature.feature.group"/>
         <repository
-            url="https://download.eclipse.org/technology/m2e/releases/latest/"/>
+            url="https://nexus.acidspace.nl/repository/eclipse.org-technology-m2e-releases-1.19.0/"/>
         <repository
-            url="https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.9.0/N/LATEST/"/>
+            url="https://nexus.acidspace.nl/repository/maven.org-maven2-.m2e-connectors-m2eclipse-tycho-0.9.0-N-LATEST/"/>
         <repository
-            url="https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201405280027/"/>
+            url="https://nexus.acidspace.nl/repository/maven.org-maven2-.m2e-connectors-m2eclipse-buildhelper-0.15.0-N-0.15.0.201405280027/"/>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -480,6 +494,14 @@
               xsi:type="setup:PreferenceTask"
               key="/instance/org.eclipse.wst.xml.core/lineWidth"
               value="120"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.m2e.core">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.m2e.core/eclipse.m2.userSettingsFile"
+              value="${git.clone.location}/settings.xml"/>
         </setupTask>
       </setupTask>
       <setupTask
@@ -507,7 +529,7 @@
             name="org.eclipse.cbi.targetplatform-feature.feature.group"
             optional="true"/>
         <repository
-            url="https://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT/"/>
+            url="https://nexus.acidspace.nl/repository/eclipse.org-cbi-tpd-3.0.0-SNAPSHOT/"/>
       </setupTask>
       <setupTask
           xsi:type="pde:TargetPlatformTask"
@@ -524,11 +546,11 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="project.target.platform"
-          defaultValue="2020-03"
+          defaultValue="2020-06"
           label="${scope.project.label} Target Platform">
         <choice
-            value="2020-03"
-            label="Eclipse 2020-03"/>
+            value="2020-06"
+            label="Eclipse 2020-06"/>
       </setupTask>
       <setupTask
           xsi:type="setup.targlets:TargletTask">
@@ -584,9 +606,9 @@
               rootFolder="${git.clone.location}"
               locateNestedProjects="true"/>
           <repositoryList
-              name="2020-03">
+              name="2020-06">
             <repository
-                url="https://download.eclipse.org/releases/2020-03/202003181000/"/>
+                url="https://download.eclipse.org/releases/2020-06/202006171000"/>
             <repository
                 url="http://download.itemis.com/updates/releases/2.1.1/"/>
             <repository
