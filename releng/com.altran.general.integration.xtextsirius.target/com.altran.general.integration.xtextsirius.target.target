@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Xtext/Sirius Integration Target" sequenceNumber="1604582352">
+<target name="Xtext/Sirius Integration Target" sequenceNumber="1658237383">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.7.0.v20180711-0440"/>
       <unit id="org.eclipse.jdt.feature.group" version="3.15.0.v20180906-0745"/>
       <unit id="org.eclipse.xtext.sdk.feature.group" version="2.15.0.v20180916-1232"/>
       <unit id="org.eclipse.platform.feature.group" version="4.9.0.v20180906-1121"/>
-      <repository location="https://ftp.snt.utwente.nl/pub/software/eclipse/releases/2018-09/"/>
+      <repository location="https://download.eclipse.org/releases/2018-09/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
@@ -17,11 +17,11 @@
       <unit id="com.google.inject.source" version="3.0.0.v201605172100"/>
       <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
       <unit id="org.apache.commons.lang3.source" version="3.1.0.v201403281430"/>
-      <repository location="https://ftp.snt.utwente.nl/pub/software/eclipse/tools/orbit/downloads/drops/R20180905201904/repository/"/>
+      <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20180905201904/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="2.0.2.v20181016-2210"/>
-      <repository location="https://ftp.snt.utwente.nl/pub/software/eclipse/cbi/updates/license/"/>
+      <repository location="https://download.eclipse.org/cbi/updates/license/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.yakindu.base.xtext.utils.gmf.feature.group" version="3.5.8.201910141455"/>
@@ -63,15 +63,15 @@
       <unit id="org.eclipse.sirius.specifier.properties.feature.source.feature.group" version="6.2.0.201903051604"/>
       <unit id="org.eclipse.sirius.tests.support.feature.group" version="6.2.0.201903051604"/>
       <unit id="org.eclipse.sirius.tests.support.source.feature.group" version="6.2.0.201903051604"/>
-      <repository location="https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.2.0/2018-09/"/>
+      <repository location="https://archive.eclipse.org/sirius/updates/releases/6.2.0/2018-09/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.espilce.commons.emf.testsupport.feature.feature.group" version="0.3.0.20200422-0807"/>
-      <repository id="nexus-p2" location="https://nexus.acidspace.nl/repository/espilce-commons/1.0/repository"/>
+      <repository id="espilce-commons-p2" location="https://altran-mde.github.io/espilce-commons-staging/1.0/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.espilce.periksa.testsupport.feature.feature.group" version="2.0.0.20201002-0803"/>
-      <repository id="nexus-p2-2" location="https://nexus.acidspace.nl/repository/espilce-periksa/2.0/repository"/>
+      <repository id="espilce-periksa-p2" location="https://altran-mde.github.io/espilce-periksa/2.0/repository/"/>
     </location>
   </locations>
 </target>

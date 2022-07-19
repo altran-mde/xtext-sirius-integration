@@ -11,9 +11,9 @@
          Altran Xtext / Sirius Integration Features and Plugins
       </description>
    </category-def>
-   <repository-reference location="https://ftp.snt.utwente.nl/pub/software/eclipse/releases/2018-09/" enabled="true" />
-   <repository-reference location="https://ftp.snt.utwente.nl/pub/software/eclipse/tools/orbit/downloads/drops/R20180905201904/repository/" enabled="true" />
-   <repository-reference location="http://updates.yakindu.com/statecharts/releases/" enabled="true" />
-   <repository-reference location="https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.2.0/2018-09/" enabled="true" />
-   <repository-reference location="https://ftp.snt.utwente.nl/pub/software/eclipse/cbi/updates/license/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/releases/2018-09/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/tools/orbit/downloads/drops/R20180905201904/repository/" enabled="true" />
+   <repository-reference location="https://updates.yakindu.com/statecharts/releases/3.5.8/" enabled="true" />
+   <repository-reference location="https://archive.eclipse.org/sirius/updates/releases/6.2.0/2018-09/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/cbi/updates/license/" enabled="true" />
 </site>
