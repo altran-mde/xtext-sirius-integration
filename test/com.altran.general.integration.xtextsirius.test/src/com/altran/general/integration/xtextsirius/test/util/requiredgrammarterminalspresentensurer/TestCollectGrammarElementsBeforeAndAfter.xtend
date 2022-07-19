@@ -9,16 +9,25 @@
  */
 package com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer
 
+import org.apache.commons.lang.SystemUtils
 import org.eclipse.xtext.AbstractElement
 import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.GrammarUtil
 import org.eclipse.xtext.Group
 import org.eclipse.xtext.XtextFactory
+import org.junit.Assume
+import org.junit.Before
 import org.junit.Test
 
 import static org.junit.Assert.*
 
 class TestCollectGrammarElementsBeforeAndAfter extends ARequiredGrammarTerminalsPresentEnsurer {
+    @Before
+    def void assumeWindows() {
+        // Platform specific test due to line separator
+        Assume::assumeTrue('Test requires Windows OS', SystemUtils::IS_OS_WINDOWS)
+    }
+    
 	@Test
 	def emptyGroup() {
 		val ensurer = fakeEnsurer => [

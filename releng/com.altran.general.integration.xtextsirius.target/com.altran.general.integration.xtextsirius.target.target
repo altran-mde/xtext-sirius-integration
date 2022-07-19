@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
-<!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Xtext/Sirius Integration Target" sequenceNumber="1574241033">
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="Xtext/Sirius Integration Target" sequenceNumber="1604582352">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecore.xcore.sdk.feature.group" version="1.7.0.v20180711-0440"/>
@@ -66,12 +66,12 @@
       <repository location="https://ftp.snt.utwente.nl/pub/software/eclipse/sirius/updates/releases/6.2.0/2018-09/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
-      <unit id="org.espilce.commons.emf.testsupport.feature.feature.group" version="0.3.0.20191030-1455"/>
-      <repository id="nexus-p2" location="https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/espilce-commons/1.0"/>
+      <unit id="org.espilce.commons.emf.testsupport.feature.feature.group" version="0.3.0.20200422-0807"/>
+      <repository id="nexus-p2" location="https://nexus.acidspace.nl/repository/espilce-commons/1.0/repository"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="true" type="InstallableUnit">
-      <unit id="org.espilce.periksa.testsupport.feature.feature.group" version="0.1.0.20191106-1339"/>
-      <repository id="nexus-p2-2" location="https://nexus-p2.manatree.io/nexus/content/sites/MDEAssets/espilce-periksa/1.0"/>
+      <unit id="org.espilce.periksa.testsupport.feature.feature.group" version="2.0.0.20201002-0803"/>
+      <repository id="nexus-p2-2" location="https://nexus.acidspace.nl/repository/espilce-periksa/2.0/repository"/>
     </location>
   </locations>
 </target>

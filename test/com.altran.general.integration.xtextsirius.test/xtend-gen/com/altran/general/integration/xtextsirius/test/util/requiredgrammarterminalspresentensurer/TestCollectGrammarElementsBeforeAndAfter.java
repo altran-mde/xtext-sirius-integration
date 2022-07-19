@@ -13,6 +13,7 @@ import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTes
 import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.ARequiredGrammarTerminalsPresentEnsurer;
 import com.altran.general.integration.xtextsirius.test.util.requiredgrammarterminalspresentensurer.AccessibleRequiredGrammarTerminalsPresentEnsurer;
 import com.google.common.collect.Iterables;
+import org.apache.commons.lang.SystemUtils;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.Assignment;
@@ -28,10 +29,17 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Assert;
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestCollectGrammarElementsBeforeAndAfter extends ARequiredGrammarTerminalsPresentEnsurer {
+  @Before
+  public void assumeWindows() {
+    Assume.assumeTrue("Test requires Windows OS", SystemUtils.IS_OS_WINDOWS);
+  }
+  
   @Test
   public void emptyGroup() {
     AccessibleRequiredGrammarTerminalsPresentEnsurer _fakeEnsurer = this.getFakeEnsurer();

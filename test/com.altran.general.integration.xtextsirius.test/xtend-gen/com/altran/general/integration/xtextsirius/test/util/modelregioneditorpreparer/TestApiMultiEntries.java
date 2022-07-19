@@ -14,6 +14,7 @@ import com.altran.general.integration.xtextsirius.runtime.modelregion.ModelRegio
 import com.altran.general.integration.xtextsirius.test.AFowlerdslDefaultModelTest;
 import com.altran.general.integration.xtextsirius.test.util.modelregioneditorpreparer.AModelRegionEditorPreparer;
 import java.util.Collections;
+import org.apache.commons.lang.SystemUtils;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.Command;
@@ -24,10 +25,17 @@ import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
 import org.eclipse.xtext.util.TextRegion;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.junit.Assert;
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("all")
 public class TestApiMultiEntries extends AModelRegionEditorPreparer {
+  @Before
+  public void assumeWindows() {
+    Assume.assumeTrue("Test requires Windows OS", SystemUtils.IS_OS_WINDOWS);
+  }
+  
   @Test
   public void eventOnlyName() {
     StringConcatenation _builder = new StringConcatenation();
