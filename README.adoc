@@ -1,6 +1,11 @@
+// enable kbd: / menu: / btn: UI macros
+:experimental: true
+// show icons as awesome-font characters
+:icons: font
+// enable attributes in link:
+:linkattrs: true
 :miscellaneous.tabsize: 2
 :tabsize: 2
-:icons: font
 :source-highlighter: pygments
 :figure-caption!:
 :prewrap!:
@@ -8,7 +13,13 @@
 :sectnums!: 
 :imagesdir: doc/images/
 
-= Xtext / Sirius Integration
+:project-name: MDE Assets - Xtext / Sirius Integration
+:eclipse-version: 2020-06
+:gitlab-acidspace-nl-project: ec-mde/xtext-sirius-integration
+:oomph-setup-file-path: releng/eclipse/XtextSiriusIntegrationACIDSpace.setup
+:oomph-setup-stream: develop
+
+= pass:normal[{project-name}]
 
 This asset enables https://www.eclipse.org/Xtext/[Xtext] editors to be used as direct editor for https://www.eclipse.org/sirius/[Sirius] diagram elements or Sirius property widgets.
 It's mostly configured via the standard Sirius `.odesign` editor.
@@ -196,3 +207,38 @@ Please refer to the link:doc/userguide/xtext-sirius-userguide.adoc[user guide] f
 == Required Dependencies
 
 include::doc/userguide/versions.adoc[lines=3..-1] 
+
+== Development Environment
+
+To start developing for {project-name}, please perform the following steps:
+
+. Start with downloading the `Eclipse Installer` from: +
+  https://www.eclipse.org/downloads/packages/installer
+. Start the `Eclipse Installer`
+. Select the `advanced mode` +
++
+image::https://help.eclipse.org/{eclipse-version}/topic/org.eclipse.egit.doc/help/EGit/Contributor_Guide/images/Oomph-01-advanced-mode.png[]
+. On the https://help.eclipse.org/{eclipse-version}/topic/org.eclipse.oomph.setup.doc/html/user/wizard/DocProductPage.html[Product Page] 
+.. Select `Eclipse Platform`
+.. Product Version: `{eclipse-version}`
+.. Click btn:[Next >]
+. On the https://help.eclipse.org/{eclipse-version}/topic/org.eclipse.oomph.setup.doc/html/user/wizard/DocProjectPage.html[Projects Page]
+.. (_One time only_) Click the image:https://help.eclipse.org/{eclipse-version}/topic/org.eclipse.oomph.setup.doc/images/trees/DULKrP4IGs7HGSVqoXcwRFgPxZQ=.png[] icon to add the {project-name} project.
+... Catalog: `Eclipse Projects`
+... Resource URIs: `link:https://gitlab.acidspace.nl/{gitlab-acidspace-nl-project}/-/raw/{oomph-setup-stream}/{oomph-setup-file-path}?oomph_form=b%27users/sign_in%27#/[]`
+... Click btn:[OK] +
++
+NOTE: Though using the Resource URI above is preferred, it is known that for some users the URI didn't work and they got an error: _The URI ... does not contain a valid product_.
+In this case the setup file can also be link:https://gitlab.acidspace.nl/{gitlab-acidspace-nl-project}/-/raw/{oomph-setup-stream}/{oomph-setup-file-path}?inline=false[downloaded] and added by clicking btn:[Browse File System...].
+... Enter your GitLab credentials when asked for
+.. Select `{project-name}` in the tree
+.. Select stream `{oomph-setup-stream}` in the table
+.. Click btn:[Next >]
+. On the https://help.eclipse.org/{eclipse-version}/topic/org.eclipse.oomph.setup.doc/html/user/wizard/DocVariablePage.html[Variables Page]
+.. Review all variables values, especially the `Installation folder name` and `Root install folder`
+.. Click btn:[Next >]
+. On the https://help.eclipse.org/{eclipse-version}/topic/org.eclipse.oomph.setup.doc/html/user/wizard/DocConfirmationPage.html[Confirmation Page]
+.. Click btn:[Finish]
+
+Your development environment will now be prepared.
+Please accept all licenses and certificates and provide your GitLab credentials when asked for.

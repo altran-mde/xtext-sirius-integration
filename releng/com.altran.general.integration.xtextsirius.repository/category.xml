@@ -11,9 +11,9 @@
          Altran Xtext / Sirius Integration Features and Plugins
       </description>
    </category-def>
-   <repository-reference location="https://download.eclipse.org/releases/2018-09/" enabled="true" />
-   <repository-reference location="https://download.eclipse.org/tools/orbit/downloads/drops/R20180905201904/repository/" enabled="true" />
-   <repository-reference location="https://updates.yakindu.com/statecharts/releases/3.5.8/" enabled="true" />
-   <repository-reference location="https://archive.eclipse.org/sirius/updates/releases/6.2.0/2018-09/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/releases/2020-06/202006171000/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/tools/orbit/downloads/drops/R20200529191137/repository/" enabled="true" />
+   <repository-reference location="https://updates.yakindu.com/statecharts/releases/3.5.13" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-06/" enabled="true" />
    <repository-reference location="https://download.eclipse.org/cbi/updates/license/" enabled="true" />
 </site>
