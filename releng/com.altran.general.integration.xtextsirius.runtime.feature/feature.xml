@@ -2,7 +2,7 @@
 <feature
       id="com.altran.general.integration.xtextsirius.runtime.feature"
       label="Xtext / Sirius Integration Runtime Feature"
-      version="1.0.1.qualifier"
+      version="1.1.0.qualifier"
       provider-name="Altran Netherlands B.V."
       license-feature="org.eclipse.license"
       license-feature-version="2.0.2">
@@ -36,7 +36,7 @@
       <import plugin="org.eclipse.sirius.diagram"/>
       <import plugin="org.eclipse.sirius.ecore.extender"/>
       <import plugin="org.eclipse.sirius.ext.base"/>
-      <import plugin="com.google.guava" version="21.0.0" match="compatible"/>
+      <import plugin="com.google.guava" version="21.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
